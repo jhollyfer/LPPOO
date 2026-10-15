@@ -1,6 +1,6 @@
 // Exemplo 2 - Valor padrão com ??
 
-let apelido: string | undefined
+let apelido: string | undefined = undefined
 
 console.log(apelido ?? 'sem apelido') // sem apelido
 

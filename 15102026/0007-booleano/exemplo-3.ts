@@ -1,6 +1,6 @@
 // Exemplo 3 - null e undefined
 
-let apelido: string | undefined
+const apelido: string | undefined = undefined
 console.log(apelido) // undefined
 
 const telefone: string | null = null

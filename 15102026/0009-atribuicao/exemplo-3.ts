@@ -6,3 +6,4 @@ console.log(a) // 6
 
 let b = 5
 console.log(++b) // 6 (soma e depois mostra)
+console.log(b) // 6
