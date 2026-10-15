@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "customConditions": ["development"],
+    // "typeRoots": ["_types", "./node_modules/@types"],
+    "target": "ES2024",
+    "module": "ESNext",
+    "lib": ["ES2024"],
+    "rootDir": "./",
+    "outDir": "./build",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+    "useDefineForClassFields": false,
+    "resolveJsonModule": true
+  },
+  // "include": [],
+  "exclude": ["node_modules", "build", "tsup.config.ts"]
+}
