@@ -3,7 +3,7 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
-  { ignores: ['node_modules', 'build'] },
+  { ignores: ['node_modules', 'build', '_videos'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {

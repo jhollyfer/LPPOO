@@ -1,7 +1,22 @@
 # 0002 · Saída de dados (output)
 
-> Se o programa calcula a média e não mostra, calculou para quem? Hoje ele
-> aprende a falar.
+> Se o programa calcula a média e não mostra, calculou para quem?
+
+## O conceito
+
+Saída é a parte do algoritmo que mostra o resultado para quem está usando o
+programa. No pseudocódigo ela aparece como `escreva` (MANZANO; OLIVEIRA), e no
+JavaScript e no TypeScript o jeito mais direto é o `console.log`, usado desde o
+primeiro capítulo de *Eloquent JavaScript* (HAVERBEKE, 2018). Para misturar
+texto fixo com valores de variáveis, a linguagem tem a template string: o texto
+vai entre crases e cada valor entra em `${ }`. Ela evita a sopa de `+` e aspas
+que a concatenação antiga criava.
+
+Para ler mais:
+
+- MANZANO, J. A. N. G.; OLIVEIRA, J. F. *Algoritmos: lógica para desenvolvimento de programação de computadores*. São Paulo: Érica.
+- HAVERBEKE, M. *Eloquent JavaScript*. 3. ed. San Francisco: No Starch Press, 2018. Disponível em: <https://eloquentjavascript.net>.
+- MDN WEB DOCS. *Template strings*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Template_literals>.
 
 ## A ideia
 
@@ -19,99 +34,10 @@ Vale achar ela agora, porque você vai usar muito.
 
 Ler o nome e devolver um "oi" personalizado.
 
-```mermaid
-flowchart TD
-  A(["Início"]) --> B[/"Ler nome"/]
-  B --> C[/"Mostrar 'Olá, nome!'"/]
-  C --> D(["Fim"])
-```
+![Fluxograma animado: a bolinha amarela percorre o caminho que o programa faz](fluxograma.gif)
 
-Legenda: **oval** = início/fim, **paralelogramo** = entrada ou saída, **retângulo** = processamento, **losango** = decisão.
-
-## Exemplos
-
-### Exemplo 1 - Mostrar uma mensagem
-
-Arquivo: `exemplo-1.ts`
-
-```ts
-console.log('Bem-vindo à aula de TypeScript!')
-```
-
-O mais simples possível: texto fixo, entre aspas, direto na tela.
-
-### Exemplo 2 - Mostrar um valor dentro do texto
-
-Arquivo: `exemplo-2.ts`
-
-```ts
-const cidade = 'Benjamin Constant'
-
-console.log(`Eu moro em ${cidade}`)
-// Eu moro em Benjamin Constant
-```
-
-Troque o valor de `cidade` para `'Atalaia do Norte'` e rode de novo. A frase se
-ajusta sozinha.
-
-### Exemplo 3 - Entrada e saída juntas
-
-Arquivo: `exemplo-3.ts`
-
-```ts
-import { input } from '#core/input.ts'
-
-const nome = input('Seu nome: ')
-const curso = input('Seu curso: ')
-
-console.log(`Olá, ${nome}! Você estuda ${curso}.`)
-```
-
-Aqui o programa pergunta, guarda e responde. Isso já é um programa de verdade.
-
-## Pegadinha
-
-Usar aspas no lugar da crase:
-
-```ts
-const nome = 'Ana'
-console.log('Olá, ${nome}!') // mostra: Olá, ${nome}!
-```
-
-Com aspas o `${}` vira texto comum e aparece na tela do jeito que está. Só a
-crase faz a troca pelo valor.
-
-## Adivinhe a saída
-
-```ts
-const fruta = 'açaí'
-console.log('Eu quero ${fruta}')
-console.log(`Eu quero ${fruta}`)
-console.log('Barco sai às', 6, 'h')
-```
-
-<details><summary>Ver resposta</summary>
-
-```
-Eu quero ${fruta}
-Eu quero açaí
-Barco sai às 6 h
-```
-
-A primeira linha caiu na pegadinha das aspas. E na última, quando você separa
-valores com vírgula, o `console.log` coloca um espaço entre eles.
-
-</details>
+A bolinha amarela é o programa rodando. No painel da direita aparecem as variáveis e o terminal.
 
 ## Exercícios
 
-Responda dentro dos arquivos `exercicio-1.ts` a `exercicio-4.ts` desta pasta.
-
-1. Faça o programa se apresentar por você: mostre três linhas com seu nome, sua
-   idade e sua cidade.
-2. Pergunte o nome da pessoa e dê as boas-vindas: `Seja bem-vindo(a), NOME!`.
-3. Pergunte o nome de uma fruta e uma cor. Mostre `A fruta FRUTA é COR.` usando
-   template string. Vale `O cupuaçu é marrom`, vale `A banana é azul`, o
-   programa não julga.
-4. Pergunte nome e idade e mostre numa única template string:
-   `NOME tem IDADE anos e estuda no CETAM.`
+Os enunciados e as dicas estão nos comentários de `exercicio-1.ts` e `exercicio-2.ts`, aqui nesta pasta. Responda dentro do próprio arquivo.

@@ -23,8 +23,7 @@ perdem.
 Quando terminar, **feche e abra o terminal**. Sem isso, o terminal ainda não
 conhece o `node`.
 
-No VS Code, instale as extensões ESLint, Prettier e Markdown Preview Mermaid
-Support (para ver os fluxogramas).
+No VS Code, instale as extensões ESLint e Prettier.
 
 ## Como rodar um arquivo
 
@@ -42,25 +41,23 @@ Cada aula é uma pasta com a data (`15102026` é 15/10/2026). Dentro dela, uma
 pasta por assunto, numerada na ordem em que a gente vê em sala:
 
 ```
-15102026/0013-logico/
-├── README.md        a explicação, o fluxograma, a pegadinha e o "adivinhe a saída"
+15102026/0014-logico/
+├── README.md        a explicação e o fluxograma
+├── fluxograma.gif   o fluxograma animado, com o programa rodando passo a passo
 ├── exemplo-1.ts     exemplos resolvidos: rode, mude, quebre, rode de novo
 ├── exemplo-2.ts
 ├── exemplo-3.ts
-├── exercicio-1.ts   exercícios de sala: responda DENTRO do próprio arquivo
-├── exercicio-2.ts
-├── exercicio-3.ts
-├── exercicio-4.ts
-└── PARA-CASA.md     exercícios para casa
+├── exercicio-1.ts   exercícios: enunciado e dicas no comentário,
+└── exercicio-2.ts   resposta DENTRO do próprio arquivo
 ```
 
 O caminho de cada assunto:
 
 1. Leia o `README.md` da pasta.
 2. Rode os `exemplo-N.ts` e mexa neles à vontade.
-3. Abra cada `exercicio-N.ts`, leia o enunciado no comentário e escreva a
-   resposta embaixo de `// Escreva sua resposta abaixo:`.
-4. Em casa, faça o `PARA-CASA.md` criando `seunome-casa-NN.ts` na mesma pasta.
+3. Abra o `exercicio-1.ts` e o `exercicio-2.ts`, leia o enunciado e escreva a
+   resposta embaixo de `// Escreva sua resposta abaixo:`. Travou? As dicas
+   numeradas estão logo acima, uma de cada vez.
 
 Para ler dados do teclado, todo arquivo usa:
 
@@ -76,23 +73,24 @@ const nome = input('Seu nome: ') // sempre devolve texto (string)
 | --------------------------- | ----------------------------------------- |
 | `0001-input`                | entrada de dados com `input`              |
 | `0002-output`               | `console.log` e template string           |
-| `0003-variaveis-constantes` | `let`, `const`, anotação e inferência     |
-| `0004-texto`                | `string` e seus métodos                   |
-| `0005-numero`               | `number`, `toFixed`, `NaN`                |
-| `0006-booleano`             | `boolean`, `typeof`, `null`, `undefined`  |
-| `0007-conversao`            | `Number`, `parseInt`, `parseFloat`        |
-| `0008-atribuicao`           | `+=`, `-=`, `++`, `--`                    |
-| `0009-aritmetica`           | `+ - * / % **` e precedência              |
-| `0010-math`                 | `Math.round`, `floor`, `ceil`, `random`   |
-| `0011-relacional`           | `> < >= <=`                               |
-| `0012-comparacao`           | `===` e `!==`                             |
-| `0013-logico`               | `&&`, `\|\|`, `!`                         |
-| `0014-truthy-falsy`         | truthy, falsy, `??` e `?.`                |
-| `0015-condicional-simples`  | `if`                                      |
-| `0016-condicional-composta` | `if / else`                               |
-| `0017-condicional-aninhada` | `else if` e `if` dentro de `if`           |
-| `0018-ternario`             | `condição ? a : b`                        |
-| `0019-escolha`              | `switch`                                  |
+| `0003-variaveis`            | `let`, anotação e inferência              |
+| `0004-constantes`           | `const` e `UPPER_CASE`                    |
+| `0005-texto`                | `string` e seus métodos                   |
+| `0006-numero`               | `number`, `toFixed`, `NaN`                |
+| `0007-booleano`             | `boolean`, `typeof`, `null`, `undefined`  |
+| `0008-conversao`            | `Number`, `parseInt`, `parseFloat`        |
+| `0009-atribuicao`           | `+=`, `-=`, `++`, `--`                    |
+| `0010-aritmetica`           | `+ - * / % **` e precedência              |
+| `0011-math`                 | `Math.round`, `floor`, `ceil`, `random`   |
+| `0012-relacional`           | `> < >= <=`                               |
+| `0013-comparacao`           | `===` e `!==`                             |
+| `0014-logico`               | `&&`, `\|\|`, `!`                         |
+| `0015-truthy-falsy`         | truthy, falsy, `??` e `?.`                |
+| `0016-condicional-simples`  | `if`                                      |
+| `0017-condicional-composta` | `if / else`                               |
+| `0018-condicional-aninhada` | `else if` e `if` dentro de `if`           |
+| `0019-ternario`             | `condição ? a : b`                        |
+| `0020-escolha`              | `switch`                                  |
 
 ## Cronograma
 
@@ -146,3 +144,19 @@ no terminal, digite e aperte Enter.
 
 **Quero sair de um programa travado**
 `Ctrl + C`.
+
+## Para o professor: gerar os GIFs dos fluxogramas
+
+Os GIFs saem de um projeto Remotion separado, em `_videos/`. Os fluxogramas
+ficam em `_videos/src/grafos.ts` e o caminho que a bolinha faz (com os valores
+de cada execução) em `_videos/src/execucoes.ts`. Mudou um dos dois, é só gerar de
+novo.
+
+```bash
+cd _videos
+npm install
+npm run gifs          # todas as pastas
+npm run gifs -- 0017  # só uma
+```
+
+Para ajustar o visual com preview ao vivo, use `npm run dev`.
