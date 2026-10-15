@@ -5,13 +5,9 @@
 
 ## O conceito
 
-Em 1966, Böhm e Jacopini provaram que qualquer programa pode ser escrito com
-apenas três estruturas: sequência, seleção e repetição. A seleção é a decisão,
-e o `if` é a forma mais simples dela: um bloco que só roda se a condição for
-verdadeira. Dois anos depois, Dijkstra (1968) usou esse resultado para defender
-a programação estruturada, sem saltos (`goto`) para lá e para cá. Nos livros de
-algoritmo, o `if` aparece como `se ... então ... fimse` (FORBELLONE;
-EBERSPÄCHER, 2005).
+Todo programa cabe em três estruturas: sequência, seleção e repetição (BÖHM;
+JACOPINI, 1966). O `if` é a seleção mais simples: o bloco só roda se a condição
+for verdadeira.
 
 Para ler mais:
 

@@ -5,14 +5,8 @@
 
 ## O conceito
 
-Quando há mais de dois caminhos, as seleções são encadeadas: um `if` dentro do
-`else` de outro, que no TypeScript se escreve `else if`. Forbellone e
-Eberspächer (2005) chamam isso de seleção encadeada e mostram que a ordem dos
-testes importa, porque o programa para no primeiro que der verdadeiro. Também é
-possível aninhar, colocando um `if` dentro do bloco de outro, quando uma
-pergunta só faz sentido depois da anterior. Ascencio e Campos (2012) trazem
-vários exercícios de faixa de valores, como notas e IMC, que são o uso mais
-comum dessa estrutura.
+Com mais de dois caminhos, os testes vão em sequência com `else if`, e o
+programa para no primeiro que der verdadeiro (FORBELLONE; EBERSPÄCHER, 2005).
 
 Para ler mais:
 
@@ -30,9 +24,9 @@ do final pega quem sobrou.
 o resto, no caixa". Você entra na primeira placa que serve para você e não olha
 as outras.
 
-Também dá para colocar um `if` dentro de outro. Isso faz sentido quando uma
-pergunta só importa depois da primeira resposta. Não adianta perguntar se tem
-habilitação para quem tem 12 anos.
+Também dá para colocar um `if` dentro de outro, quando uma pergunta só importa
+depois da primeira. Não adianta perguntar se tem habilitação para quem tem 12
+anos.
 
 ## Fluxograma
 

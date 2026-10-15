@@ -4,13 +4,9 @@
 
 ## O conceito
 
-Saída é a parte do algoritmo que mostra o resultado para quem está usando o
-programa. No pseudocódigo ela aparece como `escreva` (MANZANO; OLIVEIRA), e no
-JavaScript e no TypeScript o jeito mais direto é o `console.log`, usado desde o
-primeiro capítulo de *Eloquent JavaScript* (HAVERBEKE, 2018). Para misturar
-texto fixo com valores de variáveis, a linguagem tem a template string: o texto
-vai entre crases e cada valor entra em `${ }`. Ela evita a sopa de `+` e aspas
-que a concatenação antiga criava.
+Saída é o programa mostrando o resultado, o `escreva` do pseudocódigo (MANZANO;
+OLIVEIRA). No TypeScript é o `console.log`, e a template string junta texto com
+valor.
 
 Para ler mais:
 
@@ -27,8 +23,8 @@ Para misturar texto com valores existe a **template string**. Em vez de aspas
 você usa crases (`` ` ``) e coloca o valor dentro de `${ }`. É como um bilhete
 com espaço em branco: `Olá, ${nome}!` vira `Olá, Ana!` quando `nome` é `'Ana'`.
 
-A crase fica perto do Enter na maioria dos teclados (às vezes junto com o til).
-Vale achar ela agora, porque você vai usar muito.
+A crase fica perto do Enter na maioria dos teclados, às vezes junto com o til.
+Ache ela agora: você vai usar muito.
 
 ## Fluxograma
 

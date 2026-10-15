@@ -5,13 +5,8 @@
 
 ## O conceito
 
-Operadores relacionais comparam dois valores e sempre respondem com um valor
-lógico, verdadeiro ou falso (FORBELLONE; EBERSPÄCHER, 2005). São eles `>`,
-`<`, `>=` e `<=`. Sozinhos, só respondem perguntas. A graça aparece quando a
-resposta vai para uma variável `boolean` ou para dentro de um `if`, que vem
-algumas pastas depois. Uma diferença para a matemática: no código não dá para
-escrever `0 <= nota <= 10` de uma vez. Cada comparação é feita separadamente e
-depois as respostas são juntadas com os operadores lógicos.
+Operador relacional compara dois valores e responde `true` ou `false`
+(FORBELLONE; EBERSPÄCHER, 2005). São quatro: `>`, `<`, `>=` e `<=`.
 
 Para ler mais:
 
@@ -38,9 +33,8 @@ A pergunta "é igual?" (`===`) e "é diferente?" (`!==`) mora na próxima pasta,
 
 ## Fluxograma
 
-Ainda não tem losango. A comparação aqui só produz um valor
-`true` ou `false`, que guardamos numa variável. Decidir caminhos fica para o
-`if`, mais adiante.
+Ainda não tem losango: a comparação só gera `true` ou `false`, que vai para uma
+variável. Escolher caminho é trabalho do `if`, mais adiante.
 
 ![Fluxograma animado: a bolinha amarela percorre o caminho que o programa faz](fluxograma.gif)
 

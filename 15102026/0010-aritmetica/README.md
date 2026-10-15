@@ -5,13 +5,8 @@
 
 ## O conceito
 
-Os operadores aritméticos são as contas da matemática escritas em código: soma,
-subtração, multiplicação, divisão, resto (`%`) e potência (`**`). Ascencio e
-Campos (2012) lembram que eles seguem uma ordem de precedência, a mesma da
-escola: primeiro potência, depois multiplicação e divisão, por último soma e
-subtração. Quando a ordem não é a que você quer, os parênteses mandam. O resto
-da divisão parece um detalhe, mas é com ele que se descobre se um número é par,
-se é múltiplo de outro ou quantos minutos sobram depois das horas completas.
+São as contas da matemática em código, na mesma ordem da escola: potência,
+depois `* / %`, depois `+ -` (ASCENCIO; CAMPOS, 2012). Parênteses mudam a ordem.
 
 Para ler mais:
 
@@ -32,9 +27,8 @@ não serve, o computador acharia que é uma variável) e a divisão é `/`.
 | `%`      | resto          | `7 % 2`  | `1`       |
 | `**`     | potência       | `7 ** 2` | `49`      |
 
-O `%` é o que mais assusta e o que mais aparece em prova. Ele não tem nada a ver
-com porcentagem. Ele devolve o resto da divisão: 7 alunos em duplas formam 3
-duplas e sobra 1, então `7 % 2` é `1`.
+O `%` não tem nada a ver com porcentagem. Ele devolve o resto da divisão: 7
+alunos em duplas formam 3 duplas e sobra 1, então `7 % 2` é `1`.
 
 A ordem é a da matemática: primeiro `**`, depois `*`, `/` e `%`, por último `+`
 e `-`. Quer outra ordem? Coloque parênteses.

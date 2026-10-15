@@ -6,13 +6,8 @@
 
 ## O conceito
 
-Atribuir é guardar um valor numa variável. Nos livros de algoritmo a atribuição
-costuma ser escrita com uma seta, `idade ← 17`, justamente para não confundir
-com o sinal de igual da matemática (FORBELLONE; EBERSPÄCHER, 2005). No
-TypeScript a seta virou `=`, e a comparação de igualdade ganhou outro símbolo,
-`===`. Os operadores compostos, como `+=` e `-=`, são atalhos para "pegue o
-valor atual, faça a conta e guarde de novo". Já `++` e `--` somam ou subtraem 1,
-e a posição do sinal (antes ou depois) muda o valor que a expressão devolve.
+Atribuir é guardar um valor numa variável. Nos livros aparece como `idade ← 17`
+(FORBELLONE; EBERSPÄCHER, 2005); no código a seta virou `=`.
 
 Para ler mais:
 
@@ -21,10 +16,9 @@ Para ler mais:
 
 ## A ideia
 
-Atribuir é guardar um valor dentro de uma variável. Quem faz isso é o `=`. Ele
-não pergunta nada, ele manda: "a partir de agora, `saldo` vale 100". Para
-perguntar se dois valores são iguais existe outro operador, o `===`, que fica
-para a pasta `0013`.
+Quem guarda o valor na variável é o `=`. Ele não pergunta nada, ele manda: "a
+partir de agora, `saldo` vale 100". Perguntar se dois valores são iguais é
+trabalho do `===`, que fica para a pasta `0013`.
 
 Muitas vezes o novo valor depende do valor antigo. Escrever `saldo = saldo + 50`
 funciona, mas cansa. Por isso existe o atalho: `saldo += 50`. Lê assim: "pega o
@@ -46,8 +40,8 @@ vezes você vai usar `x++` sozinho na linha, e aí tanto faz.
 
 ## Fluxograma
 
-Acompanhe o saldo mudando a cada caixinha. A variável é a mesma, o valor é que
-vai trocando.
+Acompanhe o saldo mudando a cada caixinha: a variável é a mesma, só o valor
+troca.
 
 ![Fluxograma animado: a bolinha amarela percorre o caminho que o programa faz](fluxograma.gif)
 

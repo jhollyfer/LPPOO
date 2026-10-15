@@ -1,11 +1,12 @@
 // 0016 · Condicional simples (if)
 // Exercício 2
 //
-// Peça a senha do Wi-Fi da escola e, se for igual a `cetam`, mostre `Conectado!`.
+// Peça a senha do Wi-Fi da escola e, se for igual a `cetam`, mostre
+// `Conectado!`.
 //
 // Dicas:
 // 1. Comparar texto com texto é com `===`.
-// 2. Guarde a senha certa numa constante para não espalhar `'cetam'` pelo código.
+// 2. Guarde a senha certa numa constante.
 // 3. Teste digitando `CETAM` em maiúsculo. O que acontece?
 //
 // Para ler dados do teclado use:

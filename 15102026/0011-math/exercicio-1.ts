@@ -1,8 +1,8 @@
 // 0011 · Objeto Math
 // Exercício 1
 //
-// Peça um número com vírgula (digitado com ponto, tipo 7.6) e mostre ele
-// arredondado com `round`, `floor` e `ceil`.
+// Peça um número decimal (com ponto, tipo 7.6) e mostre ele arredondado com
+// `round`, `floor` e `ceil`.
 //
 // Dicas:
 // 1. Converta o que foi digitado com `Number`.

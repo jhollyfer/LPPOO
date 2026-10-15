@@ -5,14 +5,9 @@
 
 ## O conceito
 
-Quando um valor que não é `boolean` aparece num lugar que pede verdadeiro ou
-falso, como um `if`, o JavaScript converte. A MDN chama de *falsy* os valores
-que viram `false` (`false`, `0`, `''`, `null`, `undefined` e `NaN`) e de
-*truthy* todo o resto. O operador `??`, que entrou na especificação ECMAScript em
-2020, dá um valor padrão só para `null` e `undefined`. O `||` faz parecido, mas
-troca qualquer falsy, inclusive `0` e texto vazio. O TypeScript usa essas mesmas
-regras para saber, dentro de cada `if`, se uma variável `string | undefined` já
-tem valor ou não (MICROSOFT, *Narrowing*).
+`0`, `''`, `null`, `undefined` e `NaN` contam como falso num `if` (*falsy*); o
+resto conta como verdadeiro (*truthy*) (MDN). O `??` dá um valor padrão só para
+`null` e `undefined`.
 
 Para ler mais:
 
@@ -27,7 +22,7 @@ valor ali, e ele vai "achar" se aquilo conta como verdadeiro ou falso. É o
 fiscal do porto olhando a mochila: vazia, ele nem abre; com alguma coisa dentro,
 ele para e confere.
 
-Os valores que contam como falso são poucos, dá para decorar. São os **falsy**:
+Os valores que contam como falso são poucos e dá para decorar. São os **falsy**:
 `false`, `0`, `''` (texto vazio), `null`, `undefined` e `NaN`. Todo o resto é
 **truthy**: `'oi'`, `5`, `-1`, até `' '` (um espaço).
 

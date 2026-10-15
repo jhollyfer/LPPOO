@@ -6,13 +6,8 @@
 
 ## O conceito
 
-O JavaScript tem dois jeitos de comparar igualdade. O `==` converte os tipos
-antes de comparar, e por isso `5 == '5'` dá `true`. O `===` compara valor e tipo
-juntos, sem conversão. A especificação ECMA-262 descreve os dois algoritmos, e a
-MDN tem uma página só sobre essa diferença. Crockford (2008) colocou o `==` na
-lista das partes ruins da linguagem e recomendou usar sempre `===` e `!==`,
-conselho que virou regra em praticamente todo guia de estilo. O TypeScript vai
-além: avisa quando você compara dois valores que nunca poderiam ser iguais.
+`===` compara valor e tipo. O `==` converte antes de comparar e engana, por isso
+a gente usa sempre `===` e `!==` (CROCKFORD, 2008).
 
 Para ler mais:
 
@@ -29,11 +24,9 @@ Para perguntar se dois valores são iguais ou diferentes usamos dois operadores:
 | `===`    | é igual?          | `5 === 5`      | `true`    |
 | `!==`    | é diferente?      | `5 !== 5`      | `false`   |
 
-Por que três sinais de igual? Porque existe um primo mais velho, o `==`, que é
-bonzinho demais. Ele tenta converter os tipos antes de comparar, então no
-JavaScript `5 == '5'` dá `true`. Parece útil, mas esconde erro. O `===` é
-exigente: compara o valor e o tipo. `5 === '5'` dá `false`, e o TypeScript ainda
-reclama antes de rodar. Aqui na disciplina é sempre `===` e `!==`.
+Por que três sinais? Existe o `==`, que converte os tipos antes de comparar: no
+JavaScript, `5 == '5'` dá `true` e o erro passa batido. O `===` compara valor e
+tipo, então `5 === '5'` dá `false`. Aqui é sempre `===` e `!==`.
 
 Para não misturar:
 
@@ -42,8 +35,7 @@ Para não misturar:
 
 ## Fluxograma
 
-O sistema de login mais simples do mundo: compara o que foi digitado com a
-senha guardada.
+O login mais simples do mundo: compara o que foi digitado com a senha guardada.
 
 ![Fluxograma animado: a bolinha amarela percorre o caminho que o programa faz](fluxograma.gif)
 

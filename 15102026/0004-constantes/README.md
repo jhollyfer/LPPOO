@@ -5,13 +5,8 @@
 
 ## O conceito
 
-Forbellone e Eberspächer (2005) separam os dados de um algoritmo em variáveis,
-que mudam durante a execução, e constantes, que ficam com o mesmo valor do
-começo ao fim. No TypeScript a constante é criada com `const`: depois do
-primeiro valor, qualquer tentativa de trocar dá erro antes mesmo de rodar (MDN).
-Para valores fixos do programa, como a média de aprovação, o costume é escrever
-o nome em letras maiúsculas com sublinhado. O guia de estilo de JavaScript do
-Google chama esse formato de `CONSTANT_CASE`.
+Constante é um valor que fica igual do começo ao fim do programa (FORBELLONE;
+EBERSPÄCHER, 2005). No TypeScript ela nasce com `const`.
 
 Para ler mais:
 

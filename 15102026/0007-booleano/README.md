@@ -5,15 +5,8 @@
 
 ## O conceito
 
-O tipo `boolean` tem o nome de George Boole, que em 1854 publicou *An
-Investigation of the Laws of Thought*, onde tratou o raciocínio lógico como
-álgebra de dois valores: verdadeiro e falso. É essa álgebra que o computador
-usa para decidir qualquer coisa. Além de `true` e `false`, o TypeScript tem
-`null` e `undefined` para indicar ausência de valor. Tony Hoare, que criou a
-referência nula em 1965, chamou essa invenção de "o erro de um bilhão de
-dólares" (HOARE, 2009), por causa de tantos programas que quebram tentando usar
-um valor que não está lá. O modo `strict` do TypeScript existe em boa parte para
-pegar esse erro antes de rodar.
+`boolean` tem só dois valores, `true` e `false`, a álgebra que George Boole
+publicou em 1854. `null` e `undefined` avisam que ali não tem valor.
 
 Para ler mais:
 
@@ -32,8 +25,8 @@ tipo, na hora em que o programa está rodando.
 
 E tem dois valores especiais que querem dizer "nada":
 
-- `undefined`: a caixa existe, mas ninguém colocou nada nela ainda. Cadeira
-  reservada que o aluno ainda não chegou.
+- `undefined`: a caixa existe, mas ninguém colocou nada nela ainda. É a cadeira
+  reservada de um aluno que ainda não chegou.
 - `null`: alguém colocou "nada" de propósito. É o aluno avisando "pode marcar
   que eu não vou".
 

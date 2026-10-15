@@ -5,13 +5,9 @@
 
 ## O conceito
 
-`Math` é um objeto que já vem pronto na linguagem, com constantes como `Math.PI`
-e funções para arredondar (`round`, `floor`, `ceil`), achar o maior e o menor
-valor (`max`, `min`) e sortear números (`random`). Os números do `Math.random`
-são pseudoaleatórios: saem de uma fórmula, não de um dado de verdade. Knuth
-(1997) dedica um capítulo inteiro a como gerar e testar esse tipo de sequência,
-e a documentação da MDN avisa que o `Math.random` não serve para nada que
-precise de segurança, como gerar senhas.
+`Math` é uma caixa de ferramentas que já vem com a linguagem: arredondar, achar
+o maior e o menor, sortear (MDN). O sorteio é pseudoaleatório, sai de uma
+fórmula (KNUTH, 1997).
 
 Para ler mais:
 
@@ -39,8 +35,8 @@ porque ninguém fica para trás.
 
 ## Fluxograma
 
-Como transformar o `Math.random()`, que sorteia números quebrados entre 0 e 1,
-num dado de verdade.
+O `Math.random()` sorteia um número quebrado entre 0 e 1. Veja como ele vira um
+dado de 1 a 6.
 
 ![Fluxograma animado: a bolinha amarela percorre o caminho que o programa faz](fluxograma.gif)
 

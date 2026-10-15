@@ -5,13 +5,8 @@
 
 ## O conceito
 
-A seleção composta acrescenta o caminho do "senão": se a condição for
-verdadeira, roda um bloco, senão, roda o outro. Exatamente um dos dois é
-executado. No pseudocódigo ela aparece como `se ... então ... senão ... fimse`
-(FORBELLONE; EBERSPÄCHER, 2005), e no fluxograma vira o losango com duas saídas,
-Sim e Não, que se juntam de novo mais abaixo. É a segunda das estruturas de
-seleção que Böhm e Jacopini (1966) usaram para mostrar que todo programa pode
-ser montado com poucos blocos.
+Se a condição for verdadeira, roda um bloco; senão, roda o outro. Sempre um dos
+dois, nunca os dois (FORBELLONE; EBERSPÄCHER, 2005).
 
 Para ler mais:
 

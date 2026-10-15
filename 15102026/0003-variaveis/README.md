@@ -5,15 +5,8 @@
 
 ## O conceito
 
-Forbellone e Eberspächer (2005) definem variável como um espaço na memória,
-identificado por um nome, cujo conteúdo pode mudar durante a execução.
-Haverbeke (2018) prefere outra imagem: em vez de caixas, pense em tentáculos
-que agarram valores, porque duas variáveis podem segurar o mesmo valor. No
-TypeScript, a variável que muda é criada com `let`. O tipo dela pode ser escrito
-por você (anotação) ou descoberto pelo compilador a partir do valor
-(inferência), como mostra o capítulo *Everyday Types* do TypeScript Handbook.
-O `var`, forma antiga de declarar, tem regras de escopo que confundem até gente
-experiente, e a MDN recomenda trocar por `let` e `const`.
+Variável é um espaço na memória, com nome, cujo valor pode mudar (FORBELLONE;
+EBERSPÄCHER, 2005). No TypeScript ela nasce com `let`.
 
 Para ler mais:
 
@@ -36,8 +29,7 @@ O TypeScript quer saber o que cabe em cada caixa. Você pode dizer
 pelo valor (`let idade = 17`, isso é **inferência**). Nos dois casos ele não
 deixa colocar texto numa caixa de número.
 
-E o `var`? É o jeito antigo. A gente não usa, porque ele se comporta de um jeito
-estranho e causa bug difícil de achar.
+E o `var`? É o jeito antigo, e causa bug difícil de achar. A gente não usa.
 
 Nome de variável vai em `camelCase`: `nomeCompleto`, `notaFinal`, `golsBrasil`.
 

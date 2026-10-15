@@ -15,10 +15,9 @@ Abra o terminal e cole:
 curl -fsSL https://raw.githubusercontent.com/jhollyfer/LPPOO/main/install.sh | bash
 ```
 
-O script instala o Node (via nvm) e o pnpm, baixa o projeto em `~/LPPOO` e
-instala as dependências. Se a pasta `~/LPPOO` já existir, ele guarda uma cópia
-como `LPPOO-backup-DATA` antes de baixar de novo, então suas respostas não se
-perdem.
+O script instala o Node e o pnpm e baixa o projeto em `~/LPPOO`. Se essa pasta
+já existir, ele guarda uma cópia em `LPPOO-backup-DATA`, então suas respostas
+não se perdem.
 
 Quando terminar, **feche e abra o terminal**. Sem isso, o terminal ainda não
 conhece o `node`.
@@ -56,8 +55,8 @@ O caminho de cada assunto:
 1. Leia o `README.md` da pasta.
 2. Rode os `exemplo-N.ts` e mexa neles à vontade.
 3. Abra o `exercicio-1.ts` e o `exercicio-2.ts`, leia o enunciado e escreva a
-   resposta embaixo de `// Escreva sua resposta abaixo:`. Travou? As dicas
-   numeradas estão logo acima, uma de cada vez.
+   resposta embaixo de `// Escreva sua resposta abaixo:`. Travou? Leia as dicas
+   numeradas logo acima, na ordem.
 
 Para ler dados do teclado, todo arquivo usa:
 

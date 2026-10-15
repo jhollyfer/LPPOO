@@ -5,12 +5,9 @@
 
 ## O conceito
 
-Para o computador, texto é uma sequência de caracteres. No TypeScript o tipo se
-chama `string`, e a especificação ECMA-262 diz que cada string é uma sequência
-de unidades de 16 bits (UTF-16). Por isso um emoji pode contar como 2 no
-`length`. Strings não mudam: métodos como `toUpperCase` e `trim` devolvem uma
-string nova e deixam a original como estava (HAVERBEKE, 2018). E o operador `+`
-com texto junta em vez de somar, que é de onde vem o famoso `'5' + 3 = '53'`.
+`string` é texto, uma sequência de caracteres entre aspas (ECMA-262). Métodos
+como `trim` e `toUpperCase` devolvem um texto novo e deixam o original como
+estava.
 
 Para ler mais:
 
@@ -36,8 +33,7 @@ precisa fabricar a tesoura, é só puxar.
 | `texto.includes('x')` | `true` se o texto contém `'x'`    |
 | `texto.split(' ')`  | quebra o texto em pedaços           |
 
-Uma coisa que pega muita gente: com texto, o `+` não soma, ele cola. `'5' + 3`
-vira `'53'`.
+Cuidado: com texto, o `+` não soma, ele cola. `'5' + 3` vira `'53'`.
 
 ## Fluxograma
 

@@ -5,13 +5,8 @@
 
 ## O conceito
 
-Converter é transformar um valor de um tipo em outro. O JavaScript às vezes faz
-isso sozinho, a chamada conversão automática (*type coercion*), e Haverbeke
-(2018) mostra como ela leva a resultados estranhos, como `'5' * 2` dar `10` e
-`'5' + 2` dar `'52'`. O TypeScript confere os tipos antes de o programa rodar
-(MICROSOFT, *The Basics*), mas não adivinha o que a pessoa digitou: o `input`
-devolve texto e quem decide virar número é você, com `Number`, `parseInt` ou
-`parseFloat`. Quando a conversão falha, o resultado é `NaN`.
+Converter é trocar o tipo de um valor, como texto para número com `Number`
+(HAVERBEKE, 2018). O `input` devolve texto, então converter é sempre tarefa sua.
 
 Para ler mais:
 
@@ -21,10 +16,9 @@ Para ler mais:
 
 ## A ideia
 
-Converter é trocar o tipo de um valor. Lembra que o `input` sempre devolve
-texto? Pois é: para fazer conta, primeiro a gente transforma o texto em número.
-É como trocar real por peso na fronteira. O dinheiro é o mesmo, mas agora dá
-para usar do outro lado.
+Lembra que o `input` sempre devolve texto? Para fazer conta, primeiro a gente
+transforma esse texto em número. É como trocar real por peso na fronteira: o
+dinheiro é o mesmo, mas agora dá para usar do outro lado.
 
 | Função          | O que faz                                    |
 | --------------- | -------------------------------------------- |

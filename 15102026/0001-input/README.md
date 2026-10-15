@@ -5,13 +5,9 @@
 
 ## O conceito
 
-Todo algoritmo segue o mesmo esqueleto: recebe dados, processa e devolve um
-resultado. Forbellone e Eberspächer (2005) chamam a primeira parte de entrada e
-a representam com a instrução `leia` do pseudocódigo. No nosso código, quem faz
-o papel do `leia` é o `input`. A norma ISO 5807 (1985), que padroniza os
-símbolos de fluxograma, reserva o paralelogramo para esse momento em que o dado
-entra ou sai do programa. Um detalhe que pega muita gente: o `input` sempre
-devolve texto, mesmo quando a pessoa digita um número.
+Entrada é o programa recebendo um dado de quem usa, o `leia` dos livros de
+algoritmo (FORBELLONE; EBERSPÄCHER, 2005). Aqui quem lê é o `input`, e ele
+sempre devolve texto.
 
 Para ler mais:
 
@@ -27,9 +23,9 @@ depois que você responde.
 No nosso projeto quem faz isso é a função `input`, que mora em `#core/input.ts`.
 Ela mostra a pergunta, espera o Enter e devolve o que foi digitado.
 
-Guarde uma coisa desde já: o `input` **sempre devolve texto (`string`)**. Você
-digitou 17? Para ele é o texto `'17'`, igual a uma placa escrita "17". Fazer
-conta com isso fica para a pasta de conversão.
+Guarde uma coisa desde já: o `input` **sempre devolve texto (`string`)**.
+Digitou 17? Para ele é o texto `'17'`. Fazer conta com isso fica para a pasta de
+conversão.
 
 Para rodar qualquer arquivo desta pasta:
 

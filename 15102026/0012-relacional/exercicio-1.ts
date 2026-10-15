@@ -6,9 +6,8 @@
 // `console.log` e confira quantas você acertou.
 //
 // Dicas:
-// 1. Escreva os palpites em comentário antes de rodar qualquer coisa.
-// 2. Cada comparação responde só `true` ou `false`.
-// 3. `>=` dá `true` também quando os dois lados são iguais.
+// 1. Cada comparação responde só `true` ou `false`.
+// 2. `>=` dá `true` também quando os dois lados são iguais.
 //
 // Escreva sua resposta abaixo:
 

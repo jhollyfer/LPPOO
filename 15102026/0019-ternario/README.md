@@ -5,13 +5,8 @@
 
 ## O conceito
 
-O operador condicional `condição ? a : b` é chamado de ternário porque recebe
-três partes. É o único operador assim no JavaScript (MDN). Ele veio da
-linguagem C, onde Kernighan e Ritchie (1988) o apresentam como a expressão
-condicional. A diferença para o `if` é que o ternário é uma expressão: ele
-devolve um valor, que pode ir direto para uma variável ou para dentro de uma
-template string. Para decisões curtas ele deixa o código mais enxuto; para
-lógica comprida, o `if` continua mais fácil de ler.
+O ternário `condição ? a : b` é um `if/else` que devolve um valor. Veio da
+linguagem C (KERNIGHAN; RITCHIE, 1988).
 
 Para ler mais:
 
@@ -27,9 +22,9 @@ valores:
 condição ? valorSeVerdadeiro : valorSeFalso
 ```
 
-Lê assim: "a condição é verdadeira? então isso, senão aquilo". A diferença para
-o `if` é que o ternário vira um valor, então você pode guardar numa variável ou
-colocar direto dentro de uma template string.
+Lê assim: "a condição é verdadeira? então isso, senão aquilo". Como o ternário
+vira um valor, dá para guardar numa variável ou colocar direto numa template
+string.
 
 Serve para escolhas pequenas: singular ou plural, par ou ímpar, aprovado ou
 reprovado. Se a decisão tem várias etapas, volte para o `if`.

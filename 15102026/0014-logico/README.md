@@ -5,13 +5,8 @@
 
 ## O conceito
 
-Os operadores lógicos vêm direto da álgebra de Boole (1854): E (`&&`), OU (`||`)
-e NÃO (`!`). Eles combinam respostas verdadeiro/falso, e o resultado de cada
-combinação está na tabela-verdade, ferramenta que Forbellone e Eberspächer
-(2005) usam para ensinar a montar condições compostas. No JavaScript, `&&` e
-`||` têm avaliação em curto-circuito: se a primeira parte já decide o
-resultado, a segunda nem é calculada. Em `false && qualquerCoisa`, o
-`qualquerCoisa` nunca chega a rodar.
+`&&` (E), `||` (OU) e `!` (NÃO) juntam respostas verdadeiro ou falso, a álgebra
+de Boole (1854). A tabela-verdade mostra o resultado de cada combinação.
 
 Para ler mais:
 
@@ -30,11 +25,9 @@ respostas numa só, ou invertem uma resposta.
 | `\|\|`   | OU   | **pelo menos um** lado é `true`      |
 | `!`      | NÃO  | inverte: `!true` é `false`           |
 
-Pense numa mãe exigente e numa avó boazinha. A mãe diz: "só sai se arrumar o
-quarto E lavar a louça". Fez só um? Fica em casa. Isso é o `&&`. A avó diz:
-"pode sair se arrumar o quarto OU lavar a louça". Fez qualquer um, já pode ir.
-Isso é o `||`. E o `!` é o irmão do contra: tudo o que você diz, ele diz o
-oposto.
+A mãe diz: "só sai se arrumar o quarto E lavar a louça". Precisa dos dois: é o
+`&&`. A avó diz: "sai se arrumar o quarto OU lavar a louça". Basta um: é o `||`.
+E o `!` é o irmão do contra, que sempre diz o oposto.
 
 A tabela verdade mostra todas as combinações possíveis:
 
@@ -47,8 +40,7 @@ A tabela verdade mostra todas as combinações possíveis:
 
 ## Fluxograma
 
-A aprovação com `&&`: são duas portas, e o aluno precisa passar pelas duas. Se
-travar em qualquer uma, cai no `false`.
+A aprovação com `&&`: são duas portas e o aluno precisa passar pelas duas.
 
 ![Fluxograma animado: a bolinha amarela percorre o caminho que o programa faz](fluxograma.gif)
 

@@ -5,14 +5,8 @@
 
 ## O conceito
 
-A estrutura de escolha compara um único valor com uma lista de opções. Nos
-livros de algoritmo ela aparece como `escolha ... caso ... fimescolha`
-(FORBELLONE; EBERSPÄCHER, 2005), e no TypeScript como `switch`, herança direta
-da linguagem C (KERNIGHAN; RITCHIE, 1988). Cada `case` é comparado com `===`, e
-o `default` cobre o que não combinou com nenhum. Sem `break`, a execução "cai"
-no próximo `case`, comportamento chamado *fall-through*. A opção
-`noFallthroughCasesInSwitch`, ligada no `tsconfig.json` deste projeto, faz o
-TypeScript avisar quando isso acontece sem querer.
+O `switch` compara um valor com cada `case` usando `===`, e o `default` pega o
+resto (MDN). Sem `break`, a execução cai no `case` de baixo.
 
 Para ler mais:
 
