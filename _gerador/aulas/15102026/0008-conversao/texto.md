@@ -40,4 +40,13 @@ faz a conta.
 
 </details>
 
+> [!TIP]
+> **Poder do TypeScript:** Esqueceu de converter? O TypeScript percebe que o `input` devolve texto e não
+> deixa guardar numa variável de número:
+>
+> ```ts
+> const idade: number = input('Sua idade: ')
+> // erro: Type 'string' is not assignable to type 'number'.
+> ```
+
 {{pratique}}

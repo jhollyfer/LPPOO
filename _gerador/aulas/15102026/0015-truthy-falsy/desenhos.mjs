@@ -1,7 +1,7 @@
 import { bifurcacao } from '../../../tipos/ideia.mjs'
 
 export const ideia = bifurcacao({
-  inicio: { rotulo: 'o aluno digita', texto: ["apelido = ''"] },
+  inicio: { forma: 'caixinha', y: 340, nome: 'apelido', valor: "''", tipo: 'texto vazio', w: 270 },
   pergunta: ['tem texto?'],
   sim: { rotulo: 'truthy: usa o apelido', texto: ['chamar = apelido'], cor: 'cinza' },
   nao: { rotulo: 'falsy: usa o padrão', texto: ["chamar = 'sem apelido'"], cor: 'verde' },

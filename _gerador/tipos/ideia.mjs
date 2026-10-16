@@ -2,6 +2,8 @@
 // como um slide do Excalidraw. O título e a explicação ficam no texto da aula.
 //
 // caixas: { id, x, y, w?, h?, cor?, rotulo?, texto, forma?: 'losango' }
+//   ou um desenho do conceito (tipos/icones.mjs), com forma: 'caixinha',
+//   'balao', 'pessoa', 'terminal', 'cardapio', 'arquivo' ou 'marca'
 //   cores: azul (dado que entra ou sai), roxo (o programa faz algo),
 //   amarelo (pergunta), verde (resultado, caminho do Sim),
 //   vermelho (erro, caminho do Não), cinza (neutro)
@@ -9,6 +11,7 @@
 //           d = direita, e = esquerda, c = cima, b = baixo), cotovelo?, dx?, dy? }
 // notas:  { x, y, texto, cor? } texto solto
 import { novoQuadro, CORES, TINTA, medir } from '../quadro.mjs'
+import { ICONES } from './icones.mjs'
 
 // três caixas lado a lado, ligadas por setas; a largura acompanha o texto
 export const fileira = (y, [a, b, c], [s1, s2] = []) => {
@@ -61,6 +64,15 @@ export function desenharIdeia(titulo, d) {
 
   const caixas = new Map()
   for (const c of d.caixas) {
+    // desenhos do conceito (caixinha, balão, pessoa...)
+    if (ICONES[c.forma]) {
+      for (const [id, b] of Object.entries(ICONES[c.forma](q, c))) {
+        caixas.set(id, b)
+        fundo = Math.max(fundo, b.y + b.h)
+      }
+      topo = Math.min(topo, c.y)
+      continue
+    }
     const cor = CORES[c.cor ?? 'azul']
     const linhas = [].concat(c.texto ?? [])
     const losango = c.forma === 'losango'

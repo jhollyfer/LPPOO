@@ -28,4 +28,14 @@ direto para o "Bom dia!":
 
 {{fluxograma}}
 
+> [!TIP]
+> **Poder do TypeScript:** Dá para dizer exatamente quais respostas valem. Com `'sim' | 'nao'`, o
+> TypeScript barra qualquer outra:
+>
+> ```ts
+> let resposta: 'sim' | 'nao' = 'sim'
+> resposta = 'talvez'
+> // erro: Type '"talvez"' is not assignable to type '"sim" | "nao"'.
+> ```
+
 {{pratique}}

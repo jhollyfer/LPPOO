@@ -31,14 +31,20 @@ Saída: `15102026/README.md`, `15102026/legenda.svg` e, em cada pasta,
    o resultado. Cinza: caminhos que o exemplo não segue. Vermelho: erro.
 3. **No fluxograma, marque o caminho do exemplo** com `caminho: ['A', 'B', ...]`.
    O que fica de fora aparece apagado.
-4. **O texto puxa o desenho.** Termine o parágrafo anterior apontando para ele
+4. **Um "Poder do TypeScript" por assunto.** Um quadro `> [!TIP]` antes do
+   `{{pratique}}`, com algo que o TypeScript faz a mais que o JavaScript
+   naquele conceito. Mensagem de erro só entra depois de testada no `pnpm tsc`.
+5. **Desenhe o conceito, não o código.** Prefira as peças de `tipos/icones.mjs`
+   (caixinha com etiqueta, balão, pessoa, terminal, cardápio, arquivo) a caixas
+   com código dentro.
+6. **O texto puxa o desenho.** Termine o parágrafo anterior apontando para ele
    ("No fluxograma, o `if` é o losango...").
 
 ## Tipos de desenho
 
 | Tipo       | Desenho                | Formato do conteúdo                     |
 | ---------- | ---------------------- | --------------------------------------- |
-| ideia      | `tipos/ideia.mjs`      | caixas e setas (ou `fileira`, `bifurcacao`) |
+| ideia      | `tipos/ideia.mjs`      | caixas e setas (ou `fileira`, `bifurcacao`) e as peças de `tipos/icones.mjs` |
 | fluxograma | `tipos/fluxograma.mjs` | `nos`, `setas` e `caminho`              |
 | legenda    | `tipos/legenda.mjs`    | fixo                                    |
 

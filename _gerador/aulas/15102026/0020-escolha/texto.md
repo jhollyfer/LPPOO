@@ -45,4 +45,16 @@ O `switch` vira um losango com uma saída para cada `case`, mais uma para o
 > Use `switch` quando a pergunta é "qual destes valores?". Para faixas (maior
 > que, menor que), o `if` / `else if` continua sendo o certo.
 
+> [!TIP]
+> **Poder do TypeScript:** Neste projeto, o TypeScript está configurado para pegar o `break` esquecido
+> (a opção `noFallthroughCasesInSwitch` do `tsconfig.json`):
+>
+> ```ts
+> case 1:
+>   console.log('Seu saldo é R$ 100')
+> case 2: // erro: Fallthrough case in switch.
+>   console.log('Depósito realizado')
+>   break
+> ```
+
 {{pratique}}

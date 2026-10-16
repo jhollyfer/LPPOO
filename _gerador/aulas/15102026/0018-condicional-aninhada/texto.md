@@ -33,4 +33,15 @@ Cada `else if` é mais um losango, pendurado no Não do anterior:
 > sentido depois da primeira. Não adianta perguntar se tem habilitação para
 > quem tem 12 anos.
 
+> [!TIP]
+> **Poder do TypeScript:** Quando só existem três respostas possíveis, dá para escrever as três no tipo.
+> Um erro de digitação vira aviso na hora:
+>
+> ```ts
+> let situacao: 'Aprovado' | 'Recuperação' | 'Reprovado' = 'Aprovado'
+> situacao = 'Aprovad'
+> // erro: Type '"Aprovad"' is not assignable to type
+> //       '"Aprovado" | "Recuperação" | "Reprovado"'. Did you mean '"Aprovado"'?
+> ```
+
 {{pratique}}

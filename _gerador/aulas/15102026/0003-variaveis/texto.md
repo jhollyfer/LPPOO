@@ -23,9 +23,15 @@ Cada troca de valor vira um retângulo roxo, um embaixo do outro:
 {{fluxograma}}
 
 > [!TIP]
-> O TypeScript descobre sozinho que `gols` guarda número, porque começou com
-> `0`. Isso se chama **inferência**. Se quiser, dá para dizer na mão:
-> `let gols: number = 0`. Nos dois casos, ele não deixa colocar texto ali.
+> **Poder do TypeScript:** O TypeScript descobre que `gols` guarda número, porque começou com `0`. Isso se
+> chama **inferência**. Se quiser, dá para escrever na mão: `let gols: number = 0`.
+> Nos dois casos, a caixa só aceita número:
+>
+> ```ts
+> let gols = 0
+> gols = 'três'
+> // erro: Type 'string' is not assignable to type 'number'.
+> ```
 
 Nome de variável vai em `camelCase`: `nomeCompleto`, `notaFinal`, `golsBrasil`.
 E o `var`? É o jeito antigo, e causa bug difícil de achar. A gente não usa.

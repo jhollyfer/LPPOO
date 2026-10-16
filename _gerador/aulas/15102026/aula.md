@@ -21,6 +21,14 @@ No diagrama da ideia, o caminho que o exemplo segue aparece em verde, e os
 outros ficam cinza. Erro é vermelho. No fluxograma vale a mesma regra: o
 caminho do exemplo fica colorido e o resto fica apagado.
 
+## O TypeScript em cada assunto
+
+TypeScript é JavaScript com superpoderes. Em todo assunto tem um quadro
+**Poder do TypeScript** mostrando o que ele faz a mais ali: um erro que ele pega
+antes de rodar, um tipo que ele descobre sozinho, uma ajuda do editor. Os erros
+são de verdade: tire o `//` de uma linha parecida num exemplo e veja o editor
+sublinhar.
+
 ## Os assuntos
 
 Leia na ordem. Em cada um, depois de ler, abra a pasta e rode os exemplos.

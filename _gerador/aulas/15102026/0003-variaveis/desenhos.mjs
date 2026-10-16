@@ -1,14 +1,24 @@
-import { fileira } from '../../../tipos/ideia.mjs'
-
-export const ideia = fileira(
-  0,
-  [
-    { rotulo: 'começo do jogo', texto: ['let gols = 0'] },
-    { rotulo: 'gol!', texto: ['gols = 1'] },
-    { rotulo: 'outro gol!', texto: ['gols = 2'] },
+export const ideia = {
+  caixas: [
+    {
+      id: 'a',
+      forma: 'caixinha',
+      x: 110,
+      y: 0,
+      nome: 'gols',
+      valor: '0',
+      tipo: 'começo do jogo',
+      cor: 'azul',
+    },
+    { id: 'b', forma: 'caixinha', x: 610, y: 0, nome: 'gols', valor: '1', tipo: 'gol!', cor: 'roxo' },
+    { id: 'c', forma: 'caixinha', x: 1110, y: 0, nome: 'gols', valor: '2', tipo: 'outro gol!', cor: 'verde' },
   ],
-  ['troca', 'troca'],
-)
+  setas: [
+    { de: 'a', para: 'b', rotulo: 'gols = 1' },
+    { de: 'b', para: 'c', rotulo: 'gols = 2' },
+  ],
+  notas: [{ x: 110, y: 250, texto: 'É sempre a mesma caixa. Só o que tem dentro muda.', cor: 'roxo' }],
+}
 
 export const fluxograma = {
   nos: [

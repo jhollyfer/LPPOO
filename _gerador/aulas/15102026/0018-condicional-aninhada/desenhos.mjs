@@ -1,6 +1,6 @@
 export const ideia = {
   caixas: [
-    { id: 'ini', x: 110, y: 220, w: 260, cor: 'azul', rotulo: 'a média da Bia', texto: ['media = 5'] },
+    { id: 'ini', forma: 'caixinha', x: 110, y: 170, nome: 'media', valor: '5', tipo: 'média da Bia', w: 250 },
     { id: 'p1', x: 450, y: 195, w: 300, h: 200, forma: 'losango', cor: 'amarelo', texto: ['media >= 6 ?'] },
     { id: 'p2', x: 850, y: 195, w: 300, h: 200, forma: 'losango', cor: 'amarelo', texto: ['media >= 4 ?'] },
     { id: 'apr', x: 450, y: 0, w: 300, h: 120, cor: 'cinza', texto: ["'Aprovado'"] },

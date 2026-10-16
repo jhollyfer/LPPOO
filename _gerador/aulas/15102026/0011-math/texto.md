@@ -38,4 +38,13 @@ console.log(vans) // 3
 
 </details>
 
+> [!TIP]
+> **Poder do TypeScript:** Cada ferramenta do `Math` diz o que aceita. Passe um texto e o TypeScript
+> avisa antes de rodar:
+>
+> ```ts
+> Math.ceil('2.13')
+> // erro: Argument of type 'string' is not assignable to parameter of type 'number'.
+> ```
+
 {{pratique}}

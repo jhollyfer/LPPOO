@@ -1,7 +1,7 @@
 import { bifurcacao } from '../../../tipos/ideia.mjs'
 
 export const ideia = bifurcacao({
-  inicio: { rotulo: 'você chegou às', texto: ['hora = 5'] },
+  inicio: { forma: 'caixinha', y: 340, nome: 'hora', valor: '5', tipo: 'chegou às 5h', w: 270 },
   pergunta: ['hora <= 6 ?'],
   sim: { rotulo: 'bloco do if', texto: ["'Embarcou para Tabatinga!'"] },
   nao: { rotulo: 'bloco do else', texto: ["'O recreio já saiu.'"], cor: 'cinza' },

@@ -23,6 +23,14 @@ No diagrama da ideia, o caminho que o exemplo segue aparece em verde, e os
 outros ficam cinza. Erro é vermelho. No fluxograma vale a mesma regra: o
 caminho do exemplo fica colorido e o resto fica apagado.
 
+## O TypeScript em cada assunto
+
+TypeScript é JavaScript com superpoderes. Em todo assunto tem um quadro
+**Poder do TypeScript** mostrando o que ele faz a mais ali: um erro que ele pega
+antes de rodar, um tipo que ele descobre sozinho, uma ajuda do editor. Os erros
+são de verdade: tire o `//` de uma linha parecida num exemplo e veja o editor
+sublinhar.
+
 ## Os assuntos
 
 Leia na ordem. Em cada um, depois de ler, abra a pasta e rode os exemplos.
@@ -67,7 +75,7 @@ Então todo arquivo `.ts` passa por duas etapas antes de rodar: o TypeScript
 confere se os tipos batem e depois apaga os tipos, deixando JavaScript puro
 para o Node.
 
-<p align="center"><img src="0000-typescript/ideia.svg" alt="Diagrama da ideia: Como o TypeScript funciona (e por que ele)" width="960"></p>
+<p align="center"><img src="0000-typescript/ideia.svg" alt="Diagrama da ideia: Como o TypeScript funciona (e por que ele)" width="864"></p>
 
 ```ts
 const preco: number = 12.5
@@ -131,7 +139,7 @@ responde.
 A Ana roda o programa. Aparece a pergunta `Seu nome:`, ela digita `Ana`, aperta
 Enter, e o programa guarda essa resposta numa caixinha chamada `nome`:
 
-<p align="center"><img src="0001-input/ideia.svg" alt="Diagrama da ideia: Entrada de dados (input)" width="864"></p>
+<p align="center"><img src="0001-input/ideia.svg" alt="Diagrama da ideia: Entrada de dados (input)" width="858"></p>
 
 Quem faz a pergunta é a função `input`. Ela mostra o texto, espera o Enter e
 devolve o que foi digitado:
@@ -151,6 +159,10 @@ entrando e saindo.
 > [!IMPORTANT]
 > O `input` sempre devolve texto. Se a Ana digitar `17`, o programa guarda
 > `'17'`, entre aspas. Fazer conta com isso é assunto da [0008](#0008--conversão-de-tipos).
+
+> [!TIP]
+> **Poder do TypeScript:** O editor sabe que o `input` devolve texto. Passe o mouse em cima de `nome` e
+> ele mostra `const nome: string`. Você nem escreveu o tipo: ele descobriu sozinho.
 
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0001-input/`](0001-input/).
@@ -172,7 +184,7 @@ A média já está guardada: `media` vale `7.5`. Agora a gente quer mostrar uma
 frase inteira, com o número encaixado no meio. Para isso existe a **template
 string**: um texto entre crases com um espaço `${ }` onde o valor entra.
 
-<p align="center"><img src="0002-output/ideia.svg" alt="Diagrama da ideia: Saída de dados (output)" width="864"></p>
+<p align="center"><img src="0002-output/ideia.svg" alt="Diagrama da ideia: Saída de dados (output)" width="858"></p>
 
 ```ts
 const media = 7.5
@@ -187,6 +199,15 @@ frase é saída: paralelogramo azul.
 > [!TIP]
 > A crase (`` ` ``) fica perto do Enter na maioria dos teclados, às vezes junto
 > com o til. Ache ela agora: você vai usar muito.
+
+> [!TIP]
+> **Poder do TypeScript:** Errou o nome da variável dentro do `${}`? No JavaScript, só ia aparecer um erro
+> com o programa rodando. O TypeScript avisa enquanto você digita:
+>
+> ```ts
+> console.log(`Sua média é ${medai}`)
+> // erro: Cannot find name 'medai'. Did you mean 'media'?
+> ```
 
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0002-output/`](0002-output/).
@@ -208,7 +229,7 @@ dentro. Com `let`, dá para tirar o valor e colocar outro quantas vezes precisar
 O jogo começa 0 a 0. Saiu gol: a caixa `gols` passa a guardar 1. Outro gol: 2.
 A caixa é sempre a mesma, só o que tem dentro muda:
 
-<p align="center"><img src="0003-variaveis/ideia.svg" alt="Diagrama da ideia: Variáveis" width="864"></p>
+<p align="center"><img src="0003-variaveis/ideia.svg" alt="Diagrama da ideia: Variáveis" width="858"></p>
 
 ```ts
 let gols = 0 // o let aparece uma vez só, quando a caixa nasce
@@ -222,9 +243,15 @@ Cada troca de valor vira um retângulo roxo, um embaixo do outro:
 <p align="center"><img src="0003-variaveis/fluxograma.svg" alt="Fluxograma: Variáveis" width="944"></p>
 
 > [!TIP]
-> O TypeScript descobre sozinho que `gols` guarda número, porque começou com
-> `0`. Isso se chama **inferência**. Se quiser, dá para dizer na mão:
-> `let gols: number = 0`. Nos dois casos, ele não deixa colocar texto ali.
+> **Poder do TypeScript:** O TypeScript descobre que `gols` guarda número, porque começou com `0`. Isso se
+> chama **inferência**. Se quiser, dá para escrever na mão: `let gols: number = 0`.
+> Nos dois casos, a caixa só aceita número:
+>
+> ```ts
+> let gols = 0
+> gols = 'três'
+> // erro: Type 'string' is not assignable to type 'number'.
+> ```
 
 Nome de variável vai em `camelCase`: `nomeCompleto`, `notaFinal`, `golsBrasil`.
 E o `var`? É o jeito antigo, e causa bug difícil de achar. A gente não usa.
@@ -248,7 +275,7 @@ lacrada. Colocou o valor, acabou. Ela nasce com `const`.
 O nome da escola é `'CETAM'`. Se alguém tentar trocar, o TypeScript reclama
 na hora, antes mesmo de o programa rodar:
 
-<p align="center"><img src="0004-constantes/ideia.svg" alt="Diagrama da ideia: Constantes" width="909"></p>
+<p align="center"><img src="0004-constantes/ideia.svg" alt="Diagrama da ideia: Constantes" width="858"></p>
 
 ```ts
 import { input } from '#core/input.ts'
@@ -266,10 +293,15 @@ muda mais. Repare também que a constante é guardada antes da pergunta:
 
 <p align="center"><img src="0004-constantes/fluxograma.svg" alt="Fluxograma: Constantes" width="966"></p>
 
-> [!TIP]
+> [!NOTE]
 > Na dúvida, comece com `const`. Precisou mudar depois? Troque para `let`.
 > Valor fixo do programa vai em `UPPER_CASE` (`NOME_ESCOLA`, `MEDIA_APROVACAO`);
 > o resto continua em `camelCase` (`nome`).
+
+> [!TIP]
+> **Poder do TypeScript:** Passe o mouse em cima de `NOME_ESCOLA`: o editor mostra
+> `const NOME_ESCOLA: "CETAM"`. Como a constante nunca muda, o tipo dela é
+> exatamente aquele texto, e não qualquer string.
 
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0004-constantes/`](0004-constantes/).
@@ -291,7 +323,7 @@ E toda string já vem com ferramentas prontas, como um canivete: é só puxar.
 A Maria digitou o nome com uns espaços sobrando: `'  maria  '`. O `.trim()` tira
 os espaços das pontas e o `.toUpperCase()` deixa tudo em maiúsculas:
 
-<p align="center"><img src="0005-texto/ideia.svg" alt="Diagrama da ideia: Texto (string)" width="864"></p>
+<p align="center"><img src="0005-texto/ideia.svg" alt="Diagrama da ideia: Texto (string)" width="858"></p>
 
 ```ts
 import { input } from '#core/input.ts'
@@ -324,6 +356,16 @@ algo, então vira passo roxo:
 
 </details>
 
+> [!TIP]
+> **Poder do TypeScript:** Escreva `nome.` e o editor lista todas as ferramentas de string. Errou uma
+> letra? Ele avisa e ainda sugere o nome certo:
+>
+> ```ts
+> console.log(limpo.toUppercase())
+> // erro: Property 'toUppercase' does not exist on type 'string'.
+> //       Did you mean 'toUpperCase'?
+> ```
+
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0005-texto/`](0005-texto/).
 >
@@ -345,7 +387,7 @@ igual à calculadora do celular: `12.5`, não `12,5`.
 O açaí custa `12.5`. Para mostrar como dinheiro, com dois números depois do
 ponto, o `.toFixed(2)` transforma `12.5` em `'12.50'`:
 
-<p align="center"><img src="0006-numero/ideia.svg" alt="Diagrama da ideia: Número (number)" width="864"></p>
+<p align="center"><img src="0006-numero/ideia.svg" alt="Diagrama da ideia: Número (number)" width="858"></p>
 
 ```ts
 const preco = 12.5
@@ -362,6 +404,15 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 > [!WARNING]
 > Conta que não faz sentido vira `NaN` ("Not a Number"). Por exemplo,
 > `Number('abc')` dá `NaN`.
+
+> [!TIP]
+> **Poder do TypeScript:** O TypeScript sabe que o `.toFixed` devolve texto. Se você tentar guardar o
+> resultado como número, ele barra:
+>
+> ```ts
+> const total: number = preco.toFixed(2)
+> // erro: Type 'string' is not assignable to type 'number'.
+> ```
 
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0006-numero/`](0006-numero/).
@@ -383,7 +434,7 @@ interruptor de luz: ou está ligado, ou está desligado.
 O programa pergunta "Tem aula hoje?". Você digita `sim`. A comparação
 `resposta === 'sim'` vira `true`, e é esse `true` que fica guardado em `temAula`:
 
-<p align="center"><img src="0007-booleano/ideia.svg" alt="Diagrama da ideia: Booleano (boolean), typeof, null e undefined" width="864"></p>
+<p align="center"><img src="0007-booleano/ideia.svg" alt="Diagrama da ideia: Booleano (boolean), typeof, null e undefined" width="858"></p>
 
 ```ts
 import { input } from '#core/input.ts'
@@ -411,6 +462,16 @@ E tem dois valores especiais que querem dizer "nada":
 - `null`: alguém colocou "nada" de propósito. É o aluno avisando "pode marcar
   que eu não vou".
 
+> [!TIP]
+> **Poder do TypeScript:** Com `string | null` você avisa que a caixa pode estar vazia. Aí o TypeScript
+> não deixa usar o valor sem conferir antes:
+>
+> ```ts
+> let recado: string | null = null
+> console.log(recado.length)
+> // erro: 'recado' is possibly 'null'.
+> ```
+
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0007-booleano/`](0007-booleano/).
 >
@@ -431,7 +492,7 @@ guardou `'17'`. E com texto o `+` cola: `'17' + 1` vira `'171'`.
 O jeito é converter: transformar o texto em número antes da conta. O
 `Number('17')` faz isso e devolve `17`, um número de verdade:
 
-<p align="center"><img src="0008-conversao/ideia.svg" alt="Diagrama da ideia: Conversão de tipos" width="864"></p>
+<p align="center"><img src="0008-conversao/ideia.svg" alt="Diagrama da ideia: Conversão de tipos" width="858"></p>
 
 ```ts
 import { input } from '#core/input.ts'
@@ -462,6 +523,15 @@ faz a conta.
 
 </details>
 
+> [!TIP]
+> **Poder do TypeScript:** Esqueceu de converter? O TypeScript percebe que o `input` devolve texto e não
+> deixa guardar numa variável de número:
+>
+> ```ts
+> const idade: number = input('Sua idade: ')
+> // erro: Type 'string' is not assignable to type 'number'.
+> ```
+
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0008-conversao/`](0008-conversao/).
 >
@@ -482,7 +552,7 @@ Quem guarda um valor na variável é o `=`. Ele dá uma ordem: "a partir de agor
 Quando o valor novo depende do antigo, existe atalho. Gastou 30? `saldo -= 30`,
 que lê assim: "pega o que já tem e tira 30". Recarregou 20? `saldo += 20`:
 
-<p align="center"><img src="0009-atribuicao/ideia.svg" alt="Diagrama da ideia: Operadores de atribuição" width="864"></p>
+<p align="center"><img src="0009-atribuicao/ideia.svg" alt="Diagrama da ideia: Operadores de atribuição" width="858"></p>
 
 ```ts
 let saldo = 100
@@ -514,6 +584,15 @@ atribuição é um retângulo roxo:
 > [!TIP]
 > O `x++` aparece muito sozinho na linha, contando coisas: um aluno a mais, um
 > gol a mais.
+
+> [!TIP]
+> **Poder do TypeScript:** O atalho `-=` só faz sentido com número. Tente tirar um texto do saldo:
+>
+> ```ts
+> saldo -= 'trinta'
+> // erro: The right-hand side of an arithmetic operation must be of type
+> //       'any', 'number', 'bigint' or an enum type.
+> ```
 
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0009-atribuicao/`](0009-atribuicao/).
@@ -564,6 +643,16 @@ console.log(media) // 7
 > O `%` não tem a ver com porcentagem. Ele dá o resto da divisão: 7
 > alunos em duplas formam 3 duplas e sobra 1, então `7 % 2` é `1`.
 
+> [!TIP]
+> **Poder do TypeScript:** No JavaScript, `'8' * 2` dá `16` sem reclamar, e esse tipo de mistura vira bug
+> difícil de achar. No TypeScript, conta só com número:
+>
+> ```ts
+> console.log('8' * 2)
+> // erro: The left-hand side of an arithmetic operation must be of type
+> //       'any', 'number', 'bigint' or an enum type.
+> ```
+
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0010-aritmetica/`](0010-aritmetica/).
 >
@@ -584,7 +673,7 @@ instalar nada: escreva `Math.` no editor e ele mostra o que tem lá dentro.
 `32 / 15` dá `2.13`. Duas vans não bastam, porque sobram 2 alunos. A conta certa
 é arredondar para cima, e quem faz isso é o `Math.ceil`:
 
-<p align="center"><img src="0011-math/ideia.svg" alt="Diagrama da ideia: Objeto Math" width="864"></p>
+<p align="center"><img src="0011-math/ideia.svg" alt="Diagrama da ideia: Objeto Math" width="858"></p>
 
 ```ts
 const alunos = 32
@@ -613,6 +702,15 @@ console.log(vans) // 3
 
 </details>
 
+> [!TIP]
+> **Poder do TypeScript:** Cada ferramenta do `Math` diz o que aceita. Passe um texto e o TypeScript
+> avisa antes de rodar:
+>
+> ```ts
+> Math.ceil('2.13')
+> // erro: Argument of type 'string' is not assignable to parameter of type 'number'.
+> ```
+
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0011-math/`](0011-math/).
 >
@@ -633,7 +731,7 @@ Os operadores relacionais comparam dois valores e respondem com um boolean,
 O João tem 17 anos. A pergunta do segurança, em código, é `idade >= 18`. Como 17
 não é maior nem igual a 18, a resposta é `false`:
 
-<p align="center"><img src="0012-relacional/ideia.svg" alt="Diagrama da ideia: Operadores relacionais" width="864"></p>
+<p align="center"><img src="0012-relacional/ideia.svg" alt="Diagrama da ideia: Operadores relacionais" width="858"></p>
 
 ```ts
 import { input } from '#core/input.ts'
@@ -658,6 +756,14 @@ ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
 > [!TIP]
 > A boca aberta do `>` fica virada para o maior, igual a um jacaré com fome.
 
+> [!TIP]
+> **Poder do TypeScript:** Comparar número com texto não faz sentido, e o TypeScript não deixa:
+>
+> ```ts
+> idade >= '18'
+> // erro: Operator '>=' cannot be applied to types 'number' and 'string'.
+> ```
+
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0012-relacional/`](0012-relacional/).
 >
@@ -679,7 +785,7 @@ perguntar se são diferentes, `!==`. A resposta, de novo, é `true` ou
 A senha do Wi-Fi é `'cetam2026'`. Você digitou certinho, então
 `digitada === SENHA` dá `true`:
 
-<p align="center"><img src="0013-comparacao/ideia.svg" alt="Diagrama da ideia: Comparação de igualdade" width="864"></p>
+<p align="center"><img src="0013-comparacao/ideia.svg" alt="Diagrama da ideia: Comparação de igualdade" width="858"></p>
 
 ```ts
 import { input } from '#core/input.ts'
@@ -700,6 +806,17 @@ console.log(acertou) // true
 > [!TIP]
 > `=` guarda um valor ("a senha agora é essa"). `===` pergunta ("a senha é
 > essa?").
+
+> [!TIP]
+> **Poder do TypeScript:** O TypeScript percebe quando uma comparação nunca pode dar `true`, porque os
+> dois lados têm tipos diferentes:
+>
+> ```ts
+> const numero = 5
+> numero === '5'
+> // erro: This comparison appears to be unintentional because the types
+> //       'number' and 'string' have no overlap.
+> ```
 
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0013-comparacao/`](0013-comparacao/).
@@ -752,6 +869,11 @@ console.log(media >= 6 || frequencia >= 75) // true || false → true
 > A mãe diz "só sai se arrumar o quarto **E** lavar a louça": é o `&&`. A avó
 > diz "sai se arrumar o quarto **OU** lavar a louça": é o `||`.
 
+> [!TIP]
+> **Poder do TypeScript:** Passe o mouse em cima de `aprovado`: o editor mostra `const aprovado: boolean`.
+> O TypeScript sabe que juntar dois `true`/`false` com `&&` dá outro `true` ou
+> `false`.
+
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0014-logico/`](0014-logico/).
 >
@@ -797,9 +919,17 @@ não:
 > texto vazio ele não faz nada: `'' ?? 'sem apelido'` continua `''`.
 
 > [!TIP]
-> O `?.` acessa uma propriedade só se a variável existir:
-> `aluno?.nome` devolve `undefined` em vez de quebrar quando `aluno` é `null`.
-> E `string | undefined` quer dizer "pode ser texto, pode não ter nada ainda".
+> **Poder do TypeScript:** `string | undefined` quer dizer "pode ser texto, pode
+> não ter nada ainda". Com isso, o TypeScript não deixa usar o valor sem pensar
+> no caso vazio. O `?.` resolve: só acessa se tiver valor.
+>
+> ```ts
+> const resposta = input('Tem apelido? ')
+> const apelido = resposta === 'sim' ? input('Qual? ') : undefined // string | undefined
+>
+> console.log(apelido.length) // erro: 'apelido' is possibly 'undefined'.
+> console.log(apelido?.length) // ok: dá undefined, sem quebrar
+> ```
 
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0015-truthy-falsy/`](0015-truthy-falsy/).
@@ -840,6 +970,16 @@ direto para o "Bom dia!":
 
 <p align="center"><img src="0016-condicional-simples/fluxograma.svg" alt="Fluxograma: Condicional simples (if)" width="380"></p>
 
+> [!TIP]
+> **Poder do TypeScript:** Dá para dizer exatamente quais respostas valem. Com `'sim' | 'nao'`, o
+> TypeScript barra qualquer outra:
+>
+> ```ts
+> let resposta: 'sim' | 'nao' = 'sim'
+> resposta = 'talvez'
+> // erro: Type '"talvez"' is not assignable to type '"sim" | "nao"'.
+> ```
+
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0016-condicional-simples/`](0016-condicional-simples/).
 >
@@ -879,6 +1019,11 @@ Os dois caminhos saem do mesmo losango e se encontram de novo no fim. O
 programa passa por um deles:
 
 <p align="center"><img src="0017-condicional-composta/fluxograma.svg" alt="Fluxograma: Condicional composta (if / else)" width="524"></p>
+
+> [!TIP]
+> **Poder do TypeScript:** Passe o mouse em cima de `hora` e o editor mostra `number`, porque o
+> `Number(...)` sempre devolve número. A comparação `hora <= 6` é conferida antes
+> de rodar: com texto no lugar, ela nem passaria.
 
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0017-condicional-composta/`](0017-condicional-composta/).
@@ -924,6 +1069,17 @@ Cada `else if` é mais um losango, pendurado no Não do anterior:
 > sentido depois da primeira. Não adianta perguntar se tem habilitação para
 > quem tem 12 anos.
 
+> [!TIP]
+> **Poder do TypeScript:** Quando só existem três respostas possíveis, dá para escrever as três no tipo.
+> Um erro de digitação vira aviso na hora:
+>
+> ```ts
+> let situacao: 'Aprovado' | 'Recuperação' | 'Reprovado' = 'Aprovado'
+> situacao = 'Aprovad'
+> // erro: Type '"Aprovad"' is not assignable to type
+> //       '"Aprovado" | "Recuperação" | "Reprovado"'. Did you mean '"Aprovado"'?
+> ```
+
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0018-condicional-aninhada/`](0018-condicional-aninhada/).
 >
@@ -966,6 +1122,11 @@ o programa mostra:
 > Use o ternário para escolhas pequenas: singular ou plural, par ou ímpar,
 > aprovado ou reprovado. Se a decisão tem várias etapas, volte para o `if`.
 
+> [!TIP]
+> **Poder do TypeScript:** Passe o mouse em cima de `situacao`: o editor mostra
+> `const situacao: "Aprovado" | "Reprovado"`. O TypeScript leu os dois lados do
+> ternário e sabe que só pode sair um desses dois textos.
+
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0019-ternario/`](0019-ternario/).
 >
@@ -991,7 +1152,7 @@ combo e a atendente já sabe o que montar.
 
 Você digitou `2`. O `switch` compara com cada `case` e para no `case 2`:
 
-<p align="center"><img src="0020-escolha/ideia.svg" alt="Diagrama da ideia: Estrutura de escolha (switch)" width="864"></p>
+<p align="center"><img src="0020-escolha/ideia.svg" alt="Diagrama da ideia: Estrutura de escolha (switch)" width="858"></p>
 
 ```ts
 import { input } from '#core/input.ts'
@@ -1021,6 +1182,18 @@ O `switch` vira um losango com uma saída para cada `case`, mais uma para o
 > [!TIP]
 > Use `switch` quando a pergunta é "qual destes valores?". Para faixas (maior
 > que, menor que), o `if` / `else if` continua sendo o certo.
+
+> [!TIP]
+> **Poder do TypeScript:** Neste projeto, o TypeScript está configurado para pegar o `break` esquecido
+> (a opção `noFallthroughCasesInSwitch` do `tsconfig.json`):
+>
+> ```ts
+> case 1:
+>   console.log('Seu saldo é R$ 100')
+> case 2: // erro: Fallthrough case in switch.
+>   console.log('Depósito realizado')
+>   break
+> ```
 
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0020-escolha/`](0020-escolha/).

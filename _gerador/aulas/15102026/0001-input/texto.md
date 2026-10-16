@@ -31,4 +31,8 @@ entrando e saindo.
 > O `input` sempre devolve texto. Se a Ana digitar `17`, o programa guarda
 > `'17'`, entre aspas. Fazer conta com isso é assunto da [0008](#0008--conversão-de-tipos).
 
+> [!TIP]
+> **Poder do TypeScript:** O editor sabe que o `input` devolve texto. Passe o mouse em cima de `nome` e
+> ele mostra `const nome: string`. Você nem escreveu o tipo: ele descobriu sozinho.
+
 {{pratique}}

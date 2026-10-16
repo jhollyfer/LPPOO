@@ -1,14 +1,40 @@
-import { fileira } from '../../../tipos/ideia.mjs'
-
-export const ideia = fileira(
-  0,
-  [
-    { rotulo: 'você escreve preco.ts', texto: ['const preco: number', '  = 12.5'] },
-    { rotulo: 'TypeScript confere e apaga', texto: ['const preco = 12.5'] },
-    { rotulo: 'o Node roda', texto: ['12.50'] },
+export const ideia = {
+  caixas: [
+    {
+      id: 'ts',
+      forma: 'arquivo',
+      x: 110,
+      y: 0,
+      w: 380,
+      nome: 'preco.ts',
+      texto: ['const preco: number', '  = 12.5'],
+      cor: 'azul',
+    },
+    {
+      id: 'js',
+      forma: 'arquivo',
+      x: 650,
+      y: 0,
+      w: 360,
+      nome: 'preco.js',
+      texto: ['const preco = 12.5'],
+      cor: 'roxo',
+    },
+    { id: 't', forma: 'terminal', x: 1230, y: 20, w: 260, texto: ['12.50'] },
   ],
-  ['tipos ok', 'só JS'],
-)
+  setas: [
+    { de: 'ts', para: 'js', rotulo: 'confere e apaga' },
+    { de: 'js', para: 't', rotulo: 'Node roda' },
+  ],
+  notas: [
+    {
+      x: 110,
+      y: 250,
+      texto: 'Os tipos servem para conferir. Na hora de rodar, eles já não existem.',
+      cor: 'roxo',
+    },
+  ],
+}
 
 export const fluxograma = {
   nos: [

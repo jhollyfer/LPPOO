@@ -42,4 +42,14 @@ algo, então vira passo roxo:
 
 </details>
 
+> [!TIP]
+> **Poder do TypeScript:** Escreva `nome.` e o editor lista todas as ferramentas de string. Errou uma
+> letra? Ele avisa e ainda sugere o nome certo:
+>
+> ```ts
+> console.log(limpo.toUppercase())
+> // erro: Property 'toUppercase' does not exist on type 'string'.
+> //       Did you mean 'toUpperCase'?
+> ```
+
 {{pratique}}

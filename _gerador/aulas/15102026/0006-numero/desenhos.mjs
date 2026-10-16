@@ -1,14 +1,26 @@
-import { fileira } from '../../../tipos/ideia.mjs'
-
-export const ideia = fileira(
-  0,
-  [
-    { rotulo: 'preço do açaí', texto: ['preco = 12.5'] },
-    { rotulo: '.toFixed(2)', texto: ["'12.50'"] },
-    { rotulo: 'terminal', texto: ['Açaí: R$ 12.50'] },
+export const ideia = {
+  caixas: [
+    { id: 'p', forma: 'caixinha', x: 110, y: 0, nome: 'preco', valor: '12.5', tipo: 'number' },
+    {
+      id: 'tx',
+      forma: 'caixinha',
+      x: 600,
+      y: 0,
+      nome: 'texto',
+      valor: "'12.50'",
+      tipo: 'string',
+      cor: 'roxo',
+    },
+    { id: 't', forma: 'terminal', x: 1100, y: 60, w: 380, texto: ['Açaí: R$ 12.50'] },
   ],
-  ['2 casas', 'mostra'],
-)
+  setas: [
+    { de: 'p', para: 'tx', rotulo: '.toFixed(2)' },
+    { de: 'tx', para: 't', rotulo: 'mostra' },
+  ],
+  notas: [
+    { x: 110, y: 250, texto: 'Repare no tipo embaixo: o .toFixed devolve texto, não número.', cor: 'roxo' },
+  ],
+}
 
 export const fluxograma = {
   nos: [

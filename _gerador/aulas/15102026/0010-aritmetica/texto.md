@@ -38,4 +38,14 @@ console.log(media) // 7
 > O `%` não tem a ver com porcentagem. Ele dá o resto da divisão: 7
 > alunos em duplas formam 3 duplas e sobra 1, então `7 % 2` é `1`.
 
+> [!TIP]
+> **Poder do TypeScript:** No JavaScript, `'8' * 2` dá `16` sem reclamar, e esse tipo de mistura vira bug
+> difícil de achar. No TypeScript, conta só com número:
+>
+> ```ts
+> console.log('8' * 2)
+> // erro: The left-hand side of an arithmetic operation must be of type
+> //       'any', 'number', 'bigint' or an enum type.
+> ```
+
 {{pratique}}

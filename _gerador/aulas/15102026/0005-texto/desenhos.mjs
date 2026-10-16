@@ -1,14 +1,31 @@
-import { fileira } from '../../../tipos/ideia.mjs'
-
-export const ideia = fileira(
-  0,
-  [
-    { rotulo: 'a Maria digita', texto: ["'  maria  '"] },
-    { rotulo: '.trim()', texto: ["'maria'"] },
-    { rotulo: '.toUpperCase()', texto: ["'MARIA'"] },
+export const ideia = {
+  caixas: [
+    { id: 'n', forma: 'caixinha', x: 110, y: 0, nome: 'nome', valor: "'  maria  '", tipo: 'string' },
+    {
+      id: 'l',
+      forma: 'caixinha',
+      x: 640,
+      y: 0,
+      nome: 'limpo',
+      valor: "'maria'",
+      tipo: 'string',
+      cor: 'roxo',
+    },
+    { id: 't', forma: 'terminal', x: 1180, y: 60, w: 300, texto: ['MARIA'] },
   ],
-  ['limpa', 'aumenta'],
-)
+  setas: [
+    { de: 'n', para: 'l', rotulo: '.trim()' },
+    { de: 'l', para: 't', rotulo: '.toUpperCase()' },
+  ],
+  notas: [
+    {
+      x: 110,
+      y: 250,
+      texto: 'A caixa nome continua com os espaços: o .trim() cria um texto novo.',
+      cor: 'roxo',
+    },
+  ],
+}
 
 export const fluxograma = {
   nos: [

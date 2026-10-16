@@ -1,15 +1,29 @@
-import { fileira } from '../../../tipos/ideia.mjs'
-
-export const ideia = fileira(
-  0,
-  [
-    { rotulo: '1 · cria', texto: ['const NOME_ESCOLA =', "'CETAM'"] },
-    { rotulo: '2 · tenta trocar', texto: ['NOME_ESCOLA =', "'Outra escola'"], cor: 'amarelo' },
-    { rotulo: '3 · o TypeScript avisa', texto: ['Não pode,', 'é constante!'], cor: 'vermelho' },
+export const ideia = {
+  caixas: [
+    {
+      id: 'cx',
+      forma: 'caixinha',
+      x: 110,
+      y: 20,
+      nome: 'NOME_ESCOLA',
+      valor: "'CETAM'",
+      tipo: 'string',
+      cadeado: true,
+    },
+    {
+      id: 'tenta',
+      x: 900,
+      y: 74,
+      w: 560,
+      cor: 'amarelo',
+      rotulo: 'tenta trocar',
+      texto: ["NOME_ESCOLA = 'Outra escola'"],
+    },
+    { forma: 'marca', x: 640, y: 132, tamanho: 56 },
   ],
-  ['depois...', 'erro'],
-)
-
+  setas: [{ de: 'tenta', para: 'cx', cor: 'vermelho', rotulo: 'barrado', dy: -30 }],
+  notas: [{ x: 110, y: 290, texto: 'A caixa tem cadeado: o TypeScript não deixa trocar.', cor: 'vermelho' }],
+}
 export const fluxograma = {
   nos: [
     ['A', 'inicio', 'Início'],

@@ -1,14 +1,15 @@
-import { fileira } from '../../../tipos/ideia.mjs'
-
-export const ideia = fileira(
-  0,
-  [
-    { rotulo: 'o João tem', texto: ['idade = 17'] },
-    { rotulo: 'o segurança pergunta', texto: ['idade >= 18'] },
-    { rotulo: 'resposta', texto: ['false'] },
+export const ideia = {
+  caixas: [
+    { id: 'joao', forma: 'pessoa', x: 110, y: 60, nome: 'João, 17 anos' },
+    { id: 'seg', forma: 'pessoa', x: 580, y: 60, nome: 'o segurança' },
+    { id: 'b', forma: 'balao', x: 660, y: -60, texto: 'idade >= 18 ?', cor: 'amarelo' },
+    { id: 'cx', forma: 'caixinha', x: 1090, y: 40, nome: 'maiorDeIdade', valor: 'false', tipo: 'boolean' },
   ],
-  ['compara', 'responde'],
-)
+  setas: [
+    { de: 'joao', para: 'seg', rotulo: 'idade = 17' },
+    { de: 'seg', para: 'cx', rotulo: 'responde' },
+  ],
+}
 
 export const fluxograma = {
   nos: [

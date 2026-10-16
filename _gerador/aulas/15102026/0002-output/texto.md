@@ -25,4 +25,13 @@ frase é saída: paralelogramo azul.
 > A crase (`` ` ``) fica perto do Enter na maioria dos teclados, às vezes junto
 > com o til. Ache ela agora: você vai usar muito.
 
+> [!TIP]
+> **Poder do TypeScript:** Errou o nome da variável dentro do `${}`? No JavaScript, só ia aparecer um erro
+> com o programa rodando. O TypeScript avisa enquanto você digita:
+>
+> ```ts
+> console.log(`Sua média é ${medai}`)
+> // erro: Cannot find name 'medai'. Did you mean 'media'?
+> ```
+
 {{pratique}}

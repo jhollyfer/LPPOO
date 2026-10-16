@@ -42,4 +42,13 @@ atribuição é um retângulo roxo:
 > O `x++` aparece muito sozinho na linha, contando coisas: um aluno a mais, um
 > gol a mais.
 
+> [!TIP]
+> **Poder do TypeScript:** O atalho `-=` só faz sentido com número. Tente tirar um texto do saldo:
+>
+> ```ts
+> saldo -= 'trinta'
+> // erro: The right-hand side of an arithmetic operation must be of type
+> //       'any', 'number', 'bigint' or an enum type.
+> ```
+
 {{pratique}}

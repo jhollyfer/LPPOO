@@ -26,9 +26,14 @@ muda mais. Repare também que a constante é guardada antes da pergunta:
 
 {{fluxograma}}
 
-> [!TIP]
+> [!NOTE]
 > Na dúvida, comece com `const`. Precisou mudar depois? Troque para `let`.
 > Valor fixo do programa vai em `UPPER_CASE` (`NOME_ESCOLA`, `MEDIA_APROVACAO`);
 > o resto continua em `camelCase` (`nome`).
+
+> [!TIP]
+> **Poder do TypeScript:** Passe o mouse em cima de `NOME_ESCOLA`: o editor mostra
+> `const NOME_ESCOLA: "CETAM"`. Como a constante nunca muda, o tipo dela é
+> exatamente aquele texto, e não qualquer string.
 
 {{pratique}}

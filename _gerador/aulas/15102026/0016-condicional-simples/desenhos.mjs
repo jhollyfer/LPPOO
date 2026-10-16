@@ -1,6 +1,6 @@
 export const ideia = {
   caixas: [
-    { id: 'ini', x: 110, y: 130, w: 320, cor: 'azul', rotulo: 'você digita', texto: ["'sim'"] },
+    { id: 'ini', forma: 'caixinha', x: 110, y: 80, nome: 'resposta', valor: "'sim'", tipo: 'string', w: 300 },
     {
       id: 'p',
       x: 540,
