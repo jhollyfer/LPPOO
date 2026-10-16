@@ -43,8 +43,7 @@ rm -rf ~/LPPOO
 git clone https://github.com/jhollyfer/LPPOO ~/LPPOO
 cd ~/LPPOO
 npm install --global pnpm
-pnpm setup                  # só na primeira vez; depois feche e abra o terminal
-pnpm install --global tsx
+npm install --global tsx
 pnpm install
 ```
 
@@ -227,8 +226,8 @@ Ele provavelmente está esperando você digitar algo no `input`. Olhe a pergunta
 no terminal, digite e aperte Enter.
 
 **`tsx: command not found`**
-O `tsx` global não foi instalado. Rode `npm install --global tsx` e tente de
-novo. Enquanto isso, dá para rodar pelo projeto:
+O `tsx` global não foi instalado (ou foi instalado pelo `pnpm`, numa pasta que o
+seu terminal não conhece). Rode `npm install --global tsx` e tente de novo. Enquanto isso, dá para rodar pelo projeto:
 `pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/A004.ts`.
 
 **Quero sair de um programa travado**

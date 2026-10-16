@@ -71,15 +71,12 @@ cd "$PASTA"
 passo "3/5 Instalando o pnpm e o tsx"
 npm install --global pnpm
 
-# o pnpm precisa de uma pasta para os programas globais (pnpm setup).
-# O setup grava a pasta no .bashrc/.zshrc; aqui a gente já exporta para usar agora.
-export PNPM_HOME="${PNPM_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}/pnpm}"
-# pnpm 10 usa a própria pasta; o pnpm 11+ usa a subpasta bin
-export PATH="$PNPM_HOME/bin:$PNPM_HOME:$PATH"
-pnpm setup >/dev/null 2>&1 || true
-
-# tsx global: "tsx ~/LPPOO/..." roda os arquivos de qualquer pasta do terminal
-pnpm install --global tsx
+# tsx global: "tsx ~/LPPOO/..." roda os arquivos de qualquer pasta do terminal.
+# Vai pelo npm, e não pelo pnpm, de propósito: o npm instala na mesma pasta do
+# node, que já está no PATH. O "pnpm install --global" depende do "pnpm setup"
+# editar o .bashrc/.zshrc, e isso falha em quem usa outra configuração de shell
+# (zsh em ~/.config/zsh, por exemplo).
+npm install --global tsx
 
 # ---------------------------------------------------------------------------
 passo "4/5 Instalando as dependências do projeto"
