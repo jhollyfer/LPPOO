@@ -3,8 +3,8 @@
 > Na entrada do show tem um segurança que faz uma pergunta só: "tem 18 anos ou
 > mais?"
 
-Os operadores **relacionais** comparam dois valores e respondem com um boolean:
-`true` ou `false`. Eles não fazem conta, eles julgam.
+Os operadores relacionais comparam dois valores e respondem com um boolean,
+`true` ou `false`. Fazem o papel do segurança.
 
 O João tem 17 anos. A pergunta do segurança, em código, é `idade >= 18`. Como 17
 não é maior nem igual a 18, a resposta é `false`:

@@ -3,12 +3,11 @@
 > A van da excursão leva 15 pessoas e a turma tem 32. Quantas vans? Se você
 > respondeu 2, alguém ficou na escola.
 
-O **Math** é uma caixa de ferramentas que já vem pronta: arredondar, achar o
-maior, o menor, sortear. Não precisa instalar nada, é só escrever `Math.` e o
-editor mostra tudo.
+O `Math` é uma caixa de ferramentas que já vem pronta no TypeScript. Não precisa
+instalar nada: escreva `Math.` no editor e ele mostra o que tem lá dentro.
 
 `32 / 15` dá `2.13`. Duas vans não bastam, porque sobram 2 alunos. A conta certa
-é arredondar **para cima**, e quem faz isso é o `Math.ceil`:
+é arredondar para cima, e quem faz isso é o `Math.ceil`:
 
 {{ideia}}
 
@@ -22,8 +21,8 @@ console.log(vans) // 3
 {{fluxograma}}
 
 > [!TIP]
-> Para não confundir: **floor** é "chão" em inglês, então arredonda para baixo.
-> **ceil** vem de *ceiling*, "teto", então arredonda para cima.
+> Para não confundir: *floor* é "chão" em inglês, então arredonda para baixo.
+> *ceil* vem de *ceiling*, "teto", então arredonda para cima.
 
 <details>
 <summary>As ferramentas do Math</summary>

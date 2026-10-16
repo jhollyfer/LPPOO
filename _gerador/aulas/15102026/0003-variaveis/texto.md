@@ -18,7 +18,7 @@ gols = 2 // outro gol!
 console.log(gols) // 2
 ```
 
-No fluxograma, cada troca de valor é um retângulo roxo:
+Cada troca de valor vira um retângulo roxo, um embaixo do outro:
 
 {{fluxograma}}
 

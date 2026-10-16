@@ -19,14 +19,14 @@ const limpo = nome.trim() // 'maria'
 console.log(limpo.toUpperCase()) // MARIA
 ```
 
-Cada ferramenta devolve um texto **novo**. A variável `nome` continua com os
-espaços; quem está limpo é o `limpo`. No fluxograma, cada ferramenta é um passo
-roxo:
+Cada ferramenta devolve um texto novo. A variável `nome` continua com os
+espaços; quem está limpo é o `limpo`. Usar uma ferramenta é o programa fazendo
+algo, então vira passo roxo:
 
 {{fluxograma}}
 
 > [!WARNING]
-> Com texto, o `+` não soma, ele **cola**: `'5' + 3` vira `'53'`.
+> Com texto, o `+` cola em vez de somar: `'5' + 3` vira `'53'`.
 
 <details>
 <summary>As ferramentas que mais aparecem</summary>

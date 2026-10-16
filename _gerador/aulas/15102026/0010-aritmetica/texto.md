@@ -6,8 +6,8 @@
 São as contas da escola, com dois símbolos novos: multiplicar é `*` e dividir é
 `/`. E a ordem também é a da escola: primeiro `*` e `/`, depois `+` e `-`.
 
-Por isso `8 + 6 / 2` dá **11**: o programa divide `6 / 2` primeiro e só depois
-soma o 8. Para somar as notas antes de dividir, coloque **parênteses**:
+Por isso `8 + 6 / 2` dá 11: o programa divide `6 / 2` primeiro e só depois
+soma o 8. Para somar as notas antes de dividir, coloque parênteses:
 
 {{ideia}}
 
@@ -35,7 +35,7 @@ console.log(media) // 7
 </details>
 
 > [!TIP]
-> O `%` não tem nada a ver com porcentagem: ele dá o **resto** da divisão. 7
+> O `%` não tem a ver com porcentagem. Ele dá o resto da divisão: 7
 > alunos em duplas formam 3 duplas e sobra 1, então `7 % 2` é `1`.
 
 {{pratique}}

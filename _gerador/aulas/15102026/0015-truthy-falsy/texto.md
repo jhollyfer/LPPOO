@@ -7,8 +7,9 @@ Num `if`, o TypeScript espera `true` ou `false`. Mas você pode colocar qualquer
 valor ali, e ele "acha" se aquilo conta como verdadeiro ou falso. É o fiscal do
 porto olhando a mochila: vazia, ele nem abre; com alguma coisa, ele confere.
 
-Os que contam como falso são poucos, os **falsy**: `false`, `0`, `''` (texto
-vazio), `null`, `undefined` e `NaN`. Todo o resto é **truthy**.
+Os que contam como falso são só seis, e dá para decorar: `false`, `0`, `''`
+(texto vazio), `null`, `undefined` e `NaN`. Esses são os **falsy**. Todo o resto
+é **truthy**.
 
 O aluno apertou Enter direto, então `apelido` é `''`, um texto vazio: falsy. O
 `||` percebe isso e usa o valor padrão:
@@ -23,8 +24,8 @@ const chamar = apelido || 'sem apelido' // '' é falsy, então usa o padrão
 console.log(`Oi, ${chamar}!`) // Oi, sem apelido!
 ```
 
-No fluxograma, essa conferida vira a primeira pergunta de sim ou não da aula, o
-losango amarelo:
+Aqui aparece o primeiro losango amarelo da aula, a primeira pergunta de sim ou
+não:
 
 {{fluxograma}}
 

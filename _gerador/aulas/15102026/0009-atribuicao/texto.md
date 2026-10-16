@@ -3,8 +3,8 @@
 > Você tem 100 reais de crédito no celular. Gastou 30 no pacote de dados e
 > recarregou 20. Quanto sobrou?
 
-Quem guarda um valor na variável é o `=`. Ele não pergunta nada, ele manda: "a
-partir de agora, `saldo` vale 100".
+Quem guarda um valor na variável é o `=`. Ele dá uma ordem: "a partir de agora,
+`saldo` vale 100".
 
 Quando o valor novo depende do antigo, existe atalho. Gastou 30? `saldo -= 30`,
 que lê assim: "pega o que já tem e tira 30". Recarregou 20? `saldo += 20`:
@@ -18,8 +18,8 @@ saldo += 20 // recarregou: 90
 console.log(saldo) // 90
 ```
 
-A variável é a mesma do começo ao fim. No fluxograma, cada atribuição é um
-retângulo roxo, e só o valor dentro da caixa vai mudando:
+A variável é a mesma do começo ao fim, só o valor dentro dela muda. Cada
+atribuição é um retângulo roxo:
 
 {{fluxograma}}
 

@@ -4,7 +4,7 @@
 > tipo só para ela.
 
 O **boolean** tem só dois valores: `true` (verdadeiro) e `false` (falso). É um
-interruptor de luz: ligado ou desligado, sem meio termo.
+interruptor de luz: ou está ligado, ou está desligado.
 
 O programa pergunta "Tem aula hoje?". Você digita `sim`. A comparação
 `resposta === 'sim'` vira `true`, e é esse `true` que fica guardado em `temAula`:
@@ -19,8 +19,8 @@ const temAula = resposta === 'sim' // true
 console.log(temAula) // true
 ```
 
-Ainda não tem losango no fluxograma: a pergunta só **gera** o `true` ou o
-`false` e guarda. Escolher um caminho com ele é trabalho do `if`, na
+Ainda não tem losango no fluxograma. A comparação só gera o `true` ou o `false`
+e guarda. Escolher um caminho com ele é trabalho do `if`, na
 [0016](#0016--condicional-simples-if).
 
 {{fluxograma}}

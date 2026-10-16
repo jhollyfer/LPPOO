@@ -1,9 +1,8 @@
 ## 0019 · Operador ternário
 
-> Dá para escrever um if/else inteiro numa linha só? Dá. E às vezes até fica
-> mais fácil de ler.
+> Dá para escrever um if/else inteiro numa linha só? Dá.
 
-O **ternário** é o if/else de bolso. Ele faz uma pergunta e devolve um de dois
+O ternário é o if/else de bolso. Ele faz uma pergunta e devolve um de dois
 valores:
 
 ```ts
@@ -23,7 +22,7 @@ console.log(situacao) // Aprovado
 
 O fluxograma é o mesmo desenho do if/else da
 [0017](#0017--condicional-composta-if--else). A diferença é que os dois
-caminhos não mostram nada: eles **guardam um valor** em `situacao`, e só no fim
+caminhos não mostram nada. Eles guardam um valor em `situacao`, e só no fim
 o programa mostra:
 
 {{fluxograma}}

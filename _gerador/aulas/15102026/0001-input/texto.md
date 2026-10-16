@@ -3,7 +3,7 @@
 > Um programa que só fala e nunca escuta é igual àquele colega que manda áudio de
 > 5 minutos e não lê a resposta. Hoje o programa aprende a ouvir.
 
-Entrada é o momento em que o programa **para, pergunta e espera**. Pense no
+Entrada é quando o programa para, faz uma pergunta e espera. Pense no
 caixa da cantina: ele pergunta "vai querer o quê?" e só segue depois que você
 responde.
 
@@ -22,13 +22,13 @@ const nome = input('Seu nome: ') // a Ana digita: Ana
 console.log(nome) // Ana
 ```
 
-No fluxograma, a entrada e a saída são paralelogramos azuis. O caminho é curto:
-pergunta, guarda, mostra.
+O fluxograma é curtinho. Ler e mostrar são paralelogramos azuis, porque é dado
+entrando e saindo.
 
 {{fluxograma}}
 
 > [!IMPORTANT]
-> O `input` **sempre devolve texto**. Se a Ana digitar `17`, o programa guarda
+> O `input` sempre devolve texto. Se a Ana digitar `17`, o programa guarda
 > `'17'`, entre aspas. Fazer conta com isso é assunto da [0008](#0008--conversão-de-tipos).
 
 {{pratique}}

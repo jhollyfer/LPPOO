@@ -3,7 +3,7 @@
 > Caixa eletrônico: "digite 1 para saldo, 2 para depósito, 3 para sair". Quem
 > decide o que acontece depois de cada número?
 
-O `switch` pega **um valor** e procura a opção igual numa lista. Achou (com
+O `switch` pega um valor e procura a opção igual numa lista. Achou (com
 `===`), roda o que está ali. É o cardápio da lanchonete: você fala o número do
 combo e a atendente já sabe o que montar.
 
@@ -36,8 +36,8 @@ switch (opcao) {
 }
 ```
 
-No fluxograma, o `switch` é um losango com uma saída para cada `case`, mais uma
-para o `default`:
+O `switch` vira um losango com uma saída para cada `case`, mais uma para o
+`default`:
 
 {{fluxograma}}
 

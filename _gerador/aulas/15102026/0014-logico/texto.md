@@ -2,10 +2,10 @@
 
 > Para passar de ano não basta tirar nota boa. Também precisa ter frequência.
 
-Os operadores **lógicos** juntam várias respostas `true`/`false` numa só:
+Os operadores lógicos juntam várias respostas `true`/`false` numa só:
 
-- `&&` (E): dá `true` só quando os **dois** lados são `true`.
-- `||` (OU): dá `true` quando **pelo menos um** lado é `true`.
+- `&&` (E): dá `true` só quando os dois lados são `true`.
+- `||` (OU): dá `true` quando pelo menos um lado é `true`.
 - `!` (NÃO): inverte. `!true` é `false`.
 
 O Pedro tem média 7 (boa: `true`) mas frequência 60% (ruim: `false`). Com `&&`,

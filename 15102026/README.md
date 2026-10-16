@@ -2,27 +2,25 @@
 
 # Aula 01 · 15/10 · Revisão de lógica I
 
-Hoje a gente relembra o básico que todo programa usa: receber dados, guardar,
-fazer conta, comparar e decidir. São 20 assuntos curtos, um puxando o outro.
+Hoje a gente relembra o básico que quase todo programa usa: ler o que a pessoa
+digita, guardar, fazer conta, comparar e decidir. São 20 assuntos curtos, e
+cada um aproveita o anterior.
 
-Cada assunto conta **uma história só**, do começo ao fim: o texto explica, o
-**diagrama da ideia** mostra a mesma história em caixas, o código escreve ela em
-TypeScript e o **fluxograma** desenha o caminho que esse código faz. Os valores
-são os mesmos em todos eles: se o texto fala de `media = 7`, o desenho e o
-código também falam.
+Cada assunto gira em torno de um exemplo só. Primeiro vem o texto, depois um
+**diagrama da ideia** com esse exemplo em caixas, o código em TypeScript e, por
+fim, o **fluxograma** com o caminho que o código percorre. Se a Bia tem média 5
+no texto, ela tem média 5 no desenho e no código também.
 
 ## As cores e as formas
 
-Os dois desenhos usam o mesmo código de cores. Olhou para uma caixa azul, é um
-dado entrando ou saindo; roxa, o programa fazendo alguma coisa; amarela, uma
-pergunta.
+Os dois desenhos usam as mesmas cores. Caixa azul é dado entrando ou saindo.
+Roxa é o programa fazendo alguma coisa. Amarela é pergunta.
 
 <p align="center"><img src="legenda.svg" alt="Legenda: formas e cores do fluxograma" width="916"></p>
 
-No diagrama da ideia, o caminho que o exemplo segue e o resultado aparecem em
-**verde**. Os caminhos que ele não segue ficam em cinza, e um erro fica em
-vermelho. No fluxograma é igual: o caminho do exemplo fica colorido e o resto
-fica apagado, em cinza.
+No diagrama da ideia, o caminho que o exemplo segue aparece em verde, e os
+outros ficam cinza. Erro é vermelho. No fluxograma vale a mesma regra: o
+caminho do exemplo fica colorido e o resto fica apagado.
 
 ## Os assuntos
 
@@ -58,7 +56,7 @@ Leia na ordem. Em cada um, depois de ler, abra a pasta e rode os exemplos.
 > Um programa que só fala e nunca escuta é igual àquele colega que manda áudio de
 > 5 minutos e não lê a resposta. Hoje o programa aprende a ouvir.
 
-Entrada é o momento em que o programa **para, pergunta e espera**. Pense no
+Entrada é quando o programa para, faz uma pergunta e espera. Pense no
 caixa da cantina: ele pergunta "vai querer o quê?" e só segue depois que você
 responde.
 
@@ -77,13 +75,13 @@ const nome = input('Seu nome: ') // a Ana digita: Ana
 console.log(nome) // Ana
 ```
 
-No fluxograma, a entrada e a saída são paralelogramos azuis. O caminho é curto:
-pergunta, guarda, mostra.
+O fluxograma é curtinho. Ler e mostrar são paralelogramos azuis, porque é dado
+entrando e saindo.
 
 <p align="center"><img src="0001-input/fluxograma.svg" alt="Fluxograma: Entrada de dados (input)" width="668"></p>
 
 > [!IMPORTANT]
-> O `input` **sempre devolve texto**. Se a Ana digitar `17`, o programa guarda
+> O `input` sempre devolve texto. Se a Ana digitar `17`, o programa guarda
 > `'17'`, entre aspas. Fazer conta com isso é assunto da [0008](#0008--conversão-de-tipos).
 
 > [!NOTE]
@@ -99,8 +97,8 @@ pergunta, guarda, mostra.
 
 > Se o programa calcula a média e não mostra, calculou para quem?
 
-Saída é o programa **mostrando** alguma coisa para você. No terminal, quem faz
-isso é o `console.log`: o que estiver entre os parênteses aparece na tela.
+Saída é o programa mostrando alguma coisa para você. No terminal, quem faz isso
+é o `console.log`: o que estiver entre os parênteses aparece na tela.
 
 A média já está guardada: `media` vale `7.5`. Agora a gente quer mostrar uma
 frase inteira, com o número encaixado no meio. Para isso existe a **template
@@ -113,8 +111,8 @@ const media = 7.5
 console.log(`Sua média é ${media}`) // Sua média é 7.5
 ```
 
-No fluxograma, guardar a média é um retângulo roxo (o programa fazendo algo) e
-mostrar a frase é um paralelogramo azul (saída).
+Guardar a média é o programa fazendo algo, então vira retângulo roxo. Mostrar a
+frase é saída: paralelogramo azul.
 
 <p align="center"><img src="0002-output/fluxograma.svg" alt="Fluxograma: Saída de dados (output)" width="665"></p>
 
@@ -151,7 +149,7 @@ gols = 2 // outro gol!
 console.log(gols) // 2
 ```
 
-No fluxograma, cada troca de valor é um retângulo roxo:
+Cada troca de valor vira um retângulo roxo, um embaixo do outro:
 
 <p align="center"><img src="0003-variaveis/fluxograma.svg" alt="Fluxograma: Variáveis" width="944"></p>
 
@@ -179,8 +177,8 @@ E o `var`? É o jeito antigo, e causa bug difícil de achar. A gente não usa.
 Se a variável é uma caixa que troca de conteúdo, a **constante** é uma caixa
 lacrada. Colocou o valor, acabou. Ela nasce com `const`.
 
-O nome da escola é `'CETAM'` e vai continuar sendo. Se alguém tentar trocar, o
-TypeScript reclama na hora, antes mesmo de rodar:
+O nome da escola é `'CETAM'`. Se alguém tentar trocar, o TypeScript reclama
+na hora, antes mesmo de o programa rodar:
 
 <p align="center"><img src="0004-constantes/ideia.svg" alt="Diagrama da ideia: Constantes" width="864"></p>
 
@@ -196,7 +194,7 @@ console.log(`${nome} estuda no ${NOME_ESCOLA}`) // Ana estuda no CETAM
 ```
 
 Repare que `nome` também é `const`: a resposta do `input` chega uma vez e não
-muda mais. No fluxograma, a constante é guardada antes da pergunta:
+muda mais. Repare também que a constante é guardada antes da pergunta:
 
 <p align="center"><img src="0004-constantes/fluxograma.svg" alt="Fluxograma: Constantes" width="966"></p>
 
@@ -235,14 +233,14 @@ const limpo = nome.trim() // 'maria'
 console.log(limpo.toUpperCase()) // MARIA
 ```
 
-Cada ferramenta devolve um texto **novo**. A variável `nome` continua com os
-espaços; quem está limpo é o `limpo`. No fluxograma, cada ferramenta é um passo
-roxo:
+Cada ferramenta devolve um texto novo. A variável `nome` continua com os
+espaços; quem está limpo é o `limpo`. Usar uma ferramenta é o programa fazendo
+algo, então vira passo roxo:
 
 <p align="center"><img src="0005-texto/fluxograma.svg" alt="Fluxograma: Texto (string)" width="975"></p>
 
 > [!WARNING]
-> Com texto, o `+` não soma, ele **cola**: `'5' + 3` vira `'53'`.
+> Com texto, o `+` cola em vez de somar: `'5' + 3` vira `'53'`.
 
 <details>
 <summary>As ferramentas que mais aparecem</summary>
@@ -273,7 +271,7 @@ roxo:
 > número, e o programa precisa saber fazer conta com eles.
 
 Número, no TypeScript, se chama **number**. Não tem um tipo para inteiro e outro
-para decimal: `17`, `-3` e `12.5` são todos `number`. E o decimal usa **ponto**,
+para decimal: `17`, `-3` e `12.5` são todos `number`. E o decimal usa ponto,
 igual à calculadora do celular: `12.5`, não `12,5`.
 
 O açaí custa `12.5`. Para mostrar como dinheiro, com dois números depois do
@@ -290,7 +288,7 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 <p align="center"><img src="0006-numero/fluxograma.svg" alt="Fluxograma: Número (number)" width="1071"></p>
 
 > [!NOTE]
-> O `.toFixed` devolve **texto**, pronto para mostrar. Para fazer mais contas,
+> O `.toFixed` devolve texto, pronto para mostrar. Para fazer mais contas,
 > continue usando o `preco`.
 
 > [!WARNING]
@@ -312,7 +310,7 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 > tipo só para ela.
 
 O **boolean** tem só dois valores: `true` (verdadeiro) e `false` (falso). É um
-interruptor de luz: ligado ou desligado, sem meio termo.
+interruptor de luz: ou está ligado, ou está desligado.
 
 O programa pergunta "Tem aula hoje?". Você digita `sim`. A comparação
 `resposta === 'sim'` vira `true`, e é esse `true` que fica guardado em `temAula`:
@@ -327,8 +325,8 @@ const temAula = resposta === 'sim' // true
 console.log(temAula) // true
 ```
 
-Ainda não tem losango no fluxograma: a pergunta só **gera** o `true` ou o
-`false` e guarda. Escolher um caminho com ele é trabalho do `if`, na
+Ainda não tem losango no fluxograma. A comparação só gera o `true` ou o `false`
+e guarda. Escolher um caminho com ele é trabalho do `if`, na
 [0016](#0016--condicional-simples-if).
 
 <p align="center"><img src="0007-booleano/fluxograma.svg" alt="Fluxograma: Booleano (boolean), typeof, null e undefined" width="1056"></p>
@@ -357,10 +355,10 @@ E tem dois valores especiais que querem dizer "nada":
 > Você digitou 17, pediu para somar 1 e o programa respondeu 171. Hoje a gente
 > descobre por quê.
 
-Lembra que o `input` sempre devolve **texto**? Você digitou `17`, mas o programa
+Lembra que o `input` sempre devolve texto? Você digitou `17`, mas o programa
 guardou `'17'`. E com texto o `+` cola: `'17' + 1` vira `'171'`.
 
-A saída é **converter**: transformar o texto em número antes da conta. O
+O jeito é converter: transformar o texto em número antes da conta. O
 `Number('17')` faz isso e devolve `17`, um número de verdade:
 
 <p align="center"><img src="0008-conversao/ideia.svg" alt="Diagrama da ideia: Conversão de tipos" width="864"></p>
@@ -374,8 +372,8 @@ console.log(idade + 1) // 18
 ```
 
 Na prática a gente faz tudo numa linha só: `Number(input('Sua idade: '))`. O
-fluxograma mostra o passo do meio, que é o que importa: chega texto, vira
-número, aí sim faz a conta.
+fluxograma separa em passos para dar para ver: chega texto, vira número, aí sim
+faz a conta.
 
 <p align="center"><img src="0008-conversao/fluxograma.svg" alt="Fluxograma: Conversão de tipos" width="984"></p>
 
@@ -408,8 +406,8 @@ número, aí sim faz a conta.
 > Você tem 100 reais de crédito no celular. Gastou 30 no pacote de dados e
 > recarregou 20. Quanto sobrou?
 
-Quem guarda um valor na variável é o `=`. Ele não pergunta nada, ele manda: "a
-partir de agora, `saldo` vale 100".
+Quem guarda um valor na variável é o `=`. Ele dá uma ordem: "a partir de agora,
+`saldo` vale 100".
 
 Quando o valor novo depende do antigo, existe atalho. Gastou 30? `saldo -= 30`,
 que lê assim: "pega o que já tem e tira 30". Recarregou 20? `saldo += 20`:
@@ -423,8 +421,8 @@ saldo += 20 // recarregou: 90
 console.log(saldo) // 90
 ```
 
-A variável é a mesma do começo ao fim. No fluxograma, cada atribuição é um
-retângulo roxo, e só o valor dentro da caixa vai mudando:
+A variável é a mesma do começo ao fim, só o valor dentro dela muda. Cada
+atribuição é um retângulo roxo:
 
 <p align="center"><img src="0009-atribuicao/fluxograma.svg" alt="Fluxograma: Operadores de atribuição" width="1021"></p>
 
@@ -464,8 +462,8 @@ retângulo roxo, e só o valor dentro da caixa vai mudando:
 São as contas da escola, com dois símbolos novos: multiplicar é `*` e dividir é
 `/`. E a ordem também é a da escola: primeiro `*` e `/`, depois `+` e `-`.
 
-Por isso `8 + 6 / 2` dá **11**: o programa divide `6 / 2` primeiro e só depois
-soma o 8. Para somar as notas antes de dividir, coloque **parênteses**:
+Por isso `8 + 6 / 2` dá 11: o programa divide `6 / 2` primeiro e só depois
+soma o 8. Para somar as notas antes de dividir, coloque parênteses:
 
 <p align="center"><img src="0010-aritmetica/ideia.svg" alt="Diagrama da ideia: Operadores aritméticos" width="864"></p>
 
@@ -493,7 +491,7 @@ console.log(media) // 7
 </details>
 
 > [!TIP]
-> O `%` não tem nada a ver com porcentagem: ele dá o **resto** da divisão. 7
+> O `%` não tem a ver com porcentagem. Ele dá o resto da divisão: 7
 > alunos em duplas formam 3 duplas e sobra 1, então `7 % 2` é `1`.
 
 > [!NOTE]
@@ -510,12 +508,11 @@ console.log(media) // 7
 > A van da excursão leva 15 pessoas e a turma tem 32. Quantas vans? Se você
 > respondeu 2, alguém ficou na escola.
 
-O **Math** é uma caixa de ferramentas que já vem pronta: arredondar, achar o
-maior, o menor, sortear. Não precisa instalar nada, é só escrever `Math.` e o
-editor mostra tudo.
+O `Math` é uma caixa de ferramentas que já vem pronta no TypeScript. Não precisa
+instalar nada: escreva `Math.` no editor e ele mostra o que tem lá dentro.
 
 `32 / 15` dá `2.13`. Duas vans não bastam, porque sobram 2 alunos. A conta certa
-é arredondar **para cima**, e quem faz isso é o `Math.ceil`:
+é arredondar para cima, e quem faz isso é o `Math.ceil`:
 
 <p align="center"><img src="0011-math/ideia.svg" alt="Diagrama da ideia: Objeto Math" width="864"></p>
 
@@ -529,8 +526,8 @@ console.log(vans) // 3
 <p align="center"><img src="0011-math/fluxograma.svg" alt="Fluxograma: Objeto Math" width="1062"></p>
 
 > [!TIP]
-> Para não confundir: **floor** é "chão" em inglês, então arredonda para baixo.
-> **ceil** vem de *ceiling*, "teto", então arredonda para cima.
+> Para não confundir: *floor* é "chão" em inglês, então arredonda para baixo.
+> *ceil* vem de *ceiling*, "teto", então arredonda para cima.
 
 <details>
 <summary>As ferramentas do Math</summary>
@@ -560,8 +557,8 @@ console.log(vans) // 3
 > Na entrada do show tem um segurança que faz uma pergunta só: "tem 18 anos ou
 > mais?"
 
-Os operadores **relacionais** comparam dois valores e respondem com um boolean:
-`true` ou `false`. Eles não fazem conta, eles julgam.
+Os operadores relacionais comparam dois valores e respondem com um boolean,
+`true` ou `false`. Fazem o papel do segurança.
 
 O João tem 17 anos. A pergunta do segurança, em código, é `idade >= 18`. Como 17
 não é maior nem igual a 18, a resposta é `false`:
@@ -605,8 +602,8 @@ ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
 > Você digita a senha do Wi-Fi da escola e o celular diz "senha incorreta".
 > Alguém comparou o que você digitou com a senha certa.
 
-Para perguntar se dois valores são **iguais**, o TypeScript usa `===`. Para
-perguntar se são **diferentes**, `!==`. A resposta, de novo, é `true` ou
+Para perguntar se dois valores são iguais, o TypeScript usa `===`. Para
+perguntar se são diferentes, `!==`. A resposta, de novo, é `true` ou
 `false`.
 
 A senha do Wi-Fi é `'cetam2026'`. Você digitou certinho, então
@@ -627,7 +624,7 @@ console.log(acertou) // true
 
 > [!IMPORTANT]
 > Por que três sinais? Existe o `==`, que converte os tipos antes de comparar:
-> `5 == '5'` dá `true` e o erro passa batido. O `===` compara o valor **e** o
+> `5 == '5'` dá `true` e o erro passa batido. O `===` compara o valor e o
 > tipo, então `5 === '5'` dá `false`. Aqui é sempre `===` e `!==`.
 
 > [!TIP]
@@ -647,10 +644,10 @@ console.log(acertou) // true
 
 > Para passar de ano não basta tirar nota boa. Também precisa ter frequência.
 
-Os operadores **lógicos** juntam várias respostas `true`/`false` numa só:
+Os operadores lógicos juntam várias respostas `true`/`false` numa só:
 
-- `&&` (E): dá `true` só quando os **dois** lados são `true`.
-- `||` (OU): dá `true` quando **pelo menos um** lado é `true`.
+- `&&` (E): dá `true` só quando os dois lados são `true`.
+- `||` (OU): dá `true` quando pelo menos um lado é `true`.
 - `!` (NÃO): inverte. `!true` é `false`.
 
 O Pedro tem média 7 (boa: `true`) mas frequência 60% (ruim: `false`). Com `&&`,
@@ -703,8 +700,9 @@ Num `if`, o TypeScript espera `true` ou `false`. Mas você pode colocar qualquer
 valor ali, e ele "acha" se aquilo conta como verdadeiro ou falso. É o fiscal do
 porto olhando a mochila: vazia, ele nem abre; com alguma coisa, ele confere.
 
-Os que contam como falso são poucos, os **falsy**: `false`, `0`, `''` (texto
-vazio), `null`, `undefined` e `NaN`. Todo o resto é **truthy**.
+Os que contam como falso são só seis, e dá para decorar: `false`, `0`, `''`
+(texto vazio), `null`, `undefined` e `NaN`. Esses são os **falsy**. Todo o resto
+é **truthy**.
 
 O aluno apertou Enter direto, então `apelido` é `''`, um texto vazio: falsy. O
 `||` percebe isso e usa o valor padrão:
@@ -719,8 +717,8 @@ const chamar = apelido || 'sem apelido' // '' é falsy, então usa o padrão
 console.log(`Oi, ${chamar}!`) // Oi, sem apelido!
 ```
 
-No fluxograma, essa conferida vira a primeira pergunta de sim ou não da aula, o
-losango amarelo:
+Aqui aparece o primeiro losango amarelo da aula, a primeira pergunta de sim ou
+não:
 
 <p align="center"><img src="0015-truthy-falsy/fluxograma.svg" alt="Fluxograma: Truthy, falsy, ?? e ?." width="502"></p>
 
@@ -745,10 +743,9 @@ losango amarelo:
 ## 0016 · Condicional simples (if)
 
 > Você só leva o guarda-chuva se o céu estiver feio. Sol? Sai de mãos vazias.
-> Seu programa também pode pensar assim.
 
 Até agora todo programa rodava linha por linha, do começo ao fim, sem pular
-nada. Com o `if` (se), ele passa a **decidir**: o bloco entre `{ }` só roda se a
+nada. Com o `if` (se), ele passa a decidir: o bloco entre `{ }` só roda se a
 condição for verdadeira. Se for falsa, o programa pula o bloco e segue a vida.
 
 O programa pergunta "Vai chover?". Você responde `sim`, a condição dá `true` e
@@ -768,8 +765,8 @@ if (resposta === 'sim') {
 console.log('Bom dia!') // roda sempre
 ```
 
-No fluxograma, o `if` é o losango. Só o caminho do **Sim** tem uma tarefa a
-mais; o **Não** segue reto até o "Bom dia!":
+O `if` vira o losango. Só o caminho do Sim tem uma tarefa a mais; o Não vai
+direto para o "Bom dia!":
 
 <p align="center"><img src="0016-condicional-simples/fluxograma.svg" alt="Fluxograma: Condicional simples (if)" width="380"></p>
 
@@ -785,11 +782,11 @@ mais; o **Não** segue reto até o "Bom dia!":
 ## 0017 · Condicional composta (if / else)
 
 > Ou você está no porto às 6h e embarca no recreio para Tabatinga, ou fica em
-> terra. Não tem meio termo.
+> terra vendo o barco sair.
 
 O `if` sozinho só sabe fazer uma coisa a mais. Com o `else` (senão), o programa
-ganha um **plano B**: se a condição for verdadeira, roda o bloco do `if`; se for
-falsa, roda o bloco do `else`. Sempre um dos dois, nunca os dois juntos.
+ganha um plano B: se a condição for verdadeira, roda o bloco do `if`; se for
+falsa, roda o bloco do `else`. Um dos dois sempre roda, e só um.
 
 Você chegou ao porto às 5h. `5 <= 6` é `true`, então o caminho é o do `if`:
 embarcou!
@@ -808,8 +805,8 @@ if (hora <= 6) {
 }
 ```
 
-No fluxograma, os dois caminhos saem do mesmo losango e se encontram de novo no
-fim. O programa passa por **exatamente um** deles:
+Os dois caminhos saem do mesmo losango e se encontram de novo no fim. O
+programa passa por um deles:
 
 <p align="center"><img src="0017-condicional-composta/fluxograma.svg" alt="Fluxograma: Condicional composta (if / else)" width="524"></p>
 
@@ -828,7 +825,7 @@ fim. O programa passa por **exatamente um** deles:
 > meio do caminho.
 
 Quando tem mais de dois caminhos, entra o `else if` (senão se). O programa testa
-as condições **de cima para baixo** e para na primeira que for verdadeira. O
+as condições de cima para baixo e para na primeira que for verdadeira. O
 `else` do final pega quem sobrou.
 
 A média da Bia é 5. Primeira pergunta: `5 >= 6`? Não. Segunda: `5 >= 4`? Sim:
@@ -848,8 +845,7 @@ if (media >= 6) {
 }
 ```
 
-No fluxograma, cada `else if` é mais um losango pendurado no **Não** do
-anterior:
+Cada `else if` é mais um losango, pendurado no Não do anterior:
 
 <p align="center"><img src="0018-condicional-aninhada/fluxograma.svg" alt="Fluxograma: Condicional aninhada (else if e if dentro de if)" width="838"></p>
 
@@ -869,10 +865,9 @@ anterior:
 
 ## 0019 · Operador ternário
 
-> Dá para escrever um if/else inteiro numa linha só? Dá. E às vezes até fica
-> mais fácil de ler.
+> Dá para escrever um if/else inteiro numa linha só? Dá.
 
-O **ternário** é o if/else de bolso. Ele faz uma pergunta e devolve um de dois
+O ternário é o if/else de bolso. Ele faz uma pergunta e devolve um de dois
 valores:
 
 ```ts
@@ -892,7 +887,7 @@ console.log(situacao) // Aprovado
 
 O fluxograma é o mesmo desenho do if/else da
 [0017](#0017--condicional-composta-if--else). A diferença é que os dois
-caminhos não mostram nada: eles **guardam um valor** em `situacao`, e só no fim
+caminhos não mostram nada. Eles guardam um valor em `situacao`, e só no fim
 o programa mostra:
 
 <p align="center"><img src="0019-ternario/fluxograma.svg" alt="Fluxograma: Operador ternário" width="547"></p>
@@ -915,7 +910,7 @@ o programa mostra:
 > Caixa eletrônico: "digite 1 para saldo, 2 para depósito, 3 para sair". Quem
 > decide o que acontece depois de cada número?
 
-O `switch` pega **um valor** e procura a opção igual numa lista. Achou (com
+O `switch` pega um valor e procura a opção igual numa lista. Achou (com
 `===`), roda o que está ali. É o cardápio da lanchonete: você fala o número do
 combo e a atendente já sabe o que montar.
 
@@ -948,8 +943,8 @@ switch (opcao) {
 }
 ```
 
-No fluxograma, o `switch` é um losango com uma saída para cada `case`, mais uma
-para o `default`:
+O `switch` vira um losango com uma saída para cada `case`, mais uma para o
+`default`:
 
 <p align="center"><img src="0020-escolha/fluxograma.svg" alt="Fluxograma: Estrutura de escolha (switch)" width="1070"></p>
 

@@ -5,8 +5,8 @@
 Se a variável é uma caixa que troca de conteúdo, a **constante** é uma caixa
 lacrada. Colocou o valor, acabou. Ela nasce com `const`.
 
-O nome da escola é `'CETAM'` e vai continuar sendo. Se alguém tentar trocar, o
-TypeScript reclama na hora, antes mesmo de rodar:
+O nome da escola é `'CETAM'`. Se alguém tentar trocar, o TypeScript reclama
+na hora, antes mesmo de o programa rodar:
 
 {{ideia}}
 
@@ -22,7 +22,7 @@ console.log(`${nome} estuda no ${NOME_ESCOLA}`) // Ana estuda no CETAM
 ```
 
 Repare que `nome` também é `const`: a resposta do `input` chega uma vez e não
-muda mais. No fluxograma, a constante é guardada antes da pergunta:
+muda mais. Repare também que a constante é guardada antes da pergunta:
 
 {{fluxograma}}
 

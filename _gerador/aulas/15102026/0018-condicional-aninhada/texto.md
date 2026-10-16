@@ -4,7 +4,7 @@
 > meio do caminho.
 
 Quando tem mais de dois caminhos, entra o `else if` (senão se). O programa testa
-as condições **de cima para baixo** e para na primeira que for verdadeira. O
+as condições de cima para baixo e para na primeira que for verdadeira. O
 `else` do final pega quem sobrou.
 
 A média da Bia é 5. Primeira pergunta: `5 >= 6`? Não. Segunda: `5 >= 4`? Sim:
@@ -24,8 +24,7 @@ if (media >= 6) {
 }
 ```
 
-No fluxograma, cada `else if` é mais um losango pendurado no **Não** do
-anterior:
+Cada `else if` é mais um losango, pendurado no Não do anterior:
 
 {{fluxograma}}
 

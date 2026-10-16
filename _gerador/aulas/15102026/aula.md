@@ -1,26 +1,24 @@
 # Aula 01 · 15/10 · Revisão de lógica I
 
-Hoje a gente relembra o básico que todo programa usa: receber dados, guardar,
-fazer conta, comparar e decidir. São 20 assuntos curtos, um puxando o outro.
+Hoje a gente relembra o básico que quase todo programa usa: ler o que a pessoa
+digita, guardar, fazer conta, comparar e decidir. São 20 assuntos curtos, e
+cada um aproveita o anterior.
 
-Cada assunto conta **uma história só**, do começo ao fim: o texto explica, o
-**diagrama da ideia** mostra a mesma história em caixas, o código escreve ela em
-TypeScript e o **fluxograma** desenha o caminho que esse código faz. Os valores
-são os mesmos em todos eles: se o texto fala de `media = 7`, o desenho e o
-código também falam.
+Cada assunto gira em torno de um exemplo só. Primeiro vem o texto, depois um
+**diagrama da ideia** com esse exemplo em caixas, o código em TypeScript e, por
+fim, o **fluxograma** com o caminho que o código percorre. Se a Bia tem média 5
+no texto, ela tem média 5 no desenho e no código também.
 
 ## As cores e as formas
 
-Os dois desenhos usam o mesmo código de cores. Olhou para uma caixa azul, é um
-dado entrando ou saindo; roxa, o programa fazendo alguma coisa; amarela, uma
-pergunta.
+Os dois desenhos usam as mesmas cores. Caixa azul é dado entrando ou saindo.
+Roxa é o programa fazendo alguma coisa. Amarela é pergunta.
 
 <p align="center"><img src="legenda.svg" alt="Legenda: formas e cores do fluxograma" width="916"></p>
 
-No diagrama da ideia, o caminho que o exemplo segue e o resultado aparecem em
-**verde**. Os caminhos que ele não segue ficam em cinza, e um erro fica em
-vermelho. No fluxograma é igual: o caminho do exemplo fica colorido e o resto
-fica apagado, em cinza.
+No diagrama da ideia, o caminho que o exemplo segue aparece em verde, e os
+outros ficam cinza. Erro é vermelho. No fluxograma vale a mesma regra: o
+caminho do exemplo fica colorido e o resto fica apagado.
 
 ## Os assuntos
 

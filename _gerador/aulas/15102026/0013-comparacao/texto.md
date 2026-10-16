@@ -3,8 +3,8 @@
 > Você digita a senha do Wi-Fi da escola e o celular diz "senha incorreta".
 > Alguém comparou o que você digitou com a senha certa.
 
-Para perguntar se dois valores são **iguais**, o TypeScript usa `===`. Para
-perguntar se são **diferentes**, `!==`. A resposta, de novo, é `true` ou
+Para perguntar se dois valores são iguais, o TypeScript usa `===`. Para
+perguntar se são diferentes, `!==`. A resposta, de novo, é `true` ou
 `false`.
 
 A senha do Wi-Fi é `'cetam2026'`. Você digitou certinho, então
@@ -25,7 +25,7 @@ console.log(acertou) // true
 
 > [!IMPORTANT]
 > Por que três sinais? Existe o `==`, que converte os tipos antes de comparar:
-> `5 == '5'` dá `true` e o erro passa batido. O `===` compara o valor **e** o
+> `5 == '5'` dá `true` e o erro passa batido. O `===` compara o valor e o
 > tipo, então `5 === '5'` dá `false`. Aqui é sempre `===` e `!==`.
 
 > [!TIP]
