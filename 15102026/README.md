@@ -3,8 +3,9 @@
 # Aula 01 · 15/10 · Revisão de lógica I
 
 Hoje a gente relembra o básico que quase todo programa usa: ler o que a pessoa
-digita, guardar, fazer conta, comparar e decidir. São 20 assuntos curtos, e
-cada um aproveita o anterior.
+digita, guardar, fazer conta, comparar e decidir. Antes, um assunto zero conta
+como o TypeScript funciona e por que ele foi o escolhido. Depois vêm 20
+assuntos curtos, e cada um aproveita o anterior.
 
 Cada assunto gira em torno de um exemplo só. Primeiro vem o texto, depois um
 **diagrama da ideia** com esse exemplo em caixas, o código em TypeScript e, por
@@ -46,6 +47,7 @@ Leia na ordem. Em cada um, depois de ler, abra a pasta e rode os exemplos.
 
 | # | Assunto | Pasta |
 | --- | --- | --- |
+| [0000](#0000--como-o-typescript-funciona-e-por-que-ele) | Como o TypeScript funciona (e por que ele) | [`0000-typescript/`](0000-typescript/) |
 | [0001](#0001--entrada-de-dados-input) | Entrada de dados (input) | [`0001-input/`](0001-input/) |
 | [0002](#0002--saída-de-dados-output) | Saída de dados (output) | [`0002-output/`](0002-output/) |
 | [0003](#0003--variáveis) | Variáveis | [`0003-variaveis/`](0003-variaveis/) |
@@ -66,6 +68,74 @@ Leia na ordem. Em cada um, depois de ler, abra a pasta e rode os exemplos.
 | [0018](#0018--condicional-aninhada-else-if-e-if-dentro-de-if) | Condicional aninhada (else if e if dentro de if) | [`0018-condicional-aninhada/`](0018-condicional-aninhada/) |
 | [0019](#0019--operador-ternário) | Operador ternário | [`0019-ternario/`](0019-ternario/) |
 | [0020](#0020--estrutura-de-escolha-switch) | Estrutura de escolha (switch) | [`0020-escolha/`](0020-escolha/) |
+
+---
+
+## 0000 · Como o TypeScript funciona (e por que ele)
+
+> O JavaScript deixa você errar à vontade e só reclama com o programa rodando,
+> às vezes já na mão de quem está usando. O TypeScript reclama antes.
+
+TypeScript é **JavaScript com tipos**. Você escreve o mesmo JavaScript de
+sempre e, quando quiser, diz o tipo de cada coisa: `const preco: number = 12.5`
+quer dizer "preço é um número".
+
+Só que o Node e o navegador não entendem `: number`. Eles só leem JavaScript.
+Então todo arquivo `.ts` passa por duas etapas antes de rodar: o TypeScript
+confere se os tipos batem e depois apaga os tipos, deixando JavaScript puro
+para o Node.
+
+<p align="center"><img src="0000-typescript/ideia.svg" alt="Diagrama da ideia: Como o TypeScript funciona (e por que ele)" width="960"></p>
+
+```ts
+const preco: number = 12.5
+console.log(preco.toFixed(2)) // 12.50
+
+// const troco: number = 'dez reais'
+// erro: Type 'string' is not assignable to type 'number'.
+```
+
+Quando os tipos não batem, o caminho volta para você: o editor sublinha em
+vermelho, você corrige e tenta de novo. Só código conferido segue para o Node.
+
+<p align="center"><img src="0000-typescript/fluxograma.svg" alt="Fluxograma: Como o TypeScript funciona (e por que ele)" width="485"></p>
+
+Na memória não sobra nada do `: number`. Quando o programa roda, os tipos já
+foram apagados, e a gaveta guarda só o valor. Toda a proteção do TypeScript
+acontece antes, enquanto você escreve:
+
+<p align="center"><img src="0000-typescript/memoria.svg" alt="Memória: Como o TypeScript funciona (e por que ele)" width="893"></p>
+
+> [!IMPORTANT]
+> O `pnpm tsx`, que a gente usa para rodar os arquivos, **não confere tipos**.
+> Ele apaga os tipos e roda. Com `const total: number = '10' + 5`, ele mostra
+> `105` sem reclamar. Quem confere é o editor, enquanto você digita, e o
+> `pnpm tsc`, que olha o projeto inteiro. Na dúvida, rode `pnpm tsc` antes de
+> entregar um exercício.
+
+### Por que TypeScript nesta disciplina?
+
+A orientação a objetos é a mesma em Java, C# ou TypeScript: classe, objeto,
+herança, interface. O que muda é a escrita. A gente escolheu TypeScript por
+quatro motivos:
+
+- **É a língua do próximo semestre.** A disciplina seguinte é Web/Frontend, com
+  React e Vite, e o back-end com Node também é JavaScript. Você aprende POO
+  agora e chega lá falando a mesma língua.
+- **Avisa o erro antes de rodar.** Errou o nome de um método ou colocou texto
+  onde era número? O editor mostra na hora, sem precisar rodar o programa.
+- **Tem tudo que a POO precisa.** Classes, `interface`, `private`, `abstract`
+  e *generics* existem no TypeScript e aparecem a partir da aula 04.
+- **O editor vira um ajudante.** Como ele sabe o tipo de cada coisa, o VS Code
+  sugere os métodos certos: escreva `preco.` e ele mostra o que um número sabe
+  fazer.
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0000-typescript/`](0000-typescript/).
+>
+> ```bash
+> pnpm tsx 15102026/0000-typescript/exemplo-1.ts
+> ```
 
 ---
 

@@ -5,7 +5,8 @@ Professor: Marcos Jhollyfer Felix Rodrigues · 80h, de 15/10 a 12/11/2026
 
 > Por que TypeScript? Porque a próxima disciplina é Web/Frontend. Você aprende
 > orientação a objetos agora e chega lá já falando a língua do Vite, do React e
-> do Node.
+> do Node. A explicação completa, com o caminho do `.ts` até o Node, está no
+> [assunto 0000 da aula 01](15102026/README.md#0000--como-o-typescript-funciona-e-por-que-ele).
 
 ## Como instalar
 
@@ -31,8 +32,8 @@ cd ~/LPPOO
 pnpm tsx 15102026/0001-input/exemplo-1.ts
 ```
 
-Troque o caminho pelo arquivo que você quer rodar. Para conferir os tipos do
-projeto inteiro, use `pnpm tsc`.
+Troque o caminho pelo arquivo que você quer rodar. O `pnpm tsx` só roda, sem
+conferir os tipos. Para conferir os tipos do projeto inteiro, use `pnpm tsc`.
 
 ## Como cada aula funciona
 
@@ -79,6 +80,7 @@ A explicação completa está em [`15102026/README.md`](15102026/README.md).
 
 | Pasta                       | Assunto                                   |
 | --------------------------- | ----------------------------------------- |
+| `0000-typescript`           | como o TypeScript funciona e por que ele  |
 | `0001-input`                | entrada de dados com `input`              |
 | `0002-output`               | `console.log` e template string           |
 | `0003-variaveis`            | `let`, anotação e inferência              |

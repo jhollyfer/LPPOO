@@ -1,8 +1,9 @@
 # Aula 01 · 15/10 · Revisão de lógica I
 
 Hoje a gente relembra o básico que quase todo programa usa: ler o que a pessoa
-digita, guardar, fazer conta, comparar e decidir. São 20 assuntos curtos, e
-cada um aproveita o anterior.
+digita, guardar, fazer conta, comparar e decidir. Antes, um assunto zero conta
+como o TypeScript funciona e por que ele foi o escolhido. Depois vêm 20
+assuntos curtos, e cada um aproveita o anterior.
 
 Cada assunto gira em torno de um exemplo só. Primeiro vem o texto, depois um
 **diagrama da ideia** com esse exemplo em caixas, o código em TypeScript e, por
