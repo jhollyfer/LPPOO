@@ -8,7 +8,7 @@
 #   1. instala o nvm (gerenciador de versões do Node)
 #   2. instala o Node.js LTS
 #   3. instala o pnpm
-#   4. baixa o projeto em ~/LPPOO (se já existir, guarda uma cópia antes)
+#   4. baixa o projeto em ~/LPPOO (se já existir, apaga e baixa de novo)
 #   5. roda pnpm install
 
 set -euo pipefail
@@ -54,9 +54,8 @@ npm install --global --allow-scripts=pnpm pnpm
 passo "4/5 Baixando o projeto em $PASTA"
 cd "$HOME"
 if [ -e "$PASTA" ]; then
-  BACKUP="$PASTA-backup-$(date +%Y%m%d-%H%M%S)"
-  echo "Já existe $PASTA. Movendo para $BACKUP para não perder seus exercícios."
-  mv "$PASTA" "$BACKUP" 2>/dev/null || sudo mv "$PASTA" "$BACKUP"
+  echo "Já existe $PASTA. Apagando para baixar de novo."
+  rm -rf "$PASTA" 2>/dev/null || sudo rm -rf "$PASTA"
 fi
 git clone "$REPO" "$PASTA"
 cd "$PASTA"
