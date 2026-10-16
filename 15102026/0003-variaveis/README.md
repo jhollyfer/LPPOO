@@ -3,18 +3,6 @@
 > O placar do jogo muda a cada gol. Onde o programa guarda esse número enquanto
 > ele vai mudando?
 
-## O conceito
-
-Variável é um espaço na memória, com nome, cujo valor pode mudar (FORBELLONE;
-EBERSPÄCHER, 2005). No TypeScript ela nasce com `let`.
-
-Para ler mais:
-
-- FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. *Lógica de programação: a construção de algoritmos e estruturas de dados*. 3. ed. São Paulo: Pearson Prentice Hall, 2005.
-- HAVERBEKE, M. *Eloquent JavaScript*. 3. ed. San Francisco: No Starch Press, 2018. Disponível em: <https://eloquentjavascript.net>.
-- MICROSOFT. *TypeScript Handbook*: Everyday Types. Disponível em: <https://www.typescriptlang.org/docs/handbook/2/everyday-types.html>.
-- MDN WEB DOCS. *let*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/let>.
-
 ## A ideia
 
 Pense numa caixinha com etiqueta. A etiqueta é o nome, e dentro fica um valor
@@ -33,14 +21,17 @@ E o `var`? É o jeito antigo, e causa bug difícil de achar. A gente não usa.
 
 Nome de variável vai em `camelCase`: `nomeCompleto`, `notaFinal`, `golsBrasil`.
 
-## Fluxograma
+## Diagrama
 
-O valor de `gols` vai sendo trocado no meio do caminho.
-
-![Fluxograma animado: a bolinha amarela percorre o caminho que o programa faz](fluxograma.gif)
-
-A bolinha amarela é o programa rodando. No painel da direita aparecem as variáveis e o terminal.
+![Diagrama](diagrama.svg)
 
 ## Exercícios
 
 Os enunciados e as dicas estão nos comentários de `exercicio-1.ts` e `exercicio-2.ts`, aqui nesta pasta. Responda dentro do próprio arquivo.
+
+## Para ler mais
+
+- FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. *Lógica de programação: a construção de algoritmos e estruturas de dados*. 3. ed. São Paulo: Pearson Prentice Hall, 2005.
+- HAVERBEKE, M. *Eloquent JavaScript*. 3. ed. San Francisco: No Starch Press, 2018. Disponível em: <https://eloquentjavascript.net>.
+- MICROSOFT. *TypeScript Handbook*: Everyday Types. Disponível em: <https://www.typescriptlang.org/docs/handbook/2/everyday-types.html>.
+- MDN WEB DOCS. *let*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/let>.

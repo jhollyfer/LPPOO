@@ -3,16 +3,6 @@
 > Três amigos dividiram um açaí de 25 reais. Quanto cada um paga? E quanto sobra
 > se ninguém tiver moeda? São duas contas, e cada uma tem seu operador.
 
-## O conceito
-
-São as contas da matemática em código, na mesma ordem da escola: potência,
-depois `* / %`, depois `+ -` (ASCENCIO; CAMPOS, 2012). Parênteses mudam a ordem.
-
-Para ler mais:
-
-- ASCENCIO, A. F. G.; CAMPOS, E. A. V. *Fundamentos da programação de computadores: algoritmos, Pascal, C/C++ e Java*. 3. ed. São Paulo: Pearson, 2012.
-- MDN WEB DOCS. *Precedência de operadores*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operator_precedence>.
-
 ## A ideia
 
 São as contas da escola, com dois símbolos novos. A multiplicação é `*` (o `x`
@@ -33,15 +23,15 @@ alunos em duplas formam 3 duplas e sobra 1, então `7 % 2` é `1`.
 A ordem é a da matemática: primeiro `**`, depois `*`, `/` e `%`, por último `+`
 e `-`. Quer outra ordem? Coloque parênteses.
 
-## Fluxograma
+## Diagrama
 
-A média de duas notas. Os parênteses estão ali por um motivo, e o Exemplo 3
-mostra qual.
-
-![Fluxograma animado: a bolinha amarela percorre o caminho que o programa faz](fluxograma.gif)
-
-A bolinha amarela é o programa rodando. No painel da direita aparecem as variáveis e o terminal.
+![Diagrama](diagrama.svg)
 
 ## Exercícios
 
 Os enunciados e as dicas estão nos comentários de `exercicio-1.ts` e `exercicio-2.ts`, aqui nesta pasta. Responda dentro do próprio arquivo.
+
+## Para ler mais
+
+- ASCENCIO, A. F. G.; CAMPOS, E. A. V. *Fundamentos da programação de computadores: algoritmos, Pascal, C/C++ e Java*. 3. ed. São Paulo: Pearson, 2012.
+- MDN WEB DOCS. *Precedência de operadores*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operator_precedence>.

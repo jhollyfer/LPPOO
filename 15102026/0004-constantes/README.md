@@ -3,17 +3,6 @@
 > O nome da escola não muda no meio da aula. A média para passar também não.
 > Como avisar o programa de que um valor é fixo?
 
-## O conceito
-
-Constante é um valor que fica igual do começo ao fim do programa (FORBELLONE;
-EBERSPÄCHER, 2005). No TypeScript ela nasce com `const`.
-
-Para ler mais:
-
-- FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. *Lógica de programação: a construção de algoritmos e estruturas de dados*. 3. ed. São Paulo: Pearson Prentice Hall, 2005.
-- MDN WEB DOCS. *const*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/const>.
-- GOOGLE. *Google JavaScript Style Guide*. Disponível em: <https://google.github.io/styleguide/jsguide.html>.
-
 ## A ideia
 
 Se a variável é uma caixa que troca de conteúdo, a constante é uma caixa
@@ -31,14 +20,16 @@ Sobre os nomes:
 - uma `const` comum, como a resposta de um `input`, continua em `camelCase`:
   `const nome = input('Seu nome: ')`.
 
-## Fluxograma
+## Diagrama
 
-A cidade é fixa. O nome vem de quem está usando o programa.
-
-![Fluxograma animado: a bolinha amarela percorre o caminho que o programa faz](fluxograma.gif)
-
-A bolinha amarela é o programa rodando. No painel da direita aparecem as variáveis e o terminal.
+![Diagrama](diagrama.svg)
 
 ## Exercícios
 
 Os enunciados e as dicas estão nos comentários de `exercicio-1.ts` e `exercicio-2.ts`, aqui nesta pasta. Responda dentro do próprio arquivo.
+
+## Para ler mais
+
+- FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. *Lógica de programação: a construção de algoritmos e estruturas de dados*. 3. ed. São Paulo: Pearson Prentice Hall, 2005.
+- MDN WEB DOCS. *const*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/const>.
+- GOOGLE. *Google JavaScript Style Guide*. Disponível em: <https://google.github.io/styleguide/jsguide.html>.

@@ -1,0 +1,13 @@
+{
+  "name": "lppoo-diagramas",
+  "version": "1.0.0",
+  "description": "Diagramas estilo Excalidraw das aulas",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gerar": "node gerar.mjs"
+  },
+  "dependencies": {
+    "roughjs": "4.6.6"
+  }
+}

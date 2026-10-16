@@ -16,8 +16,8 @@ curl -fsSL https://raw.githubusercontent.com/jhollyfer/LPPOO/main/install.sh | b
 ```
 
 O script instala o Node e o pnpm e baixa o projeto em `~/LPPOO`. Se essa pasta
-já existir, ele guarda uma cópia em `LPPOO-backup-DATA`, então suas respostas
-não se perdem.
+já existir, ela é **apagada** e baixada de novo. Quer guardar suas respostas?
+Copie a pasta para outro lugar antes de rodar.
 
 Quando terminar, **feche e abra o terminal**. Sem isso, o terminal ainda não
 conhece o `node`.
@@ -41,8 +41,8 @@ pasta por assunto, numerada na ordem em que a gente vê em sala:
 
 ```
 15102026/0014-logico/
-├── README.md        a explicação e o fluxograma
-├── fluxograma.gif   o fluxograma animado, com o programa rodando passo a passo
+├── README.md        a explicação e o diagrama
+├── diagrama.svg     o desenho que resume o assunto
 ├── exemplo-1.ts     exemplos resolvidos: rode, mude, quebre, rode de novo
 ├── exemplo-2.ts
 ├── exemplo-3.ts
@@ -144,18 +144,16 @@ no terminal, digite e aperte Enter.
 **Quero sair de um programa travado**
 `Ctrl + C`.
 
-## Para o professor: gerar os GIFs dos fluxogramas
+## Para o professor: gerar os diagramas
 
-Os GIFs saem de um projeto Remotion separado, em `_videos/`. Os fluxogramas
-ficam em `_videos/src/grafos.ts` e o caminho que a bolinha faz (com os valores
-de cada execução) em `_videos/src/execucoes.ts`. Mudou um dos dois, é só gerar de
-novo.
+Os diagramas (`diagrama.svg` de cada pasta) saem de um script em `_diagramas/`,
+no estilo do Excalidraw. O conteúdo de cada um fica em
+`_diagramas/diagramas.mjs`: título, caixas, setas e a frase final. Mudou, é só
+gerar de novo.
 
 ```bash
-cd _videos
+cd _diagramas
 npm install
-npm run gifs          # todas as pastas
-npm run gifs -- 0017  # só uma
+npm run gerar          # todas as pastas
+npm run gerar -- 0017  # só uma
 ```
-
-Para ajustar o visual com preview ao vivo, use `npm run dev`.

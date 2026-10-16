@@ -3,18 +3,6 @@
 > Seu nome, sua senha do Wi-Fi, a legenda daquela foto no rio. Para o computador
 > tudo isso é a mesma coisa: string.
 
-## O conceito
-
-`string` é texto, uma sequência de caracteres entre aspas (ECMA-262). Métodos
-como `trim` e `toUpperCase` devolvem um texto novo e deixam o original como
-estava.
-
-Para ler mais:
-
-- ECMA INTERNATIONAL. *ECMA-262: ECMAScript language specification*. Disponível em: <https://tc39.es/ecma262/>.
-- HAVERBEKE, M. *Eloquent JavaScript*. 3. ed. San Francisco: No Starch Press, 2018. Disponível em: <https://eloquentjavascript.net>.
-- MDN WEB DOCS. *String*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String>.
-
 ## A ideia
 
 `string` é o tipo para texto. Você escreve entre aspas simples `'...'`, aspas
@@ -35,14 +23,16 @@ precisa fabricar a tesoura, é só puxar.
 
 Cuidado: com texto, o `+` não soma, ele cola. `'5' + 3` vira `'53'`.
 
-## Fluxograma
+## Diagrama
 
-Recebe o nome do jeito que vier, limpa e deixa em maiúsculas.
-
-![Fluxograma animado: a bolinha amarela percorre o caminho que o programa faz](fluxograma.gif)
-
-A bolinha amarela é o programa rodando. No painel da direita aparecem as variáveis e o terminal.
+![Diagrama](diagrama.svg)
 
 ## Exercícios
 
 Os enunciados e as dicas estão nos comentários de `exercicio-1.ts` e `exercicio-2.ts`, aqui nesta pasta. Responda dentro do próprio arquivo.
+
+## Para ler mais
+
+- ECMA INTERNATIONAL. *ECMA-262: ECMAScript language specification*. Disponível em: <https://tc39.es/ecma262/>.
+- HAVERBEKE, M. *Eloquent JavaScript*. 3. ed. San Francisco: No Starch Press, 2018. Disponível em: <https://eloquentjavascript.net>.
+- MDN WEB DOCS. *String*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String>.
