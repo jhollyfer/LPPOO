@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-# Instala o ambiente da disciplina LPPOO (CETAM Benjamin Constant).
+# Instala (ou atualiza) o ambiente da disciplina LPPOO (CETAM Benjamin Constant).
 #
-# Uso:
+# Uso, na primeira vez e todo dia de aula (para pegar as resoluções novas):
 #   curl -fsSL https://raw.githubusercontent.com/jhollyfer/LPPOO/main/install.sh | bash
 #
 # O que ele faz:
-#   1. instala o nvm (gerenciador de versões do Node)
-#   2. instala o Node.js LTS
-#   3. instala o pnpm e o tsx (que roda os arquivos .ts de qualquer pasta)
-#   4. baixa o projeto em ~/LPPOO (se já existir, apaga e baixa de novo)
-#   5. roda pnpm install
+#   1. instala o Node.js LTS (via nvm), só se ainda não tiver Node
+#   2. apaga ~/LPPOO e baixa o projeto de novo (sem backup: o que estiver lá some)
+#   3. instala o pnpm e o tsx globais
+#   4. instala as dependências do projeto (pnpm install)
+#   5. abre o projeto no Zed, se ele estiver instalado
 
 set -euo pipefail
 
@@ -23,8 +23,8 @@ erro() { printf '\n\033[1;31mERRO: %s\033[0m\n' "$1" >&2; exit 1; }
 command -v curl >/dev/null || erro "curl não encontrado. Instale com: sudo apt install curl"
 command -v git >/dev/null || erro "git não encontrado. Instale com: sudo apt install git"
 
-passo "1/5 Instalando o nvm $NVM_VERSAO"
-curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VERSAO/install.sh" | bash
+# ---------------------------------------------------------------------------
+passo "1/5 Node.js"
 
 # mesma regra do instalador do nvm: respeita NVM_DIR já definido,
 # senão usa $XDG_CONFIG_HOME/nvm (se existir) ou ~/.nvm
@@ -36,34 +36,70 @@ if [ -z "${NVM_DIR:-}" ]; then
   fi
 fi
 export NVM_DIR
-[ -s "$NVM_DIR/nvm.sh" ] || erro "nvm.sh não encontrado em $NVM_DIR"
-# o nvm.sh usa variáveis não definidas, então desliga o -u só aqui
-set +u
-# shellcheck source=/dev/null
-. "$NVM_DIR/nvm.sh"
 
-passo "2/5 Instalando o Node.js LTS"
-nvm install --lts
-nvm alias default 'lts/*'
-nvm use default
+# o nvm.sh usa variáveis não definidas, então desliga o -u enquanto mexe nele
+set +u
+# rodando por "curl | bash" o terminal não carrega o nvm sozinho: carrega aqui
+# shellcheck source=/dev/null
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+if command -v node >/dev/null; then
+  echo "Node $(node -v) já instalado."
+else
+  echo "Node não encontrado. Instalando o nvm $NVM_VERSAO e o Node LTS..."
+  curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VERSAO/install.sh" | bash
+  [ -s "$NVM_DIR/nvm.sh" ] || erro "nvm.sh não encontrado em $NVM_DIR"
+  # shellcheck source=/dev/null
+  . "$NVM_DIR/nvm.sh"
+  nvm install --lts
+  nvm alias default 'lts/*'
+  nvm use default
+fi
 set -u
 
-passo "3/5 Instalando o pnpm e o tsx"
-npm install --global --allow-scripts=pnpm pnpm
-# tsx global: "tsx ~/LPPOO/..." funciona de qualquer pasta do terminal
-npm install --global tsx
-
-passo "4/5 Baixando o projeto em $PASTA"
+# ---------------------------------------------------------------------------
+passo "2/5 Baixando o projeto em $PASTA"
 cd "$HOME"
 if [ -e "$PASTA" ]; then
-  echo "Já existe $PASTA. Apagando para baixar de novo."
+  echo "Apagando a versão antiga de $PASTA."
   rm -rf "$PASTA" 2>/dev/null || sudo rm -rf "$PASTA"
 fi
-git clone "$REPO" "$PASTA"
+git clone --depth 1 "$REPO" "$PASTA"
 cd "$PASTA"
 
-passo "5/5 Instalando as dependências"
+# ---------------------------------------------------------------------------
+passo "3/5 Instalando o pnpm e o tsx"
+npm install --global pnpm
+
+# o pnpm precisa de uma pasta para os programas globais (pnpm setup).
+# O setup grava a pasta no .bashrc/.zshrc; aqui a gente já exporta para usar agora.
+export PNPM_HOME="${PNPM_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}/pnpm}"
+# pnpm 10 usa a própria pasta; o pnpm 11+ usa a subpasta bin
+export PATH="$PNPM_HOME/bin:$PNPM_HOME:$PATH"
+pnpm setup >/dev/null 2>&1 || true
+
+# tsx global: "tsx ~/LPPOO/..." roda os arquivos de qualquer pasta do terminal
+pnpm install --global tsx
+
+# ---------------------------------------------------------------------------
+passo "4/5 Instalando as dependências do projeto"
 pnpm install
+
+# ---------------------------------------------------------------------------
+passo "5/5 Abrindo no editor"
+editor=""
+for candidato in zed zeditor zededitor; do
+  if command -v "$candidato" >/dev/null; then
+    editor="$candidato"
+    break
+  fi
+done
+if [ -n "$editor" ]; then
+  echo "Abrindo $PASTA no $editor."
+  nohup "$editor" "$PASTA" >/dev/null 2>&1 &
+else
+  echo "Zed não encontrado. Abra a pasta $PASTA no seu editor."
+fi
 
 printf '\n\033[1;32mTudo pronto!\033[0m\n'
 echo "Node $(node -v) | pnpm $(pnpm -v) | $(tsx --version | head -1)"

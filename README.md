@@ -8,7 +8,7 @@ Professor: Marcos Jhollyfer Felix Rodrigues · 80h, de 15/10 a 12/11/2026
 > do Node. A explicação completa, com o caminho do `.ts` até o Node, está no
 > [assunto 0000 da aula 01](15102026/README.md#0000--como-o-typescript-funciona-e-por-que-ele).
 
-## Como instalar
+## Como instalar (e atualizar)
 
 Abra o terminal e cole:
 
@@ -16,14 +16,51 @@ Abra o terminal e cole:
 curl -fsSL https://raw.githubusercontent.com/jhollyfer/LPPOO/main/install.sh | bash
 ```
 
-O script instala o Node e o pnpm e baixa o projeto em `~/LPPOO`. Se essa pasta
-já existir, ela é **apagada** e baixada de novo. Quer guardar suas respostas?
-Copie a pasta para outro lugar antes de rodar.
+O comando é o mesmo na primeira vez e em **todo dia de aula**. Ele faz, em
+ordem:
+
+1. instala o Node.js, só se o computador ainda não tiver;
+2. apaga a pasta `~/LPPOO` e baixa o projeto de novo, já com as resoluções dos
+   exercícios da aula anterior;
+3. instala o `pnpm` e o `tsx` no computador inteiro;
+4. instala as dependências do projeto (`pnpm install`);
+5. abre o projeto no Zed, se ele estiver instalado.
+
+> [!WARNING]
+> A pasta `~/LPPOO` é **apagada** toda vez, sem cópia. O que você escreveu nos
+> exercícios some. Quer guardar alguma resposta? Copie o arquivo para outra
+> pasta antes de rodar o comando.
 
 Quando terminar, **feche e abra o terminal**. Sem isso, o terminal ainda não
-conhece o `node`.
+conhece o `tsx`.
 
-No VS Code, instale as extensões ESLint e Prettier.
+<details>
+<summary>O que o comando faz, passo a passo (para fazer na mão)</summary>
+
+```bash
+cd ~
+rm -rf ~/LPPOO
+git clone https://github.com/jhollyfer/LPPOO ~/LPPOO
+cd ~/LPPOO
+npm install --global pnpm
+pnpm setup                  # só na primeira vez; depois feche e abra o terminal
+pnpm install --global tsx
+pnpm install
+```
+
+</details>
+
+## Como abrir no editor
+
+A gente usa o [Zed](https://zed.dev). Para abrir o projeto:
+
+```bash
+zed ~/LPPOO
+```
+
+Se você já estiver dentro da pasta, `zed .` também funciona. Em algumas
+distribuições Linux o comando do Zed se chama `zeditor` ou `zededitor`: troque
+`zed` pelo nome que existir no seu computador.
 
 ## Como rodar um arquivo
 
@@ -180,7 +217,7 @@ frequência. Ficou abaixo de 6 na AV1 ou na AV2? Tem recuperação logo depois.
 ## Deu ruim?
 
 **`node: command not found` ou `pnpm: command not found`**
-Feche e abra o terminal. Se continuar, rode `source ~/.bashrc`.
+Feche e abra o terminal. Se continuar, rode o comando de instalação de novo.
 
 **`npx` dá erro `EBADDEVENGINES`**
 Neste projeto a gente não usa `npx`. Troque `npx tsx` por `tsx`.
