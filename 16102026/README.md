@@ -7,6 +7,8 @@ isso muda: os **laços** repetem, os **arrays** guardam vários valores numa
 etiqueta só e as **funções** dão nome a um pedaço de código para usar de novo.
 É a base de tudo que vem depois, em POO e no frontend.
 
+O foco continua sendo **lógica de programação**, escrita em TypeScript.
+
 Mesmo formato da aula 01: cada assunto gira em torno de um exemplo só, contado
 no texto, no **diagrama da ideia**, no código e no **fluxograma**. Nos laços, o
 fluxograma ganha uma seta que **volta**.
@@ -19,19 +21,14 @@ de gavetas com o índice embaixo de cada uma, começando do 0.
 
 <p align="center"><img src="legenda.svg" alt="Legenda: formas e cores do fluxograma" width="916"></p>
 
-## O TypeScript em cada assunto
-
-Todo assunto tem um quadro **Poder do TypeScript**. Nesta aula ele mostra
-coisas que só aparecem com laços, arrays e funções: o tipo de cada item do
-array, o `undefined` que pode sair de um `find` ou de um `pop`, o tipo do
-retorno de uma função e a **tipagem contextual**, que faz o `n` do `map` ser
-`number` sem você escrever nada.
+## Antes de começar
 
 > [!IMPORTANT]
-> Este projeto liga uma opção do TypeScript chamada `noUncheckedIndexedAccess`.
-> Com ela, `notas[i]` tem o tipo `number | undefined`, porque a posição `i`
-> pode não existir. Por isso, para percorrer arrays, prefira o `for...of`
-> (seção 0026).
+> Este projeto liga uma opção do TypeScript que faz `notas[i]` poder ser
+> `undefined`, porque a posição `i` pode não existir. Na hora de fazer conta com
+> um item do array, o editor reclama. Por isso, para percorrer arrays, prefira o
+> `for...of` (seção 0026). A explicação completa fica para a
+> [aula 03](../19102026/README.md).
 
 ## Os assuntos
 
@@ -96,28 +93,18 @@ quatro voltas antes de sair pelo Não:
 > famoso **loop infinito**. Esqueceu o `saldo -= 4.5`? O programa fica rodando
 > para sempre. Para sair, aperte `Ctrl + C`.
 
-> [!TIP]
-> **Poder do TypeScript:** a variável que muda a cada volta precisa ser `let`.
-> Se você usar `const` sem querer, o TypeScript avisa antes de rodar:
->
-> ```ts
-> const viagens = 0
-> viagens++
-> // erro: Cannot assign to 'viagens' because it is a constant.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0021-while/`](0021-while/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0021-while/A064.ts
-> tsx ~/LPPOO/16102026/0021-while/A065.ts
-> tsx ~/LPPOO/16102026/0021-while/A066.ts
+> tsx ~/LPPOO/16102026/0021-while/A061.ts
+> tsx ~/LPPOO/16102026/0021-while/A062.ts
+> tsx ~/LPPOO/16102026/0021-while/A063.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0021-while/E043.ts
-> tsx ~/LPPOO/16102026/0021-while/E044.ts
+> tsx ~/LPPOO/16102026/0021-while/E041.ts
+> tsx ~/LPPOO/16102026/0021-while/E042.ts
 > ```
 
 ---
@@ -154,30 +141,18 @@ que a pergunta vem antes:
 
 <p align="center"><img src="0022-do-while/fluxograma.svg" alt="Fluxograma: Laço do...while" width="405"></p>
 
-> [!TIP]
-> **Poder do TypeScript:** dá para criar a variável só com o tipo, sem valor:
-> `let nota: number`. O TypeScript confere se ela recebeu um valor antes de ser
-> usada. Com o `do...while` ele sabe que o bloco roda, então está tudo certo.
-> Sem nada que dê valor a ela, ele avisa:
->
-> ```ts
-> let nota: number
-> console.log(nota)
-> // erro: Variable 'nota' is used before being assigned.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0022-do-while/`](0022-do-while/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0022-do-while/A067.ts
-> tsx ~/LPPOO/16102026/0022-do-while/A068.ts
-> tsx ~/LPPOO/16102026/0022-do-while/A069.ts
+> tsx ~/LPPOO/16102026/0022-do-while/A064.ts
+> tsx ~/LPPOO/16102026/0022-do-while/A065.ts
+> tsx ~/LPPOO/16102026/0022-do-while/A066.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0022-do-while/E045.ts
-> tsx ~/LPPOO/16102026/0022-do-while/E046.ts
+> tsx ~/LPPOO/16102026/0022-do-while/E043.ts
+> tsx ~/LPPOO/16102026/0022-do-while/E044.ts
 > ```
 
 ---
@@ -219,30 +194,18 @@ num lugar que dá para ler de uma vez:
 > O nome `i` é tradição (vem de *índice*), mas pode ser qualquer um. E o passo
 > não precisa ser `i++`: `i += 2` anda de dois em dois, `i--` conta para trás.
 
-> [!TIP]
-> **Poder do TypeScript:** o `i` criado com `let` dentro do `for` só existe
-> dentro do laço. Tentou usar depois? O TypeScript avisa antes de rodar:
->
-> ```ts
-> for (let i = 1; i <= 10; i++) {
->   console.log(i)
-> }
-> console.log(i)
-> // erro: Cannot find name 'i'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0023-for/`](0023-for/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0023-for/A070.ts
-> tsx ~/LPPOO/16102026/0023-for/A071.ts
-> tsx ~/LPPOO/16102026/0023-for/A072.ts
+> tsx ~/LPPOO/16102026/0023-for/A067.ts
+> tsx ~/LPPOO/16102026/0023-for/A068.ts
+> tsx ~/LPPOO/16102026/0023-for/A069.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0023-for/E047.ts
-> tsx ~/LPPOO/16102026/0023-for/E048.ts
+> tsx ~/LPPOO/16102026/0023-for/E045.ts
+> tsx ~/LPPOO/16102026/0023-for/E046.ts
 > ```
 
 ---
@@ -281,30 +244,18 @@ saída direto para o fim:
 > Use com moderação. Um laço cheio de `break` e `continue` fica difícil de
 > seguir. Quando der, coloque a regra na própria condição do laço.
 
-> [!TIP]
-> **Poder do TypeScript:** `break` fora de um laço (ou de um `switch`) não faz
-> sentido, e o editor sublinha na hora:
->
-> ```ts
-> if (nota > 6) {
->   break
-> }
-> // erro: A 'break' statement can only be used within an enclosing
-> //       iteration or switch statement.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0024-break-continue/`](0024-break-continue/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0024-break-continue/A073.ts
-> tsx ~/LPPOO/16102026/0024-break-continue/A074.ts
-> tsx ~/LPPOO/16102026/0024-break-continue/A075.ts
+> tsx ~/LPPOO/16102026/0024-break-continue/A070.ts
+> tsx ~/LPPOO/16102026/0024-break-continue/A071.ts
+> tsx ~/LPPOO/16102026/0024-break-continue/A072.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0024-break-continue/E049.ts
-> tsx ~/LPPOO/16102026/0024-break-continue/E050.ts
+> tsx ~/LPPOO/16102026/0024-break-continue/E047.ts
+> tsx ~/LPPOO/16102026/0024-break-continue/E048.ts
 > ```
 
 ---
@@ -358,27 +309,18 @@ gavetas.
 > console.log(sala[1]?.[0]) // Caio: linha 1, coluna 0
 > ```
 
-> [!TIP]
-> **Poder do TypeScript:** um `number[]` só aceita número. Tentou colocar texto?
-> O editor avisa antes de rodar:
->
-> ```ts
-> notas.push('dez')
-> // erro: Argument of type 'string' is not assignable to parameter of type 'number'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0025-arrays/`](0025-arrays/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0025-arrays/A076.ts
-> tsx ~/LPPOO/16102026/0025-arrays/A077.ts
-> tsx ~/LPPOO/16102026/0025-arrays/A078.ts
+> tsx ~/LPPOO/16102026/0025-arrays/A073.ts
+> tsx ~/LPPOO/16102026/0025-arrays/A074.ts
+> tsx ~/LPPOO/16102026/0025-arrays/A075.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0025-arrays/E051.ts
-> tsx ~/LPPOO/16102026/0025-arrays/E052.ts
+> tsx ~/LPPOO/16102026/0025-arrays/E049.ts
+> tsx ~/LPPOO/16102026/0025-arrays/E050.ts
 > ```
 
 ---
@@ -414,32 +356,18 @@ precisa do número da posição, o `for...of` é mais curto e mais difícil de e
 
 <p align="center"><img src="0026-for-of/fluxograma.svg" alt="Fluxograma: Laço for...of" width="501"></p>
 
-> [!TIP]
-> **Poder do TypeScript:** com o índice, o TypeScript não tem como saber se
-> `notas[i]` existe (e se o `i` passar do fim?). Neste projeto ele exige que você
-> trate isso. Com o `for...of`, ele sabe que cada item existe:
->
-> ```ts
-> for (let i = 0; i < notas.length; i++) {
->   soma += notas[i] // erro: Object is possibly 'undefined'.
-> }
-> for (const nota of notas) {
->   soma += nota // ok
-> }
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0026-for-of/`](0026-for-of/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0026-for-of/A079.ts
-> tsx ~/LPPOO/16102026/0026-for-of/A080.ts
-> tsx ~/LPPOO/16102026/0026-for-of/A081.ts
+> tsx ~/LPPOO/16102026/0026-for-of/A076.ts
+> tsx ~/LPPOO/16102026/0026-for-of/A077.ts
+> tsx ~/LPPOO/16102026/0026-for-of/A078.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0026-for-of/E053.ts
-> tsx ~/LPPOO/16102026/0026-for-of/E054.ts
+> tsx ~/LPPOO/16102026/0026-for-of/E051.ts
+> tsx ~/LPPOO/16102026/0026-for-of/E052.ts
 > ```
 
 ---
@@ -485,29 +413,18 @@ sem precisar de `=`:
 > O `splice(posição, quantosTirar, ...oQueColocar)` é o canivete: `splice(1, 1)`
 > só tira, `splice(1, 0, 'pão')` só coloca, e `splice(1, 1, 'açaí')` troca.
 
-> [!TIP]
-> **Poder do TypeScript:** o `pop` devolve o item tirado, mas e se a lista
-> estiver vazia? O TypeScript lembra disso: o tipo do que volta é
-> `string | undefined`.
->
-> ```ts
-> const ultimo = compras.pop()
-> ultimo.toUpperCase()
-> // erro: 'ultimo' is possibly 'undefined'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0027-inserir-remover/`](0027-inserir-remover/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0027-inserir-remover/A082.ts
-> tsx ~/LPPOO/16102026/0027-inserir-remover/A083.ts
-> tsx ~/LPPOO/16102026/0027-inserir-remover/A084.ts
+> tsx ~/LPPOO/16102026/0027-inserir-remover/A079.ts
+> tsx ~/LPPOO/16102026/0027-inserir-remover/A080.ts
+> tsx ~/LPPOO/16102026/0027-inserir-remover/A081.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0027-inserir-remover/E055.ts
-> tsx ~/LPPOO/16102026/0027-inserir-remover/E056.ts
+> tsx ~/LPPOO/16102026/0027-inserir-remover/E053.ts
+> tsx ~/LPPOO/16102026/0027-inserir-remover/E054.ts
 > ```
 
 ---
@@ -549,28 +466,18 @@ primeiro que passa na regra. O 6 não passa, o 25 passa, e o 9 nem é olhado:
 
 <p align="center"><img src="0028-consultar/fluxograma.svg" alt="Fluxograma: Consultar: indexOf, includes, find, findIndex, some, every" width="800"></p>
 
-> [!TIP]
-> **Poder do TypeScript:** e se nenhum preço passar na regra? Aí o `find` devolve
-> `undefined`, e o TypeScript não deixa você esquecer:
->
-> ```ts
-> const caro = precos.find((p) => p > 20)
-> caro.toFixed(2)
-> // erro: 'caro' is possibly 'undefined'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0028-consultar/`](0028-consultar/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0028-consultar/A085.ts
-> tsx ~/LPPOO/16102026/0028-consultar/A086.ts
-> tsx ~/LPPOO/16102026/0028-consultar/A087.ts
+> tsx ~/LPPOO/16102026/0028-consultar/A082.ts
+> tsx ~/LPPOO/16102026/0028-consultar/A083.ts
+> tsx ~/LPPOO/16102026/0028-consultar/A084.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0028-consultar/E057.ts
-> tsx ~/LPPOO/16102026/0028-consultar/E058.ts
+> tsx ~/LPPOO/16102026/0028-consultar/E055.ts
+> tsx ~/LPPOO/16102026/0028-consultar/E056.ts
 > ```
 
 ---
@@ -619,28 +526,18 @@ e não mexe no original:
 > `notas.filter((n) => n >= 6).map((n) => n * 2)` filtra e depois dobra:
 > `[16, 18]`.
 
-> [!TIP]
-> **Poder do TypeScript:** você não escreveu o tipo do `n`, e mesmo assim o
-> TypeScript sabe que ele é `number`, porque `notas` é `number[]`. Isso se chama
-> **tipagem contextual**. Por isso ele pega este erro:
->
-> ```ts
-> notas.map((n) => n.toUpperCase())
-> // erro: Property 'toUpperCase' does not exist on type 'number'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0029-transformar/`](0029-transformar/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0029-transformar/A088.ts
-> tsx ~/LPPOO/16102026/0029-transformar/A089.ts
-> tsx ~/LPPOO/16102026/0029-transformar/A090.ts
+> tsx ~/LPPOO/16102026/0029-transformar/A085.ts
+> tsx ~/LPPOO/16102026/0029-transformar/A086.ts
+> tsx ~/LPPOO/16102026/0029-transformar/A087.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0029-transformar/E059.ts
-> tsx ~/LPPOO/16102026/0029-transformar/E060.ts
+> tsx ~/LPPOO/16102026/0029-transformar/E057.ts
+> tsx ~/LPPOO/16102026/0029-transformar/E058.ts
 > ```
 
 ---
@@ -689,28 +586,18 @@ console.log(notas) // [ 8, 10, 6, 9 ]: o original não mudou
 > sempre a regra `(a, b) => a - b` (do menor para o maior) ou `(a, b) => b - a`
 > (do maior para o menor).
 
-> [!TIP]
-> **Poder do TypeScript:** quer garantir que ninguém mexe num array? Escreva
-> `readonly`. Aí os métodos que mudam o original nem existem para ele:
->
-> ```ts
-> const notas: readonly number[] = [8, 10, 6, 9]
-> notas.sort()
-> // erro: Property 'sort' does not exist on type 'readonly number[]'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0030-organizar/`](0030-organizar/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0030-organizar/A091.ts
-> tsx ~/LPPOO/16102026/0030-organizar/A092.ts
-> tsx ~/LPPOO/16102026/0030-organizar/A093.ts
+> tsx ~/LPPOO/16102026/0030-organizar/A088.ts
+> tsx ~/LPPOO/16102026/0030-organizar/A089.ts
+> tsx ~/LPPOO/16102026/0030-organizar/A090.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0030-organizar/E061.ts
-> tsx ~/LPPOO/16102026/0030-organizar/E062.ts
+> tsx ~/LPPOO/16102026/0030-organizar/E059.ts
+> tsx ~/LPPOO/16102026/0030-organizar/E060.ts
 > ```
 
 ---
@@ -752,30 +639,18 @@ contas e devolve o `8`:
 > O `return` encerra a função na hora. O que vier depois dele, dentro da
 > função, não roda.
 
-> [!TIP]
-> **Poder do TypeScript:** mesmo sem escrever o tipo do retorno, o TypeScript
-> descobre olhando o `return`. Isso é **inferência do retorno**:
->
-> ```ts
-> function somar(a: number, b: number) {
->   return a + b // o TypeScript conclui: devolve number
-> }
-> const resultado: string = somar(1, 2)
-> // erro: Type 'number' is not assignable to type 'string'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0031-funcoes/`](0031-funcoes/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0031-funcoes/A094.ts
-> tsx ~/LPPOO/16102026/0031-funcoes/A095.ts
-> tsx ~/LPPOO/16102026/0031-funcoes/A096.ts
+> tsx ~/LPPOO/16102026/0031-funcoes/A091.ts
+> tsx ~/LPPOO/16102026/0031-funcoes/A092.ts
+> tsx ~/LPPOO/16102026/0031-funcoes/A093.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0031-funcoes/E063.ts
-> tsx ~/LPPOO/16102026/0031-funcoes/E064.ts
+> tsx ~/LPPOO/16102026/0031-funcoes/E061.ts
+> tsx ~/LPPOO/16102026/0031-funcoes/E062.ts
 > ```
 
 ---
@@ -962,27 +837,18 @@ chamada não veio desconto, então vale o padrão:
 > [!NOTE]
 > Parâmetros opcionais e com valor padrão vêm **depois** dos obrigatórios.
 
-> [!TIP]
-> **Poder do TypeScript:** ele confere se você mandou o que é obrigatório e
-> conta até o que é opcional:
->
-> ```ts
-> totalComDesconto()
-> // erro: Expected 1-2 arguments, but got 0.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0032-parametros/`](0032-parametros/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0032-parametros/A097.ts
-> tsx ~/LPPOO/16102026/0032-parametros/A098.ts
-> tsx ~/LPPOO/16102026/0032-parametros/A099.ts
+> tsx ~/LPPOO/16102026/0032-parametros/A094.ts
+> tsx ~/LPPOO/16102026/0032-parametros/A095.ts
+> tsx ~/LPPOO/16102026/0032-parametros/A096.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0032-parametros/E065.ts
-> tsx ~/LPPOO/16102026/0032-parametros/E066.ts
+> tsx ~/LPPOO/16102026/0032-parametros/E063.ts
+> tsx ~/LPPOO/16102026/0032-parametros/E064.ts
 > ```
 
 ---
@@ -1025,27 +891,18 @@ quando ela acaba:
 > tem o seu escopo para `let` e `const`. Foi por isso que o `i` do `for` não
 > existia depois do laço, na [0023](#0023--laço-for).
 
-> [!TIP]
-> **Poder do TypeScript:** usar uma variável fora do escopo dela é erro na hora,
-> sublinhado no editor, em vez de um susto com o programa rodando:
->
-> ```ts
-> console.log(mensagem)
-> // erro: Cannot find name 'mensagem'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0033-escopo/`](0033-escopo/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0033-escopo/A100.ts
-> tsx ~/LPPOO/16102026/0033-escopo/A101.ts
-> tsx ~/LPPOO/16102026/0033-escopo/A102.ts
+> tsx ~/LPPOO/16102026/0033-escopo/A097.ts
+> tsx ~/LPPOO/16102026/0033-escopo/A098.ts
+> tsx ~/LPPOO/16102026/0033-escopo/A099.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0033-escopo/E067.ts
-> tsx ~/LPPOO/16102026/0033-escopo/E068.ts
+> tsx ~/LPPOO/16102026/0033-escopo/E065.ts
+> tsx ~/LPPOO/16102026/0033-escopo/E066.ts
 > ```
 
 ---
@@ -1087,28 +944,18 @@ entregando a função, não chamando. Quem chama é o `map`, uma vez para cada n
 
 <p align="center"><img src="0034-arrow-callback/fluxograma.svg" alt="Fluxograma: Arrow functions e callbacks" width="557"></p>
 
-> [!TIP]
-> **Poder do TypeScript:** o `map` sabe que vai entregar um `number` para a sua
-> regra. Se a sua regra pedir outra coisa, o TypeScript não deixa:
->
-> ```ts
-> notas.map((n: string) => n)
-> // erro: Argument of type '(n: string) => string' is not assignable to
-> //       parameter of type '(value: number, ...) => string'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0034-arrow-callback/`](0034-arrow-callback/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0034-arrow-callback/A103.ts
-> tsx ~/LPPOO/16102026/0034-arrow-callback/A104.ts
-> tsx ~/LPPOO/16102026/0034-arrow-callback/A105.ts
+> tsx ~/LPPOO/16102026/0034-arrow-callback/A100.ts
+> tsx ~/LPPOO/16102026/0034-arrow-callback/A101.ts
+> tsx ~/LPPOO/16102026/0034-arrow-callback/A102.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0034-arrow-callback/E069.ts
-> tsx ~/LPPOO/16102026/0034-arrow-callback/E070.ts
+> tsx ~/LPPOO/16102026/0034-arrow-callback/E067.ts
+> tsx ~/LPPOO/16102026/0034-arrow-callback/E068.ts
 > ```
 
 ---
@@ -1151,28 +998,18 @@ mesmo assim o TypeScript sabe que são números. Ele tira do `Operacao`. Isso é
 
 <p align="center"><img src="0035-tipo-de-funcao/fluxograma.svg" alt="Fluxograma: Tipo de função e tipagem contextual" width="1113"></p>
 
-> [!TIP]
-> **Poder do TypeScript:** o `type` vira uma regra que o editor confere. Plugue
-> errado não entra:
->
-> ```ts
-> const juntar: Operacao = (a: string, b: string) => a + b
-> // erro: Type '(a: string, b: string) => string' is not assignable
-> //       to type 'Operacao'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0035-tipo-de-funcao/`](0035-tipo-de-funcao/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A106.ts
-> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A107.ts
-> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A108.ts
+> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A103.ts
+> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A104.ts
+> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A105.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/E071.ts
-> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/E072.ts
+> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/E069.ts
+> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/E070.ts
 > ```
 
 ---
@@ -1231,24 +1068,18 @@ O fluxograma mostra as três voltas do `do...while` e depois o relatório:
 
 <p align="center"><img src="0036-juntando-tudo/fluxograma.svg" alt="Fluxograma: Juntando tudo: as notas da turma" width="378"></p>
 
-> [!TIP]
-> **Poder do TypeScript:** no programa inteiro, você escreveu só dois tipos:
-> `number[]` e `string`. Passe o mouse em `aprovadas`, `dobradas`, `nota` e
-> `calcularMedia`: o TypeScript descobriu o tipo de todo o resto sozinho, e
-> confere cada um deles enquanto você digita.
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0036-juntando-tudo/`](0036-juntando-tudo/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0036-juntando-tudo/A109.ts
-> tsx ~/LPPOO/16102026/0036-juntando-tudo/A110.ts
-> tsx ~/LPPOO/16102026/0036-juntando-tudo/A111.ts
+> tsx ~/LPPOO/16102026/0036-juntando-tudo/A106.ts
+> tsx ~/LPPOO/16102026/0036-juntando-tudo/A107.ts
+> tsx ~/LPPOO/16102026/0036-juntando-tudo/A108.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0036-juntando-tudo/E073.ts
-> tsx ~/LPPOO/16102026/0036-juntando-tudo/E074.ts
+> tsx ~/LPPOO/16102026/0036-juntando-tudo/E071.ts
+> tsx ~/LPPOO/16102026/0036-juntando-tudo/E072.ts
 > ```
 
 ---

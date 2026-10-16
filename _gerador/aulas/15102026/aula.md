@@ -1,9 +1,12 @@
 # Aula 01 · 15/10 · Revisão de lógica I
 
 Hoje a gente relembra o básico que quase todo programa usa: ler o que a pessoa
-digita, guardar, fazer conta, comparar e decidir. Antes, um assunto zero conta
-como o TypeScript funciona e por que ele foi o escolhido. Depois vêm 20
-assuntos curtos, e cada um aproveita o anterior.
+digita, guardar, fazer conta, comparar e decidir. São 20 assuntos curtos, e
+cada um aproveita o anterior.
+
+O foco aqui é **lógica de programação**. A gente escreve em TypeScript desde o
+primeiro dia, mas o que o TypeScript tem de especial fica para a
+[aula 03](../19102026/README.md).
 
 Cada assunto gira em torno de um exemplo só. Primeiro vem o texto, depois um
 **diagrama da ideia** com esse exemplo em caixas, o código em TypeScript e, por
@@ -20,14 +23,6 @@ Roxa é o programa fazendo alguma coisa. Amarela é pergunta.
 No diagrama da ideia, o caminho que o exemplo segue aparece em verde, e os
 outros ficam cinza. Erro é vermelho. No fluxograma vale a mesma regra: o
 caminho do exemplo fica colorido e o resto fica apagado.
-
-## O TypeScript em cada assunto
-
-TypeScript é JavaScript com superpoderes. Em todo assunto tem um quadro
-**Poder do TypeScript** mostrando o que ele faz a mais ali: um erro que ele pega
-antes de rodar, um tipo que ele descobre sozinho, uma ajuda do editor. Os erros
-são de verdade: tire o `//` de uma linha parecida num exemplo e veja o editor
-sublinhar.
 
 ## Os assuntos
 

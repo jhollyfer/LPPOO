@@ -42,14 +42,4 @@ e não mexe no original:
 > `notas.filter((n) => n >= 6).map((n) => n * 2)` filtra e depois dobra:
 > `[16, 18]`.
 
-> [!TIP]
-> **Poder do TypeScript:** você não escreveu o tipo do `n`, e mesmo assim o
-> TypeScript sabe que ele é `number`, porque `notas` é `number[]`. Isso se chama
-> **tipagem contextual**. Por isso ele pega este erro:
->
-> ```ts
-> notas.map((n) => n.toUpperCase())
-> // erro: Property 'toUpperCase' does not exist on type 'number'.
-> ```
-
 {{pratique}}

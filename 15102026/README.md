@@ -3,9 +3,12 @@
 # Aula 01 · 15/10 · Revisão de lógica I
 
 Hoje a gente relembra o básico que quase todo programa usa: ler o que a pessoa
-digita, guardar, fazer conta, comparar e decidir. Antes, um assunto zero conta
-como o TypeScript funciona e por que ele foi o escolhido. Depois vêm 20
-assuntos curtos, e cada um aproveita o anterior.
+digita, guardar, fazer conta, comparar e decidir. São 20 assuntos curtos, e
+cada um aproveita o anterior.
+
+O foco aqui é **lógica de programação**. A gente escreve em TypeScript desde o
+primeiro dia, mas o que o TypeScript tem de especial fica para a
+[aula 03](../19102026/README.md).
 
 Cada assunto gira em torno de um exemplo só. Primeiro vem o texto, depois um
 **diagrama da ideia** com esse exemplo em caixas, o código em TypeScript e, por
@@ -23,21 +26,12 @@ No diagrama da ideia, o caminho que o exemplo segue aparece em verde, e os
 outros ficam cinza. Erro é vermelho. No fluxograma vale a mesma regra: o
 caminho do exemplo fica colorido e o resto fica apagado.
 
-## O TypeScript em cada assunto
-
-TypeScript é JavaScript com superpoderes. Em todo assunto tem um quadro
-**Poder do TypeScript** mostrando o que ele faz a mais ali: um erro que ele pega
-antes de rodar, um tipo que ele descobre sozinho, uma ajuda do editor. Os erros
-são de verdade: tire o `//` de uma linha parecida num exemplo e veja o editor
-sublinhar.
-
 ## Os assuntos
 
 Leia na ordem. Em cada um, depois de ler, abra a pasta e rode os exemplos.
 
 | # | Assunto | Pasta |
 | --- | --- | --- |
-| [0000](#0000--como-o-typescript-funciona-e-por-que-ele) | Como o TypeScript funciona (e por que ele) | [`0000-typescript/`](0000-typescript/) |
 | [0001](#0001--entrada-de-dados-input) | Entrada de dados (input) | [`0001-input/`](0001-input/) |
 | [0002](#0002--saída-de-dados-output) | Saída de dados (output) | [`0002-output/`](0002-output/) |
 | [0003](#0003--variáveis) | Variáveis | [`0003-variaveis/`](0003-variaveis/) |
@@ -58,79 +52,6 @@ Leia na ordem. Em cada um, depois de ler, abra a pasta e rode os exemplos.
 | [0018](#0018--condicional-aninhada-else-if-e-if-dentro-de-if) | Condicional aninhada (else if e if dentro de if) | [`0018-condicional-aninhada/`](0018-condicional-aninhada/) |
 | [0019](#0019--operador-ternário) | Operador ternário | [`0019-ternario/`](0019-ternario/) |
 | [0020](#0020--estrutura-de-escolha-switch) | Estrutura de escolha (switch) | [`0020-escolha/`](0020-escolha/) |
-
----
-
-## 0000 · Como o TypeScript funciona (e por que ele)
-
-> O JavaScript deixa você errar à vontade e só reclama com o programa rodando,
-> às vezes já na mão de quem está usando. O TypeScript reclama antes.
-
-TypeScript é **JavaScript com tipos**. Você escreve o mesmo JavaScript de
-sempre e, quando quiser, diz o tipo de cada coisa: `const preco: number = 12.5`
-quer dizer "preço é um número".
-
-Só que o Node e o navegador não entendem `: number`. Eles só leem JavaScript.
-Então todo arquivo `.ts` passa por duas etapas antes de rodar: o TypeScript
-confere se os tipos batem e depois apaga os tipos, deixando JavaScript puro
-para o Node.
-
-<p align="center"><img src="0000-typescript/ideia.svg" alt="Diagrama da ideia: Como o TypeScript funciona (e por que ele)" width="864"></p>
-
-```ts
-const preco: number = 12.5
-console.log(preco.toFixed(2)) // 12.50
-
-// const troco: number = 'dez reais'
-// erro: Type 'string' is not assignable to type 'number'.
-```
-
-Quando os tipos não batem, o caminho volta para você: o editor sublinha em
-vermelho, você corrige e tenta de novo. Só código conferido segue para o Node.
-
-<p align="center"><img src="0000-typescript/fluxograma.svg" alt="Fluxograma: Como o TypeScript funciona (e por que ele)" width="485"></p>
-
-Na hora de rodar, os tipos já foram apagados: o Node recebe `const preco = 12.5`
-e mais nada. Toda a proteção do TypeScript acontece antes, enquanto você
-escreve.
-
-> [!IMPORTANT]
-> O `tsx`, que a gente usa para rodar os arquivos, **não confere tipos**.
-> Ele apaga os tipos e roda. Com `const total: number = '10' + 5`, ele mostra
-> `105` sem reclamar. Quem confere é o editor, enquanto você digita, e o
-> `pnpm -C ~/LPPOO tsc`, que olha o projeto inteiro. Na dúvida, rode ele antes de
-> entregar um exercício.
-
-### Por que TypeScript nesta disciplina?
-
-A orientação a objetos é a mesma em Java, C# ou TypeScript: classe, objeto,
-herança, interface. O que muda é a escrita. A gente escolheu TypeScript por
-quatro motivos:
-
-- **É a língua do próximo semestre.** A disciplina seguinte é Web/Frontend, com
-  React e Vite, e o back-end com Node também é JavaScript. Você aprende POO
-  agora e chega lá falando a mesma língua.
-- **Avisa o erro antes de rodar.** Errou o nome de um método ou colocou texto
-  onde era número? O editor mostra na hora, sem precisar rodar o programa.
-- **Tem tudo que a POO precisa.** Classes, `interface`, `private`, `abstract`
-  e *generics* existem no TypeScript e aparecem a partir da aula 04.
-- **O editor vira um ajudante.** Como ele sabe o tipo de cada coisa, o VS Code
-  sugere os métodos certos: escreva `preco.` e ele mostra o que um número sabe
-  fazer.
-
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0000-typescript/`](0000-typescript/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0000-typescript/A001.ts
-> tsx ~/LPPOO/15102026/0000-typescript/A002.ts
-> tsx ~/LPPOO/15102026/0000-typescript/A003.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0000-typescript/E001.ts
-> tsx ~/LPPOO/15102026/0000-typescript/E002.ts
-> ```
 
 ---
 
@@ -167,22 +88,18 @@ entrando e saindo.
 > O `input` sempre devolve texto. Se a Ana digitar `17`, o programa guarda
 > `'17'`, entre aspas. Fazer conta com isso é assunto da [0008](#0008--conversão-de-tipos).
 
-> [!TIP]
-> **Poder do TypeScript:** O editor sabe que o `input` devolve texto. Passe o mouse em cima de `nome` e
-> ele mostra `const nome: string`. Você nem escreveu o tipo: ele descobriu sozinho.
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0001-input/`](0001-input/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0001-input/A004.ts
-> tsx ~/LPPOO/15102026/0001-input/A005.ts
-> tsx ~/LPPOO/15102026/0001-input/A006.ts
+> tsx ~/LPPOO/15102026/0001-input/A001.ts
+> tsx ~/LPPOO/15102026/0001-input/A002.ts
+> tsx ~/LPPOO/15102026/0001-input/A003.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0001-input/E003.ts
-> tsx ~/LPPOO/15102026/0001-input/E004.ts
+> tsx ~/LPPOO/15102026/0001-input/E001.ts
+> tsx ~/LPPOO/15102026/0001-input/E002.ts
 > ```
 
 ---
@@ -214,27 +131,18 @@ frase é saída: paralelogramo azul.
 > A crase (`` ` ``) fica perto do Enter na maioria dos teclados, às vezes junto
 > com o til. Ache ela agora: você vai usar muito.
 
-> [!TIP]
-> **Poder do TypeScript:** Errou o nome da variável dentro do `${}`? No JavaScript, só ia aparecer um erro
-> com o programa rodando. O TypeScript avisa enquanto você digita:
->
-> ```ts
-> console.log(`Sua média é ${medai}`)
-> // erro: Cannot find name 'medai'. Did you mean 'media'?
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0002-output/`](0002-output/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0002-output/A007.ts
-> tsx ~/LPPOO/15102026/0002-output/A008.ts
-> tsx ~/LPPOO/15102026/0002-output/A009.ts
+> tsx ~/LPPOO/15102026/0002-output/A004.ts
+> tsx ~/LPPOO/15102026/0002-output/A005.ts
+> tsx ~/LPPOO/15102026/0002-output/A006.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0002-output/E005.ts
-> tsx ~/LPPOO/15102026/0002-output/E006.ts
+> tsx ~/LPPOO/15102026/0002-output/E003.ts
+> tsx ~/LPPOO/15102026/0002-output/E004.ts
 > ```
 
 ---
@@ -263,17 +171,6 @@ Cada troca de valor vira um retângulo roxo, um embaixo do outro:
 
 <p align="center"><img src="0003-variaveis/fluxograma.svg" alt="Fluxograma: Variáveis" width="944"></p>
 
-> [!TIP]
-> **Poder do TypeScript:** O TypeScript descobre que `gols` guarda número, porque começou com `0`. Isso se
-> chama **inferência**. Se quiser, dá para escrever na mão: `let gols: number = 0`.
-> Nos dois casos, a caixa só aceita número:
->
-> ```ts
-> let gols = 0
-> gols = 'três'
-> // erro: Type 'string' is not assignable to type 'number'.
-> ```
-
 Nome de variável vai em `camelCase`: `nomeCompleto`, `notaFinal`, `golsBrasil`.
 E o `var`? É o jeito antigo, e causa bug difícil de achar. A gente não usa.
 
@@ -282,13 +179,13 @@ E o `var`? É o jeito antigo, e causa bug difícil de achar. A gente não usa.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0003-variaveis/A010.ts
-> tsx ~/LPPOO/15102026/0003-variaveis/A011.ts
-> tsx ~/LPPOO/15102026/0003-variaveis/A012.ts
+> tsx ~/LPPOO/15102026/0003-variaveis/A007.ts
+> tsx ~/LPPOO/15102026/0003-variaveis/A008.ts
+> tsx ~/LPPOO/15102026/0003-variaveis/A009.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0003-variaveis/E007.ts
-> tsx ~/LPPOO/15102026/0003-variaveis/E008.ts
+> tsx ~/LPPOO/15102026/0003-variaveis/E005.ts
+> tsx ~/LPPOO/15102026/0003-variaveis/E006.ts
 > ```
 
 ---
@@ -326,23 +223,18 @@ muda mais. Repare também que a constante é guardada antes da pergunta:
 > Valor fixo do programa vai em `UPPER_CASE` (`NOME_ESCOLA`, `MEDIA_APROVACAO`);
 > o resto continua em `camelCase` (`nome`).
 
-> [!TIP]
-> **Poder do TypeScript:** Passe o mouse em cima de `NOME_ESCOLA`: o editor mostra
-> `const NOME_ESCOLA: "CETAM"`. Como a constante nunca muda, o tipo dela é
-> exatamente aquele texto, e não qualquer string.
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0004-constantes/`](0004-constantes/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0004-constantes/A013.ts
-> tsx ~/LPPOO/15102026/0004-constantes/A014.ts
-> tsx ~/LPPOO/15102026/0004-constantes/A015.ts
+> tsx ~/LPPOO/15102026/0004-constantes/A010.ts
+> tsx ~/LPPOO/15102026/0004-constantes/A011.ts
+> tsx ~/LPPOO/15102026/0004-constantes/A012.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0004-constantes/E009.ts
-> tsx ~/LPPOO/15102026/0004-constantes/E010.ts
+> tsx ~/LPPOO/15102026/0004-constantes/E007.ts
+> tsx ~/LPPOO/15102026/0004-constantes/E008.ts
 > ```
 
 ---
@@ -391,28 +283,18 @@ algo, então vira passo roxo:
 
 </details>
 
-> [!TIP]
-> **Poder do TypeScript:** Escreva `nome.` e o editor lista todas as ferramentas de string. Errou uma
-> letra? Ele avisa e ainda sugere o nome certo:
->
-> ```ts
-> console.log(limpo.toUppercase())
-> // erro: Property 'toUppercase' does not exist on type 'string'.
-> //       Did you mean 'toUpperCase'?
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0005-texto/`](0005-texto/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0005-texto/A016.ts
-> tsx ~/LPPOO/15102026/0005-texto/A017.ts
-> tsx ~/LPPOO/15102026/0005-texto/A018.ts
+> tsx ~/LPPOO/15102026/0005-texto/A013.ts
+> tsx ~/LPPOO/15102026/0005-texto/A014.ts
+> tsx ~/LPPOO/15102026/0005-texto/A015.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0005-texto/E011.ts
-> tsx ~/LPPOO/15102026/0005-texto/E012.ts
+> tsx ~/LPPOO/15102026/0005-texto/E009.ts
+> tsx ~/LPPOO/15102026/0005-texto/E010.ts
 > ```
 
 ---
@@ -447,27 +329,18 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 > Conta que não faz sentido vira `NaN` ("Not a Number"). Por exemplo,
 > `Number('abc')` dá `NaN`.
 
-> [!TIP]
-> **Poder do TypeScript:** O TypeScript sabe que o `.toFixed` devolve texto. Se você tentar guardar o
-> resultado como número, ele barra:
->
-> ```ts
-> const total: number = preco.toFixed(2)
-> // erro: Type 'string' is not assignable to type 'number'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0006-numero/`](0006-numero/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0006-numero/A019.ts
-> tsx ~/LPPOO/15102026/0006-numero/A020.ts
-> tsx ~/LPPOO/15102026/0006-numero/A021.ts
+> tsx ~/LPPOO/15102026/0006-numero/A016.ts
+> tsx ~/LPPOO/15102026/0006-numero/A017.ts
+> tsx ~/LPPOO/15102026/0006-numero/A018.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0006-numero/E013.ts
-> tsx ~/LPPOO/15102026/0006-numero/E014.ts
+> tsx ~/LPPOO/15102026/0006-numero/E011.ts
+> tsx ~/LPPOO/15102026/0006-numero/E012.ts
 > ```
 
 ---
@@ -511,28 +384,18 @@ E tem dois valores especiais que querem dizer "nada":
 - `null`: alguém colocou "nada" de propósito. É o aluno avisando "pode marcar
   que eu não vou".
 
-> [!TIP]
-> **Poder do TypeScript:** Com `string | null` você avisa que a caixa pode estar vazia. Aí o TypeScript
-> não deixa usar o valor sem conferir antes:
->
-> ```ts
-> let recado: string | null = null
-> console.log(recado.length)
-> // erro: 'recado' is possibly 'null'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0007-booleano/`](0007-booleano/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0007-booleano/A022.ts
-> tsx ~/LPPOO/15102026/0007-booleano/A023.ts
-> tsx ~/LPPOO/15102026/0007-booleano/A024.ts
+> tsx ~/LPPOO/15102026/0007-booleano/A019.ts
+> tsx ~/LPPOO/15102026/0007-booleano/A020.ts
+> tsx ~/LPPOO/15102026/0007-booleano/A021.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0007-booleano/E015.ts
-> tsx ~/LPPOO/15102026/0007-booleano/E016.ts
+> tsx ~/LPPOO/15102026/0007-booleano/E013.ts
+> tsx ~/LPPOO/15102026/0007-booleano/E014.ts
 > ```
 
 ---
@@ -579,27 +442,18 @@ faz a conta.
 
 </details>
 
-> [!TIP]
-> **Poder do TypeScript:** Esqueceu de converter? O TypeScript percebe que o `input` devolve texto e não
-> deixa guardar numa variável de número:
->
-> ```ts
-> const idade: number = input('Sua idade: ')
-> // erro: Type 'string' is not assignable to type 'number'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0008-conversao/`](0008-conversao/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0008-conversao/A025.ts
-> tsx ~/LPPOO/15102026/0008-conversao/A026.ts
-> tsx ~/LPPOO/15102026/0008-conversao/A027.ts
+> tsx ~/LPPOO/15102026/0008-conversao/A022.ts
+> tsx ~/LPPOO/15102026/0008-conversao/A023.ts
+> tsx ~/LPPOO/15102026/0008-conversao/A024.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0008-conversao/E017.ts
-> tsx ~/LPPOO/15102026/0008-conversao/E018.ts
+> tsx ~/LPPOO/15102026/0008-conversao/E015.ts
+> tsx ~/LPPOO/15102026/0008-conversao/E016.ts
 > ```
 
 ---
@@ -648,27 +502,18 @@ atribuição é um retângulo roxo:
 > O `x++` aparece muito sozinho na linha, contando coisas: um aluno a mais, um
 > gol a mais.
 
-> [!TIP]
-> **Poder do TypeScript:** O atalho `-=` só faz sentido com número. Tente tirar um texto do saldo:
->
-> ```ts
-> saldo -= 'trinta'
-> // erro: The right-hand side of an arithmetic operation must be of type
-> //       'any', 'number', 'bigint' or an enum type.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0009-atribuicao/`](0009-atribuicao/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0009-atribuicao/A028.ts
-> tsx ~/LPPOO/15102026/0009-atribuicao/A029.ts
-> tsx ~/LPPOO/15102026/0009-atribuicao/A030.ts
+> tsx ~/LPPOO/15102026/0009-atribuicao/A025.ts
+> tsx ~/LPPOO/15102026/0009-atribuicao/A026.ts
+> tsx ~/LPPOO/15102026/0009-atribuicao/A027.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0009-atribuicao/E019.ts
-> tsx ~/LPPOO/15102026/0009-atribuicao/E020.ts
+> tsx ~/LPPOO/15102026/0009-atribuicao/E017.ts
+> tsx ~/LPPOO/15102026/0009-atribuicao/E018.ts
 > ```
 
 ---
@@ -713,28 +558,18 @@ console.log(media) // 7
 > O `%` não tem a ver com porcentagem. Ele dá o resto da divisão: 7
 > alunos em duplas formam 3 duplas e sobra 1, então `7 % 2` é `1`.
 
-> [!TIP]
-> **Poder do TypeScript:** No JavaScript, `'8' * 2` dá `16` sem reclamar, e esse tipo de mistura vira bug
-> difícil de achar. No TypeScript, conta só com número:
->
-> ```ts
-> console.log('8' * 2)
-> // erro: The left-hand side of an arithmetic operation must be of type
-> //       'any', 'number', 'bigint' or an enum type.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0010-aritmetica/`](0010-aritmetica/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0010-aritmetica/A031.ts
-> tsx ~/LPPOO/15102026/0010-aritmetica/A032.ts
-> tsx ~/LPPOO/15102026/0010-aritmetica/A033.ts
+> tsx ~/LPPOO/15102026/0010-aritmetica/A028.ts
+> tsx ~/LPPOO/15102026/0010-aritmetica/A029.ts
+> tsx ~/LPPOO/15102026/0010-aritmetica/A030.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0010-aritmetica/E021.ts
-> tsx ~/LPPOO/15102026/0010-aritmetica/E022.ts
+> tsx ~/LPPOO/15102026/0010-aritmetica/E019.ts
+> tsx ~/LPPOO/15102026/0010-aritmetica/E020.ts
 > ```
 
 ---
@@ -779,27 +614,18 @@ console.log(vans) // 3
 
 </details>
 
-> [!TIP]
-> **Poder do TypeScript:** Cada ferramenta do `Math` diz o que aceita. Passe um texto e o TypeScript
-> avisa antes de rodar:
->
-> ```ts
-> Math.ceil('2.13')
-> // erro: Argument of type 'string' is not assignable to parameter of type 'number'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0011-math/`](0011-math/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0011-math/A034.ts
-> tsx ~/LPPOO/15102026/0011-math/A035.ts
-> tsx ~/LPPOO/15102026/0011-math/A036.ts
+> tsx ~/LPPOO/15102026/0011-math/A031.ts
+> tsx ~/LPPOO/15102026/0011-math/A032.ts
+> tsx ~/LPPOO/15102026/0011-math/A033.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0011-math/E023.ts
-> tsx ~/LPPOO/15102026/0011-math/E024.ts
+> tsx ~/LPPOO/15102026/0011-math/E021.ts
+> tsx ~/LPPOO/15102026/0011-math/E022.ts
 > ```
 
 ---
@@ -840,26 +666,18 @@ ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
 > [!TIP]
 > A boca aberta do `>` fica virada para o maior, igual a um jacaré com fome.
 
-> [!TIP]
-> **Poder do TypeScript:** Comparar número com texto não faz sentido, e o TypeScript não deixa:
->
-> ```ts
-> idade >= '18'
-> // erro: Operator '>=' cannot be applied to types 'number' and 'string'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0012-relacional/`](0012-relacional/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0012-relacional/A037.ts
-> tsx ~/LPPOO/15102026/0012-relacional/A038.ts
-> tsx ~/LPPOO/15102026/0012-relacional/A039.ts
+> tsx ~/LPPOO/15102026/0012-relacional/A034.ts
+> tsx ~/LPPOO/15102026/0012-relacional/A035.ts
+> tsx ~/LPPOO/15102026/0012-relacional/A036.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0012-relacional/E025.ts
-> tsx ~/LPPOO/15102026/0012-relacional/E026.ts
+> tsx ~/LPPOO/15102026/0012-relacional/E023.ts
+> tsx ~/LPPOO/15102026/0012-relacional/E024.ts
 > ```
 
 ---
@@ -898,29 +716,18 @@ console.log(acertou) // true
 > `=` guarda um valor ("a senha agora é essa"). `===` pergunta ("a senha é
 > essa?").
 
-> [!TIP]
-> **Poder do TypeScript:** O TypeScript percebe quando uma comparação nunca pode dar `true`, porque os
-> dois lados têm tipos diferentes:
->
-> ```ts
-> const numero = 5
-> numero === '5'
-> // erro: This comparison appears to be unintentional because the types
-> //       'number' and 'string' have no overlap.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0013-comparacao/`](0013-comparacao/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0013-comparacao/A040.ts
-> tsx ~/LPPOO/15102026/0013-comparacao/A041.ts
-> tsx ~/LPPOO/15102026/0013-comparacao/A042.ts
+> tsx ~/LPPOO/15102026/0013-comparacao/A037.ts
+> tsx ~/LPPOO/15102026/0013-comparacao/A038.ts
+> tsx ~/LPPOO/15102026/0013-comparacao/A039.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0013-comparacao/E027.ts
-> tsx ~/LPPOO/15102026/0013-comparacao/E028.ts
+> tsx ~/LPPOO/15102026/0013-comparacao/E025.ts
+> tsx ~/LPPOO/15102026/0013-comparacao/E026.ts
 > ```
 
 ---
@@ -967,23 +774,18 @@ console.log(media >= 6 || frequencia >= 75) // true || false → true
 > A mãe diz "só sai se arrumar o quarto **E** lavar a louça": é o `&&`. A avó
 > diz "sai se arrumar o quarto **OU** lavar a louça": é o `||`.
 
-> [!TIP]
-> **Poder do TypeScript:** Passe o mouse em cima de `aprovado`: o editor mostra `const aprovado: boolean`.
-> O TypeScript sabe que juntar dois `true`/`false` com `&&` dá outro `true` ou
-> `false`.
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0014-logico/`](0014-logico/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0014-logico/A043.ts
-> tsx ~/LPPOO/15102026/0014-logico/A044.ts
-> tsx ~/LPPOO/15102026/0014-logico/A045.ts
+> tsx ~/LPPOO/15102026/0014-logico/A040.ts
+> tsx ~/LPPOO/15102026/0014-logico/A041.ts
+> tsx ~/LPPOO/15102026/0014-logico/A042.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0014-logico/E029.ts
-> tsx ~/LPPOO/15102026/0014-logico/E030.ts
+> tsx ~/LPPOO/15102026/0014-logico/E027.ts
+> tsx ~/LPPOO/15102026/0014-logico/E028.ts
 > ```
 
 ---
@@ -1023,31 +825,18 @@ não:
 > O `??` é parecido, mas só troca quando o valor é `null` ou `undefined`. Com
 > texto vazio ele não faz nada: `'' ?? 'sem apelido'` continua `''`.
 
-> [!TIP]
-> **Poder do TypeScript:** `string | undefined` quer dizer "pode ser texto, pode
-> não ter nada ainda". Com isso, o TypeScript não deixa usar o valor sem pensar
-> no caso vazio. O `?.` resolve: só acessa se tiver valor.
->
-> ```ts
-> const resposta = input('Tem apelido? ')
-> const apelido = resposta === 'sim' ? input('Qual? ') : undefined // string | undefined
->
-> console.log(apelido.length) // erro: 'apelido' is possibly 'undefined'.
-> console.log(apelido?.length) // ok: dá undefined, sem quebrar
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0015-truthy-falsy/`](0015-truthy-falsy/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0015-truthy-falsy/A046.ts
-> tsx ~/LPPOO/15102026/0015-truthy-falsy/A047.ts
-> tsx ~/LPPOO/15102026/0015-truthy-falsy/A048.ts
+> tsx ~/LPPOO/15102026/0015-truthy-falsy/A043.ts
+> tsx ~/LPPOO/15102026/0015-truthy-falsy/A044.ts
+> tsx ~/LPPOO/15102026/0015-truthy-falsy/A045.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0015-truthy-falsy/E031.ts
-> tsx ~/LPPOO/15102026/0015-truthy-falsy/E032.ts
+> tsx ~/LPPOO/15102026/0015-truthy-falsy/E029.ts
+> tsx ~/LPPOO/15102026/0015-truthy-falsy/E030.ts
 > ```
 
 ---
@@ -1082,28 +871,18 @@ direto para o "Bom dia!":
 
 <p align="center"><img src="0016-condicional-simples/fluxograma.svg" alt="Fluxograma: Condicional simples (if)" width="380"></p>
 
-> [!TIP]
-> **Poder do TypeScript:** Dá para dizer exatamente quais respostas valem. Com `'sim' | 'nao'`, o
-> TypeScript barra qualquer outra:
->
-> ```ts
-> let resposta: 'sim' | 'nao' = 'sim'
-> resposta = 'talvez'
-> // erro: Type '"talvez"' is not assignable to type '"sim" | "nao"'.
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0016-condicional-simples/`](0016-condicional-simples/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0016-condicional-simples/A049.ts
-> tsx ~/LPPOO/15102026/0016-condicional-simples/A050.ts
-> tsx ~/LPPOO/15102026/0016-condicional-simples/A051.ts
+> tsx ~/LPPOO/15102026/0016-condicional-simples/A046.ts
+> tsx ~/LPPOO/15102026/0016-condicional-simples/A047.ts
+> tsx ~/LPPOO/15102026/0016-condicional-simples/A048.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0016-condicional-simples/E033.ts
-> tsx ~/LPPOO/15102026/0016-condicional-simples/E034.ts
+> tsx ~/LPPOO/15102026/0016-condicional-simples/E031.ts
+> tsx ~/LPPOO/15102026/0016-condicional-simples/E032.ts
 > ```
 
 ---
@@ -1139,23 +918,18 @@ programa passa por um deles:
 
 <p align="center"><img src="0017-condicional-composta/fluxograma.svg" alt="Fluxograma: Condicional composta (if / else)" width="524"></p>
 
-> [!TIP]
-> **Poder do TypeScript:** Passe o mouse em cima de `hora` e o editor mostra `number`, porque o
-> `Number(...)` sempre devolve número. A comparação `hora <= 6` é conferida antes
-> de rodar: com texto no lugar, ela nem passaria.
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0017-condicional-composta/`](0017-condicional-composta/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0017-condicional-composta/A052.ts
-> tsx ~/LPPOO/15102026/0017-condicional-composta/A053.ts
-> tsx ~/LPPOO/15102026/0017-condicional-composta/A054.ts
+> tsx ~/LPPOO/15102026/0017-condicional-composta/A049.ts
+> tsx ~/LPPOO/15102026/0017-condicional-composta/A050.ts
+> tsx ~/LPPOO/15102026/0017-condicional-composta/A051.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0017-condicional-composta/E035.ts
-> tsx ~/LPPOO/15102026/0017-condicional-composta/E036.ts
+> tsx ~/LPPOO/15102026/0017-condicional-composta/E033.ts
+> tsx ~/LPPOO/15102026/0017-condicional-composta/E034.ts
 > ```
 
 ---
@@ -1195,29 +969,18 @@ Cada `else if` é mais um losango, pendurado no Não do anterior:
 > sentido depois da primeira. Não adianta perguntar se tem habilitação para
 > quem tem 12 anos.
 
-> [!TIP]
-> **Poder do TypeScript:** Quando só existem três respostas possíveis, dá para escrever as três no tipo.
-> Um erro de digitação vira aviso na hora:
->
-> ```ts
-> let situacao: 'Aprovado' | 'Recuperação' | 'Reprovado' = 'Aprovado'
-> situacao = 'Aprovad'
-> // erro: Type '"Aprovad"' is not assignable to type
-> //       '"Aprovado" | "Recuperação" | "Reprovado"'. Did you mean '"Aprovado"'?
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0018-condicional-aninhada/`](0018-condicional-aninhada/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0018-condicional-aninhada/A055.ts
-> tsx ~/LPPOO/15102026/0018-condicional-aninhada/A056.ts
-> tsx ~/LPPOO/15102026/0018-condicional-aninhada/A057.ts
+> tsx ~/LPPOO/15102026/0018-condicional-aninhada/A052.ts
+> tsx ~/LPPOO/15102026/0018-condicional-aninhada/A053.ts
+> tsx ~/LPPOO/15102026/0018-condicional-aninhada/A054.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0018-condicional-aninhada/E037.ts
-> tsx ~/LPPOO/15102026/0018-condicional-aninhada/E038.ts
+> tsx ~/LPPOO/15102026/0018-condicional-aninhada/E035.ts
+> tsx ~/LPPOO/15102026/0018-condicional-aninhada/E036.ts
 > ```
 
 ---
@@ -1255,23 +1018,18 @@ o programa mostra:
 > Use o ternário para escolhas pequenas: singular ou plural, par ou ímpar,
 > aprovado ou reprovado. Se a decisão tem várias etapas, volte para o `if`.
 
-> [!TIP]
-> **Poder do TypeScript:** Passe o mouse em cima de `situacao`: o editor mostra
-> `const situacao: "Aprovado" | "Reprovado"`. O TypeScript leu os dois lados do
-> ternário e sabe que só pode sair um desses dois textos.
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0019-ternario/`](0019-ternario/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0019-ternario/A058.ts
-> tsx ~/LPPOO/15102026/0019-ternario/A059.ts
-> tsx ~/LPPOO/15102026/0019-ternario/A060.ts
+> tsx ~/LPPOO/15102026/0019-ternario/A055.ts
+> tsx ~/LPPOO/15102026/0019-ternario/A056.ts
+> tsx ~/LPPOO/15102026/0019-ternario/A057.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0019-ternario/E039.ts
-> tsx ~/LPPOO/15102026/0019-ternario/E040.ts
+> tsx ~/LPPOO/15102026/0019-ternario/E037.ts
+> tsx ~/LPPOO/15102026/0019-ternario/E038.ts
 > ```
 
 ---
@@ -1323,30 +1081,18 @@ O `switch` vira um losango com uma saída para cada `case`, mais uma para o
 > Use `switch` quando a pergunta é "qual destes valores?". Para faixas (maior
 > que, menor que), o `if` / `else if` continua sendo o certo.
 
-> [!TIP]
-> **Poder do TypeScript:** Neste projeto, o TypeScript está configurado para pegar o `break` esquecido
-> (a opção `noFallthroughCasesInSwitch` do `tsconfig.json`):
->
-> ```ts
-> case 1:
->   console.log('Seu saldo é R$ 100')
-> case 2: // erro: Fallthrough case in switch.
->   console.log('Depósito realizado')
->   break
-> ```
-
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0020-escolha/`](0020-escolha/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0020-escolha/A061.ts
-> tsx ~/LPPOO/15102026/0020-escolha/A062.ts
-> tsx ~/LPPOO/15102026/0020-escolha/A063.ts
+> tsx ~/LPPOO/15102026/0020-escolha/A058.ts
+> tsx ~/LPPOO/15102026/0020-escolha/A059.ts
+> tsx ~/LPPOO/15102026/0020-escolha/A060.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0020-escolha/E041.ts
-> tsx ~/LPPOO/15102026/0020-escolha/E042.ts
+> tsx ~/LPPOO/15102026/0020-escolha/E039.ts
+> tsx ~/LPPOO/15102026/0020-escolha/E040.ts
 > ```
 
 ## Prática em sala

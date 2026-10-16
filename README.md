@@ -6,7 +6,7 @@ Professor: Marcos Jhollyfer Felix Rodrigues · 80h, de 15/10 a 12/11/2026
 > Por que TypeScript? Porque a próxima disciplina é Web/Frontend. Você aprende
 > orientação a objetos agora e chega lá já falando a língua do Vite, do React e
 > do Node. A explicação completa, com o caminho do `.ts` até o Node, está no
-> [assunto 0000 da aula 01](15102026/README.md#0000--como-o-typescript-funciona-e-por-que-ele).
+> [assunto 0037 da aula 03](19102026/README.md#0037--como-o-typescript-funciona-e-por-que-ele).
 
 ## Como instalar (e atualizar)
 
@@ -68,7 +68,7 @@ o caminho completo, começando em `~/LPPOO`, e o comando funciona de qualquer
 pasta do terminal:
 
 ```bash
-tsx ~/LPPOO/15102026/0001-input/A004.ts
+tsx ~/LPPOO/15102026/0001-input/A001.ts
 ```
 
 Não precisa decorar: o README de cada aula já traz o comando pronto de cada
@@ -96,11 +96,11 @@ guardam a parte prática:
 └── 0014-logico/
     ├── ideia.svg       o diagrama da ideia
     ├── fluxograma.svg  o caminho que o programa faz
-    ├── A043.ts         exemplos resolvidos: rode, mude, quebre, rode de novo
-    ├── A044.ts
-    ├── A045.ts
-    ├── E029.ts         exercícios: enunciado e dicas no comentário,
-    └── E030.ts         resposta DENTRO do próprio arquivo
+    ├── A040.ts         exemplos resolvidos: rode, mude, quebre, rode de novo
+    ├── A041.ts
+    ├── A042.ts
+    ├── E027.ts         exercícios: enunciado e dicas no comentário,
+    └── E028.ts         resposta DENTRO do próprio arquivo
 ```
 
 Cada aula também tem uma pasta `pratica/`, com os exercícios feitos em sala.
@@ -127,10 +127,9 @@ A explicação completa está em [`15102026/README.md`](15102026/README.md).
 
 | Pasta                       | Assunto                                   |
 | --------------------------- | ----------------------------------------- |
-| `0000-typescript`           | como o TypeScript funciona e por que ele  |
 | `0001-input`                | entrada de dados com `input`              |
 | `0002-output`               | `console.log` e template string           |
-| `0003-variaveis`            | `let`, anotação e inferência              |
+| `0003-variaveis`            | `let`: a caixinha que muda de valor       |
 | `0004-constantes`           | `const` e `UPPER_CASE`                    |
 | `0005-texto`                | `string` e seus métodos                   |
 | `0006-numero`               | `number`, `toFixed`, `NaN`                |
@@ -175,13 +174,41 @@ questões que valem pontos ficam em
 | `0035-tipo-de-funcao`    | tipo de função e tipagem contextual                    |
 | `0036-juntando-tudo`     | o programa da aula: as notas da turma                  |
 
+## Aula 03 · 19/10 · TypeScript
+
+A explicação completa está em [`19102026/README.md`](19102026/README.md). As
+questões que valem pontos ficam em
+[`19102026/aula-03-typescript/`](19102026/aula-03-typescript/), e a prática em sala em
+[`19102026/pratica/`](19102026/pratica/).
+
+| Pasta | Assunto |
+| --- | --- |
+| `0037-typescript` | Como o TypeScript funciona (e por que ele) |
+| `0038-paradigmas` | Paradigmas de programação |
+| `0039-tipagem-estrutural` | Como o TypeScript pensa: tipos estruturais |
+| `0040-tipos-basicos` | Tipos primitivos, any, unknown e never |
+| `0041-inferencia` | Inferência x anotação: quando escrever o tipo |
+| `0042-tipos-de-objeto` | Tipos de objeto e type |
+| `0043-interface` | interface (e type x interface) |
+| `0044-opcional-readonly` | Propriedade opcional e readonly |
+| `0045-uniao-literais` | União (|) e tipos literais |
+| `0046-narrowing` | Narrowing: estreitando o tipo |
+| `0047-uniao-discriminada` | União discriminada |
+| `0048-intersecao` | Interseção (&) |
+| `0049-tuplas-enum-as-const` | Tuplas, enum e as const |
+| `0050-generics` | Generics (<T>) |
+| `0051-tipos-utilitarios` | Tipos utilitários: Partial, Pick, Omit, Record, Readonly |
+| `0052-type-guards-satisfies` | Type guards (x is T) e satisfies |
+| `0053-tsconfig` | tsconfig: strict e as regras do projeto |
+| `0054-juntando-tudo` | Juntando tudo: cadastro de alunos tipado |
+
 ## Cronograma
 
 | Aula | Data  | Tema                                                         |
 | ---- | ----- | ------------------------------------------------------------ |
 | 01   | 15/10 | Revisão de lógica I: tipos, entrada, saída, condicionais     |
 | 02   | 16/10 | Revisão de lógica II: laços, arrays, funções                 |
-| 03   | 19/10 | Paradigmas de programação e o sistema de tipos do TypeScript |
+| 03   | 19/10 | TypeScript: paradigmas, sistema de tipos e tsconfig          |
 | 04   | 20/10 | Abstração, classes e objetos                                 |
 | 05   | 21/10 | Métodos, construtores, membros estáticos e módulos           |
 | 06   | 22/10 | Encapsulamento e modificadores de acesso                     |
@@ -228,7 +255,7 @@ no terminal, digite e aperte Enter.
 **`tsx: command not found`**
 O `tsx` global não foi instalado (ou foi instalado pelo `pnpm`, numa pasta que o
 seu terminal não conhece). Rode `npm install --global tsx` e tente de novo. Enquanto isso, dá para rodar pelo projeto:
-`pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/A004.ts`.
+`pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/A001.ts`.
 
 **Quero sair de um programa travado**
 `Ctrl + C`.

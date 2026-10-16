@@ -32,16 +32,4 @@ saída direto para o fim:
 > Use com moderação. Um laço cheio de `break` e `continue` fica difícil de
 > seguir. Quando der, coloque a regra na própria condição do laço.
 
-> [!TIP]
-> **Poder do TypeScript:** `break` fora de um laço (ou de um `switch`) não faz
-> sentido, e o editor sublinha na hora:
->
-> ```ts
-> if (nota > 6) {
->   break
-> }
-> // erro: A 'break' statement can only be used within an enclosing
-> //       iteration or switch statement.
-> ```
-
 {{pratique}}

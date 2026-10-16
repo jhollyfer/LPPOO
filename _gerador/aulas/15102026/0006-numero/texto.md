@@ -28,13 +28,4 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 > Conta que não faz sentido vira `NaN` ("Not a Number"). Por exemplo,
 > `Number('abc')` dá `NaN`.
 
-> [!TIP]
-> **Poder do TypeScript:** O TypeScript sabe que o `.toFixed` devolve texto. Se você tentar guardar o
-> resultado como número, ele barra:
->
-> ```ts
-> const total: number = preco.toFixed(2)
-> // erro: Type 'string' is not assignable to type 'number'.
-> ```
-
 {{pratique}}

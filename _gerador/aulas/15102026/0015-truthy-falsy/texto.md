@@ -33,17 +33,4 @@ não:
 > O `??` é parecido, mas só troca quando o valor é `null` ou `undefined`. Com
 > texto vazio ele não faz nada: `'' ?? 'sem apelido'` continua `''`.
 
-> [!TIP]
-> **Poder do TypeScript:** `string | undefined` quer dizer "pode ser texto, pode
-> não ter nada ainda". Com isso, o TypeScript não deixa usar o valor sem pensar
-> no caso vazio. O `?.` resolve: só acessa se tiver valor.
->
-> ```ts
-> const resposta = input('Tem apelido? ')
-> const apelido = resposta === 'sim' ? input('Qual? ') : undefined // string | undefined
->
-> console.log(apelido.length) // erro: 'apelido' is possibly 'undefined'.
-> console.log(apelido?.length) // ok: dá undefined, sem quebrar
-> ```
-
 {{pratique}}

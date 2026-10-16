@@ -102,4 +102,4 @@ printf '\n\033[1;32mTudo pronto!\033[0m\n'
 echo "Node $(node -v) | pnpm $(pnpm -v) | $(tsx --version | head -1)"
 echo
 echo "Feche e abra o terminal e depois teste:"
-echo "  tsx ~/LPPOO/15102026/0001-input/A004.ts"
+echo "  tsx ~/LPPOO/15102026/0001-input/A001.ts"

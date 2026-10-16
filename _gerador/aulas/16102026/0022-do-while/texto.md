@@ -30,16 +30,4 @@ que a pergunta vem antes:
 
 {{fluxograma}}
 
-> [!TIP]
-> **Poder do TypeScript:** dá para criar a variável só com o tipo, sem valor:
-> `let nota: number`. O TypeScript confere se ela recebeu um valor antes de ser
-> usada. Com o `do...while` ele sabe que o bloco roda, então está tudo certo.
-> Sem nada que dê valor a ela, ele avisa:
->
-> ```ts
-> let nota: number
-> console.log(nota)
-> // erro: Variable 'nota' is used before being assigned.
-> ```
-
 {{pratique}}

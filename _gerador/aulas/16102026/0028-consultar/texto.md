@@ -35,14 +35,4 @@ primeiro que passa na regra. O 6 não passa, o 25 passa, e o 9 nem é olhado:
 
 {{fluxograma}}
 
-> [!TIP]
-> **Poder do TypeScript:** e se nenhum preço passar na regra? Aí o `find` devolve
-> `undefined`, e o TypeScript não deixa você esquecer:
->
-> ```ts
-> const caro = precos.find((p) => p > 20)
-> caro.toFixed(2)
-> // erro: 'caro' is possibly 'undefined'.
-> ```
-
 {{pratique}}

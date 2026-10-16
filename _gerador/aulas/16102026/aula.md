@@ -5,6 +5,8 @@ isso muda: os **laços** repetem, os **arrays** guardam vários valores numa
 etiqueta só e as **funções** dão nome a um pedaço de código para usar de novo.
 É a base de tudo que vem depois, em POO e no frontend.
 
+O foco continua sendo **lógica de programação**, escrita em TypeScript.
+
 Mesmo formato da aula 01: cada assunto gira em torno de um exemplo só, contado
 no texto, no **diagrama da ideia**, no código e no **fluxograma**. Nos laços, o
 fluxograma ganha uma seta que **volta**.
@@ -17,19 +19,14 @@ de gavetas com o índice embaixo de cada uma, começando do 0.
 
 <p align="center"><img src="legenda.svg" alt="Legenda: formas e cores do fluxograma" width="916"></p>
 
-## O TypeScript em cada assunto
-
-Todo assunto tem um quadro **Poder do TypeScript**. Nesta aula ele mostra
-coisas que só aparecem com laços, arrays e funções: o tipo de cada item do
-array, o `undefined` que pode sair de um `find` ou de um `pop`, o tipo do
-retorno de uma função e a **tipagem contextual**, que faz o `n` do `map` ser
-`number` sem você escrever nada.
+## Antes de começar
 
 > [!IMPORTANT]
-> Este projeto liga uma opção do TypeScript chamada `noUncheckedIndexedAccess`.
-> Com ela, `notas[i]` tem o tipo `number | undefined`, porque a posição `i`
-> pode não existir. Por isso, para percorrer arrays, prefira o `for...of`
-> (seção 0026).
+> Este projeto liga uma opção do TypeScript que faz `notas[i]` poder ser
+> `undefined`, porque a posição `i` pode não existir. Na hora de fazer conta com
+> um item do array, o editor reclama. Por isso, para percorrer arrays, prefira o
+> `for...of` (seção 0026). A explicação completa fica para a
+> [aula 03](../19102026/README.md).
 
 ## Os assuntos
 

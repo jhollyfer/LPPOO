@@ -47,13 +47,4 @@ gavetas.
 > console.log(sala[1]?.[0]) // Caio: linha 1, coluna 0
 > ```
 
-> [!TIP]
-> **Poder do TypeScript:** um `number[]` só aceita número. Tentou colocar texto?
-> O editor avisa antes de rodar:
->
-> ```ts
-> notas.push('dez')
-> // erro: Argument of type 'string' is not assignable to parameter of type 'number'.
-> ```
-
 {{pratique}}

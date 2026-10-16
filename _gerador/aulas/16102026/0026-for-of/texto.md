@@ -29,18 +29,4 @@ precisa do número da posição, o `for...of` é mais curto e mais difícil de e
 
 {{fluxograma}}
 
-> [!TIP]
-> **Poder do TypeScript:** com o índice, o TypeScript não tem como saber se
-> `notas[i]` existe (e se o `i` passar do fim?). Neste projeto ele exige que você
-> trate isso. Com o `for...of`, ele sabe que cada item existe:
->
-> ```ts
-> for (let i = 0; i < notas.length; i++) {
->   soma += notas[i] // erro: Object is possibly 'undefined'.
-> }
-> for (const nota of notas) {
->   soma += nota // ok
-> }
-> ```
-
 {{pratique}}

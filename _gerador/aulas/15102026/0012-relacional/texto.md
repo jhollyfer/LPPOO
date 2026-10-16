@@ -34,12 +34,4 @@ ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
 > [!TIP]
 > A boca aberta do `>` fica virada para o maior, igual a um jacaré com fome.
 
-> [!TIP]
-> **Poder do TypeScript:** Comparar número com texto não faz sentido, e o TypeScript não deixa:
->
-> ```ts
-> idade >= '18'
-> // erro: Operator '>=' cannot be applied to types 'number' and 'string'.
-> ```
-
 {{pratique}}

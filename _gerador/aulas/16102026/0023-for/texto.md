@@ -35,16 +35,4 @@ num lugar que dá para ler de uma vez:
 > O nome `i` é tradição (vem de *índice*), mas pode ser qualquer um. E o passo
 > não precisa ser `i++`: `i += 2` anda de dois em dois, `i--` conta para trás.
 
-> [!TIP]
-> **Poder do TypeScript:** o `i` criado com `let` dentro do `for` só existe
-> dentro do laço. Tentou usar depois? O TypeScript avisa antes de rodar:
->
-> ```ts
-> for (let i = 1; i <= 10; i++) {
->   console.log(i)
-> }
-> console.log(i)
-> // erro: Cannot find name 'i'.
-> ```
-
 {{pratique}}

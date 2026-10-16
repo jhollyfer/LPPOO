@@ -36,14 +36,4 @@ quatro voltas antes de sair pelo Não:
 > famoso **loop infinito**. Esqueceu o `saldo -= 4.5`? O programa fica rodando
 > para sempre. Para sair, aperte `Ctrl + C`.
 
-> [!TIP]
-> **Poder do TypeScript:** a variável que muda a cada volta precisa ser `let`.
-> Se você usar `const` sem querer, o TypeScript avisa antes de rodar:
->
-> ```ts
-> const viagens = 0
-> viagens++
-> // erro: Cannot assign to 'viagens' because it is a constant.
-> ```
-
 {{pratique}}

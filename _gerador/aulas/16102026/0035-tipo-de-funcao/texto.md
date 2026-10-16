@@ -36,14 +36,4 @@ mesmo assim o TypeScript sabe que são números. Ele tira do `Operacao`. Isso é
 
 {{fluxograma}}
 
-> [!TIP]
-> **Poder do TypeScript:** o `type` vira uma regra que o editor confere. Plugue
-> errado não entra:
->
-> ```ts
-> const juntar: Operacao = (a: string, b: string) => a + b
-> // erro: Type '(a: string, b: string) => string' is not assignable
-> //       to type 'Operacao'.
-> ```
-
 {{pratique}}

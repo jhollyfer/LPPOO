@@ -29,9 +29,4 @@ programa passa por um deles:
 
 {{fluxograma}}
 
-> [!TIP]
-> **Poder do TypeScript:** Passe o mouse em cima de `hora` e o editor mostra `number`, porque o
-> `Number(...)` sempre devolve número. A comparação `hora <= 6` é conferida antes
-> de rodar: com texto no lugar, ela nem passaria.
-
 {{pratique}}

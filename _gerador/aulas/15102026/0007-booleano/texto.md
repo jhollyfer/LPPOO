@@ -37,14 +37,4 @@ E tem dois valores especiais que querem dizer "nada":
 - `null`: alguém colocou "nada" de propósito. É o aluno avisando "pode marcar
   que eu não vou".
 
-> [!TIP]
-> **Poder do TypeScript:** Com `string | null` você avisa que a caixa pode estar vazia. Aí o TypeScript
-> não deixa usar o valor sem conferir antes:
->
-> ```ts
-> let recado: string | null = null
-> console.log(recado.length)
-> // erro: 'recado' is possibly 'null'.
-> ```
-
 {{pratique}}

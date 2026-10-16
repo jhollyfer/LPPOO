@@ -39,15 +39,4 @@ sem precisar de `=`:
 > O `splice(posição, quantosTirar, ...oQueColocar)` é o canivete: `splice(1, 1)`
 > só tira, `splice(1, 0, 'pão')` só coloca, e `splice(1, 1, 'açaí')` troca.
 
-> [!TIP]
-> **Poder do TypeScript:** o `pop` devolve o item tirado, mas e se a lista
-> estiver vazia? O TypeScript lembra disso: o tipo do que volta é
-> `string | undefined`.
->
-> ```ts
-> const ultimo = compras.pop()
-> ultimo.toUpperCase()
-> // erro: 'ultimo' is possibly 'undefined'.
-> ```
-
 {{pratique}}

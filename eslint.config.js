@@ -18,7 +18,8 @@ export default tseslint.config(
           caughtErrorsIgnorePattern: '^_',
         },
       ],
-      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      // o curso ensina type e interface (aula 03 em diante), então os dois valem
+      '@typescript-eslint/consistent-type-definitions': 'off',
     },
   },
 )

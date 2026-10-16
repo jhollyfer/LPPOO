@@ -36,13 +36,4 @@ quando ela acaba:
 > tem o seu escopo para `let` e `const`. Foi por isso que o `i` do `for` não
 > existia depois do laço, na [0023](#0023--laço-for).
 
-> [!TIP]
-> **Poder do TypeScript:** usar uma variável fora do escopo dela é erro na hora,
-> sublinhado no editor, em vez de um susto com o programa rodando:
->
-> ```ts
-> console.log(mensagem)
-> // erro: Cannot find name 'mensagem'.
-> ```
-
 {{pratique}}

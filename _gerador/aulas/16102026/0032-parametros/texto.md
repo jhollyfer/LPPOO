@@ -40,13 +40,4 @@ chamada não veio desconto, então vale o padrão:
 > [!NOTE]
 > Parâmetros opcionais e com valor padrão vêm **depois** dos obrigatórios.
 
-> [!TIP]
-> **Poder do TypeScript:** ele confere se você mandou o que é obrigatório e
-> conta até o que é opcional:
->
-> ```ts
-> totalComDesconto()
-> // erro: Expected 1-2 arguments, but got 0.
-> ```
-
 {{pratique}}

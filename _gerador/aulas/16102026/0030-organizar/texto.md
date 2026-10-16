@@ -42,14 +42,4 @@ console.log(notas) // [ 8, 10, 6, 9 ]: o original não mudou
 > sempre a regra `(a, b) => a - b` (do menor para o maior) ou `(a, b) => b - a`
 > (do maior para o menor).
 
-> [!TIP]
-> **Poder do TypeScript:** quer garantir que ninguém mexe num array? Escreva
-> `readonly`. Aí os métodos que mudam o original nem existem para ele:
->
-> ```ts
-> const notas: readonly number[] = [8, 10, 6, 9]
-> notas.sort()
-> // erro: Property 'sort' does not exist on type 'readonly number[]'.
-> ```
-
 {{pratique}}

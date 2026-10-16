@@ -35,16 +35,4 @@ contas e devolve o `8`:
 > O `return` encerra a função na hora. O que vier depois dele, dentro da
 > função, não roda.
 
-> [!TIP]
-> **Poder do TypeScript:** mesmo sem escrever o tipo do retorno, o TypeScript
-> descobre olhando o `return`. Isso é **inferência do retorno**:
->
-> ```ts
-> function somar(a: number, b: number) {
->   return a + b // o TypeScript conclui: devolve number
-> }
-> const resultado: string = somar(1, 2)
-> // erro: Type 'number' is not assignable to type 'string'.
-> ```
-
 {{pratique}}

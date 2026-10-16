@@ -35,14 +35,4 @@ entregando a função, não chamando. Quem chama é o `map`, uma vez para cada n
 
 {{fluxograma}}
 
-> [!TIP]
-> **Poder do TypeScript:** o `map` sabe que vai entregar um `number` para a sua
-> regra. Se a sua regra pedir outra coisa, o TypeScript não deixa:
->
-> ```ts
-> notas.map((n: string) => n)
-> // erro: Argument of type '(n: string) => string' is not assignable to
-> //       parameter of type '(value: number, ...) => string'.
-> ```
-
 {{pratique}}

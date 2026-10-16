@@ -32,15 +32,4 @@ console.log(acertou) // true
 > `=` guarda um valor ("a senha agora é essa"). `===` pergunta ("a senha é
 > essa?").
 
-> [!TIP]
-> **Poder do TypeScript:** O TypeScript percebe quando uma comparação nunca pode dar `true`, porque os
-> dois lados têm tipos diferentes:
->
-> ```ts
-> const numero = 5
-> numero === '5'
-> // erro: This comparison appears to be unintentional because the types
-> //       'number' and 'string' have no overlap.
-> ```
-
 {{pratique}}

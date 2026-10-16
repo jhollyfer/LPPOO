@@ -31,9 +31,4 @@ o programa mostra:
 > Use o ternário para escolhas pequenas: singular ou plural, par ou ímpar,
 > aprovado ou reprovado. Se a decisão tem várias etapas, volte para o `if`.
 
-> [!TIP]
-> **Poder do TypeScript:** Passe o mouse em cima de `situacao`: o editor mostra
-> `const situacao: "Aprovado" | "Reprovado"`. O TypeScript leu os dois lados do
-> ternário e sabe que só pode sair um desses dois textos.
-
 {{pratique}}

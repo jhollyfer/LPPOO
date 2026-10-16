@@ -52,10 +52,4 @@ O fluxograma mostra as três voltas do `do...while` e depois o relatório:
 
 {{fluxograma}}
 
-> [!TIP]
-> **Poder do TypeScript:** no programa inteiro, você escreveu só dois tipos:
-> `number[]` e `string`. Passe o mouse em `aprovadas`, `dobradas`, `nota` e
-> `calcularMedia`: o TypeScript descobriu o tipo de todo o resto sozinho, e
-> confere cada um deles enquanto você digita.
-
 {{pratique}}

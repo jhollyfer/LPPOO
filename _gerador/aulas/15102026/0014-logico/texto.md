@@ -40,9 +40,4 @@ console.log(media >= 6 || frequencia >= 75) // true || false → true
 > A mãe diz "só sai se arrumar o quarto **E** lavar a louça": é o `&&`. A avó
 > diz "sai se arrumar o quarto **OU** lavar a louça": é o `||`.
 
-> [!TIP]
-> **Poder do TypeScript:** Passe o mouse em cima de `aprovado`: o editor mostra `const aprovado: boolean`.
-> O TypeScript sabe que juntar dois `true`/`false` com `&&` dá outro `true` ou
-> `false`.
-
 {{pratique}}
