@@ -6,9 +6,10 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import rough from 'roughjs'
 
-const FONTE = readFileSync(
-  join(dirname(fileURLToPath(import.meta.url)), 'fonte/Excalifont-Regular.woff2'),
-).toString('base64')
+const PASTA_FONTES = join(dirname(fileURLToPath(import.meta.url)), 'fonte')
+const FONTE = readFileSync(join(PASTA_FONTES, 'Excalifont-Regular.woff2')).toString('base64')
+// fonte de código do Excalidraw (Cascadia Code, só com as letras que a gente usa)
+const FONTE_CODIGO = readFileSync(join(PASTA_FONTES, 'CascadiaCode-Regular.woff2')).toString('base64')
 
 export const LARGURA = 1600
 export const ESCURO = '#1e1e1e'
@@ -35,6 +36,8 @@ const escapar = (s) =>
 
 // largura aproximada de um texto na Excalifont
 export const medir = (s, tam) => String(s).length * tam * 0.55
+// a fonte de código tem todas as letras com a mesma largura
+export const medirCodigo = (s, tam) => String(s).length * tam * 0.6
 
 export function novoQuadro() {
   const gen = rough.generator()
@@ -50,9 +53,10 @@ export function novoQuadro() {
     }
   }
 
-  const texto = (x, y, conteudo, { tam = 30, cor = ESCURO, ancora = 'start' } = {}) => {
+  const texto = (x, y, conteudo, { tam = 30, cor = ESCURO, ancora = 'start', codigo = false } = {}) => {
+    const classe = codigo ? ' class="c"' : ''
     partes.push(
-      `<text x="${x}" y="${y}" font-size="${tam}" fill="${cor}" text-anchor="${ancora}">${escapar(conteudo)}</text>`,
+      `<text x="${x}" y="${y}" font-size="${tam}" fill="${cor}" text-anchor="${ancora}"${classe}>${escapar(conteudo)}</text>`,
     )
   }
 
@@ -89,16 +93,19 @@ export function novoQuadro() {
   }
 
   // recorte: { x, y, w, h } é o pedaço do quadro que vira imagem
-  const svg = (
-    titulo,
-    { x = 0, y = 0, w = LARGURA, h },
-  ) => `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="${x} ${y} ${w} ${h}">
+  const svg = (titulo, { x = 0, y = 0, w = LARGURA, h }) => {
+    const corpo = partes.join('\n')
+    let estilo = `@font-face{font-family:Excalifont;src:url(data:font/woff2;base64,${FONTE}) format('woff2')}text{font-family:Excalifont,'Comic Sans MS',cursive;white-space:pre}`
+    if (corpo.includes('class="c"'))
+      estilo += `@font-face{font-family:Cascadia;src:url(data:font/woff2;base64,${FONTE_CODIGO}) format('woff2')}text.c{font-family:Cascadia,Consolas,monospace;font-variant-ligatures:none;font-feature-settings:'liga' 0,'calt' 0}`
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="${x} ${y} ${w} ${h}">
 <title>${escapar(titulo)}</title>
-<style>@font-face{font-family:Excalifont;src:url(data:font/woff2;base64,${FONTE}) format('woff2')}text{font-family:Excalifont,'Comic Sans MS',cursive;white-space:pre}</style>
+<style>${estilo}</style>
 <rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#ffffff"/>
-${partes.join('\n')}
+${corpo}
 </svg>
 `
+  }
 
   return { gen, opcoes, forma, texto, caixa, poligono, seta, svg, partes }
 }

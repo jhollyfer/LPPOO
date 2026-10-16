@@ -25,3 +25,19 @@ export const fluxograma = {
     ['D', 'E'],
   ],
 }
+
+export const memoria = {
+  passos: [
+    { codigo: "const NOME_ESCOLA = 'CETAM'", grava: [['NOME_ESCOLA', "'CETAM'", { const: true }]] },
+    {
+      codigo: "const nome = input('Seu nome: ')",
+      grava: [['nome', "'Ana'", { const: true }]],
+      sai: 'Seu nome: Ana',
+    },
+    { codigo: 'console.log(`${nome} estuda no ${NOME_ESCOLA}`)', sai: 'Ana estuda no CETAM' },
+    {
+      codigo: "NOME_ESCOLA = 'Outra escola'",
+      erro: ['NOME_ESCOLA', 'O TypeScript barra antes de rodar: a gaveta tem cadeado.'],
+    },
+  ],
+}

@@ -24,6 +24,11 @@ console.log(media >= 6 || frequencia >= 75) // true || false → true
 
 {{fluxograma}}
 
+Na memória, cada lado da conta vira `true` ou `false` antes de juntar. Repare
+que o último passo calcula o `||` e mostra, mas não guarda em lugar nenhum:
+
+{{memoria}}
+
 <details>
 <summary>A tabela verdade</summary>
 

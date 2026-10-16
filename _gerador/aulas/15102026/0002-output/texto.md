@@ -21,6 +21,11 @@ frase é saída: paralelogramo azul.
 
 {{fluxograma}}
 
+Na memória só existe a gaveta `media`. A frase é montada na hora, com o valor
+que está lá dentro, e vai direto para o terminal sem ganhar gaveta:
+
+{{memoria}}
+
 > [!TIP]
 > A crase (`` ` ``) fica perto do Enter na maioria dos teclados, às vezes junto
 > com o til. Ache ela agora: você vai usar muito.

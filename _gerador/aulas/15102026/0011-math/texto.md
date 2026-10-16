@@ -20,6 +20,11 @@ console.log(vans) // 3
 
 {{fluxograma}}
 
+Na memória, o `2.13` aparece só durante a conta. Quem fica guardado é o `3`
+que o `Math.ceil` devolve:
+
+{{memoria}}
+
 > [!TIP]
 > Para não confundir: *floor* é "chão" em inglês, então arredonda para baixo.
 > *ceil* vem de *ceiling*, "teto", então arredonda para cima.

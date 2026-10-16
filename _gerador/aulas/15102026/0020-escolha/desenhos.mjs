@@ -69,3 +69,16 @@ export const fluxograma = {
   // o caminho do exemplo do texto
   caminho: ['A', 'B', 'C', 'E', 'H'],
 }
+
+export const memoria = {
+  passos: [
+    {
+      codigo: "const opcao = Number(input('1 saldo, 2 depósito, 3 sair: '))",
+      grava: [['opcao', '2', { const: true }]],
+      sai: '1 saldo, 2 depósito, 3 sair: 2',
+    },
+    { codigo: 'case 1:', conta: ['2 === 1', 'false'] },
+    { codigo: 'case 2:', conta: ['2 === 2', 'true'] },
+    { codigo: ["  console.log('Depósito realizado')", '  break'], sai: 'Depósito realizado' },
+  ],
+}

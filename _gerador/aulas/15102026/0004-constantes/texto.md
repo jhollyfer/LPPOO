@@ -26,6 +26,11 @@ muda mais. Repare também que a constante é guardada antes da pergunta:
 
 {{fluxograma}}
 
+Na memória, as gavetas de `const` ganham um cadeado. A tentativa de troca do
+último passo nem chega a rodar:
+
+{{memoria}}
+
 > [!TIP]
 > Na dúvida, comece com `const`. Precisou mudar depois? Troque para `let`.
 > Valor fixo do programa vai em `UPPER_CASE` (`NOME_ESCOLA`, `MEDIA_APROVACAO`);

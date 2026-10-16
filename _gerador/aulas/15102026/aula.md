@@ -20,6 +20,24 @@ No diagrama da ideia, o caminho que o exemplo segue aparece em verde, e os
 outros ficam cinza. Erro é vermelho. No fluxograma vale a mesma regra: o
 caminho do exemplo fica colorido e o resto fica apagado.
 
+## A memória
+
+Todo assunto termina com um terceiro desenho: o programa rodando linha por
+linha, com a memória RAM ao lado. Pense na RAM como um armário de gavetas:
+
+- cada variável ganha uma **gaveta**, com o nome na etiqueta e o valor dentro;
+- o número no canto (`#1000`, `#1008`...) é o **endereço**, que é como o
+  computador acha a gaveta de novo;
+- embaixo do valor vem o tipo (`string`, `number`, `boolean`...);
+- a gaveta **verde** é a que acabou de mudar, e quando o valor troca aparece
+  também o que ela guardava antes;
+- gaveta de `const` tem **cadeado**;
+- a caixa **amarela** é uma conta que o processador faz na hora, como
+  `5 >= 6`. O resultado é usado e descartado, sem ganhar gaveta.
+
+Os endereços são de mentirinha (os de verdade são números enormes), mas a ideia
+é essa: o nome da variável é só um apelido para um lugar na memória.
+
 ## Os assuntos
 
 Leia na ordem. Em cada um, depois de ler, abra a pasta e rode os exemplos.

@@ -23,6 +23,11 @@ console.log(acertou) // true
 
 {{fluxograma}}
 
+Na memória são duas gavetas diferentes, com endereços diferentes. O `===`
+compara o que tem dentro delas:
+
+{{memoria}}
+
 > [!IMPORTANT]
 > Por que três sinais? Existe o `==`, que converte os tipos antes de comparar:
 > `5 == '5'` dá `true` e o erro passa batido. O `===` compara o valor e o

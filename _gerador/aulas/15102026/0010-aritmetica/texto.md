@@ -20,6 +20,11 @@ console.log(media) // 7
 
 {{fluxograma}}
 
+Na memória, o processador pega os valores das gavetas, faz a conta e só guarda
+o resultado final. O `14` do meio do caminho não ganha gaveta:
+
+{{memoria}}
+
 <details>
 <summary>Todos os operadores</summary>
 

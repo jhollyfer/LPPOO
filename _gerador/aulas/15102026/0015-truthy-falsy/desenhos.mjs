@@ -29,3 +29,19 @@ export const fluxograma = {
   // o caminho do exemplo do texto
   caminho: ['A', 'B', 'C', 'E', 'F', 'G'],
 }
+
+export const memoria = {
+  passos: [
+    {
+      codigo: "const apelido = input('Seu apelido: ')",
+      grava: [['apelido', "''", { const: true }]],
+      sai: 'Seu apelido: ',
+    },
+    {
+      codigo: "const chamar = apelido || 'sem apelido'",
+      conta: ["'' || 'sem apelido'", "'sem apelido'"],
+      grava: [['chamar', "'sem apelido'", { const: true }]],
+    },
+    { codigo: 'console.log(`Oi, ${chamar}!`)', sai: 'Oi, sem apelido!' },
+  ],
+}

@@ -23,3 +23,14 @@ export const fluxograma = {
     ['C', 'D'],
   ],
 }
+
+export const memoria = {
+  passos: [
+    { codigo: 'const media = 7.5', grava: [['media', '7.5', { const: true }]] },
+    {
+      codigo: 'console.log(`Sua média é ${media}`)',
+      conta: ['`Sua média é ${media}`', "'Sua média é 7.5'"],
+      sai: 'Sua média é 7.5',
+    },
+  ],
+}

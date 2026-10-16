@@ -27,6 +27,13 @@ entrando e saindo.
 
 {{fluxograma}}
 
+E dentro do computador? Quando a Ana aperta Enter, o que ela digitou vai para
+uma gaveta da memória RAM com a etiqueta `nome`. Cada gaveta tem um endereço
+(o `#1000`), que é como o computador acha ela de novo. A gaveta verde é a que
+acabou de mudar:
+
+{{memoria}}
+
 > [!IMPORTANT]
 > O `input` sempre devolve texto. Se a Ana digitar `17`, o programa guarda
 > `'17'`, entre aspas. Fazer conta com isso é assunto da [0008](#0008--conversão-de-tipos).

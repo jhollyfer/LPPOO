@@ -27,3 +27,12 @@ export const fluxograma = {
     ['E', 'F'],
   ],
 }
+
+export const memoria = {
+  passos: [
+    { codigo: 'let saldo = 100', grava: [['saldo', '100']] },
+    { codigo: 'saldo -= 30', grava: [['saldo', '70']] },
+    { codigo: 'saldo += 20', grava: [['saldo', '90']] },
+    { codigo: 'console.log(saldo)', sai: '90' },
+  ],
+}

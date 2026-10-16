@@ -16,7 +16,9 @@ import { input } from '#core/input.ts'
 
 const resposta = input('Tem aula hoje? (sim/nao) ') // você digita: sim
 const temAula = resposta === 'sim' // true
-console.log(temAula) // true
+
+let recado // undefined: a gaveta existe, mas está vazia
+recado = null // null: "nada", colocado de propósito
 ```
 
 Ainda não tem losango no fluxograma. A comparação só gera o `true` ou o `false`
@@ -24,6 +26,13 @@ e guarda. Escolher um caminho com ele é trabalho do `if`, na
 [0016](#0016--condicional-simples-if).
 
 {{fluxograma}}
+
+Na memória, o `true` ocupa uma gaveta como qualquer outro valor. E aqui dá
+para ver a diferença entre os dois "nadas": com `let recado` a gaveta já existe,
+mas ninguém pôs nada nela (`undefined`). Depois alguém coloca `null` de
+propósito:
+
+{{memoria}}
 
 > [!TIP]
 > O `typeof` conta o tipo de um valor: `typeof temAula` dá `'boolean'`.

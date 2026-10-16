@@ -38,7 +38,8 @@ projeto inteiro, use `pnpm tsc`.
 
 Cada aula é uma pasta com a data (`15102026` é 15/10/2026). O `README.md` da
 aula tem a explicação de todos os assuntos. Em cada um, o texto, o **diagrama da
-ideia**, o código e o **fluxograma** contam o mesmo exemplo. As pastas numeradas
+ideia**, o código, o **fluxograma** e o desenho da **memória** contam o mesmo
+exemplo. As pastas numeradas
 guardam a parte prática:
 
 ```
@@ -48,6 +49,7 @@ guardam a parte prática:
 └── 0014-logico/
     ├── ideia.svg       o diagrama da ideia
     ├── fluxograma.svg  o caminho que o programa faz
+    ├── memoria.svg     o programa rodando, com as gavetas da memória RAM
     ├── exemplo-1.ts    exemplos resolvidos: rode, mude, quebre, rode de novo
     ├── exemplo-2.ts
     ├── exemplo-3.ts
@@ -153,14 +155,15 @@ no terminal, digite e aperte Enter.
 
 ## Para o professor: o README da aula e os desenhos
 
-O `README.md` de cada aula e os desenhos (`ideia.svg`, `fluxograma.svg`) são
+O `README.md` de cada aula e os desenhos (`ideia.svg`, `fluxograma.svg`,
+`memoria.svg`) são
 **gerados** por `_gerador/`. Não edite o README da aula direto: cada assunto tem
 uma fonte só, em `_gerador/aulas/<data>/<pasta>/`:
 
-- `texto.md`: o texto, com `{{ideia}}`, `{{fluxograma}}` e `{{pratique}}` onde
-  entram os desenhos e o rodapé;
-- `desenhos.mjs`: as caixas do diagrama da ideia e o fluxograma, com os mesmos
-  valores do texto.
+- `texto.md`: o texto, com `{{ideia}}`, `{{fluxograma}}`, `{{memoria}}` e
+  `{{pratique}}` onde entram os desenhos e o rodapé;
+- `desenhos.mjs`: o diagrama da ideia, o fluxograma e os passos da memória, com
+  os mesmos valores do texto.
 
 ```bash
 cd _gerador

@@ -28,3 +28,21 @@ export const fluxograma = {
     ['D', 'E'],
   ],
 }
+
+export const memoria = {
+  passos: [
+    {
+      codigo: ['const nota1 = 8', 'const nota2 = 6'],
+      grava: [
+        ['nota1', '8', { const: true }],
+        ['nota2', '6', { const: true }],
+      ],
+    },
+    {
+      codigo: 'const media = (nota1 + nota2) / 2',
+      conta: ['(8 + 6) / 2', '7'],
+      grava: [['media', '7', { const: true }]],
+    },
+    { codigo: 'console.log(media)', sai: '7' },
+  ],
+}

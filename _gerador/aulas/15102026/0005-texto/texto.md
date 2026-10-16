@@ -25,6 +25,11 @@ algo, então vira passo roxo:
 
 {{fluxograma}}
 
+A memória mostra por que `nome` continua com os espaços: o `.trim()` não mexe
+nessa gaveta. Ele cria um texto novo, e esse texto vai para uma gaveta nova:
+
+{{memoria}}
+
 > [!WARNING]
 > Com texto, o `+` cola em vez de somar: `'5' + 3` vira `'53'`.
 

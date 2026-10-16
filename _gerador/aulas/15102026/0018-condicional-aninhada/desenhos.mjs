@@ -41,3 +41,12 @@ export const fluxograma = {
   // o caminho do exemplo do texto
   caminho: ['A', 'B', 'C', 'E', 'F', 'H'],
 }
+
+export const memoria = {
+  passos: [
+    { codigo: 'const media = 5', grava: [['media', '5', { const: true }]] },
+    { codigo: 'if (media >= 6) {', conta: ['5 >= 6', 'false'] },
+    { codigo: '} else if (media >= 4) {', conta: ['5 >= 4', 'true'] },
+    { codigo: "  console.log('Recuperação')", sai: 'Recuperação' },
+  ],
+}

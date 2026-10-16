@@ -41,6 +41,11 @@ O `switch` vira um losango com uma saída para cada `case`, mais uma para o
 
 {{fluxograma}}
 
+Na memória, o `switch` faz uma comparação com `===` para cada `case`, sempre
+com o mesmo valor da gaveta `opcao`, até achar o igual:
+
+{{memoria}}
+
 > [!TIP]
 > Use `switch` quando a pergunta é "qual destes valores?". Para faixas (maior
 > que, menor que), o `if` / `else if` continua sendo o certo.

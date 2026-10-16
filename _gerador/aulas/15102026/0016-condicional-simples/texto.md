@@ -28,4 +28,9 @@ direto para o "Bom dia!":
 
 {{fluxograma}}
 
+Na memória, a comparação do `if` é calculada e jogada fora logo depois: ela não
+ganha gaveta. Serve só para escolher o caminho:
+
+{{memoria}}
+
 {{pratique}}

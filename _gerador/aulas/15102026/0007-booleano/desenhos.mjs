@@ -35,3 +35,20 @@ export const fluxograma = {
     ['D', 'E'],
   ],
 }
+
+export const memoria = {
+  passos: [
+    {
+      codigo: "const resposta = input('Tem aula hoje? (sim/nao) ')",
+      grava: [['resposta', "'sim'", { const: true }]],
+      sai: 'Tem aula hoje? (sim/nao) sim',
+    },
+    {
+      codigo: "const temAula = resposta === 'sim'",
+      conta: ["'sim' === 'sim'", 'true'],
+      grava: [['temAula', 'true', { const: true }]],
+    },
+    { codigo: 'let recado', grava: [['recado', 'undefined']] },
+    { codigo: 'recado = null', grava: [['recado', 'null']] },
+  ],
+}

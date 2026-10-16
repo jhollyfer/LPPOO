@@ -44,3 +44,22 @@ export const fluxograma = {
     ['D', 'E'],
   ],
 }
+
+export const memoria = {
+  passos: [
+    {
+      codigo: ['const media = 7', 'const frequencia = 60'],
+      grava: [
+        ['media', '7', { const: true }],
+        ['frequencia', '60', { const: true }],
+      ],
+    },
+    {
+      codigo: 'const aprovado = media >= 6 && frequencia >= 75',
+      conta: ['true && false', 'false'],
+      grava: [['aprovado', 'false', { const: true }]],
+    },
+    { codigo: 'console.log(aprovado)', sai: 'false' },
+    { codigo: 'console.log(media >= 6 || frequencia >= 75)', conta: ['true || false', 'true'], sai: 'true' },
+  ],
+}
