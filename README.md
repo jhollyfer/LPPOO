@@ -100,6 +100,32 @@ A explicação completa está em [`15102026/README.md`](15102026/README.md).
 | `0019-ternario`             | `condição ? a : b`                        |
 | `0020-escolha`              | `switch`                                  |
 
+## Aula 02 · 16/10 · Revisão de lógica II
+
+A explicação completa está em [`16102026/README.md`](16102026/README.md). As
+questões que valem pontos ficam em
+[`16102026/aula-02-logica-2/`](16102026/aula-02-logica-2/), e a prática em sala em
+[`16102026/pratica/`](16102026/pratica/).
+
+| Pasta                    | Assunto                                                |
+| ------------------------ | ------------------------------------------------------ |
+| `0021-while`             | laço `while`                                           |
+| `0022-do-while`          | laço `do...while`                                      |
+| `0023-for`               | laço `for` com contador                                |
+| `0024-break-continue`    | `break` e `continue`                                   |
+| `0025-arrays`            | arrays tipados, índice, `length`, matriz (noção)       |
+| `0026-for-of`            | laço `for...of`                                        |
+| `0027-inserir-remover`   | `push`, `pop`, `unshift`, `shift`, `splice`            |
+| `0028-consultar`         | `indexOf`, `includes`, `find`, `findIndex`, `some`, `every` |
+| `0029-transformar`       | `map`, `filter`, `reduce`, `forEach`                   |
+| `0030-organizar`         | `sort`, `reverse`, `slice`, `join`, `concat`           |
+| `0031-funcoes`           | funções, parâmetros tipados e tipo de retorno          |
+| `0032-parametros`        | parâmetro opcional, valor padrão e `void`              |
+| `0033-escopo`            | escopo de variáveis                                    |
+| `0034-arrow-callback`    | arrow functions e callbacks                            |
+| `0035-tipo-de-funcao`    | tipo de função e tipagem contextual                    |
+| `0036-juntando-tudo`     | o programa da aula: as notas da turma                  |
+
 ## Cronograma
 
 | Aula | Data  | Tema                                                         |

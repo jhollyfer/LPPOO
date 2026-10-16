@@ -9,6 +9,7 @@
 //   vermelho (erro, caminho do Não), cinza (neutro)
 // setas:  { de, para, rotulo?, cor?, lados?: 'de' (lado de saída + chegada:
 //           d = direita, e = esquerda, c = cima, b = baixo), cotovelo?, dx?, dy? }
+//         ou { pontos: [[x, y], ...], rotulo?, cor? } para um caminho livre
 // notas:  { x, y, texto, cor? } texto solto
 import { novoQuadro, CORES, TINTA, medir } from '../quadro.mjs'
 import { ICONES } from './icones.mjs'
@@ -130,6 +131,14 @@ export function desenharIdeia(titulo, d) {
     return [px + vx * 16, py + vy * 16]
   }
   for (const s of d.setas ?? []) {
+    // seta com caminho livre: pontos [[x, y], ...]
+    if (s.pontos) {
+      // o rótulo fica uns 40 px acima da seta; o recorte precisa alcançar
+      topo = Math.min(topo, ...s.pontos.map(([, y]) => y + 40 - (s.rotulo ? 50 : 0)))
+      fundo = Math.max(fundo, ...s.pontos.map(([, y]) => y))
+      q.seta(s.pontos, { cor: TINTA[s.cor ?? 'roxo'], rotulo: s.rotulo, dx: s.dx, dy: s.dy })
+      continue
+    }
     const a = caixas.get(s.de)
     const b = caixas.get(s.para)
     if (!a || !b) throw new Error(`${titulo}: seta ${s.de} -> ${s.para} aponta para caixa que não existe`)

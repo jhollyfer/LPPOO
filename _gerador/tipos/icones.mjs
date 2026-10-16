@@ -211,4 +211,45 @@ function marca(q, c) {
   return { [c.id]: { x, y, w: t, h: t } }
 }
 
-export const ICONES = { caixinha, balao, pessoa, terminal, cardapio, arquivo, marca }
+// array: gavetas lado a lado, com o índice embaixo de cada uma
+// estados: { [indice]: 'verde' | 'vermelho' | 'amarelo' | 'roxo' | 'apagado' }
+function array(q, c) {
+  const cor = CORES[c.cor ?? 'azul']
+  const itens = c.itens.map(String)
+  const wCel = c.celula ?? Math.max(90, ...itens.map((v) => largura(v, 30) + 40))
+  const hCel = 84
+  const yCel = c.nome ? c.y + 54 : c.y
+  const registro = {}
+  if (c.nome) {
+    const wEtiqueta = largura(c.nome, 26) + 44
+    q.poligono(
+      [
+        [c.x + 16, c.y + 4],
+        [c.x + wEtiqueta, c.y + 4],
+        [c.x + wEtiqueta + 16, c.y + 24],
+        [c.x + wEtiqueta, c.y + 44],
+        [c.x + 16, c.y + 44],
+      ],
+      { borda: cor.borda, fundo: '#ffffff' },
+    )
+    q.texto(c.x + 30, c.y + 33, c.nome, { tam: 26, cor: cor.texto })
+  }
+  itens.forEach((v, i) => {
+    const estado = c.estados?.[i]
+    const x = c.x + i * wCel
+    const corCel = estado === 'apagado' ? { borda: '#ced4da', fundo: '#f8f9fa' } : (CORES[estado] ?? cor)
+    q.caixa(x, yCel, wCel, hCel, corCel, 6)
+    q.texto(x + wCel / 2, yCel + 54, v, {
+      tam: 30,
+      ancora: 'middle',
+      cor: estado === 'apagado' ? '#adb5bd' : undefined,
+    })
+    if (c.indices !== false)
+      q.texto(x + wCel / 2, yCel + hCel + 30, String(i), { tam: 22, cor: '#868e96', ancora: 'middle' })
+    registro[`${c.id}:${i}`] = { x, y: yCel, w: wCel, h: hCel }
+  })
+  registro[c.id] = { x: c.x, y: yCel, w: wCel * itens.length, h: hCel + (c.indices !== false ? 40 : 0) }
+  return registro
+}
+
+export const ICONES = { caixinha, balao, pessoa, terminal, cardapio, arquivo, marca, array }

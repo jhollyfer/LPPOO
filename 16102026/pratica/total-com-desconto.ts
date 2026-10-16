@@ -1,0 +1,11 @@
+// Prática em sala · Total com desconto opcional
+//
+// Escreva totalComDesconto(precos: number[], desconto?: number): number, que
+// soma os preços e, se vier desconto (ex.: 0.1 para 10%), aplica. Teste com e
+// sem desconto.
+//
+// Dicas:
+// 1. Some com reduce.
+// 2. Sem desconto, desconto é undefined: use desconto ?? 0.
+//
+// Escreva sua resposta abaixo:
