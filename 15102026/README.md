@@ -95,7 +95,7 @@ e mais nada. Toda a proteção do TypeScript acontece antes, enquanto você
 escreve.
 
 > [!IMPORTANT]
-> O `pnpm tsx`, que a gente usa para rodar os arquivos, **não confere tipos**.
+> O `tsx`, que a gente usa para rodar os arquivos, **não confere tipos**.
 > Ele apaga os tipos e roda. Com `const total: number = '10' + 5`, ele mostra
 > `105` sem reclamar. Quem confere é o editor, enquanto você digita, e o
 > `pnpm tsc`, que olha o projeto inteiro. Na dúvida, rode `pnpm tsc` antes de
@@ -123,13 +123,13 @@ quatro motivos:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0000-typescript/A001.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0000-typescript/A002.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0000-typescript/A003.ts
+> tsx ~/LPPOO/15102026/0000-typescript/A001.ts
+> tsx ~/LPPOO/15102026/0000-typescript/A002.ts
+> tsx ~/LPPOO/15102026/0000-typescript/A003.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0000-typescript/E001.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0000-typescript/E002.ts
+> tsx ~/LPPOO/15102026/0000-typescript/E001.ts
+> tsx ~/LPPOO/15102026/0000-typescript/E002.ts
 > ```
 
 ---
@@ -176,13 +176,13 @@ entrando e saindo.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/A004.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/A005.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/A006.ts
+> tsx ~/LPPOO/15102026/0001-input/A004.ts
+> tsx ~/LPPOO/15102026/0001-input/A005.ts
+> tsx ~/LPPOO/15102026/0001-input/A006.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/E003.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/E004.ts
+> tsx ~/LPPOO/15102026/0001-input/E003.ts
+> tsx ~/LPPOO/15102026/0001-input/E004.ts
 > ```
 
 ---
@@ -228,13 +228,13 @@ frase é saída: paralelogramo azul.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0002-output/A007.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0002-output/A008.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0002-output/A009.ts
+> tsx ~/LPPOO/15102026/0002-output/A007.ts
+> tsx ~/LPPOO/15102026/0002-output/A008.ts
+> tsx ~/LPPOO/15102026/0002-output/A009.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0002-output/E005.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0002-output/E006.ts
+> tsx ~/LPPOO/15102026/0002-output/E005.ts
+> tsx ~/LPPOO/15102026/0002-output/E006.ts
 > ```
 
 ---
@@ -282,13 +282,13 @@ E o `var`? É o jeito antigo, e causa bug difícil de achar. A gente não usa.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0003-variaveis/A010.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0003-variaveis/A011.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0003-variaveis/A012.ts
+> tsx ~/LPPOO/15102026/0003-variaveis/A010.ts
+> tsx ~/LPPOO/15102026/0003-variaveis/A011.ts
+> tsx ~/LPPOO/15102026/0003-variaveis/A012.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0003-variaveis/E007.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0003-variaveis/E008.ts
+> tsx ~/LPPOO/15102026/0003-variaveis/E007.ts
+> tsx ~/LPPOO/15102026/0003-variaveis/E008.ts
 > ```
 
 ---
@@ -336,13 +336,13 @@ muda mais. Repare também que a constante é guardada antes da pergunta:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0004-constantes/A013.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0004-constantes/A014.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0004-constantes/A015.ts
+> tsx ~/LPPOO/15102026/0004-constantes/A013.ts
+> tsx ~/LPPOO/15102026/0004-constantes/A014.ts
+> tsx ~/LPPOO/15102026/0004-constantes/A015.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0004-constantes/E009.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0004-constantes/E010.ts
+> tsx ~/LPPOO/15102026/0004-constantes/E009.ts
+> tsx ~/LPPOO/15102026/0004-constantes/E010.ts
 > ```
 
 ---
@@ -406,13 +406,13 @@ algo, então vira passo roxo:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0005-texto/A016.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0005-texto/A017.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0005-texto/A018.ts
+> tsx ~/LPPOO/15102026/0005-texto/A016.ts
+> tsx ~/LPPOO/15102026/0005-texto/A017.ts
+> tsx ~/LPPOO/15102026/0005-texto/A018.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0005-texto/E011.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0005-texto/E012.ts
+> tsx ~/LPPOO/15102026/0005-texto/E011.ts
+> tsx ~/LPPOO/15102026/0005-texto/E012.ts
 > ```
 
 ---
@@ -461,13 +461,13 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0006-numero/A019.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0006-numero/A020.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0006-numero/A021.ts
+> tsx ~/LPPOO/15102026/0006-numero/A019.ts
+> tsx ~/LPPOO/15102026/0006-numero/A020.ts
+> tsx ~/LPPOO/15102026/0006-numero/A021.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0006-numero/E013.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0006-numero/E014.ts
+> tsx ~/LPPOO/15102026/0006-numero/E013.ts
+> tsx ~/LPPOO/15102026/0006-numero/E014.ts
 > ```
 
 ---
@@ -526,13 +526,13 @@ E tem dois valores especiais que querem dizer "nada":
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0007-booleano/A022.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0007-booleano/A023.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0007-booleano/A024.ts
+> tsx ~/LPPOO/15102026/0007-booleano/A022.ts
+> tsx ~/LPPOO/15102026/0007-booleano/A023.ts
+> tsx ~/LPPOO/15102026/0007-booleano/A024.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0007-booleano/E015.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0007-booleano/E016.ts
+> tsx ~/LPPOO/15102026/0007-booleano/E015.ts
+> tsx ~/LPPOO/15102026/0007-booleano/E016.ts
 > ```
 
 ---
@@ -593,13 +593,13 @@ faz a conta.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0008-conversao/A025.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0008-conversao/A026.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0008-conversao/A027.ts
+> tsx ~/LPPOO/15102026/0008-conversao/A025.ts
+> tsx ~/LPPOO/15102026/0008-conversao/A026.ts
+> tsx ~/LPPOO/15102026/0008-conversao/A027.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0008-conversao/E017.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0008-conversao/E018.ts
+> tsx ~/LPPOO/15102026/0008-conversao/E017.ts
+> tsx ~/LPPOO/15102026/0008-conversao/E018.ts
 > ```
 
 ---
@@ -662,13 +662,13 @@ atribuição é um retângulo roxo:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0009-atribuicao/A028.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0009-atribuicao/A029.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0009-atribuicao/A030.ts
+> tsx ~/LPPOO/15102026/0009-atribuicao/A028.ts
+> tsx ~/LPPOO/15102026/0009-atribuicao/A029.ts
+> tsx ~/LPPOO/15102026/0009-atribuicao/A030.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0009-atribuicao/E019.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0009-atribuicao/E020.ts
+> tsx ~/LPPOO/15102026/0009-atribuicao/E019.ts
+> tsx ~/LPPOO/15102026/0009-atribuicao/E020.ts
 > ```
 
 ---
@@ -728,13 +728,13 @@ console.log(media) // 7
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0010-aritmetica/A031.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0010-aritmetica/A032.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0010-aritmetica/A033.ts
+> tsx ~/LPPOO/15102026/0010-aritmetica/A031.ts
+> tsx ~/LPPOO/15102026/0010-aritmetica/A032.ts
+> tsx ~/LPPOO/15102026/0010-aritmetica/A033.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0010-aritmetica/E021.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0010-aritmetica/E022.ts
+> tsx ~/LPPOO/15102026/0010-aritmetica/E021.ts
+> tsx ~/LPPOO/15102026/0010-aritmetica/E022.ts
 > ```
 
 ---
@@ -793,13 +793,13 @@ console.log(vans) // 3
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0011-math/A034.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0011-math/A035.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0011-math/A036.ts
+> tsx ~/LPPOO/15102026/0011-math/A034.ts
+> tsx ~/LPPOO/15102026/0011-math/A035.ts
+> tsx ~/LPPOO/15102026/0011-math/A036.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0011-math/E023.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0011-math/E024.ts
+> tsx ~/LPPOO/15102026/0011-math/E023.ts
+> tsx ~/LPPOO/15102026/0011-math/E024.ts
 > ```
 
 ---
@@ -853,13 +853,13 @@ ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0012-relacional/A037.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0012-relacional/A038.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0012-relacional/A039.ts
+> tsx ~/LPPOO/15102026/0012-relacional/A037.ts
+> tsx ~/LPPOO/15102026/0012-relacional/A038.ts
+> tsx ~/LPPOO/15102026/0012-relacional/A039.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0012-relacional/E025.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0012-relacional/E026.ts
+> tsx ~/LPPOO/15102026/0012-relacional/E025.ts
+> tsx ~/LPPOO/15102026/0012-relacional/E026.ts
 > ```
 
 ---
@@ -914,13 +914,13 @@ console.log(acertou) // true
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0013-comparacao/A040.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0013-comparacao/A041.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0013-comparacao/A042.ts
+> tsx ~/LPPOO/15102026/0013-comparacao/A040.ts
+> tsx ~/LPPOO/15102026/0013-comparacao/A041.ts
+> tsx ~/LPPOO/15102026/0013-comparacao/A042.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0013-comparacao/E027.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0013-comparacao/E028.ts
+> tsx ~/LPPOO/15102026/0013-comparacao/E027.ts
+> tsx ~/LPPOO/15102026/0013-comparacao/E028.ts
 > ```
 
 ---
@@ -977,13 +977,13 @@ console.log(media >= 6 || frequencia >= 75) // true || false → true
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0014-logico/A043.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0014-logico/A044.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0014-logico/A045.ts
+> tsx ~/LPPOO/15102026/0014-logico/A043.ts
+> tsx ~/LPPOO/15102026/0014-logico/A044.ts
+> tsx ~/LPPOO/15102026/0014-logico/A045.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0014-logico/E029.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0014-logico/E030.ts
+> tsx ~/LPPOO/15102026/0014-logico/E029.ts
+> tsx ~/LPPOO/15102026/0014-logico/E030.ts
 > ```
 
 ---
@@ -1041,13 +1041,13 @@ não:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0015-truthy-falsy/A046.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0015-truthy-falsy/A047.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0015-truthy-falsy/A048.ts
+> tsx ~/LPPOO/15102026/0015-truthy-falsy/A046.ts
+> tsx ~/LPPOO/15102026/0015-truthy-falsy/A047.ts
+> tsx ~/LPPOO/15102026/0015-truthy-falsy/A048.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0015-truthy-falsy/E031.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0015-truthy-falsy/E032.ts
+> tsx ~/LPPOO/15102026/0015-truthy-falsy/E031.ts
+> tsx ~/LPPOO/15102026/0015-truthy-falsy/E032.ts
 > ```
 
 ---
@@ -1097,13 +1097,13 @@ direto para o "Bom dia!":
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0016-condicional-simples/A049.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0016-condicional-simples/A050.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0016-condicional-simples/A051.ts
+> tsx ~/LPPOO/15102026/0016-condicional-simples/A049.ts
+> tsx ~/LPPOO/15102026/0016-condicional-simples/A050.ts
+> tsx ~/LPPOO/15102026/0016-condicional-simples/A051.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0016-condicional-simples/E033.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0016-condicional-simples/E034.ts
+> tsx ~/LPPOO/15102026/0016-condicional-simples/E033.ts
+> tsx ~/LPPOO/15102026/0016-condicional-simples/E034.ts
 > ```
 
 ---
@@ -1149,13 +1149,13 @@ programa passa por um deles:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0017-condicional-composta/A052.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0017-condicional-composta/A053.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0017-condicional-composta/A054.ts
+> tsx ~/LPPOO/15102026/0017-condicional-composta/A052.ts
+> tsx ~/LPPOO/15102026/0017-condicional-composta/A053.ts
+> tsx ~/LPPOO/15102026/0017-condicional-composta/A054.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0017-condicional-composta/E035.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0017-condicional-composta/E036.ts
+> tsx ~/LPPOO/15102026/0017-condicional-composta/E035.ts
+> tsx ~/LPPOO/15102026/0017-condicional-composta/E036.ts
 > ```
 
 ---
@@ -1211,13 +1211,13 @@ Cada `else if` é mais um losango, pendurado no Não do anterior:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0018-condicional-aninhada/A055.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0018-condicional-aninhada/A056.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0018-condicional-aninhada/A057.ts
+> tsx ~/LPPOO/15102026/0018-condicional-aninhada/A055.ts
+> tsx ~/LPPOO/15102026/0018-condicional-aninhada/A056.ts
+> tsx ~/LPPOO/15102026/0018-condicional-aninhada/A057.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0018-condicional-aninhada/E037.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0018-condicional-aninhada/E038.ts
+> tsx ~/LPPOO/15102026/0018-condicional-aninhada/E037.ts
+> tsx ~/LPPOO/15102026/0018-condicional-aninhada/E038.ts
 > ```
 
 ---
@@ -1265,13 +1265,13 @@ o programa mostra:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0019-ternario/A058.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0019-ternario/A059.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0019-ternario/A060.ts
+> tsx ~/LPPOO/15102026/0019-ternario/A058.ts
+> tsx ~/LPPOO/15102026/0019-ternario/A059.ts
+> tsx ~/LPPOO/15102026/0019-ternario/A060.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0019-ternario/E039.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0019-ternario/E040.ts
+> tsx ~/LPPOO/15102026/0019-ternario/E039.ts
+> tsx ~/LPPOO/15102026/0019-ternario/E040.ts
 > ```
 
 ---
@@ -1340,13 +1340,13 @@ O `switch` vira um losango com uma saída para cada `case`, mais uma para o
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0020-escolha/A061.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0020-escolha/A062.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0020-escolha/A063.ts
+> tsx ~/LPPOO/15102026/0020-escolha/A061.ts
+> tsx ~/LPPOO/15102026/0020-escolha/A062.ts
+> tsx ~/LPPOO/15102026/0020-escolha/A063.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0020-escolha/E041.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0020-escolha/E042.ts
+> tsx ~/LPPOO/15102026/0020-escolha/E041.ts
+> tsx ~/LPPOO/15102026/0020-escolha/E042.ts
 > ```
 
 ## Prática em sala
@@ -1362,10 +1362,10 @@ aula num programa só.
 | [`desafio-ingresso.ts`](pratica/desafio-ingresso.ts)       | desafio: `&&`, `\|\|`, ternário e valor padrão        |
 
 ```bash
-pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/ficha-de-cadastro.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/boletim.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/cantina.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/desafio-ingresso.ts
+tsx ~/LPPOO/15102026/pratica/ficha-de-cadastro.ts
+tsx ~/LPPOO/15102026/pratica/boletim.ts
+tsx ~/LPPOO/15102026/pratica/cantina.ts
+tsx ~/LPPOO/15102026/pratica/desafio-ingresso.ts
 ```
 
 ---

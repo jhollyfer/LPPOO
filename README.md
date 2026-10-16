@@ -27,23 +27,23 @@ No VS Code, instale as extensões ESLint e Prettier.
 
 ## Como rodar um arquivo
 
-Use sempre o caminho completo, começando em `~/LPPOO`. Assim o comando funciona
-de qualquer pasta do terminal:
+O instalador deixa o `tsx` instalado no computador inteiro. Com ele, use sempre
+o caminho completo, começando em `~/LPPOO`, e o comando funciona de qualquer
+pasta do terminal:
 
 ```bash
-pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/A004.ts
+tsx ~/LPPOO/15102026/0001-input/A004.ts
 ```
 
-O `-C ~/LPPOO` diz para o pnpm onde está o projeto. Sem ele, fora da pasta do
-projeto, o pnpm não acha o `tsx`. Não precisa decorar: o README de cada aula já
-traz o comando pronto de cada exemplo e de cada exercício, é só copiar.
+Não precisa decorar: o README de cada aula já traz o comando pronto de cada
+exemplo e de cada exercício, é só copiar.
 
 Os arquivos têm nome curto e numeração única no curso inteiro:
 
 - `A001.ts`, `A002.ts`... são os **exemplos** resolvidos;
 - `E001.ts`, `E002.ts`... são os **exercícios**.
 
-O `pnpm tsx` só roda, sem conferir os tipos. Para conferir os tipos do projeto
+O `tsx` só roda, sem conferir os tipos. Para conferir os tipos do projeto
 inteiro, use `pnpm -C ~/LPPOO tsc`.
 
 ## Como cada aula funciona
@@ -183,14 +183,16 @@ frequência. Ficou abaixo de 6 na AV1 ou na AV2? Tem recuperação logo depois.
 Feche e abra o terminal. Se continuar, rode `source ~/.bashrc`.
 
 **`npx` dá erro `EBADDEVENGINES`**
-Neste projeto a gente usa `pnpm`, não `npx`. Troque `npx tsx` por `pnpm tsx`.
+Neste projeto a gente não usa `npx`. Troque `npx tsx` por `tsx`.
 
 **O programa fica parado e não acontece nada**
 Ele provavelmente está esperando você digitar algo no `input`. Olhe a pergunta
 no terminal, digite e aperte Enter.
 
-**`No package.json ... was found`**
-Faltou o `-C ~/LPPOO` no comando. Copie o comando pronto do README da aula.
+**`tsx: command not found`**
+O `tsx` global não foi instalado. Rode `npm install --global tsx` e tente de
+novo. Enquanto isso, dá para rodar pelo projeto:
+`pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/A004.ts`.
 
 **Quero sair de um programa travado**
 `Ctrl + C`.

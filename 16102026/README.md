@@ -111,13 +111,13 @@ quatro voltas antes de sair pelo Não:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0021-while/A064.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0021-while/A065.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0021-while/A066.ts
+> tsx ~/LPPOO/16102026/0021-while/A064.ts
+> tsx ~/LPPOO/16102026/0021-while/A065.ts
+> tsx ~/LPPOO/16102026/0021-while/A066.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0021-while/E043.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0021-while/E044.ts
+> tsx ~/LPPOO/16102026/0021-while/E043.ts
+> tsx ~/LPPOO/16102026/0021-while/E044.ts
 > ```
 
 ---
@@ -171,13 +171,13 @@ que a pergunta vem antes:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0022-do-while/A067.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0022-do-while/A068.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0022-do-while/A069.ts
+> tsx ~/LPPOO/16102026/0022-do-while/A067.ts
+> tsx ~/LPPOO/16102026/0022-do-while/A068.ts
+> tsx ~/LPPOO/16102026/0022-do-while/A069.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0022-do-while/E045.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0022-do-while/E046.ts
+> tsx ~/LPPOO/16102026/0022-do-while/E045.ts
+> tsx ~/LPPOO/16102026/0022-do-while/E046.ts
 > ```
 
 ---
@@ -236,13 +236,13 @@ num lugar que dá para ler de uma vez:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0023-for/A070.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0023-for/A071.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0023-for/A072.ts
+> tsx ~/LPPOO/16102026/0023-for/A070.ts
+> tsx ~/LPPOO/16102026/0023-for/A071.ts
+> tsx ~/LPPOO/16102026/0023-for/A072.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0023-for/E047.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0023-for/E048.ts
+> tsx ~/LPPOO/16102026/0023-for/E047.ts
+> tsx ~/LPPOO/16102026/0023-for/E048.ts
 > ```
 
 ---
@@ -298,13 +298,13 @@ saída direto para o fim:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0024-break-continue/A073.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0024-break-continue/A074.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0024-break-continue/A075.ts
+> tsx ~/LPPOO/16102026/0024-break-continue/A073.ts
+> tsx ~/LPPOO/16102026/0024-break-continue/A074.ts
+> tsx ~/LPPOO/16102026/0024-break-continue/A075.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0024-break-continue/E049.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0024-break-continue/E050.ts
+> tsx ~/LPPOO/16102026/0024-break-continue/E049.ts
+> tsx ~/LPPOO/16102026/0024-break-continue/E050.ts
 > ```
 
 ---
@@ -372,13 +372,13 @@ gavetas.
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0025-arrays/A076.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0025-arrays/A077.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0025-arrays/A078.ts
+> tsx ~/LPPOO/16102026/0025-arrays/A076.ts
+> tsx ~/LPPOO/16102026/0025-arrays/A077.ts
+> tsx ~/LPPOO/16102026/0025-arrays/A078.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0025-arrays/E051.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0025-arrays/E052.ts
+> tsx ~/LPPOO/16102026/0025-arrays/E051.ts
+> tsx ~/LPPOO/16102026/0025-arrays/E052.ts
 > ```
 
 ---
@@ -433,13 +433,13 @@ precisa do número da posição, o `for...of` é mais curto e mais difícil de e
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0026-for-of/A079.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0026-for-of/A080.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0026-for-of/A081.ts
+> tsx ~/LPPOO/16102026/0026-for-of/A079.ts
+> tsx ~/LPPOO/16102026/0026-for-of/A080.ts
+> tsx ~/LPPOO/16102026/0026-for-of/A081.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0026-for-of/E053.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0026-for-of/E054.ts
+> tsx ~/LPPOO/16102026/0026-for-of/E053.ts
+> tsx ~/LPPOO/16102026/0026-for-of/E054.ts
 > ```
 
 ---
@@ -501,13 +501,13 @@ sem precisar de `=`:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0027-inserir-remover/A082.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0027-inserir-remover/A083.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0027-inserir-remover/A084.ts
+> tsx ~/LPPOO/16102026/0027-inserir-remover/A082.ts
+> tsx ~/LPPOO/16102026/0027-inserir-remover/A083.ts
+> tsx ~/LPPOO/16102026/0027-inserir-remover/A084.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0027-inserir-remover/E055.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0027-inserir-remover/E056.ts
+> tsx ~/LPPOO/16102026/0027-inserir-remover/E055.ts
+> tsx ~/LPPOO/16102026/0027-inserir-remover/E056.ts
 > ```
 
 ---
@@ -564,13 +564,13 @@ primeiro que passa na regra. O 6 não passa, o 25 passa, e o 9 nem é olhado:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0028-consultar/A085.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0028-consultar/A086.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0028-consultar/A087.ts
+> tsx ~/LPPOO/16102026/0028-consultar/A085.ts
+> tsx ~/LPPOO/16102026/0028-consultar/A086.ts
+> tsx ~/LPPOO/16102026/0028-consultar/A087.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0028-consultar/E057.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0028-consultar/E058.ts
+> tsx ~/LPPOO/16102026/0028-consultar/E057.ts
+> tsx ~/LPPOO/16102026/0028-consultar/E058.ts
 > ```
 
 ---
@@ -634,13 +634,13 @@ e não mexe no original:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0029-transformar/A088.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0029-transformar/A089.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0029-transformar/A090.ts
+> tsx ~/LPPOO/16102026/0029-transformar/A088.ts
+> tsx ~/LPPOO/16102026/0029-transformar/A089.ts
+> tsx ~/LPPOO/16102026/0029-transformar/A090.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0029-transformar/E059.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0029-transformar/E060.ts
+> tsx ~/LPPOO/16102026/0029-transformar/E059.ts
+> tsx ~/LPPOO/16102026/0029-transformar/E060.ts
 > ```
 
 ---
@@ -704,13 +704,13 @@ console.log(notas) // [ 8, 10, 6, 9 ]: o original não mudou
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0030-organizar/A091.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0030-organizar/A092.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0030-organizar/A093.ts
+> tsx ~/LPPOO/16102026/0030-organizar/A091.ts
+> tsx ~/LPPOO/16102026/0030-organizar/A092.ts
+> tsx ~/LPPOO/16102026/0030-organizar/A093.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0030-organizar/E061.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0030-organizar/E062.ts
+> tsx ~/LPPOO/16102026/0030-organizar/E061.ts
+> tsx ~/LPPOO/16102026/0030-organizar/E062.ts
 > ```
 
 ---
@@ -769,13 +769,13 @@ contas e devolve o `8`:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0031-funcoes/A094.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0031-funcoes/A095.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0031-funcoes/A096.ts
+> tsx ~/LPPOO/16102026/0031-funcoes/A094.ts
+> tsx ~/LPPOO/16102026/0031-funcoes/A095.ts
+> tsx ~/LPPOO/16102026/0031-funcoes/A096.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0031-funcoes/E063.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0031-funcoes/E064.ts
+> tsx ~/LPPOO/16102026/0031-funcoes/E063.ts
+> tsx ~/LPPOO/16102026/0031-funcoes/E064.ts
 > ```
 
 ---
@@ -822,10 +822,10 @@ Os enunciados estão em [`pratica/`](pratica/):
 | [`desafio-produtos.ts`](pratica/desafio-produtos.ts)     | desafio: `filter`, `map` e `reduce` encadeados            |
 
 ```bash
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/tabuada.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/lista-de-compras.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/total-com-desconto.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/desafio-produtos.ts
+tsx ~/LPPOO/16102026/pratica/tabuada.ts
+tsx ~/LPPOO/16102026/pratica/lista-de-compras.ts
+tsx ~/LPPOO/16102026/pratica/total-com-desconto.ts
+tsx ~/LPPOO/16102026/pratica/desafio-produtos.ts
 ```
 
 ## Exercícios que valem pontos
@@ -846,24 +846,24 @@ Cada questão tem um exemplo resolvido parecido, para consultar.
 
 ```bash
 # exemplos resolvidos
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-10.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-11.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-12.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-13.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-14.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-15.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-16.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-17.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-10.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-11.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-12.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-13.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-14.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-15.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-16.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-17.ts
 
 # questões: a resposta vai dentro do próprio arquivo
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-10.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-11.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-12.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-13.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-14.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-15.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-16.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-17.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-10.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-11.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-12.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-13.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-14.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-15.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-16.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-17.ts
 ```
 
 ## Para ler mais
@@ -897,10 +897,10 @@ Os enunciados estão em [`pratica/`](pratica/):
 | [`desafio-produtos.ts`](pratica/desafio-produtos.ts)     | desafio: `filter`, `map` e `reduce` encadeados            |
 
 ```bash
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/tabuada.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/lista-de-compras.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/total-com-desconto.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/desafio-produtos.ts
+tsx ~/LPPOO/16102026/pratica/tabuada.ts
+tsx ~/LPPOO/16102026/pratica/lista-de-compras.ts
+tsx ~/LPPOO/16102026/pratica/total-com-desconto.ts
+tsx ~/LPPOO/16102026/pratica/desafio-produtos.ts
 ```
 
 ## Exercícios que valem pontos
@@ -921,24 +921,24 @@ Cada questão tem um exemplo resolvido parecido, para consultar.
 
 ```bash
 # exemplos resolvidos
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-10.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-11.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-12.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-13.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-14.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-15.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-16.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-17.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-10.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-11.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-12.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-13.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-14.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-15.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-16.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-17.ts
 
 # questões: a resposta vai dentro do próprio arquivo
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-10.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-11.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-12.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-13.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-14.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-15.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-16.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-17.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-10.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-11.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-12.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-13.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-14.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-15.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-16.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-17.ts
 ```
 
 ## Para ler mais
@@ -976,13 +976,13 @@ chamada não veio desconto, então vale o padrão:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0032-parametros/A097.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0032-parametros/A098.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0032-parametros/A099.ts
+> tsx ~/LPPOO/16102026/0032-parametros/A097.ts
+> tsx ~/LPPOO/16102026/0032-parametros/A098.ts
+> tsx ~/LPPOO/16102026/0032-parametros/A099.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0032-parametros/E065.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0032-parametros/E066.ts
+> tsx ~/LPPOO/16102026/0032-parametros/E065.ts
+> tsx ~/LPPOO/16102026/0032-parametros/E066.ts
 > ```
 
 ---
@@ -1039,13 +1039,13 @@ quando ela acaba:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0033-escopo/A100.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0033-escopo/A101.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0033-escopo/A102.ts
+> tsx ~/LPPOO/16102026/0033-escopo/A100.ts
+> tsx ~/LPPOO/16102026/0033-escopo/A101.ts
+> tsx ~/LPPOO/16102026/0033-escopo/A102.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0033-escopo/E067.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0033-escopo/E068.ts
+> tsx ~/LPPOO/16102026/0033-escopo/E067.ts
+> tsx ~/LPPOO/16102026/0033-escopo/E068.ts
 > ```
 
 ---
@@ -1102,13 +1102,13 @@ entregando a função, não chamando. Quem chama é o `map`, uma vez para cada n
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0034-arrow-callback/A103.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0034-arrow-callback/A104.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0034-arrow-callback/A105.ts
+> tsx ~/LPPOO/16102026/0034-arrow-callback/A103.ts
+> tsx ~/LPPOO/16102026/0034-arrow-callback/A104.ts
+> tsx ~/LPPOO/16102026/0034-arrow-callback/A105.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0034-arrow-callback/E069.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0034-arrow-callback/E070.ts
+> tsx ~/LPPOO/16102026/0034-arrow-callback/E069.ts
+> tsx ~/LPPOO/16102026/0034-arrow-callback/E070.ts
 > ```
 
 ---
@@ -1166,13 +1166,13 @@ mesmo assim o TypeScript sabe que são números. Ele tira do `Operacao`. Isso é
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A106.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A107.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A108.ts
+> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A106.ts
+> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A107.ts
+> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A108.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0035-tipo-de-funcao/E071.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0035-tipo-de-funcao/E072.ts
+> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/E071.ts
+> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/E072.ts
 > ```
 
 ---
@@ -1242,13 +1242,13 @@ O fluxograma mostra as três voltas do `do...while` e depois o relatório:
 >
 > ```bash
 > # exemplos resolvidos: rode, mude, quebre, rode de novo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0036-juntando-tudo/A109.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0036-juntando-tudo/A110.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0036-juntando-tudo/A111.ts
+> tsx ~/LPPOO/16102026/0036-juntando-tudo/A109.ts
+> tsx ~/LPPOO/16102026/0036-juntando-tudo/A110.ts
+> tsx ~/LPPOO/16102026/0036-juntando-tudo/A111.ts
 >
 > # exercícios: a resposta vai dentro do próprio arquivo
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0036-juntando-tudo/E073.ts
-> pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/0036-juntando-tudo/E074.ts
+> tsx ~/LPPOO/16102026/0036-juntando-tudo/E073.ts
+> tsx ~/LPPOO/16102026/0036-juntando-tudo/E074.ts
 > ```
 
 ---
@@ -1265,10 +1265,10 @@ Os enunciados estão em [`pratica/`](pratica/):
 | [`desafio-produtos.ts`](pratica/desafio-produtos.ts)     | desafio: `filter`, `map` e `reduce` encadeados            |
 
 ```bash
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/tabuada.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/lista-de-compras.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/total-com-desconto.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/desafio-produtos.ts
+tsx ~/LPPOO/16102026/pratica/tabuada.ts
+tsx ~/LPPOO/16102026/pratica/lista-de-compras.ts
+tsx ~/LPPOO/16102026/pratica/total-com-desconto.ts
+tsx ~/LPPOO/16102026/pratica/desafio-produtos.ts
 ```
 
 ## Exercícios que valem pontos
@@ -1289,24 +1289,24 @@ Cada questão tem um exemplo resolvido parecido, para consultar.
 
 ```bash
 # exemplos resolvidos
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-10.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-11.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-12.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-13.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-14.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-15.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-16.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-17.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-10.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-11.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-12.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-13.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-14.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-15.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-16.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-17.ts
 
 # questões: a resposta vai dentro do próprio arquivo
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-10.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-11.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-12.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-13.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-14.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-15.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-16.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-17.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-10.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-11.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-12.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-13.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-14.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-15.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-16.ts
+tsx ~/LPPOO/16102026/aula-02-logica-2/questao-17.ts
 ```
 
 ## Para ler mais

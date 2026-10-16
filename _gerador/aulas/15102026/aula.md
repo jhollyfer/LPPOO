@@ -52,10 +52,10 @@ aula num programa só.
 | [`desafio-ingresso.ts`](pratica/desafio-ingresso.ts)       | desafio: `&&`, `\|\|`, ternário e valor padrão        |
 
 ```bash
-pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/ficha-de-cadastro.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/boletim.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/cantina.ts
-pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/desafio-ingresso.ts
+tsx ~/LPPOO/15102026/pratica/ficha-de-cadastro.ts
+tsx ~/LPPOO/15102026/pratica/boletim.ts
+tsx ~/LPPOO/15102026/pratica/cantina.ts
+tsx ~/LPPOO/15102026/pratica/desafio-ingresso.ts
 ```
 
 ---

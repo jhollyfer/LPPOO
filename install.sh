@@ -7,7 +7,7 @@
 # O que ele faz:
 #   1. instala o nvm (gerenciador de versões do Node)
 #   2. instala o Node.js LTS
-#   3. instala o pnpm
+#   3. instala o pnpm e o tsx (que roda os arquivos .ts de qualquer pasta)
 #   4. baixa o projeto em ~/LPPOO (se já existir, apaga e baixa de novo)
 #   5. roda pnpm install
 
@@ -48,8 +48,10 @@ nvm alias default 'lts/*'
 nvm use default
 set -u
 
-passo "3/5 Instalando o pnpm"
+passo "3/5 Instalando o pnpm e o tsx"
 npm install --global --allow-scripts=pnpm pnpm
+# tsx global: "tsx ~/LPPOO/..." funciona de qualquer pasta do terminal
+npm install --global tsx
 
 passo "4/5 Baixando o projeto em $PASTA"
 cd "$HOME"
@@ -64,8 +66,7 @@ passo "5/5 Instalando as dependências"
 pnpm install
 
 printf '\n\033[1;32mTudo pronto!\033[0m\n'
-echo "Node $(node -v) | pnpm $(pnpm -v)"
+echo "Node $(node -v) | pnpm $(pnpm -v) | $(tsx --version | head -1)"
 echo
 echo "Feche e abra o terminal e depois teste:"
-echo "  cd ~/LPPOO"
-echo "  pnpm tsx 15102026/0001-input/exemplo-1.ts"
+echo "  tsx ~/LPPOO/15102026/0001-input/A004.ts"

@@ -40,7 +40,7 @@ const imagem = (src, alt, svg) => {
 }
 
 // o quadro "Hora de praticar": o comando de cada exemplo (A) e exercício (E)
-const comando = (caminho) => `pnpm -C ~/LPPOO tsx ~/LPPOO/${caminho}`
+const comando = (caminho) => `tsx ~/LPPOO/${caminho}`
 const pratique = (data, pasta) => {
   const arquivos = readdirSync(join(RAIZ, data, pasta)).sort()
   const exemplos = arquivos.filter((a) => /^A\d{3}\.ts$/.test(a))

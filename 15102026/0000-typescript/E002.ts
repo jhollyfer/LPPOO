@@ -3,8 +3,8 @@
 //
 // A linha comentada abaixo tem um erro de tipo. Tire o // e faça o teste:
 //
-//   pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0000-typescript/E002.ts   (roda?)
-//   pnpm -C ~/LPPOO tsc                                            (reclama?)
+//   tsx ~/LPPOO/15102026/0000-typescript/E002.ts   (roda?)
+//   pnpm -C ~/LPPOO tsc                            (reclama?)
 //
 // Escreva, num comentário, por que um dos comandos rodou e o outro reclamou.
 // No fim, coloque o // de volta na linha com erro.
