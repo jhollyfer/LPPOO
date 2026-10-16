@@ -39,6 +39,26 @@ const imagem = (src, alt, svg) => {
   return `<p align="center"><img src="${src}" alt="${alt}" width="${Math.round(largura * ESCALA)}"></p>`
 }
 
+// o quadro "Hora de praticar": o comando de cada exemplo (A) e exercício (E)
+const comando = (caminho) => `pnpm -C ~/LPPOO tsx ~/LPPOO/${caminho}`
+const pratique = (data, pasta) => {
+  const arquivos = readdirSync(join(RAIZ, data, pasta)).sort()
+  const exemplos = arquivos.filter((a) => /^A\d{3}\.ts$/.test(a))
+  const exercicios = arquivos.filter((a) => /^E\d{3}\.ts$/.test(a))
+  const linhas = [
+    `**Hora de praticar:** os arquivos deste assunto ficam em [\`${pasta}/\`](${pasta}/). Os comandos funcionam de qualquer pasta do terminal.`,
+    '',
+    '```bash',
+    '# exemplos resolvidos: rode, mude, quebre, rode de novo',
+    ...exemplos.map((a) => comando(`${data}/${pasta}/${a}`)),
+    '',
+    '# exercícios: a resposta vai dentro do próprio arquivo',
+    ...exercicios.map((a) => comando(`${data}/${pasta}/${a}`)),
+    '```',
+  ]
+  return linhas.map((l) => `> ${l}`.trimEnd()).join('\n').replace(/^> \*\*/, '> [!NOTE]\n> **')
+}
+
 for (const data of readdirSync(join(AQUI, 'aulas'))) {
   const origem = join(AQUI, 'aulas', data)
   const destino = join(RAIZ, data)
@@ -67,10 +87,7 @@ for (const data of readdirSync(join(AQUI, 'aulas'))) {
       texto
         .replace('{{ideia}}', imagem(`${pasta}/ideia.svg`, `Diagrama da ideia: ${assunto}`, svgIdeia))
         .replace('{{fluxograma}}', imagem(`${pasta}/fluxograma.svg`, `Fluxograma: ${assunto}`, svgFluxo))
-        .replace(
-          '{{pratique}}',
-          `> [!NOTE]\n> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [\`${pasta}/\`](${pasta}/).\n>\n> \`\`\`bash\n> pnpm tsx ${data}/${pasta}/exemplo-1.ts\n> \`\`\``,
-        ),
+        .replace('{{pratique}}', pratique(data, pasta)),
     )
   }
 

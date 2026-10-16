@@ -54,6 +54,13 @@ Os enunciados estão em [`pratica/`](pratica/):
 | [`total-com-desconto.ts`](pratica/total-com-desconto.ts) | função que soma preços com desconto opcional             |
 | [`desafio-produtos.ts`](pratica/desafio-produtos.ts)     | desafio: `filter`, `map` e `reduce` encadeados            |
 
+```bash
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/tabuada.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/lista-de-compras.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/total-com-desconto.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/pratica/desafio-produtos.ts
+```
+
 ## Exercícios que valem pontos
 
 Ficam na pasta [`aula-02-logica-2/`](aula-02-logica-2/), aqui dentro da aula.
@@ -71,7 +78,25 @@ Cada questão tem um exemplo resolvido parecido, para consultar.
 | `questao-17.ts`  | arrow functions, callbacks e tipo de função               | `exemplo-17.ts`   |
 
 ```bash
-pnpm tsx 16102026/aula-02-logica-2/exemplo-10.ts
+# exemplos resolvidos
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-10.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-11.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-12.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-13.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-14.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-15.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-16.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-17.ts
+
+# questões: a resposta vai dentro do próprio arquivo
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-10.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-11.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-12.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-13.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-14.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-15.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-16.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/16102026/aula-02-logica-2/questao-17.ts
 ```
 
 ## Para ler mais

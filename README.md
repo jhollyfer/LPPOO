@@ -27,13 +27,24 @@ No VS Code, instale as extensões ESLint e Prettier.
 
 ## Como rodar um arquivo
 
+Use sempre o caminho completo, começando em `~/LPPOO`. Assim o comando funciona
+de qualquer pasta do terminal:
+
 ```bash
-cd ~/LPPOO
-pnpm tsx 15102026/0001-input/exemplo-1.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/A004.ts
 ```
 
-Troque o caminho pelo arquivo que você quer rodar. O `pnpm tsx` só roda, sem
-conferir os tipos. Para conferir os tipos do projeto inteiro, use `pnpm tsc`.
+O `-C ~/LPPOO` diz para o pnpm onde está o projeto. Sem ele, fora da pasta do
+projeto, o pnpm não acha o `tsx`. Não precisa decorar: o README de cada aula já
+traz o comando pronto de cada exemplo e de cada exercício, é só copiar.
+
+Os arquivos têm nome curto e numeração única no curso inteiro:
+
+- `A001.ts`, `A002.ts`... são os **exemplos** resolvidos;
+- `E001.ts`, `E002.ts`... são os **exercícios**.
+
+O `pnpm tsx` só roda, sem conferir os tipos. Para conferir os tipos do projeto
+inteiro, use `pnpm -C ~/LPPOO tsc`.
 
 ## Como cada aula funciona
 
@@ -49,18 +60,20 @@ guardam a parte prática:
 └── 0014-logico/
     ├── ideia.svg       o diagrama da ideia
     ├── fluxograma.svg  o caminho que o programa faz
-    ├── exemplo-1.ts    exemplos resolvidos: rode, mude, quebre, rode de novo
-    ├── exemplo-2.ts
-    ├── exemplo-3.ts
-    ├── exercicio-1.ts  exercícios: enunciado e dicas no comentário,
-    └── exercicio-2.ts  resposta DENTRO do próprio arquivo
+    ├── A043.ts         exemplos resolvidos: rode, mude, quebre, rode de novo
+    ├── A044.ts
+    ├── A045.ts
+    ├── E029.ts         exercícios: enunciado e dicas no comentário,
+    └── E030.ts         resposta DENTRO do próprio arquivo
 ```
+
+Cada aula também tem uma pasta `pratica/`, com os exercícios feitos em sala.
 
 O caminho de cada assunto:
 
 1. Leia o assunto no `README.md` da aula.
-2. Rode os `exemplo-N.ts` da pasta e mexa neles à vontade.
-3. Abra o `exercicio-1.ts` e o `exercicio-2.ts`, leia o enunciado e escreva a
+2. Rode os exemplos (`A...ts`) da pasta e mexa neles à vontade.
+3. Abra os exercícios (`E...ts`), leia o enunciado e escreva a
    resposta embaixo de `// Escreva sua resposta abaixo:`. Travou? Leia as dicas
    numeradas logo acima, na ordem.
 
@@ -175,6 +188,9 @@ Neste projeto a gente usa `pnpm`, não `npx`. Troque `npx tsx` por `pnpm tsx`.
 **O programa fica parado e não acontece nada**
 Ele provavelmente está esperando você digitar algo no `input`. Olhe a pergunta
 no terminal, digite e aperte Enter.
+
+**`No package.json ... was found`**
+Faltou o `-C ~/LPPOO` no comando. Copie o comando pronto do README da aula.
 
 **Quero sair de um programa travado**
 `Ctrl + C`.

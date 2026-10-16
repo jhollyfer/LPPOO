@@ -39,6 +39,25 @@ Leia na ordem. Em cada um, depois de ler, abra a pasta e rode os exemplos.
 
 {{assuntos}}
 
+## Prática em sala
+
+Os enunciados ficam em [`pratica/`](pratica/). Cada um junta vários assuntos da
+aula num programa só.
+
+| Arquivo                                                    | O que fazer                                          |
+| ---------------------------------------------------------- | ---------------------------------------------------- |
+| [`ficha-de-cadastro.ts`](pratica/ficha-de-cadastro.ts)     | ler dados, converter e mostrar com template string   |
+| [`boletim.ts`](pratica/boletim.ts)                         | média com duas casas e situação com `else if`        |
+| [`cantina.ts`](pratica/cantina.ts)                         | cardápio com `switch` e total em reais               |
+| [`desafio-ingresso.ts`](pratica/desafio-ingresso.ts)       | desafio: `&&`, `\|\|`, ternário e valor padrão        |
+
+```bash
+pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/ficha-de-cadastro.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/boletim.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/cantina.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/desafio-ingresso.ts
+```
+
 ---
 
 ## Para ler mais

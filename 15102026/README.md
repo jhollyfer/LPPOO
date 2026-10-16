@@ -119,10 +119,17 @@ quatro motivos:
   fazer.
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0000-typescript/`](0000-typescript/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0000-typescript/`](0000-typescript/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0000-typescript/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0000-typescript/A001.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0000-typescript/A002.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0000-typescript/A003.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0000-typescript/E001.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0000-typescript/E002.ts
 > ```
 
 ---
@@ -165,10 +172,17 @@ entrando e saindo.
 > ele mostra `const nome: string`. Você nem escreveu o tipo: ele descobriu sozinho.
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0001-input/`](0001-input/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0001-input/`](0001-input/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0001-input/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/A004.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/A005.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/A006.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/E003.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0001-input/E004.ts
 > ```
 
 ---
@@ -210,10 +224,17 @@ frase é saída: paralelogramo azul.
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0002-output/`](0002-output/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0002-output/`](0002-output/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0002-output/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0002-output/A007.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0002-output/A008.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0002-output/A009.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0002-output/E005.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0002-output/E006.ts
 > ```
 
 ---
@@ -257,10 +278,17 @@ Nome de variável vai em `camelCase`: `nomeCompleto`, `notaFinal`, `golsBrasil`.
 E o `var`? É o jeito antigo, e causa bug difícil de achar. A gente não usa.
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0003-variaveis/`](0003-variaveis/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0003-variaveis/`](0003-variaveis/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0003-variaveis/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0003-variaveis/A010.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0003-variaveis/A011.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0003-variaveis/A012.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0003-variaveis/E007.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0003-variaveis/E008.ts
 > ```
 
 ---
@@ -304,10 +332,17 @@ muda mais. Repare também que a constante é guardada antes da pergunta:
 > exatamente aquele texto, e não qualquer string.
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0004-constantes/`](0004-constantes/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0004-constantes/`](0004-constantes/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0004-constantes/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0004-constantes/A013.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0004-constantes/A014.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0004-constantes/A015.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0004-constantes/E009.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0004-constantes/E010.ts
 > ```
 
 ---
@@ -367,10 +402,17 @@ algo, então vira passo roxo:
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0005-texto/`](0005-texto/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0005-texto/`](0005-texto/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0005-texto/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0005-texto/A016.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0005-texto/A017.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0005-texto/A018.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0005-texto/E011.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0005-texto/E012.ts
 > ```
 
 ---
@@ -415,10 +457,17 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0006-numero/`](0006-numero/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0006-numero/`](0006-numero/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0006-numero/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0006-numero/A019.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0006-numero/A020.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0006-numero/A021.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0006-numero/E013.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0006-numero/E014.ts
 > ```
 
 ---
@@ -473,10 +522,17 @@ E tem dois valores especiais que querem dizer "nada":
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0007-booleano/`](0007-booleano/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0007-booleano/`](0007-booleano/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0007-booleano/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0007-booleano/A022.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0007-booleano/A023.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0007-booleano/A024.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0007-booleano/E015.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0007-booleano/E016.ts
 > ```
 
 ---
@@ -533,10 +589,17 @@ faz a conta.
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0008-conversao/`](0008-conversao/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0008-conversao/`](0008-conversao/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0008-conversao/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0008-conversao/A025.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0008-conversao/A026.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0008-conversao/A027.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0008-conversao/E017.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0008-conversao/E018.ts
 > ```
 
 ---
@@ -595,10 +658,17 @@ atribuição é um retângulo roxo:
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0009-atribuicao/`](0009-atribuicao/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0009-atribuicao/`](0009-atribuicao/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0009-atribuicao/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0009-atribuicao/A028.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0009-atribuicao/A029.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0009-atribuicao/A030.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0009-atribuicao/E019.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0009-atribuicao/E020.ts
 > ```
 
 ---
@@ -654,10 +724,17 @@ console.log(media) // 7
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0010-aritmetica/`](0010-aritmetica/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0010-aritmetica/`](0010-aritmetica/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0010-aritmetica/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0010-aritmetica/A031.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0010-aritmetica/A032.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0010-aritmetica/A033.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0010-aritmetica/E021.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0010-aritmetica/E022.ts
 > ```
 
 ---
@@ -712,10 +789,17 @@ console.log(vans) // 3
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0011-math/`](0011-math/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0011-math/`](0011-math/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0011-math/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0011-math/A034.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0011-math/A035.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0011-math/A036.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0011-math/E023.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0011-math/E024.ts
 > ```
 
 ---
@@ -765,10 +849,17 @@ ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0012-relacional/`](0012-relacional/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0012-relacional/`](0012-relacional/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0012-relacional/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0012-relacional/A037.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0012-relacional/A038.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0012-relacional/A039.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0012-relacional/E025.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0012-relacional/E026.ts
 > ```
 
 ---
@@ -819,10 +910,17 @@ console.log(acertou) // true
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0013-comparacao/`](0013-comparacao/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0013-comparacao/`](0013-comparacao/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0013-comparacao/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0013-comparacao/A040.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0013-comparacao/A041.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0013-comparacao/A042.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0013-comparacao/E027.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0013-comparacao/E028.ts
 > ```
 
 ---
@@ -875,10 +973,17 @@ console.log(media >= 6 || frequencia >= 75) // true || false → true
 > `false`.
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0014-logico/`](0014-logico/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0014-logico/`](0014-logico/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0014-logico/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0014-logico/A043.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0014-logico/A044.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0014-logico/A045.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0014-logico/E029.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0014-logico/E030.ts
 > ```
 
 ---
@@ -932,10 +1037,17 @@ não:
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0015-truthy-falsy/`](0015-truthy-falsy/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0015-truthy-falsy/`](0015-truthy-falsy/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0015-truthy-falsy/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0015-truthy-falsy/A046.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0015-truthy-falsy/A047.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0015-truthy-falsy/A048.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0015-truthy-falsy/E031.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0015-truthy-falsy/E032.ts
 > ```
 
 ---
@@ -981,10 +1093,17 @@ direto para o "Bom dia!":
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0016-condicional-simples/`](0016-condicional-simples/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0016-condicional-simples/`](0016-condicional-simples/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0016-condicional-simples/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0016-condicional-simples/A049.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0016-condicional-simples/A050.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0016-condicional-simples/A051.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0016-condicional-simples/E033.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0016-condicional-simples/E034.ts
 > ```
 
 ---
@@ -1026,10 +1145,17 @@ programa passa por um deles:
 > de rodar: com texto no lugar, ela nem passaria.
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0017-condicional-composta/`](0017-condicional-composta/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0017-condicional-composta/`](0017-condicional-composta/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0017-condicional-composta/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0017-condicional-composta/A052.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0017-condicional-composta/A053.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0017-condicional-composta/A054.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0017-condicional-composta/E035.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0017-condicional-composta/E036.ts
 > ```
 
 ---
@@ -1081,10 +1207,17 @@ Cada `else if` é mais um losango, pendurado no Não do anterior:
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0018-condicional-aninhada/`](0018-condicional-aninhada/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0018-condicional-aninhada/`](0018-condicional-aninhada/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0018-condicional-aninhada/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0018-condicional-aninhada/A055.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0018-condicional-aninhada/A056.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0018-condicional-aninhada/A057.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0018-condicional-aninhada/E037.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0018-condicional-aninhada/E038.ts
 > ```
 
 ---
@@ -1128,10 +1261,17 @@ o programa mostra:
 > ternário e sabe que só pode sair um desses dois textos.
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0019-ternario/`](0019-ternario/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0019-ternario/`](0019-ternario/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0019-ternario/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0019-ternario/A058.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0019-ternario/A059.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0019-ternario/A060.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0019-ternario/E039.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0019-ternario/E040.ts
 > ```
 
 ---
@@ -1196,11 +1336,37 @@ O `switch` vira um losango com uma saída para cada `case`, mais uma para o
 > ```
 
 > [!NOTE]
-> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0020-escolha/`](0020-escolha/).
+> **Hora de praticar:** os arquivos deste assunto ficam em [`0020-escolha/`](0020-escolha/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
-> pnpm tsx 15102026/0020-escolha/exemplo-1.ts
+> # exemplos resolvidos: rode, mude, quebre, rode de novo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0020-escolha/A061.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0020-escolha/A062.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0020-escolha/A063.ts
+>
+> # exercícios: a resposta vai dentro do próprio arquivo
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0020-escolha/E041.ts
+> pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/0020-escolha/E042.ts
 > ```
+
+## Prática em sala
+
+Os enunciados ficam em [`pratica/`](pratica/). Cada um junta vários assuntos da
+aula num programa só.
+
+| Arquivo                                                    | O que fazer                                          |
+| ---------------------------------------------------------- | ---------------------------------------------------- |
+| [`ficha-de-cadastro.ts`](pratica/ficha-de-cadastro.ts)     | ler dados, converter e mostrar com template string   |
+| [`boletim.ts`](pratica/boletim.ts)                         | média com duas casas e situação com `else if`        |
+| [`cantina.ts`](pratica/cantina.ts)                         | cardápio com `switch` e total em reais               |
+| [`desafio-ingresso.ts`](pratica/desafio-ingresso.ts)       | desafio: `&&`, `\|\|`, ternário e valor padrão        |
+
+```bash
+pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/ficha-de-cadastro.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/boletim.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/cantina.ts
+pnpm -C ~/LPPOO tsx ~/LPPOO/15102026/pratica/desafio-ingresso.ts
+```
 
 ---
 
