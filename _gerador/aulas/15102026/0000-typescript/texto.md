@@ -35,7 +35,7 @@ escreve.
 > O `tsx`, que a gente usa para rodar os arquivos, **não confere tipos**.
 > Ele apaga os tipos e roda. Com `const total: number = '10' + 5`, ele mostra
 > `105` sem reclamar. Quem confere é o editor, enquanto você digita, e o
-> `pnpm tsc`, que olha o projeto inteiro. Na dúvida, rode `pnpm tsc` antes de
+> `pnpm -C ~/LPPOO tsc`, que olha o projeto inteiro. Na dúvida, rode ele antes de
 > entregar um exercício.
 
 ### Por que TypeScript nesta disciplina?
