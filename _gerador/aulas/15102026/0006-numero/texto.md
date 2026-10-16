@@ -20,11 +20,6 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 
 {{fluxograma}}
 
-Na memória ficam duas gavetas de tipos diferentes: `preco` guarda o número
-`12.5` e `texto` guarda o texto `'12.50'`:
-
-{{memoria}}
-
 > [!NOTE]
 > O `.toFixed` devolve texto, pronto para mostrar. Para fazer mais contas,
 > continue usando o `preco`.

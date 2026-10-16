@@ -3,15 +3,15 @@
 //
 //   aulas/15102026/aula.md                   começo e fim do README da aula
 //   aulas/15102026/0016-.../texto.md         o texto do assunto
-//   aulas/15102026/0016-.../desenhos.mjs     a ideia, o fluxograma e a memória
+//   aulas/15102026/0016-.../desenhos.mjs     o diagrama da ideia e o fluxograma
 //
 // Saída: 15102026/README.md, 15102026/legenda.svg e, em cada pasta,
-// ideia.svg, fluxograma.svg e memoria.svg.
+// ideia.svg e fluxograma.svg.
 //
 //   npm run gerar          tudo
 //   npm run gerar -- 0017  só os desenhos das pastas com "0017" (o README sai inteiro)
 //
-// No texto.md, {{ideia}}, {{fluxograma}}, {{memoria}} e {{pratique}} viram a imagem ou o
+// No texto.md, {{ideia}}, {{fluxograma}} e {{pratique}} viram a imagem ou o
 // rodapé do assunto. No aula.md, {{indice}} e {{assuntos}} viram a lista e os
 // assuntos.
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs'
@@ -20,7 +20,6 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { desenharIdeia } from './tipos/ideia.mjs'
 import { desenharFluxograma } from './tipos/fluxograma.mjs'
 import { desenharLegenda } from './tipos/legenda.mjs'
-import { desenharMemoria } from './tipos/memoria.mjs'
 
 const AQUI = dirname(fileURLToPath(import.meta.url))
 const RAIZ = join(AQUI, '..')
@@ -53,16 +52,14 @@ for (const data of readdirSync(join(AQUI, 'aulas'))) {
     const titulo = texto.match(/^## (.+)$/m)?.[1]
     if (!titulo) throw new Error(`${pasta}/texto.md precisa começar com "## título"`)
     const [numero, assunto] = titulo.split(' · ')
-    const { ideia, fluxograma, memoria } = await import(pathToFileURL(join(origem, pasta, 'desenhos.mjs')))
+    const { ideia, fluxograma } = await import(pathToFileURL(join(origem, pasta, 'desenhos.mjs')))
 
     const svgIdeia = desenharIdeia(`Ideia: ${assunto}`, ideia)
     const svgFluxo = desenharFluxograma(`Fluxograma: ${assunto}`, fluxograma)
-    const svgMemoria = desenharMemoria(`Memória: ${assunto}`, memoria)
     if (pasta.includes(filtro)) {
       writeFileSync(join(destino, pasta, 'ideia.svg'), svgIdeia)
       writeFileSync(join(destino, pasta, 'fluxograma.svg'), svgFluxo)
-      writeFileSync(join(destino, pasta, 'memoria.svg'), svgMemoria)
-      console.log(`ok  ${data}/${pasta}/ideia.svg, fluxograma.svg e memoria.svg`)
+      console.log(`ok  ${data}/${pasta}/ideia.svg e fluxograma.svg`)
     }
 
     indice.push(`| [${numero}](#${ancora(titulo)}) | ${assunto} | [\`${pasta}/\`](${pasta}/) |`)
@@ -70,7 +67,6 @@ for (const data of readdirSync(join(AQUI, 'aulas'))) {
       texto
         .replace('{{ideia}}', imagem(`${pasta}/ideia.svg`, `Diagrama da ideia: ${assunto}`, svgIdeia))
         .replace('{{fluxograma}}', imagem(`${pasta}/fluxograma.svg`, `Fluxograma: ${assunto}`, svgFluxo))
-        .replace('{{memoria}}', imagem(`${pasta}/memoria.svg`, `Memória: ${assunto}`, svgMemoria))
         .replace(
           '{{pratique}}',
           `> [!NOTE]\n> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [\`${pasta}/\`](${pasta}/).\n>\n> \`\`\`bash\n> pnpm tsx ${data}/${pasta}/exemplo-1.ts\n> \`\`\``,

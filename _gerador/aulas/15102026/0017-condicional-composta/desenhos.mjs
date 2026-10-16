@@ -27,16 +27,3 @@ export const fluxograma = {
   // o caminho do exemplo do texto
   caminho: ['A', 'B', 'C', 'D', 'F'],
 }
-
-export const memoria = {
-  passos: [
-    {
-      codigo: "const hora = Number(input('Que horas você chegou ao porto? '))",
-      grava: [['hora', '5', { const: true }]],
-      sai: 'Que horas você chegou ao porto? 5',
-    },
-    { codigo: 'if (hora <= 6) {', conta: ['5 <= 6', 'true'] },
-    { codigo: "  console.log('Embarcou para Tabatinga!')", sai: 'Embarcou para Tabatinga!' },
-    { codigo: '} else { ... }  // pulado' },
-  ],
-}

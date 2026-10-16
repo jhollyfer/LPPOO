@@ -50,16 +50,3 @@ export const fluxograma = {
   // o caminho do exemplo do texto
   caminho: ['A', 'B', 'C', 'D', 'E', 'F'],
 }
-
-export const memoria = {
-  passos: [
-    {
-      codigo: "const resposta = input('Vai chover? (sim/nao) ')",
-      grava: [['resposta', "'sim'", { const: true }]],
-      sai: 'Vai chover? (sim/nao) sim',
-    },
-    { codigo: "if (resposta === 'sim') {", conta: ["'sim' === 'sim'", 'true'] },
-    { codigo: "  console.log('Leve o guarda-chuva!')", sai: 'Leve o guarda-chuva!' },
-    { codigo: "console.log('Bom dia!')", sai: 'Bom dia!' },
-  ],
-}

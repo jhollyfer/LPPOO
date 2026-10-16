@@ -25,12 +25,6 @@ faz a conta.
 
 {{fluxograma}}
 
-Na memória, `texto` e `idade` parecem iguais, mas o tipo embaixo de cada gaveta
-conta outra história. A conta do último passo usa a gaveta `idade`, a de
-número:
-
-{{memoria}}
-
 > [!WARNING]
 > Não deu para converter? O resultado é `NaN`: `Number('dezessete')` dá `NaN`.
 

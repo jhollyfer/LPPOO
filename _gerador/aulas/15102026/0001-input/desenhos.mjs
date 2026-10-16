@@ -23,14 +23,3 @@ export const fluxograma = {
     ['C', 'D'],
   ],
 }
-
-export const memoria = {
-  passos: [
-    {
-      codigo: "const nome = input('Seu nome: ')",
-      grava: [['nome', "'Ana'", { const: true }]],
-      sai: 'Seu nome: Ana',
-    },
-    { codigo: 'console.log(nome)', sai: 'Ana' },
-  ],
-}

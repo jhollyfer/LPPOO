@@ -25,21 +25,3 @@ export const fluxograma = {
     ['D', 'E'],
   ],
 }
-
-export const memoria = {
-  passos: [
-    {
-      codigo: ['const alunos = 32', 'const porVan = 15'],
-      grava: [
-        ['alunos', '32', { const: true }],
-        ['porVan', '15', { const: true }],
-      ],
-    },
-    {
-      codigo: 'const vans = Math.ceil(alunos / porVan)',
-      conta: ['Math.ceil(2.13)', '3'],
-      grava: [['vans', '3', { const: true }]],
-    },
-    { codigo: 'console.log(vans)', sai: '3' },
-  ],
-}

@@ -1,32 +1,32 @@
+import { fileira } from '../../../tipos/ideia.mjs'
+
+// duas fileiras: a mesma média e a mesma frequência, julgadas pelo && e pelo ||
+const e = fileira(
+  0,
+  [
+    { rotulo: 'média boa? frequência boa?', texto: ['true  e  false'], w: 520 },
+    { rotulo: '&& (E): precisa dos dois', texto: ['true && false'], w: 480 },
+    { rotulo: 'não passa', texto: ['false'], cor: 'vermelho', w: 300 },
+  ],
+  ['&&', 'dá'],
+)
+const ou = fileira(
+  230,
+  [
+    { rotulo: 'média boa? frequência boa?', texto: ['true  e  false'], w: 520 },
+    { rotulo: '|| (OU): basta um', texto: ['true || false'], w: 480 },
+    { rotulo: 'passaria', texto: ['true'], w: 300 },
+  ],
+  ['||', 'dá'],
+)
+const renomeia = (f, sufixo) => ({
+  caixas: f.caixas.map((c) => ({ ...c, id: c.id + sufixo })),
+  setas: f.setas.map((s) => ({ ...s, de: s.de + sufixo, para: s.para + sufixo })),
+})
+
 export const ideia = {
-  caixas: [
-    { id: 'a', x: 110, y: 0, w: 400, cor: 'azul', rotulo: 'média boa?', texto: ['media >= 6', 'true'] },
-    {
-      id: 'b',
-      x: 110,
-      y: 210,
-      w: 400,
-      cor: 'azul',
-      rotulo: 'frequência boa?',
-      texto: ['frequencia >= 75', 'false'],
-    },
-    {
-      id: 'e',
-      x: 1010,
-      y: 0,
-      w: 480,
-      cor: 'vermelho',
-      rotulo: '&& (E)',
-      texto: ['false', 'precisa dos dois'],
-    },
-    { id: 'ou', x: 1010, y: 210, w: 480, cor: 'verde', rotulo: '|| (OU)', texto: ['true', 'basta um'] },
-  ],
-  setas: [
-    { de: 'a', para: 'e' },
-    { de: 'b', para: 'e' },
-    { de: 'a', para: 'ou' },
-    { de: 'b', para: 'ou' },
-  ],
+  caixas: [...renomeia(e, '1').caixas, ...renomeia(ou, '2').caixas],
+  setas: [...renomeia(e, '1').setas, ...renomeia(ou, '2').setas],
 }
 
 export const fluxograma = {
@@ -42,24 +42,5 @@ export const fluxograma = {
     ['B', 'C'],
     ['C', 'D'],
     ['D', 'E'],
-  ],
-}
-
-export const memoria = {
-  passos: [
-    {
-      codigo: ['const media = 7', 'const frequencia = 60'],
-      grava: [
-        ['media', '7', { const: true }],
-        ['frequencia', '60', { const: true }],
-      ],
-    },
-    {
-      codigo: 'const aprovado = media >= 6 && frequencia >= 75',
-      conta: ['true && false', 'false'],
-      grava: [['aprovado', 'false', { const: true }]],
-    },
-    { codigo: 'console.log(aprovado)', sai: 'false' },
-    { codigo: 'console.log(media >= 6 || frequencia >= 75)', conta: ['true || false', 'true'], sai: 'true' },
   ],
 }

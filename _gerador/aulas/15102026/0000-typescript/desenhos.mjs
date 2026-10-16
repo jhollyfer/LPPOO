@@ -32,14 +32,3 @@ export const fluxograma = {
   // o caminho do exemplo do texto
   caminho: ['A', 'B', 'C', 'E', 'F', 'G'],
 }
-
-export const memoria = {
-  passos: [
-    { codigo: 'const preco: number = 12.5', grava: [['preco', '12.5', { const: true }]] },
-    { codigo: 'console.log(preco.toFixed(2))', conta: ['preco.toFixed(2)', "'12.50'"], sai: '12.50' },
-    {
-      codigo: "const troco: number = 'dez reais'",
-      erro: ['troco', 'O TypeScript barra antes de rodar: texto não é number.'],
-    },
-  ],
-}

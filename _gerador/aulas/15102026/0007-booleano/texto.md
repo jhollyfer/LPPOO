@@ -27,13 +27,6 @@ e guarda. Escolher um caminho com ele é trabalho do `if`, na
 
 {{fluxograma}}
 
-Na memória, o `true` ocupa uma gaveta como qualquer outro valor. E aqui dá
-para ver a diferença entre os dois "nadas": com `let recado` a gaveta já existe,
-mas ninguém pôs nada nela (`undefined`). Depois alguém coloca `null` de
-propósito:
-
-{{memoria}}
-
 > [!TIP]
 > O `typeof` conta o tipo de um valor: `typeof temAula` dá `'boolean'`.
 

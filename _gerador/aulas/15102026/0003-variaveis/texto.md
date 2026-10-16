@@ -22,11 +22,6 @@ Cada troca de valor vira um retângulo roxo, um embaixo do outro:
 
 {{fluxograma}}
 
-Na memória dá para ver que a caixa é a mesma o jogo inteiro: o endereço não
-muda. Só o número lá dentro troca:
-
-{{memoria}}
-
 > [!TIP]
 > O TypeScript descobre sozinho que `gols` guarda número, porque começou com
 > `0`. Isso se chama **inferência**. Se quiser, dá para dizer na mão:

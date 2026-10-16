@@ -29,15 +29,3 @@ export const fluxograma = {
   // o caminho do exemplo do texto
   caminho: ['A', 'B', 'C', 'D', 'F', 'G'],
 }
-
-export const memoria = {
-  passos: [
-    { codigo: 'const media = 8', grava: [['media', '8', { const: true }]] },
-    {
-      codigo: "const situacao = media >= 6 ? 'Aprovado' : 'Reprovado'",
-      conta: ['8 >= 6', 'true'],
-      grava: [['situacao', "'Aprovado'", { const: true }]],
-    },
-    { codigo: 'console.log(situacao)', sai: 'Aprovado' },
-  ],
-}

@@ -28,11 +28,6 @@ Cada `else if` é mais um losango, pendurado no Não do anterior:
 
 {{fluxograma}}
 
-Na memória, cada pergunta é uma conta nova com o mesmo valor da gaveta `media`.
-A terceira opção nem chega a ser calculada:
-
-{{memoria}}
-
 > [!TIP]
 > Também dá para colocar um `if` dentro de outro, quando uma pergunta só faz
 > sentido depois da primeira. Não adianta perguntar se tem habilitação para

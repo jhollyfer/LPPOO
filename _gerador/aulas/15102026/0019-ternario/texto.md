@@ -27,11 +27,6 @@ o programa mostra:
 
 {{fluxograma}}
 
-Na memória aparece a diferença para o `if`: o ternário vira um valor, e esse
-valor ganha gaveta:
-
-{{memoria}}
-
 > [!TIP]
 > Use o ternário para escolhas pequenas: singular ou plural, par ou ímpar,
 > aprovado ou reprovado. Se a decisão tem várias etapas, volte para o `if`.

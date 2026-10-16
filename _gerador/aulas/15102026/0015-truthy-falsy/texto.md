@@ -29,11 +29,6 @@ não:
 
 {{fluxograma}}
 
-Na memória, a gaveta `apelido` existe e tem um texto dentro, só que vazio. É
-por isso que o `??` não trocaria: para ele, `''` é um valor de verdade:
-
-{{memoria}}
-
 > [!IMPORTANT]
 > O `??` é parecido, mas só troca quando o valor é `null` ou `undefined`. Com
 > texto vazio ele não faz nada: `'' ?? 'sem apelido'` continua `''`.

@@ -25,11 +25,3 @@ export const fluxograma = {
     ['D', 'E'],
   ],
 }
-
-export const memoria = {
-  passos: [
-    { codigo: 'const preco = 12.5', grava: [['preco', '12.5', { const: true }]] },
-    { codigo: 'const texto = preco.toFixed(2)', grava: [['texto', "'12.50'", { const: true }]] },
-    { codigo: 'console.log(`Açaí: R$ ${texto}`)', sai: 'Açaí: R$ 12.50' },
-  ],
-}

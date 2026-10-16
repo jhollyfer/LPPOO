@@ -23,24 +23,6 @@ No diagrama da ideia, o caminho que o exemplo segue aparece em verde, e os
 outros ficam cinza. Erro é vermelho. No fluxograma vale a mesma regra: o
 caminho do exemplo fica colorido e o resto fica apagado.
 
-## A memória
-
-Todo assunto termina com um terceiro desenho: o programa rodando linha por
-linha, com a memória RAM ao lado. Pense na RAM como um armário de gavetas:
-
-- cada variável ganha uma **gaveta**, com o nome na etiqueta e o valor dentro;
-- o número no canto (`#1000`, `#1008`...) é o **endereço**, que é como o
-  computador acha a gaveta de novo;
-- embaixo do valor vem o tipo (`string`, `number`, `boolean`...);
-- a gaveta **verde** é a que acabou de mudar, e quando o valor troca aparece
-  também o que ela guardava antes;
-- gaveta de `const` tem **cadeado**;
-- a caixa **amarela** é uma conta que o processador faz na hora, como
-  `5 >= 6`. O resultado é usado e descartado, sem ganhar gaveta.
-
-Os endereços são de mentirinha (os de verdade são números enormes), mas a ideia
-é essa: o nome da variável é só um apelido para um lugar na memória.
-
 ## Os assuntos
 
 Leia na ordem. Em cada um, depois de ler, abra a pasta e rode os exemplos.
@@ -100,11 +82,9 @@ vermelho, você corrige e tenta de novo. Só código conferido segue para o Node
 
 <p align="center"><img src="0000-typescript/fluxograma.svg" alt="Fluxograma: Como o TypeScript funciona (e por que ele)" width="485"></p>
 
-Na memória não sobra nada do `: number`. Quando o programa roda, os tipos já
-foram apagados, e a gaveta guarda só o valor. Toda a proteção do TypeScript
-acontece antes, enquanto você escreve:
-
-<p align="center"><img src="0000-typescript/memoria.svg" alt="Memória: Como o TypeScript funciona (e por que ele)" width="893"></p>
+Na hora de rodar, os tipos já foram apagados: o Node recebe `const preco = 12.5`
+e mais nada. Toda a proteção do TypeScript acontece antes, enquanto você
+escreve.
 
 > [!IMPORTANT]
 > O `pnpm tsx`, que a gente usa para rodar os arquivos, **não confere tipos**.
@@ -168,13 +148,6 @@ entrando e saindo.
 
 <p align="center"><img src="0001-input/fluxograma.svg" alt="Fluxograma: Entrada de dados (input)" width="668"></p>
 
-E dentro do computador? Quando a Ana aperta Enter, o que ela digitou vai para
-uma gaveta da memória RAM com a etiqueta `nome`. Cada gaveta tem um endereço
-(o `#1000`), que é como o computador acha ela de novo. A gaveta verde é a que
-acabou de mudar:
-
-<p align="center"><img src="0001-input/memoria.svg" alt="Memória: Entrada de dados (input)" width="893"></p>
-
 > [!IMPORTANT]
 > O `input` sempre devolve texto. Se a Ana digitar `17`, o programa guarda
 > `'17'`, entre aspas. Fazer conta com isso é assunto da [0008](#0008--conversão-de-tipos).
@@ -210,11 +183,6 @@ Guardar a média é o programa fazendo algo, então vira retângulo roxo. Mostra
 frase é saída: paralelogramo azul.
 
 <p align="center"><img src="0002-output/fluxograma.svg" alt="Fluxograma: Saída de dados (output)" width="665"></p>
-
-Na memória só existe a gaveta `media`. A frase é montada na hora, com o valor
-que está lá dentro, e vai direto para o terminal sem ganhar gaveta:
-
-<p align="center"><img src="0002-output/memoria.svg" alt="Memória: Saída de dados (output)" width="893"></p>
 
 > [!TIP]
 > A crase (`` ` ``) fica perto do Enter na maioria dos teclados, às vezes junto
@@ -252,11 +220,6 @@ console.log(gols) // 2
 Cada troca de valor vira um retângulo roxo, um embaixo do outro:
 
 <p align="center"><img src="0003-variaveis/fluxograma.svg" alt="Fluxograma: Variáveis" width="944"></p>
-
-Na memória dá para ver que a caixa é a mesma o jogo inteiro: o endereço não
-muda. Só o número lá dentro troca:
-
-<p align="center"><img src="0003-variaveis/memoria.svg" alt="Memória: Variáveis" width="893"></p>
 
 > [!TIP]
 > O TypeScript descobre sozinho que `gols` guarda número, porque começou com
@@ -303,11 +266,6 @@ muda mais. Repare também que a constante é guardada antes da pergunta:
 
 <p align="center"><img src="0004-constantes/fluxograma.svg" alt="Fluxograma: Constantes" width="966"></p>
 
-Na memória, as gavetas de `const` ganham um cadeado. A tentativa de troca do
-último passo nem chega a rodar:
-
-<p align="center"><img src="0004-constantes/memoria.svg" alt="Memória: Constantes" width="893"></p>
-
 > [!TIP]
 > Na dúvida, comece com `const`. Precisou mudar depois? Troque para `let`.
 > Valor fixo do programa vai em `UPPER_CASE` (`NOME_ESCOLA`, `MEDIA_APROVACAO`);
@@ -348,11 +306,6 @@ espaços; quem está limpo é o `limpo`. Usar uma ferramenta é o programa fazen
 algo, então vira passo roxo:
 
 <p align="center"><img src="0005-texto/fluxograma.svg" alt="Fluxograma: Texto (string)" width="975"></p>
-
-A memória mostra por que `nome` continua com os espaços: o `.trim()` não mexe
-nessa gaveta. Ele cria um texto novo, e esse texto vai para uma gaveta nova:
-
-<p align="center"><img src="0005-texto/memoria.svg" alt="Memória: Texto (string)" width="893"></p>
 
 > [!WARNING]
 > Com texto, o `+` cola em vez de somar: `'5' + 3` vira `'53'`.
@@ -402,11 +355,6 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 
 <p align="center"><img src="0006-numero/fluxograma.svg" alt="Fluxograma: Número (number)" width="1071"></p>
 
-Na memória ficam duas gavetas de tipos diferentes: `preco` guarda o número
-`12.5` e `texto` guarda o texto `'12.50'`:
-
-<p align="center"><img src="0006-numero/memoria.svg" alt="Memória: Número (number)" width="893"></p>
-
 > [!NOTE]
 > O `.toFixed` devolve texto, pronto para mostrar. Para fazer mais contas,
 > continue usando o `preco`.
@@ -453,13 +401,6 @@ e guarda. Escolher um caminho com ele é trabalho do `if`, na
 
 <p align="center"><img src="0007-booleano/fluxograma.svg" alt="Fluxograma: Booleano (boolean), typeof, null e undefined" width="1056"></p>
 
-Na memória, o `true` ocupa uma gaveta como qualquer outro valor. E aqui dá
-para ver a diferença entre os dois "nadas": com `let recado` a gaveta já existe,
-mas ninguém pôs nada nela (`undefined`). Depois alguém coloca `null` de
-propósito:
-
-<p align="center"><img src="0007-booleano/memoria.svg" alt="Memória: Booleano (boolean), typeof, null e undefined" width="893"></p>
-
 > [!TIP]
 > O `typeof` conta o tipo de um valor: `typeof temAula` dá `'boolean'`.
 
@@ -505,12 +446,6 @@ fluxograma separa em passos para dar para ver: chega texto, vira número, aí si
 faz a conta.
 
 <p align="center"><img src="0008-conversao/fluxograma.svg" alt="Fluxograma: Conversão de tipos" width="984"></p>
-
-Na memória, `texto` e `idade` parecem iguais, mas o tipo embaixo de cada gaveta
-conta outra história. A conta do último passo usa a gaveta `idade`, a de
-número:
-
-<p align="center"><img src="0008-conversao/memoria.svg" alt="Memória: Conversão de tipos" width="893"></p>
 
 > [!WARNING]
 > Não deu para converter? O resultado é `NaN`: `Number('dezessete')` dá `NaN`.
@@ -560,11 +495,6 @@ A variável é a mesma do começo ao fim, só o valor dentro dela muda. Cada
 atribuição é um retângulo roxo:
 
 <p align="center"><img src="0009-atribuicao/fluxograma.svg" alt="Fluxograma: Operadores de atribuição" width="1021"></p>
-
-Na memória, a gaveta `saldo` é a mesma do começo ao fim (o endereço não muda). A
-cada linha, o valor antigo sai e o novo entra:
-
-<p align="center"><img src="0009-atribuicao/memoria.svg" alt="Memória: Operadores de atribuição" width="893"></p>
 
 <details>
 <summary>Todos os atalhos</summary>
@@ -616,11 +546,6 @@ console.log(media) // 7
 
 <p align="center"><img src="0010-aritmetica/fluxograma.svg" alt="Fluxograma: Operadores aritméticos" width="955"></p>
 
-Na memória, o processador pega os valores das gavetas, faz a conta e só guarda
-o resultado final. O `14` do meio do caminho não ganha gaveta:
-
-<p align="center"><img src="0010-aritmetica/memoria.svg" alt="Memória: Operadores aritméticos" width="893"></p>
-
 <details>
 <summary>Todos os operadores</summary>
 
@@ -669,11 +594,6 @@ console.log(vans) // 3
 ```
 
 <p align="center"><img src="0011-math/fluxograma.svg" alt="Fluxograma: Objeto Math" width="1062"></p>
-
-Na memória, o `2.13` aparece só durante a conta. Quem fica guardado é o `3`
-que o `Math.ceil` devolve:
-
-<p align="center"><img src="0011-math/memoria.svg" alt="Memória: Objeto Math" width="893"></p>
 
 > [!TIP]
 > Para não confundir: *floor* é "chão" em inglês, então arredonda para baixo.
@@ -728,11 +648,6 @@ ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
 
 <p align="center"><img src="0012-relacional/fluxograma.svg" alt="Fluxograma: Operadores relacionais" width="940"></p>
 
-Na memória, a comparação é calculada com o valor da gaveta `idade`, e a
-resposta vai para uma gaveta nova:
-
-<p align="center"><img src="0012-relacional/memoria.svg" alt="Memória: Operadores relacionais" width="893"></p>
-
 | Operador | Pergunta            | Com `idade = 17` |
 | -------- | ------------------- | ---------------- |
 | `>`      | é maior que?        | `idade > 18` → `false`  |
@@ -777,11 +692,6 @@ console.log(acertou) // true
 
 <p align="center"><img src="0013-comparacao/fluxograma.svg" alt="Fluxograma: Comparação de igualdade" width="1211"></p>
 
-Na memória são duas gavetas diferentes, com endereços diferentes. O `===`
-compara o que tem dentro delas:
-
-<p align="center"><img src="0013-comparacao/memoria.svg" alt="Memória: Comparação de igualdade" width="893"></p>
-
 > [!IMPORTANT]
 > Por que três sinais? Existe o `==`, que converte os tipos antes de comparar:
 > `5 == '5'` dá `true` e o erro passa batido. O `===` compara o valor e o
@@ -813,7 +723,7 @@ Os operadores lógicos juntam várias respostas `true`/`false` numa só:
 O Pedro tem média 7 (boa: `true`) mas frequência 60% (ruim: `false`). Com `&&`,
 que precisa das duas, ele não passa. Com `||`, que se contenta com uma, passaria:
 
-<p align="center"><img src="0014-logico/ideia.svg" alt="Diagrama da ideia: Operadores lógicos" width="864"></p>
+<p align="center"><img src="0014-logico/ideia.svg" alt="Diagrama da ideia: Operadores lógicos" width="980"></p>
 
 ```ts
 const media = 7
@@ -825,11 +735,6 @@ console.log(media >= 6 || frequencia >= 75) // true || false → true
 ```
 
 <p align="center"><img src="0014-logico/fluxograma.svg" alt="Fluxograma: Operadores lógicos" width="1000"></p>
-
-Na memória, cada lado da conta vira `true` ou `false` antes de juntar. Repare
-que o último passo calcula o `||` e mostra, mas não guarda em lugar nenhum:
-
-<p align="center"><img src="0014-logico/memoria.svg" alt="Memória: Operadores lógicos" width="893"></p>
 
 <details>
 <summary>A tabela verdade</summary>
@@ -887,11 +792,6 @@ não:
 
 <p align="center"><img src="0015-truthy-falsy/fluxograma.svg" alt="Fluxograma: Truthy, falsy, ?? e ?." width="502"></p>
 
-Na memória, a gaveta `apelido` existe e tem um texto dentro, só que vazio. É
-por isso que o `??` não trocaria: para ele, `''` é um valor de verdade:
-
-<p align="center"><img src="0015-truthy-falsy/memoria.svg" alt="Memória: Truthy, falsy, ?? e ?." width="893"></p>
-
 > [!IMPORTANT]
 > O `??` é parecido, mas só troca quando o valor é `null` ou `undefined`. Com
 > texto vazio ele não faz nada: `'' ?? 'sem apelido'` continua `''`.
@@ -940,11 +840,6 @@ direto para o "Bom dia!":
 
 <p align="center"><img src="0016-condicional-simples/fluxograma.svg" alt="Fluxograma: Condicional simples (if)" width="380"></p>
 
-Na memória, a comparação do `if` é calculada e jogada fora logo depois: ela não
-ganha gaveta. Serve só para escolher o caminho:
-
-<p align="center"><img src="0016-condicional-simples/memoria.svg" alt="Memória: Condicional simples (if)" width="893"></p>
-
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0016-condicional-simples/`](0016-condicional-simples/).
 >
@@ -985,11 +880,6 @@ programa passa por um deles:
 
 <p align="center"><img src="0017-condicional-composta/fluxograma.svg" alt="Fluxograma: Condicional composta (if / else)" width="524"></p>
 
-Na memória, nada novo é guardado depois da leitura da hora. O `else` é pulado
-inteiro, como se não estivesse ali:
-
-<p align="center"><img src="0017-condicional-composta/memoria.svg" alt="Memória: Condicional composta (if / else)" width="893"></p>
-
 > [!NOTE]
 > **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0017-condicional-composta/`](0017-condicional-composta/).
 >
@@ -1028,11 +918,6 @@ if (media >= 6) {
 Cada `else if` é mais um losango, pendurado no Não do anterior:
 
 <p align="center"><img src="0018-condicional-aninhada/fluxograma.svg" alt="Fluxograma: Condicional aninhada (else if e if dentro de if)" width="838"></p>
-
-Na memória, cada pergunta é uma conta nova com o mesmo valor da gaveta `media`.
-A terceira opção nem chega a ser calculada:
-
-<p align="center"><img src="0018-condicional-aninhada/memoria.svg" alt="Memória: Condicional aninhada (else if e if dentro de if)" width="893"></p>
 
 > [!TIP]
 > Também dá para colocar um `if` dentro de outro, quando uma pergunta só faz
@@ -1076,11 +961,6 @@ caminhos não mostram nada. Eles guardam um valor em `situacao`, e só no fim
 o programa mostra:
 
 <p align="center"><img src="0019-ternario/fluxograma.svg" alt="Fluxograma: Operador ternário" width="547"></p>
-
-Na memória aparece a diferença para o `if`: o ternário vira um valor, e esse
-valor ganha gaveta:
-
-<p align="center"><img src="0019-ternario/memoria.svg" alt="Memória: Operador ternário" width="893"></p>
 
 > [!TIP]
 > Use o ternário para escolhas pequenas: singular ou plural, par ou ímpar,
@@ -1137,11 +1017,6 @@ O `switch` vira um losango com uma saída para cada `case`, mais uma para o
 `default`:
 
 <p align="center"><img src="0020-escolha/fluxograma.svg" alt="Fluxograma: Estrutura de escolha (switch)" width="1070"></p>
-
-Na memória, o `switch` faz uma comparação com `===` para cada `case`, sempre
-com o mesmo valor da gaveta `opcao`, até achar o igual:
-
-<p align="center"><img src="0020-escolha/memoria.svg" alt="Memória: Estrutura de escolha (switch)" width="893"></p>
 
 > [!TIP]
 > Use `switch` quando a pergunta é "qual destes valores?". Para faixas (maior

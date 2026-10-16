@@ -32,20 +32,3 @@ export const fluxograma = {
     ['E', 'F'],
   ],
 }
-
-export const memoria = {
-  passos: [
-    { codigo: "const SENHA = 'cetam2026'", grava: [['SENHA', "'cetam2026'", { const: true }]] },
-    {
-      codigo: "const digitada = input('Senha do Wi-Fi: ')",
-      grava: [['digitada', "'cetam2026'", { const: true }]],
-      sai: 'Senha do Wi-Fi: cetam2026',
-    },
-    {
-      codigo: 'const acertou = digitada === SENHA',
-      conta: ['digitada === SENHA', 'true'],
-      grava: [['acertou', 'true', { const: true }]],
-    },
-    { codigo: 'console.log(acertou)', sai: 'true' },
-  ],
-}

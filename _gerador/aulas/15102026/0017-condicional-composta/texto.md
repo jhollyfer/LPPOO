@@ -29,9 +29,4 @@ programa passa por um deles:
 
 {{fluxograma}}
 
-Na memória, nada novo é guardado depois da leitura da hora. O `else` é pulado
-inteiro, como se não estivesse ali:
-
-{{memoria}}
-
 {{pratique}}

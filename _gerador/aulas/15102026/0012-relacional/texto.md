@@ -24,11 +24,6 @@ ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
 
 {{fluxograma}}
 
-Na memória, a comparação é calculada com o valor da gaveta `idade`, e a
-resposta vai para uma gaveta nova:
-
-{{memoria}}
-
 | Operador | Pergunta            | Com `idade = 17` |
 | -------- | ------------------- | ---------------- |
 | `>`      | é maior que?        | `idade > 18` → `false`  |

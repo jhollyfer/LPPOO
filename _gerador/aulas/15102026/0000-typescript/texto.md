@@ -27,11 +27,9 @@ vermelho, você corrige e tenta de novo. Só código conferido segue para o Node
 
 {{fluxograma}}
 
-Na memória não sobra nada do `: number`. Quando o programa roda, os tipos já
-foram apagados, e a gaveta guarda só o valor. Toda a proteção do TypeScript
-acontece antes, enquanto você escreve:
-
-{{memoria}}
+Na hora de rodar, os tipos já foram apagados: o Node recebe `const preco = 12.5`
+e mais nada. Toda a proteção do TypeScript acontece antes, enquanto você
+escreve.
 
 > [!IMPORTANT]
 > O `pnpm tsx`, que a gente usa para rodar os arquivos, **não confere tipos**.

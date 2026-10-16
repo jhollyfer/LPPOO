@@ -25,19 +25,3 @@ export const fluxograma = {
     ['D', 'E'],
   ],
 }
-
-export const memoria = {
-  passos: [
-    {
-      codigo: "const idade = Number(input('Sua idade: '))",
-      grava: [['idade', '17', { const: true }]],
-      sai: 'Sua idade: 17',
-    },
-    {
-      codigo: 'const maiorDeIdade = idade >= 18',
-      conta: ['17 >= 18', 'false'],
-      grava: [['maiorDeIdade', 'false', { const: true }]],
-    },
-    { codigo: 'console.log(maiorDeIdade)', sai: 'false' },
-  ],
-}

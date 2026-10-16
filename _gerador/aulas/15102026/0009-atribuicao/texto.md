@@ -23,11 +23,6 @@ atribuição é um retângulo roxo:
 
 {{fluxograma}}
 
-Na memória, a gaveta `saldo` é a mesma do começo ao fim (o endereço não muda). A
-cada linha, o valor antigo sai e o novo entra:
-
-{{memoria}}
-
 <details>
 <summary>Todos os atalhos</summary>
 

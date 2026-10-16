@@ -15,8 +15,14 @@ export const fileira = (y, [a, b, c], [s1, s2] = []) => {
   const trio = [a, b, c]
   const linhas = Math.max(...trio.map((x) => [].concat(x.texto).length))
   const h = 150 + (linhas - 1) * 40
-  const larg = trio.map((x) =>
-    Math.max(300, ...[].concat(x.texto).map((l) => medir(l, 30) + 60), (x.rotulo ?? '').length * 24 * 0.75 + 60),
+  const larg = trio.map(
+    (x) =>
+      x.w ??
+      Math.max(
+        300,
+        ...[].concat(x.texto).map((l) => medir(l, 30) + 60),
+        (x.rotulo ?? '').length * 24 * 0.75 + 60,
+      ),
   )
   const vao = Math.max(140, (1380 - larg[0] - larg[1] - larg[2]) / 2)
   const xs = [110, 110 + larg[0] + vao, 110 + larg[0] + larg[1] + 2 * vao]
