@@ -1,5 +1,5 @@
 // O "quadro" onde todo diagrama é desenhado: traço à mão (rough.js), fonte do
-// Excalidraw, título com a barrinha roxa e setas. Cada tipo de diagrama
+// Excalidraw, caixas e setas. Cada tipo de diagrama
 // (tipos/*.mjs) usa estas peças.
 import { readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
@@ -11,7 +11,6 @@ const FONTE = readFileSync(
 ).toString('base64')
 
 export const LARGURA = 1600
-export const MARGEM = 110
 export const ESCURO = '#1e1e1e'
 
 // cor da borda, do preenchimento e do rótulo de cada caixa
@@ -67,16 +66,6 @@ export function novoQuadro() {
   }
   const poligono = (pontos, cor) => forma(gen.polygon(pontos, solido(cor)))
 
-  // título + subtítulo; devolve onde o cabeçalho termina
-  const cabecalho = (titulo, subtitulo) => {
-    const linhas = [].concat(subtitulo ?? [])
-    const fim = 140 + linhas.length * 42
-    forma(gen.line(80, 70, 80, fim - 20, opcoes({ stroke: '#b197fc', strokeWidth: 4, roughness: 0.6 })))
-    texto(MARGEM, 120, titulo, { tam: Math.min(54, (LARGURA - 2 * MARGEM) / (titulo.length * 0.55)) })
-    linhas.forEach((l, i) => texto(MARGEM, 175 + i * 42, l, { tam: 30, cor: '#495057' }))
-    return fim
-  }
-
   // seta passando pelos pontos; o rótulo fica no trecho mais comprido
   const seta = (pontos, { cor = TINTA.roxo, rotulo, dx = 0, dy } = {}) => {
     forma(gen.linearPath(pontos, opcoes({ stroke: cor, roughness: 0.8 })))
@@ -99,27 +88,17 @@ export function novoQuadro() {
     texto(deitada ? mx : mx + 14, my, rotulo, { tam: 24, cor, ancora: deitada ? 'middle' : 'start' })
   }
 
-  // frase final em roxo; devolve a altura total do quadro
-  const rodape = (fundo, frase) => {
-    if (!frase) return fundo + 70
-    const linhas = [].concat(frase)
-    const y0 = fundo + 90
-    linhas.forEach((l, i) => texto(MARGEM, y0 + i * 40, l, { tam: 30, cor: '#862e9c' }))
-    return y0 + (linhas.length - 1) * 40 + 60
-  }
-
-  // o grupo vem antes do svg final, para dar para escalar o conteúdo
+  // recorte: { x, y, w, h } é o pedaço do quadro que vira imagem
   const svg = (
     titulo,
-    altura,
-    largura = LARGURA,
-  ) => `<svg xmlns="http://www.w3.org/2000/svg" width="${largura}" height="${altura}" viewBox="0 0 ${largura} ${altura}">
+    { x = 0, y = 0, w = LARGURA, h },
+  ) => `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="${x} ${y} ${w} ${h}">
 <title>${escapar(titulo)}</title>
 <style>@font-face{font-family:Excalifont;src:url(data:font/woff2;base64,${FONTE}) format('woff2')}text{font-family:Excalifont,'Comic Sans MS',cursive;white-space:pre}</style>
-<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#ffffff"/>
 ${partes.join('\n')}
 </svg>
 `
 
-  return { gen, opcoes, forma, texto, caixa, poligono, cabecalho, seta, rodape, svg, partes }
+  return { gen, opcoes, forma, texto, caixa, poligono, seta, svg, partes }
 }

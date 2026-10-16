@@ -1,230 +1,340 @@
+<!-- Gerado por _gerador. Para mudar este arquivo, edite _gerador/aulas/15102026/ e rode: cd _gerador && npm run gerar -->
+
 # Aula 01 · 15/10 · Revisão de lógica I
 
-Tudo da aula está aqui, numa página só. Para cada assunto você encontra a
-ideia em poucas palavras, um **diagrama** que resume a ideia e um
-**fluxograma** com o caminho que o programa faz.
+Hoje a gente relembra o básico que todo programa usa: receber dados, guardar,
+fazer conta, comparar e decidir. São 20 assuntos curtos, um puxando o outro.
 
-As pastas (`0001-input`, `0002-output`...) guardam só a parte prática:
+Cada assunto conta **uma história só**, do começo ao fim: o texto explica, o
+**diagrama da ideia** mostra a mesma história em caixas, o código escreve ela em
+TypeScript e o **fluxograma** desenha o caminho que esse código faz. Os valores
+são os mesmos em todos eles: se o texto fala de `media = 7`, o desenho e o
+código também falam.
 
-- `exemplo-1.ts` a `exemplo-3.ts`: exemplos resolvidos. Rode, mude, quebre, rode de novo.
-- `exercicio-1.ts` e `exercicio-2.ts`: enunciado e dicas no comentário. A
-  resposta vai embaixo de `// Escreva sua resposta abaixo:`.
+## As cores e as formas
 
-## Como ler um fluxograma
+Os dois desenhos usam o mesmo código de cores. Olhou para uma caixa azul, é um
+dado entrando ou saindo; roxa, o programa fazendo alguma coisa; amarela, uma
+pergunta.
 
-| Forma | Quer dizer |
-| --- | --- |
-| pílula (roxa) | início ou fim do programa |
-| paralelogramo (azul) | entrada ou saída: `input` e `console.log` |
-| retângulo (verde) | o programa faz uma conta ou guarda um valor |
-| losango (amarelo) | uma pergunta de sim ou não, e o caminho se divide |
+<p align="center"><img src="legenda.svg" alt="Legenda: formas e cores do fluxograma" width="916"></p>
 
-## Assuntos
+No diagrama da ideia, o caminho que o exemplo segue e o resultado aparecem em
+**verde**. Os caminhos que ele não segue ficam em cinza, e um erro fica em
+vermelho. No fluxograma é igual: o caminho do exemplo fica colorido e o resto
+fica apagado, em cinza.
 
-| Pasta | Assunto |
-| --- | --- |
-| [0001](#0001--entrada-de-dados-input) | Entrada de dados (input) |
-| [0002](#0002--saída-de-dados-output) | Saída de dados (output) |
-| [0003](#0003--variáveis) | Variáveis |
-| [0004](#0004--constantes) | Constantes |
-| [0005](#0005--texto-string) | Texto (string) |
-| [0006](#0006--número-number) | Número (number) |
-| [0007](#0007--booleano-boolean-typeof-null-e-undefined) | Booleano (boolean), typeof, null e undefined |
-| [0008](#0008--conversão-de-tipos) | Conversão de tipos |
-| [0009](#0009--operadores-de-atribuição) | Operadores de atribuição |
-| [0010](#0010--operadores-aritméticos) | Operadores aritméticos |
-| [0011](#0011--objeto-math) | Objeto Math |
-| [0012](#0012--operadores-relacionais) | Operadores relacionais |
-| [0013](#0013--comparação-de-igualdade) | Comparação de igualdade |
-| [0014](#0014--operadores-lógicos) | Operadores lógicos |
-| [0015](#0015--truthy-falsy--e-) | Truthy, falsy, ?? e ?. |
-| [0016](#0016--condicional-simples-if) | Condicional simples (if) |
-| [0017](#0017--condicional-composta-if--else) | Condicional composta (if / else) |
-| [0018](#0018--condicional-aninhada-else-if-e-if-dentro-de-if) | Condicional aninhada (else if e if dentro de if) |
-| [0019](#0019--operador-ternário) | Operador ternário |
-| [0020](#0020--estrutura-de-escolha-switch) | Estrutura de escolha (switch) |
+## Os assuntos
+
+Leia na ordem. Em cada um, depois de ler, abra a pasta e rode os exemplos.
+
+| # | Assunto | Pasta |
+| --- | --- | --- |
+| [0001](#0001--entrada-de-dados-input) | Entrada de dados (input) | [`0001-input/`](0001-input/) |
+| [0002](#0002--saída-de-dados-output) | Saída de dados (output) | [`0002-output/`](0002-output/) |
+| [0003](#0003--variáveis) | Variáveis | [`0003-variaveis/`](0003-variaveis/) |
+| [0004](#0004--constantes) | Constantes | [`0004-constantes/`](0004-constantes/) |
+| [0005](#0005--texto-string) | Texto (string) | [`0005-texto/`](0005-texto/) |
+| [0006](#0006--número-number) | Número (number) | [`0006-numero/`](0006-numero/) |
+| [0007](#0007--booleano-boolean-typeof-null-e-undefined) | Booleano (boolean), typeof, null e undefined | [`0007-booleano/`](0007-booleano/) |
+| [0008](#0008--conversão-de-tipos) | Conversão de tipos | [`0008-conversao/`](0008-conversao/) |
+| [0009](#0009--operadores-de-atribuição) | Operadores de atribuição | [`0009-atribuicao/`](0009-atribuicao/) |
+| [0010](#0010--operadores-aritméticos) | Operadores aritméticos | [`0010-aritmetica/`](0010-aritmetica/) |
+| [0011](#0011--objeto-math) | Objeto Math | [`0011-math/`](0011-math/) |
+| [0012](#0012--operadores-relacionais) | Operadores relacionais | [`0012-relacional/`](0012-relacional/) |
+| [0013](#0013--comparação-de-igualdade) | Comparação de igualdade | [`0013-comparacao/`](0013-comparacao/) |
+| [0014](#0014--operadores-lógicos) | Operadores lógicos | [`0014-logico/`](0014-logico/) |
+| [0015](#0015--truthy-falsy--e-) | Truthy, falsy, ?? e ?. | [`0015-truthy-falsy/`](0015-truthy-falsy/) |
+| [0016](#0016--condicional-simples-if) | Condicional simples (if) | [`0016-condicional-simples/`](0016-condicional-simples/) |
+| [0017](#0017--condicional-composta-if--else) | Condicional composta (if / else) | [`0017-condicional-composta/`](0017-condicional-composta/) |
+| [0018](#0018--condicional-aninhada-else-if-e-if-dentro-de-if) | Condicional aninhada (else if e if dentro de if) | [`0018-condicional-aninhada/`](0018-condicional-aninhada/) |
+| [0019](#0019--operador-ternário) | Operador ternário | [`0019-ternario/`](0019-ternario/) |
+| [0020](#0020--estrutura-de-escolha-switch) | Estrutura de escolha (switch) | [`0020-escolha/`](0020-escolha/) |
+
+---
 
 ## 0001 · Entrada de dados (input)
 
 > Um programa que só fala e nunca escuta é igual àquele colega que manda áudio de
 > 5 minutos e não lê a resposta. Hoje o programa aprende a ouvir.
 
-Entrada é o momento em que o programa para, faz uma pergunta e espera você
-digitar. Pense no caixa da cantina: ele pergunta "vai querer o quê?" e só segue
-depois que você responde.
+Entrada é o momento em que o programa **para, pergunta e espera**. Pense no
+caixa da cantina: ele pergunta "vai querer o quê?" e só segue depois que você
+responde.
 
-No nosso projeto quem faz isso é a função `input`, que mora em `#core/input.ts`.
-Ela mostra a pergunta, espera o Enter e devolve o que foi digitado.
+A Ana roda o programa. Aparece a pergunta `Seu nome:`, ela digita `Ana`, aperta
+Enter, e o programa guarda essa resposta numa caixinha chamada `nome`:
 
-Guarde uma coisa desde já: o `input` **sempre devolve texto (`string`)**.
-Digitou 17? Para ele é o texto `'17'`. Fazer conta com isso fica para a pasta de
-conversão.
+<p align="center"><img src="0001-input/ideia.svg" alt="Diagrama da ideia: Entrada de dados (input)" width="864"></p>
 
-![Diagrama: Entrada de dados (input)](0001-input/ideia.svg)
+Quem faz a pergunta é a função `input`. Ela mostra o texto, espera o Enter e
+devolve o que foi digitado:
 
-![Fluxograma: Entrada de dados (input)](0001-input/fluxograma.svg)
+```ts
+import { input } from '#core/input.ts'
 
-**Pratique:** a pasta [`0001-input/`](0001-input/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0001-input/exemplo-1.ts
+const nome = input('Seu nome: ') // a Ana digita: Ana
+console.log(nome) // Ana
 ```
+
+No fluxograma, a entrada e a saída são paralelogramos azuis. O caminho é curto:
+pergunta, guarda, mostra.
+
+<p align="center"><img src="0001-input/fluxograma.svg" alt="Fluxograma: Entrada de dados (input)" width="668"></p>
+
+> [!IMPORTANT]
+> O `input` **sempre devolve texto**. Se a Ana digitar `17`, o programa guarda
+> `'17'`, entre aspas. Fazer conta com isso é assunto da [0008](#0008--conversão-de-tipos).
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0001-input/`](0001-input/).
+>
+> ```bash
+> pnpm tsx 15102026/0001-input/exemplo-1.ts
+> ```
+
+---
 
 ## 0002 · Saída de dados (output)
 
 > Se o programa calcula a média e não mostra, calculou para quem?
 
-Saída é o programa mostrando alguma coisa para você. No terminal quem faz isso é
-o `console.log`. Tudo que estiver entre os parênteses aparece na tela.
+Saída é o programa **mostrando** alguma coisa para você. No terminal, quem faz
+isso é o `console.log`: o que estiver entre os parênteses aparece na tela.
 
-Para misturar texto com valores existe a **template string**. Em vez de aspas
-você usa crases (`` ` ``) e coloca o valor dentro de `${ }`. É como um bilhete
-com espaço em branco: `Olá, ${nome}!` vira `Olá, Ana!` quando `nome` é `'Ana'`.
+A média já está guardada: `media` vale `7.5`. Agora a gente quer mostrar uma
+frase inteira, com o número encaixado no meio. Para isso existe a **template
+string**: um texto entre crases com um espaço `${ }` onde o valor entra.
 
-A crase fica perto do Enter na maioria dos teclados, às vezes junto com o til.
-Ache ela agora: você vai usar muito.
+<p align="center"><img src="0002-output/ideia.svg" alt="Diagrama da ideia: Saída de dados (output)" width="864"></p>
 
-![Diagrama: Saída de dados (output)](0002-output/ideia.svg)
-
-![Fluxograma: Saída de dados (output)](0002-output/fluxograma.svg)
-
-**Pratique:** a pasta [`0002-output/`](0002-output/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0002-output/exemplo-1.ts
+```ts
+const media = 7.5
+console.log(`Sua média é ${media}`) // Sua média é 7.5
 ```
+
+No fluxograma, guardar a média é um retângulo roxo (o programa fazendo algo) e
+mostrar a frase é um paralelogramo azul (saída).
+
+<p align="center"><img src="0002-output/fluxograma.svg" alt="Fluxograma: Saída de dados (output)" width="665"></p>
+
+> [!TIP]
+> A crase (`` ` ``) fica perto do Enter na maioria dos teclados, às vezes junto
+> com o til. Ache ela agora: você vai usar muito.
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0002-output/`](0002-output/).
+>
+> ```bash
+> pnpm tsx 15102026/0002-output/exemplo-1.ts
+> ```
+
+---
 
 ## 0003 · Variáveis
 
 > O placar do jogo muda a cada gol. Onde o programa guarda esse número enquanto
-> ele vai mudando?
+> o jogo rola?
 
-Pense numa caixinha com etiqueta. A etiqueta é o nome, e dentro fica um valor
-guardado na memória. Com `let`, dá para tirar o valor e colocar outro quantas
-vezes precisar. É assim que o placar sai de 0 para 1 e de 1 para 2.
+Numa **variável**: uma caixinha com nome. O nome fica na etiqueta e o valor fica
+dentro. Com `let`, dá para tirar o valor e colocar outro quantas vezes precisar.
 
-Para trocar o valor, você escreve só o nome e o novo valor: `gols = 2`. O `let`
-aparece uma vez só, quando a caixa é criada.
+O jogo começa 0 a 0. Saiu gol: a caixa `gols` passa a guardar 1. Outro gol: 2.
+A caixa é sempre a mesma, só o que tem dentro muda:
 
-O TypeScript quer saber o que cabe em cada caixa. Você pode dizer
-(`let idade: number = 17`, isso é **anotação de tipo**) ou deixar ele descobrir
-pelo valor (`let idade = 17`, isso é **inferência**). Nos dois casos ele não
-deixa colocar texto numa caixa de número.
+<p align="center"><img src="0003-variaveis/ideia.svg" alt="Diagrama da ideia: Variáveis" width="864"></p>
 
-E o `var`? É o jeito antigo, e causa bug difícil de achar. A gente não usa.
+```ts
+let gols = 0 // o let aparece uma vez só, quando a caixa nasce
+gols = 1 // gol!
+gols = 2 // outro gol!
+console.log(gols) // 2
+```
+
+No fluxograma, cada troca de valor é um retângulo roxo:
+
+<p align="center"><img src="0003-variaveis/fluxograma.svg" alt="Fluxograma: Variáveis" width="944"></p>
+
+> [!TIP]
+> O TypeScript descobre sozinho que `gols` guarda número, porque começou com
+> `0`. Isso se chama **inferência**. Se quiser, dá para dizer na mão:
+> `let gols: number = 0`. Nos dois casos, ele não deixa colocar texto ali.
 
 Nome de variável vai em `camelCase`: `nomeCompleto`, `notaFinal`, `golsBrasil`.
+E o `var`? É o jeito antigo, e causa bug difícil de achar. A gente não usa.
 
-![Diagrama: Variáveis](0003-variaveis/ideia.svg)
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0003-variaveis/`](0003-variaveis/).
+>
+> ```bash
+> pnpm tsx 15102026/0003-variaveis/exemplo-1.ts
+> ```
 
-![Fluxograma: Variáveis](0003-variaveis/fluxograma.svg)
-
-**Pratique:** a pasta [`0003-variaveis/`](0003-variaveis/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0003-variaveis/exemplo-1.ts
-```
+---
 
 ## 0004 · Constantes
 
 > O nome da escola não muda no meio da aula. A média para passar também não.
-> Como avisar o programa de que um valor é fixo?
 
-Se a variável é uma caixa que troca de conteúdo, a constante é uma caixa
-lacrada. Colocou o valor, acabou. Se alguém tentar trocar, o TypeScript avisa na
-hora: `Cannot assign to 'NOME_ESCOLA' because it is a constant`.
+Se a variável é uma caixa que troca de conteúdo, a **constante** é uma caixa
+lacrada. Colocou o valor, acabou. Ela nasce com `const`.
 
-Parece limitação, mas ajuda. Um valor que não pode mudar é um bug a menos para
-caçar. Por isso a regra da turma é: na dúvida, comece com `const`. Se precisar
-mudar depois, troque para `let`.
+O nome da escola é `'CETAM'` e vai continuar sendo. Se alguém tentar trocar, o
+TypeScript reclama na hora, antes mesmo de rodar:
 
-Sobre os nomes:
+<p align="center"><img src="0004-constantes/ideia.svg" alt="Diagrama da ideia: Constantes" width="864"></p>
 
-- valores fixos do programa vão em `UPPER_CASE`: `MEDIA_APROVACAO`,
-  `NOME_ESCOLA`, `CIDADE`;
-- uma `const` comum, como a resposta de um `input`, continua em `camelCase`:
-  `const nome = input('Seu nome: ')`.
+```ts
+import { input } from '#core/input.ts'
 
-![Diagrama: Constantes](0004-constantes/ideia.svg)
+const NOME_ESCOLA = 'CETAM'
+const nome = input('Seu nome: ') // a Ana digita: Ana
+console.log(`${nome} estuda no ${NOME_ESCOLA}`) // Ana estuda no CETAM
 
-![Fluxograma: Constantes](0004-constantes/fluxograma.svg)
-
-**Pratique:** a pasta [`0004-constantes/`](0004-constantes/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0004-constantes/exemplo-1.ts
+// NOME_ESCOLA = 'Outra escola'
+// erro: Cannot assign to 'NOME_ESCOLA' because it is a constant.
 ```
+
+Repare que `nome` também é `const`: a resposta do `input` chega uma vez e não
+muda mais. No fluxograma, a constante é guardada antes da pergunta:
+
+<p align="center"><img src="0004-constantes/fluxograma.svg" alt="Fluxograma: Constantes" width="966"></p>
+
+> [!TIP]
+> Na dúvida, comece com `const`. Precisou mudar depois? Troque para `let`.
+> Valor fixo do programa vai em `UPPER_CASE` (`NOME_ESCOLA`, `MEDIA_APROVACAO`);
+> o resto continua em `camelCase` (`nome`).
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0004-constantes/`](0004-constantes/).
+>
+> ```bash
+> pnpm tsx 15102026/0004-constantes/exemplo-1.ts
+> ```
+
+---
 
 ## 0005 · Texto (string)
 
 > Seu nome, sua senha do Wi-Fi, a legenda daquela foto no rio. Para o computador
-> tudo isso é a mesma coisa: string.
+> tudo isso é a mesma coisa: texto.
 
-`string` é o tipo para texto. Você escreve entre aspas simples `'...'`, aspas
-duplas `"..."` ou crases `` `...` ``. No nosso projeto a gente prefere aspas
-simples, e crase quando tem `${}` no meio.
+Texto, no TypeScript, se chama **string**: uma sequência de letras entre aspas.
+E toda string já vem com ferramentas prontas, como um canivete: é só puxar.
 
-Toda string já vem com ferramentas prontas. Pense num canivete: você não
-precisa fabricar a tesoura, é só puxar.
+A Maria digitou o nome com uns espaços sobrando: `'  maria  '`. O `.trim()` tira
+os espaços das pontas e o `.toUpperCase()` deixa tudo em maiúsculas:
 
-| Uso                 | O que faz                           |
-| ------------------- | ----------------------------------- |
-| `texto.length`      | quantidade de caracteres            |
-| `texto.toUpperCase()` | tudo em MAIÚSCULAS                |
-| `texto.toLowerCase()` | tudo em minúsculas                |
-| `texto.trim()`      | tira espaços do começo e do fim     |
-| `texto.includes('x')` | `true` se o texto contém `'x'`    |
-| `texto.split(' ')`  | quebra o texto em pedaços           |
+<p align="center"><img src="0005-texto/ideia.svg" alt="Diagrama da ideia: Texto (string)" width="864"></p>
 
-Cuidado: com texto, o `+` não soma, ele cola. `'5' + 3` vira `'53'`.
+```ts
+import { input } from '#core/input.ts'
 
-![Diagrama: Texto (string)](0005-texto/ideia.svg)
-
-![Fluxograma: Texto (string)](0005-texto/fluxograma.svg)
-
-**Pratique:** a pasta [`0005-texto/`](0005-texto/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0005-texto/exemplo-1.ts
+const nome = input('Seu nome: ') // a Maria digita: '  maria  '
+const limpo = nome.trim() // 'maria'
+console.log(limpo.toUpperCase()) // MARIA
 ```
+
+Cada ferramenta devolve um texto **novo**. A variável `nome` continua com os
+espaços; quem está limpo é o `limpo`. No fluxograma, cada ferramenta é um passo
+roxo:
+
+<p align="center"><img src="0005-texto/fluxograma.svg" alt="Fluxograma: Texto (string)" width="975"></p>
+
+> [!WARNING]
+> Com texto, o `+` não soma, ele **cola**: `'5' + 3` vira `'53'`.
+
+<details>
+<summary>As ferramentas que mais aparecem</summary>
+
+| Uso                   | O que faz                          | Com `'maria'`        |
+| --------------------- | ---------------------------------- | -------------------- |
+| `texto.length`        | quantidade de letras               | `5`                  |
+| `texto.toUpperCase()` | tudo em MAIÚSCULAS                 | `'MARIA'`            |
+| `texto.toLowerCase()` | tudo em minúsculas                 | `'maria'`            |
+| `texto.trim()`        | tira os espaços das pontas         | `'maria'`            |
+| `texto.includes('ar')`| `true` se o texto contém `'ar'`    | `true`               |
+| `texto.split('')`     | quebra o texto em pedaços          | `['m','a','r','i','a']` |
+
+</details>
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0005-texto/`](0005-texto/).
+>
+> ```bash
+> pnpm tsx 15102026/0005-texto/exemplo-1.ts
+> ```
+
+---
 
 ## 0006 · Número (number)
 
 > Quanto custa o açaí? Quantos km até Tabatinga? Qual sua nota? Tudo isso é
-> número.
+> número, e o programa precisa saber fazer conta com eles.
 
-`number` é o tipo para números. No TypeScript não tem um tipo para inteiro e
-outro para decimal: `10`, `-3` e `7.5` são todos `number`.
+Número, no TypeScript, se chama **number**. Não tem um tipo para inteiro e outro
+para decimal: `17`, `-3` e `12.5` são todos `number`. E o decimal usa **ponto**,
+igual à calculadora do celular: `12.5`, não `12,5`.
 
-Três coisas para guardar:
+O açaí custa `12.5`. Para mostrar como dinheiro, com dois números depois do
+ponto, o `.toFixed(2)` transforma `12.5` em `'12.50'`:
 
-- O decimal usa ponto, igual à calculadora do celular: `7.5`, não `7,5`.
-- `toFixed(n)` mostra o número com `n` casas depois do ponto. Bom para dinheiro.
-  Ele devolve texto, pronto para mostrar.
-- `NaN` quer dizer "Not a Number". Aparece quando você pede uma conta que não
-  faz sentido, tipo transformar `'abc'` em número.
+<p align="center"><img src="0006-numero/ideia.svg" alt="Diagrama da ideia: Número (number)" width="864"></p>
 
-![Diagrama: Número (number)](0006-numero/ideia.svg)
-
-![Fluxograma: Número (number)](0006-numero/fluxograma.svg)
-
-**Pratique:** a pasta [`0006-numero/`](0006-numero/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0006-numero/exemplo-1.ts
+```ts
+const preco = 12.5
+const texto = preco.toFixed(2) // '12.50'
+console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 ```
+
+<p align="center"><img src="0006-numero/fluxograma.svg" alt="Fluxograma: Número (number)" width="1071"></p>
+
+> [!NOTE]
+> O `.toFixed` devolve **texto**, pronto para mostrar. Para fazer mais contas,
+> continue usando o `preco`.
+
+> [!WARNING]
+> Conta que não faz sentido vira `NaN` ("Not a Number"). Por exemplo,
+> `Number('abc')` dá `NaN`.
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0006-numero/`](0006-numero/).
+>
+> ```bash
+> pnpm tsx 15102026/0006-numero/exemplo-1.ts
+> ```
+
+---
 
 ## 0007 · Booleano (boolean), typeof, null e undefined
 
 > Está chovendo? Tem aula hoje? O recreio já saiu? Pergunta de sim ou não tem um
 > tipo só para ela.
 
-`boolean` é o tipo mais simples que existe: só tem dois valores, `true`
-(verdadeiro) e `false` (falso). É um interruptor de luz. Ligado ou desligado,
-não tem meio termo.
+O **boolean** tem só dois valores: `true` (verdadeiro) e `false` (falso). É um
+interruptor de luz: ligado ou desligado, sem meio termo.
 
-O `typeof` é o fofoqueiro do programa: você aponta para um valor e ele conta o
-tipo, na hora em que o programa está rodando.
+O programa pergunta "Tem aula hoje?". Você digita `sim`. A comparação
+`resposta === 'sim'` vira `true`, e é esse `true` que fica guardado em `temAula`:
+
+<p align="center"><img src="0007-booleano/ideia.svg" alt="Diagrama da ideia: Booleano (boolean), typeof, null e undefined" width="864"></p>
+
+```ts
+import { input } from '#core/input.ts'
+
+const resposta = input('Tem aula hoje? (sim/nao) ') // você digita: sim
+const temAula = resposta === 'sim' // true
+console.log(temAula) // true
+```
+
+Ainda não tem losango no fluxograma: a pergunta só **gera** o `true` ou o
+`false` e guarda. Escolher um caminho com ele é trabalho do `if`, na
+[0016](#0016--condicional-simples-if).
+
+<p align="center"><img src="0007-booleano/fluxograma.svg" alt="Fluxograma: Booleano (boolean), typeof, null e undefined" width="1056"></p>
+
+> [!TIP]
+> O `typeof` conta o tipo de um valor: `typeof temAula` dá `'boolean'`.
 
 E tem dois valores especiais que querem dizer "nada":
 
@@ -233,229 +343,334 @@ E tem dois valores especiais que querem dizer "nada":
 - `null`: alguém colocou "nada" de propósito. É o aluno avisando "pode marcar
   que eu não vou".
 
-![Diagrama: Booleano (boolean), typeof, null e undefined](0007-booleano/ideia.svg)
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0007-booleano/`](0007-booleano/).
+>
+> ```bash
+> pnpm tsx 15102026/0007-booleano/exemplo-1.ts
+> ```
 
-![Fluxograma: Booleano (boolean), typeof, null e undefined](0007-booleano/fluxograma.svg)
-
-**Pratique:** a pasta [`0007-booleano/`](0007-booleano/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0007-booleano/exemplo-1.ts
-```
+---
 
 ## 0008 · Conversão de tipos
 
 > Você digitou 17, pediu para somar 1 e o programa respondeu 171. Hoje a gente
-> resolve isso de vez.
+> descobre por quê.
 
-Lembra que o `input` sempre devolve texto? Para fazer conta, primeiro a gente
-transforma esse texto em número. É como trocar real por peso na fronteira: o
-dinheiro é o mesmo, mas agora dá para usar do outro lado.
+Lembra que o `input` sempre devolve **texto**? Você digitou `17`, mas o programa
+guardou `'17'`. E com texto o `+` cola: `'17' + 1` vira `'171'`.
 
-| Função          | O que faz                                    |
-| --------------- | -------------------------------------------- |
-| `Number('7.5')` | texto para número (aceita decimais)          |
-| `parseInt('7')` | texto para número inteiro (corta o decimal)  |
-| `parseFloat('7.5')` | texto para número decimal                |
-| `String(10)`    | número para texto                            |
+A saída é **converter**: transformar o texto em número antes da conta. O
+`Number('17')` faz isso e devolve `17`, um número de verdade:
 
-Se a conversão não dá certo, o resultado é `NaN`. Na prática você vai usar muito
-`Number(input('...'))`, tudo numa linha.
+<p align="center"><img src="0008-conversao/ideia.svg" alt="Diagrama da ideia: Conversão de tipos" width="864"></p>
 
-![Diagrama: Conversão de tipos](0008-conversao/ideia.svg)
+```ts
+import { input } from '#core/input.ts'
 
-![Fluxograma: Conversão de tipos](0008-conversao/fluxograma.svg)
-
-**Pratique:** a pasta [`0008-conversao/`](0008-conversao/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0008-conversao/exemplo-1.ts
+const texto = input('Sua idade: ') // você digita: 17
+const idade = Number(texto) // 17
+console.log(idade + 1) // 18
 ```
+
+Na prática a gente faz tudo numa linha só: `Number(input('Sua idade: '))`. O
+fluxograma mostra o passo do meio, que é o que importa: chega texto, vira
+número, aí sim faz a conta.
+
+<p align="center"><img src="0008-conversao/fluxograma.svg" alt="Fluxograma: Conversão de tipos" width="984"></p>
+
+> [!WARNING]
+> Não deu para converter? O resultado é `NaN`: `Number('dezessete')` dá `NaN`.
+
+<details>
+<summary>Outras formas de converter</summary>
+
+| Função              | O que faz                                   |
+| ------------------- | ------------------------------------------- |
+| `Number('7.5')`     | texto para número (aceita decimais)         |
+| `parseInt('7.9')`   | texto para número inteiro (corta: dá `7`)   |
+| `parseFloat('7.5')` | texto para número decimal                   |
+| `String(10)`        | número para texto                           |
+
+</details>
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0008-conversao/`](0008-conversao/).
+>
+> ```bash
+> pnpm tsx 15102026/0008-conversao/exemplo-1.ts
+> ```
+
+---
 
 ## 0009 · Operadores de atribuição
 
 > Você tem 100 reais de crédito no celular. Gastou 30 no pacote de dados e
-> ganhou 50 de recarga. Quanto ficou? O programa precisa ir atualizando esse
-> valor a cada movimento.
+> recarregou 20. Quanto sobrou?
 
-Quem guarda o valor na variável é o `=`. Ele não pergunta nada, ele manda: "a
-partir de agora, `saldo` vale 100". Perguntar se dois valores são iguais é
-trabalho do `===`, que fica para a pasta `0013`.
+Quem guarda um valor na variável é o `=`. Ele não pergunta nada, ele manda: "a
+partir de agora, `saldo` vale 100".
 
-Muitas vezes o novo valor depende do valor antigo. Escrever `saldo = saldo + 50`
-funciona, mas cansa. Por isso existe o atalho: `saldo += 50`. Lê assim: "pega o
-que já tem e soma 50".
+Quando o valor novo depende do antigo, existe atalho. Gastou 30? `saldo -= 30`,
+que lê assim: "pega o que já tem e tira 30". Recarregou 20? `saldo += 20`:
 
-| Escrito    | É o mesmo que   |
-| ---------- | --------------- |
-| `x += 5`   | `x = x + 5`     |
-| `x -= 5`   | `x = x - 5`     |
-| `x *= 2`   | `x = x * 2`     |
-| `x /= 2`   | `x = x / 2`     |
-| `x %= 3`   | `x = x % 3`     |
-| `x++`      | `x = x + 1`     |
-| `x--`      | `x = x - 1`     |
+<p align="center"><img src="0009-atribuicao/ideia.svg" alt="Diagrama da ideia: Operadores de atribuição" width="864"></p>
 
-O `x++` aparece muito sozinho na linha, contando coisas: um aluno a mais, um
-gol a mais.
-
-![Diagrama: Operadores de atribuição](0009-atribuicao/ideia.svg)
-
-![Fluxograma: Operadores de atribuição](0009-atribuicao/fluxograma.svg)
-
-**Pratique:** a pasta [`0009-atribuicao/`](0009-atribuicao/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0009-atribuicao/exemplo-1.ts
+```ts
+let saldo = 100
+saldo -= 30 // gastou no pacote: 70
+saldo += 20 // recarregou: 90
+console.log(saldo) // 90
 ```
+
+A variável é a mesma do começo ao fim. No fluxograma, cada atribuição é um
+retângulo roxo, e só o valor dentro da caixa vai mudando:
+
+<p align="center"><img src="0009-atribuicao/fluxograma.svg" alt="Fluxograma: Operadores de atribuição" width="1021"></p>
+
+<details>
+<summary>Todos os atalhos</summary>
+
+| Escrito  | É o mesmo que |
+| -------- | ------------- |
+| `x += 5` | `x = x + 5`   |
+| `x -= 5` | `x = x - 5`   |
+| `x *= 2` | `x = x * 2`   |
+| `x /= 2` | `x = x / 2`   |
+| `x %= 3` | `x = x % 3`   |
+| `x++`    | `x = x + 1`   |
+| `x--`    | `x = x - 1`   |
+
+</details>
+
+> [!TIP]
+> O `x++` aparece muito sozinho na linha, contando coisas: um aluno a mais, um
+> gol a mais.
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0009-atribuicao/`](0009-atribuicao/).
+>
+> ```bash
+> pnpm tsx 15102026/0009-atribuicao/exemplo-1.ts
+> ```
+
+---
 
 ## 0010 · Operadores aritméticos
 
-> Três amigos dividiram um açaí de 25 reais. Quanto cada um paga? E quanto sobra
-> se ninguém tiver moeda? São duas contas, e cada uma tem seu operador.
+> Tirou 8 na primeira prova e 6 na segunda. A média é 7... ou 11? Depende de
+> onde você coloca os parênteses.
 
-São as contas da escola, com dois símbolos novos. A multiplicação é `*` (o `x`
-não serve, o computador acharia que é uma variável) e a divisão é `/`.
+São as contas da escola, com dois símbolos novos: multiplicar é `*` e dividir é
+`/`. E a ordem também é a da escola: primeiro `*` e `/`, depois `+` e `-`.
 
-| Operador | Conta          | Exemplo  | Resultado |
-| -------- | -------------- | -------- | --------- |
-| `+`      | soma           | `7 + 2`  | `9`       |
-| `-`      | subtração      | `7 - 2`  | `5`       |
-| `*`      | multiplicação  | `7 * 2`  | `14`      |
-| `/`      | divisão        | `7 / 2`  | `3.5`     |
-| `%`      | resto          | `7 % 2`  | `1`       |
-| `**`     | potência       | `7 ** 2` | `49`      |
+Por isso `8 + 6 / 2` dá **11**: o programa divide `6 / 2` primeiro e só depois
+soma o 8. Para somar as notas antes de dividir, coloque **parênteses**:
 
-O `%` não tem nada a ver com porcentagem. Ele devolve o resto da divisão: 7
-alunos em duplas formam 3 duplas e sobra 1, então `7 % 2` é `1`.
+<p align="center"><img src="0010-aritmetica/ideia.svg" alt="Diagrama da ideia: Operadores aritméticos" width="864"></p>
 
-A ordem é a da matemática: primeiro `**`, depois `*`, `/` e `%`, por último `+`
-e `-`. Quer outra ordem? Coloque parênteses.
-
-![Diagrama: Operadores aritméticos](0010-aritmetica/ideia.svg)
-
-![Fluxograma: Operadores aritméticos](0010-aritmetica/fluxograma.svg)
-
-**Pratique:** a pasta [`0010-aritmetica/`](0010-aritmetica/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0010-aritmetica/exemplo-1.ts
+```ts
+const nota1 = 8
+const nota2 = 6
+const media = (nota1 + nota2) / 2 // 7
+console.log(media) // 7
 ```
+
+<p align="center"><img src="0010-aritmetica/fluxograma.svg" alt="Fluxograma: Operadores aritméticos" width="955"></p>
+
+<details>
+<summary>Todos os operadores</summary>
+
+| Operador | Conta         | Exemplo  | Resultado |
+| -------- | ------------- | -------- | --------- |
+| `+`      | soma          | `7 + 2`  | `9`       |
+| `-`      | subtração     | `7 - 2`  | `5`       |
+| `*`      | multiplicação | `7 * 2`  | `14`      |
+| `/`      | divisão       | `7 / 2`  | `3.5`     |
+| `%`      | resto         | `7 % 2`  | `1`       |
+| `**`     | potência      | `7 ** 2` | `49`      |
+
+</details>
+
+> [!TIP]
+> O `%` não tem nada a ver com porcentagem: ele dá o **resto** da divisão. 7
+> alunos em duplas formam 3 duplas e sobra 1, então `7 % 2` é `1`.
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0010-aritmetica/`](0010-aritmetica/).
+>
+> ```bash
+> pnpm tsx 15102026/0010-aritmetica/exemplo-1.ts
+> ```
+
+---
 
 ## 0011 · Objeto Math
 
 > A van da excursão leva 15 pessoas e a turma tem 32. Quantas vans? Se você
-> respondeu 2,13 vans, o motorista vai querer conversar com você.
+> respondeu 2, alguém ficou na escola.
 
-`Math` é uma caixa de ferramentas que já vem pronta no TypeScript. Não precisa
-instalar nem importar nada: escreve `Math.` e o editor mostra tudo o que tem lá
-dentro.
+O **Math** é uma caixa de ferramentas que já vem pronta: arredondar, achar o
+maior, o menor, sortear. Não precisa instalar nada, é só escrever `Math.` e o
+editor mostra tudo.
 
-| Função              | O que faz                       | Exemplo               |
-| ------------------- | ------------------------------- | --------------------- |
-| `Math.round(x)`     | arredonda para o mais próximo   | `Math.round(4.6)` → 5 |
-| `Math.floor(x)`     | arredonda para baixo            | `Math.floor(4.9)` → 4 |
-| `Math.ceil(x)`      | arredonda para cima             | `Math.ceil(4.1)` → 5  |
-| `Math.max(a, b)`    | o maior valor                   | `Math.max(3, 9)` → 9  |
-| `Math.min(a, b)`    | o menor valor                   | `Math.min(3, 9)` → 3  |
-| `Math.random()`     | número sorteado entre 0 e 1     | `0.7312...`           |
+`32 / 15` dá `2.13`. Duas vans não bastam, porque sobram 2 alunos. A conta certa
+é arredondar **para cima**, e quem faz isso é o `Math.ceil`:
 
-Para lembrar: floor é "chão" em inglês, então vai para baixo. Ceil vem de
-ceiling, "teto", então vai para cima. No caso da van, `Math.ceil(32 / 15)` dá 3,
-porque ninguém fica para trás.
+<p align="center"><img src="0011-math/ideia.svg" alt="Diagrama da ideia: Objeto Math" width="864"></p>
 
-![Diagrama: Objeto Math](0011-math/ideia.svg)
-
-![Fluxograma: Objeto Math](0011-math/fluxograma.svg)
-
-**Pratique:** a pasta [`0011-math/`](0011-math/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0011-math/exemplo-1.ts
+```ts
+const alunos = 32
+const porVan = 15
+const vans = Math.ceil(alunos / porVan) // 2.13 vira 3
+console.log(vans) // 3
 ```
+
+<p align="center"><img src="0011-math/fluxograma.svg" alt="Fluxograma: Objeto Math" width="1062"></p>
+
+> [!TIP]
+> Para não confundir: **floor** é "chão" em inglês, então arredonda para baixo.
+> **ceil** vem de *ceiling*, "teto", então arredonda para cima.
+
+<details>
+<summary>As ferramentas do Math</summary>
+
+| Função           | O que faz                     | Exemplo               |
+| ---------------- | ----------------------------- | --------------------- |
+| `Math.round(x)`  | arredonda para o mais próximo | `Math.round(2.13)` → 2 |
+| `Math.floor(x)`  | arredonda para baixo          | `Math.floor(2.13)` → 2 |
+| `Math.ceil(x)`   | arredonda para cima           | `Math.ceil(2.13)` → 3  |
+| `Math.max(a, b)` | o maior valor                 | `Math.max(3, 9)` → 9   |
+| `Math.min(a, b)` | o menor valor                 | `Math.min(3, 9)` → 3   |
+| `Math.random()`  | número sorteado entre 0 e 1   | `0.7312...`            |
+
+</details>
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0011-math/`](0011-math/).
+>
+> ```bash
+> pnpm tsx 15102026/0011-math/exemplo-1.ts
+> ```
+
+---
 
 ## 0012 · Operadores relacionais
 
 > Na entrada do show tem um segurança que faz uma pergunta só: "tem 18 anos ou
-> mais?". A resposta é sim ou não. No código, quem faz essa pergunta é o `>=`.
+> mais?"
 
-Operador relacional compara dois valores e responde com um `boolean`: `true`
-(verdade) ou `false` (mentira). Ele não faz conta, ele julga.
+Os operadores **relacionais** comparam dois valores e respondem com um boolean:
+`true` ou `false`. Eles não fazem conta, eles julgam.
 
-| Operador | Pergunta               | Exemplo   | Resultado |
-| -------- | ---------------------- | --------- | --------- |
-| `>`      | é maior que?           | `8 > 5`   | `true`    |
-| `<`      | é menor que?           | `8 < 5`   | `false`   |
-| `>=`     | é maior ou igual a?    | `6 >= 6`  | `true`    |
-| `<=`     | é menor ou igual a?    | `4 <= 3`  | `false`   |
+O João tem 17 anos. A pergunta do segurança, em código, é `idade >= 18`. Como 17
+não é maior nem igual a 18, a resposta é `false`:
 
-Truque para não confundir `>` com `<`: a boca aberta fica virada para o maior,
-como um jacaré que quer comer o número grande.
+<p align="center"><img src="0012-relacional/ideia.svg" alt="Diagrama da ideia: Operadores relacionais" width="864"></p>
 
-A pergunta "é igual?" (`===`) e "é diferente?" (`!==`) mora na próxima pasta,
-`0013-comparacao`.
+```ts
+import { input } from '#core/input.ts'
 
-![Diagrama: Operadores relacionais](0012-relacional/ideia.svg)
-
-![Fluxograma: Operadores relacionais](0012-relacional/fluxograma.svg)
-
-**Pratique:** a pasta [`0012-relacional/`](0012-relacional/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0012-relacional/exemplo-1.ts
+const idade = Number(input('Sua idade: ')) // o João digita: 17
+const maiorDeIdade = idade >= 18 // false
+console.log(maiorDeIdade) // false
 ```
+
+Igual ao boolean da [0007](#0007--booleano-boolean-typeof-null-e-undefined),
+ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
+
+<p align="center"><img src="0012-relacional/fluxograma.svg" alt="Fluxograma: Operadores relacionais" width="940"></p>
+
+| Operador | Pergunta            | Com `idade = 17` |
+| -------- | ------------------- | ---------------- |
+| `>`      | é maior que?        | `idade > 18` → `false`  |
+| `<`      | é menor que?        | `idade < 18` → `true`   |
+| `>=`     | é maior ou igual?   | `idade >= 18` → `false` |
+| `<=`     | é menor ou igual?   | `idade <= 18` → `true`  |
+
+> [!TIP]
+> A boca aberta do `>` fica virada para o maior, igual a um jacaré com fome.
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0012-relacional/`](0012-relacional/).
+>
+> ```bash
+> pnpm tsx 15102026/0012-relacional/exemplo-1.ts
+> ```
+
+---
 
 ## 0013 · Comparação de igualdade
 
 > Você digita a senha do Wi-Fi da escola e o celular diz "senha incorreta".
-> Faltou uma letra maiúscula. Para o computador, "Cetam" e "cetam" são coisas
-> diferentes.
+> Alguém comparou o que você digitou com a senha certa.
 
-Para perguntar se dois valores são iguais ou diferentes usamos dois operadores:
+Para perguntar se dois valores são **iguais**, o TypeScript usa `===`. Para
+perguntar se são **diferentes**, `!==`. A resposta, de novo, é `true` ou
+`false`.
 
-| Operador | Pergunta          | Exemplo        | Resultado |
-| -------- | ----------------- | -------------- | --------- |
-| `===`    | é igual?          | `5 === 5`      | `true`    |
-| `!==`    | é diferente?      | `5 !== 5`      | `false`   |
+A senha do Wi-Fi é `'cetam2026'`. Você digitou certinho, então
+`digitada === SENHA` dá `true`:
 
-Por que três sinais? Existe o `==`, que converte os tipos antes de comparar: no
-JavaScript, `5 == '5'` dá `true` e o erro passa batido. O `===` compara valor e
-tipo, então `5 === '5'` dá `false`. Aqui é sempre `===` e `!==`.
+<p align="center"><img src="0013-comparacao/ideia.svg" alt="Diagrama da ideia: Comparação de igualdade" width="864"></p>
 
-Para não misturar:
+```ts
+import { input } from '#core/input.ts'
 
-- `=` guarda um valor ("a nota agora é 7")
-- `===` pergunta ("a nota é 7?")
-
-![Diagrama: Comparação de igualdade](0013-comparacao/ideia.svg)
-
-![Fluxograma: Comparação de igualdade](0013-comparacao/fluxograma.svg)
-
-**Pratique:** a pasta [`0013-comparacao/`](0013-comparacao/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0013-comparacao/exemplo-1.ts
+const SENHA = 'cetam2026'
+const digitada = input('Senha do Wi-Fi: ') // você digita: cetam2026
+const acertou = digitada === SENHA // true
+console.log(acertou) // true
 ```
+
+<p align="center"><img src="0013-comparacao/fluxograma.svg" alt="Fluxograma: Comparação de igualdade" width="1211"></p>
+
+> [!IMPORTANT]
+> Por que três sinais? Existe o `==`, que converte os tipos antes de comparar:
+> `5 == '5'` dá `true` e o erro passa batido. O `===` compara o valor **e** o
+> tipo, então `5 === '5'` dá `false`. Aqui é sempre `===` e `!==`.
+
+> [!TIP]
+> `=` guarda um valor ("a senha agora é essa"). `===` pergunta ("a senha é
+> essa?").
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0013-comparacao/`](0013-comparacao/).
+>
+> ```bash
+> pnpm tsx 15102026/0013-comparacao/exemplo-1.ts
+> ```
+
+---
 
 ## 0014 · Operadores lógicos
 
 > Para passar de ano não basta tirar nota boa. Também precisa ter frequência.
-> Uma coisa E a outra. No código, esse E se escreve `&&`.
 
-Os relacionais respondem uma pergunta de cada vez. Os lógicos juntam várias
-respostas numa só, ou invertem uma resposta.
+Os operadores **lógicos** juntam várias respostas `true`/`false` numa só:
 
-| Operador | Nome | Dá `true` quando...                  |
-| -------- | ---- | ------------------------------------ |
-| `&&`     | E    | os **dois** lados são `true`         |
-| `\|\|`   | OU   | **pelo menos um** lado é `true`      |
-| `!`      | NÃO  | inverte: `!true` é `false`           |
+- `&&` (E): dá `true` só quando os **dois** lados são `true`.
+- `||` (OU): dá `true` quando **pelo menos um** lado é `true`.
+- `!` (NÃO): inverte. `!true` é `false`.
 
-A mãe diz: "só sai se arrumar o quarto E lavar a louça". Precisa dos dois: é o
-`&&`. A avó diz: "sai se arrumar o quarto OU lavar a louça". Basta um: é o `||`.
-E o `!` é o irmão do contra, que sempre diz o oposto.
+O Pedro tem média 7 (boa: `true`) mas frequência 60% (ruim: `false`). Com `&&`,
+que precisa das duas, ele não passa. Com `||`, que se contenta com uma, passaria:
 
-A tabela verdade mostra todas as combinações possíveis:
+<p align="center"><img src="0014-logico/ideia.svg" alt="Diagrama da ideia: Operadores lógicos" width="864"></p>
+
+```ts
+const media = 7
+const frequencia = 60
+
+const aprovado = media >= 6 && frequencia >= 75 // true && false → false
+console.log(aprovado) // false
+console.log(media >= 6 || frequencia >= 75) // true || false → true
+```
+
+<p align="center"><img src="0014-logico/fluxograma.svg" alt="Fluxograma: Operadores lógicos" width="1000"></p>
+
+<details>
+<summary>A tabela verdade</summary>
 
 | A       | B       | A && B  | A \|\| B |
 | ------- | ------- | ------- | -------- |
@@ -464,15 +679,20 @@ A tabela verdade mostra todas as combinações possíveis:
 | `false` | `true`  | `false` | `true`   |
 | `false` | `false` | `false` | `false`  |
 
-![Diagrama: Operadores lógicos](0014-logico/ideia.svg)
+</details>
 
-![Fluxograma: Operadores lógicos](0014-logico/fluxograma.svg)
+> [!TIP]
+> A mãe diz "só sai se arrumar o quarto **E** lavar a louça": é o `&&`. A avó
+> diz "sai se arrumar o quarto **OU** lavar a louça": é o `||`.
 
-**Pratique:** a pasta [`0014-logico/`](0014-logico/) tem três exemplos para rodar e dois exercícios com dicas.
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0014-logico/`](0014-logico/).
+>
+> ```bash
+> pnpm tsx 15102026/0014-logico/exemplo-1.ts
+> ```
 
-```bash
-pnpm tsx 15102026/0014-logico/exemplo-1.ts
-```
+---
 
 ## 0015 · Truthy, falsy, ?? e ?.
 
@@ -480,32 +700,47 @@ pnpm tsx 15102026/0014-logico/exemplo-1.ts
 > quê?
 
 Num `if`, o TypeScript espera `true` ou `false`. Mas você pode colocar qualquer
-valor ali, e ele vai "achar" se aquilo conta como verdadeiro ou falso. É o
-fiscal do porto olhando a mochila: vazia, ele nem abre; com alguma coisa dentro,
-ele para e confere.
+valor ali, e ele "acha" se aquilo conta como verdadeiro ou falso. É o fiscal do
+porto olhando a mochila: vazia, ele nem abre; com alguma coisa, ele confere.
 
-Os valores que contam como falso são poucos e dá para decorar. São os **falsy**:
-`false`, `0`, `''` (texto vazio), `null`, `undefined` e `NaN`. Todo o resto é
-**truthy**: `'oi'`, `5`, `-1`, até `' '` (um espaço).
+Os que contam como falso são poucos, os **falsy**: `false`, `0`, `''` (texto
+vazio), `null`, `undefined` e `NaN`. Todo o resto é **truthy**.
 
-E quando a variável pode nem ter valor? Para isso existem dois operadores:
+O aluno apertou Enter direto, então `apelido` é `''`, um texto vazio: falsy. O
+`||` percebe isso e usa o valor padrão:
 
-- `??` coloca um valor padrão quando a variável é `null` ou `undefined`.
-- `?.` só acessa a propriedade se a variável existir. Se não existir, devolve
-  `undefined` em vez de quebrar o programa.
+<p align="center"><img src="0015-truthy-falsy/ideia.svg" alt="Diagrama da ideia: Truthy, falsy, ?? e ?." width="864"></p>
 
-No TypeScript, `string | undefined` quer dizer "pode ser texto, pode não ter
-nada ainda".
+```ts
+import { input } from '#core/input.ts'
 
-![Diagrama: Truthy, falsy, ?? e ?.](0015-truthy-falsy/ideia.svg)
-
-![Fluxograma: Truthy, falsy, ?? e ?.](0015-truthy-falsy/fluxograma.svg)
-
-**Pratique:** a pasta [`0015-truthy-falsy/`](0015-truthy-falsy/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0015-truthy-falsy/exemplo-1.ts
+const apelido = input('Seu apelido: ') // o aluno só aperta Enter: ''
+const chamar = apelido || 'sem apelido' // '' é falsy, então usa o padrão
+console.log(`Oi, ${chamar}!`) // Oi, sem apelido!
 ```
+
+No fluxograma, essa conferida vira a primeira pergunta de sim ou não da aula, o
+losango amarelo:
+
+<p align="center"><img src="0015-truthy-falsy/fluxograma.svg" alt="Fluxograma: Truthy, falsy, ?? e ?." width="502"></p>
+
+> [!IMPORTANT]
+> O `??` é parecido, mas só troca quando o valor é `null` ou `undefined`. Com
+> texto vazio ele não faz nada: `'' ?? 'sem apelido'` continua `''`.
+
+> [!TIP]
+> O `?.` acessa uma propriedade só se a variável existir:
+> `aluno?.nome` devolve `undefined` em vez de quebrar quando `aluno` é `null`.
+> E `string | undefined` quer dizer "pode ser texto, pode não ter nada ainda".
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0015-truthy-falsy/`](0015-truthy-falsy/).
+>
+> ```bash
+> pnpm tsx 15102026/0015-truthy-falsy/exemplo-1.ts
+> ```
+
+---
 
 ## 0016 · Condicional simples (if)
 
@@ -513,139 +748,223 @@ pnpm tsx 15102026/0015-truthy-falsy/exemplo-1.ts
 > Seu programa também pode pensar assim.
 
 Até agora todo programa rodava linha por linha, do começo ao fim, sem pular
-nada. Com o `if` (se), ele passa a tomar decisões.
+nada. Com o `if` (se), ele passa a **decidir**: o bloco entre `{ }` só roda se a
+condição for verdadeira. Se for falsa, o programa pula o bloco e segue a vida.
 
-O bloco entre `{ }` só roda se a condição for verdadeira. Se for falsa, o
-programa pula o bloco e segue a vida. É a catraca do ônibus: cartão válido,
-passa; cartão sem saldo, nada acontece e a fila continua.
+O programa pergunta "Vai chover?". Você responde `sim`, a condição dá `true` e
+aparece o aviso do guarda-chuva. Depois, chovendo ou não, ele dá bom dia:
+
+<p align="center"><img src="0016-condicional-simples/ideia.svg" alt="Diagrama da ideia: Condicional simples (if)" width="864"></p>
 
 ```ts
-if (condição) {
-  // só roda se a condição for true
+import { input } from '#core/input.ts'
+
+const resposta = input('Vai chover? (sim/nao) ') // você digita: sim
+
+if (resposta === 'sim') {
+  console.log('Leve o guarda-chuva!') // só roda no Sim
 }
+
+console.log('Bom dia!') // roda sempre
 ```
 
-![Diagrama: Condicional simples (if)](0016-condicional-simples/ideia.svg)
+No fluxograma, o `if` é o losango. Só o caminho do **Sim** tem uma tarefa a
+mais; o **Não** segue reto até o "Bom dia!":
 
-![Fluxograma: Condicional simples (if)](0016-condicional-simples/fluxograma.svg)
+<p align="center"><img src="0016-condicional-simples/fluxograma.svg" alt="Fluxograma: Condicional simples (if)" width="380"></p>
 
-**Pratique:** a pasta [`0016-condicional-simples/`](0016-condicional-simples/) tem três exemplos para rodar e dois exercícios com dicas.
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0016-condicional-simples/`](0016-condicional-simples/).
+>
+> ```bash
+> pnpm tsx 15102026/0016-condicional-simples/exemplo-1.ts
+> ```
 
-```bash
-pnpm tsx 15102026/0016-condicional-simples/exemplo-1.ts
-```
+---
 
 ## 0017 · Condicional composta (if / else)
 
-> Ou o recreio sai às 6h para Tabatinga e você está no porto, ou você fica.
-> Não tem meio-termo.
+> Ou você está no porto às 6h e embarca no recreio para Tabatinga, ou fica em
+> terra. Não tem meio termo.
 
-O `if` sozinho só sabe fazer uma coisa extra quando a condição é verdadeira.
-Com o `else` (senão), o programa ganha um plano B.
+O `if` sozinho só sabe fazer uma coisa a mais. Com o `else` (senão), o programa
+ganha um **plano B**: se a condição for verdadeira, roda o bloco do `if`; se for
+falsa, roda o bloco do `else`. Sempre um dos dois, nunca os dois juntos.
 
-Pense numa encruzilhada: ou vai pela esquerda, ou pela direita. Sempre um dos
-dois caminhos roda. Nunca os dois juntos, nunca nenhum.
+Você chegou ao porto às 5h. `5 <= 6` é `true`, então o caminho é o do `if`:
+embarcou!
+
+<p align="center"><img src="0017-condicional-composta/ideia.svg" alt="Diagrama da ideia: Condicional composta (if / else)" width="898"></p>
 
 ```ts
-if (condição) {
-  // condição true
+import { input } from '#core/input.ts'
+
+const hora = Number(input('Que horas você chegou ao porto? ')) // você digita: 5
+
+if (hora <= 6) {
+  console.log('Embarcou para Tabatinga!')
 } else {
-  // condição false
+  console.log('O recreio já saiu.')
 }
 ```
 
-![Diagrama: Condicional composta (if / else)](0017-condicional-composta/ideia.svg)
+No fluxograma, os dois caminhos saem do mesmo losango e se encontram de novo no
+fim. O programa passa por **exatamente um** deles:
 
-![Fluxograma: Condicional composta (if / else)](0017-condicional-composta/fluxograma.svg)
+<p align="center"><img src="0017-condicional-composta/fluxograma.svg" alt="Fluxograma: Condicional composta (if / else)" width="524"></p>
 
-**Pratique:** a pasta [`0017-condicional-composta/`](0017-condicional-composta/) tem três exemplos para rodar e dois exercícios com dicas.
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0017-condicional-composta/`](0017-condicional-composta/).
+>
+> ```bash
+> pnpm tsx 15102026/0017-condicional-composta/exemplo-1.ts
+> ```
 
-```bash
-pnpm tsx 15102026/0017-condicional-composta/exemplo-1.ts
-```
+---
 
 ## 0018 · Condicional aninhada (else if e if dentro de if)
 
 > No boletim não existe só "passou" ou "não passou". Tem a tal da recuperação no
-> meio. Como o programa lida com três saídas?
+> meio do caminho.
 
 Quando tem mais de dois caminhos, entra o `else if` (senão se). O programa testa
-as condições de cima para baixo e para na primeira que for verdadeira. O `else`
-do final pega quem sobrou.
+as condições **de cima para baixo** e para na primeira que for verdadeira. O
+`else` do final pega quem sobrou.
 
-É fila de cantina com placa: "lanche natural, lado esquerdo; salgado, no meio;
-o resto, no caixa". Você entra na primeira placa que serve para você e não olha
-as outras.
+A média da Bia é 5. Primeira pergunta: `5 >= 6`? Não. Segunda: `5 >= 4`? Sim:
+recuperação. A terceira opção nem chega a ser olhada:
 
-Também dá para colocar um `if` dentro de outro, quando uma pergunta só importa
-depois da primeira. Não adianta perguntar se tem habilitação para quem tem 12
-anos.
+<p align="center"><img src="0018-condicional-aninhada/ideia.svg" alt="Diagrama da ideia: Condicional aninhada (else if e if dentro de if)" width="864"></p>
 
-![Diagrama: Condicional aninhada (else if e if dentro de if)](0018-condicional-aninhada/ideia.svg)
+```ts
+const media = 5
 
-![Fluxograma: Condicional aninhada (else if e if dentro de if)](0018-condicional-aninhada/fluxograma.svg)
-
-**Pratique:** a pasta [`0018-condicional-aninhada/`](0018-condicional-aninhada/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0018-condicional-aninhada/exemplo-1.ts
+if (media >= 6) {
+  console.log('Aprovado')
+} else if (media >= 4) {
+  console.log('Recuperação') // a Bia cai aqui
+} else {
+  console.log('Reprovado')
+}
 ```
+
+No fluxograma, cada `else if` é mais um losango pendurado no **Não** do
+anterior:
+
+<p align="center"><img src="0018-condicional-aninhada/fluxograma.svg" alt="Fluxograma: Condicional aninhada (else if e if dentro de if)" width="838"></p>
+
+> [!TIP]
+> Também dá para colocar um `if` dentro de outro, quando uma pergunta só faz
+> sentido depois da primeira. Não adianta perguntar se tem habilitação para
+> quem tem 12 anos.
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0018-condicional-aninhada/`](0018-condicional-aninhada/).
+>
+> ```bash
+> pnpm tsx 15102026/0018-condicional-aninhada/exemplo-1.ts
+> ```
+
+---
 
 ## 0019 · Operador ternário
 
 > Dá para escrever um if/else inteiro numa linha só? Dá. E às vezes até fica
-> mais bonito.
+> mais fácil de ler.
 
-O ternário é o if/else de bolso. Ele faz uma pergunta e devolve um de dois
+O **ternário** é o if/else de bolso. Ele faz uma pergunta e devolve um de dois
 valores:
 
 ```ts
-condição ? valorSeVerdadeiro : valorSeFalso
+condição ? valorSeSim : valorSeNão
 ```
 
-Lê assim: "a condição é verdadeira? então isso, senão aquilo". Como o ternário
-vira um valor, dá para guardar numa variável ou colocar direto numa template
-string.
+Lê assim: "a condição é verdadeira? então isso, senão aquilo". A média do Lucas
+é 8, então `media >= 6` é `true` e o ternário devolve `'Aprovado'`:
 
-Serve para escolhas pequenas: singular ou plural, par ou ímpar, aprovado ou
-reprovado. Se a decisão tem várias etapas, volte para o `if`.
+<p align="center"><img src="0019-ternario/ideia.svg" alt="Diagrama da ideia: Operador ternário" width="864"></p>
 
-![Diagrama: Operador ternário](0019-ternario/ideia.svg)
-
-![Fluxograma: Operador ternário](0019-ternario/fluxograma.svg)
-
-**Pratique:** a pasta [`0019-ternario/`](0019-ternario/) tem três exemplos para rodar e dois exercícios com dicas.
-
-```bash
-pnpm tsx 15102026/0019-ternario/exemplo-1.ts
+```ts
+const media = 8
+const situacao = media >= 6 ? 'Aprovado' : 'Reprovado'
+console.log(situacao) // Aprovado
 ```
+
+O fluxograma é o mesmo desenho do if/else da
+[0017](#0017--condicional-composta-if--else). A diferença é que os dois
+caminhos não mostram nada: eles **guardam um valor** em `situacao`, e só no fim
+o programa mostra:
+
+<p align="center"><img src="0019-ternario/fluxograma.svg" alt="Fluxograma: Operador ternário" width="547"></p>
+
+> [!TIP]
+> Use o ternário para escolhas pequenas: singular ou plural, par ou ímpar,
+> aprovado ou reprovado. Se a decisão tem várias etapas, volte para o `if`.
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0019-ternario/`](0019-ternario/).
+>
+> ```bash
+> pnpm tsx 15102026/0019-ternario/exemplo-1.ts
+> ```
+
+---
 
 ## 0020 · Estrutura de escolha (switch)
 
 > Caixa eletrônico: "digite 1 para saldo, 2 para depósito, 3 para sair". Quem
-> programou isso provavelmente usou um `switch`.
+> decide o que acontece depois de cada número?
 
-O `switch` pega um valor e compara com uma lista de opções. Achou uma igual (com
+O `switch` pega **um valor** e procura a opção igual numa lista. Achou (com
 `===`), roda o que está ali. É o cardápio da lanchonete: você fala o número do
 combo e a atendente já sabe o que montar.
 
-- `case`: uma opção do cardápio.
-- `break`: "pronto, pedido feito". Sem ele, o programa continua descendo e
-  executa os próximos `case` também.
+- `case`: uma opção da lista.
+- `break`: "pronto, terminei". Sem ele, o programa continua descendo e roda os
+  próximos `case` também.
 - `default`: quando nenhuma opção bateu. Faz o papel do `else`.
 
-Use `switch` quando a pergunta é "qual destes valores?". Para faixas (maior que,
-menor que), o `if` / `else if` continua sendo o certo.
+Você digitou `2`. O `switch` compara com cada `case` e para no `case 2`:
 
-![Diagrama: Estrutura de escolha (switch)](0020-escolha/ideia.svg)
+<p align="center"><img src="0020-escolha/ideia.svg" alt="Diagrama da ideia: Estrutura de escolha (switch)" width="864"></p>
 
-![Fluxograma: Estrutura de escolha (switch)](0020-escolha/fluxograma.svg)
+```ts
+import { input } from '#core/input.ts'
 
-**Pratique:** a pasta [`0020-escolha/`](0020-escolha/) tem três exemplos para rodar e dois exercícios com dicas.
+const opcao = Number(input('1 saldo, 2 depósito, 3 sair: ')) // você digita: 2
 
-```bash
-pnpm tsx 15102026/0020-escolha/exemplo-1.ts
+switch (opcao) {
+  case 1:
+    console.log('Seu saldo é R$ 100')
+    break
+  case 2:
+    console.log('Depósito realizado') // você cai aqui
+    break
+  case 3:
+    console.log('Até logo!')
+    break
+  default:
+    console.log('Opção inválida')
+}
 ```
+
+No fluxograma, o `switch` é um losango com uma saída para cada `case`, mais uma
+para o `default`:
+
+<p align="center"><img src="0020-escolha/fluxograma.svg" alt="Fluxograma: Estrutura de escolha (switch)" width="1070"></p>
+
+> [!TIP]
+> Use `switch` quando a pergunta é "qual destes valores?". Para faixas (maior
+> que, menor que), o `if` / `else if` continua sendo o certo.
+
+> [!NOTE]
+> **Hora de praticar:** os exemplos e os exercícios deste assunto estão em [`0020-escolha/`](0020-escolha/).
+>
+> ```bash
+> pnpm tsx 15102026/0020-escolha/exemplo-1.ts
+> ```
+
+---
 
 ## Para ler mais
 

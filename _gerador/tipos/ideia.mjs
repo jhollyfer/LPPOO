@@ -1,10 +1,57 @@
-// Diagrama da ideia: caixas coloridas e setas explicando o assunto, como um
-// slide do Excalidraw. O conteúdo fica em conteudo/ideias.mjs.
-import { novoQuadro, CORES, TINTA } from '../quadro.mjs'
+// Diagrama da ideia: caixas coloridas e setas contando o exemplo do assunto,
+// como um slide do Excalidraw. O título e a explicação ficam no texto da aula.
+//
+// caixas: { id, x, y, w?, h?, cor?, rotulo?, texto, forma?: 'losango' }
+//   cores: azul (dado que entra ou sai), roxo (o programa faz algo),
+//   amarelo (pergunta), verde (resultado, caminho do Sim),
+//   vermelho (erro, caminho do Não), cinza (neutro)
+// setas:  { de, para, rotulo?, cor?, lados?: 'de' (lado de saída + chegada:
+//           d = direita, e = esquerda, c = cima, b = baixo), cotovelo?, dx?, dy? }
+// notas:  { x, y, texto, cor? } texto solto
+import { novoQuadro, CORES, TINTA, medir } from '../quadro.mjs'
 
-export function desenharIdeia(d) {
+// três caixas lado a lado, ligadas por setas; a largura acompanha o texto
+export const fileira = (y, [a, b, c], [s1, s2] = []) => {
+  const trio = [a, b, c]
+  const linhas = Math.max(...trio.map((x) => [].concat(x.texto).length))
+  const h = 150 + (linhas - 1) * 40
+  const larg = trio.map((x) =>
+    Math.max(300, ...[].concat(x.texto).map((l) => medir(l, 30) + 60), medir(x.rotulo ?? '', 24) + 60),
+  )
+  const vao = Math.max(140, (1380 - larg[0] - larg[1] - larg[2]) / 2)
+  const xs = [110, 110 + larg[0] + vao, 110 + larg[0] + larg[1] + 2 * vao]
+  const cores = ['azul', 'roxo', 'verde']
+  return {
+    caixas: trio.map((x, i) => ({ id: 'abc'[i], x: xs[i], y, w: larg[i], h, cor: cores[i], ...x })),
+    setas: [
+      { de: 'a', para: 'b', rotulo: s1 },
+      { de: 'b', para: 'c', rotulo: s2 },
+    ],
+  }
+}
+
+// uma pergunta (losango) que abre dois caminhos
+export const bifurcacao = ({ inicio, pergunta, sim, nao, rotuloSim = 'Sim', rotuloNao = 'Não' }) => {
+  const w = Math.max(430, ...[sim, nao].flatMap((c) => [].concat(c.texto).map((l) => medir(l, 30) + 60)))
+  return {
+    caixas: [
+      { id: 'ini', x: 110, y: 380, w: 320, cor: 'azul', ...inicio },
+      { id: 'p', x: 540, y: 355, w: 340, h: 200, forma: 'losango', cor: 'amarelo', texto: pergunta },
+      { id: 'sim', x: 1060, y: 250, w, cor: 'verde', ...sim },
+      { id: 'nao', x: 1060, y: 510, w, cor: 'vermelho', ...nao },
+    ],
+    setas: [
+      { de: 'ini', para: 'p' },
+      { de: 'p', para: 'sim', lados: 'ce', cotovelo: true, rotulo: rotuloSim, cor: 'verde' },
+      { de: 'p', para: 'nao', lados: 'be', cotovelo: true, rotulo: rotuloNao, cor: 'vermelho' },
+    ],
+  }
+}
+
+export function desenharIdeia(titulo, d) {
   const q = novoQuadro()
-  let fundo = q.cabecalho(d.titulo, d.subtitulo)
+  let topo = Infinity
+  let fundo = 0
 
   const caixas = new Map()
   for (const c of d.caixas) {
@@ -15,6 +62,7 @@ export function desenharIdeia(d) {
     const h = c.h ?? (losango ? 200 : 150 + Math.max(0, linhas.length - 1) * 40)
     const { x, y } = c
     caixas.set(c.id, { x, y, w, h })
+    topo = Math.min(topo, y)
     fundo = Math.max(fundo, y + h)
 
     if (losango) {
@@ -66,7 +114,7 @@ export function desenharIdeia(d) {
   for (const s of d.setas ?? []) {
     const a = caixas.get(s.de)
     const b = caixas.get(s.para)
-    if (!a || !b) throw new Error(`${d.pasta}: seta ${s.de} -> ${s.para} aponta para caixa que não existe`)
+    if (!a || !b) throw new Error(`${titulo}: seta ${s.de} -> ${s.para} aponta para caixa que não existe`)
     const [la, lb] = s.lados ? [...s.lados] : ladoAuto(a, b)
     let p1 = folga(ponto(a, la), la)
     let p2 = folga(ponto(b, lb), lb)
@@ -100,5 +148,8 @@ export function desenharIdeia(d) {
     fundo = Math.max(fundo, n.y + (linhas.length - 1) * 38)
   }
 
-  return q.svg(d.titulo, q.rodape(fundo, d.rodape))
+  // corta o quadro em volta do desenho (rótulos de seta podem subir um pouco)
+  topo -= 60
+  const direita = Math.max(...[...caixas.values()].map((c) => c.x + c.w)) + 60
+  return q.svg(titulo, { x: 60, y: topo, w: Math.max(1480, direita - 60), h: fundo + 50 - topo })
 }

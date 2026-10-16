@@ -1,0 +1,71 @@
+export const ideia = {
+  caixas: [
+    { id: 'ini', x: 110, y: 290, w: 300, cor: 'azul', rotulo: 'você digita', texto: ['opcao = 2'] },
+    { id: 'sw', x: 520, y: 290, w: 340, cor: 'roxo', rotulo: 'compara', texto: ['switch (opcao)'] },
+    {
+      id: 'c1',
+      x: 1060,
+      y: 0,
+      w: 430,
+      h: 130,
+      cor: 'cinza',
+      rotulo: 'case 1',
+      texto: ["'Seu saldo é R$ 100'"],
+    },
+    {
+      id: 'c2',
+      x: 1060,
+      y: 180,
+      w: 430,
+      h: 130,
+      cor: 'verde',
+      rotulo: 'case 2',
+      texto: ["'Depósito realizado'"],
+    },
+    { id: 'c3', x: 1060, y: 360, w: 430, h: 130, cor: 'cinza', rotulo: 'case 3', texto: ["'Até logo!'"] },
+    {
+      id: 'df',
+      x: 1060,
+      y: 540,
+      w: 430,
+      h: 130,
+      cor: 'cinza',
+      rotulo: 'default',
+      texto: ["'Opção inválida'"],
+    },
+  ],
+  setas: [
+    { de: 'ini', para: 'sw' },
+    { de: 'sw', para: 'c1', cor: 'cinza' },
+    { de: 'sw', para: 'c2', rotulo: '=== 2', cor: 'verde', dx: -60, dy: -12 },
+    { de: 'sw', para: 'c3', cor: 'cinza' },
+    { de: 'sw', para: 'df', cor: 'cinza' },
+  ],
+}
+
+export const fluxograma = {
+  nos: [
+    ['A', 'inicio', 'Início'],
+    ['B', 'io', 'Ler opcao'],
+    ['C', 'dec', 'opcao'],
+    ['D', 'io', 'Mostrar saldo'],
+    ['E', 'io', 'Mostrar "Depósito realizado"'],
+    ['F', 'io', 'Mostrar "Até logo!"'],
+    ['G', 'io', 'Mostrar "Opção inválida"'],
+    ['H', 'inicio', 'Fim'],
+  ],
+  setas: [
+    ['A', 'B'],
+    ['B', 'C'],
+    ['C', 'D', '1'],
+    ['C', 'E', '2'],
+    ['C', 'F', '3'],
+    ['C', 'G', 'default'],
+    ['D', 'H'],
+    ['E', 'H'],
+    ['F', 'H'],
+    ['G', 'H'],
+  ],
+  // o caminho do exemplo do texto
+  caminho: ['A', 'B', 'C', 'E', 'H'],
+}

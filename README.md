@@ -37,12 +37,14 @@ projeto inteiro, use `pnpm tsc`.
 ## Como cada aula funciona
 
 Cada aula é uma pasta com a data (`15102026` é 15/10/2026). O `README.md` da
-aula tem a explicação de todos os assuntos, cada um com um **diagrama** da ideia
-e um **fluxograma** do programa. As pastas numeradas guardam a parte prática:
+aula tem a explicação de todos os assuntos. Em cada um, o texto, o **diagrama da
+ideia**, o código e o **fluxograma** contam o mesmo exemplo. As pastas numeradas
+guardam a parte prática:
 
 ```
 15102026/
-├── README.md           a aula inteira: ideias, diagramas e fluxogramas
+├── README.md           a aula inteira
+├── legenda.svg         as formas e cores dos desenhos
 └── 0014-logico/
     ├── ideia.svg       o diagrama da ideia
     ├── fluxograma.svg  o caminho que o programa faz
@@ -149,18 +151,22 @@ no terminal, digite e aperte Enter.
 **Quero sair de um programa travado**
 `Ctrl + C`.
 
-## Para o professor: gerar os diagramas
+## Para o professor: o README da aula e os desenhos
 
-Os desenhos de cada pasta (`ideia.svg` e `fluxograma.svg`) saem de um script em
-`_diagramas/`, no estilo do Excalidraw. O conteúdo fica em
-`_diagramas/conteudo/`. Mudou, é só gerar de novo.
+O `README.md` de cada aula e os desenhos (`ideia.svg`, `fluxograma.svg`) são
+**gerados** por `_gerador/`. Não edite o README da aula direto: cada assunto tem
+uma fonte só, em `_gerador/aulas/<data>/<pasta>/`:
+
+- `texto.md`: o texto, com `{{ideia}}`, `{{fluxograma}}` e `{{pratique}}` onde
+  entram os desenhos e o rodapé;
+- `desenhos.mjs`: as caixas do diagrama da ideia e o fluxograma, com os mesmos
+  valores do texto.
 
 ```bash
-cd _diagramas
+cd _gerador
 npm install
-npm run gerar          # todas as pastas
-npm run gerar -- 0017  # só uma
+npm run gerar
 ```
 
-Para um tipo novo de diagrama (casos de uso, sequência, classes), veja
-`_diagramas/README.md`.
+Detalhes (e como criar tipos novos, como casos de uso e classes) em
+`_gerador/README.md`.
