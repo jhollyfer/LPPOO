@@ -26,7 +26,17 @@ command -v git >/dev/null || erro "git não encontrado. Instale com: sudo apt in
 passo "1/5 Instalando o nvm $NVM_VERSAO"
 curl -fsSL "https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VERSAO/install.sh" | bash
 
-export NVM_DIR="$HOME/.nvm"
+# mesma regra do instalador do nvm: respeita NVM_DIR já definido,
+# senão usa $XDG_CONFIG_HOME/nvm (se existir) ou ~/.nvm
+if [ -z "${NVM_DIR:-}" ]; then
+  if [ -n "${XDG_CONFIG_HOME:-}" ]; then
+    NVM_DIR="$XDG_CONFIG_HOME/nvm"
+  else
+    NVM_DIR="$HOME/.nvm"
+  fi
+fi
+export NVM_DIR
+[ -s "$NVM_DIR/nvm.sh" ] || erro "nvm.sh não encontrado em $NVM_DIR"
 # o nvm.sh usa variáveis não definidas, então desliga o -u só aqui
 set +u
 # shellcheck source=/dev/null
@@ -57,6 +67,6 @@ pnpm install
 printf '\n\033[1;32mTudo pronto!\033[0m\n'
 echo "Node $(node -v) | pnpm $(pnpm -v)"
 echo
-echo "Feche e abra o terminal (ou rode: source ~/.bashrc) e depois teste:"
+echo "Feche e abra o terminal e depois teste:"
 echo "  cd ~/LPPOO"
 echo "  pnpm tsx 15102026/0001-input/exemplo-1.ts"
