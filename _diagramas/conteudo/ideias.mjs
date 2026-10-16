@@ -39,7 +39,7 @@ const bifurcacao = ({ inicio, pergunta, sim, nao, rotuloSim = 'Sim', rotuloNao =
   ],
 })
 
-export const diagramas = [
+export const ideias = [
   {
     pasta: '0001-input',
     titulo: 'O que é entrada de dados?',

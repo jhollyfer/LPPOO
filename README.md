@@ -36,24 +36,27 @@ projeto inteiro, use `pnpm tsc`.
 
 ## Como cada aula funciona
 
-Cada aula é uma pasta com a data (`15102026` é 15/10/2026). Dentro dela, uma
-pasta por assunto, numerada na ordem em que a gente vê em sala:
+Cada aula é uma pasta com a data (`15102026` é 15/10/2026). O `README.md` da
+aula tem a explicação de todos os assuntos, cada um com um **diagrama** da ideia
+e um **fluxograma** do programa. As pastas numeradas guardam a parte prática:
 
 ```
-15102026/0014-logico/
-├── README.md        a explicação e o diagrama
-├── diagrama.svg     o desenho que resume o assunto
-├── exemplo-1.ts     exemplos resolvidos: rode, mude, quebre, rode de novo
-├── exemplo-2.ts
-├── exemplo-3.ts
-├── exercicio-1.ts   exercícios: enunciado e dicas no comentário,
-└── exercicio-2.ts   resposta DENTRO do próprio arquivo
+15102026/
+├── README.md           a aula inteira: ideias, diagramas e fluxogramas
+└── 0014-logico/
+    ├── ideia.svg       o diagrama da ideia
+    ├── fluxograma.svg  o caminho que o programa faz
+    ├── exemplo-1.ts    exemplos resolvidos: rode, mude, quebre, rode de novo
+    ├── exemplo-2.ts
+    ├── exemplo-3.ts
+    ├── exercicio-1.ts  exercícios: enunciado e dicas no comentário,
+    └── exercicio-2.ts  resposta DENTRO do próprio arquivo
 ```
 
 O caminho de cada assunto:
 
-1. Leia o `README.md` da pasta.
-2. Rode os `exemplo-N.ts` e mexa neles à vontade.
+1. Leia o assunto no `README.md` da aula.
+2. Rode os `exemplo-N.ts` da pasta e mexa neles à vontade.
 3. Abra o `exercicio-1.ts` e o `exercicio-2.ts`, leia o enunciado e escreva a
    resposta embaixo de `// Escreva sua resposta abaixo:`. Travou? Leia as dicas
    numeradas logo acima, na ordem.
@@ -67,6 +70,8 @@ const nome = input('Seu nome: ') // sempre devolve texto (string)
 ```
 
 ## Aula 01 · 15/10 · Revisão de lógica I
+
+A explicação completa está em [`15102026/README.md`](15102026/README.md).
 
 | Pasta                       | Assunto                                   |
 | --------------------------- | ----------------------------------------- |
@@ -146,10 +151,9 @@ no terminal, digite e aperte Enter.
 
 ## Para o professor: gerar os diagramas
 
-Os diagramas (`diagrama.svg` de cada pasta) saem de um script em `_diagramas/`,
-no estilo do Excalidraw. O conteúdo de cada um fica em
-`_diagramas/diagramas.mjs`: título, caixas, setas e a frase final. Mudou, é só
-gerar de novo.
+Os desenhos de cada pasta (`ideia.svg` e `fluxograma.svg`) saem de um script em
+`_diagramas/`, no estilo do Excalidraw. O conteúdo fica em
+`_diagramas/conteudo/`. Mudou, é só gerar de novo.
 
 ```bash
 cd _diagramas
@@ -157,3 +161,6 @@ npm install
 npm run gerar          # todas as pastas
 npm run gerar -- 0017  # só uma
 ```
+
+Para um tipo novo de diagrama (casos de uso, sequência, classes), veja
+`_diagramas/README.md`.

@@ -8,6 +8,7 @@
     "gerar": "node gerar.mjs"
   },
   "dependencies": {
+    "@dagrejs/dagre": "^1.1.8",
     "roughjs": "4.6.6"
   }
 }
