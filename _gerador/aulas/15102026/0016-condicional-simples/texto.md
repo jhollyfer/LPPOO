@@ -2,12 +2,16 @@
 
 > Você só leva o guarda-chuva se o céu estiver feio. Sol? Sai de mãos vazias.
 
-Até agora todo programa rodava linha por linha, do começo ao fim, sem pular
-nada. Com o `if` (se), ele passa a decidir: o bloco entre `{ }` só roda se a
-condição for verdadeira. Se for falsa, o programa pula o bloco e segue a vida.
+Até agora, nossos programas rodaram de cima para baixo, linha por linha, sem
+pular nada. Hoje isso muda: o programa vai **decidir**.
 
-O programa pergunta "Vai chover?". Você responde `sim`, a condição dá `true` e
-aparece o aviso do guarda-chuva. Depois, chovendo ou não, ele dá bom dia:
+Quem decide é o `if` (em português, "se"). Funciona assim: **se** a condição
+for verdadeira, o bloco entre `{ }` roda. Se for falsa, o programa pula o
+bloco e segue a vida.
+
+Vamos ver na prática. O programa pergunta "Vai chover?". Você responde `sim`,
+a condição dá `true`, e aparece o aviso do guarda-chuva. Depois, chovendo ou
+não, ele dá bom dia:
 
 {{ideia}}
 
@@ -23,9 +27,13 @@ if (resposta === 'sim') {
 console.log('Bom dia!') // roda sempre
 ```
 
-O `if` vira o losango. Só o caminho do Sim tem uma tarefa a mais; o Não vai
-direto para o "Bom dia!":
+No fluxograma, o `if` vira o losango. Olha só: o caminho do Sim tem uma tarefa
+a mais, e o Não vai direto para o "Bom dia!".
 
 {{fluxograma}}
+
+> [!NOTE]
+> **Pergunta para a turma:** e se você digitar `Sim`, com S maiúsculo? Aparece
+> o aviso? Rode e descubra. (Dica: o `===` compara letra por letra.)
 
 {{pratique}}

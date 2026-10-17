@@ -67,20 +67,23 @@ São 20 assuntos curtos, e cada um usa o anterior. Leia na ordem.
 
 ## 0001 · Entrada de dados (input)
 
-> Um programa que só fala e nunca escuta é igual àquele colega que manda áudio de
-> 5 minutos e não lê a resposta. Hoje o programa aprende a ouvir.
+> Sabe aquele colega que manda áudio de 5 minutos e nunca lê a resposta? Um
+> programa que só fala é igualzinho. Hoje ele aprende a ouvir.
 
-Entrada é quando o programa para, faz uma pergunta e espera. Pense no
-caixa da cantina: ele pergunta "vai querer o quê?" e só segue depois que você
-responde.
+Pessoal, pensa na cantina. O caixa olha pra você e pergunta: "vai querer o
+quê?". E aí ele **para**. Fica esperando. Só segue depois que você responde.
 
-A Ana roda o programa. Aparece a pergunta `Seu nome:`, ela digita `Ana`, aperta
-Enter, e o programa guarda essa resposta numa caixinha chamada `nome`:
+Entrada de dados é exatamente isso: o programa faz uma pergunta, para e espera
+você digitar.
+
+Olha o que acontece quando a Ana roda o programa. Aparece `Seu nome:`, ela
+digita `Ana`, aperta Enter, e o programa guarda a resposta numa caixinha
+chamada `nome`:
 
 <p align="center"><img src="0001-input/ideia.svg" alt="Diagrama da ideia: Entrada de dados (input)" width="858"></p>
 
-Quem faz a pergunta é a função `input`. Ela mostra o texto, espera o Enter e
-devolve o que foi digitado:
+Quem faz a pergunta é o `input`. Ele mostra o texto, espera o Enter e devolve o
+que a pessoa digitou:
 
 ```ts
 import { input } from '#core/input.ts'
@@ -89,14 +92,19 @@ const nome = input('Seu nome: ') // a Ana digita: Ana
 console.log(nome) // Ana
 ```
 
-O fluxograma é curtinho. Ler e mostrar são paralelogramos azuis, porque é dado
-entrando e saindo.
+Repara no fluxograma: ler e mostrar são paralelogramos azuis. Azul é sempre
+dado entrando ou saindo.
 
 <p align="center"><img src="0001-input/fluxograma.svg" alt="Fluxograma: Entrada de dados (input)" width="668"></p>
 
 > [!IMPORTANT]
-> O `input` sempre devolve texto. Se a Ana digitar `17`, o programa guarda
-> `'17'`, entre aspas. Fazer conta com isso é assunto da [0008](#0008--conversão-de-tipos).
+> Guarda isso: o `input` **sempre devolve texto**. Se a Ana digitar `17`, o
+> programa guarda `'17'`, com aspas. E conta com texto dá confusão. A gente
+> resolve isso na [0008](#0008--conversão-de-tipos).
+
+> [!NOTE]
+> **Pergunta para a turma:** se a Ana apertar Enter sem digitar nada, o que
+> fica guardado em `nome`? Rode o exemplo e confira.
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0001-input/`](0001-input/). Os comandos funcionam de qualquer pasta do terminal.
@@ -855,12 +863,16 @@ não:
 
 > Você só leva o guarda-chuva se o céu estiver feio. Sol? Sai de mãos vazias.
 
-Até agora todo programa rodava linha por linha, do começo ao fim, sem pular
-nada. Com o `if` (se), ele passa a decidir: o bloco entre `{ }` só roda se a
-condição for verdadeira. Se for falsa, o programa pula o bloco e segue a vida.
+Até agora, nossos programas rodaram de cima para baixo, linha por linha, sem
+pular nada. Hoje isso muda: o programa vai **decidir**.
 
-O programa pergunta "Vai chover?". Você responde `sim`, a condição dá `true` e
-aparece o aviso do guarda-chuva. Depois, chovendo ou não, ele dá bom dia:
+Quem decide é o `if` (em português, "se"). Funciona assim: **se** a condição
+for verdadeira, o bloco entre `{ }` roda. Se for falsa, o programa pula o
+bloco e segue a vida.
+
+Vamos ver na prática. O programa pergunta "Vai chover?". Você responde `sim`,
+a condição dá `true`, e aparece o aviso do guarda-chuva. Depois, chovendo ou
+não, ele dá bom dia:
 
 <p align="center"><img src="0016-condicional-simples/ideia.svg" alt="Diagrama da ideia: Condicional simples (if)" width="864"></p>
 
@@ -876,10 +888,14 @@ if (resposta === 'sim') {
 console.log('Bom dia!') // roda sempre
 ```
 
-O `if` vira o losango. Só o caminho do Sim tem uma tarefa a mais; o Não vai
-direto para o "Bom dia!":
+No fluxograma, o `if` vira o losango. Olha só: o caminho do Sim tem uma tarefa
+a mais, e o Não vai direto para o "Bom dia!".
 
 <p align="center"><img src="0016-condicional-simples/fluxograma.svg" alt="Fluxograma: Condicional simples (if)" width="380"></p>
+
+> [!NOTE]
+> **Pergunta para a turma:** e se você digitar `Sim`, com S maiúsculo? Aparece
+> o aviso? Rode e descubra. (Dica: o `===` compara letra por letra.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0016-condicional-simples/`](0016-condicional-simples/). Os comandos funcionam de qualquer pasta do terminal.
