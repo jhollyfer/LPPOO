@@ -3,7 +3,7 @@
 Até agora, toda função começou com a palavra `function`. Tem um jeito mais
 curto de escrever: a **arrow function** (função seta).
 
-Olha só. Estas duas fazem o mesmo tipo de coisa:
+Olha só. As duas abaixo são funções, cada uma escrita de um jeito:
 
 ```ts
 function dobrar(n: number): number {

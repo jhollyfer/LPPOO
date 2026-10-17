@@ -1,12 +1,15 @@
 ## 0038 · Paradigmas de programação
 
-> Dá para ensinar o caminho até a escola de três jeitos: "vira à direita, anda
-> duas quadras", "pega a rua da praça", ou "segue a van da escola". O destino é
-> o mesmo.
+Imagina ensinar o caminho até a escola. Dá para falar de três jeitos: "vira à
+direita, anda duas quadras", "pega a rua da praça" ou "segue a van da escola".
+O destino é o mesmo.
 
-**Paradigma** é um jeito de organizar o pensamento na hora de programar. O
-problema é o mesmo; muda como você quebra ele em partes. Os três que mais
-aparecem:
+Na programação também é assim. **Paradigma** é um jeito de organizar o
+pensamento na hora de programar.
+
+O problema é o mesmo. O que muda é como você quebra ele em partes.
+
+Os três que mais aparecem:
 
 - **Imperativo:** você dá as ordens passo a passo e vai mudando variáveis.
   É o que você fez nas aulas 01 e 02, com `let`, `if` e `for`.
@@ -16,7 +19,7 @@ aparecem:
 - **Orientado a objetos (POO):** você cria **objetos** que juntam dados e as
   ações sobre eles. É o jeito que você vai usar daqui em diante.
 
-A média da turma, nos três estilos, dá o mesmo 8:
+Vamos ver na prática. A média da turma, nos três estilos, dá o mesmo 8:
 
 {{ideia}}
 
@@ -45,15 +48,16 @@ class Turma {
 console.log(new Turma(notas).media()) // 8
 ```
 
-O TypeScript aceita os três, e programas de verdade misturam: uma classe pode
-usar `reduce` lá dentro, como a `Turma` acima. O fluxograma ajuda a escolher o
-estilo que combina com cada pedaço:
+O TypeScript aceita os três. E programas de verdade misturam: repara que a
+`Turma` usa `reduce` lá dentro.
+
+O fluxograma ajuda a escolher o estilo que combina com cada pedaço:
 
 {{fluxograma}}
 
 > [!NOTE]
-> Não se preocupe ainda com `class`, `constructor` e `this`: você aprende cada
-> um com calma na aula 04. Por agora, basta saber que esse terceiro jeito existe.
+> Calma com `class`, `constructor` e `this`: você aprende cada um com calma na
+> aula 04. Por agora, basta saber que esse terceiro jeito existe.
 
 > [!TIP]
 > **Poder do TypeScript:** na POO, um objeto pode esconder os próprios dados. O
@@ -65,5 +69,9 @@ estilo que combina com cada pedaço:
 > console.log(turma.notas)
 > // erro: Property 'notas' is private and only accessible within class 'Turma'.
 > ```
+
+> [!NOTE]
+> **Pergunta para a turma:** troque as notas para `[10, 6]` e rode. Os três
+> estilos continuam dando o mesmo resultado? Quanto dá?
 
 {{pratique}}

@@ -1,11 +1,13 @@
 ## 0051 · Tipos utilitários: Partial, Pick, Omit, Record, Readonly
 
-> Com a mesma receita de bolo dá para fazer o bolo sem cobertura, só a
-> cobertura ou meia receita. A receita é uma só.
+Pensa numa receita de bolo. Com ela você faz o bolo sem cobertura, só a
+cobertura ou meia receita. A receita é uma só.
 
-O TypeScript já vem com alguns **tipos utilitários**: eles pegam um tipo que
-existe e criam uma **variação** dele, sem você copiar nada. Todos são generics
-(assunto 0050):
+O TypeScript já vem com alguns **tipos utilitários** que fazem isso com
+tipos. Eles pegam um tipo que já existe e criam uma **variação** dele. Você não
+copia nada.
+
+E repara: todos são generics (assunto 0050).
 
 | Utilitário            | O que faz                                   |
 | --------------------- | ------------------------------------------- |
@@ -16,6 +18,8 @@ existe e criam uma **variação** dele, sem você copiar nada. Todos são generi
 | `Record<Turno, number>` | um objeto com uma chave para cada turno   |
 
 {{ideia}}
+
+Vamos ver na prática:
 
 ```ts
 type Turno = 'manhã' | 'tarde' | 'noite'
@@ -36,18 +40,24 @@ console.log(bia) // { matricula: 'A27', nome: 'Bia', idade: 17 }
 console.log(ficha.nome, vagas.noite) // Bia 40
 ```
 
-Para escolher o utilitário, pense no que você quer guardar do tipo original:
+Para escolher o utilitário, pergunte: o que eu quero guardar do tipo
+original?
 
 {{fluxograma}}
 
 > [!TIP]
 > **Poder do TypeScript:** `Record<Turno, number>` exige **uma chave para cada
-> turno**. Esqueceu a noite? Ele lembra:
+> turno**. Esqueceu a noite? Ele lembra você:
 >
 > ```ts
 > const vagas: Record<Turno, number> = { manhã: 30, tarde: 25 }
 > // erro: Property 'noite' is missing in type '{ manhã: number; tarde: number; }'
 > //       but required in type 'Record<Turno, number>'.
 > ```
+
+> [!NOTE]
+> **Pergunta para a turma:** se a `mudanca` for `{}`, vazia, o TypeScript
+> aceita? E qual idade a Bia fica? Mude e rode. (Dica: no `Partial`, tudo é
+> opcional.)
 
 {{pratique}}

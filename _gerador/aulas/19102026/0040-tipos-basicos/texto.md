@@ -1,11 +1,12 @@
 ## 0040 · Tipos primitivos, any, unknown e never
 
-> Toda caixa da mudança tem etiqueta: "pratos", "livros". Uma caixa sem
-> etiqueta pode ter qualquer coisa, e você só descobre quando abre.
+Pensa numa mudança. Toda caixa tem etiqueta: "pratos", "livros". Uma caixa sem
+etiqueta pode ter qualquer coisa, e você só descobre quando abre.
 
 Os **tipos primitivos** são os valores simples que você já usou: `string`,
-`number`, `boolean`, `null` e `undefined`. Além deles, o TypeScript tem três
-tipos especiais:
+`number`, `boolean`, `null` e `undefined`.
+
+Além deles, o TypeScript tem três tipos especiais:
 
 - **`any`:** "qualquer coisa, e não confere nada". Desliga o TypeScript naquele
   valor. É a caixa sem etiqueta e sem fiscal.
@@ -38,8 +39,8 @@ console.log(tamanho('Benjamin')) // 8
 console.log(tamanho(2026)) // 4
 ```
 
-O `unknown` obriga a fazer as perguntas que o fluxograma mostra antes de usar
-o valor:
+Repara no `unknown`. Antes de usar o valor, ele obriga você a fazer as
+perguntas que o fluxograma mostra:
 
 {{fluxograma}}
 
@@ -58,5 +59,9 @@ o valor:
 >   // erro: 'valor' is of type 'unknown'.
 > }
 > ```
+
+> [!NOTE]
+> **Pergunta para a turma:** quanto dá `tamanho(true)`? Acrescente a linha e
+> rode. (Dica: `true` não é texto nem número.)
 
 {{pratique}}

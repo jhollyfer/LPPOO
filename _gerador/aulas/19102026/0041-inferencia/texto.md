@@ -1,10 +1,14 @@
 ## 0041 · Inferência x anotação: quando escrever o tipo
 
-> Ninguém escreve "isto é uma cadeira" numa cadeira. Mas numa caixa fechada,
-> a etiqueta faz falta.
+Ninguém escreve "isto é uma cadeira" numa cadeira. Dá para ver. Mas numa caixa
+fechada, a etiqueta faz falta.
 
-O TypeScript descobre sozinho o tipo de muita coisa, olhando o valor. Isso é a
-**inferência**. Escrever o tipo na mão é a **anotação**. A regra prática:
+Com tipo é igual. O TypeScript descobre sozinho o tipo de muita coisa, só
+olhando o valor. Isso é a **inferência**.
+
+Escrever o tipo na mão é a **anotação**.
+
+E quando escrever? Guarda essa regra prática:
 
 - **Deixe o TypeScript descobrir** quando a variável já começa com um valor:
   `let idade = 17` já é `number`.
@@ -33,17 +37,18 @@ nomes.push('Ana')
 console.log(idade, turno, notas, nomes, apelido, dobrar(4))
 ```
 
-Repare no `turno`: com `const`, o tipo não é `string`, é exatamente `'noite'`,
-porque uma constante nunca vai mudar. Com `let`, seria `string`.
+Repara no `turno`. Com `const`, o tipo é exatamente `'noite'`, e não `string`.
+Uma constante nunca vai mudar, então o TypeScript guarda o valor exato. Com
+`let`, seria `string`.
 
 O fluxograma é a regra prática em forma de perguntas:
 
 {{fluxograma}}
 
 > [!NOTE]
-> Escrever o tipo do retorno é opcional, mas ajuda em funções importantes: se
-> você errar o `return`, o erro aparece na própria função, e não lá na frente,
-> em quem usa ela.
+> Escrever o tipo do retorno é opcional, mas ajuda nas funções que você mais
+> usa. Se você errar o `return`, o erro aparece na própria função, e não lá na
+> frente, em quem usa ela.
 
 > [!TIP]
 > **Poder do TypeScript:** parâmetro sem tipo vira `any` escondido, e este
@@ -55,5 +60,9 @@ O fluxograma é a regra prática em forma de perguntas:
 > }
 > // erro: Parameter 'n' implicitly has an 'any' type.
 > ```
+
+> [!NOTE]
+> **Pergunta para a turma:** no editor, pare o mouse em cima do `turno`. Que
+> tipo aparece? E se você trocar o `const` por `let`? Teste os dois.
 
 {{pratique}}

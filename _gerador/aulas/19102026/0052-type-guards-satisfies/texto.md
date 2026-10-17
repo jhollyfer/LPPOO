@@ -1,13 +1,17 @@
 ## 0052 · Type guards (x is T) e satisfies
 
-> O porteiro confere a carteirinha na entrada. Passou na conferência, lá dentro
-> todo mundo sabe que você é aluno.
+No assunto 0046, o `if` com `typeof` e `in` já estreitava o tipo.
 
-No assunto 0046 o `if` com `typeof` e `in` já estreitava o tipo. Quando a
-conferência é mais comprida, dá para colocar ela numa função. Só que, para o
-TypeScript entender que a função é uma conferência, o retorno precisa ser
-**`p is Aluno`** em vez de `boolean`. Essa função é um **type guard**: se ela
-devolve `true`, dentro do `if` o `p` é `Aluno`.
+Mas e quando a conferência fica comprida? Você coloca ela numa função.
+
+Só que tem um detalhe. Para o TypeScript entender que a função é uma
+conferência, o retorno precisa ser **`p is Aluno`**, e não `boolean`.
+
+Essa função se chama **type guard**. Pensa no porteiro que confere a
+carteirinha. Passou na conferência, lá dentro todo mundo sabe que você é
+aluno.
+
+Aqui é igual: se a função devolve `true`, dentro do `if` o `p` é `Aluno`.
 
 {{ideia}}
 
@@ -30,9 +34,12 @@ console.log(entrada({ nome: 'Seu João', motivo: 'reunião' })) // Seu João, vi
 
 {{fluxograma}}
 
-O **`satisfies`** é outra conferência, mas de valor. `valor satisfies Tipo`
-confere se o valor cabe no tipo **sem trocar** o tipo que o TypeScript
-descobriu sozinho. Compare:
+Agora o **`satisfies`**. Ele também é uma conferência, mas de valor.
+
+`valor satisfies Tipo` confere se o valor cabe no tipo, **sem trocar** o tipo
+que o TypeScript descobriu sozinho.
+
+Compare os dois:
 
 ```ts
 const precos1: Record<string, number> = { acai: 15, tapioca: 8 }
@@ -52,5 +59,10 @@ precos2.acai // number: conferiu e lembrou das chaves
 > // erro: Object literal may only specify known properties, but 'vagass'
 > //       does not exist in type 'Configuracao'. Did you mean to write 'vagas'?
 > ```
+
+> [!NOTE]
+> **Pergunta para a turma:** troque o retorno `p is Aluno` por `boolean`. O
+> `p.matricula` dentro do `if` continua funcionando? Faça a troca e veja o que
+> o editor diz.
 
 {{pratique}}
