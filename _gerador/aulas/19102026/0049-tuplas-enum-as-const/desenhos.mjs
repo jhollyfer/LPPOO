@@ -33,7 +33,7 @@ export const ideia = {
       celula: 130,
       indices: false,
     },
-    { id: 'u', x: 820, y: 460, w: 440, cor: 'roxo', rotulo: 'type Dia', texto: ["'seg' | 'ter' | 'qua'"] },
+    { id: 'u', x: 880, y: 460, w: 440, cor: 'roxo', rotulo: 'type Dia', texto: ["'seg' | 'ter' | 'qua'"] },
   ],
   setas: [{ de: 'd', para: 'u', rotulo: '(typeof DIAS)[number]' }],
   notas: [

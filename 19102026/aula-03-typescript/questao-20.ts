@@ -2,15 +2,14 @@
 // Vale ponto. Exemplo resolvido parecido: exemplo-20.ts
 // Para revisar: 0045 e 0046 no README da aula 03 (19102026/README.md)
 //
-// Semáforo: crie type Cor = 'verde' | 'amarelo' | 'vermelho'. Peça uma cor ao
-// usuário, confira se ela é uma Cor válida e mostre o que o motorista deve
-// fazer. Depois escreva formatar(valor: string | number): string, que devolve
-// número com 2 casas e texto em maiúsculas.
+// Semáforo: crie type Cor = 'verde' | 'amarelo' | 'vermelho' e a função
+// acao(c: Cor): string, que diz o que o motorista deve fazer. Peça uma cor ao
+// usuário e só chame acao depois de conferir que ela é uma Cor.
 //
 // O que precisa ter:
 // - a união de literais
-// - a conferência do texto digitado antes de usar como Cor
-// - o typeof estreitando string | number
+// - a conferência do texto digitado (narrowing)
+// - a resposta mostrada no terminal
 //
 // Para ler dados do teclado use:
 // import { input } from '#core/input.ts'

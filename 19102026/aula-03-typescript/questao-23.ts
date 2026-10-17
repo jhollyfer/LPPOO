@@ -2,13 +2,13 @@
 // Vale ponto. Exemplo resolvido parecido: exemplo-23.ts
 // Para revisar: 0050 no README da aula 03 (19102026/README.md)
 //
-// Escreva ultimo<T>(lista: T[]): T | undefined e contar<T>(lista: T[], teste:
-// (item: T) => boolean): number. Teste as duas com uma lista de números e com
-// uma lista de alunos ({ nome, nota }), contando quantos passaram (nota >= 7).
+// Escreva contar<T>(lista: T[], teste: (item: T) => boolean): number, que
+// conta quantos itens passam no teste. Teste com uma lista de números e com uma
+// de alunos ({ nome, nota }), contando quem tem nota >= 7.
 //
 // O que precisa ter:
-// - o <T> nas duas funções, sem any
+// - o <T>, sem any
 // - o callback tipado com T
-// - os testes com dois tipos diferentes de lista
+// - os testes com dois tipos de lista
 //
 // Escreva sua resposta abaixo:
