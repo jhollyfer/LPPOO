@@ -1,8 +1,9 @@
 # Aula 01 · 15/10 · Revisão de lógica I
 
-Quase todo programa faz as mesmas cinco coisas: lê o que a pessoa digita,
-guarda, faz conta, compara e decide. Hoje você pratica cada uma delas,
-escrevendo em TypeScript.
+Olha só: quase todo programa faz as mesmas cinco coisas. Lê o que a pessoa
+digita, guarda, faz conta, compara e decide.
+
+Hoje você vai praticar cada uma delas, escrevendo em TypeScript.
 
 ## O que você vai aprender
 
@@ -12,16 +13,19 @@ escrevendo em TypeScript.
 - fazer contas e comparar valores
 - escolher o caminho do programa com `if`, ternário e `switch`
 
-## Como estudar cada assunto
+## Como a gente vai estudar cada assunto
 
-1. Leia o texto e olhe o **diagrama da ideia**: é o exemplo desenhado.
-2. Leia o código. É o mesmo exemplo, com os mesmos valores.
-3. Siga o **fluxograma** com o dedo: é o caminho que o programa faz.
-4. Rode os exemplos da pasta. Mude alguma coisa e rode de novo.
-5. Faça os exercícios. Travou? As dicas estão no próprio arquivo.
+1. Primeiro, o texto e o **diagrama da ideia**: é o exemplo desenhado.
+2. Depois, o código. Repara que é o mesmo exemplo, com os mesmos valores.
+3. Aí você segue o **fluxograma** com o dedo: é o caminho que o programa faz.
+4. Hora de rodar os exemplos da pasta. Mude alguma coisa e rode de novo.
+5. Por fim, os exercícios. Travou? As dicas estão no próprio arquivo.
 
-Cada assunto conta **um exemplo só**. Se a Bia tem média 5 no texto, ela tem
-média 5 no desenho, no código e no fluxograma.
+No meio de cada assunto tem uma **Pergunta para a turma**. Tente responder
+antes de rodar o código.
+
+Guarda isso: cada assunto conta **um exemplo só**. Se a Bia tem média 5 no
+texto, ela tem média 5 no desenho, no código e no fluxograma.
 
 ## As cores e as formas
 

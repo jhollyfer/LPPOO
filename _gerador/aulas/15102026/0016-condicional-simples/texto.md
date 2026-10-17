@@ -1,7 +1,5 @@
 ## 0016 · Condicional simples (if)
 
-> Você só leva o guarda-chuva se o céu estiver feio. Sol? Sai de mãos vazias.
-
 Até agora, nossos programas rodaram de cima para baixo, linha por linha, sem
 pular nada. Hoje isso muda: o programa vai **decidir**.
 

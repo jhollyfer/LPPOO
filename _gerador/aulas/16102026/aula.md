@@ -1,6 +1,6 @@
 # Aula 02 · 16/10 · Revisão de lógica II
 
-Até agora, cada linha do programa rodava uma vez e cada variável guardava um
+Até agora, cada linha do programa rodou uma vez só, e cada variável guardou um
 valor só. Hoje isso muda.
 
 ## O que você vai aprender
@@ -10,13 +10,16 @@ valor só. Hoje isso muda.
 - buscar, transformar e organizar listas com os métodos de array
 - dar nome a um pedaço de código com **funções**, para usar de novo
 
-## Como estudar cada assunto
+## Como a gente vai estudar cada assunto
 
-1. Leia o texto e olhe o **diagrama da ideia**: é o exemplo desenhado.
-2. Leia o código. É o mesmo exemplo, com os mesmos valores.
-3. Siga o **fluxograma** com o dedo: é o caminho que o programa faz.
-4. Rode os exemplos da pasta. Mude alguma coisa e rode de novo.
-5. Faça os exercícios. Travou? As dicas estão no próprio arquivo.
+1. Primeiro, o texto e o **diagrama da ideia**: é o exemplo desenhado.
+2. Depois, o código. Repara que é o mesmo exemplo, com os mesmos valores.
+3. Aí você segue o **fluxograma** com o dedo: é o caminho que o programa faz.
+4. Hora de rodar os exemplos da pasta. Mude alguma coisa e rode de novo.
+5. Por fim, os exercícios. Travou? As dicas estão no próprio arquivo.
+
+No meio de cada assunto tem uma **Pergunta para a turma**. Tente responder
+antes de rodar o código.
 
 Nos laços, o fluxograma ganha uma seta que **volta**: é a repetição.
 

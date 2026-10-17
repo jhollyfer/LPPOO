@@ -1,8 +1,10 @@
 # Aula 03 · 19/10 · TypeScript
 
 Até aqui você escreveu TypeScript pensando na lógica. Hoje o assunto são os
-**tipos**: o jeito de dizer ao TypeScript que formato cada dado tem, para ele
-avisar o erro antes de o programa rodar.
+**tipos**.
+
+Tipo é o jeito de dizer ao TypeScript que formato cada dado tem. Com isso, ele
+avisa o erro antes de o programa rodar.
 
 ## O que você vai aprender
 
@@ -17,13 +19,16 @@ Quem entende os tipos lê o erro do editor e já sabe o que corrigir. E vai
 precisar disso: em POO as classes seguem interfaces, e no frontend os
 componentes recebem dados tipados.
 
-## Como estudar cada assunto
+## Como a gente vai estudar cada assunto
 
-1. Leia o texto e olhe o **diagrama da ideia**: é o exemplo desenhado.
-2. Leia o código. É o mesmo exemplo, com os mesmos valores.
-3. Siga o **fluxograma** com o dedo: é o caminho que o programa faz.
-4. Rode os exemplos da pasta. Mude alguma coisa e rode de novo.
-5. Faça os exercícios. Travou? As dicas estão no próprio arquivo.
+1. Primeiro, o texto e o **diagrama da ideia**: é o exemplo desenhado.
+2. Depois, o código. Repara que é o mesmo exemplo, com os mesmos valores.
+3. Aí você segue o **fluxograma** com o dedo: é o caminho que o programa faz.
+4. Hora de rodar os exemplos da pasta. Mude alguma coisa e rode de novo.
+5. Por fim, os exercícios. Travou? As dicas estão no próprio arquivo.
+
+No meio de cada assunto tem uma **Pergunta para a turma**. Tente responder
+antes de rodar o código.
 
 ## As cores e as formas
 

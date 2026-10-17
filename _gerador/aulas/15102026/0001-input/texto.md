@@ -1,9 +1,6 @@
 ## 0001 · Entrada de dados (input)
 
-> Sabe aquele colega que manda áudio de 5 minutos e nunca lê a resposta? Um
-> programa que só fala é igualzinho. Hoje ele aprende a ouvir.
-
-Pessoal, pensa na cantina. O caixa olha pra você e pergunta: "vai querer o
+Pensa na cantina. O caixa olha pra você e pergunta: "vai querer o
 quê?". E aí ele **para**. Fica esperando. Só segue depois que você responde.
 
 Entrada de dados é exatamente isso: o programa faz uma pergunta, para e espera
