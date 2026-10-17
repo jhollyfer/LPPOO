@@ -15,7 +15,7 @@ function conceito(nota: number): string {
 function mostrarBoletim(nome: string, notas: number[], casas: number = 1, recado?: string): void {
   const m = media(notas)
   console.log(`${nome}: média ${m.toFixed(casas)}, conceito ${conceito(m)}`)
-  if (recado) console.log(`  Recado: ${recado}`)
+  if (recado !== undefined) console.log(`  Recado: ${recado}`) // o recado é opcional
 }
 
 mostrarBoletim('Ana', [9, 10, 8.5]) // Ana: média 9.2, conceito A

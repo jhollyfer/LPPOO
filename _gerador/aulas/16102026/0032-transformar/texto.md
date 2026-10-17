@@ -24,6 +24,8 @@ const notas: number[] = [8, 4, 9, 5]
 const comBonus = notas.map((n) => n + 1) // [9, 5, 10, 6]
 const aprovadas = notas.filter((n) => n >= 6) // [8, 9]
 const soma = notas.reduce((acc, n) => acc + n, 0) // 26
+
+console.log(comBonus, aprovadas, soma) // [ 9, 5, 10, 6 ] [ 8, 9 ] 26
 ```
 
 A regra de cada um é uma arrow, igual à da

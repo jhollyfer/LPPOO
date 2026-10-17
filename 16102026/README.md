@@ -7,10 +7,11 @@ valor só. Hoje isso muda.
 
 ## O que você vai aprender
 
-- repetir um trecho de código com **laços** (`while`, `do...while`, `for`, `for...of`)
-- guardar vários valores numa etiqueta só com **arrays**
-- buscar, transformar e organizar listas com os métodos de array
+- repetir um trecho de código com **laços** (`while`, `do...while`, `for`, `break` e `continue`)
+- guardar vários valores numa etiqueta só com **arrays**, percorrer com `for...of`, colocar e tirar itens
 - dar nome a um pedaço de código com **funções**, para usar de novo
+- escrever funções curtas com **arrow functions** e passar uma função para outra (**callback**)
+- consultar, transformar e organizar listas com os **métodos de array**
 
 ## Como a gente vai estudar cada assunto
 
@@ -584,7 +585,7 @@ a **etiqueta**, não o que tem dentro das gavetas.
 >   ['Ana', 'Bia'], // linha 0
 >   ['Caio', 'Davi'], // linha 1
 > ]
-> console.log(sala) // a Caio está na linha 1, coluna 0
+> console.log(sala) // o Caio está na linha 1, coluna 0
 > ```
 
 > [!NOTE]
@@ -815,7 +816,7 @@ a cada linha, sem precisar de `=`:
 <p align="center"><img src="0026-inserir-remover/fluxograma.svg" alt="Fluxograma: Inserir e remover: push, pop, unshift, shift, splice" width="1422"></p>
 
 > [!NOTE]
-> O `splice(posição, quantosTirar, ...oQueColocar)` é o canivete: `splice(1, 1)`
+> O `splice(posição, quantosTirar, oQueColocar)` é o canivete: `splice(1, 1)`
 > só tira, `splice(1, 0, 'pão')` só coloca, e `splice(1, 1, 'açaí')` troca.
 
 > [!NOTE]
@@ -856,7 +857,7 @@ fila.push('Caio')
 
 const atendido = fila.shift()
 console.log(`Atendido: ${atendido}`) // Ana
-console.log(`Ainda na fila: ${fila.join(', ')}`) // Bia, Caio
+console.log('Ainda na fila:', fila) // [ 'Bia', 'Caio' ]
 ```
 
 ```bash
@@ -1000,7 +1001,7 @@ tsx ~/LPPOO/16102026/0027-funcoes/E053.ts
 **Exercício E054**
 
 Escreva a função `maiorNota(notas: number[]): number`, que devolve a maior nota
-do array. Não vale usar `sort`.
+do array.
 
 <details><summary>Dicas</summary>
 
@@ -1552,6 +1553,8 @@ const notas: number[] = [8, 4, 9, 5]
 const comBonus = notas.map((n) => n + 1) // [9, 5, 10, 6]
 const aprovadas = notas.filter((n) => n >= 6) // [8, 9]
 const soma = notas.reduce((acc, n) => acc + n, 0) // 26
+
+console.log(comBonus, aprovadas, soma) // [ 9, 5, 10, 6 ] [ 8, 9 ] 26
 ```
 
 A regra de cada um é uma arrow, igual à da

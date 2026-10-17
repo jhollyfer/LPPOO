@@ -53,7 +53,7 @@ a **etiqueta**, não o que tem dentro das gavetas.
 >   ['Ana', 'Bia'], // linha 0
 >   ['Caio', 'Davi'], // linha 1
 > ]
-> console.log(sala) // a Caio está na linha 1, coluna 0
+> console.log(sala) // o Caio está na linha 1, coluna 0
 > ```
 
 > [!NOTE]

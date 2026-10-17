@@ -5,10 +5,11 @@ valor só. Hoje isso muda.
 
 ## O que você vai aprender
 
-- repetir um trecho de código com **laços** (`while`, `do...while`, `for`, `for...of`)
-- guardar vários valores numa etiqueta só com **arrays**
-- buscar, transformar e organizar listas com os métodos de array
+- repetir um trecho de código com **laços** (`while`, `do...while`, `for`, `break` e `continue`)
+- guardar vários valores numa etiqueta só com **arrays**, percorrer com `for...of`, colocar e tirar itens
 - dar nome a um pedaço de código com **funções**, para usar de novo
+- escrever funções curtas com **arrow functions** e passar uma função para outra (**callback**)
+- consultar, transformar e organizar listas com os **métodos de array**
 
 ## Como a gente vai estudar cada assunto
 

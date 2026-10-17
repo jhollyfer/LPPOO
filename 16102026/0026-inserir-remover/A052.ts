@@ -8,4 +8,4 @@ fila.push('Caio')
 
 const atendido = fila.shift()
 console.log(`Atendido: ${atendido}`) // Ana
-console.log(`Ainda na fila: ${fila.join(', ')}`) // Bia, Caio
+console.log('Ainda na fila:', fila) // [ 'Bia', 'Caio' ]

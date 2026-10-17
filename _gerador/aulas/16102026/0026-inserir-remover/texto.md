@@ -37,7 +37,7 @@ a cada linha, sem precisar de `=`:
 {{fluxograma}}
 
 > [!NOTE]
-> O `splice(posição, quantosTirar, ...oQueColocar)` é o canivete: `splice(1, 1)`
+> O `splice(posição, quantosTirar, oQueColocar)` é o canivete: `splice(1, 1)`
 > só tira, `splice(1, 0, 'pão')` só coloca, e `splice(1, 1, 'açaí')` troca.
 
 > [!NOTE]

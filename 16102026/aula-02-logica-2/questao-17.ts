@@ -1,16 +1,16 @@
-// Aula 02 · Questão 17 · Arrow functions, callbacks e tipo de função
+// Aula 02 · Questão 17 · Arrow functions e callbacks
 // Vale ponto. Exemplo resolvido parecido: exemplo-17.ts
-// Para revisar: 0030 e 0039 no README da aula 02 (16102026/README.md)
+// Para revisar: 0030 e 0032 no README da aula 02 (16102026/README.md)
 //
-// Crie type Filtro = (n: number) => boolean e três filtros com arrow function:
-// par, positivo e maiorQueDez. Escreva aplicarFiltro(numeros: number[], filtro: Filtro): number[]
-// usando filter. Teste os três filtros no mesmo array e mostre cada resultado
-// usando forEach.
+// Crie três regras com arrow function, cada uma recebendo um número e
+// devolvendo true ou false: par, positivo e maiorQueDez. Crie um number[] com
+// pelo menos 8 números (misture negativos, pares e ímpares). Passe cada regra
+// como callback para o filter e mostre os três resultados usando forEach.
 //
 // O que precisa ter:
-// - o type Filtro
-// - três arrows do tipo Filtro, sem escrever o tipo do n
-// - aplicarFiltro recebendo a função como parâmetro
-// - forEach com arrow para mostrar
+// - as três arrows com o tipo do parâmetro e do retorno, como (n: number): boolean
+// - o filter recebendo a regra pelo nome, sem parênteses: numeros.filter(par)
+// - um forEach com arrow para mostrar cada resultado
+// - um título antes de cada lista (por exemplo, "Pares:")
 //
 // Escreva sua resposta abaixo:
