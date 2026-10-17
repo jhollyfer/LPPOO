@@ -1,6 +1,6 @@
 // A004 · Mostrar um valor dentro do texto
 
-const cidade = 'Benjamin Constant'
+const comida = 'tacacá'
 
-console.log(`Eu moro em ${cidade}`)
-// Eu moro em Benjamin Constant
+console.log(`Minha comida preferida é ${comida}`)
+// Minha comida preferida é tacacá

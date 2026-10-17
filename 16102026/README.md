@@ -28,8 +28,8 @@ Nos laços, o fluxograma ganha uma seta que **volta**: é a repetição.
 
 ## As cores e as formas
 
-Caixa azul é dado entrando ou saindo, roxa é o programa
-fazendo alguma coisa, amarela é pergunta. Os arrays aparecem como uma fileira
+Caixa azul é dado entrando ou saindo, roxa é o programa fazendo alguma coisa,
+amarela é pergunta. Os arrays aparecem como uma fileira
 de gavetas com o índice embaixo de cada uma, começando do 0.
 
 <p align="center"><img src="legenda.svg" alt="Legenda: formas e cores do fluxograma" width="916"></p>
@@ -68,19 +68,18 @@ Leia na ordem: cada assunto usa o anterior.
 
 ## 0020 · Laço while
 
-Até agora, cada linha do programa rodava uma vez só. Hoje isso muda: o
-programa vai **repetir**.
+Laço é um trecho de código que se **repete**. O primeiro laço da aula é o
+`while` (em português, "enquanto").
 
-Quem repete é o `while` (em português, "enquanto"). Ele faz uma pergunta. Se a
-resposta for `true`, roda o bloco e pergunta de novo. Quando a resposta vira
-`false`, o programa segue em frente.
+Ele faz uma pergunta. Se a resposta for `true`, roda o bloco e pergunta de
+novo. Quando a resposta vira `false`, o programa segue em frente.
 
 Vamos ver na prática. Você tem R$ 20 no cartão do ônibus e a passagem custa
 R$ 4,50. Quantas vezes dá para passar na catraca?
 
-A cada volta, o laço confere se ainda dá para pagar uma passagem, desconta
-R$ 4,50 e conta uma viagem. Na quinta pergunta sobram só R$ 2. A resposta é
-`false` e o laço acaba:
+A cada volta, o laço confere se o saldo ainda paga a passagem. Se paga,
+desconta R$ 4,50 e conta uma viagem. Na quinta pergunta sobram só R$ 2. A
+resposta é `false` e o laço acaba:
 
 <p align="center"><img src="0020-while/ideia.svg" alt="Diagrama da ideia: Laço while" width="858"></p>
 
@@ -343,9 +342,8 @@ juntas, num lugar que dá para ler de uma vez:
 
 <p align="center"><img src="0022-for/fluxograma.svg" alt="Fluxograma: Laço for" width="396"></p>
 
-> [!NOTE]
-> O nome `i` é tradição (vem de *índice*), mas pode ser qualquer um. E o passo
-> não precisa ser `i++`: `i += 2` anda de dois em dois, `i--` conta para trás.
+O nome `i` é tradição (vem de *índice*), mas pode ser qualquer um. E o passo
+não precisa ser `i++`: o `i--`, por exemplo, conta para trás.
 
 > [!NOTE]
 > **Pergunta para a turma:** troque o `i++` por `i += 2`. Quais linhas da
@@ -447,14 +445,16 @@ for (let i = 1; i <= 10; i++) {
 // 1, 3, 5, 7
 ```
 
+Quando o bloco do `if` tem uma linha só, dá para tirar as `{ }` e escrever
+tudo na mesma linha, como aqui.
+
 Repara no fluxograma: o `continue` é um atalho de volta para o `i++`. O `break`
 é uma saída direto para o fim:
 
 <p align="center"><img src="0023-break-continue/fluxograma.svg" alt="Fluxograma: break e continue" width="420"></p>
 
-> [!NOTE]
-> Use com moderação. Um laço cheio de `break` e `continue` fica difícil de
-> seguir. Quando der, coloque a regra na própria condição do laço.
+Use com moderação: um laço cheio de `break` e `continue` fica difícil de
+seguir.
 
 > [!NOTE]
 > **Pergunta para a turma:** troque o `i > 7` por `i > 4`. Quais números
@@ -532,11 +532,8 @@ tsx ~/LPPOO/16102026/0023-break-continue/E046.ts
 
 ## 0024 · Arrays (vetores)
 
-Até agora, cada caixinha guardava um valor só. Hoje isso muda: uma caixinha vai
-guardar uma lista inteira.
-
 Pensa na chamada da turma. É uma lista, e cada aluno tem um número. Um array é
-isso.
+isso: vários valores guardados com um nome só.
 
 Imagina uma fileira de gavetas com uma etiqueta só. Cada gaveta tem um número,
 o **índice**. E guarda isso: a contagem começa em **0**. A primeira gaveta é a
@@ -550,11 +547,10 @@ use o índice entre colchetes: `notas[0]` é 8. Para trocar, atribua:
 
 ```ts
 const notas: number[] = [8, 6, 9]
-const nomes: string[] = ['Ana', 'Bia', 'Caio']
 
-console.log(nomes[0]) // Ana: a primeira posição é a 0
+console.log(notas[0]) // 8: a primeira gaveta é a 0
 console.log(notas.length) // 3
-notas[1] = 7 // troca o que está na posição 1
+notas[1] = 7 // troca o que está na gaveta 1
 console.log(notas) // [ 8, 7, 9 ]
 ```
 
@@ -562,19 +558,19 @@ Repara no tipo escrito depois dos dois-pontos. Lembra dos tipos da
 [0007](../15102026/README.md#0007--booleano-boolean-typeof-null-e-undefined)?
 Com colchetes no fim, ele vira lista:
 
-- `number[]` lê assim: "lista de números".
-- `string[]` lê assim: "lista de textos".
+- `number[]` lê assim: "lista de números", como `[8, 6, 9]`.
+- `string[]` lê assim: "lista de textos", como `['Ana', 'Bia', 'Caio']`.
 
-Repara: `notas` é `const` e mesmo assim deu para trocar a nota. O `const` trava
-a **etiqueta**, não o que tem dentro das gavetas.
+E olha só: `notas` é `const` e mesmo assim deu para trocar a nota. O `const`
+trava a **etiqueta**, não o que tem dentro das gavetas. O fluxograma mostra
+esse caminho, passo a passo:
 
 <p align="center"><img src="0024-arrays/fluxograma.svg" alt="Fluxograma: Arrays (vetores)" width="1158"></p>
 
 > [!WARNING]
 > Ler uma posição que não existe não dá erro: dá `undefined`, a caixa vazia
-> que você viu na 0007. Em
-> `[8, 7, 9]`, `notas[5]` é `undefined`. A última posição é sempre
-> `notas.length - 1`.
+> que você viu na 0007. Em `[8, 7, 9]`, `notas[5]` é `undefined`. A última
+> posição é sempre `notas.length - 1`.
 
 > [!NOTE]
 > **Matriz, só como noção:** um array pode guardar outros arrays. Fica uma
@@ -585,7 +581,7 @@ a **etiqueta**, não o que tem dentro das gavetas.
 >   ['Ana', 'Bia'], // linha 0
 >   ['Caio', 'Davi'], // linha 1
 > ]
-> console.log(sala) // o Caio está na linha 1, coluna 0
+> console.log(sala[1]) // [ 'Caio', 'Davi' ]: a linha 1 inteira
 > ```
 
 > [!NOTE]
@@ -696,6 +692,8 @@ Dá para fazer o mesmo com o `for` clássico, usando o índice:
 Mas quando você não precisa do número da posição, o `for...of` é mais curto e
 mais difícil de errar.
 
+No fluxograma, a pergunta de cada volta é uma só: ainda tem nome na lista?
+
 <p align="center"><img src="0025-for-of/fluxograma.svg" alt="Fluxograma: Laço for...of" width="501"></p>
 
 > [!NOTE]
@@ -762,12 +760,13 @@ tsx ~/LPPOO/16102026/0025-for-of/E049.ts
 
 **Exercício E050**
 
-Crie um array de nomes e mostre só os que começam com a letra A.
+Crie um array com 5 nomes e mostre só os que têm mais de 4 letras.
 
 <details><summary>Dicas</summary>
 
 1. Use `for (const nome of nomes)`.
-2. `nome.startsWith('A')` responde `true` ou `false`.
+2. `nome.length` diz quantas letras o nome tem.
+3. Dentro do laço, use um `if` para decidir se mostra.
 
 </details>
 
@@ -788,9 +787,9 @@ itens:
 | Método    | Onde mexe   | O que faz                         |
 | --------- | ----------- | --------------------------------- |
 | `push`    | no fim      | coloca um item                    |
-| `pop`     | no fim      | tira o último e devolve ele       |
+| `pop`     | no fim      | tira o último e devolve esse item |
 | `unshift` | no começo   | coloca um item                    |
-| `shift`   | no começo   | tira o primeiro e devolve ele     |
+| `shift`   | no começo   | tira o primeiro e devolve esse item |
 | `splice`  | no meio     | tira e/ou coloca a partir de uma posição |
 
 Repara no desenho: cada ponta da lista tem uma entrada e uma saída. O `splice`
@@ -810,14 +809,13 @@ compras.splice(1, 1, 'açaí') // na posição 1, tira 1 e põe açaí
 console.log(compras) // [ 'arroz', 'açaí' ]
 ```
 
+O `splice(posição, quantosTirar, oQueColocar)` é o canivete: `splice(1, 1)`
+só tira, `splice(1, 0, 'pão')` só coloca, e `splice(1, 1, 'açaí')` troca.
+
 Guarda isso: os cinco **mudam o array original**. Por isso a lista vai mudando
-a cada linha, sem precisar de `=`:
+a cada linha, sem precisar de `=`. Siga no fluxograma:
 
 <p align="center"><img src="0026-inserir-remover/fluxograma.svg" alt="Fluxograma: Inserir e remover: push, pop, unshift, shift, splice" width="1422"></p>
-
-> [!NOTE]
-> O `splice(posição, quantosTirar, oQueColocar)` é o canivete: `splice(1, 1)`
-> só tira, `splice(1, 0, 'pão')` só coloca, e `splice(1, 1, 'açaí')` troca.
 
 > [!NOTE]
 > **Pergunta para a turma:** apague a linha do `splice` e rode de novo. Como
@@ -883,14 +881,16 @@ tsx ~/LPPOO/16102026/0026-inserir-remover/E051.ts
 
 **Exercício E052**
 
-Peça o nome de um item com `input` e remova esse item da lista, se ele
-existir. Se não existir, mostre "Esse item não está na lista".
+Comece com a lista `['arroz', 'feijão', 'café']`. Peça o nome de um item com
+`input` e remova esse item da lista, se ele existir. Se não existir, mostre
+"Esse item não está na lista". No fim, mostre a lista.
 
 <details><summary>Dicas</summary>
 
-1. Descubra a posição com `indexOf`.
-2. `indexOf` devolve `-1` quando não acha.
-3. Remova com `splice(posicao, 1)`.
+1. Percorra com `for (let i = 0; i < lista.length; i++)`.
+2. Quando `lista[i] === item`, remova com `lista.splice(i, 1)`.
+3. Use um `let achou = false` e troque para `true` quando remover.
+4. Achou? Pode parar o laço com `break`.
 
 </details>
 
@@ -1018,8 +1018,8 @@ tsx ~/LPPOO/16102026/0027-funcoes/E054.ts
 
 ## 0028 · Parâmetro opcional, valor padrão e void
 
-Até agora, toda chamada mandava todos os valores. Hoje isso muda: tem
-parâmetro que pode ficar de fora.
+Até agora, toda chamada mandava todos os valores. Mas tem parâmetro que pode
+ficar de fora.
 
 Pensa no pedido de pastel na cantina. O sabor você tem que dizer. Se não falar
 o tamanho, vem o médio. E o suco é opcional: pede quem quer.
@@ -1031,6 +1031,9 @@ Com parâmetro é igual:
   vale `'médio'`.
 - **Opcional**: `suco?: string`. O `?` diz que pode ficar de fora. Aí, dentro
   da função, ele vale `undefined`, a caixa vazia.
+
+Os parâmetros com valor padrão e os opcionais vêm sempre **depois** dos
+obrigatórios.
 
 Olha o pedido da Ana. Ela só disse `'carne'`. O tamanho veio do padrão e o suco
 ficou vazio:
@@ -1065,10 +1068,6 @@ No fluxograma, siga o pedido da Ana. As duas perguntas são o que a função
 decide sozinha:
 
 <p align="center"><img src="0028-parametros/fluxograma.svg" alt="Fluxograma: Parâmetro opcional, valor padrão e void" width="511"></p>
-
-> [!NOTE]
-> Guarda isso: os parâmetros com valor padrão e os opcionais vêm **depois** dos
-> obrigatórios.
 
 > [!NOTE]
 > **Pergunta para a turma:** o que aparece com `pedirPastel('frango',
@@ -1185,9 +1184,8 @@ chamada e somem quando ela acaba:
 
 <p align="center"><img src="0029-escopo/fluxograma.svg" alt="Fluxograma: Escopo de variáveis" width="1537"></p>
 
-> [!NOTE]
-> Isso vale para todo bloco entre `{ }`, como o de um `if` ou de um `for`. A
-> variável criada lá dentro, com `let` ou `const`, só existe lá dentro.
+Isso vale para todo bloco entre `{ }`, como o de um `if` ou de um `for`. A
+variável criada lá dentro, com `let` ou `const`, só existe lá dentro.
 
 > [!NOTE]
 > **Pergunta para a turma:** o que acontece se você tirar o `//` da última
@@ -1435,6 +1433,9 @@ O `find` e o `some` recebem uma **regra**: `(p) => p > 20`. Lembra da arrow da
 [0030](#0030--arrow-functions-e-callbacks)? É ela, passada como callback. O
 método chama a regra para cada preço e vê se dá `true`.
 
+Repara que o `p` ficou sem o `: number`. Nem precisa: como `precos` é
+`number[]`, o TypeScript já sabe que cada preço é um número.
+
 Tem mais dois da mesma família:
 
 - `findIndex(regra)`: igual ao `find`, mas devolve a **posição**.
@@ -1499,8 +1500,8 @@ menor de 18 e `every` para dizer se todos têm mais de 15.
 
 <details><summary>Dicas</summary>
 
-1. `idades.some((i) => i < 18)`.
-2. `idades.every((i) => i > 15)`.
+1. `idades.some((idade) => idade < 18)`.
+2. `idades.every((idade) => idade > 15)`.
 3. Mostre as respostas numa frase.
 
 </details>
@@ -1573,10 +1574,9 @@ nota, e não mexe no original:
 
 <p align="center"><img src="0032-transformar/fluxograma.svg" alt="Fluxograma: Transformar: map, filter, reduce, forEach" width="469"></p>
 
-> [!NOTE]
-> Dá para **encadear**: o resultado de um vira a entrada do próximo.
-> `notas.filter((n) => n >= 6).map((n) => n + 1)` filtra e depois dá o bônus:
-> `[9, 10]`.
+Dá para **encadear**: o resultado de um vira a entrada do próximo.
+`notas.filter((n) => n >= 6).map((n) => n + 1)` filtra e depois dá o bônus:
+`[9, 10]`.
 
 > [!NOTE]
 > **Pergunta para a turma:** se você trocar o `0` do `reduce` por `10`, quanto
@@ -1681,6 +1681,9 @@ A regra do `sort` é uma arrow com dois números, `a` e `b`. Lembra da
 [0030](#0030--arrow-functions-e-callbacks)? O `a - b` deixa do menor para o
 maior. O `b - a` deixa do maior para o menor.
 
+O `slice` também tira foto de um **pedaço**: `notas.slice(0, 2)` dá `[8, 10]`.
+Ele começa na posição 0 e para antes da posição 2.
+
 Tem mais dois da mesma família:
 
 - `reverse()`: **inverte** a ordem. `copia.reverse()` deixa `[10, 9, 8, 6]`.
@@ -1783,9 +1786,9 @@ Hora de juntar tudo num programa só. Esse é o fechamento da aula.
 O professor digita as notas da turma, uma por uma, até responder `n`. No fim,
 o programa mostra a média e as notas de 6 para cima.
 
-Cada parte usa uma seção desta aula. Olha só:
+Cada parte usa um assunto desta aula. Olha só:
 
-| Parte do programa                    | Seção                                  |
+| Parte do programa                    | Assunto                                |
 | ------------------------------------ | -------------------------------------- |
 | `do...while` pedindo as notas        | [0021](#0021--laço-dowhile)            |
 | `notas: number[]` e `push`           | [0024](#0024--arrays-vetores) e [0026](#0026--inserir-e-remover-push-pop-unshift-shift-splice) |
@@ -1889,8 +1892,8 @@ tsx ~/LPPOO/16102026/0034-juntando-tudo/A068.ts
 
 **Exercício E067**
 
-Copie o programa do exemplo 1 e acrescente no relatório a maior e a menor
-nota digitada.
+Copie o programa das notas da turma, o do texto deste assunto, e acrescente
+no relatório a maior e a menor nota digitada.
 
 <details><summary>Dicas</summary>
 

@@ -1,7 +1,10 @@
-// A007 · const não muda
+// A007 · let muda, const não
 
-const NOME_ESCOLA = 'CETAM'
-console.log(NOME_ESCOLA)
+const ANO_FORMATURA = 2027
+let turma = 'Turma A'
 
-// NOME_ESCOLA = 'Outra escola'
-// erro: Cannot assign to 'NOME_ESCOLA' because it is a constant.
+turma = 'Turma B' // trocou de turma: com let, pode
+console.log(`A ${turma} se forma em ${ANO_FORMATURA}`) // A Turma B se forma em 2027
+
+// ANO_FORMATURA = 2028
+// erro: Cannot assign to 'ANO_FORMATURA' because it is a constant.

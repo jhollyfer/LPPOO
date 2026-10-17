@@ -8,4 +8,4 @@ const cetam: Escola = {
   endereco: { cidade: 'Benjamin Constant', bairro: 'Centro' },
 }
 
-console.log(`${cetam.nome} fica em ${cetam.endereco.cidade}`)
+console.log(`${cetam.nome} fica em ${cetam.endereco.cidade}`) // CETAM fica em Benjamin Constant

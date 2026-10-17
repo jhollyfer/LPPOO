@@ -13,7 +13,8 @@ chamada `nome`:
 {{ideia}}
 
 Quem faz a pergunta é o `input`. Ele mostra o texto, espera o Enter e devolve o
-que a pessoa digitou:
+que a pessoa digitou. O `const` cria a caixinha que guarda a resposta (você vai
+ver ela de perto na 0003 e na 0004):
 
 ```ts
 import { input } from '#core/input.ts'
@@ -21,6 +22,8 @@ import { input } from '#core/input.ts'
 const nome = input('Seu nome: ') // a Ana digita: Ana
 console.log(nome) // Ana
 ```
+
+O `console.log` mostra o valor na tela. Ele é o assunto da 0002.
 
 Repara no fluxograma: ler e mostrar são paralelogramos azuis. Azul é sempre
 dado entrando ou saindo.

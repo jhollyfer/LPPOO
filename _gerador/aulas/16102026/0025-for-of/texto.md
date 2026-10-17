@@ -31,6 +31,8 @@ Dá para fazer o mesmo com o `for` clássico, usando o índice:
 Mas quando você não precisa do número da posição, o `for...of` é mais curto e
 mais difícil de errar.
 
+No fluxograma, a pergunta de cada volta é uma só: ainda tem nome na lista?
+
 {{fluxograma}}
 
 > [!NOTE]

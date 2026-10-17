@@ -1,16 +1,16 @@
-// A097 · Tuplas: nome e nota
+// A097 · Uma lista de tuplas: o ranking da turma
 
-const nota: [string, number] = ['Ana', 8]
-const [nome, valor] = nota
-console.log(`${nome} tirou ${valor}`)
-
-// uma lista de tuplas: o ranking da turma
 const ranking: [string, number][] = [
   ['Bia', 10],
   ['Caio', 9],
   ['Ana', 8],
 ]
 
-for (const [aluno, n] of ranking) {
-  console.log(`${aluno.padEnd(6)} ${n}`)
+let lugar = 1
+for (const [aluno, nota] of ranking) {
+  console.log(`${lugar}º ${aluno}: ${nota}`)
+  lugar++
 }
+// 1º Bia: 10
+// 2º Caio: 9
+// 3º Ana: 8

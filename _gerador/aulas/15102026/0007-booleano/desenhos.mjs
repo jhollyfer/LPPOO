@@ -1,32 +1,32 @@
 export const ideia = {
   caixas: [
-    { id: 'voce', forma: 'pessoa', x: 110, y: 90, nome: 'você' },
-    { id: 'b', forma: 'balao', x: 190, y: -20, texto: 'sim', cor: 'azul' },
-    { id: 'cmp', x: 520, y: 120, w: 400, cor: 'roxo', rotulo: 'compara', texto: ["resposta === 'sim'"] },
+    { id: 'ana', forma: 'pessoa', x: 110, y: 90, nome: 'Ana' },
+    { id: 'b', forma: 'balao', x: 190, y: -20, texto: 'ana@gmail.com', cor: 'azul' },
+    { id: 'cmp', x: 560, y: 120, w: 420, cor: 'roxo', rotulo: 'pergunta', texto: ["email.includes('@')"] },
     {
       id: 'cx',
       forma: 'caixinha',
-      x: 1110,
+      x: 1140,
       y: 66,
-      nome: 'temAula',
+      nome: 'temArroba',
       valor: 'true',
       tipo: 'boolean',
       cor: 'verde',
     },
   ],
   setas: [
-    { de: 'voce', para: 'cmp', rotulo: "'sim'" },
+    { de: 'ana', para: 'cmp', rotulo: 'email' },
     { de: 'cmp', para: 'cx', rotulo: 'guarda' },
   ],
-  notas: [{ x: 520, y: 340, texto: 'Digitou outra coisa? A comparação dá false.', cor: 'vermelho' }],
+  notas: [{ x: 560, y: 340, texto: 'Texto sem @? Aí a resposta é false.', cor: 'vermelho' }],
 }
 
 export const fluxograma = {
   nos: [
     ['A', 'inicio', 'Início'],
-    ['B', 'io', 'Ler resposta (sim/nao)'],
-    ['C', 'proc', "temAula = resposta === 'sim'"],
-    ['D', 'io', 'Mostrar temAula'],
+    ['B', 'io', 'Ler email'],
+    ['C', 'proc', "temArroba = email.includes('@')"],
+    ['D', 'io', 'Mostrar temArroba'],
     ['E', 'inicio', 'Fim'],
   ],
   setas: [

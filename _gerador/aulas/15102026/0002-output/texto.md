@@ -1,6 +1,6 @@
 ## 0002 · Saída de dados (output)
 
-Na aula passada, o programa perguntou e esperou. Agora é a vez dele responder.
+No assunto anterior, o programa perguntou e esperou. Agora é a vez dele responder.
 
 Saída é o programa mostrando alguma coisa para você. No terminal, quem faz isso
 é o `console.log`. O que estiver entre os parênteses aparece na tela.

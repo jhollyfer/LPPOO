@@ -1,6 +1,7 @@
-// A012 · Casas decimais com toFixed
+// A012 · Escolhendo as casas decimais
 
-const preco = 12.5
+const altura = 1.756
 
-console.log(preco.toFixed(2)) // 12.50
-console.log(`Total: R$ ${preco.toFixed(2)}`)
+console.log(altura.toFixed(2)) // 1.76 (arredondou)
+console.log(altura.toFixed(1)) // 1.8
+console.log(`Altura: ${altura.toFixed(2)} m`) // Altura: 1.76 m

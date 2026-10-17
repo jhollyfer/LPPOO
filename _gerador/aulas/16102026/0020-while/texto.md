@@ -1,18 +1,17 @@
 ## 0020 · Laço while
 
-Até agora, cada linha do programa rodava uma vez só. Hoje isso muda: o
-programa vai **repetir**.
+Laço é um trecho de código que se **repete**. O primeiro laço da aula é o
+`while` (em português, "enquanto").
 
-Quem repete é o `while` (em português, "enquanto"). Ele faz uma pergunta. Se a
-resposta for `true`, roda o bloco e pergunta de novo. Quando a resposta vira
-`false`, o programa segue em frente.
+Ele faz uma pergunta. Se a resposta for `true`, roda o bloco e pergunta de
+novo. Quando a resposta vira `false`, o programa segue em frente.
 
 Vamos ver na prática. Você tem R$ 20 no cartão do ônibus e a passagem custa
 R$ 4,50. Quantas vezes dá para passar na catraca?
 
-A cada volta, o laço confere se ainda dá para pagar uma passagem, desconta
-R$ 4,50 e conta uma viagem. Na quinta pergunta sobram só R$ 2. A resposta é
-`false` e o laço acaba:
+A cada volta, o laço confere se o saldo ainda paga a passagem. Se paga,
+desconta R$ 4,50 e conta uma viagem. Na quinta pergunta sobram só R$ 2. A
+resposta é `false` e o laço acaba:
 
 {{ideia}}
 

@@ -48,9 +48,9 @@ export const ideia = {
 
 export const fluxograma = {
   nos: [
-    ['A', 'inicio', 'tamanho(valor: unknown)'],
+    ['A', 'inicio', "tamanho('Benjamin')"],
     ['B', 'dec', "typeof valor === 'string'?"],
-    ['C', 'io', 'devolve valor.length'],
+    ['C', 'io', 'devolve valor.length: 8'],
     ['D', 'dec', "typeof valor === 'number'?"],
     ['E', 'io', 'devolve quantos dígitos'],
     ['F', 'io', 'devolve 0'],

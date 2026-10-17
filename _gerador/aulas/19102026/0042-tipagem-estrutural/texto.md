@@ -3,11 +3,8 @@
 Pensa no porteiro do show. Ele não pergunta seu nome. Ele olha se você tem
 pulseira e se ela é da cor certa.
 
-Em linguagens como Java e C#, o porteiro pergunta o nome. Um valor só serve
-para um tipo se ele foi **declarado** daquele tipo.
-
-O TypeScript é o porteiro da pulseira. Ele olha o **formato**. Se o objeto tem
-as propriedades que o tipo pede, com os tipos certos, ele serve.
+O TypeScript é esse porteiro. Ele olha o **formato**: se o objeto tem as
+propriedades que o tipo pede, com os tipos certos, o objeto serve.
 
 Isso se chama **tipagem estrutural**.
 
@@ -15,8 +12,8 @@ Olha só. A `apresentar` pede um `Aluno`: algo com `nome` texto e `idade`
 número.
 
 A `ana` tem esse formato. O `visitante` também tem, e ainda sobra uma
-`cidade`: serve mesmo assim. Já um objeto sem `idade` não tem o formato e é
-barrado:
+`cidade`: serve mesmo assim. Já a Bia, sem `idade`, não tem o formato e é
+barrada:
 
 {{ideia}}
 
@@ -31,7 +28,7 @@ const ana = { nome: 'Ana', idade: 17 }
 const visitante = { nome: 'Zé', idade: 40, cidade: 'Benjamin Constant' }
 
 console.log(apresentar(ana)) // Ana, 17 anos
-console.log(apresentar(visitante)) // Zé, 40 anos: tem o formato, então serve
+console.log(apresentar(visitante)) // Zé, 40 anos (a cidade sobra, e tudo bem)
 ```
 
 Repara: nem a `ana` nem o `visitante` foram declarados como `Aluno`. O

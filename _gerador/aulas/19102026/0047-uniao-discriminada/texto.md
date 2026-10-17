@@ -13,8 +13,9 @@ qual é o formato.
 
 Isso é a **união discriminada**.
 
-Agora repara no `switch` no `tipo`. Ele funciona como o cardápio da aula 01:
-cada `case` já recebe o formato certo, com as propriedades certas:
+Na prática, quem olha o discriminante é um `switch (p.tipo)`. É o cardápio
+da aula 01: cada `case` é uma opção, e dentro dele o `p` já tem as
+propriedades certas:
 
 {{ideia}}
 
@@ -40,12 +41,15 @@ console.log(descrever({ tipo: 'cartao', parcelas: 3 })) // Cartão em 3x
 console.log(descrever({ tipo: 'dinheiro', recebido: 20, total: 15 })) // Troco: R$ 5.00
 ```
 
+No fluxograma, o `switch` abre um caminho para cada tipo. O exemplo do Pix
+segue o caminho marcado:
+
 {{fluxograma}}
 
 > [!TIP]
 > **Poder do TypeScript:** coloque um `default` que guarda o valor num
-> `never`. Aí, se alguém criar um tipo novo de pagamento e esquecer de tratar,
-> o TypeScript avisa:
+> `never` (o tipo do "isso nunca acontece", do assunto 0036). Se alguém criar
+> um tipo novo de pagamento e esquecer de tratar, o TypeScript avisa:
 >
 > ```ts
 > // acrescentaram | { tipo: 'boleto' } no Pagamento...

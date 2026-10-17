@@ -1,21 +1,22 @@
-// A098 · enum Turno
+// A098 · enum Nivel: o nível do curso de inglês
 
-enum Turno {
-  Manha = 'manhã',
-  Tarde = 'tarde',
-  Noite = 'noite',
+enum Nivel {
+  Basico = 'básico',
+  Intermediario = 'intermediário',
+  Avancado = 'avançado',
 }
 
-function horario(t: Turno): string {
-  switch (t) {
-    case Turno.Manha:
-      return '07:00'
-    case Turno.Tarde:
-      return '13:00'
-    case Turno.Noite:
-      return '19:00'
+function aulasPorSemana(n: Nivel): number {
+  switch (n) {
+    case Nivel.Basico:
+      return 3
+    case Nivel.Intermediario:
+      return 2
+    case Nivel.Avancado:
+      return 1
   }
 }
 
-const meuTurno: Turno = Turno.Noite
-console.log(`Turno da ${meuTurno} começa às ${horario(meuTurno)}`)
+const nivelDaBia: Nivel = Nivel.Intermediario
+console.log(`Nível ${nivelDaBia}: ${aulasPorSemana(nivelDaBia)} aulas por semana`)
+// Nível intermediário: 2 aulas por semana

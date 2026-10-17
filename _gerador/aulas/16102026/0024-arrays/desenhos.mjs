@@ -32,7 +32,7 @@ export const fluxograma = {
   nos: [
     ['A', 'inicio', 'Início'],
     ['B', 'proc', 'notas = [8, 6, 9]'],
-    ['C', 'io', 'Mostrar nomes[0]'],
+    ['C', 'io', 'Mostrar notas[0] e notas.length'],
     ['D', 'proc', 'notas[1] = 7'],
     ['E', 'io', 'Mostrar notas'],
     ['F', 'inicio', 'Fim'],

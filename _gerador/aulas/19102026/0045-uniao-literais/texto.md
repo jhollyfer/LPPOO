@@ -5,7 +5,7 @@ A **união** se escreve com `|` e quer dizer "**um ou outro**".
 `number | string` é um valor que pode ser número ou texto. Um dos dois.
 
 Agora olha só: o tipo também pode ser um **valor exato**. Esse é o tipo
-**literal**.
+**literal**. O tipo `'noite'` só aceita o texto `'noite'`.
 
 Junta os dois e você escreve a lista do que é permitido:
 `type Turno = 'manhã' | 'tarde' | 'noite'`. São três turnos. "Madrugada" não
@@ -34,13 +34,12 @@ console.log(horario(meuTurno)) // 19h às 22h
 console.log(matricula) // A27
 ```
 
+Bônus: escreva `horario('` no editor e ele sugere as três opções. A lista
+vira autocompletar.
+
 O fluxograma mostra a conferência que o TypeScript faz antes de rodar:
 
 {{fluxograma}}
-
-> [!NOTE]
-> Bônus: escreva `horario('` no editor e ele sugere as três opções. A lista
-> vira autocompletar.
 
 > [!TIP]
 > **Poder do TypeScript:** texto fora da lista não passa:

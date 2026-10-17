@@ -23,7 +23,7 @@ export const ideia = {
 export const fluxograma = {
   nos: [
     ['A', 'inicio', 'cria o objeto aluna'],
-    ['B', 'io', 'mostra aluna.nome'],
+    ['B', 'io', 'mostra aluna.nome e aluna.turno'],
     ['C', 'proc', 'aluna.idade = 17'],
     ['D', 'io', 'mostra aluna.idade'],
   ],

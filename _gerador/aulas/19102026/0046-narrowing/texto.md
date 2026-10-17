@@ -19,12 +19,12 @@ No exemplo, a matrícula pode chegar como número (`27`) ou como texto
 ```ts
 function formatarMatricula(m: number | string): string {
   if (typeof m === 'number') {
-    return `M-${m.toString().padStart(4, '0')}` // aqui m é number
+    return `A${m}` // aqui m é number
   }
   return m.toUpperCase() // aqui só sobrou string
 }
 
-console.log(formatarMatricula(27)) // M-0026
+console.log(formatarMatricula(27)) // A27
 console.log(formatarMatricula('a27')) // A27
 ```
 
@@ -34,16 +34,15 @@ O fluxograma mostra a pergunta que divide o tipo:
 
 {{fluxograma}}
 
-Essas são as perguntas que estreitam o tipo:
+Estas são as perguntas que estreitam o tipo:
 
-| Pergunta                   | Exemplo                            |
-| -------------------------- | ---------------------------------- |
-| `typeof`                   | `typeof m === 'number'`            |
-| igualdade                  | `turno === 'noite'`                |
-| verdadeiro ou falso        | `if (apelido)` tira o `undefined`  |
-| `in`                       | `'nota' in aluno`                  |
-| `instanceof`               | `erro instanceof Error`            |
-| `Array.isArray`            | `Array.isArray(valor)`             |
+| Pergunta            | Exemplo                           | O que ela confere                 |
+| ------------------- | --------------------------------- | --------------------------------- |
+| `typeof`            | `typeof m === 'number'`           | o tipo do valor                   |
+| igualdade           | `turno === 'noite'`               | um valor exato                    |
+| verdadeiro ou falso | `if (apelido)`                    | tira o `undefined` e o `''`       |
+| `in`                | `'nota' in aluno`                 | se o objeto tem a propriedade     |
+| `Array.isArray`     | `Array.isArray(valor)`            | se o valor é uma lista            |
 
 > [!TIP]
 > **Poder do TypeScript:** antes da pergunta, ele não deixa usar o que não
@@ -57,7 +56,8 @@ Essas são as perguntas que estreitam o tipo:
 > ```
 
 > [!NOTE]
-> **Pergunta para a turma:** o que aparece com `formatarMatricula(12345)`? O
-> número é cortado para caber em 4 dígitos? Rode e descubra.
+> **Pergunta para a turma:** o que aparece com `formatarMatricula('27')`, com
+> aspas? Qual caminho ele segue? Rode e descubra. (Dica: o `typeof` olha o
+> tipo, não a cara do valor.)
 
 {{pratique}}

@@ -29,10 +29,10 @@ export const ideia = {
 
 export const fluxograma = {
   nos: [
-    ['A', 'inicio', 'chamar(aluno)'],
-    ['B', 'dec', 'aluno.apelido existe?'],
+    ['A', 'inicio', 'chamar(ana)'],
+    ['B', 'dec', 'ana.apelido existe?'],
     ['C', 'io', 'devolve o apelido'],
-    ['D', 'io', 'devolve o nome'],
+    ['D', 'io', "devolve o nome: 'Ana'"],
   ],
   setas: [
     ['A', 'B'],

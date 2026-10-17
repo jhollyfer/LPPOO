@@ -8,7 +8,7 @@ export const ideia = {
       w: 440,
       cor: 'verde',
       rotulo: 'visitante',
-      texto: ["nome: 'Zé', idade: 40", "cidade: 'BC' (sobra)"],
+      texto: ["nome: 'Zé', idade: 40", 'cidade (sobra)'],
     },
     { id: 's', x: 110, y: 420, w: 440, cor: 'vermelho', rotulo: 'sem idade', texto: ["nome: 'Bia'"] },
     {

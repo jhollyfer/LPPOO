@@ -1,6 +1,7 @@
-// A009 · Tamanho e maiúsculas
+// A009 · Tamanho, maiúsculas e minúsculas
 
-const nome = 'Maria'
+const cidade = 'Manaus'
 
-console.log(nome.length) // 5
-console.log(nome.toUpperCase()) // MARIA
+console.log(cidade.length) // 6
+console.log(cidade.toUpperCase()) // MANAUS
+console.log(cidade.toLowerCase()) // manaus

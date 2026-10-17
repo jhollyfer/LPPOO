@@ -29,11 +29,11 @@ export const ideia = {
 
 export const fluxograma = {
   nos: [
-    ['A', 'inicio', 'descrever(pagamento)'],
+    ['A', 'inicio', "descrever({ tipo: 'pix', ... })"],
     ['B', 'dec', 'p.tipo'],
-    ['C', 'io', 'Pix para a chave'],
-    ['D', 'io', 'Cartão em Nx'],
-    ['E', 'io', 'Troco em reais'],
+    ['C', 'io', 'Pix para cantina@cetam'],
+    ['D', 'io', 'Cartão em 3x'],
+    ['E', 'io', 'Troco: R$ 5.00'],
   ],
   setas: [
     ['A', 'B'],

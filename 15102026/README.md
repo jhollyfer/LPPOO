@@ -83,7 +83,8 @@ chamada `nome`:
 <p align="center"><img src="0001-input/ideia.svg" alt="Diagrama da ideia: Entrada de dados (input)" width="858"></p>
 
 Quem faz a pergunta é o `input`. Ele mostra o texto, espera o Enter e devolve o
-que a pessoa digitou:
+que a pessoa digitou. O `const` cria a caixinha que guarda a resposta (você vai
+ver ela de perto na 0003 e na 0004):
 
 ```ts
 import { input } from '#core/input.ts'
@@ -91,6 +92,8 @@ import { input } from '#core/input.ts'
 const nome = input('Seu nome: ') // a Ana digita: Ana
 console.log(nome) // Ana
 ```
+
+O `console.log` mostra o valor na tela. Ele é o assunto da 0002.
 
 Repara no fluxograma: ler e mostrar são paralelogramos azuis. Azul é sempre
 dado entrando ou saindo.
@@ -110,13 +113,13 @@ dado entrando ou saindo.
 
 Os arquivos ficam em [`0001-input/`](0001-input/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A001 · Perguntar o nome**
+**Exemplo A001 · Perguntar o time do coração**
 
 ```ts
 import { input } from '#core/input.ts'
 
-const nome = input('Qual é o seu nome? ')
-console.log(nome)
+const time = input('Qual é o seu time do coração? ')
+console.log(time)
 ```
 
 ```bash
@@ -176,7 +179,7 @@ tsx ~/LPPOO/15102026/0001-input/E002.ts
 
 ## 0002 · Saída de dados (output)
 
-Na aula passada, o programa perguntou e esperou. Agora é a vez dele responder.
+No assunto anterior, o programa perguntou e esperou. Agora é a vez dele responder.
 
 Saída é o programa mostrando alguma coisa para você. No terminal, quem faz isso
 é o `console.log`. O que estiver entre os parênteses aparece na tela.
@@ -225,10 +228,10 @@ tsx ~/LPPOO/15102026/0002-output/A003.ts
 **Exemplo A004 · Mostrar um valor dentro do texto**
 
 ```ts
-const cidade = 'Benjamin Constant'
+const comida = 'tacacá'
 
-console.log(`Eu moro em ${cidade}`)
-// Eu moro em Benjamin Constant
+console.log(`Minha comida preferida é ${comida}`)
+// Minha comida preferida é tacacá
 ```
 
 ```bash
@@ -331,15 +334,15 @@ tsx ~/LPPOO/15102026/0003-variaveis/A005.ts
 ```ts
 let nome = 'Ana'
 let idade = 17
-let matriculado = false
+let cidade = 'Tabatinga'
 
-console.log(nome, idade, matriculado)
+console.log(nome, idade, cidade) // Ana 17 Tabatinga
 
 nome = 'Ana Clara' // corrigiu o nome no cadastro
 idade = 18 // fez aniversário
-matriculado = true // fez a matrícula
+cidade = 'Benjamin Constant' // mudou de cidade
 
-console.log(nome, idade, matriculado)
+console.log(nome, idade, cidade) // Ana Clara 18 Benjamin Constant
 ```
 
 ```bash
@@ -365,13 +368,13 @@ tsx ~/LPPOO/15102026/0003-variaveis/E005.ts
 
 **Exercício E006**
 
-Monte sua ficha com `let`: seu nome, sua idade e se você gosta de programar
-(`true` ou `false`, seja sincero). Mostre tudo. Depois mude a idade para a
-que você vai ter no ano que vem e mostre de novo.
+Monte sua ficha com `let`: seu nome, sua idade e sua comida preferida. Mostre
+tudo. Depois mude a idade para a que você vai ter no ano que vem e mostre de
+novo.
 
 <details><summary>Dicas</summary>
 
-1. Texto vai entre aspas. Número, `true` e `false` vão sem aspas.
+1. Texto vai entre aspas. Número vai sem aspas.
 2. Para mudar o valor, escreva só `idade = ...`, sem o `let`.
 3. Um `console.log` aceita vários valores separados por vírgula.
 
@@ -413,28 +416,31 @@ E repara no fluxograma: a constante é guardada antes da pergunta.
 
 <p align="center"><img src="0004-constantes/fluxograma.svg" alt="Fluxograma: Constantes" width="966"></p>
 
-> [!NOTE]
+> [!TIP]
 > Na dúvida, comece com `const`. Precisou mudar depois? Troque para `let`.
 > Valor fixo do programa vai em `UPPER_CASE` (`NOME_ESCOLA`, `MEDIA_APROVACAO`).
 > O resto continua em `camelCase` (`nome`).
 
 > [!NOTE]
 > **Pergunta para a turma:** tire as `//` da linha `NOME_ESCOLA = 'Outra escola'`.
-> O editor reclama? E o programa, chega a mostrar a frase da Ana? Rode e
-> descubra.
+> O editor reclama? E quando você roda, a frase da Ana aparece antes do erro?
+> Rode e descubra.
 
 ### Hora de praticar
 
 Os arquivos ficam em [`0004-constantes/`](0004-constantes/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A007 · const não muda**
+**Exemplo A007 · let muda, const não**
 
 ```ts
-const NOME_ESCOLA = 'CETAM'
-console.log(NOME_ESCOLA)
+const ANO_FORMATURA = 2027
+let turma = 'Turma A'
 
-// NOME_ESCOLA = 'Outra escola'
-// erro: Cannot assign to 'NOME_ESCOLA' because it is a constant.
+turma = 'Turma B' // trocou de turma: com let, pode
+console.log(`A ${turma} se forma em ${ANO_FORMATURA}`) // A Turma B se forma em 2027
+
+// ANO_FORMATURA = 2028
+// erro: Cannot assign to 'ANO_FORMATURA' because it is a constant.
 ```
 
 ```bash
@@ -526,7 +532,8 @@ roxo:
 <p align="center"><img src="0005-texto/fluxograma.svg" alt="Fluxograma: Texto (string)" width="975"></p>
 
 > [!WARNING]
-> Cuidado: com texto, o `+` cola em vez de somar. `'5' + 3` vira `'53'`.
+> Cuidado: com texto, o `+` cola em vez de somar. `'Ana' + 'Clara'` vira
+> `'AnaClara'`. E `'5' + '3'` vira `'53'`, e não 8.
 
 <details>
 <summary>As ferramentas que mais aparecem</summary>
@@ -537,8 +544,6 @@ roxo:
 | `texto.toUpperCase()` | tudo em MAIÚSCULAS                 | `'MARIA'`            |
 | `texto.toLowerCase()` | tudo em minúsculas                 | `'maria'`            |
 | `texto.trim()`        | tira os espaços das pontas         | `'maria'`            |
-| `texto.includes('ar')`| `true` se o texto contém `'ar'`    | `true`               |
-| `texto.split('')`     | quebra o texto em pedaços          | `['m','a','r','i','a']` |
 
 </details>
 
@@ -550,26 +555,28 @@ roxo:
 
 Os arquivos ficam em [`0005-texto/`](0005-texto/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A009 · Tamanho e maiúsculas**
+**Exemplo A009 · Tamanho, maiúsculas e minúsculas**
 
 ```ts
-const nome = 'Maria'
+const cidade = 'Manaus'
 
-console.log(nome.length) // 5
-console.log(nome.toUpperCase()) // MARIA
+console.log(cidade.length) // 6
+console.log(cidade.toUpperCase()) // MANAUS
+console.log(cidade.toLowerCase()) // manaus
 ```
 
 ```bash
 tsx ~/LPPOO/15102026/0005-texto/A009.ts
 ```
 
-**Exemplo A010 · Limpar espaços e procurar**
+**Exemplo A010 · Colar textos com +**
 
 ```ts
-const frase = '   Eu gosto de TypeScript   '
+const nome = 'Ana'
+const sobrenome = 'Souza'
 
-console.log(frase.trim()) // 'Eu gosto de TypeScript'
-console.log(frase.includes('TypeScript')) // true
+console.log(nome + sobrenome) // AnaSouza
+console.log(nome + ' ' + sobrenome) // Ana Souza (o espaço também é texto)
 ```
 
 ```bash
@@ -636,13 +643,9 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 
 <p align="center"><img src="0006-numero/fluxograma.svg" alt="Fluxograma: Número (number)" width="1071"></p>
 
-> [!NOTE]
+> [!TIP]
 > Repara: o `.toFixed` devolve texto, pronto para mostrar. Para fazer mais
 > contas, continue usando o `preco`.
-
-> [!WARNING]
-> Conta que não faz sentido vira `NaN` ("Not a Number"). Por exemplo,
-> `Number('abc')` dá `NaN`.
 
 > [!NOTE]
 > **Pergunta para a turma:** troque o `toFixed(2)` por `toFixed(0)`. Qual preço
@@ -652,27 +655,28 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 
 Os arquivos ficam em [`0006-numero/`](0006-numero/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A011 · Inteiros e decimais**
+**Exemplo A011 · Inteiros, decimais e negativos**
 
 ```ts
 const idade = 17
 const altura = 1.68
+const temperatura = -3
 
-console.log(idade, altura)
-console.log(typeof altura) // number
+console.log(idade, altura, temperatura) // 17 1.68 -3
 ```
 
 ```bash
 tsx ~/LPPOO/15102026/0006-numero/A011.ts
 ```
 
-**Exemplo A012 · Casas decimais com toFixed**
+**Exemplo A012 · Escolhendo as casas decimais**
 
 ```ts
-const preco = 12.5
+const altura = 1.756
 
-console.log(preco.toFixed(2)) // 12.50
-console.log(`Total: R$ ${preco.toFixed(2)}`)
+console.log(altura.toFixed(2)) // 1.76 (arredondou)
+console.log(altura.toFixed(1)) // 1.8
+console.log(`Altura: ${altura.toFixed(2)} m`) // Altura: 1.76 m
 ```
 
 ```bash
@@ -681,14 +685,15 @@ tsx ~/LPPOO/15102026/0006-numero/A012.ts
 
 **Exercício E011**
 
-Crie variáveis para sua idade e sua altura (em metros, com ponto) e mostre as
-duas.
+Crie uma variável com a quantidade de alunos da sua turma e outra com a
+temperatura de hoje (com ponto, tipo 31.5). Mostre as duas numa frase:
+`Somos 25 alunos e está fazendo 31.5 graus`.
 
 <details><summary>Dicas</summary>
 
 1. Número vai sem aspas.
-2. O separador decimal é o ponto: `1.68`, não `1,68`.
-3. Use `typeof` se quiser confirmar que são mesmo `number`.
+2. O separador decimal é o ponto: `31.5`, não `31,5`.
+3. A frase é uma template string, com crases e `${ }`.
 
 </details>
 
@@ -698,14 +703,14 @@ tsx ~/LPPOO/15102026/0006-numero/E011.ts
 
 **Exercício E012**
 
-Crie uma variável com o valor `3.14159` (o famoso pi) e mostre com só 2 casas
-decimais.
+Crie uma variável com o valor `3.14159` (o famoso pi). Mostre ele com 2 casas
+decimais e depois com 3.
 
 <details><summary>Dicas</summary>
 
 1. O método que controla as casas decimais é o `toFixed`.
 2. O número de casas vai entre os parênteses.
-3. Confira se o resultado arredondou ou só cortou.
+3. Com 3 casas, confira: deu `3.141` (cortou) ou `3.142` (arredondou)?
 
 </details>
 
@@ -722,32 +727,33 @@ Está chovendo? Tem aula hoje? Pergunta de sim ou não tem um tipo só para ela.
 O **boolean** tem só dois valores: `true` (verdadeiro) e `false` (falso).
 Pensa num interruptor de luz: ou está ligado, ou está desligado.
 
-Vamos ver na prática. O programa pergunta "Tem aula hoje?". Você digita `sim`.
-A comparação `resposta === 'sim'` vira `true`. E é esse `true` que fica
-guardado em `temAula`:
+Lembra das ferramentas da string? Uma delas responde sim ou não: o
+`.includes`. Ele diz se um texto tem outro dentro dele.
+
+Vamos ver na prática. Todo e-mail tem `@`. A Ana digita `ana@gmail.com`. A
+pergunta `email.includes('@')` responde `true`, e esse `true` fica guardado em
+`temArroba`:
 
 <p align="center"><img src="0007-booleano/ideia.svg" alt="Diagrama da ideia: Booleano (boolean), typeof, null e undefined" width="858"></p>
 
 ```ts
 import { input } from '#core/input.ts'
 
-const resposta = input('Tem aula hoje? (sim/nao) ') // você digita: sim
-const temAula = resposta === 'sim' // true
-
-let recado // undefined: a gaveta existe, mas está vazia
-recado = null // null: "nada", colocado de propósito
+const email = input('Seu e-mail: ') // a Ana digita: ana@gmail.com
+const temArroba = email.includes('@') // true
+console.log(temArroba) // true
 ```
 
-Repara que ainda não tem losango no fluxograma. A comparação só gera o `true`
-ou o `false` e guarda.
+Repara que ainda não tem losango no fluxograma. O programa só guarda o `true`
+e mostra.
 
 Escolher um caminho com ele é trabalho do `if`, lá na
 [0015](#0015--condicional-simples-if).
 
-<p align="center"><img src="0007-booleano/fluxograma.svg" alt="Fluxograma: Booleano (boolean), typeof, null e undefined" width="1056"></p>
+<p align="center"><img src="0007-booleano/fluxograma.svg" alt="Fluxograma: Booleano (boolean), typeof, null e undefined" width="966"></p>
 
 > [!TIP]
-> O `typeof` diz o tipo de um valor: `typeof temAula` dá `'boolean'`.
+> O `typeof` diz o tipo de um valor: `typeof temArroba` dá `'boolean'`.
 
 E tem dois valores especiais que querem dizer "nada":
 
@@ -755,6 +761,13 @@ E tem dois valores especiais que querem dizer "nada":
   reservada de um aluno que ainda não chegou.
 - `null`: alguém colocou "nada" de propósito. É o aluno avisando "pode marcar
   que eu não vou".
+
+```ts
+let recado
+console.log(recado) // undefined
+recado = null
+console.log(recado) // null
+```
 
 ### Cada valor tem um tipo
 
@@ -770,12 +783,12 @@ const matriculada: boolean = true
 ```
 
 Nesta aula você não precisa escrever: o TypeScript olha o valor e descobre o
-tipo sozinho. Mas guarda esse jeito de escrever. Na aula 02 ele aparece nas
-listas (`number[]`) e nas funções.
+tipo sozinho. Mas guarda esse jeito de escrever, porque na aula 02 ele aparece
+bastante.
 
 > [!NOTE]
-> **Pergunta para a turma:** coloque um `console.log(temAula)` no fim e rode
-> digitando `nao`. O que aparece? E se digitar `SIM`, tudo maiúsculo?
+> **Pergunta para a turma:** rode e digite só `@`, mais nada. Aparece `true` ou
+> `false`? E `@` sozinho é um e-mail de verdade?
 
 ### Hora de praticar
 
@@ -2236,6 +2249,8 @@ dois números e mostre o resultado.
 tsx ~/LPPOO/15102026/0019-escolha/E038.ts
 ```
 
+---
+
 ## Prática em sala
 
 Os enunciados ficam em [`pratica/`](pratica/). Cada um junta vários assuntos da
@@ -2246,7 +2261,7 @@ aula num programa só.
 | [`ficha-de-cadastro.ts`](pratica/ficha-de-cadastro.ts)     | ler dados, converter e mostrar com template string   |
 | [`boletim.ts`](pratica/boletim.ts)                         | média com duas casas e situação com `else if`        |
 | [`cantina.ts`](pratica/cantina.ts)                         | cardápio com `switch` e total em reais               |
-| [`desafio-ingresso.ts`](pratica/desafio-ingresso.ts)       | desafio: `&&`, `\|\|`, ternário e valor padrão        |
+| [`desafio-ingresso.ts`](pratica/desafio-ingresso.ts)       | desafio: `&&`, `\|\|`, `else if` e ternário             |
 
 ```bash
 tsx ~/LPPOO/15102026/pratica/ficha-de-cadastro.ts

@@ -1,6 +1,7 @@
-// A010 · Limpar espaços e procurar
+// A010 · Colar textos com +
 
-const frase = '   Eu gosto de TypeScript   '
+const nome = 'Ana'
+const sobrenome = 'Souza'
 
-console.log(frase.trim()) // 'Eu gosto de TypeScript'
-console.log(frase.includes('TypeScript')) // true
+console.log(nome + sobrenome) // AnaSouza
+console.log(nome + ' ' + sobrenome) // Ana Souza (o espaço também é texto)

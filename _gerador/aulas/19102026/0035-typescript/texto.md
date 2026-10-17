@@ -3,16 +3,18 @@
 O JavaScript deixa você errar à vontade. Ele só reclama com o programa rodando,
 às vezes já na mão de quem está usando. O TypeScript reclama antes.
 
-TypeScript é **JavaScript com tipos**. Você escreve o mesmo JavaScript de
-sempre e, quando quiser, diz o tipo de cada coisa.
+TypeScript é **JavaScript com tipos**. Você escreve o JavaScript de sempre e,
+quando quiser, diz o tipo de cada coisa. Os arquivos `.ts` das aulas 01 e 02
+já eram TypeScript.
 
 Olha só: `const preco: number = 12.5` quer dizer "preço é um número".
 
-Só que o Node e o navegador não entendem `: number`. Eles só leem JavaScript.
+Só que o Node e o navegador não entendem o `: number`. Eles só leem
+JavaScript.
 
-Então todo arquivo `.ts` passa por duas etapas antes de rodar. Primeiro, o
-TypeScript confere se os tipos batem. Depois, ele apaga os tipos e entrega
-JavaScript puro para o Node.
+Então o caminho de um arquivo `.ts` tem duas etapas. Primeiro, o TypeScript
+confere se os tipos batem. Depois, os tipos são apagados e o Node recebe
+JavaScript puro.
 
 {{ideia}}
 
@@ -35,9 +37,10 @@ mais nada. Toda a proteção do TypeScript acontece antes, enquanto você escrev
 > [!IMPORTANT]
 > Guarda isso: o `tsx`, que a gente usa para rodar os arquivos, **não confere
 > tipos**. Ele apaga os tipos e roda. Com `const total: number = '10' + 5`, ele
-> mostra `105` sem reclamar. Quem confere é o editor, enquanto você digita, e o
-> `pnpm -C ~/LPPOO tsc`, que olha o projeto inteiro. Na dúvida, rode ele antes
-> de entregar um exercício.
+> mostra `105` sem reclamar.
+>
+> Quem confere é o editor, enquanto você digita, e o `pnpm -C ~/LPPOO tsc`, que
+> olha o projeto inteiro. Rode o `tsc` antes de entregar um exercício.
 
 ### Por que TypeScript nesta disciplina?
 

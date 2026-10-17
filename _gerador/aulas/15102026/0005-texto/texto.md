@@ -32,7 +32,8 @@ roxo:
 {{fluxograma}}
 
 > [!WARNING]
-> Cuidado: com texto, o `+` cola em vez de somar. `'5' + 3` vira `'53'`.
+> Cuidado: com texto, o `+` cola em vez de somar. `'Ana' + 'Clara'` vira
+> `'AnaClara'`. E `'5' + '3'` vira `'53'`, e não 8.
 
 <details>
 <summary>As ferramentas que mais aparecem</summary>
@@ -43,8 +44,6 @@ roxo:
 | `texto.toUpperCase()` | tudo em MAIÚSCULAS                 | `'MARIA'`            |
 | `texto.toLowerCase()` | tudo em minúsculas                 | `'maria'`            |
 | `texto.trim()`        | tira os espaços das pontas         | `'maria'`            |
-| `texto.includes('ar')`| `true` se o texto contém `'ar'`    | `true`               |
-| `texto.split('')`     | quebra o texto em pedaços          | `['m','a','r','i','a']` |
 
 </details>
 

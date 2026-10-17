@@ -29,13 +29,9 @@ a uma variável: `aluna.idade = 17`.
 Repara: `aluna` é `const` e mesmo assim a idade mudou. É a mesma coisa do array
 na aula 02: o `const` trava a etiqueta, não o que tem dentro.
 
-O fluxograma mostra o caminho: cria, lê, troca e lê de novo:
+O fluxograma mostra o caminho: cria, lê, troca e lê de novo.
 
 {{fluxograma}}
-
-> [!NOTE]
-> Objeto é coisa do JavaScript, e não tem nada a ver com classe. É só um jeito
-> de agrupar informações. O que o TypeScript faz é **conferir** o objeto.
 
 > [!TIP]
 > **Poder do TypeScript:** você não escreveu tipo nenhum, mas ele já sabe que

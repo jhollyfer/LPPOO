@@ -3,10 +3,10 @@ export const ideia = {
     {
       id: 'a',
       forma: 'array',
-      x: 500,
+      x: 560,
       y: 120,
       nome: 'compras',
-      itens: ['arroz', 'feijão', 'farinha'],
+      itens: ['arroz', 'feijão'],
       celula: 160,
     },
   ],
@@ -14,41 +14,41 @@ export const ideia = {
     {
       pontos: [
         [110, 190],
-        [484, 190],
+        [544, 190],
       ],
-      rotulo: 'unshift: entra no começo',
+      rotulo: 'unshift: café entra no começo',
       cor: 'verde',
     },
     {
       pontos: [
-        [484, 244],
+        [544, 244],
         [110, 244],
       ],
-      rotulo: 'shift: sai do começo',
+      rotulo: 'shift: café sai do começo',
       cor: 'vermelho',
     },
     {
       pontos: [
-        [996, 190],
-        [1370, 190],
+        [896, 190],
+        [1330, 190],
       ],
-      rotulo: 'pop: sai do fim',
+      rotulo: 'pop: farinha sai do fim',
       cor: 'vermelho',
     },
     {
       pontos: [
-        [1370, 244],
-        [996, 244],
+        [1330, 244],
+        [896, 244],
       ],
-      rotulo: 'push: entra no fim',
+      rotulo: 'push: farinha entra no fim',
       cor: 'verde',
     },
     {
       pontos: [
-        [740, 400],
-        [740, 330],
+        [800, 400],
+        [800, 330],
       ],
-      rotulo: 'splice: tira e põe no meio',
+      rotulo: "splice(1, 1, 'açaí'): troca no meio",
     },
   ],
 }

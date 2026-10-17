@@ -23,6 +23,9 @@ A regra do `sort` é uma arrow com dois números, `a` e `b`. Lembra da
 [0030](#0030--arrow-functions-e-callbacks)? O `a - b` deixa do menor para o
 maior. O `b - a` deixa do maior para o menor.
 
+O `slice` também tira foto de um **pedaço**: `notas.slice(0, 2)` dá `[8, 10]`.
+Ele começa na posição 0 e para antes da posição 2.
+
 Tem mais dois da mesma família:
 
 - `reverse()`: **inverte** a ordem. `copia.reverse()` deixa `[10, 9, 8, 6]`.

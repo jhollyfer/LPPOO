@@ -19,22 +19,22 @@ E quando escrever? Guarda essa regra prática:
 
 ```ts
 let idade = 17 // infere: number
-const turno = 'noite' // infere o tipo literal 'noite'
+const turno = 'noite' // infere: 'noite'
 const notas = [8, 6, 9] // infere: number[]
 
 const nomes: string[] = [] // array vazio: escreva o tipo
 let apelido: string // sem valor ainda: escreva o tipo
-if (idade >= 18) apelido = 'Sr. Zé'
-else apelido = 'Zé'
 
-// parâmetro: sempre escreva; o retorno (number) ele infere
+// parâmetro: escreva sempre; o retorno (number) ele infere
 function dobrar(n: number) {
   return n * 2
 }
 
 idade++
 nomes.push('Ana')
+apelido = 'Zé'
 console.log(idade, turno, notas, nomes, apelido, dobrar(4))
+// 18 noite [ 8, 6, 9 ] [ 'Ana' ] Zé 8
 ```
 
 Repara no `turno`. Com `const`, o tipo é exatamente `'noite'`, e não `string`.
@@ -45,10 +45,9 @@ O fluxograma é a regra prática em forma de perguntas:
 
 {{fluxograma}}
 
-> [!NOTE]
-> Escrever o tipo do retorno é opcional, mas ajuda nas funções que você mais
-> usa. Se você errar o `return`, o erro aparece na própria função, e não lá na
-> frente, em quem usa ela.
+E o retorno da função? Escrever é opcional. Mas, se você escrever e errar o
+`return`, o erro aparece na própria função, e não lá na frente, em quem usa
+ela.
 
 > [!TIP]
 > **Poder do TypeScript:** parâmetro sem tipo vira `any` escondido, e este

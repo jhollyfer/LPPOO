@@ -7,7 +7,7 @@
 //
 // Dicas:
 // 1. type Forma = (typeof FORMAS)[number].
-// 2. Para comparar um texto qualquer: (FORMAS as readonly string[]).includes(resposta).
+// 2. Para saber se a resposta está na lista: FORMAS.some((f) => f === resposta).
 //
 // Para ler dados do teclado use:
 // import { input } from '#core/input.ts'

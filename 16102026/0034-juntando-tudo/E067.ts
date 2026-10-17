@@ -1,8 +1,8 @@
 // 0034 · Juntando tudo: as notas da turma
 // Exercício E067
 //
-// Copie o programa do exemplo 1 e acrescente no relatório a maior e a menor
-// nota digitada.
+// Copie o programa das notas da turma, o do texto deste assunto, e acrescente
+// no relatório a maior e a menor nota digitada.
 //
 // Dicas:
 // 1. Faça uma cópia ordenada com `slice().sort((a, b) => a - b)`.

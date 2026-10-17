@@ -6,14 +6,16 @@ formato sozinho. Agora é a sua vez de **escrever** esse formato.
 Por que escrever? Para todos os alunos da turma terem a mesma ficha, com os
 mesmos campos.
 
-E como dizer que formato o objeto tem? Com o **`type`**. Pensa numa ficha de
-matrícula em branco: ela diz quais campos existem e o que vai em cada um.
+E como dizer que formato o objeto tem? Com o mesmo **`type`** da
+[0039](#0039--tipo-de-função-e-tipagem-contextual). Lá ele deu nome a um tipo de
+função. Aqui ele dá nome a um formato de objeto.
 
-Cada aluno é uma ficha preenchida. Olha só:
+Pensa numa ficha de matrícula em branco: ela diz quais campos existem e o que
+vai em cada um. Cada aluno é uma ficha preenchida:
 
 {{ideia}}
 
-Vamos ver na prática:
+Em código, cada campo vai numa linha, com o nome e o tipo:
 
 ```ts
 type Aluno = {
@@ -36,6 +38,9 @@ for (const aluno of turma) {
 ```
 
 Repara no `turma`. Ele é `Aluno[]`, uma lista de fichas.
+
+Se o `type` couber numa linha só, separe os campos com `;`:
+`type Ponto = { x: number; y: number }`.
 
 O fluxograma passa pela turma, ficha por ficha, e calcula a média de cada um:
 

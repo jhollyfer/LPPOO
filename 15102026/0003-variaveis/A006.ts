@@ -2,12 +2,12 @@
 
 let nome = 'Ana'
 let idade = 17
-let matriculado = false
+let cidade = 'Tabatinga'
 
-console.log(nome, idade, matriculado)
+console.log(nome, idade, cidade) // Ana 17 Tabatinga
 
 nome = 'Ana Clara' // corrigiu o nome no cadastro
 idade = 18 // fez aniversário
-matriculado = true // fez a matrícula
+cidade = 'Benjamin Constant' // mudou de cidade
 
-console.log(nome, idade, matriculado)
+console.log(nome, idade, cidade) // Ana Clara 18 Benjamin Constant

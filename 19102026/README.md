@@ -10,7 +10,8 @@ avisa o erro antes de o programa rodar.
 
 ## O que você vai aprender
 
-- como o TypeScript funciona e por que ele foi escolhido
+- como o TypeScript funciona e o que é **tipagem estática**
+- os tipos básicos e quando vale a pena escrever o tipo
 - quais valores contam como verdadeiro ou falso, e os atalhos `??` e `?.`
 - dar tipo para uma função inteira
 - criar objetos e descrever o formato deles com `type` e `interface`
@@ -35,8 +36,8 @@ antes de rodar o código.
 
 ## As cores e as formas
 
-Caixa azul é dado entrando ou saindo, roxa é o
-programa fazendo alguma coisa, amarela é pergunta. Os tipos de objeto aparecem
+Caixa azul é dado entrando ou saindo, roxa é o programa fazendo alguma coisa,
+amarela é pergunta. Os tipos de objeto aparecem
 como uma **ficha**, com o nome da propriedade à esquerda e o tipo à direita.
 
 <p align="center"><img src="legenda.svg" alt="Legenda: formas e cores do fluxograma" width="916"></p>
@@ -70,7 +71,7 @@ Leia na ordem: cada um usa o anterior.
 | [0042](#0042--como-o-typescript-pensa-tipos-estruturais) | Como o TypeScript pensa: tipos estruturais | [`0042-tipagem-estrutural/`](0042-tipagem-estrutural/) |
 | [0043](#0043--interface-e-type-x-interface) | interface (e type x interface) | [`0043-interface/`](0043-interface/) |
 | [0044](#0044--propriedade-opcional-e-readonly) | Propriedade opcional e readonly | [`0044-opcional-readonly/`](0044-opcional-readonly/) |
-| [0045](#0045--união--e-tipos-literais) | União (|) e tipos literais | [`0045-uniao-literais/`](0045-uniao-literais/) |
+| [0045](#0045--união--e-tipos-literais) | União (\|) e tipos literais | [`0045-uniao-literais/`](0045-uniao-literais/) |
 | [0046](#0046--narrowing-estreitando-o-tipo) | Narrowing: estreitando o tipo | [`0046-narrowing/`](0046-narrowing/) |
 | [0047](#0047--união-discriminada) | União discriminada | [`0047-uniao-discriminada/`](0047-uniao-discriminada/) |
 | [0048](#0048--interseção-) | Interseção (&) | [`0048-intersecao/`](0048-intersecao/) |
@@ -88,16 +89,18 @@ Leia na ordem: cada um usa o anterior.
 O JavaScript deixa você errar à vontade. Ele só reclama com o programa rodando,
 às vezes já na mão de quem está usando. O TypeScript reclama antes.
 
-TypeScript é **JavaScript com tipos**. Você escreve o mesmo JavaScript de
-sempre e, quando quiser, diz o tipo de cada coisa.
+TypeScript é **JavaScript com tipos**. Você escreve o JavaScript de sempre e,
+quando quiser, diz o tipo de cada coisa. Os arquivos `.ts` das aulas 01 e 02
+já eram TypeScript.
 
 Olha só: `const preco: number = 12.5` quer dizer "preço é um número".
 
-Só que o Node e o navegador não entendem `: number`. Eles só leem JavaScript.
+Só que o Node e o navegador não entendem o `: number`. Eles só leem
+JavaScript.
 
-Então todo arquivo `.ts` passa por duas etapas antes de rodar. Primeiro, o
-TypeScript confere se os tipos batem. Depois, ele apaga os tipos e entrega
-JavaScript puro para o Node.
+Então o caminho de um arquivo `.ts` tem duas etapas. Primeiro, o TypeScript
+confere se os tipos batem. Depois, os tipos são apagados e o Node recebe
+JavaScript puro.
 
 <p align="center"><img src="0035-typescript/ideia.svg" alt="Diagrama da ideia: Como o TypeScript funciona (e por que ele)" width="864"></p>
 
@@ -120,9 +123,10 @@ mais nada. Toda a proteção do TypeScript acontece antes, enquanto você escrev
 > [!IMPORTANT]
 > Guarda isso: o `tsx`, que a gente usa para rodar os arquivos, **não confere
 > tipos**. Ele apaga os tipos e roda. Com `const total: number = '10' + 5`, ele
-> mostra `105` sem reclamar. Quem confere é o editor, enquanto você digita, e o
-> `pnpm -C ~/LPPOO tsc`, que olha o projeto inteiro. Na dúvida, rode ele antes
-> de entregar um exercício.
+> mostra `105` sem reclamar.
+>
+> Quem confere é o editor, enquanto você digita, e o `pnpm -C ~/LPPOO tsc`, que
+> olha o projeto inteiro. Rode o `tsc` antes de entregar um exercício.
 
 ### Por que TypeScript nesta disciplina?
 
@@ -255,8 +259,8 @@ Além deles, o TypeScript tem três tipos especiais:
 - **`unknown`:** "qualquer coisa, mas confere antes de usar". Aceita qualquer
   valor, só que obriga você a descobrir o tipo antes de mexer nele. É a caixa
   lacrada.
-- **`never`:** "isso nunca acontece". É o tipo de uma função que nunca termina
-  normalmente, como uma que sempre lança erro.
+- **`never`:** "isso nunca acontece". É o tipo de uma função que nunca chega
+  ao fim, como uma que sempre para o programa com erro.
 
 <p align="center"><img src="0036-tipos-basicos/ideia.svg" alt="Diagrama da ideia: Tipos primitivos, any, unknown e never" width="858"></p>
 
@@ -281,10 +285,13 @@ console.log(tamanho('Benjamin')) // 8
 console.log(tamanho(2026)) // 4
 ```
 
-Repara no `unknown`. Antes de usar o valor, ele obriga você a fazer as
-perguntas que o fluxograma mostra:
+O `throw new Error(mensagem)` é novo: ele para o programa e mostra a mensagem
+de erro. Por isso a `falhar` nunca devolve nada, e o tipo dela é `never`.
 
-<p align="center"><img src="0036-tipos-basicos/fluxograma.svg" alt="Fluxograma: Tipos primitivos, any, unknown e never" width="641"></p>
+Agora repara no `unknown`. Antes de usar o valor, ele obriga você a fazer as
+perguntas que o fluxograma mostra. Com `'Benjamin'`, a primeira já dá Sim:
+
+<p align="center"><img src="0036-tipos-basicos/fluxograma.svg" alt="Fluxograma: Tipos primitivos, any, unknown e never" width="668"></p>
 
 > [!WARNING]
 > Fuja do `any`. Com ele, o TypeScript deixa passar qualquer coisa, e o erro só
@@ -343,14 +350,16 @@ tsx ~/LPPOO/19102026/0036-tipos-basicos/A071.ts
 
 ```ts
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- só para mostrar o perigo
-const qualquer: any = 'um texto'
+const qualquer: any = 'dez'
+console.log(qualquer * 2) // NaN: o TypeScript deixou passar a conta com texto
 
-try {
-  console.log(qualquer.toFixed(2)) // o TypeScript deixou passar...
-} catch (erro) {
-  // ...e quebrou com o programa rodando
-  console.log(`Quebrou: ${erro instanceof Error ? erro.message : erro}`)
-}
+const texto: string = 'dez'
+console.log(texto.length) // 3
+
+// Com o tipo certo, ele barra a mesma conta. Tire o // e veja:
+// console.log(texto * 2)
+// erro: The left-hand side of an arithmetic operation must be of type 'any',
+//       'number', 'bigint' or an enum type.
 ```
 
 ```bash
@@ -375,14 +384,14 @@ tsx ~/LPPOO/19102026/0036-tipos-basicos/E071.ts
 
 **Exercício E072**
 
-Escreva primeiraLetra(valor: unknown): string, que devolve a primeira letra
-em maiúscula se o valor for texto, e '?' se não for. Repare que sem o if o
-TypeScript não deixa usar valor[0].
+Escreva gritar(valor: unknown): string, que devolve o texto em maiúsculas
+com um ! no fim se o valor for texto, e '?' se não for. Teste com 'oi' e 7.
+Repare que, sem o if, o TypeScript não deixa usar valor.toUpperCase().
 
 <details><summary>Dicas</summary>
 
-1. Primeiro confira com typeof.
-2. valor[0] pode ser undefined: use ?? '?'.
+1. Primeiro confira com typeof valor === 'string'.
+2. Dentro do if, valor já é string: `${valor.toUpperCase()}!`.
 
 </details>
 
@@ -397,9 +406,9 @@ tsx ~/LPPOO/19102026/0036-tipos-basicos/E072.ts
 O aluno apertou Enter sem digitar o apelido. E agora, o programa chama ele de
 quê?
 
-Num `if`, o esperado é `true` ou `false`. Mas o JavaScript (e o TypeScript, que
-herda dele) deixa você colocar qualquer valor ali, e decide se aquilo conta
-como verdadeiro ou falso.
+Num `if` ou num `||`, o esperado é `true` ou `false`. Mas o JavaScript (e o
+TypeScript, que vem dele) deixa você colocar qualquer valor ali, e decide se
+aquilo conta como verdadeiro ou falso.
 
 Pensa no fiscal do porto olhando a mochila. Vazia, ele nem abre. Com alguma
 coisa dentro, ele confere.
@@ -426,13 +435,30 @@ No fluxograma, o losango amarelo é a pergunta "tem texto?":
 
 <p align="center"><img src="0037-truthy-falsy/fluxograma.svg" alt="Fluxograma: Truthy, falsy, ?? e ?." width="502"></p>
 
-> [!IMPORTANT]
-> O `??` é parecido, mas só troca quando o valor é `null` ou `undefined`. Com
-> texto vazio ele não faz nada: `'' ?? 'sem apelido'` continua `''`.
+Agora, os dois atalhos do título.
+
+O `??` é parecido com o `||`, mas só troca quando o valor é `null` ou
+`undefined`. Com texto vazio ele não faz nada: `'' ?? 'sem apelido'` continua
+`''`.
+
+O `?.` é o ponto com cuidado. Se o valor for `null` ou `undefined`, ele para
+ali e devolve `undefined`, em vez de quebrar o programa.
+
+> [!TIP]
+> **Poder do TypeScript:** uma posição que não existe no array dá `undefined`.
+> O TypeScript avisa antes e o `?.` resolve:
+>
+> ```ts
+> const nomes = ['Ana', 'Bia']
+> console.log(nomes[5].toUpperCase())
+> // erro: Object is possibly 'undefined'.
+> console.log(nomes[5]?.toUpperCase()) // undefined
+> ```
 
 > [!NOTE]
-> **Pergunta para a turma:** troque o `||` por `??` e aperte Enter sem digitar
-> nada. O que aparece na tela? Rode e confira.
+> **Pergunta para a turma:** e se o aluno digitar `0` como apelido? Aparece
+> `Oi, 0!` ou `Oi, sem apelido!`? Rode e confira. (Dica: o `input` sempre
+> devolve texto.)
 
 ### Hora de praticar
 
@@ -451,7 +477,7 @@ console.log(Boolean(10)) // true
 tsx ~/LPPOO/19102026/0037-truthy-falsy/A073.ts
 ```
 
-**Exemplo A074 · Valor padrão com ??**
+**Exemplo A074 · Os atalhos ?? e ?.**
 
 ```ts
 let apelido = undefined // ainda sem apelido
@@ -460,6 +486,11 @@ console.log(apelido ?? 'sem apelido') // sem apelido
 
 apelido = 'Juju'
 console.log(apelido ?? 'sem apelido') // Juju
+
+// a chamada tem dois nomes: a posição 2 não existe
+const chamada = ['Ana', 'Caio']
+console.log(chamada[0]?.toUpperCase()) // ANA
+console.log(chamada[2]?.toUpperCase() ?? 'ninguém') // ninguém
 ```
 
 ```bash
@@ -523,22 +554,22 @@ E quando escrever? Guarda essa regra prática:
 
 ```ts
 let idade = 17 // infere: number
-const turno = 'noite' // infere o tipo literal 'noite'
+const turno = 'noite' // infere: 'noite'
 const notas = [8, 6, 9] // infere: number[]
 
 const nomes: string[] = [] // array vazio: escreva o tipo
 let apelido: string // sem valor ainda: escreva o tipo
-if (idade >= 18) apelido = 'Sr. Zé'
-else apelido = 'Zé'
 
-// parâmetro: sempre escreva; o retorno (number) ele infere
+// parâmetro: escreva sempre; o retorno (number) ele infere
 function dobrar(n: number) {
   return n * 2
 }
 
 idade++
 nomes.push('Ana')
+apelido = 'Zé'
 console.log(idade, turno, notas, nomes, apelido, dobrar(4))
+// 18 noite [ 8, 6, 9 ] [ 'Ana' ] Zé 8
 ```
 
 Repara no `turno`. Com `const`, o tipo é exatamente `'noite'`, e não `string`.
@@ -549,10 +580,9 @@ O fluxograma é a regra prática em forma de perguntas:
 
 <p align="center"><img src="0038-inferencia/fluxograma.svg" alt="Fluxograma: Inferência x anotação: quando escrever o tipo" width="518"></p>
 
-> [!NOTE]
-> Escrever o tipo do retorno é opcional, mas ajuda nas funções que você mais
-> usa. Se você errar o `return`, o erro aparece na própria função, e não lá na
-> frente, em quem usa ela.
+E o retorno da função? Escrever é opcional. Mas, se você escrever e errar o
+`return`, o erro aparece na própria função, e não lá na frente, em quem usa
+ela.
 
 > [!TIP]
 > **Poder do TypeScript:** parâmetro sem tipo vira `any` escondido, e este
@@ -743,9 +773,9 @@ type Regra = (n: number) => boolean
 const aprovado: Regra = (n) => n >= 6
 const par: Regra = (n) => n % 2 === 0
 
-const notas: number[] = [8, 5, 6, 3]
+const notas: number[] = [8, 5, 6, 4]
 console.log(notas.filter(aprovado)) // [ 8, 6 ]
-console.log(notas.filter(par)) // [ 8, 6 ]
+console.log(notas.filter(par)) // [ 8, 6, 4 ]
 ```
 
 ```bash
@@ -819,13 +849,9 @@ a uma variável: `aluna.idade = 17`.
 Repara: `aluna` é `const` e mesmo assim a idade mudou. É a mesma coisa do array
 na aula 02: o `const` trava a etiqueta, não o que tem dentro.
 
-O fluxograma mostra o caminho: cria, lê, troca e lê de novo:
+O fluxograma mostra o caminho: cria, lê, troca e lê de novo.
 
 <p align="center"><img src="0040-objetos/fluxograma.svg" alt="Fluxograma: Objetos" width="1008"></p>
-
-> [!NOTE]
-> Objeto é coisa do JavaScript, e não tem nada a ver com classe. É só um jeito
-> de agrupar informações. O que o TypeScript faz é **conferir** o objeto.
 
 > [!TIP]
 > **Poder do TypeScript:** você não escreveu tipo nenhum, mas ele já sabe que
@@ -926,14 +952,16 @@ formato sozinho. Agora é a sua vez de **escrever** esse formato.
 Por que escrever? Para todos os alunos da turma terem a mesma ficha, com os
 mesmos campos.
 
-E como dizer que formato o objeto tem? Com o **`type`**. Pensa numa ficha de
-matrícula em branco: ela diz quais campos existem e o que vai em cada um.
+E como dizer que formato o objeto tem? Com o mesmo **`type`** da
+[0039](#0039--tipo-de-função-e-tipagem-contextual). Lá ele deu nome a um tipo de
+função. Aqui ele dá nome a um formato de objeto.
 
-Cada aluno é uma ficha preenchida. Olha só:
+Pensa numa ficha de matrícula em branco: ela diz quais campos existem e o que
+vai em cada um. Cada aluno é uma ficha preenchida:
 
 <p align="center"><img src="0041-tipos-de-objeto/ideia.svg" alt="Diagrama da ideia: Tipos de objeto e type" width="858"></p>
 
-Vamos ver na prática:
+Em código, cada campo vai numa linha, com o nome e o tipo:
 
 ```ts
 type Aluno = {
@@ -956,6 +984,9 @@ for (const aluno of turma) {
 ```
 
 Repara no `turma`. Ele é `Aluno[]`, uma lista de fichas.
+
+Se o `type` couber numa linha só, separe os campos com `;`:
+`type Ponto = { x: number; y: number }`.
 
 O fluxograma passa pela turma, ficha por ficha, e calcula a média de cada um:
 
@@ -1027,7 +1058,7 @@ const cetam: Escola = {
   endereco: { cidade: 'Benjamin Constant', bairro: 'Centro' },
 }
 
-console.log(`${cetam.nome} fica em ${cetam.endereco.cidade}`)
+console.log(`${cetam.nome} fica em ${cetam.endereco.cidade}`) // CETAM fica em Benjamin Constant
 ```
 
 ```bash
@@ -1073,11 +1104,8 @@ tsx ~/LPPOO/19102026/0041-tipos-de-objeto/E082.ts
 Pensa no porteiro do show. Ele não pergunta seu nome. Ele olha se você tem
 pulseira e se ela é da cor certa.
 
-Em linguagens como Java e C#, o porteiro pergunta o nome. Um valor só serve
-para um tipo se ele foi **declarado** daquele tipo.
-
-O TypeScript é o porteiro da pulseira. Ele olha o **formato**. Se o objeto tem
-as propriedades que o tipo pede, com os tipos certos, ele serve.
+O TypeScript é esse porteiro. Ele olha o **formato**: se o objeto tem as
+propriedades que o tipo pede, com os tipos certos, o objeto serve.
 
 Isso se chama **tipagem estrutural**.
 
@@ -1085,8 +1113,8 @@ Olha só. A `apresentar` pede um `Aluno`: algo com `nome` texto e `idade`
 número.
 
 A `ana` tem esse formato. O `visitante` também tem, e ainda sobra uma
-`cidade`: serve mesmo assim. Já um objeto sem `idade` não tem o formato e é
-barrado:
+`cidade`: serve mesmo assim. Já a Bia, sem `idade`, não tem o formato e é
+barrada:
 
 <p align="center"><img src="0042-tipagem-estrutural/ideia.svg" alt="Diagrama da ideia: Como o TypeScript pensa: tipos estruturais" width="858"></p>
 
@@ -1101,7 +1129,7 @@ const ana = { nome: 'Ana', idade: 17 }
 const visitante = { nome: 'Zé', idade: 40, cidade: 'Benjamin Constant' }
 
 console.log(apresentar(ana)) // Ana, 17 anos
-console.log(apresentar(visitante)) // Zé, 40 anos: tem o formato, então serve
+console.log(apresentar(visitante)) // Zé, 40 anos (a cidade sobra, e tudo bem)
 ```
 
 Repara: nem a `ana` nem o `visitante` foram declarados como `Aluno`. O
@@ -1216,7 +1244,7 @@ A **`interface`** é outro jeito de descrever o formato de um objeto. Para
 objeto simples, ela faz a mesma coisa que o `type`.
 
 Então por que existe? Por causa do **`extends`**. Uma interface pode
-**estender** outra: herda tudo dela e acrescenta o que faltar.
+**estender** outra: pega tudo o que a outra tem e acrescenta o que faltar.
 
 Pensa assim: todo aluno é uma pessoa, mas nem toda pessoa é aluno.
 
@@ -1243,7 +1271,7 @@ function apresentar(p: Pessoa): string {
   return `Olá, ${p.nome}!`
 }
 
-console.log(apresentar(bia)) // Olá, Bia!: todo Aluno também é Pessoa
+console.log(apresentar(bia)) // Olá, Bia! (todo Aluno também é Pessoa)
 console.log(bia.matricula) // A27
 ```
 
@@ -1251,17 +1279,16 @@ Repara: a função pede `Pessoa`, e a Bia entra numa boa.
 
 E aí, quando usar `type` e quando usar `interface`? O fluxograma resume:
 
-<p align="center"><img src="0043-interface/fluxograma.svg" alt="Fluxograma: interface (e type x interface)" width="536"></p>
+<p align="center"><img src="0043-interface/fluxograma.svg" alt="Fluxograma: interface (e type x interface)" width="537"></p>
 
-| Dá para fazer com...                 | `type` | `interface` |
-| ------------------------------------ | :----: | :---------: |
-| formato de objeto                    | sim    | sim         |
-| estender outro formato               | com `&` | com `extends` |
-| união (`'manhã' \| 'tarde'`)         | sim    | não         |
-| tupla, função, tipo primitivo        | sim    | não         |
+| Dá para fazer com...                       | `type`               | `interface`         |
+| ------------------------------------------ | :------------------: | :-----------------: |
+| formato de objeto                          | sim                  | sim                 |
+| estender outro formato                     | sim, com `&` (0048)  | sim, com `extends`  |
+| dar nome a outro tipo: `type Idade = number` | sim                | não                 |
 
 > [!TIP]
-> **Poder do TypeScript:** quem estende herda as obrigações também. Esqueceu o
+> **Poder do TypeScript:** quem estende leva as obrigações junto. Esqueceu o
 > nome num `Aluno`? O TypeScript cobra:
 >
 > ```ts
@@ -1298,7 +1325,7 @@ function vistoria(v: Veiculo): string {
   return `Placa ${v.placa} conferida`
 }
 
-console.log(vistoria(circular)) // Placa PHX-2B19 conferida: todo Onibus também é Veiculo
+console.log(vistoria(circular)) // Placa PHX-2B19 conferida (todo Onibus também é Veiculo)
 console.log(vistoria(moto)) // Placa QZA-7C21 conferida
 console.log(`${circular.linha}: ${circular.lugares} lugares`) // Centro-Colônia: 40 lugares
 
@@ -1311,23 +1338,21 @@ console.log(`${circular.linha}: ${circular.lugares} lugares`) // Centro-Colônia
 tsx ~/LPPOO/19102026/0043-interface/A085.ts
 ```
 
-**Exemplo A086 · Interface com método**
+**Exemplo A086 · Interface com uma função dentro**
 
 ```ts
-interface Lampada {
-  ligada: boolean
-  alternar(): void
+interface Botao {
+  texto: string
+  aoClicar: () => string // o tipo de função da 0039
 }
 
-const lampadaDaSala: Lampada = {
-  ligada: false,
-  alternar() {
-    this.ligada = !this.ligada
-  },
+const enviar: Botao = {
+  texto: 'Enviar',
+  aoClicar: () => 'Mensagem enviada!',
 }
 
-lampadaDaSala.alternar()
-console.log(lampadaDaSala.ligada) // true
+console.log(`[ ${enviar.texto} ]`) // [ Enviar ]
+console.log(enviar.aoClicar()) // Mensagem enviada!
 ```
 
 ```bash
@@ -1408,15 +1433,14 @@ function chamar(a: Aluno): string {
 console.log(chamar(ana)) // Ana
 console.log(chamar(ze)) // Zé
 ana.nome = 'Ana Clara' // pode: nome não é readonly
-console.log(ana.nome)
+console.log(ana.nome) // Ana Clara
 ```
 
 Repara na função `chamar`. Como o apelido pode faltar, ela precisa decidir o
-que fazer quando ele não vem.
+que fazer quando ele não vem. É a pergunta do fluxograma. A Ana não tem
+apelido, então sai o nome:
 
-É a pergunta do fluxograma:
-
-<p align="center"><img src="0044-opcional-readonly/fluxograma.svg" alt="Fluxograma: Propriedade opcional e readonly" width="498"></p>
+<p align="center"><img src="0044-opcional-readonly/fluxograma.svg" alt="Fluxograma: Propriedade opcional e readonly" width="560"></p>
 
 > [!TIP]
 > **Poder do TypeScript:** ele cobra as duas marcas. Não deixa trocar o que é
@@ -1428,6 +1452,9 @@ que fazer quando ele não vem.
 > ana.apelido.toUpperCase()
 > // erro: 'ana.apelido' is possibly 'undefined'.
 > ```
+>
+> A saída é tratar o caso vazio, com o `??` ou o `?.` da
+> [0037](#0037--truthy-falsy--e-): `ana.apelido?.toUpperCase()`.
 
 > [!NOTE]
 > **Pergunta para a turma:** se a Ana tiver `apelido: ''` (texto vazio), o que
@@ -1473,9 +1500,12 @@ tsx ~/LPPOO/19102026/0044-opcional-readonly/A087.ts
 ```ts
 const TURNOS: readonly string[] = ['manhã', 'tarde', 'noite']
 
-console.log(TURNOS.join(', ')) // ler pode
+console.log(TURNOS.join(', ')) // manhã, tarde, noite (ler pode)
 console.log(TURNOS.includes('noite')) // true
-// TURNOS.push('madrugada') // erro: push não existe em readonly string[]
+
+// Mexer não pode. Tire o // e veja:
+// TURNOS.push('madrugada')
+// erro: Property 'push' does not exist on type 'readonly string[]'.
 ```
 
 ```bash
@@ -1524,7 +1554,7 @@ A **união** se escreve com `|` e quer dizer "**um ou outro**".
 `number | string` é um valor que pode ser número ou texto. Um dos dois.
 
 Agora olha só: o tipo também pode ser um **valor exato**. Esse é o tipo
-**literal**.
+**literal**. O tipo `'noite'` só aceita o texto `'noite'`.
 
 Junta os dois e você escreve a lista do que é permitido:
 `type Turno = 'manhã' | 'tarde' | 'noite'`. São três turnos. "Madrugada" não
@@ -1553,13 +1583,12 @@ console.log(horario(meuTurno)) // 19h às 22h
 console.log(matricula) // A27
 ```
 
+Bônus: escreva `horario('` no editor e ele sugere as três opções. A lista
+vira autocompletar.
+
 O fluxograma mostra a conferência que o TypeScript faz antes de rodar:
 
 <p align="center"><img src="0045-uniao-literais/fluxograma.svg" alt="Fluxograma: União (|) e tipos literais" width="437"></p>
-
-> [!NOTE]
-> Bônus: escreva `horario('` no editor e ele sugere as três opções. A lista
-> vira autocompletar.
 
 > [!TIP]
 > **Poder do TypeScript:** texto fora da lista não passa:
@@ -1670,17 +1699,17 @@ dentro. Isso tem nome: **narrowing**.
 No exemplo, a matrícula pode chegar como número (`27`) ou como texto
 (`'a27'`). Um `typeof` separa os dois caminhos. Em cada um, o tipo já é um só:
 
-<p align="center"><img src="0046-narrowing/ideia.svg" alt="Diagrama da ideia: Narrowing: estreitando o tipo" width="870"></p>
+<p align="center"><img src="0046-narrowing/ideia.svg" alt="Diagrama da ideia: Narrowing: estreitando o tipo" width="864"></p>
 
 ```ts
 function formatarMatricula(m: number | string): string {
   if (typeof m === 'number') {
-    return `M-${m.toString().padStart(4, '0')}` // aqui m é number
+    return `A${m}` // aqui m é number
   }
   return m.toUpperCase() // aqui só sobrou string
 }
 
-console.log(formatarMatricula(27)) // M-0026
+console.log(formatarMatricula(27)) // A27
 console.log(formatarMatricula('a27')) // A27
 ```
 
@@ -1688,18 +1717,17 @@ Repara: depois do `if`, só sobrou `string`. O TypeScript percebeu sozinho.
 
 O fluxograma mostra a pergunta que divide o tipo:
 
-<p align="center"><img src="0046-narrowing/fluxograma.svg" alt="Fluxograma: Narrowing: estreitando o tipo" width="444"></p>
+<p align="center"><img src="0046-narrowing/fluxograma.svg" alt="Fluxograma: Narrowing: estreitando o tipo" width="453"></p>
 
-Essas são as perguntas que estreitam o tipo:
+Estas são as perguntas que estreitam o tipo:
 
-| Pergunta                   | Exemplo                            |
-| -------------------------- | ---------------------------------- |
-| `typeof`                   | `typeof m === 'number'`            |
-| igualdade                  | `turno === 'noite'`                |
-| verdadeiro ou falso        | `if (apelido)` tira o `undefined`  |
-| `in`                       | `'nota' in aluno`                  |
-| `instanceof`               | `erro instanceof Error`            |
-| `Array.isArray`            | `Array.isArray(valor)`             |
+| Pergunta            | Exemplo                           | O que ela confere                 |
+| ------------------- | --------------------------------- | --------------------------------- |
+| `typeof`            | `typeof m === 'number'`           | o tipo do valor                   |
+| igualdade           | `turno === 'noite'`               | um valor exato                    |
+| verdadeiro ou falso | `if (apelido)`                    | tira o `undefined` e o `''`       |
+| `in`                | `'nota' in aluno`                 | se o objeto tem a propriedade     |
+| `Array.isArray`     | `Array.isArray(valor)`            | se o valor é uma lista            |
 
 > [!TIP]
 > **Poder do TypeScript:** antes da pergunta, ele não deixa usar o que não
@@ -1713,8 +1741,9 @@ Essas são as perguntas que estreitam o tipo:
 > ```
 
 > [!NOTE]
-> **Pergunta para a turma:** o que aparece com `formatarMatricula(12345)`? O
-> número é cortado para caber em 4 dígitos? Rode e descubra.
+> **Pergunta para a turma:** o que aparece com `formatarMatricula('27')`, com
+> aspas? Qual caminho ele segue? Rode e descubra. (Dica: o `typeof` olha o
+> tipo, não a cara do valor.)
 
 ### Hora de praticar
 
@@ -1725,21 +1754,21 @@ Os arquivos ficam em [`0046-narrowing/`](0046-narrowing/). Os comandos funcionam
 ```ts
 function paraReais(preco: number | string): string {
   if (typeof preco === 'string') {
-    // aqui preco é string: veio escrito com vírgula, como '3,50'
-    return `R$ ${Number(preco.replace(',', '.')).toFixed(2)}`
+    // aqui preco é string: veio digitado, às vezes com espaço, como ' 3.50 '
+    return `R$ ${Number(preco.trim()).toFixed(2)}`
   }
   return `R$ ${preco.toFixed(2)}` // aqui só sobrou number
 }
 
-const etiquetasDaFeira: (number | string)[] = [5, '3,50', 12]
+const etiquetasDaFeira: (number | string)[] = [5, ' 3.50 ', 12]
 for (const preco of etiquetasDaFeira) console.log(paraReais(preco))
 // R$ 5.00
 // R$ 3.50
 // R$ 12.00
 
-// Antes do typeof, não dá para usar replace: número não tem replace.
-// preco.replace(',', '.')
-// erro: Property 'replace' does not exist on type 'string | number'.
+// Antes do typeof, não dá para usar trim: número não tem trim.
+// preco.trim()
+// erro: Property 'trim' does not exist on type 'string | number'.
 ```
 
 ```bash
@@ -1757,13 +1786,13 @@ function chamar(nome: string, apelido?: string): string {
 }
 
 type Turno = 'manhã' | 'tarde' | 'noite'
-function temIntervaloNoLanche(turno: Turno): boolean {
+function temIntervalo(turno: Turno): boolean {
   if (turno === 'noite') return false // aqui turno é 'noite'
   return true // aqui sobrou 'manhã' | 'tarde'
 }
 
-console.log(chamar('José', 'Zé'), chamar('Ana'))
-console.log(temIntervaloNoLanche('noite'))
+console.log(chamar('José', 'Zé'), chamar('Ana')) // Zé Ana
+console.log(temIntervalo('noite'), temIntervalo('tarde')) // false true
 ```
 
 ```bash
@@ -1819,8 +1848,9 @@ qual é o formato.
 
 Isso é a **união discriminada**.
 
-Agora repara no `switch` no `tipo`. Ele funciona como o cardápio da aula 01:
-cada `case` já recebe o formato certo, com as propriedades certas:
+Na prática, quem olha o discriminante é um `switch (p.tipo)`. É o cardápio
+da aula 01: cada `case` é uma opção, e dentro dele o `p` já tem as
+propriedades certas:
 
 <p align="center"><img src="0047-uniao-discriminada/ideia.svg" alt="Diagrama da ideia: União discriminada" width="858"></p>
 
@@ -1846,12 +1876,15 @@ console.log(descrever({ tipo: 'cartao', parcelas: 3 })) // Cartão em 3x
 console.log(descrever({ tipo: 'dinheiro', recebido: 20, total: 15 })) // Troco: R$ 5.00
 ```
 
-<p align="center"><img src="0047-uniao-discriminada/fluxograma.svg" alt="Fluxograma: União discriminada" width="694"></p>
+No fluxograma, o `switch` abre um caminho para cada tipo. O exemplo do Pix
+segue o caminho marcado:
+
+<p align="center"><img src="0047-uniao-discriminada/fluxograma.svg" alt="Fluxograma: União discriminada" width="748"></p>
 
 > [!TIP]
 > **Poder do TypeScript:** coloque um `default` que guarda o valor num
-> `never`. Aí, se alguém criar um tipo novo de pagamento e esquecer de tratar,
-> o TypeScript avisa:
+> `never` (o tipo do "isso nunca acontece", do assunto 0036). Se alguém criar
+> um tipo novo de pagamento e esquecer de tratar, o TypeScript avisa:
 >
 > ```ts
 > // acrescentaram | { tipo: 'boleto' } no Pagamento...
@@ -1949,9 +1982,9 @@ tsx ~/LPPOO/19102026/0047-uniao-discriminada/E093.ts
 
 **Exercício E094**
 
-Copie o Pagamento do exemplo 1, acrescente { tipo: 'boleto'; vencimento:
-string } e coloque o default com never. Veja o erro aparecer e depois trate o
-boleto no switch para ele sumir.
+Copie o Pagamento e a função descrever do texto do assunto. Acrescente
+{ tipo: 'boleto'; vencimento: string } e coloque o default com never. Veja o
+erro aparecer e depois trate o boleto no switch para ele sumir.
 
 <details><summary>Dicas</summary>
 
@@ -2003,13 +2036,15 @@ qualquer pedaço, não passa:
 > combinar com o resto do código.
 
 > [!TIP]
-> **Poder do TypeScript:** esqueceu o id? O erro mostra que o objeto não serve
-> para a interseção:
+> **Poder do TypeScript:** esqueceu o id? O erro diz até de qual parte ele
+> faltou:
 >
 > ```ts
 > const ze: Aluno & ComId = { nome: 'Zé', idade: 17 }
 > // erro: Type '{ nome: string; idade: number; }' is not assignable
 > //       to type 'Aluno & ComId'.
+> //   Property 'id' is missing in type '{ nome: string; idade: number; }'
+> //   but required in type 'ComId'.
 > ```
 
 > [!NOTE]
@@ -2112,8 +2147,8 @@ Hoje você vai ver três jeitos de dizer "isso aqui é fixo":
   `[string, number]` é "um texto e depois um número".
 - **`enum`:** dá **nomes** a um conjunto fixo de valores. `Turno.Noite` vale
   `'noite'`.
-- **`as const`:** congela um valor. O array vira uma lista só de leitura, e
-  cada item vira um literal. Dá até para tirar uma união dela.
+- **`as const`:** congela um array. Ele vira só de leitura, e cada item vira um
+  literal. Dá até para tirar uma união dele.
 
 <p align="center"><img src="0049-tuplas-enum-as-const/ideia.svg" alt="Diagrama da ideia: Tuplas, enum e as const" width="858"></p>
 
@@ -2121,7 +2156,7 @@ Vamos ver os três na prática:
 
 ```ts
 const nota: [string, number] = ['Ana', 8]
-const [nome, valor] = nota
+const [nome, valor] = nota // tira cada posição para uma variável
 console.log(`${nome} tirou ${valor}`) // Ana tirou 8
 
 enum Turno {
@@ -2137,6 +2172,13 @@ type Dia = (typeof DIAS)[number] // 'seg' | 'ter' | 'qua'
 const hoje: Dia = 'ter'
 console.log(hoje, DIAS.length) // ter 3
 ```
+
+A linha `const [nome, valor] = nota` se chama **desestruturação**. Ela abre a
+tupla e guarda a posição 0 em `nome` e a posição 1 em `valor`.
+
+E o `(typeof DIAS)[number]`? Leia de dentro para fora. `typeof DIAS` é o tipo
+da lista. O `[number]` pega o tipo de um item qualquer dela. Resultado: a
+união `'seg' | 'ter' | 'qua'`.
 
 E qual dos três usar? Depende do que é fixo:
 

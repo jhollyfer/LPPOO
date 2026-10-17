@@ -5,8 +5,8 @@
 // menor de 18 e `every` para dizer se todos têm mais de 15.
 //
 // Dicas:
-// 1. `idades.some((i) => i < 18)`.
-// 2. `idades.every((i) => i > 15)`.
+// 1. `idades.some((idade) => idade < 18)`.
+// 2. `idades.every((idade) => idade > 15)`.
 // 3. Mostre as respostas numa frase.
 //
 // Escreva sua resposta abaixo:

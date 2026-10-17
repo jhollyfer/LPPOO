@@ -35,13 +35,15 @@ qualquer pedaço, não passa:
 > combinar com o resto do código.
 
 > [!TIP]
-> **Poder do TypeScript:** esqueceu o id? O erro mostra que o objeto não serve
-> para a interseção:
+> **Poder do TypeScript:** esqueceu o id? O erro diz até de qual parte ele
+> faltou:
 >
 > ```ts
 > const ze: Aluno & ComId = { nome: 'Zé', idade: 17 }
 > // erro: Type '{ nome: string; idade: number; }' is not assignable
 > //       to type 'Aluno & ComId'.
+> //   Property 'id' is missing in type '{ nome: string; idade: number; }'
+> //   but required in type 'ComId'.
 > ```
 
 > [!NOTE]

@@ -31,13 +31,12 @@ function chamar(a: Aluno): string {
 console.log(chamar(ana)) // Ana
 console.log(chamar(ze)) // Zé
 ana.nome = 'Ana Clara' // pode: nome não é readonly
-console.log(ana.nome)
+console.log(ana.nome) // Ana Clara
 ```
 
 Repara na função `chamar`. Como o apelido pode faltar, ela precisa decidir o
-que fazer quando ele não vem.
-
-É a pergunta do fluxograma:
+que fazer quando ele não vem. É a pergunta do fluxograma. A Ana não tem
+apelido, então sai o nome:
 
 {{fluxograma}}
 
@@ -51,6 +50,9 @@ que fazer quando ele não vem.
 > ana.apelido.toUpperCase()
 > // erro: 'ana.apelido' is possibly 'undefined'.
 > ```
+>
+> A saída é tratar o caso vazio, com o `??` ou o `?.` da
+> [0037](#0037--truthy-falsy--e-): `ana.apelido?.toUpperCase()`.
 
 > [!NOTE]
 > **Pergunta para a turma:** se a Ana tiver `apelido: ''` (texto vazio), o que

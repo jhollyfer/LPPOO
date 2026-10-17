@@ -1,7 +1,7 @@
 ## 0028 · Parâmetro opcional, valor padrão e void
 
-Até agora, toda chamada mandava todos os valores. Hoje isso muda: tem
-parâmetro que pode ficar de fora.
+Até agora, toda chamada mandava todos os valores. Mas tem parâmetro que pode
+ficar de fora.
 
 Pensa no pedido de pastel na cantina. O sabor você tem que dizer. Se não falar
 o tamanho, vem o médio. E o suco é opcional: pede quem quer.
@@ -13,6 +13,9 @@ Com parâmetro é igual:
   vale `'médio'`.
 - **Opcional**: `suco?: string`. O `?` diz que pode ficar de fora. Aí, dentro
   da função, ele vale `undefined`, a caixa vazia.
+
+Os parâmetros com valor padrão e os opcionais vêm sempre **depois** dos
+obrigatórios.
 
 Olha o pedido da Ana. Ela só disse `'carne'`. O tamanho veio do padrão e o suco
 ficou vazio:
@@ -47,10 +50,6 @@ No fluxograma, siga o pedido da Ana. As duas perguntas são o que a função
 decide sozinha:
 
 {{fluxograma}}
-
-> [!NOTE]
-> Guarda isso: os parâmetros com valor padrão e os opcionais vêm **depois** dos
-> obrigatórios.
 
 > [!NOTE]
 > **Pergunta para a turma:** o que aparece com `pedirPastel('frango',

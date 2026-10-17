@@ -10,7 +10,7 @@ export const ideia = {
       itens: [
         ['let idade = 17', 'number'],
         ["const turno = 'noite'", "'noite'"],
-        ['const notas = [8, 6]', 'number[]'],
+        ['const notas = [8, 6, 9]', 'number[]'],
         ['return n * 2', 'number'],
       ],
     },

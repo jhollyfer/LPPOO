@@ -23,12 +23,23 @@ export const ideia = {
       ],
       destaque: 2,
     },
+    {
+      id: 'd',
+      forma: 'array',
+      x: 110,
+      y: 420,
+      nome: 'DIAS (as const)',
+      itens: ["'seg'", "'ter'", "'qua'"],
+      celula: 130,
+      indices: false,
+    },
+    { id: 'u', x: 820, y: 460, w: 440, cor: 'roxo', rotulo: 'type Dia', texto: ["'seg' | 'ter' | 'qua'"] },
   ],
-  setas: [],
+  setas: [{ de: 'd', para: 'u', rotulo: '(typeof DIAS)[number]' }],
   notas: [
     { x: 110, y: 270, texto: 'posição 0: string', cor: 'azul' },
     { x: 110, y: 310, texto: 'posição 1: number', cor: 'azul' },
-    { x: 700, y: 330, texto: 'Turno.Noite vale noite', cor: 'roxo' },
+    { x: 700, y: 330, texto: "Turno.Noite vale 'noite'", cor: 'roxo' },
   ],
 }
 

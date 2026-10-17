@@ -16,7 +16,7 @@ function vistoria(v: Veiculo): string {
   return `Placa ${v.placa} conferida`
 }
 
-console.log(vistoria(circular)) // Placa PHX-2B19 conferida: todo Onibus também é Veiculo
+console.log(vistoria(circular)) // Placa PHX-2B19 conferida (todo Onibus também é Veiculo)
 console.log(vistoria(moto)) // Placa QZA-7C21 conferida
 console.log(`${circular.linha}: ${circular.lugares} lugares`) // Centro-Colônia: 40 lugares
 

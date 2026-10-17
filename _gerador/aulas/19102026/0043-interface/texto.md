@@ -4,7 +4,7 @@ A **`interface`** é outro jeito de descrever o formato de um objeto. Para
 objeto simples, ela faz a mesma coisa que o `type`.
 
 Então por que existe? Por causa do **`extends`**. Uma interface pode
-**estender** outra: herda tudo dela e acrescenta o que faltar.
+**estender** outra: pega tudo o que a outra tem e acrescenta o que faltar.
 
 Pensa assim: todo aluno é uma pessoa, mas nem toda pessoa é aluno.
 
@@ -31,7 +31,7 @@ function apresentar(p: Pessoa): string {
   return `Olá, ${p.nome}!`
 }
 
-console.log(apresentar(bia)) // Olá, Bia!: todo Aluno também é Pessoa
+console.log(apresentar(bia)) // Olá, Bia! (todo Aluno também é Pessoa)
 console.log(bia.matricula) // A27
 ```
 
@@ -41,15 +41,14 @@ E aí, quando usar `type` e quando usar `interface`? O fluxograma resume:
 
 {{fluxograma}}
 
-| Dá para fazer com...                 | `type` | `interface` |
-| ------------------------------------ | :----: | :---------: |
-| formato de objeto                    | sim    | sim         |
-| estender outro formato               | com `&` | com `extends` |
-| união (`'manhã' \| 'tarde'`)         | sim    | não         |
-| tupla, função, tipo primitivo        | sim    | não         |
+| Dá para fazer com...                       | `type`               | `interface`         |
+| ------------------------------------------ | :------------------: | :-----------------: |
+| formato de objeto                          | sim                  | sim                 |
+| estender outro formato                     | sim, com `&` (0048)  | sim, com `extends`  |
+| dar nome a outro tipo: `type Idade = number` | sim                | não                 |
 
 > [!TIP]
-> **Poder do TypeScript:** quem estende herda as obrigações também. Esqueceu o
+> **Poder do TypeScript:** quem estende leva as obrigações junto. Esqueceu o
 > nome num `Aluno`? O TypeScript cobra:
 >
 > ```ts

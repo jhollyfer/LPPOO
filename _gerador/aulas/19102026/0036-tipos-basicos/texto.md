@@ -13,8 +13,8 @@ Além deles, o TypeScript tem três tipos especiais:
 - **`unknown`:** "qualquer coisa, mas confere antes de usar". Aceita qualquer
   valor, só que obriga você a descobrir o tipo antes de mexer nele. É a caixa
   lacrada.
-- **`never`:** "isso nunca acontece". É o tipo de uma função que nunca termina
-  normalmente, como uma que sempre lança erro.
+- **`never`:** "isso nunca acontece". É o tipo de uma função que nunca chega
+  ao fim, como uma que sempre para o programa com erro.
 
 {{ideia}}
 
@@ -39,15 +39,18 @@ console.log(tamanho('Benjamin')) // 8
 console.log(tamanho(2026)) // 4
 ```
 
-Repara no `unknown`. Antes de usar o valor, ele obriga você a fazer as
-perguntas que o fluxograma mostra:
+O `throw new Error(mensagem)` é novo: ele para o programa e mostra a mensagem
+de erro. Por isso a `falhar` nunca devolve nada, e o tipo dela é `never`.
+
+Agora repara no `unknown`. Antes de usar o valor, ele obriga você a fazer as
+perguntas que o fluxograma mostra. Com `'Benjamin'`, a primeira já dá Sim:
 
 {{fluxograma}}
 
 > [!WARNING]
 > Fuja do `any`. Com ele, o TypeScript deixa passar qualquer coisa, e o erro só
 > aparece com o programa rodando. Neste projeto, o lint barra o `any` escrito na
-> mão: `Unexpected any. Specify a different type.`
+> mão: `Unexpected any. Specify a different type`.
 
 > [!TIP]
 > **Poder do TypeScript:** com `unknown`, ele não deixa você usar o valor sem

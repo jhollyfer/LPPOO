@@ -37,7 +37,7 @@ export const ideia = {
 export const fluxograma = {
   nos: [
     ['A', 'inicio', 'type ou interface?'],
-    ['B', 'dec', 'é união, tupla ou função?'],
+    ['B', 'dec', 'é formato de objeto?'],
     ['C', 'proc', 'type'],
     ['D', 'dec', 'vai estender outro formato?'],
     ['E', 'proc', 'interface com extends'],
@@ -45,8 +45,8 @@ export const fluxograma = {
   ],
   setas: [
     ['A', 'B'],
-    ['B', 'C', 'Sim'],
-    ['B', 'D', 'Não'],
+    ['B', 'D', 'Sim'],
+    ['B', 'C', 'Não'],
     ['D', 'E', 'Sim'],
     ['D', 'F', 'Não'],
   ],

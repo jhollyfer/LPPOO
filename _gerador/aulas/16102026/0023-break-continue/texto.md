@@ -24,14 +24,16 @@ for (let i = 1; i <= 10; i++) {
 // 1, 3, 5, 7
 ```
 
+Quando o bloco do `if` tem uma linha só, dá para tirar as `{ }` e escrever
+tudo na mesma linha, como aqui.
+
 Repara no fluxograma: o `continue` é um atalho de volta para o `i++`. O `break`
 é uma saída direto para o fim:
 
 {{fluxograma}}
 
-> [!NOTE]
-> Use com moderação. Um laço cheio de `break` e `continue` fica difícil de
-> seguir. Quando der, coloque a regra na própria condição do laço.
+Use com moderação: um laço cheio de `break` e `continue` fica difícil de
+seguir.
 
 > [!NOTE]
 > **Pergunta para a turma:** troque o `i > 7` por `i > 4`. Quais números

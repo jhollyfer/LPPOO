@@ -35,9 +35,8 @@ juntas, num lugar que dá para ler de uma vez:
 
 {{fluxograma}}
 
-> [!NOTE]
-> O nome `i` é tradição (vem de *índice*), mas pode ser qualquer um. E o passo
-> não precisa ser `i++`: `i += 2` anda de dois em dois, `i--` conta para trás.
+O nome `i` é tradição (vem de *índice*), mas pode ser qualquer um. E o passo
+não precisa ser `i++`: o `i--`, por exemplo, conta para trás.
 
 > [!NOTE]
 > **Pergunta para a turma:** troque o `i++` por `i += 2`. Quais linhas da

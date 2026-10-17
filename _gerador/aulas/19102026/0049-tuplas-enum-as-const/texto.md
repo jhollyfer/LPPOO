@@ -9,8 +9,8 @@ Hoje você vai ver três jeitos de dizer "isso aqui é fixo":
   `[string, number]` é "um texto e depois um número".
 - **`enum`:** dá **nomes** a um conjunto fixo de valores. `Turno.Noite` vale
   `'noite'`.
-- **`as const`:** congela um valor. O array vira uma lista só de leitura, e
-  cada item vira um literal. Dá até para tirar uma união dela.
+- **`as const`:** congela um array. Ele vira só de leitura, e cada item vira um
+  literal. Dá até para tirar uma união dele.
 
 {{ideia}}
 
@@ -18,7 +18,7 @@ Vamos ver os três na prática:
 
 ```ts
 const nota: [string, number] = ['Ana', 8]
-const [nome, valor] = nota
+const [nome, valor] = nota // tira cada posição para uma variável
 console.log(`${nome} tirou ${valor}`) // Ana tirou 8
 
 enum Turno {
@@ -34,6 +34,13 @@ type Dia = (typeof DIAS)[number] // 'seg' | 'ter' | 'qua'
 const hoje: Dia = 'ter'
 console.log(hoje, DIAS.length) // ter 3
 ```
+
+A linha `const [nome, valor] = nota` se chama **desestruturação**. Ela abre a
+tupla e guarda a posição 0 em `nome` e a posição 1 em `valor`.
+
+E o `(typeof DIAS)[number]`? Leia de dentro para fora. `typeof DIAS` é o tipo
+da lista. O `[number]` pega o tipo de um item qualquer dela. Resultado: a
+união `'seg' | 'ter' | 'qua'`.
 
 E qual dos três usar? Depende do que é fixo:
 

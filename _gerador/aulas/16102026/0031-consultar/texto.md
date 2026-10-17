@@ -25,6 +25,9 @@ O `find` e o `some` recebem uma **regra**: `(p) => p > 20`. Lembra da arrow da
 [0030](#0030--arrow-functions-e-callbacks)? É ela, passada como callback. O
 método chama a regra para cada preço e vê se dá `true`.
 
+Repara que o `p` ficou sem o `: number`. Nem precisa: como `precos` é
+`number[]`, o TypeScript já sabe que cada preço é um número.
+
 Tem mais dois da mesma família:
 
 - `findIndex(regra)`: igual ao `find`, mas devolve a **posição**.

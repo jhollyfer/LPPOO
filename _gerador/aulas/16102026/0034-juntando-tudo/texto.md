@@ -5,9 +5,9 @@ Hora de juntar tudo num programa só. Esse é o fechamento da aula.
 O professor digita as notas da turma, uma por uma, até responder `n`. No fim,
 o programa mostra a média e as notas de 6 para cima.
 
-Cada parte usa uma seção desta aula. Olha só:
+Cada parte usa um assunto desta aula. Olha só:
 
-| Parte do programa                    | Seção                                  |
+| Parte do programa                    | Assunto                                |
 | ------------------------------------ | -------------------------------------- |
 | `do...while` pedindo as notas        | [0021](#0021--laço-dowhile)            |
 | `notas: number[]` e `push`           | [0024](#0024--arrays-vetores) e [0026](#0026--inserir-e-remover-push-pop-unshift-shift-splice) |

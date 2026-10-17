@@ -1,16 +1,14 @@
-// A086 · Interface com método
+// A086 · Interface com uma função dentro
 
-interface Lampada {
-  ligada: boolean
-  alternar(): void
+interface Botao {
+  texto: string
+  aoClicar: () => string // o tipo de função da 0039
 }
 
-const lampadaDaSala: Lampada = {
-  ligada: false,
-  alternar() {
-    this.ligada = !this.ligada
-  },
+const enviar: Botao = {
+  texto: 'Enviar',
+  aoClicar: () => 'Mensagem enviada!',
 }
 
-lampadaDaSala.alternar()
-console.log(lampadaDaSala.ligada) // true
+console.log(`[ ${enviar.texto} ]`) // [ Enviar ]
+console.log(enviar.aoClicar()) // Mensagem enviada!

@@ -9,9 +9,9 @@ itens:
 | Método    | Onde mexe   | O que faz                         |
 | --------- | ----------- | --------------------------------- |
 | `push`    | no fim      | coloca um item                    |
-| `pop`     | no fim      | tira o último e devolve ele       |
+| `pop`     | no fim      | tira o último e devolve esse item |
 | `unshift` | no começo   | coloca um item                    |
-| `shift`   | no começo   | tira o primeiro e devolve ele     |
+| `shift`   | no começo   | tira o primeiro e devolve esse item |
 | `splice`  | no meio     | tira e/ou coloca a partir de uma posição |
 
 Repara no desenho: cada ponta da lista tem uma entrada e uma saída. O `splice`
@@ -31,14 +31,13 @@ compras.splice(1, 1, 'açaí') // na posição 1, tira 1 e põe açaí
 console.log(compras) // [ 'arroz', 'açaí' ]
 ```
 
+O `splice(posição, quantosTirar, oQueColocar)` é o canivete: `splice(1, 1)`
+só tira, `splice(1, 0, 'pão')` só coloca, e `splice(1, 1, 'açaí')` troca.
+
 Guarda isso: os cinco **mudam o array original**. Por isso a lista vai mudando
-a cada linha, sem precisar de `=`:
+a cada linha, sem precisar de `=`. Siga no fluxograma:
 
 {{fluxograma}}
-
-> [!NOTE]
-> O `splice(posição, quantosTirar, oQueColocar)` é o canivete: `splice(1, 1)`
-> só tira, `splice(1, 0, 'pão')` só coloca, e `splice(1, 1, 'açaí')` troca.
 
 > [!NOTE]
 > **Pergunta para a turma:** apague a linha do `splice` e rode de novo. Como

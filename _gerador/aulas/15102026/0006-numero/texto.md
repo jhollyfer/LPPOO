@@ -22,13 +22,9 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 
 {{fluxograma}}
 
-> [!NOTE]
+> [!TIP]
 > Repara: o `.toFixed` devolve texto, pronto para mostrar. Para fazer mais
 > contas, continue usando o `preco`.
-
-> [!WARNING]
-> Conta que não faz sentido vira `NaN` ("Not a Number"). Por exemplo,
-> `Number('abc')` dá `NaN`.
 
 > [!NOTE]
 > **Pergunta para a turma:** troque o `toFixed(2)` por `toFixed(0)`. Qual preço

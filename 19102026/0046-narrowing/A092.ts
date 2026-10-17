@@ -8,10 +8,10 @@ function chamar(nome: string, apelido?: string): string {
 }
 
 type Turno = 'manhã' | 'tarde' | 'noite'
-function temIntervaloNoLanche(turno: Turno): boolean {
+function temIntervalo(turno: Turno): boolean {
   if (turno === 'noite') return false // aqui turno é 'noite'
   return true // aqui sobrou 'manhã' | 'tarde'
 }
 
-console.log(chamar('José', 'Zé'), chamar('Ana'))
-console.log(temIntervaloNoLanche('noite'))
+console.log(chamar('José', 'Zé'), chamar('Ana')) // Zé Ana
+console.log(temIntervalo('noite'), temIntervalo('tarde')) // false true

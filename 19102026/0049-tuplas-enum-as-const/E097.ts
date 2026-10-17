@@ -7,6 +7,6 @@
 //
 // Dicas:
 // 1. Desestruture: const [x1, y1] = a.
-// 2. Distância: Math.hypot(x2 - x1, y2 - y1).
+// 2. Distância: Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2). O sqrt é a raiz quadrada.
 //
 // Escreva sua resposta abaixo:

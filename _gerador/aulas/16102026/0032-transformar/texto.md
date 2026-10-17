@@ -44,10 +44,9 @@ nota, e não mexe no original:
 
 {{fluxograma}}
 
-> [!NOTE]
-> Dá para **encadear**: o resultado de um vira a entrada do próximo.
-> `notas.filter((n) => n >= 6).map((n) => n + 1)` filtra e depois dá o bônus:
-> `[9, 10]`.
+Dá para **encadear**: o resultado de um vira a entrada do próximo.
+`notas.filter((n) => n >= 6).map((n) => n + 1)` filtra e depois dá o bônus:
+`[9, 10]`.
 
 > [!NOTE]
 > **Pergunta para a turma:** se você trocar o `0` do `reduce` por `10`, quanto

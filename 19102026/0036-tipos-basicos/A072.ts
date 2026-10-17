@@ -1,11 +1,13 @@
 // A072 · O perigo do any
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- só para mostrar o perigo
-const qualquer: any = 'um texto'
+const qualquer: any = 'dez'
+console.log(qualquer * 2) // NaN: o TypeScript deixou passar a conta com texto
 
-try {
-  console.log(qualquer.toFixed(2)) // o TypeScript deixou passar...
-} catch (erro) {
-  // ...e quebrou com o programa rodando
-  console.log(`Quebrou: ${erro instanceof Error ? erro.message : erro}`)
-}
+const texto: string = 'dez'
+console.log(texto.length) // 3
+
+// Com o tipo certo, ele barra a mesma conta. Tire o // e veja:
+// console.log(texto * 2)
+// erro: The left-hand side of an arithmetic operation must be of type 'any',
+//       'number', 'bigint' or an enum type.

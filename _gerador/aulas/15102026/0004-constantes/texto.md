@@ -28,14 +28,14 @@ E repara no fluxograma: a constante é guardada antes da pergunta.
 
 {{fluxograma}}
 
-> [!NOTE]
+> [!TIP]
 > Na dúvida, comece com `const`. Precisou mudar depois? Troque para `let`.
 > Valor fixo do programa vai em `UPPER_CASE` (`NOME_ESCOLA`, `MEDIA_APROVACAO`).
 > O resto continua em `camelCase` (`nome`).
 
 > [!NOTE]
 > **Pergunta para a turma:** tire as `//` da linha `NOME_ESCOLA = 'Outra escola'`.
-> O editor reclama? E o programa, chega a mostrar a frase da Ana? Rode e
-> descubra.
+> O editor reclama? E quando você roda, a frase da Ana aparece antes do erro?
+> Rode e descubra.
 
 {{pratique}}
