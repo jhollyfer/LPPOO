@@ -42,28 +42,6 @@ de gavetas com o índice embaixo de cada uma, começando do 0.
 > item do array. Para percorrer arrays, prefira o `for...of` (assunto 0025). O
 > porquê está no assunto 0053 da [aula 03](../19102026/README.md).
 
-## Os assuntos
-
-Leia na ordem: cada assunto usa o anterior.
-
-| # | Assunto | Pasta |
-| --- | --- | --- |
-| [0020](#0020--laço-while) | Laço while | [`0020-while/`](0020-while/) |
-| [0021](#0021--laço-dowhile) | Laço do...while | [`0021-do-while/`](0021-do-while/) |
-| [0022](#0022--laço-for) | Laço for | [`0022-for/`](0022-for/) |
-| [0023](#0023--break-e-continue) | break e continue | [`0023-break-continue/`](0023-break-continue/) |
-| [0024](#0024--arrays-vetores) | Arrays (vetores) | [`0024-arrays/`](0024-arrays/) |
-| [0025](#0025--laço-forof) | Laço for...of | [`0025-for-of/`](0025-for-of/) |
-| [0026](#0026--inserir-e-remover-push-pop-unshift-shift-splice) | Inserir e remover: push, pop, unshift, shift, splice | [`0026-inserir-remover/`](0026-inserir-remover/) |
-| [0027](#0027--funções) | Funções | [`0027-funcoes/`](0027-funcoes/) |
-| [0028](#0028--parâmetro-opcional-valor-padrão-e-void) | Parâmetro opcional, valor padrão e void | [`0028-parametros/`](0028-parametros/) |
-| [0029](#0029--escopo-de-variáveis) | Escopo de variáveis | [`0029-escopo/`](0029-escopo/) |
-| [0030](#0030--arrow-functions-e-callbacks) | Arrow functions e callbacks | [`0030-arrow-callback/`](0030-arrow-callback/) |
-| [0031](#0031--consultar-indexof-includes-find-findindex-some-every) | Consultar: indexOf, includes, find, findIndex, some, every | [`0031-consultar/`](0031-consultar/) |
-| [0032](#0032--transformar-map-filter-reduce-foreach) | Transformar: map, filter, reduce, forEach | [`0032-transformar/`](0032-transformar/) |
-| [0033](#0033--organizar-sort-reverse-slice-join-concat) | Organizar: sort, reverse, slice, join, concat | [`0033-organizar/`](0033-organizar/) |
-| [0034](#0034--juntando-tudo-as-notas-da-turma) | Juntando tudo: as notas da turma | [`0034-juntando-tudo/`](0034-juntando-tudo/) |
-
 ---
 
 ## 0020 · Laço while

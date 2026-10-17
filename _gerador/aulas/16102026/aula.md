@@ -40,12 +40,6 @@ de gavetas com o índice embaixo de cada uma, começando do 0.
 > item do array. Para percorrer arrays, prefira o `for...of` (assunto 0025). O
 > porquê está no assunto 0053 da [aula 03](../19102026/README.md).
 
-## Os assuntos
-
-Leia na ordem: cada assunto usa o anterior.
-
-{{indice}}
-
 ---
 
 {{assuntos}}

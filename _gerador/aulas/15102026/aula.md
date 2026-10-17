@@ -38,12 +38,6 @@ No diagrama da ideia, o caminho que o exemplo segue aparece em verde, e os
 outros ficam cinza. Erro é vermelho. No fluxograma vale a mesma regra: o
 caminho do exemplo fica colorido e o resto fica apagado.
 
-## Os assuntos
-
-São 19 assuntos curtos, e cada um usa o anterior. Leia na ordem.
-
-{{indice}}
-
 ---
 
 {{assuntos}}

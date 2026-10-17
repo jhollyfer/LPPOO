@@ -53,12 +53,6 @@ como uma **ficha**, com o nome da propriedade à esquerda e o tipo à direita.
 > erro aparecer no editor e leia a mensagem com calma: ela quase sempre diz o
 > que está faltando.
 
-## Os assuntos
-
-Leia na ordem: cada um usa o anterior.
-
-{{indice}}
-
 ---
 
 {{assuntos}}

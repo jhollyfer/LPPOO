@@ -55,33 +55,6 @@ como uma **ficha**, com o nome da propriedade à esquerda e o tipo à direita.
 > erro aparecer no editor e leia a mensagem com calma: ela quase sempre diz o
 > que está faltando.
 
-## Os assuntos
-
-Leia na ordem: cada um usa o anterior.
-
-| # | Assunto | Pasta |
-| --- | --- | --- |
-| [0035](#0035--como-o-typescript-funciona-e-por-que-ele) | Como o TypeScript funciona (e por que ele) | [`0035-typescript/`](0035-typescript/) |
-| [0036](#0036--tipos-primitivos-any-unknown-e-never) | Tipos primitivos, any, unknown e never | [`0036-tipos-basicos/`](0036-tipos-basicos/) |
-| [0037](#0037--truthy-falsy--e-) | Truthy, falsy, ?? e ?. | [`0037-truthy-falsy/`](0037-truthy-falsy/) |
-| [0038](#0038--inferência-x-anotação-quando-escrever-o-tipo) | Inferência x anotação: quando escrever o tipo | [`0038-inferencia/`](0038-inferencia/) |
-| [0039](#0039--tipo-de-função-e-tipagem-contextual) | Tipo de função e tipagem contextual | [`0039-tipo-de-funcao/`](0039-tipo-de-funcao/) |
-| [0040](#0040--objetos) | Objetos | [`0040-objetos/`](0040-objetos/) |
-| [0041](#0041--tipos-de-objeto-e-type) | Tipos de objeto e type | [`0041-tipos-de-objeto/`](0041-tipos-de-objeto/) |
-| [0042](#0042--como-o-typescript-pensa-tipos-estruturais) | Como o TypeScript pensa: tipos estruturais | [`0042-tipagem-estrutural/`](0042-tipagem-estrutural/) |
-| [0043](#0043--interface-e-type-x-interface) | interface (e type x interface) | [`0043-interface/`](0043-interface/) |
-| [0044](#0044--propriedade-opcional-e-readonly) | Propriedade opcional e readonly | [`0044-opcional-readonly/`](0044-opcional-readonly/) |
-| [0045](#0045--união--e-tipos-literais) | União (\|) e tipos literais | [`0045-uniao-literais/`](0045-uniao-literais/) |
-| [0046](#0046--narrowing-estreitando-o-tipo) | Narrowing: estreitando o tipo | [`0046-narrowing/`](0046-narrowing/) |
-| [0047](#0047--união-discriminada) | União discriminada | [`0047-uniao-discriminada/`](0047-uniao-discriminada/) |
-| [0048](#0048--interseção-) | Interseção (&) | [`0048-intersecao/`](0048-intersecao/) |
-| [0049](#0049--tuplas-enum-e-as-const) | Tuplas, enum e as const | [`0049-tuplas-enum-as-const/`](0049-tuplas-enum-as-const/) |
-| [0050](#0050--generics-t) | Generics (<T>) | [`0050-generics/`](0050-generics/) |
-| [0051](#0051--tipos-utilitários-partial-pick-omit-record-readonly) | Tipos utilitários: Partial, Pick, Omit, Record, Readonly | [`0051-tipos-utilitarios/`](0051-tipos-utilitarios/) |
-| [0052](#0052--type-guards-x-is-t-e-satisfies) | Type guards (x is T) e satisfies | [`0052-type-guards-satisfies/`](0052-type-guards-satisfies/) |
-| [0053](#0053--tsconfig-strict-e-as-regras-do-projeto) | tsconfig: strict e as regras do projeto | [`0053-tsconfig/`](0053-tsconfig/) |
-| [0054](#0054--juntando-tudo-cadastro-de-alunos-tipado) | Juntando tudo: cadastro de alunos tipado | [`0054-juntando-tudo/`](0054-juntando-tudo/) |
-
 ---
 
 ## 0035 · Como o TypeScript funciona (e por que ele)

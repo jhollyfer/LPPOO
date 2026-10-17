@@ -40,32 +40,6 @@ No diagrama da ideia, o caminho que o exemplo segue aparece em verde, e os
 outros ficam cinza. Erro é vermelho. No fluxograma vale a mesma regra: o
 caminho do exemplo fica colorido e o resto fica apagado.
 
-## Os assuntos
-
-São 19 assuntos curtos, e cada um usa o anterior. Leia na ordem.
-
-| # | Assunto | Pasta |
-| --- | --- | --- |
-| [0001](#0001--entrada-de-dados-input) | Entrada de dados (input) | [`0001-input/`](0001-input/) |
-| [0002](#0002--saída-de-dados-output) | Saída de dados (output) | [`0002-output/`](0002-output/) |
-| [0003](#0003--variáveis) | Variáveis | [`0003-variaveis/`](0003-variaveis/) |
-| [0004](#0004--constantes) | Constantes | [`0004-constantes/`](0004-constantes/) |
-| [0005](#0005--texto-string) | Texto (string) | [`0005-texto/`](0005-texto/) |
-| [0006](#0006--número-number) | Número (number) | [`0006-numero/`](0006-numero/) |
-| [0007](#0007--booleano-boolean-typeof-null-e-undefined) | Booleano (boolean), typeof, null e undefined | [`0007-booleano/`](0007-booleano/) |
-| [0008](#0008--conversão-de-tipos) | Conversão de tipos | [`0008-conversao/`](0008-conversao/) |
-| [0009](#0009--operadores-de-atribuição) | Operadores de atribuição | [`0009-atribuicao/`](0009-atribuicao/) |
-| [0010](#0010--operadores-aritméticos) | Operadores aritméticos | [`0010-aritmetica/`](0010-aritmetica/) |
-| [0011](#0011--objeto-math) | Objeto Math | [`0011-math/`](0011-math/) |
-| [0012](#0012--operadores-relacionais) | Operadores relacionais | [`0012-relacional/`](0012-relacional/) |
-| [0013](#0013--comparação-de-igualdade) | Comparação de igualdade | [`0013-comparacao/`](0013-comparacao/) |
-| [0014](#0014--operadores-lógicos) | Operadores lógicos | [`0014-logico/`](0014-logico/) |
-| [0015](#0015--condicional-simples-if) | Condicional simples (if) | [`0015-condicional-simples/`](0015-condicional-simples/) |
-| [0016](#0016--condicional-composta-if--else) | Condicional composta (if / else) | [`0016-condicional-composta/`](0016-condicional-composta/) |
-| [0017](#0017--condicional-aninhada-else-if-e-if-dentro-de-if) | Condicional aninhada (else if e if dentro de if) | [`0017-condicional-aninhada/`](0017-condicional-aninhada/) |
-| [0018](#0018--operador-ternário) | Operador ternário | [`0018-ternario/`](0018-ternario/) |
-| [0019](#0019--estrutura-de-escolha-switch) | Estrutura de escolha (switch) | [`0019-escolha/`](0019-escolha/) |
-
 ---
 
 ## 0001 · Entrada de dados (input)
