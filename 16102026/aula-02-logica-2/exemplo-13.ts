@@ -1,7 +1,7 @@
 // Aula 02 · Exemplo 13 · Arrays tipados e for...of
 // Quantas letras tem cada fruta, e qual tem mais?
 
-const frutas: Array<string> = ['açaí', 'cupuaçu', 'tucumã', 'buriti']
+const frutas: string[] = ['açaí', 'cupuaçu', 'tucumã', 'buriti']
 
 let maior = ''
 for (const fruta of frutas) {

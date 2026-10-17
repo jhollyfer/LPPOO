@@ -1,7 +1,7 @@
 // 0024 · Arrays (vetores)
 // Exercício E048
 //
-// Crie um `Array<string>` com 3 nomes da sua família. Mostre cada nome usando o
+// Crie um `string[]` com 3 nomes da sua família. Mostre cada nome usando o
 // índice, numa frase: "Familiar 1: ...".
 //
 // Dicas:

@@ -39,6 +39,23 @@ E tem dois valores especiais que querem dizer "nada":
 - `null`: alguém colocou "nada" de propósito. É o aluno avisando "pode marcar
   que eu não vou".
 
+### Cada valor tem um tipo
+
+Junta os três últimos assuntos: texto é `string`, número é `number` e sim ou
+não é `boolean`. São esses nomes que o `typeof` mostra.
+
+Dá para escrever o tipo junto da variável, depois de dois-pontos:
+
+```ts
+const nome: string = 'Ana'
+const idade: number = 17
+const matriculada: boolean = true
+```
+
+Nesta aula você não precisa escrever: o TypeScript olha o valor e descobre o
+tipo sozinho. Mas guarda esse jeito de escrever. Na aula 02 ele aparece nas
+listas (`number[]`) e nas funções.
+
 > [!NOTE]
 > **Pergunta para a turma:** coloque um `console.log(temAula)` no fim e rode
 > digitando `nao`. O que aparece? E se digitar `SIM`, tudo maiúsculo?

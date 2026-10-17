@@ -18,7 +18,7 @@ use o índice entre colchetes: `notas[0]` é 8. Para trocar, atribua:
 
 ```ts
 const notas: number[] = [8, 6, 9]
-const nomes: Array<string> = ['Ana', 'Bia', 'Caio']
+const nomes: string[] = ['Ana', 'Bia', 'Caio']
 
 console.log(nomes[0]) // Ana: a primeira posição é a 0
 console.log(notas.length) // 3
@@ -26,8 +26,12 @@ notas[1] = 7 // troca o que está na posição 1
 console.log(notas) // [ 8, 7, 9 ]
 ```
 
-`number[]` e `Array<string>` são dois jeitos de escrever a mesma ideia: "array
-de números" e "array de textos".
+Repara no tipo escrito depois dos dois-pontos. Lembra dos tipos da
+[0007](../15102026/README.md#0007--booleano-boolean-typeof-null-e-undefined)?
+Com colchetes no fim, ele vira lista:
+
+- `number[]` lê assim: "lista de números".
+- `string[]` lê assim: "lista de textos".
 
 Repara: `notas` é `const` e mesmo assim deu para trocar a nota. O `const` trava
 a **etiqueta**, não o que tem dentro das gavetas.
@@ -35,7 +39,8 @@ a **etiqueta**, não o que tem dentro das gavetas.
 {{fluxograma}}
 
 > [!WARNING]
-> Ler uma posição que não existe não dá erro: dá `undefined`. Em
+> Ler uma posição que não existe não dá erro: dá `undefined`, a caixa vazia
+> que você viu na 0007. Em
 > `[8, 7, 9]`, `notas[5]` é `undefined`. A última posição é sempre
 > `notas.length - 1`.
 
