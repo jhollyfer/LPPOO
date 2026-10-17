@@ -21,18 +21,12 @@ const nota: [string, number] = ['Ana', 8]
 const [nome, valor] = nota // tira cada posição para uma variável
 console.log(`${nome} tirou ${valor}`) // Ana tirou 8
 
-enum Turno {
-  Manha = 'manhã',
-  Tarde = 'tarde',
-  Noite = 'noite',
-}
-const meuTurno: Turno = Turno.Noite
-console.log(meuTurno) // noite
+enum Turno { Manha = 'manhã', Tarde = 'tarde', Noite = 'noite' }
+console.log(Turno.Noite) // noite
 
 const DIAS = ['seg', 'ter', 'qua'] as const
 type Dia = (typeof DIAS)[number] // 'seg' | 'ter' | 'qua'
 const hoje: Dia = 'ter'
-console.log(hoje, DIAS.length) // ter 3
 ```
 
 A linha `const [nome, valor] = nota` se chama **desestruturação**. Ela abre a

@@ -1,7 +1,7 @@
 ## 0016 · Condicional composta (if / else)
 
-Na aula passada, o `if` sozinho só fazia uma coisa a mais. Hoje ele ganha um
-plano B: o `else` (em português, "senão").
+No assunto anterior, o `if` sozinho só fazia uma coisa a mais. Agora ele ganha
+um plano B: o `else` (em português, "senão").
 
 Funciona assim: **se** a condição for verdadeira, roda o bloco do `if`.
 **Senão**, roda o bloco do `else`.

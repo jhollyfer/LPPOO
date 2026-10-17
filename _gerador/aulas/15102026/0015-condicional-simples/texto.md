@@ -1,7 +1,7 @@
 ## 0015 · Condicional simples (if)
 
 Até agora, nossos programas rodaram de cima para baixo, linha por linha, sem
-pular nada. Hoje isso muda: o programa vai **decidir**.
+pular nada. Agora isso muda: o programa vai **decidir**.
 
 Quem decide é o `if` (em português, "se"). Funciona assim: **se** a condição
 for verdadeira, o bloco entre `{ }` roda. Se for falsa, o programa pula o

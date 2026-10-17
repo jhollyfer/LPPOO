@@ -1,21 +1,14 @@
 // A075 · O placar do futsal
 
 const time = 'Onças' // infere o tipo literal 'Onças'
-const golsPorTempo = [2, 1] // infere: number[]
-let total = 0 // infere: number
-for (const gols of golsPorTempo) total += gols
-
+const gols = [2, 1] // infere: number[]
 const artilheiros: string[] = [] // array vazio: escreva o tipo
 artilheiros.push('Caio', 'Lia')
 
-// o parâmetro precisa de tipo; o retorno (string) ele descobre sozinho
-function placar(nosso: number, deles: number) {
-  return `${nosso} x ${deles}`
+// o parâmetro precisa de tipo; o retorno (number) ele descobre sozinho
+function somar(lista: number[]) {
+  return lista.reduce((a, b) => a + b, 0)
 }
 
-let resultado: string // ainda sem valor: escreva o tipo
-if (total > 2) resultado = 'vitória'
-else resultado = 'empate ou derrota'
-
-console.log(`${time} ${placar(total, 2)}: ${resultado}`) // Onças 3 x 2: vitória
-console.log(artilheiros) // [ 'Caio', 'Lia' ]
+console.log(`${time}: ${somar(gols)} gols de ${artilheiros.join(' e ')}`)
+// Onças: 3 gols de Caio e Lia

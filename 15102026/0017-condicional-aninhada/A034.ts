@@ -1,13 +1,16 @@
-// A034 · Positivo, negativo ou zero
+// A034 · Um if dentro de outro
 
 import { input } from '#core/input.ts'
 
-const n = Number(input('Número: '))
+const idade = Number(input('Sua idade: ')) // digite: 20
 
-if (n > 0) {
-  console.log('Positivo')
-} else if (n < 0) {
-  console.log('Negativo')
+if (idade >= 18) {
+  const resposta = input('Tem habilitação? (sim/nao) ') // digite: sim
+  if (resposta === 'sim') {
+    console.log('Pode dirigir!')
+  } else {
+    console.log('Primeiro tire a habilitação.')
+  }
 } else {
-  console.log('Zero')
+  console.log('Ainda não tem idade para dirigir.')
 }

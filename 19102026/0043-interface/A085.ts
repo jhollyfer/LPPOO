@@ -1,24 +1,14 @@
 // A085 · Todo ônibus é um veículo
 
-interface Veiculo {
-  placa: string
-}
+interface Veiculo { placa: string }
+interface Onibus extends Veiculo { linha: string }
 
-interface Onibus extends Veiculo {
-  linha: string
-  lugares: number
-}
-
-const circular: Onibus = { placa: 'PHX-2B19', linha: 'Centro-Colônia', lugares: 40 }
+const circular: Onibus = { placa: 'PHX-2B19', linha: 'Centro-Colônia' }
 const moto: Veiculo = { placa: 'QZA-7C21' }
+const vistoria = (v: Veiculo): string => `Placa ${v.placa} conferida`
 
-function vistoria(v: Veiculo): string {
-  return `Placa ${v.placa} conferida`
-}
-
-console.log(vistoria(circular)) // Placa PHX-2B19 conferida (todo Onibus também é Veiculo)
+console.log(vistoria(circular)) // Placa PHX-2B19 conferida (todo Onibus é Veiculo)
 console.log(vistoria(moto)) // Placa QZA-7C21 conferida
-console.log(`${circular.linha}: ${circular.lugares} lugares`) // Centro-Colônia: 40 lugares
 
 // O contrário não vale: nem todo Veiculo tem linha.
 // console.log(moto.linha)

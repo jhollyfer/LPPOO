@@ -20,13 +20,13 @@ export const ideia = {
       rotulo: 'bloco do if',
       texto: ["'Leve o guarda-chuva!'"],
     },
-    { id: 'fim', x: 1060, y: 270, w: 430, cor: 'cinza', rotulo: 'depois do if', texto: ["'Bom dia!'"] },
+    { id: 'fim', x: 1060, y: 270, w: 430, cor: 'verde', rotulo: 'depois do if', texto: ["'Bom dia!'"] },
   ],
   setas: [
     { de: 'ini', para: 'p' },
     { de: 'p', para: 'sim', lados: 'ce', cotovelo: true, rotulo: 'Sim', cor: 'verde' },
-    { de: 'p', para: 'fim', lados: 'be', cotovelo: true, rotulo: 'Não', cor: 'vermelho' },
-    { de: 'sim', para: 'fim', lados: 'bc', cor: 'cinza' },
+    { de: 'p', para: 'fim', lados: 'be', cotovelo: true, rotulo: 'Não', cor: 'cinza' },
+    { de: 'sim', para: 'fim', lados: 'bc', cor: 'verde' },
   ],
 }
 

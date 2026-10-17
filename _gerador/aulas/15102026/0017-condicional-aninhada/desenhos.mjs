@@ -10,7 +10,7 @@ export const ideia = {
   setas: [
     { de: 'ini', para: 'p1' },
     { de: 'p1', para: 'apr', rotulo: 'Sim', cor: 'cinza' },
-    { de: 'p1', para: 'p2', rotulo: 'Não', cor: 'vermelho' },
+    { de: 'p1', para: 'p2', rotulo: 'Não', cor: 'verde' },
     { de: 'p2', para: 'rec', rotulo: 'Sim', cor: 'verde' },
     { de: 'p2', para: 'rep', rotulo: 'Não', cor: 'cinza' },
   ],
