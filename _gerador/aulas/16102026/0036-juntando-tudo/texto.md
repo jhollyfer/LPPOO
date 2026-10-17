@@ -1,11 +1,12 @@
 ## 0036 · Juntando tudo: as notas da turma
 
-> Tudo da aula num programa só: pedir as notas, guardar num array e usar
-> funções e métodos para tirar as respostas.
+Hora de juntar tudo num programa só. Esse é o fechamento da aula.
 
-O programa abaixo é o fechamento da aula. Ele pede notas até você responder
-`n`, guarda tudo num array e depois mostra a média, as notas de 6 para cima, as
-notas dobradas e a lista numerada. Cada linha usa uma seção desta aula:
+O programa pede notas até você responder `n` e guarda tudo num array. Depois
+ele mostra a média, as notas de 6 para cima, as notas dobradas e a lista
+numerada.
+
+Cada parte usa uma seção desta aula. Olha só:
 
 | Parte do programa                    | Seção                                  |
 | ------------------------------------ | -------------------------------------- |
@@ -15,7 +16,7 @@ notas dobradas e a lista numerada. Cada linha usa uma seção desta aula:
 | `filter`, `map` e `join`             | [0029](#0029--transformar-map-filter-reduce-foreach) e [0030](#0030--organizar-sort-reverse-slice-join-concat) |
 | `for` com índice                     | [0023](#0023--laço-for)                |
 
-Você digita 8, 5 e 9, e depois `n`:
+Vamos ver na prática. Você digita 8, 5 e 9, e depois `n`:
 
 {{ideia}}
 
@@ -48,8 +49,14 @@ for (let i = 0; i < notas.length; i++) {
 }
 ```
 
-O fluxograma mostra as três voltas do `do...while` e depois o relatório:
+No fluxograma, repara nas três voltas do `do...while`. Depois delas vem o
+relatório:
 
 {{fluxograma}}
+
+> [!NOTE]
+> **Pergunta para a turma:** se você digitar só uma nota, `4`, e responder `n`,
+> o que aparece na linha "Notas de 6 para cima"? Rode e confira. (Dica: o
+> `filter` pode devolver um array vazio.)
 
 {{pratique}}

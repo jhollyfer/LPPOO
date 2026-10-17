@@ -1,10 +1,10 @@
 ## 0029 · Transformar: map, filter, reduce, forEach
 
-> Uma esteira de fábrica: entra fruta, sai suco. Os métodos desta seção são
-> esteiras para arrays.
+Pensa numa esteira de fábrica: entra fruta, sai suco. Esses quatro métodos são
+esteiras para arrays.
 
-Estes quatro métodos passam por **todos os itens** do array, um por um, e
-aplicam uma regra em cada:
+Eles passam por **todos os itens** do array, um por um, e aplicam uma regra em
+cada:
 
 - `map(regra)`: **transforma** cada item e devolve um array novo do mesmo
   tamanho.
@@ -14,8 +14,8 @@ aplicam uma regra em cada:
 - `forEach(regra)`: só **faz algo** com cada item (mostrar, por exemplo). Não
   devolve nada.
 
-As notas da turma são `[8, 4, 9, 5]`. O `map` dobra cada uma, o `filter` deixa
-só as de 6 para cima e o `reduce` soma tudo:
+Vamos ver na prática. As notas da turma são `[8, 4, 9, 5]`. O `map` dobra cada
+uma, o `filter` deixa só as de 6 para cima e o `reduce` soma tudo:
 
 {{ideia}}
 
@@ -29,11 +29,13 @@ const soma = notas.reduce((acc, n) => acc + n, 0) // 26
 notas.forEach((n) => console.log(`Nota: ${n}`))
 ```
 
-O `reduce` assusta no começo. O `acc` (de acumulador) começa com o `0` do fim e,
-a cada item, vira `acc + n`: 0 + 8 = 8, 8 + 4 = 12, 12 + 9 = 21, 21 + 5 = 26.
+O `reduce` assusta no começo. Calma.
 
-O fluxograma mostra o `map` por dentro. Ele monta um array novo, item por item,
-e não mexe no original:
+O `acc` (de acumulador) começa com o `0` do fim. A cada item, ele vira
+`acc + n`: 0 + 8 = 8, 8 + 4 = 12, 12 + 9 = 21, 21 + 5 = 26.
+
+Agora olha o `map` por dentro, no fluxograma. Ele monta um array novo, item por
+item, e não mexe no original:
 
 {{fluxograma}}
 
@@ -41,5 +43,9 @@ e não mexe no original:
 > Dá para **encadear**: o resultado de um vira a entrada do próximo.
 > `notas.filter((n) => n >= 6).map((n) => n * 2)` filtra e depois dobra:
 > `[16, 18]`.
+
+> [!NOTE]
+> **Pergunta para a turma:** se você trocar o `0` do `reduce` por `10`, quanto
+> dá a `soma`? Mude e rode. (Dica: o `acc` começa com esse valor.)
 
 {{pratique}}

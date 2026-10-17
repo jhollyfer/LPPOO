@@ -1,9 +1,12 @@
 ## 0032 · Parâmetro opcional, valor padrão e void
 
-> Pedido de açaí: o tamanho você tem que dizer. A granola é opcional. E o copo,
-> se você não falar nada, vem o de sempre.
+Até agora, toda função recebia tudo em toda chamada. Hoje isso muda: tem
+parâmetro que pode ficar de fora.
 
-Nem todo parâmetro precisa ser informado em toda chamada:
+Pensa no pedido de açaí. O tamanho você tem que dizer. A granola é opcional. E
+o copo, se você não falar nada, vem o de sempre.
+
+Com parâmetro é igual:
 
 - **Obrigatório**: `precos: number[]`. Sem ele, a função não tem com o que
   trabalhar.
@@ -12,8 +15,8 @@ Nem todo parâmetro precisa ser informado em toda chamada:
 - **Opcional**: `moeda?: string`. Pode ficar de fora, e aí dentro da função ele
   vale `undefined`.
 
-E tem função que não devolve nada, só faz alguma coisa, como mostrar na tela. O
-tipo do retorno dela é **`void`** (vazio).
+E tem função que não devolve nada. Ela só faz alguma coisa, como mostrar na
+tela. O tipo do retorno dela é **`void`** (vazio).
 
 {{ideia}}
 
@@ -32,12 +35,18 @@ mostrarTotal(totalComDesconto([10, 20], 0.1)) // R$ 27.00
 mostrarTotal(5, 'US$') // US$ 5.00
 ```
 
-O fluxograma mostra o que o `totalComDesconto` decide sozinho. Na primeira
+Repara no fluxograma o que o `totalComDesconto` decide sozinho. Na primeira
 chamada não veio desconto, então vale o padrão:
 
 {{fluxograma}}
 
 > [!NOTE]
-> Parâmetros opcionais e com valor padrão vêm **depois** dos obrigatórios.
+> Guarda isso: parâmetros opcionais e com valor padrão vêm **depois** dos
+> obrigatórios.
+
+> [!NOTE]
+> **Pergunta para a turma:** o que aparece com
+> `mostrarTotal(totalComDesconto([10, 20], 0.5))`? Acrescente a linha e rode.
+> (Dica: `0.5` é metade.)
 
 {{pratique}}

@@ -1,15 +1,18 @@
 ## 0025 · Arrays (vetores)
 
-> A chamada da turma é uma lista: cada aluno tem um número, começando do
-> primeiro. Um array é isso.
+Até agora, cada caixinha guardava um valor só. Hoje isso muda: uma caixinha vai
+guardar uma lista inteira.
 
-Até agora, cada caixinha guardava um valor só. O **array** é uma fileira de
-gavetas com uma etiqueta só. Cada gaveta tem um número, o **índice**, e a
-contagem começa em **0**: a primeira gaveta é a 0, a segunda é a 1.
+Pensa na chamada da turma. É uma lista, e cada aluno tem um número. Um array é
+isso.
 
-As notas da turma ficam em `notas`. Para ler uma gaveta, use o índice entre
-colchetes: `notas[0]` é 8. Para trocar, atribua: `notas[1] = 7`. E
-`notas.length` diz quantas gavetas existem:
+Imagina uma fileira de gavetas com uma etiqueta só. Cada gaveta tem um número,
+o **índice**. E guarda isso: a contagem começa em **0**. A primeira gaveta é a
+0, a segunda é a 1.
+
+Vamos ver na prática. As notas da turma ficam em `notas`. Para ler uma gaveta,
+use o índice entre colchetes: `notas[0]` é 8. Para trocar, atribua:
+`notas[1] = 7`. E `notas.length` diz quantas gavetas existem:
 
 {{ideia}}
 
@@ -24,9 +27,10 @@ console.log(notas) // [ 8, 7, 9 ]
 ```
 
 `number[]` e `Array<string>` são dois jeitos de escrever a mesma ideia: "array
-de números" e "array de textos". Repare que `notas` é `const` e mesmo assim deu
-para trocar a nota: o `const` trava a **etiqueta**, não o que tem dentro das
-gavetas.
+de números" e "array de textos".
+
+Repara: `notas` é `const` e mesmo assim deu para trocar a nota. O `const` trava
+a **etiqueta**, não o que tem dentro das gavetas.
 
 {{fluxograma}}
 
@@ -46,5 +50,10 @@ gavetas.
 > ]
 > console.log(sala[1]?.[0]) // Caio: linha 1, coluna 0
 > ```
+
+> [!NOTE]
+> **Pergunta para a turma:** o array `notas` tem 3 gavetas e a última é a
+> posição 2. Numa turma de 30 alunos, qual é a posição do último? (Dica: a
+> contagem começa em 0.)
 
 {{pratique}}

@@ -1,9 +1,9 @@
 ## 0044 · Propriedade opcional e readonly
 
-> Na carteirinha da escola, a matrícula não muda nunca. O nome pode ser
-> corrigido. E o apelido? Nem todo mundo tem.
+Pensa na carteirinha da escola. A matrícula não muda nunca. O nome pode ser
+corrigido. E o apelido? Nem todo mundo tem.
 
-Duas marcas mudam o jeito de uma propriedade funcionar:
+Duas marcas resolvem isso:
 
 - **`?` (opcional):** `apelido?: string` quer dizer que a propriedade pode nem
   existir. Quando não existe, ela vale `undefined`.
@@ -11,6 +11,8 @@ Duas marcas mudam o jeito de uma propriedade funcionar:
   não pode ser trocada depois que o objeto foi criado.
 
 {{ideia}}
+
+Vamos ver na prática:
 
 ```ts
 type Aluno = {
@@ -32,14 +34,16 @@ ana.nome = 'Ana Clara' // pode: nome não é readonly
 console.log(ana.nome)
 ```
 
-Como o apelido pode faltar, quem usa precisa decidir o que fazer nesse caso. É
-a pergunta do fluxograma:
+Repara na função `chamar`. Como o apelido pode faltar, ela precisa decidir o
+que fazer quando ele não vem.
+
+É a pergunta do fluxograma:
 
 {{fluxograma}}
 
 > [!TIP]
 > **Poder do TypeScript:** ele cobra as duas marcas. Não deixa trocar o que é
-> `readonly` e não deixa usar o opcional sem tratar o caso vazio:
+> `readonly`, e não deixa usar o opcional sem tratar o caso vazio:
 >
 > ```ts
 > ana.matricula = 'A99'
@@ -47,5 +51,10 @@ a pergunta do fluxograma:
 > ana.apelido.toUpperCase()
 > // erro: 'ana.apelido' is possibly 'undefined'.
 > ```
+
+> [!NOTE]
+> **Pergunta para a turma:** se a Ana tiver `apelido: ''` (texto vazio), o que
+> `chamar(ana)` mostra? Rode e confira. (Dica: o `??` só troca `undefined` e
+> `null`.)
 
 {{pratique}}

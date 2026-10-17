@@ -1,13 +1,17 @@
 ## 0010 · Operadores aritméticos
 
-> Tirou 8 na primeira prova e 6 na segunda. A média é 7... ou 11? Depende de
-> onde você coloca os parênteses.
+Você tirou 8 na primeira prova e 6 na segunda. A média é 7... ou 11? Depende de
+onde você coloca os parênteses.
 
-São as contas da escola, com dois símbolos novos: multiplicar é `*` e dividir é
-`/`. E a ordem também é a da escola: primeiro `*` e `/`, depois `+` e `-`.
+As contas são as mesmas da escola, com dois símbolos novos: multiplicar é `*` e
+dividir é `/`.
 
-Por isso `8 + 6 / 2` dá 11: o programa divide `6 / 2` primeiro e só depois
-soma o 8. Para somar as notas antes de dividir, coloque parênteses:
+E a ordem também é a da escola: primeiro `*` e `/`, depois `+` e `-`.
+
+Olha só: por isso `8 + 6 / 2` dá 11. O programa divide `6 / 2` primeiro e só
+depois soma o 8.
+
+Para somar as notas antes de dividir, coloque parênteses:
 
 {{ideia}}
 
@@ -35,7 +39,11 @@ console.log(media) // 7
 </details>
 
 > [!TIP]
-> O `%` não tem a ver com porcentagem. Ele dá o resto da divisão: 7
-> alunos em duplas formam 3 duplas e sobra 1, então `7 % 2` é `1`.
+> O `%` não tem nada a ver com porcentagem. Ele dá o resto da divisão: 7
+> alunos em duplas formam 3 duplas e sobra 1. Então `7 % 2` é `1`.
+
+> [!NOTE]
+> **Pergunta para a turma:** mude a `nota2` para `7`. Quanto dá a média? E se
+> você tirar os parênteses? Rode as duas versões e compare.
 
 {{pratique}}

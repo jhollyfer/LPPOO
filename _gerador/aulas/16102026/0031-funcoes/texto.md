@@ -1,14 +1,16 @@
 ## 0031 · Funções
 
-> Receita de bolo: você escreve uma vez e usa sempre que quiser, com os
-> ingredientes que tiver na hora.
+Pensa numa receita de bolo. Você escreve uma vez e usa sempre que quiser, com
+os ingredientes que tiver na hora.
 
-Uma **função** é um pedaço de código com nome, que você escreve uma vez e
-**chama** quantas vezes quiser. Ela recebe valores (os **parâmetros**), faz o
-trabalho e devolve um resultado com `return`.
+Função é isso. Um pedaço de código com nome, que você escreve uma vez e
+**chama** quantas vezes quiser.
 
-`calcularMedia` recebe um array de notas, soma tudo e divide pela quantidade.
-Chamada com `[8, 6, 10]`, ela devolve `8`:
+Ela recebe valores (os **parâmetros**), faz o trabalho e devolve um resultado
+com `return`.
+
+Vamos ver na prática. A `calcularMedia` recebe um array de notas, soma tudo e
+divide pela quantidade. Chamada com `[8, 6, 10]`, ela devolve `8`:
 
 {{ideia}}
 
@@ -22,17 +24,24 @@ console.log(calcularMedia([8, 6, 10])) // 8
 console.log(calcularMedia([5, 7])) // 6
 ```
 
-Lendo a primeira linha: `function` cria a função, `calcularMedia` é o nome,
-`valores: number[]` é o parâmetro com o tipo, e o `: number` depois dos
-parênteses é o **tipo do retorno**, o que ela devolve.
+Vamos ler a primeira linha juntos:
 
-No fluxograma, a chamada `calcularMedia([8, 6, 10])` entra, a função faz as
-contas e devolve o `8`:
+- `function` cria a função.
+- `calcularMedia` é o nome.
+- `valores: number[]` é o parâmetro, com o tipo.
+- o `: number` depois dos parênteses é o **tipo do retorno**, o que ela devolve.
+
+Olha só o fluxograma: a chamada `calcularMedia([8, 6, 10])` entra, a função faz
+as contas e devolve o `8`:
 
 {{fluxograma}}
 
 > [!NOTE]
-> O `return` encerra a função na hora. O que vier depois dele, dentro da
-> função, não roda.
+> Guarda isso: o `return` encerra a função na hora. O que vier depois dele,
+> dentro da função, não roda.
+
+> [!NOTE]
+> **Pergunta para a turma:** o que aparece se você chamar `calcularMedia([])`,
+> com o array vazio? Rode e confira. (Dica: quanto dá 0 dividido por 0?)
 
 {{pratique}}

@@ -1,12 +1,12 @@
 ## 0004 · Constantes
 
-> O nome da escola não muda no meio da aula. A média para passar também não.
+Tem coisa que não muda no meio do programa. O nome da escola é uma delas.
 
 Se a variável é uma caixa que troca de conteúdo, a **constante** é uma caixa
 lacrada. Colocou o valor, acabou. Ela nasce com `const`.
 
-O nome da escola é `'CETAM'`. Se alguém tentar trocar, o TypeScript reclama
-na hora, antes mesmo de o programa rodar:
+Olha só. O nome da escola é `'CETAM'`. Se alguém tentar trocar, o TypeScript
+reclama na hora, antes mesmo de o programa rodar:
 
 {{ideia}}
 
@@ -21,14 +21,21 @@ console.log(`${nome} estuda no ${NOME_ESCOLA}`) // Ana estuda no CETAM
 // erro: Cannot assign to 'NOME_ESCOLA' because it is a constant.
 ```
 
-Repare que `nome` também é `const`: a resposta do `input` chega uma vez e não
-muda mais. Repare também que a constante é guardada antes da pergunta:
+Repara que `nome` também é `const`. A resposta do `input` chega uma vez e não
+muda mais.
+
+E repara no fluxograma: a constante é guardada antes da pergunta.
 
 {{fluxograma}}
 
 > [!NOTE]
 > Na dúvida, comece com `const`. Precisou mudar depois? Troque para `let`.
-> Valor fixo do programa vai em `UPPER_CASE` (`NOME_ESCOLA`, `MEDIA_APROVACAO`);
-> o resto continua em `camelCase` (`nome`).
+> Valor fixo do programa vai em `UPPER_CASE` (`NOME_ESCOLA`, `MEDIA_APROVACAO`).
+> O resto continua em `camelCase` (`nome`).
+
+> [!NOTE]
+> **Pergunta para a turma:** tire as `//` da linha `NOME_ESCOLA = 'Outra escola'`.
+> O editor reclama? E o programa, chega a mostrar a frase da Ana? Rode e
+> descubra.
 
 {{pratique}}

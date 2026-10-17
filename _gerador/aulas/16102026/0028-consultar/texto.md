@@ -1,9 +1,10 @@
 ## 0028 · Consultar: indexOf, includes, find, findIndex, some, every
 
-> Tem açaí na lista? Em que posição? Algum produto passa de R$ 20? Todos
-> custam mais de R$ 5?
+Tem açaí na lista? Em que posição? Algum produto passa de R$ 20? Todos custam
+mais de R$ 5?
 
-Estes métodos **fazem perguntas** para o array e não mudam nada nele:
+Até agora, a gente mexia no array: colocava e tirava itens. Hoje a gente só
+**pergunta**. Estes métodos fazem perguntas para o array e não mudam nada nele:
 
 - `includes(x)`: tem o `x`? Responde `true` ou `false`.
 - `indexOf(x)`: em que posição está o `x`? Responde o índice, ou `-1` se não tem.
@@ -12,8 +13,9 @@ Estes métodos **fazem perguntas** para o array e não mudam nada nele:
 - `some(regra)`: **algum** item passa? `true` ou `false`.
 - `every(regra)`: **todos** passam? `true` ou `false`.
 
-Os quatro últimos recebem uma **regra** escrita assim: `(p) => p > 20`. Por
-enquanto, leia como "para cada preço `p`, pergunte: `p > 20`?". Na
+Os quatro últimos recebem uma **regra** escrita assim: `(p) => p > 20`.
+
+Por enquanto, leia como "para cada preço `p`, pergunte: `p > 20`?". Na
 [0034](#0034--arrow-functions-e-callbacks) você aprende o que é essa setinha.
 
 {{ideia}}
@@ -30,9 +32,14 @@ console.log(precos.some((p) => p > 20)) // true
 console.log(precos.every((p) => p > 5)) // true
 ```
 
-O fluxograma mostra o que o `find` faz por dentro: olha item por item e para no
-primeiro que passa na regra. O 6 não passa, o 25 passa, e o 9 nem é olhado:
+Repara no fluxograma. Ele mostra o que o `find` faz por dentro: olha item por
+item e para no primeiro que passa na regra. O 6 não passa, o 25 passa, e o 9
+nem é olhado:
 
 {{fluxograma}}
+
+> [!NOTE]
+> **Pergunta para a turma:** o que o `find` devolve quando nenhum item passa na
+> regra? Troque o `p > 20` por `p > 100` e rode. (E o `findIndex`?)
 
 {{pratique}}

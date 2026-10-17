@@ -1,14 +1,16 @@
 ## 0006 · Número (number)
 
-> Quanto custa o açaí? Quantos km até Tabatinga? Qual sua nota? Tudo isso é
-> número, e o programa precisa saber fazer conta com eles.
+Quanto custa o açaí? Qual a sua nota? Tudo isso é número. E o programa precisa
+saber fazer conta com eles.
 
-Número, no TypeScript, se chama **number**. Não tem um tipo para inteiro e outro
-para decimal: `17`, `-3` e `12.5` são todos `number`. E o decimal usa ponto,
-igual à calculadora do celular: `12.5`, não `12,5`.
+No TypeScript, número se chama **number**. Não tem um tipo para inteiro e outro
+para decimal: `17`, `-3` e `12.5` são todos `number`.
 
-O açaí custa `12.5`. Para mostrar como dinheiro, com dois números depois do
-ponto, o `.toFixed(2)` transforma `12.5` em `'12.50'`:
+Guarda isso: o decimal usa ponto, igual à calculadora do celular. É `12.5`, e
+não `12,5`.
+
+Olha só o exemplo. O açaí custa `12.5`. Para mostrar como dinheiro, com dois
+números depois do ponto, o `.toFixed(2)` transforma `12.5` em `'12.50'`:
 
 {{ideia}}
 
@@ -21,11 +23,15 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 {{fluxograma}}
 
 > [!NOTE]
-> O `.toFixed` devolve texto, pronto para mostrar. Para fazer mais contas,
-> continue usando o `preco`.
+> Repara: o `.toFixed` devolve texto, pronto para mostrar. Para fazer mais
+> contas, continue usando o `preco`.
 
 > [!WARNING]
 > Conta que não faz sentido vira `NaN` ("Not a Number"). Por exemplo,
 > `Number('abc')` dá `NaN`.
+
+> [!NOTE]
+> **Pergunta para a turma:** troque o `toFixed(2)` por `toFixed(0)`. Qual preço
+> aparece agora? Rode e confira. (Dica: ele arredonda.)
 
 {{pratique}}

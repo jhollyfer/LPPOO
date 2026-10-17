@@ -1,13 +1,15 @@
 ## 0012 · Operadores relacionais
 
-> Na entrada do show tem um segurança que faz uma pergunta só: "tem 18 anos ou
-> mais?"
+Pensa na entrada do show. Tem um segurança na porta que faz uma pergunta só:
+"tem 18 anos ou mais?"
 
-Os operadores relacionais comparam dois valores e respondem com um boolean,
-`true` ou `false`. Fazem o papel do segurança.
+Os operadores relacionais fazem o papel desse segurança. Eles comparam dois
+valores e respondem com um boolean: `true` ou `false`.
 
-O João tem 17 anos. A pergunta do segurança, em código, é `idade >= 18`. Como 17
-não é maior nem igual a 18, a resposta é `false`:
+Vamos ver na prática. O João tem 17 anos. A pergunta do segurança, em código, é
+`idade >= 18`.
+
+Como 17 não é maior nem igual a 18, a resposta é `false`:
 
 {{ideia}}
 
@@ -19,8 +21,8 @@ const maiorDeIdade = idade >= 18 // false
 console.log(maiorDeIdade) // false
 ```
 
-Igual ao boolean da [0007](#0007--booleano-boolean-typeof-null-e-undefined),
-ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
+Repara que, igual ao boolean da [0007](#0007--booleano-boolean-typeof-null-e-undefined),
+ainda não tem losango. A comparação só gera o `true` ou `false` e guarda.
 
 {{fluxograma}}
 
@@ -33,5 +35,9 @@ ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
 
 > [!TIP]
 > A boca aberta do `>` fica virada para o maior, igual a um jacaré com fome.
+
+> [!NOTE]
+> **Pergunta para a turma:** qual é a menor idade que o João precisa digitar
+> para aparecer `true`? Teste e confira.
 
 {{pratique}}

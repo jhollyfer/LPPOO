@@ -1,17 +1,21 @@
 ## 0042 · Tipos de objeto e type
 
-> A ficha de matrícula tem os mesmos campos para todo mundo: nome, idade,
-> notas. Cada aluno preenche a sua.
+Até agora, cada variável guardava um valor só. Um número, um texto. Hoje isso
+muda.
 
-Até agora as variáveis guardavam um valor simples. Um **objeto** junta vários
-valores com nome numa coisa só: `{ nome: 'Ana', idade: 17 }`. Cada valor é uma
-**propriedade**, e você chega nela com ponto: `ana.nome`.
+Um **objeto** junta vários valores com nome numa coisa só:
+`{ nome: 'Ana', idade: 17 }`. Cada valor desses é uma **propriedade**.
 
-Para dizer que formato um objeto tem, use **`type`**. Ele é a ficha em branco:
-diz quais campos existem e o tipo de cada um. Cada aluno é uma ficha
-preenchida:
+Para chegar numa propriedade, você usa o ponto: `ana.nome`.
+
+E como dizer que formato o objeto tem? Com o **`type`**. Pensa numa ficha de
+matrícula em branco: ela diz quais campos existem e o que vai em cada um.
+
+Cada aluno é uma ficha preenchida. Olha só:
 
 {{ideia}}
+
+Vamos ver na prática:
 
 ```ts
 type Aluno = {
@@ -33,22 +37,27 @@ for (const aluno of turma) {
 // Bia: 7.5
 ```
 
-Com o `type`, o array `turma` vira `Aluno[]`, uma lista de fichas. O
-fluxograma percorre a turma e calcula a média de cada um:
+Repara no `turma`. Ele é `Aluno[]`, uma lista de fichas.
+
+O fluxograma passa pela turma, ficha por ficha, e calcula a média de cada um:
 
 {{fluxograma}}
 
 > [!NOTE]
-> O nome do `type` começa com letra maiúscula (`Aluno`, `Produto`). É
-> combinado, não obrigação, mas todo projeto TypeScript segue.
+> O nome do `type` começa com letra maiúscula: `Aluno`, `Produto`. Ninguém te
+> obriga, mas todo projeto TypeScript faz assim. Então faz também.
 
 > [!TIP]
-> **Poder do TypeScript:** escreva `ana.` e o editor lista as propriedades da
+> **Poder do TypeScript:** escreva `ana.` e o editor mostra as propriedades da
 > ficha. Errou uma letra? Ele avisa na hora:
 >
 > ```ts
 > console.log(ana.nmoe)
 > // erro: Property 'nmoe' does not exist on type 'Aluno'.
 > ```
+
+> [!NOTE]
+> **Pergunta para a turma:** se a Bia tirar mais um 10 (`notas: [6, 9, 10]`),
+> qual vai ser a média dela? Mude o exemplo e rode.
 
 {{pratique}}

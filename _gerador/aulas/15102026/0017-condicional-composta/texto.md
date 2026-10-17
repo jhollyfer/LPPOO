@@ -1,14 +1,15 @@
 ## 0017 · Condicional composta (if / else)
 
-> Ou você está no porto às 6h e embarca no recreio para Tabatinga, ou fica em
-> terra vendo o barco sair.
+Na aula passada, o `if` sozinho só fazia uma coisa a mais. Hoje ele ganha um
+plano B: o `else` (em português, "senão").
 
-O `if` sozinho só sabe fazer uma coisa a mais. Com o `else` (senão), o programa
-ganha um plano B: se a condição for verdadeira, roda o bloco do `if`; se for
-falsa, roda o bloco do `else`. Um dos dois sempre roda, e só um.
+Funciona assim: **se** a condição for verdadeira, roda o bloco do `if`.
+**Senão**, roda o bloco do `else`.
 
-Você chegou ao porto às 5h. `5 <= 6` é `true`, então o caminho é o do `if`:
-embarcou!
+Guarda isso: um dos dois sempre roda. E só um.
+
+Vamos ver na prática. O recreio para Tabatinga sai do porto às 6h. Você chegou
+às 5h. `5 <= 6` dá `true`, então o caminho é o do `if`: embarcou!
 
 {{ideia}}
 
@@ -24,9 +25,13 @@ if (hora <= 6) {
 }
 ```
 
-Os dois caminhos saem do mesmo losango e se encontram de novo no fim. O
-programa passa por um deles:
+Repara no fluxograma: os dois caminhos saem do mesmo losango e se encontram de
+novo no fim. O programa passa por um deles, nunca pelos dois:
 
 {{fluxograma}}
+
+> [!NOTE]
+> **Pergunta para a turma:** e se você chegar às 6h em ponto? Embarca ou perde
+> o barco? E às 7h? Rode e confira. (Dica: olhe o sinal `<=`.)
 
 {{pratique}}

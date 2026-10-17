@@ -1,17 +1,20 @@
 ## 0043 · interface (e type x interface)
 
-> Todo aluno é uma pessoa, mas nem toda pessoa é aluno. O aluno tem tudo que a
-> pessoa tem, e mais a matrícula.
+A **`interface`** é outro jeito de descrever o formato de um objeto. Para
+objeto simples, ela faz a mesma coisa que o `type`.
 
-**`interface`** é outro jeito de descrever o formato de um objeto. Para objetos
-simples, ela faz o mesmo que o `type`. O que ela tem de especial é o
-**`extends`**: uma interface pode **estender** outra, herdando tudo dela e
-acrescentando o que faltar.
+Então por que existe? Por causa do **`extends`**. Uma interface pode
+**estender** outra: herda tudo dela e acrescenta o que faltar.
 
-`Pessoa` tem nome. `Aluno` estende `Pessoa`: tem o nome e mais a matrícula. Por
-isso, onde o código pede uma `Pessoa`, um `Aluno` também serve:
+Pensa assim: todo aluno é uma pessoa, mas nem toda pessoa é aluno.
+
+`Pessoa` tem nome. `Aluno` estende `Pessoa`: tem o nome e mais a matrícula.
+
+Por isso, onde o código pede uma `Pessoa`, um `Aluno` também serve:
 
 {{ideia}}
+
+Vamos ver na prática:
 
 ```ts
 interface Pessoa {
@@ -32,7 +35,9 @@ console.log(apresentar(bia)) // Olá, Bia!: todo Aluno também é Pessoa
 console.log(bia.matricula) // A27
 ```
 
-E quando usar um ou outro? O fluxograma resume:
+Repara: a função pede `Pessoa`, e a Bia entra numa boa.
+
+E aí, quando usar `type` e quando usar `interface`? O fluxograma resume:
 
 {{fluxograma}}
 
@@ -45,13 +50,18 @@ E quando usar um ou outro? O fluxograma resume:
 | ser seguida por uma classe (aula 11) | sim    | sim, o mais comum |
 
 > [!TIP]
-> **Poder do TypeScript:** quem estende herda as obrigações. Esqueceu o nome
-> num `Aluno`? O TypeScript cobra:
+> **Poder do TypeScript:** quem estende herda as obrigações também. Esqueceu o
+> nome num `Aluno`? O TypeScript cobra:
 >
 > ```ts
 > const ze: Aluno = { matricula: 'A30' }
 > // erro: Property 'nome' is missing in type '{ matricula: string; }'
 > //       but required in type 'Aluno'.
 > ```
+
+> [!NOTE]
+> **Pergunta para a turma:** dá para chamar `apresentar({ nome: 'Zé' })`, só
+> com o nome e sem matrícula? Rode e veja. (Dica: o que a função pede é uma
+> `Pessoa`.)
 
 {{pratique}}

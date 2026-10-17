@@ -1,6 +1,6 @@
 ## 0014 · Operadores lógicos
 
-> Para passar de ano não basta tirar nota boa. Também precisa ter frequência.
+Para passar de ano, nota boa sozinha não basta. Também precisa ter frequência.
 
 Os operadores lógicos juntam várias respostas `true`/`false` numa só:
 
@@ -8,8 +8,11 @@ Os operadores lógicos juntam várias respostas `true`/`false` numa só:
 - `||` (OU): dá `true` quando pelo menos um lado é `true`.
 - `!` (NÃO): inverte. `!true` é `false`.
 
-O Pedro tem média 7 (boa: `true`) mas frequência 60% (ruim: `false`). Com `&&`,
-que precisa das duas, ele não passa. Com `||`, que se contenta com uma, passaria:
+Vamos ver na prática. O Pedro tem média 7 (boa: `true`). Mas a frequência dele
+é 60% (ruim: `false`).
+
+Com `&&`, que precisa das duas, ele não passa. Com `||`, que se contenta com
+uma, ele passaria:
 
 {{ideia}}
 
@@ -39,5 +42,9 @@ console.log(media >= 6 || frequencia >= 75) // true || false → true
 > [!TIP]
 > A mãe diz "só sai se arrumar o quarto **E** lavar a louça": é o `&&`. A avó
 > diz "sai se arrumar o quarto **OU** lavar a louça": é o `||`.
+
+> [!NOTE]
+> **Pergunta para a turma:** qual é a menor frequência que o Pedro precisa ter
+> para `aprovado` dar `true`? Mude o valor e rode.
 
 {{pratique}}

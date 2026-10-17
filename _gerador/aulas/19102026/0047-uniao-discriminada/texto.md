@@ -1,16 +1,20 @@
 ## 0047 · União discriminada
 
-> Na cantina, o pagamento pode ser no Pix, no cartão ou em dinheiro. Cada um
-> pede informações diferentes: o Pix tem chave, o cartão tem parcelas, o
-> dinheiro tem troco.
+Pensa na cantina. O pagamento pode ser no Pix, no cartão ou em dinheiro. E
+cada um pede uma informação diferente: o Pix tem chave, o cartão tem parcelas,
+o dinheiro tem troco.
 
-Quando cada opção de uma união tem formato diferente, a saída é colocar em
-todas uma propriedade com o **mesmo nome** e um **valor literal diferente**,
-como `tipo: 'pix'`. Essa propriedade é o **discriminante**: olhando para ela,
-o TypeScript sabe qual formato é. Isso é a **união discriminada**.
+Quando cada opção da união tem um formato diferente, faz assim: coloca em
+todas uma propriedade com o **mesmo nome** e um **valor literal diferente**.
+Por exemplo, `tipo: 'pix'`.
 
-O `switch` no `tipo` funciona como o cardápio da aula 01: cada `case` já
-recebe o formato certo, com as propriedades certas:
+Essa propriedade é o **discriminante**. Olhando para ela, o TypeScript já sabe
+qual é o formato.
+
+Isso é a **união discriminada**.
+
+Agora repara no `switch` no `tipo`. Ele funciona como o cardápio da aula 01:
+cada `case` já recebe o formato certo, com as propriedades certas:
 
 {{ideia}}
 
@@ -39,9 +43,9 @@ console.log(descrever({ tipo: 'dinheiro', recebido: 20, total: 15 })) // Troco: 
 {{fluxograma}}
 
 > [!TIP]
-> **Poder do TypeScript:** com um `default` que guarda o valor num `never`, o
-> TypeScript avisa quando alguém cria um tipo novo de pagamento e esquece de
-> tratar:
+> **Poder do TypeScript:** coloque um `default` que guarda o valor num
+> `never`. Aí, se alguém criar um tipo novo de pagamento e esquecer de tratar,
+> o TypeScript avisa:
 >
 > ```ts
 > // acrescentaram | { tipo: 'boleto' } no Pagamento...
@@ -50,5 +54,10 @@ console.log(descrever({ tipo: 'dinheiro', recebido: 20, total: 15 })) // Troco: 
 >   // erro: Type '{ tipo: "boleto"; }' is not assignable to type 'never'.
 > }
 > ```
+
+> [!NOTE]
+> **Pergunta para a turma:** e se o cliente der `recebido: 15` para um
+> `total: 20`? O que aparece? Rode e veja. (Dica: o TypeScript confere o
+> tipo, não a conta.)
 
 {{pratique}}

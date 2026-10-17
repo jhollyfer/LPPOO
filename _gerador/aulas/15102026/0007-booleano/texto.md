@@ -1,13 +1,13 @@
 ## 0007 · Booleano (boolean), typeof, null e undefined
 
-> Está chovendo? Tem aula hoje? O recreio já saiu? Pergunta de sim ou não tem um
-> tipo só para ela.
+Está chovendo? Tem aula hoje? Pergunta de sim ou não tem um tipo só para ela.
 
-O **boolean** tem só dois valores: `true` (verdadeiro) e `false` (falso). É um
-interruptor de luz: ou está ligado, ou está desligado.
+O **boolean** tem só dois valores: `true` (verdadeiro) e `false` (falso).
+Pensa num interruptor de luz: ou está ligado, ou está desligado.
 
-O programa pergunta "Tem aula hoje?". Você digita `sim`. A comparação
-`resposta === 'sim'` vira `true`, e é esse `true` que fica guardado em `temAula`:
+Vamos ver na prática. O programa pergunta "Tem aula hoje?". Você digita `sim`.
+A comparação `resposta === 'sim'` vira `true`. E é esse `true` que fica
+guardado em `temAula`:
 
 {{ideia}}
 
@@ -21,14 +21,16 @@ let recado // undefined: a gaveta existe, mas está vazia
 recado = null // null: "nada", colocado de propósito
 ```
 
-Ainda não tem losango no fluxograma. A comparação só gera o `true` ou o `false`
-e guarda. Escolher um caminho com ele é trabalho do `if`, na
+Repara que ainda não tem losango no fluxograma. A comparação só gera o `true`
+ou o `false` e guarda.
+
+Escolher um caminho com ele é trabalho do `if`, lá na
 [0016](#0016--condicional-simples-if).
 
 {{fluxograma}}
 
 > [!TIP]
-> O `typeof` conta o tipo de um valor: `typeof temAula` dá `'boolean'`.
+> O `typeof` diz o tipo de um valor: `typeof temAula` dá `'boolean'`.
 
 E tem dois valores especiais que querem dizer "nada":
 
@@ -36,5 +38,9 @@ E tem dois valores especiais que querem dizer "nada":
   reservada de um aluno que ainda não chegou.
 - `null`: alguém colocou "nada" de propósito. É o aluno avisando "pode marcar
   que eu não vou".
+
+> [!NOTE]
+> **Pergunta para a turma:** coloque um `console.log(temAula)` no fim e rode
+> digitando `nao`. O que aparece? E se digitar `SIM`, tudo maiúsculo?
 
 {{pratique}}
