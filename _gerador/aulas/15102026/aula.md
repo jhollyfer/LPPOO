@@ -48,6 +48,8 @@ São 19 assuntos curtos, e cada um usa o anterior. Leia na ordem.
 
 {{assuntos}}
 
+---
+
 ## Prática em sala
 
 Os enunciados ficam em [`pratica/`](pratica/). Cada um junta vários assuntos da
@@ -58,7 +60,7 @@ aula num programa só.
 | [`ficha-de-cadastro.ts`](pratica/ficha-de-cadastro.ts)     | ler dados, converter e mostrar com template string   |
 | [`boletim.ts`](pratica/boletim.ts)                         | média com duas casas e situação com `else if`        |
 | [`cantina.ts`](pratica/cantina.ts)                         | cardápio com `switch` e total em reais               |
-| [`desafio-ingresso.ts`](pratica/desafio-ingresso.ts)       | desafio: `&&`, `\|\|`, ternário e valor padrão        |
+| [`desafio-ingresso.ts`](pratica/desafio-ingresso.ts)       | desafio: `&&`, `\|\|`, `else if` e ternário             |
 
 ```bash
 tsx ~/LPPOO/15102026/pratica/ficha-de-cadastro.ts

@@ -26,8 +26,8 @@ Nos laços, o fluxograma ganha uma seta que **volta**: é a repetição.
 
 ## As cores e as formas
 
-Caixa azul é dado entrando ou saindo, roxa é o programa
-fazendo alguma coisa, amarela é pergunta. Os arrays aparecem como uma fileira
+Caixa azul é dado entrando ou saindo, roxa é o programa fazendo alguma coisa,
+amarela é pergunta. Os arrays aparecem como uma fileira
 de gavetas com o índice embaixo de cada uma, começando do 0.
 
 <p align="center"><img src="legenda.svg" alt="Legenda: formas e cores do fluxograma" width="916"></p>

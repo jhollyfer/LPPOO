@@ -8,7 +8,8 @@ avisa o erro antes de o programa rodar.
 
 ## O que você vai aprender
 
-- como o TypeScript funciona e por que ele foi escolhido
+- como o TypeScript funciona e o que é **tipagem estática**
+- os tipos básicos e quando vale a pena escrever o tipo
 - quais valores contam como verdadeiro ou falso, e os atalhos `??` e `?.`
 - dar tipo para uma função inteira
 - criar objetos e descrever o formato deles com `type` e `interface`
@@ -33,8 +34,8 @@ antes de rodar o código.
 
 ## As cores e as formas
 
-Caixa azul é dado entrando ou saindo, roxa é o
-programa fazendo alguma coisa, amarela é pergunta. Os tipos de objeto aparecem
+Caixa azul é dado entrando ou saindo, roxa é o programa fazendo alguma coisa,
+amarela é pergunta. Os tipos de objeto aparecem
 como uma **ficha**, com o nome da propriedade à esquerda e o tipo à direita.
 
 <p align="center"><img src="legenda.svg" alt="Legenda: formas e cores do fluxograma" width="916"></p>

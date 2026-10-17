@@ -126,7 +126,7 @@ for (const data of readdirSync(join(AQUI, 'aulas'))) {
       console.log(`ok  ${data}/${pasta}/ideia.svg e fluxograma.svg`)
     }
 
-    indice.push(`| [${numero}](#${ancora(titulo)}) | ${assunto} | [\`${pasta}/\`](${pasta}/) |`)
+    indice.push(`| [${numero}](#${ancora(titulo)}) | ${assunto.replaceAll("|", "\\|")} | [\`${pasta}/\`](${pasta}/) |`)
     partes.push(
       texto
         .replace('{{ideia}}', () => imagem(`${pasta}/ideia.svg`, `Diagrama da ideia: ${assunto}`, svgIdeia))

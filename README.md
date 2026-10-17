@@ -85,33 +85,35 @@ inteiro, use `pnpm -C ~/LPPOO tsc`.
 ## Como cada aula funciona
 
 Cada aula é uma pasta com a data (`15102026` é 15/10/2026). O `README.md` da
-aula tem a explicação de todos os assuntos, com o código de cada exemplo e o
-comando para rodar. Em cada um, o texto, o **diagrama da
-ideia**, o código e o **fluxograma** contam o mesmo exemplo. As pastas numeradas
-guardam a parte prática:
+aula é a aula inteira: é por ele que o professor dá a aula.
+
+Cada assunto conta **um exemplo só**, em quatro partes que batem entre si: o
+texto, o **diagrama da ideia**, o código e o **fluxograma**. No fim de cada
+assunto vem a **Hora de praticar**, com o código dos exemplos, os enunciados
+dos exercícios e o comando para rodar cada um.
 
 ```
 15102026/
 ├── README.md           a aula inteira
 ├── legenda.svg         as formas e cores dos desenhos
-└── 0014-logico/
+├── pratica/            os exercícios feitos em sala
+├── aula-01-logica-1/   as questões que valem ponto
+└── 0014-logico/        um assunto
     ├── ideia.svg       o diagrama da ideia
     ├── fluxograma.svg  o caminho que o programa faz
     ├── A027.ts         exemplos resolvidos: rode, mude, quebre, rode de novo
     ├── A028.ts
-    ├── E027.ts         exercícios: enunciado e dicas no comentário,
-    └── E028.ts         resposta DENTRO do próprio arquivo
+    ├── E027.ts         exercícios: a resposta vai DENTRO do próprio arquivo
+    └── E028.ts
 ```
-
-Cada aula também tem uma pasta `pratica/`, com os exercícios feitos em sala.
 
 O caminho de cada assunto:
 
-1. Leia o assunto no `README.md` da aula.
-2. Rode os exemplos (`A...ts`) da pasta e mexa neles à vontade.
-3. Abra os exercícios (`E...ts`), leia o enunciado e escreva a
-   resposta embaixo de `// Escreva sua resposta abaixo:`. Travou? Leia as dicas
-   numeradas logo acima, na ordem.
+1. Leia o assunto no `README.md` da aula e tente responder a **Pergunta para a
+   turma**.
+2. Rode os exemplos (`A...ts`) e mexa neles à vontade.
+3. Abra os exercícios (`E...ts`) e escreva a resposta embaixo de
+   `// Escreva sua resposta abaixo:`. Travou? As dicas estão no próprio arquivo.
 
 Para ler dados do teclado, todo arquivo usa:
 
@@ -182,28 +184,28 @@ questões que valem pontos ficam em
 [`19102026/aula-03-typescript/`](19102026/aula-03-typescript/), e a prática em sala em
 [`19102026/pratica/`](19102026/pratica/).
 
-| Pasta | Assunto |
-| --- | --- |
-| `0035-typescript` | Como o TypeScript funciona (e por que ele) |
-| `0036-tipos-basicos` | Tipos primitivos, any, unknown e never |
-| `0037-truthy-falsy` | Truthy, falsy, ?? e ?. |
-| `0038-inferencia` | Inferência x anotação: quando escrever o tipo |
-| `0039-tipo-de-funcao` | Tipo de função e tipagem contextual |
-| `0040-objetos` | Objetos |
-| `0041-tipos-de-objeto` | Tipos de objeto e type |
-| `0042-tipagem-estrutural` | Como o TypeScript pensa: tipos estruturais |
-| `0043-interface` | interface (e type x interface) |
-| `0044-opcional-readonly` | Propriedade opcional e readonly |
-| `0045-uniao-literais` | União (|) e tipos literais |
-| `0046-narrowing` | Narrowing: estreitando o tipo |
-| `0047-uniao-discriminada` | União discriminada |
-| `0048-intersecao` | Interseção (&) |
-| `0049-tuplas-enum-as-const` | Tuplas, enum e as const |
-| `0050-generics` | Generics (<T>) |
-| `0051-tipos-utilitarios` | Tipos utilitários: Partial, Pick, Omit, Record, Readonly |
-| `0052-type-guards-satisfies` | Type guards (x is T) e satisfies |
-| `0053-tsconfig` | tsconfig: strict e as regras do projeto |
-| `0054-juntando-tudo` | Juntando tudo: cadastro de alunos tipado |
+| Pasta                         | Assunto                                          |
+| ----------------------------- | ------------------------------------------------ |
+| `0035-typescript`             | como o TypeScript funciona e tipagem estática    |
+| `0036-tipos-basicos`          | `string`, `number`, `boolean`, `any`, `unknown`  |
+| `0037-truthy-falsy`           | truthy, falsy, `??` e `?.`                       |
+| `0038-inferencia`             | quando escrever o tipo e quando deixar o TS achar |
+| `0039-tipo-de-funcao`         | o tipo de uma função e o `type`                  |
+| `0040-objetos`                | objetos: propriedades, ponto e lista de objetos  |
+| `0041-tipos-de-objeto`        | o formato de um objeto com `type`                |
+| `0042-tipagem-estrutural`     | o TypeScript confere o formato, não o nome       |
+| `0043-interface`              | `interface` e `extends`                          |
+| `0044-opcional-readonly`      | propriedade opcional (`?`) e `readonly`          |
+| `0045-uniao-literais`         | união (`\|`) e tipos literais                     |
+| `0046-narrowing`              | estreitar o tipo com `typeof` e `in`             |
+| `0047-uniao-discriminada`     | união discriminada com `switch`                  |
+| `0048-intersecao`             | interseção (`&`)                                 |
+| `0049-tuplas-enum-as-const`   | tuplas, `enum` e `as const`                      |
+| `0050-generics`               | generics (`<T>`)                                 |
+| `0051-tipos-utilitarios`      | `Partial`, `Pick`, `Omit`, `Record`, `Readonly`  |
+| `0052-type-guards-satisfies`  | type guards (`x is T`) e `satisfies`             |
+| `0053-tsconfig`               | `tsconfig.json` e o `tsc`                        |
+| `0054-juntando-tudo`          | o programa da aula: cadastro de alunos tipado    |
 
 ## Cronograma
 
