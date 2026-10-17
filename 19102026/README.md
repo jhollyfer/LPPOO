@@ -150,15 +150,24 @@ E por que o TypeScript? São quatro motivos:
 
 Os arquivos ficam em [`0036-typescript/`](0036-typescript/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A071 · O TypeScript avisa antes de rodar**
+**Exemplo A071 · O erro aparece no editor, não no ônibus**
 
 ```ts
-const preco: number = 12.5
-console.log(preco.toFixed(2)) // 12.50
+const passagem: number = 4.5
+const viagensNaSemana: number = 10
+console.log(`Gasto: R$ ${(passagem * viagensNaSemana).toFixed(2)}`) // Gasto: R$ 45.00
 
-// Tire o // da linha abaixo e veja o editor sublinhar em vermelho:
-// const troco: number = 'dez reais'
+const linha: string = 'Centro'
+console.log(linha.toUpperCase()) // CENTRO
+
+// Tire o // de uma das linhas abaixo e veja o editor sublinhar em vermelho.
+// Guardar texto onde se prometeu número:
+// const lotacao: number = 'cheio'
 // erro: Type 'string' is not assignable to type 'number'.
+
+// Usar método de número num texto:
+// console.log(linha.toFixed(2))
+// erro: Property 'toFixed' does not exist on type 'string'. Did you mean 'fixed'?
 ```
 
 ```bash
@@ -313,28 +322,33 @@ O fluxograma ajuda a escolher o estilo que combina com cada pedaço:
 
 Os arquivos ficam em [`0037-paradigmas/`](0037-paradigmas/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A073 · A média nos três estilos**
+**Exemplo A073 · O total da feira nos três estilos**
 
 ```ts
-const notas: number[] = [8, 7, 9]
+const compras: number[] = [6, 12.5, 3.5] // farinha, peixe, cheiro-verde
 
-let soma = 0
-for (const nota of notas) soma += nota
-console.log(`Imperativo: ${soma / notas.length}`)
+// imperativo: um passo de cada vez, mudando a variável total
+let total = 0
+for (const preco of compras) total += preco
+console.log(total) // 22
 
-const media = (valores: number[]): number => valores.reduce((a, b) => a + b, 0) / valores.length
-console.log(`Funcional: ${media(notas)}`)
+// funcional: a função recebe a lista e devolve a soma, sem mexer em nada fora
+const somar = (precos: number[]): number => precos.reduce((a, b) => a + b, 0)
+console.log(somar(compras)) // 22
 
-class Turma {
-  private notas: number[]
-  constructor(notas: number[]) {
-    this.notas = notas
+// orientado a objetos: a sacola guarda os preços e sabe somar o que tem dentro
+class Sacola {
+  private precos: number[] = []
+  colocar(preco: number): void {
+    this.precos.push(preco)
   }
-  media(): number {
-    return this.notas.reduce((a, b) => a + b, 0) / this.notas.length
+  total(): number {
+    return this.precos.reduce((a, b) => a + b, 0)
   }
 }
-console.log(`Objetos: ${new Turma(notas).media()}`)
+const sacola = new Sacola()
+for (const preco of compras) sacola.colocar(preco)
+console.log(sacola.total()) // 22
 ```
 
 ```bash
@@ -468,20 +482,27 @@ TypeScript compara o formato na hora da chamada, assim:
 
 Os arquivos ficam em [`0038-tipagem-estrutural/`](0038-tipagem-estrutural/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A075 · Quem tem o formato, serve**
+**Exemplo A075 · A catraca só olha o saldo**
 
 ```ts
-type Aluno = { nome: string; idade: number }
+type Cartao = { saldo: number }
 
-function apresentar(a: Aluno): string {
-  return `${a.nome}, ${a.idade} anos`
+function passar(c: Cartao): string {
+  return c.saldo >= 4.5 ? 'Catraca liberada' : 'Saldo insuficiente'
 }
 
-const ana = { nome: 'Ana', idade: 17 }
-const visitante = { nome: 'Zé', idade: 40, cidade: 'Benjamin Constant' }
+const estudante = { saldo: 10, nome: 'Caio', escola: 'CETAM' }
+const visitante = { saldo: 2, nome: 'Pedro', cidade: 'Tabatinga' }
 
-console.log(apresentar(ana))
-console.log(apresentar(visitante))
+console.log(passar(estudante)) // Catraca liberada: tem saldo, o resto não importa
+console.log(passar(visitante)) // Saldo insuficiente
+
+// Quem não tem saldo não tem o formato de Cartao:
+// const turista = { nome: 'Lia' }
+// passar(turista)
+// erro: Argument of type '{ nome: string; }' is not assignable to parameter of type 'Cartao'.
+//       Property 'saldo' is missing in type '{ nome: string; }'
+//       but required in type 'Cartao'.
 ```
 
 ```bash
@@ -612,27 +633,29 @@ perguntas que o fluxograma mostra:
 
 Os arquivos ficam em [`0039-tipos-basicos/`](0039-tipos-basicos/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A077 · Primitivos, unknown e never**
+**Exemplo A077 · O empréstimo na biblioteca**
 
 ```ts
-const nome: string = 'Ana'
-const idade: number = 17
-const matriculado: boolean = true
+const livro: string = 'A Moreninha'
+const diasComAluno: number = 9
+const devolvido: boolean = false
 
-function tamanho(valor: unknown): number {
-  if (typeof valor === 'string') return valor.length
-  if (typeof valor === 'number') return valor.toString().length
-  return 0
+// o código do livro pode chegar como texto ou como número
+function lerCodigo(codigo: unknown): string {
+  if (typeof codigo === 'string') return `código ${codigo.toUpperCase()}` // aqui é string
+  if (typeof codigo === 'number') return `código ${codigo + 1000}` // aqui é number
+  return 'código inválido'
 }
 
-function falhar(mensagem: string): never {
-  throw new Error(mensagem)
+function bloquear(motivo: string): never {
+  throw new Error(motivo) // para o programa: nunca devolve nada
 }
 
-if (idade < 0) falhar('Idade inválida')
-console.log(nome, idade, matriculado)
-console.log(tamanho('Benjamin')) // 8
-console.log(tamanho(2026)) // 4
+if (diasComAluno > 60) bloquear('Livro dado como perdido')
+console.log(livro, diasComAluno, devolvido) // A Moreninha 9 false
+console.log(lerCodigo('lit-12')) // código LIT-12
+console.log(lerCodigo(42)) // código 1042
+console.log(lerCodigo(true)) // código inválido
 ```
 
 ```bash
@@ -873,25 +896,28 @@ O fluxograma é a regra prática em forma de perguntas:
 
 Os arquivos ficam em [`0041-inferencia/`](0041-inferencia/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A081 · Inferir ou escrever**
+**Exemplo A081 · O placar do futsal**
 
 ```ts
-let idade = 17
-const turno = 'noite'
-const notas = [8, 6, 9]
+const time = 'Onças' // infere o tipo literal 'Onças'
+const golsPorTempo = [2, 1] // infere: number[]
+let total = 0 // infere: number
+for (const gols of golsPorTempo) total += gols
 
-const nomes: string[] = []
-let apelido: string
-if (idade >= 18) apelido = 'Sr. Zé'
-else apelido = 'Zé'
+const artilheiros: string[] = [] // array vazio: escreva o tipo
+artilheiros.push('Caio', 'Lia')
 
-function dobrar(n: number) {
-  return n * 2
+// o parâmetro precisa de tipo; o retorno (string) ele descobre sozinho
+function placar(nosso: number, deles: number) {
+  return `${nosso} x ${deles}`
 }
 
-idade++
-nomes.push('Ana')
-console.log(idade, turno, notas, nomes, apelido, dobrar(4))
+let resultado: string // ainda sem valor: escreva o tipo
+if (total > 2) resultado = 'vitória'
+else resultado = 'empate ou derrota'
+
+console.log(`${time} ${placar(total, 2)}: ${resultado}`) // Onças 3 x 2: vitória
+console.log(artilheiros) // [ 'Caio', 'Lia' ]
 ```
 
 ```bash
@@ -1023,24 +1049,34 @@ O fluxograma passa pela turma, ficha por ficha, e calcula a média de cada um:
 
 Os arquivos ficam em [`0042-tipos-de-objeto/`](0042-tipos-de-objeto/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A083 · A ficha do aluno**
+**Exemplo A083 · O cardápio da cantina**
 
 ```ts
-type Aluno = {
+type Lanche = {
   nome: string
-  idade: number
-  notas: number[]
+  preco: number
+  ingredientes: string[]
 }
 
-const ana: Aluno = { nome: 'Ana', idade: 17, notas: [8, 7, 9] }
-const turma: Aluno[] = [ana, { nome: 'Bia', idade: 16, notas: [6, 9] }]
-
-console.log(ana.nome)
-
-for (const aluno of turma) {
-  const media = aluno.notas.reduce((a, b) => a + b, 0) / aluno.notas.length
-  console.log(`${aluno.nome}: ${media.toFixed(1)}`)
+const caboquinho: Lanche = {
+  nome: 'X-Caboquinho',
+  preco: 12,
+  ingredientes: ['tucumã', 'queijo coalho', 'pão'],
 }
+const cardapio: Lanche[] = [caboquinho, { nome: 'Tapioca', preco: 8, ingredientes: ['goma', 'manteiga'] }]
+
+let total = 0
+for (const lanche of cardapio) {
+  console.log(`${lanche.nome}: R$ ${lanche.preco.toFixed(2)} (${lanche.ingredientes.length} ingredientes)`)
+  total += lanche.preco
+}
+console.log(`Um de cada: R$ ${total.toFixed(2)}`)
+// X-Caboquinho: R$ 12.00 (3 ingredientes)
+// Tapioca: R$ 8.00 (2 ingredientes)
+// Um de cada: R$ 20.00
+
+// console.log(caboquinho.prco)
+// erro: Property 'prco' does not exist on type 'Lanche'. Did you mean 'preco'?
 ```
 
 ```bash
@@ -1169,25 +1205,32 @@ E aí, quando usar `type` e quando usar `interface`? O fluxograma resume:
 
 Os arquivos ficam em [`0043-interface/`](0043-interface/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A085 · Aluno estende Pessoa**
+**Exemplo A085 · Todo ônibus é um veículo**
 
 ```ts
-interface Pessoa {
-  nome: string
+interface Veiculo {
+  placa: string
 }
 
-interface Aluno extends Pessoa {
-  matricula: string
+interface Onibus extends Veiculo {
+  linha: string
+  lugares: number
 }
 
-const bia: Aluno = { nome: 'Bia', matricula: 'A27' }
+const circular: Onibus = { placa: 'PHX-2B19', linha: 'Centro-Colônia', lugares: 40 }
+const moto: Veiculo = { placa: 'QZA-7C21' }
 
-function apresentar(p: Pessoa): string {
-  return `Olá, ${p.nome}!`
+function vistoria(v: Veiculo): string {
+  return `Placa ${v.placa} conferida`
 }
 
-console.log(apresentar(bia))
-console.log(bia.matricula)
+console.log(vistoria(circular)) // Placa PHX-2B19 conferida: todo Onibus também é Veiculo
+console.log(vistoria(moto)) // Placa QZA-7C21 conferida
+console.log(`${circular.linha}: ${circular.lugares} lugares`) // Centro-Colônia: 40 lugares
+
+// O contrário não vale: nem todo Veiculo tem linha.
+// console.log(moto.linha)
+// erro: Property 'linha' does not exist on type 'Veiculo'.
 ```
 
 ```bash
@@ -1321,26 +1364,30 @@ que fazer quando ele não vem.
 
 Os arquivos ficam em [`0044-opcional-readonly/`](0044-opcional-readonly/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A087 · Matrícula trancada, apelido opcional**
+**Exemplo A087 · O pedido de açaí**
 
 ```ts
-type Aluno = {
-  readonly matricula: string
-  nome: string
-  apelido?: string
+type Pedido = {
+  readonly numero: number
+  tamanho: string
+  cobertura?: string
 }
 
-const ana: Aluno = { matricula: 'A01', nome: 'Ana' }
-const ze: Aluno = { matricula: 'A02', nome: 'José', apelido: 'Zé' }
+const pedido1: Pedido = { numero: 101, tamanho: '500 ml' } // sem cobertura: tudo bem
+const pedido2: Pedido = { numero: 102, tamanho: '300 ml', cobertura: 'granola' }
 
-function chamar(a: Aluno): string {
-  return a.apelido ?? a.nome
+function etiqueta(p: Pedido): string {
+  return `#${p.numero} ${p.tamanho}, ${p.cobertura ?? 'puro'}` // sem cobertura? escreve puro
 }
 
-console.log(chamar(ana))
-console.log(chamar(ze))
-ana.nome = 'Ana Clara'
-console.log(ana.nome)
+console.log(etiqueta(pedido1)) // #101 500 ml, puro
+console.log(etiqueta(pedido2)) // #102 300 ml, granola
+pedido1.tamanho = '700 ml' // pode: o cliente mudou de ideia
+console.log(etiqueta(pedido1)) // #101 700 ml, puro
+
+// O número do pedido não muda depois de criado:
+// pedido1.numero = 999
+// erro: Cannot assign to 'numero' because it is a read-only property.
 ```
 
 ```bash
@@ -1456,23 +1503,28 @@ O fluxograma mostra a conferência que o TypeScript faz antes de rodar:
 
 Os arquivos ficam em [`0045-uniao-literais/`](0045-uniao-literais/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A089 · A lista de turnos**
+**Exemplo A089 · A dificuldade do jogo**
 
 ```ts
-type Turno = 'manhã' | 'tarde' | 'noite'
-type Matricula = number | string
+type Dificuldade = 'fácil' | 'médio' | 'difícil'
+type Jogador = string | number // o apelido ou o número da camisa
 
-function horario(turno: Turno): string {
-  if (turno === 'manhã') return '7h às 11h'
-  if (turno === 'tarde') return '13h às 17h'
-  return '19h às 22h'
+function vidas(nivel: Dificuldade): number {
+  if (nivel === 'fácil') return 5
+  if (nivel === 'médio') return 3
+  return 1
 }
 
-const meuTurno: Turno = 'noite'
-const matricula: Matricula = 'A27'
+const escolhida: Dificuldade = 'médio'
+const jogador1: Jogador = 'Boto'
+const jogador2: Jogador = 10
 
-console.log(horario(meuTurno))
-console.log(matricula)
+console.log(`${jogador1} começa com ${vidas(escolhida)} vidas`) // Boto começa com 3 vidas
+console.log(`Jogador ${jogador2} começa com ${vidas('difícil')} vida`) // Jogador 10 começa com 1 vida
+
+// vidas('impossível')
+// erro: Argument of type '"impossível"' is not assignable
+//       to parameter of type 'Dificuldade'.
 ```
 
 ```bash
@@ -1594,18 +1646,26 @@ Essas são as perguntas que estreitam o tipo:
 
 Os arquivos ficam em [`0046-narrowing/`](0046-narrowing/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A091 · typeof separa os caminhos**
+**Exemplo A091 · Preço em número ou em texto**
 
 ```ts
-function formatarMatricula(m: number | string): string {
-  if (typeof m === 'number') {
-    return `M-${m.toString().padStart(4, '0')}`
+function paraReais(preco: number | string): string {
+  if (typeof preco === 'string') {
+    // aqui preco é string: veio escrito com vírgula, como '3,50'
+    return `R$ ${Number(preco.replace(',', '.')).toFixed(2)}`
   }
-  return m.toUpperCase()
+  return `R$ ${preco.toFixed(2)}` // aqui só sobrou number
 }
 
-console.log(formatarMatricula(27))
-console.log(formatarMatricula('a27'))
+const etiquetasDaFeira: (number | string)[] = [5, '3,50', 12]
+for (const preco of etiquetasDaFeira) console.log(paraReais(preco))
+// R$ 5.00
+// R$ 3.50
+// R$ 12.00
+
+// Antes do typeof, não dá para usar replace: número não tem replace.
+// preco.replace(',', '.')
+// erro: Property 'replace' does not exist on type 'string | number'.
 ```
 
 ```bash
@@ -1736,28 +1796,34 @@ console.log(descrever({ tipo: 'dinheiro', recebido: 20, total: 15 })) // Troco: 
 
 Os arquivos ficam em [`0047-uniao-discriminada/`](0047-uniao-discriminada/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A093 · Pagamento da cantina**
+**Exemplo A093 · Como cada aluno chega à escola**
 
 ```ts
-type Pagamento =
-  | { tipo: 'pix'; chave: string }
-  | { tipo: 'cartao'; parcelas: number }
-  | { tipo: 'dinheiro'; recebido: number; total: number }
+type Trajeto =
+  | { meio: 'ônibus'; linha: string }
+  | { meio: 'barco'; horas: number }
+  | { meio: 'a pé'; minutos: number }
 
-function descrever(p: Pagamento): string {
-  switch (p.tipo) {
-    case 'pix':
-      return `Pix para ${p.chave}`
-    case 'cartao':
-      return `Cartão em ${p.parcelas}x`
-    case 'dinheiro':
-      return `Troco: R$ ${(p.recebido - p.total).toFixed(2)}`
+function contar(t: Trajeto): string {
+  switch (t.meio) {
+    case 'ônibus':
+      return `Pega o ônibus ${t.linha}` // aqui t tem linha
+    case 'barco':
+      return `Vem de barco: ${t.horas}h de rio` // aqui t tem horas
+    case 'a pé':
+      return `Caminha ${t.minutos} min` // aqui t tem minutos
   }
 }
 
-console.log(descrever({ tipo: 'pix', chave: 'cantina@cetam' }))
-console.log(descrever({ tipo: 'cartao', parcelas: 3 }))
-console.log(descrever({ tipo: 'dinheiro', recebido: 20, total: 15 }))
+const turma: Trajeto[] = [
+  { meio: 'ônibus', linha: '021' },
+  { meio: 'barco', horas: 2 },
+  { meio: 'a pé', minutos: 15 },
+]
+for (const t of turma) console.log(contar(t))
+// Pega o ônibus 021
+// Vem de barco: 2h de rio
+// Caminha 15 min
 ```
 
 ```bash
@@ -1880,17 +1946,26 @@ qualquer pedaço, não passa:
 
 Os arquivos ficam em [`0048-intersecao/`](0048-intersecao/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A095 · Aluno com id**
+**Exemplo A095 · Livro emprestado**
 
 ```ts
-type Aluno = { nome: string; idade: number }
-type ComId = { id: number }
+type Livro = { titulo: string; autor: string }
+type Emprestimo = { aluno: string; dias: number }
 
-type AlunoComId = Aluno & ComId
+type LivroEmprestado = Livro & Emprestimo // tem tudo dos dois
 
-const bia: AlunoComId = { id: 1, nome: 'Bia', idade: 16 }
+const guarani: LivroEmprestado = { titulo: 'O Guarani', autor: 'José de Alencar', aluno: 'Caio', dias: 7 }
 
-console.log(`#${bia.id} ${bia.nome}, ${bia.idade} anos`)
+function aviso(l: LivroEmprestado): string {
+  return `${l.aluno} devolve "${l.titulo}", de ${l.autor}, em ${l.dias} dias`
+}
+
+console.log(aviso(guarani)) // Caio devolve "O Guarani", de José de Alencar, em 7 dias
+
+// Faltou a parte do Emprestimo:
+// const semDono: LivroEmprestado = { titulo: 'Iracema', autor: 'José de Alencar' }
+// erro: Type '{ titulo: string; autor: string; }' is not assignable to type 'LivroEmprestado'.
+//       ... is missing the following properties from type 'Emprestimo': aluno, dias
 ```
 
 ```bash
@@ -2159,18 +2234,25 @@ tipo genérico.
 
 Os arquivos ficam em [`0050-generics/`](0050-generics/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A099 · primeiro<T>**
+**Exemplo A099 · Quem é o último da fila?**
 
 ```ts
-function primeiro<T>(lista: T[]): T | undefined {
-  return lista[0]
+function ultimo<T>(fila: T[]): T | undefined {
+  return fila[fila.length - 1]
 }
 
-const nota = primeiro([8, 10, 6]) // T = number
-const nome = primeiro(['Ana', 'Bia']) // T = string
-const vazio = primeiro<number>([]) // dá para dizer o T na mão
+const filaDaCantina = ['Ana', 'Caio', 'Lia']
+const senhas = [41, 42, 43, 44]
 
-console.log(nota, nome, vazio) // 8 Ana undefined
+const nome = ultimo(filaDaCantina) // aqui T = string
+const senha = ultimo(senhas) // aqui T = number
+
+console.log(nome, senha) // Lia 44
+console.log(`Próxima senha: ${(senha ?? 0) + 1}`) // Próxima senha: 45
+console.log(ultimo<string>([])) // undefined: fila vazia
+
+// const errado: string | undefined = ultimo(senhas)
+// erro: Type 'number | undefined' is not assignable to type 'string | undefined'.
 ```
 
 ```bash
@@ -2299,22 +2381,29 @@ original?
 
 Os arquivos ficam em [`0051-tipos-utilitarios/`](0051-tipos-utilitarios/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A101 · Omit, Pick e Partial a partir de Aluno**
+**Exemplo A101 · Os produtos da banca na feira**
 
 ```ts
-type Aluno = { matricula: string; nome: string; idade: number }
+type Produto = { codigo: number; nome: string; preco: number; estoque: number }
 
-type AlunoNovo = Omit<Aluno, 'matricula'>
-type Ficha = Pick<Aluno, 'nome'>
-type Mudanca = Partial<Aluno>
+// a etiqueta só precisa de nome e preço
+function etiqueta(p: Pick<Produto, 'nome' | 'preco'>): string {
+  return `${p.nome}: R$ ${p.preco.toFixed(2)}`
+}
 
-const novo: AlunoNovo = { nome: 'Bia', idade: 16 }
-const mudanca: Mudanca = { idade: 17 }
-const bia: Aluno = { matricula: 'A27', ...novo, ...mudanca }
-const ficha: Ficha = { nome: bia.nome }
+// a mudança pode trazer qualquer campo, ou nenhum
+function atualizar(p: Produto, mudanca: Partial<Produto>): Produto {
+  return { ...p, ...mudanca }
+}
 
-console.log(bia)
-console.log(ficha)
+const novo: Omit<Produto, 'codigo'> = { nome: 'cupuaçu', preco: 6, estoque: 20 } // o código vem depois
+const cupuacu: Produto = { codigo: 1, ...novo }
+const depois = atualizar(cupuacu, { preco: 5 })
+
+console.log(etiqueta(cupuacu)) // cupuaçu: R$ 6.00
+console.log(etiqueta(depois)) // cupuaçu: R$ 5.00
+console.log(etiqueta({ nome: 'tucumã', preco: 3 })) // tucumã: R$ 3.00: o Pick só pede nome e preço
+console.log(depois) // { codigo: 1, nome: 'cupuaçu', preco: 5, estoque: 20 }
 ```
 
 ```bash
@@ -2447,23 +2536,31 @@ precos2.acai // number: conferiu e lembrou das chaves
 
 Os arquivos ficam em [`0052-type-guards-satisfies/`](0052-type-guards-satisfies/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A103 · O porteiro: ehAluno**
+**Exemplo A103 · Lanche ou bebida?**
 
 ```ts
-type Aluno = { nome: string; matricula: string }
-type Visitante = { nome: string; motivo: string }
+type Lanche = { nome: string; recheio: string }
+type Bebida = { nome: string; ml: number }
 
-function ehAluno(p: Aluno | Visitante): p is Aluno {
-  return 'matricula' in p
+function ehBebida(item: Lanche | Bebida): item is Bebida {
+  return 'ml' in item
 }
 
-function entrada(p: Aluno | Visitante): string {
-  if (ehAluno(p)) return `${p.nome}, matrícula ${p.matricula}`
-  return `${p.nome}, visitante: ${p.motivo}`
+function descrever(item: Lanche | Bebida): string {
+  if (ehBebida(item)) return `${item.nome} de ${item.ml} ml` // aqui item é Bebida
+  return `${item.nome} de ${item.recheio}` // aqui item é Lanche
 }
 
-console.log(entrada({ nome: 'Bia', matricula: 'A27' }))
-console.log(entrada({ nome: 'Seu João', motivo: 'reunião' }))
+console.log(descrever({ nome: 'Suco de taperebá', ml: 300 })) // Suco de taperebá de 300 ml
+console.log(descrever({ nome: 'Pastel', recheio: 'queijo' })) // Pastel de queijo
+
+const precos = { suco: 5, pastel: 7 } satisfies Record<string, number>
+console.log(precos.suco + precos.pastel) // 12: o satisfies conferiu e lembrou das chaves
+
+// Com a anotação no lugar do satisfies, as chaves são esquecidas:
+// const precos2: Record<string, number> = { suco: 5, pastel: 7 }
+// console.log(precos2.suco + precos2.pastel)
+// erro: 'precos2.suco' is possibly 'undefined'.
 ```
 
 ```bash
@@ -2757,43 +2854,41 @@ Olha o caminho de um aluno pelo cadastro:
 
 Os arquivos ficam em [`0054-juntando-tudo/`](0054-juntando-tudo/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A107 · O cadastro completo**
+**Exemplo A107 · A biblioteca da escola**
 
 ```ts
-type Turno = 'manhã' | 'tarde' | 'noite'
+type Genero = 'romance' | 'poesia' | 'quadrinhos'
 
-interface Aluno {
-  readonly matricula: string
-  nome: string
-  nota: number
-  turno: Turno
-  apelido?: string
+interface Livro {
+  readonly codigo: string
+  titulo: string
+  genero: Genero
+  dias?: number // só existe se o livro estiver com um aluno
 }
 
-type AlunoNovo = Omit<Aluno, 'matricula'>
-type Situacao = { status: 'aprovado'; media: number } | { status: 'recuperação'; falta: number }
+type Situacao = { tipo: 'na estante' } | { tipo: 'emprestado'; dias: number } | { tipo: 'atrasado'; multa: number }
 
-let contador = 0
-function cadastrar(dados: AlunoNovo): Aluno {
-  contador++
-  return { matricula: `A${String(contador).padStart(2, '0')}`, ...dados }
+function situacao(l: Livro): Situacao {
+  if (l.dias === undefined) return { tipo: 'na estante' }
+  if (l.dias <= 7) return { tipo: 'emprestado', dias: l.dias }
+  return { tipo: 'atrasado', multa: (l.dias - 7) * 0.5 }
 }
 
-function situacao(a: Aluno): Situacao {
-  if (a.nota >= 7) return { status: 'aprovado', media: a.nota }
-  return { status: 'recuperação', falta: 7 - a.nota }
-}
-
-const turma = [
-  cadastrar({ nome: 'Ana', nota: 8, turno: 'manhã' }),
-  cadastrar({ nome: 'José', nota: 5, turno: 'noite', apelido: 'Zé' }),
+const acervo: Livro[] = [
+  { codigo: 'L01', titulo: 'O Guarani', genero: 'romance' },
+  { codigo: 'L02', titulo: 'Turma da Mônica', genero: 'quadrinhos', dias: 3 },
+  { codigo: 'L03', titulo: 'Poemas do Rio', genero: 'poesia', dias: 11 },
 ]
 
-for (const a of turma) {
-  const s = situacao(a)
-  const detalhe = s.status === 'aprovado' ? `média ${s.media}` : `faltam ${s.falta}`
-  console.log(`${a.matricula} ${a.apelido ?? a.nome}: ${s.status} (${detalhe})`)
+for (const l of acervo) {
+  const s = situacao(l)
+  if (s.tipo === 'atrasado') console.log(`${l.codigo} ${l.titulo}: multa de R$ ${s.multa.toFixed(2)}`)
+  else if (s.tipo === 'emprestado') console.log(`${l.codigo} ${l.titulo}: volta em ${7 - s.dias} dias`)
+  else console.log(`${l.codigo} ${l.titulo}: disponível na estante de ${l.genero}`)
 }
+// L01 O Guarani: disponível na estante de romance
+// L02 Turma da Mônica: volta em 4 dias
+// L03 Poemas do Rio: multa de R$ 2.00
 ```
 
 ```bash

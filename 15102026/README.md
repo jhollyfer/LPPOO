@@ -309,17 +309,17 @@ E o `var`? É o jeito antigo, e causa bug difícil de achar. Aqui a gente não u
 
 Os arquivos ficam em [`0003-variaveis/`](0003-variaveis/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A005 · let pode mudar de valor**
+**Exemplo A005 · O nível do rio subindo**
 
 ```ts
-let gols = 0
-console.log(gols) // 0
+let nivelRio = 26 // metros, em março
+console.log(nivelRio) // 26
 
-gols = 1
-console.log(gols) // 1
+nivelRio = 28 // abril: o rio encheu
+console.log(nivelRio) // 28
 
-gols = 2
-console.log(gols) // 2
+nivelRio = 29 // maio: cheia!
+console.log(`Nível do rio em maio: ${nivelRio} m`) // Nível do rio em maio: 29 m
 ```
 
 ```bash
@@ -756,6 +756,23 @@ E tem dois valores especiais que querem dizer "nada":
 - `null`: alguém colocou "nada" de propósito. É o aluno avisando "pode marcar
   que eu não vou".
 
+### Cada valor tem um tipo
+
+Junta os três últimos assuntos: texto é `string`, número é `number` e sim ou
+não é `boolean`. São esses nomes que o `typeof` mostra.
+
+Dá para escrever o tipo junto da variável, depois de dois-pontos:
+
+```ts
+const nome: string = 'Ana'
+const idade: number = 17
+const matriculada: boolean = true
+```
+
+Nesta aula você não precisa escrever: o TypeScript olha o valor e descobre o
+tipo sozinho. Mas guarda esse jeito de escrever. Na aula 02 ele aparece nas
+listas (`number[]`) e nas funções.
+
 > [!NOTE]
 > **Pergunta para a turma:** coloque um `console.log(temAula)` no fim e rode
 > digitando `nao`. O que aparece? E se digitar `SIM`, tudo maiúsculo?
@@ -996,15 +1013,16 @@ No fluxograma, cada atribuição é um retângulo roxo:
 
 Os arquivos ficam em [`0009-atribuicao/`](0009-atribuicao/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A017 · Atribuição simples e composta**
+**Exemplo A017 · A conta do açaí**
 
 ```ts
-let saldo = 100
+let conta = 12 // açaí de 500 ml
 
-saldo += 50 // 150
-saldo -= 30 // 120
+conta += 3 // granola: 15
+conta *= 2 // pediu outro igual para a irmã: 30
+conta -= 5 // cupom de desconto: 25
 
-console.log(saldo) // 120
+console.log(`Total: R$ ${conta}`) // Total: R$ 25
 ```
 
 ```bash
@@ -1679,17 +1697,18 @@ if (media >= 6) {
 tsx ~/LPPOO/15102026/0015-condicional-simples/A029.ts
 ```
 
-**Exemplo A030 · Aviso de chuva**
+**Exemplo A030 · Dá para o lanche?**
 
 ```ts
 import { input } from '#core/input.ts'
 
-const resposta = input('Está chovendo? (sim/nao) ')
+const dinheiro = Number(input('Quantos reais você tem? ')) // digite: 10
 
-if (resposta === 'sim') {
-  console.log('Leve o guarda-chuva!')
+if (dinheiro >= 8) {
+  console.log('Dá para o salgado com suco!') // só roda se tiver 8 ou mais
 }
-console.log('Bom dia!')
+
+console.log('Bom intervalo!') // roda sempre
 ```
 
 ```bash
@@ -1885,17 +1904,17 @@ No fluxograma, cada `else if` é mais um losango, pendurado no Não do anterior:
 
 Os arquivos ficam em [`0017-condicional-aninhada/`](0017-condicional-aninhada/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A033 · Aprovado, recuperação ou reprovado**
+**Exemplo A033 · Bateria do celular**
 
 ```ts
-const media = 5
+const bateria = 15
 
-if (media >= 6) {
-  console.log('Aprovado')
-} else if (media >= 4) {
-  console.log('Recuperação')
+if (bateria >= 50) {
+  console.log('Tranquilo, dá para o dia todo')
+} else if (bateria >= 20) {
+  console.log('Bom carregar no intervalo')
 } else {
-  console.log('Reprovado')
+  console.log('Bateria fraca! Procure uma tomada') // 15 cai aqui
 }
 ```
 
@@ -2004,13 +2023,13 @@ valor em `situacao`. Quem mostra é o fim do programa:
 
 Os arquivos ficam em [`0018-ternario/`](0018-ternario/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A035 · Aprovado ou reprovado**
+**Exemplo A035 · Singular ou plural na fila**
 
 ```ts
-const media = 8
-const situacao = media >= 6 ? 'Aprovado' : 'Reprovado'
+const pessoas = 1
+const palavra = pessoas === 1 ? 'pessoa' : 'pessoas'
 
-console.log(situacao) // Aprovado
+console.log(`Tem ${pessoas} ${palavra} na fila da cantina`) // Tem 1 pessoa na fila da cantina
 ```
 
 ```bash
@@ -2234,6 +2253,47 @@ tsx ~/LPPOO/15102026/pratica/ficha-de-cadastro.ts
 tsx ~/LPPOO/15102026/pratica/boletim.ts
 tsx ~/LPPOO/15102026/pratica/cantina.ts
 tsx ~/LPPOO/15102026/pratica/desafio-ingresso.ts
+```
+
+## Exercícios que valem pontos
+
+Ficam na pasta [`aula-01-logica-1/`](aula-01-logica-1/), aqui dentro da aula.
+Cada questão tem um exemplo resolvido parecido, para consultar.
+
+| Questão          | Conceito                                                        | Exemplo resolvido |
+| ---------------- | --------------------------------------------------------------- | ----------------- |
+| `questao-01.ts`  | entrada com `input` e saída com `console.log` e template string | `exemplo-01.ts`   |
+| `questao-02.ts`  | variáveis (`let`) e constantes (`const`)                        | `exemplo-02.ts`   |
+| `questao-03.ts`  | texto: `length`, `trim`, `toUpperCase` e `includes`             | `exemplo-03.ts`   |
+| `questao-04.ts`  | número, booleano, `typeof`, `Number` e `toFixed`                | `exemplo-04.ts`   |
+| `questao-05.ts`  | operadores de atribuição e aritméticos, com `%`                 | `exemplo-05.ts`   |
+| `questao-06.ts`  | objeto `Math`: `ceil`, `floor` e `random`                       | `exemplo-06.ts`   |
+| `questao-07.ts`  | comparação, `===` e operadores lógicos `&&` e `\|\|`            | `exemplo-07.ts`   |
+| `questao-08.ts`  | condicionais `if`, `else` e `else if`                           | `exemplo-08.ts`   |
+| `questao-09.ts`  | operador ternário e `switch`                                    | `exemplo-09.ts`   |
+
+```bash
+# exemplos resolvidos
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-01.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-02.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-03.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-04.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-05.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-06.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-07.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-08.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-09.ts
+
+# questões: a resposta vai dentro do próprio arquivo
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-01.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-02.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-03.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-04.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-05.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-06.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-07.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-08.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-09.ts
 ```
 
 ---

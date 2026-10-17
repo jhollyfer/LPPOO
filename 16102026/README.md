@@ -115,18 +115,18 @@ dá quatro voltas antes de sair pelo Não:
 
 Os arquivos ficam em [`0020-while/`](0020-while/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A039 · Quantas passagens cabem no cartão**
+**Exemplo A039 · A notícia que se espalha no grupo**
 
 ```ts
-let saldo = 20
-let viagens = 0
+let pessoas = 1 // só quem postou sabe
+let horas = 0
 
-while (saldo >= 4.5) {
-  saldo -= 4.5
-  viagens++
+while (pessoas < 500) {
+  pessoas *= 2 // a cada hora, quem sabe conta para mais um
+  horas++
 }
 
-console.log(`Deu para ${viagens} viagens. Sobrou R$ ${saldo.toFixed(2)}`)
+console.log(`Em ${horas} horas, ${pessoas} pessoas já sabiam`) // Em 9 horas, 512 pessoas já sabiam
 ```
 
 ```bash
@@ -231,18 +231,21 @@ pergunta vinha antes:
 
 Os arquivos ficam em [`0021-do-while/`](0021-do-while/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A041 · Nota entre 0 e 10**
+**Exemplo A041 · Adivinhe o número**
 
 ```ts
 import { input } from '#core/input.ts'
 
-let nota // a caixa nasce vazia: o do pede a nota antes de conferir
+const segredo = 7
+let chute // a caixa nasce vazia: o do pede o chute antes de conferir
+let tentativas = 0
 
 do {
-  nota = Number(input('Nota (0 a 10): '))
-} while (nota < 0 || nota > 10)
+  chute = Number(input('Chute de 1 a 10: ')) // digite: 3, depois 7
+  tentativas++
+} while (chute !== segredo)
 
-console.log(`Nota registrada: ${nota}`)
+console.log(`Acertou em ${tentativas} tentativas!`) // Acertou em 2 tentativas!
 ```
 
 ```bash
@@ -352,14 +355,17 @@ juntas, num lugar que dá para ler de uma vez:
 
 Os arquivos ficam em [`0022-for/`](0022-for/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A043 · Tabuada do 7**
+**Exemplo A043 · Voltas na quadra**
 
 ```ts
-const numero = 7
+let distancia = 0
 
-for (let i = 1; i <= 10; i++) {
-  console.log(`${numero} x ${i} = ${numero * i}`)
+for (let volta = 1; volta <= 4; volta++) {
+  distancia += 400
+  console.log(`Volta ${volta}: ${distancia} m`) // Volta 1: 400 m ... Volta 4: 1600 m
 }
+
+console.log('Treino completo!')
 ```
 
 ```bash
@@ -458,13 +464,16 @@ Repara no fluxograma: o `continue` é um atalho de volta para o `i++`. O `break`
 
 Os arquivos ficam em [`0023-break-continue/`](0023-break-continue/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A045 · Pula os pares, para depois do 7**
+**Exemplo A045 · O ônibus até a escola**
 
 ```ts
-for (let i = 1; i <= 10; i++) {
-  if (i % 2 === 0) continue
-  if (i > 7) break
-  console.log(i)
+for (let parada = 1; parada <= 10; parada++) {
+  if (parada === 3) continue // parada em obra: o ônibus passa direto
+  console.log(`Parada ${parada}`) // 1, 2, 4, 5, 6
+  if (parada === 6) {
+    console.log('Desci na escola!')
+    break // não precisa ir até a 10
+  }
 }
 ```
 
@@ -541,7 +550,7 @@ use o índice entre colchetes: `notas[0]` é 8. Para trocar, atribua:
 
 ```ts
 const notas: number[] = [8, 6, 9]
-const nomes: Array<string> = ['Ana', 'Bia', 'Caio']
+const nomes: string[] = ['Ana', 'Bia', 'Caio']
 
 console.log(nomes[0]) // Ana: a primeira posição é a 0
 console.log(notas.length) // 3
@@ -549,8 +558,12 @@ notas[1] = 7 // troca o que está na posição 1
 console.log(notas) // [ 8, 7, 9 ]
 ```
 
-`number[]` e `Array<string>` são dois jeitos de escrever a mesma ideia: "array
-de números" e "array de textos".
+Repara no tipo escrito depois dos dois-pontos. Lembra dos tipos da
+[0007](../15102026/README.md#0007--booleano-boolean-typeof-null-e-undefined)?
+Com colchetes no fim, ele vira lista:
+
+- `number[]` lê assim: "lista de números".
+- `string[]` lê assim: "lista de textos".
 
 Repara: `notas` é `const` e mesmo assim deu para trocar a nota. O `const` trava
 a **etiqueta**, não o que tem dentro das gavetas.
@@ -558,7 +571,8 @@ a **etiqueta**, não o que tem dentro das gavetas.
 <p align="center"><img src="0024-arrays/fluxograma.svg" alt="Fluxograma: Arrays (vetores)" width="1158"></p>
 
 > [!WARNING]
-> Ler uma posição que não existe não dá erro: dá `undefined`. Em
+> Ler uma posição que não existe não dá erro: dá `undefined`, a caixa vazia
+> que você viu na 0007. Em
 > `[8, 7, 9]`, `notas[5]` é `undefined`. A última posição é sempre
 > `notas.length - 1`.
 
@@ -583,16 +597,16 @@ a **etiqueta**, não o que tem dentro das gavetas.
 
 Os arquivos ficam em [`0024-arrays/`](0024-arrays/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A047 · Ler e trocar posições**
+**Exemplo A047 · O cardápio da cantina**
 
 ```ts
-const notas: number[] = [8, 6, 9]
-const nomes: Array<string> = ['Ana', 'Bia', 'Caio']
+const lanches: string[] = ['tapioca', 'pão com ovo', 'bolo de macaxeira']
+const precos: number[] = [5, 4, 3]
 
-console.log(nomes[0]) // Ana
-console.log(notas.length) // 3
-notas[1] = 7
-console.log(notas) // [ 8, 7, 9 ]
+console.log(lanches[2]) // bolo de macaxeira
+console.log(`Hoje tem ${lanches.length} lanches`) // Hoje tem 3 lanches
+precos[2] = 3.5 // o bolo ficou mais caro
+console.log(precos) // [ 5, 4, 3.5 ]
 ```
 
 ```bash
@@ -602,7 +616,7 @@ tsx ~/LPPOO/16102026/0024-arrays/A047.ts
 **Exemplo A048 · A primeira e a última posição**
 
 ```ts
-const cidades: Array<string> = ['Benjamin Constant', 'Tabatinga', 'Atalaia do Norte']
+const cidades: string[] = ['Benjamin Constant', 'Tabatinga', 'Atalaia do Norte']
 
 console.log(`Primeira: ${cidades[0]}`)
 console.log(`Última: ${cidades[cidades.length - 1]}`)
@@ -633,7 +647,7 @@ tsx ~/LPPOO/16102026/0024-arrays/E047.ts
 
 **Exercício E048**
 
-Crie um `Array<string>` com 3 nomes da sua família. Mostre cada nome usando o
+Crie um `string[]` com 3 nomes da sua família. Mostre cada nome usando o
 índice, numa frase: "Familiar 1: ...".
 
 <details><summary>Dicas</summary>
@@ -692,14 +706,19 @@ mais difícil de errar.
 
 Os arquivos ficam em [`0025-for-of/`](0025-for-of/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A049 · A chamada**
+**Exemplo A049 · Quantos dias choveu**
 
 ```ts
-const nomes: string[] = ['Ana', 'Bia', 'Caio']
+const chuvaMm: number[] = [0, 12, 30, 0, 5] // milímetros de segunda a sexta
+let diasComChuva = 0
 
-for (const nome of nomes) {
-  console.log(`Presente, ${nome}!`)
+for (const mm of chuvaMm) {
+  if (mm > 0) {
+    diasComChuva++
+  }
 }
+
+console.log(`Choveu em ${diasComChuva} dias`) // Choveu em 3 dias
 ```
 
 ```bash
@@ -808,18 +827,19 @@ a cada linha, sem precisar de `=`:
 
 Os arquivos ficam em [`0026-inserir-remover/`](0026-inserir-remover/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A051 · Os cinco métodos**
+**Exemplo A051 · A playlist da festa junina**
 
 ```ts
-const compras: string[] = ['arroz', 'feijão']
+const musicas: string[] = ['toada', 'forró']
 
-compras.push('farinha')
-compras.unshift('café')
-compras.pop()
-compras.shift()
-compras.splice(1, 1, 'açaí')
+musicas.push('brega') // [toada, forró, brega]
+musicas.unshift('quadrilha') // [quadrilha, toada, forró, brega]
+const tirada = musicas.pop() // tira brega: [quadrilha, toada, forró]
+musicas.shift() // tira quadrilha: [toada, forró]
+musicas.splice(1, 0, 'carimbó') // na posição 1, não tira nada e põe carimbó
 
-console.log(compras) // [ 'arroz', 'açaí' ]
+console.log(musicas) // [ 'toada', 'carimbó', 'forró' ]
+console.log(`Saiu da lista: ${tirada}`) // Saiu da lista: brega
 ```
 
 ```bash
@@ -928,18 +948,18 @@ nem é olhado:
 
 Os arquivos ficam em [`0027-consultar/`](0027-consultar/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A053 · Perguntas para o array**
+**Exemplo A053 · Os gols do time no interclasse**
 
 ```ts
-const precos: number[] = [6, 25, 9]
+const gols: number[] = [2, 0, 3, 1] // um número por jogo
 
-console.log(precos.includes(25)) // true
-console.log(precos.indexOf(9)) // 2
-console.log(precos.indexOf(100)) // -1
-console.log(precos.find((p) => p > 20)) // 25
-console.log(precos.findIndex((p) => p > 20)) // 1
-console.log(precos.some((p) => p > 20)) // true
-console.log(precos.every((p) => p > 5)) // true
+console.log(gols.includes(0)) // true: teve jogo sem gol
+console.log(gols.indexOf(3)) // 2
+console.log(gols.indexOf(5)) // -1
+console.log(gols.find((g) => g >= 3)) // 3
+console.log(gols.findIndex((g) => g >= 3)) // 2
+console.log(gols.some((g) => g > 4)) // false
+console.log(gols.every((g) => g < 4)) // true
 ```
 
 ```bash
@@ -1054,19 +1074,19 @@ item, e não mexe no original:
 
 Os arquivos ficam em [`0028-transformar/`](0028-transformar/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A055 · map, filter, reduce e forEach**
+**Exemplo A055 · Os pontos da gincana**
 
 ```ts
-const notas: number[] = [8, 4, 9, 5]
+const pontos: number[] = [30, 15, 40, 10] // uma equipe em cada posição
 
-const dobradas = notas.map((n) => n * 2)
-const aprovadas = notas.filter((n) => n >= 6)
-const soma = notas.reduce((acc, n) => acc + n, 0)
+const comBonus = pontos.map((p) => p + 5)
+const passaram = pontos.filter((p) => p >= 20)
+const total = pontos.reduce((acc, p) => acc + p, 0)
 
-console.log(dobradas) // [ 16, 8, 18, 10 ]
-console.log(aprovadas) // [ 8, 9 ]
-console.log(soma) // 26
-notas.forEach((n) => console.log(`Nota: ${n}`))
+console.log(comBonus) // [ 35, 20, 45, 15 ]
+console.log(passaram) // [ 30, 40 ]
+console.log(total) // 95
+passaram.forEach((p) => console.log(`Equipe com ${p} pontos vai para a final`))
 ```
 
 ```bash
@@ -1177,18 +1197,19 @@ Guarda essa tabela. Ela separa quem mexe no original de quem devolve um novo:
 
 Os arquivos ficam em [`0029-organizar/`](0029-organizar/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A057 · Ordenar uma cópia**
+**Exemplo A057 · A chamada em ordem alfabética**
 
 ```ts
-const notas: number[] = [8, 10, 6, 9]
+const alunos: string[] = ['Davi', 'Ana', 'Gabi', 'Caio']
 
-const copia = notas.slice()
-copia.sort((a, b) => a - b)
-copia.reverse()
+const ordem = alunos.slice() // foto da lista
+ordem.sort() // com texto, o sort sem regra funciona
+console.log(ordem.join(', ')) // Ana, Caio, Davi, Gabi
+console.log(ordem.reverse().join(', ')) // Gabi, Davi, Caio, Ana
 
-console.log(copia.join(' | ')) // 10 | 9 | 8 | 6
-console.log(notas.concat([7])) // [ 8, 10, 6, 9, 7 ]
-console.log(notas) // [ 8, 10, 6, 9 ]
+const turmaNova = alunos.concat(['Bia', 'Enzo'])
+console.log(turmaNova.length) // 6
+console.log(alunos) // [ 'Davi', 'Ana', 'Gabi', 'Caio' ]: o original não mudou
 ```
 
 ```bash
@@ -1291,16 +1312,16 @@ as contas e devolve o `8`:
 
 Os arquivos ficam em [`0030-funcoes/`](0030-funcoes/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A059 · Média de um array**
+**Exemplo A059 · Quanto custa o mototáxi**
 
 ```ts
-function calcularMedia(valores: number[]): number {
-  const soma = valores.reduce((acc, v) => acc + v, 0)
-  return soma / valores.length
+function precoCorrida(km: number): number {
+  return 5 + km * 2 // R$ 5 para sair + R$ 2 por km
 }
 
-console.log(calcularMedia([8, 6, 10])) // 8
-console.log(calcularMedia([5, 7])) // 6
+console.log(precoCorrida(3)) // 11
+console.log(precoCorrida(10)) // 25
+console.log(`Ida e volta: R$ ${precoCorrida(3) * 2}`) // Ida e volta: R$ 22
 ```
 
 ```bash
@@ -1551,22 +1572,17 @@ chamada não veio desconto, então vale o padrão:
 
 Os arquivos ficam em [`0031-parametros/`](0031-parametros/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A061 · Desconto com valor padrão e moeda opcional**
+**Exemplo A061 · O pedido de açaí**
 
 ```ts
-function totalComDesconto(precos: number[], desconto: number = 0): number {
-  const total = precos.reduce((acc, p) => acc + p, 0)
-  return total - total * desconto
+function pedirAcai(ml: number, copo: string = 'copo comum', cobertura?: string): void {
+  const extra = cobertura === undefined ? 'sem cobertura' : `com ${cobertura}` // não veio? sem cobertura
+  console.log(`Açaí de ${ml} ml, ${extra}, no ${copo}`)
 }
 
-function mostrarTotal(total: number, moeda?: string): void {
-  const simbolo = moeda === undefined ? 'R : moeda // não veio? usa R$
-  console.log(`${simbolo} ${total.toFixed(2)}`)
-}
-
-mostrarTotal(totalComDesconto([10, 20])) // R$ 30.00
-mostrarTotal(totalComDesconto([10, 20], 0.1)) // R$ 27.00
-mostrarTotal(5, 'US) // US$ 5.00
+pedirAcai(300) // Açaí de 300 ml, sem cobertura, no copo comum
+pedirAcai(500, 'pote') // Açaí de 500 ml, sem cobertura, no pote
+pedirAcai(500, 'pote', 'granola') // Açaí de 500 ml, com granola, no pote
 ```
 
 ```bash
@@ -1674,18 +1690,24 @@ chamada e somem quando ela acaba:
 
 Os arquivos ficam em [`0032-escopo/`](0032-escopo/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A063 · Global e local**
+**Exemplo A063 · Mesmo nome, caixas diferentes**
 
 ```ts
-const escola = 'CETAM'
+const campeonato = 'Interclasse' // global: as duas funções enxergam
 
-function saudar(nome: string): void {
-  const mensagem = `Oi, ${nome}! Bem-vinda ao ${escola}.`
-  console.log(mensagem)
+function placarDoPrimeiroA(): void {
+  const gols = 3 // esta caixa só existe aqui dentro
+  console.log(`${campeonato}: 1º A fez ${gols} gols`)
 }
 
-saudar('Ana')
-// console.log(mensagem) // tire o // e veja o erro
+function placarDoPrimeiroB(): void {
+  const gols = 1 // outra caixa, com o mesmo nome
+  console.log(`${campeonato}: 1º B fez ${gols} gol`)
+}
+
+placarDoPrimeiroA() // Interclasse: 1º A fez 3 gols
+placarDoPrimeiroB() // Interclasse: 1º B fez 1 gol
+// console.log(gols) // tire o // e veja o erro: aqui fora não tem gols
 ```
 
 ```bash
@@ -1795,19 +1817,19 @@ Quem chama é o `map`, uma vez para cada nota:
 
 Os arquivos ficam em [`0033-arrow-callback/`](0033-arrow-callback/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A065 · function, arrow function e callback**
+**Exemplo A065 · Regras para os preços da cantina**
 
 ```ts
-function dobrar(n: number): number {
-  return n * 2
+function ehCaro(preco: number): boolean {
+  return preco > 10
 }
-const triplicar = (n: number): number => n * 3
+const comDesconto = (preco: number): number => preco - 2
 
-const notas: number[] = [4, 5]
+const precos: number[] = [8, 15, 12]
 
-console.log(notas.map(dobrar)) // [ 8, 10 ]
-console.log(notas.map(triplicar)) // [ 12, 15 ]
-console.log(notas.map((n) => n + 1)) // [ 5, 6 ]
+console.log(precos.filter(ehCaro)) // [ 15, 12 ]
+console.log(precos.map(comDesconto)) // [ 6, 13, 10 ]
+console.log(precos.find((p) => p < 10)) // 8
 ```
 
 ```bash
@@ -1917,20 +1939,20 @@ a mesma coisa que faz o `n` do `map` ser `number` sozinho.
 
 Os arquivos ficam em [`0034-tipo-de-funcao/`](0034-tipo-de-funcao/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A067 · type Operacao**
+**Exemplo A067 · type Pontuacao para os modos do jogo**
 
 ```ts
-type Operacao = (a: number, b: number) => number
+type Pontuacao = (acertos: number) => number
 
-const somar: Operacao = (a, b) => a + b
-const multiplicar: Operacao = (a, b) => a * b
+const modoFacil: Pontuacao = (acertos) => acertos * 10
+const modoDificil: Pontuacao = (acertos) => acertos * 25
 
-function calcular(a: number, b: number, op: Operacao): number {
-  return op(a, b)
+function mostrarPontos(acertos: number, modo: Pontuacao): void {
+  console.log(`${acertos} acertos: ${modo(acertos)} pontos`)
 }
 
-console.log(calcular(6, 7, somar)) // 13
-console.log(calcular(6, 7, multiplicar)) // 42
+mostrarPontos(4, modoFacil) // 4 acertos: 40 pontos
+mostrarPontos(4, modoDificil) // 4 acertos: 100 pontos
 ```
 
 ```bash
@@ -2055,34 +2077,33 @@ relatório:
 
 Os arquivos ficam em [`0035-juntando-tudo/`](0035-juntando-tudo/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A069 · O programa completo da aula**
+**Exemplo A069 · As notas dos jurados do boi**
 
 ```ts
 import { input } from '#core/input.ts'
 
 const notas: number[] = []
-let resposta: string
+let resposta // a caixa nasce vazia: o do pergunta antes de conferir
 
 do {
-  const nota = Number(input('Digite uma nota: '))
-  notas.push(nota)
-  resposta = input('Outra nota? (s/n) ')
+  notas.push(Number(input('Nota do jurado: '))) // digite: 9.5, depois 10, depois 9
+  resposta = input('Mais um jurado? (s/n) ') // digite: s, s, n
 } while (resposta === 's')
 
-function calcularMedia(valores: number[]): number {
-  const soma = valores.reduce((acc, v) => acc + v, 0)
-  return soma / valores.length
+function somar(valores: number[]): number {
+  return valores.reduce((acc, v) => acc + v, 0)
 }
 
-const aprovadas = notas.filter((n) => n >= 6)
-const dobradas = notas.map((n) => n * 2)
+const notasDez = notas.filter((n) => n === 10)
+const comUmaCasa = notas.map((n) => n.toFixed(1))
 
-console.log(`Média: ${calcularMedia(notas).toFixed(2)}`)
-console.log(`Notas de 6 para cima: ${aprovadas.join(', ')}`)
-console.log(`Dobradas: ${dobradas.join(', ')}`)
+console.log(`Total do boi: ${somar(notas)}`) // Total do boi: 28.5
+console.log(`Média: ${(somar(notas) / notas.length).toFixed(2)}`) // Média: 9.50
+console.log(`Quantas notas 10: ${notasDez.length}`) // Quantas notas 10: 1
+console.log(`Notas: ${comUmaCasa.join(' | ')}`) // Notas: 9.5 | 10.0 | 9.0
 
 for (let i = 0; i < notas.length; i++) {
-  console.log(`Nota ${i + 1}: ${notas[i]}`)
+  console.log(`Jurado ${i + 1}: ${notas[i]}`)
 }
 ```
 
