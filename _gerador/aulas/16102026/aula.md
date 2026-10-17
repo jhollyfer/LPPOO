@@ -69,44 +69,6 @@ tsx ~/LPPOO/16102026/pratica/total-com-desconto.ts
 tsx ~/LPPOO/16102026/pratica/desafio-produtos.ts
 ```
 
-## Exercícios que valem pontos
-
-Ficam na pasta [`aula-02-logica-2/`](aula-02-logica-2/), aqui dentro da aula.
-Cada questão tem um exemplo resolvido parecido, para consultar.
-
-| Questão          | Conceito                                                  | Exemplo resolvido |
-| ---------------- | --------------------------------------------------------- | ----------------- |
-| `questao-10.ts`  | laço `while`                                              | `exemplo-10.ts`   |
-| `questao-11.ts`  | laço `do...while`                                         | `exemplo-11.ts`   |
-| `questao-12.ts`  | laço `for`                                                | `exemplo-12.ts`   |
-| `questao-13.ts`  | arrays tipados e `for...of`                               | `exemplo-13.ts`   |
-| `questao-14.ts`  | métodos de array para inserir, remover e buscar           | `exemplo-14.ts`   |
-| `questao-15.ts`  | `map`, `filter`, `reduce`, `sort` e encadeamento          | `exemplo-15.ts`   |
-| `questao-16.ts`  | funções tipadas, parâmetro opcional, valor padrão e `void`| `exemplo-16.ts`   |
-| `questao-17.ts`  | arrow functions, callbacks e tipo de função               | `exemplo-17.ts`   |
-
-```bash
-# exemplos resolvidos
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-10.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-11.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-12.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-13.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-14.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-15.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-16.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-17.ts
-
-# questões: a resposta vai dentro do próprio arquivo
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-10.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-11.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-12.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-13.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-14.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-15.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-16.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-17.ts
-```
-
 ## Para ler mais
 
 - MDN WEB DOCS. *Laços e iterações*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Loops_and_iteration>.

@@ -10,6 +10,7 @@ avisa o erro antes de o programa rodar.
 
 - como o TypeScript funciona e por que ele foi escolhido
 - quais valores contam como verdadeiro ou falso, e os atalhos `??` e `?.`
+- dar tipo para uma função inteira
 - descrever objetos com `type` e `interface`
 - dizer "isto ou aquilo" com uniões e "isto e aquilo" com interseções
 - escrever funções que servem para qualquer tipo, com generics
@@ -80,48 +81,6 @@ tsx ~/LPPOO/19102026/pratica/modelar-cantina.ts
 tsx ~/LPPOO/19102026/pratica/turnos.ts
 tsx ~/LPPOO/19102026/pratica/pagamento.ts
 tsx ~/LPPOO/19102026/pratica/desafio-funcao-generica.ts
-```
-
-## Exercícios que valem pontos
-
-Ficam na pasta [`aula-03-typescript/`](aula-03-typescript/), aqui dentro da
-aula. Cada questão tem um exemplo resolvido parecido, para consultar. Além de
-rodar, a questão precisa **passar no `tsc` sem erros**.
-
-| Questão | Conceito | Exemplo resolvido |
-| --- | --- | --- |
-| `questao-18.ts` | type e interface | `exemplo-18.ts` |
-| `questao-19.ts` | propriedade opcional e readonly | `exemplo-19.ts` |
-| `questao-20.ts` | união, literais e narrowing | `exemplo-20.ts` |
-| `questao-21.ts` | união discriminada | `exemplo-21.ts` |
-| `questao-22.ts` | interseção, tuplas e as const | `exemplo-22.ts` |
-| `questao-23.ts` | generics | `exemplo-23.ts` |
-| `questao-24.ts` | tipos utilitários | `exemplo-24.ts` |
-| `questao-25.ts` | type guards e satisfies | `exemplo-25.ts` |
-
-```bash
-# exemplos resolvidos
-tsx ~/LPPOO/19102026/aula-03-typescript/exemplo-18.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/exemplo-19.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/exemplo-20.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/exemplo-21.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/exemplo-22.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/exemplo-23.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/exemplo-24.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/exemplo-25.ts
-
-# questões: a resposta vai dentro do próprio arquivo
-tsx ~/LPPOO/19102026/aula-03-typescript/questao-18.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/questao-19.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/questao-20.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/questao-21.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/questao-22.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/questao-23.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/questao-24.ts
-tsx ~/LPPOO/19102026/aula-03-typescript/questao-25.ts
-
-# conferir os tipos do projeto inteiro
-pnpm -C ~/LPPOO tsc
 ```
 
 ## Para ler mais

@@ -129,15 +129,15 @@ for (const data of readdirSync(join(AQUI, 'aulas'))) {
     indice.push(`| [${numero}](#${ancora(titulo)}) | ${assunto} | [\`${pasta}/\`](${pasta}/) |`)
     partes.push(
       texto
-        .replace('{{ideia}}', imagem(`${pasta}/ideia.svg`, `Diagrama da ideia: ${assunto}`, svgIdeia))
-        .replace('{{fluxograma}}', imagem(`${pasta}/fluxograma.svg`, `Fluxograma: ${assunto}`, svgFluxo))
-        .replace('{{pratique}}', pratique(data, pasta)),
+        .replace('{{ideia}}', () => imagem(`${pasta}/ideia.svg`, `Diagrama da ideia: ${assunto}`, svgIdeia))
+        .replace('{{fluxograma}}', () => imagem(`${pasta}/fluxograma.svg`, `Fluxograma: ${assunto}`, svgFluxo))
+        .replace('{{pratique}}', () => pratique(data, pasta)),
     )
   }
 
   const aula = readFileSync(join(origem, 'aula.md'), 'utf8')
-    .replace('{{indice}}', ['| # | Assunto | Pasta |', '| --- | --- | --- |', ...indice].join('\n'))
-    .replace('{{assuntos}}', partes.join('\n\n---\n\n'))
+    .replace('{{indice}}', () => ['| # | Assunto | Pasta |', '| --- | --- | --- |', ...indice].join('\n'))
+    .replace('{{assuntos}}', () => partes.join('\n\n---\n\n'))
   const aviso = `<!-- Gerado por _gerador. Para mudar este arquivo, edite _gerador/aulas/${data}/ e rode: cd _gerador && npm run gerar -->\n\n`
   writeFileSync(join(destino, 'README.md'), aviso + aula)
   writeFileSync(join(destino, 'legenda.svg'), desenharLegenda())

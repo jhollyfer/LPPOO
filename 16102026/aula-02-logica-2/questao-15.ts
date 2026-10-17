@@ -1,6 +1,6 @@
 // Aula 02 · Questão 15 · map, filter, reduce, sort e encadeamento
 // Vale ponto. Exemplo resolvido parecido: exemplo-15.ts
-// Para revisar: 0028 e 0029 no README da aula 02 (16102026/README.md)
+// Para revisar: 0032 e 0033 no README da aula 02 (16102026/README.md)
 //
 // Crie um array com 8 preços. Num encadeamento só: aplique 10% de desconto em
 // todos (map), fique só com os que ainda passam de R$ 20 (filter) e ordene do
