@@ -1,10 +1,9 @@
-// A055 · O pedido de açaí
+// A055 · A conta do restaurante (valor padrão)
 
-function pedirAcai(ml: number, copo: string = 'copo comum', cobertura?: string): void {
-  const extra = cobertura === undefined ? 'sem cobertura' : `com ${cobertura}` // não veio? sem cobertura
-  console.log(`Açaí de ${ml} ml, ${extra}, no ${copo}`)
+function calcularConta(valor: number, gorjeta: number = 10): number {
+  return valor + (valor * gorjeta) / 100 // gorjeta em porcentagem
 }
 
-pedirAcai(300) // Açaí de 300 ml, sem cobertura, no copo comum
-pedirAcai(500, 'pote') // Açaí de 500 ml, sem cobertura, no pote
-pedirAcai(500, 'pote', 'granola') // Açaí de 500 ml, com granola, no pote
+console.log(calcularConta(50)) // 55 (não mandou gorjeta: vale 10)
+console.log(calcularConta(50, 20)) // 60
+console.log(calcularConta(50, 0)) // 50

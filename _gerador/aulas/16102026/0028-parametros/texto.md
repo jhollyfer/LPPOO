@@ -20,20 +20,28 @@ ficou vazio:
 {{ideia}}
 
 ```ts
-function pedirPastel(sabor: string, tamanho: string = 'médio', suco?: string): void {
+function pedirPastel(
+  sabor: string,
+  tamanho: string = 'médio',
+  suco?: string,
+): void {
   const extra = suco === undefined ? 'sem suco' : `com suco de ${suco}`
   console.log(`Pastel de ${sabor}, ${tamanho}, ${extra}`)
 }
 
 pedirPastel('carne') // Pastel de carne, médio, sem suco
-pedirPastel('queijo', 'grande', 'cupuaçu') // Pastel de queijo, grande, com suco de cupuaçu
+pedirPastel('queijo', 'grande', 'cupuaçu')
+// Pastel de queijo, grande, com suco de cupuaçu
 ```
+
+Os parâmetros ficaram um por linha só para caber na tela. Continua sendo uma
+função normal.
 
 Como o `suco` pode não ter vindo, a função confere com `suco === undefined`
 antes de usar. É o ternário que você já conhece.
 
-E repara no fim da primeira linha: o tipo do retorno é **`void`** (vazio). Essa
-função não tem `return`. Ela não devolve nada, só mostra na tela.
+E repara no `: void` depois dos parênteses. O tipo do retorno é **`void`**
+(vazio): essa função não tem `return`, não devolve nada. Ela só mostra na tela.
 
 No fluxograma, siga o pedido da Ana. As duas perguntas são o que a função
 decide sozinha:

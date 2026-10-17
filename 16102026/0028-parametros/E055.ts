@@ -6,6 +6,7 @@
 //
 // Dicas:
 // 1. Dentro da função, `expresso` pode ser `undefined`.
-// 2. `if (expresso)` já trata o `undefined` como falso.
+// 2. Use `if (expresso === true)`: se não veio, ele vale `undefined` e o
+//    `if` não entra.
 //
 // Escreva sua resposta abaixo:

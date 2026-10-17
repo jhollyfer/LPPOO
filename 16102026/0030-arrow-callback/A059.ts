@@ -1,12 +1,9 @@
-// A059 · Regras para os preços da cantina
+// A059 · Arrow functions da cantina
 
-function ehCaro(preco: number): boolean {
-  return preco > 10
-}
 const comDesconto = (preco: number): number => preco - 2
+const ehCaro = (preco: number): boolean => preco > 10
+const placa = (nome: string, preco: number): string => `${nome}: R$ ${preco}`
 
-const precos: number[] = [8, 15, 12]
-
-console.log(precos.filter(ehCaro)) // [ 15, 12 ]
-console.log(precos.map(comDesconto)) // [ 6, 13, 10 ]
-console.log(precos.find((p) => p < 10)) // 8
+console.log(comDesconto(8)) // 6
+console.log(ehCaro(15)) // true
+console.log(placa('Pastel', 7)) // Pastel: R$ 7

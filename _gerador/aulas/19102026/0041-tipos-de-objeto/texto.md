@@ -1,12 +1,10 @@
 ## 0041 · Tipos de objeto e type
 
-Até agora, cada variável guardava um valor só. Um número, um texto. Hoje isso
-muda.
+Na [0040](#0040--objetos) você criou objetos e o TypeScript descobriu o
+formato sozinho. Agora é a sua vez de **escrever** esse formato.
 
-Um **objeto** junta vários valores com nome numa coisa só:
-`{ nome: 'Ana', idade: 17 }`. Cada valor desses é uma **propriedade**.
-
-Para chegar numa propriedade, você usa o ponto: `ana.nome`.
+Por que escrever? Para todos os alunos da turma terem a mesma ficha, com os
+mesmos campos.
 
 E como dizer que formato o objeto tem? Com o **`type`**. Pensa numa ficha de
 matrícula em branco: ela diz quais campos existem e o que vai em cada um.

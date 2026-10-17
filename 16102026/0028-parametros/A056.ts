@@ -1,8 +1,9 @@
-// A056 · Saudação com valor padrão
+// A056 · O crachá do evento (opcional e void)
 
-function saudar(nome: string, saudacao: string = 'Olá'): string {
-  return `${saudacao}, ${nome}!`
+function imprimirCracha(nome: string, apelido?: string): void {
+  const chamada = apelido === undefined ? nome : apelido // não veio? usa o nome
+  console.log(`Olá, meu nome é ${chamada}`)
 }
 
-console.log(saudar('Ana')) // Olá, Ana!
-console.log(saudar('Bia', 'Bom dia')) // Bom dia, Bia!
+imprimirCracha('Ana Beatriz') // Olá, meu nome é Ana Beatriz
+imprimirCracha('Francisco', 'Chico') // Olá, meu nome é Chico

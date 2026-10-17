@@ -38,9 +38,8 @@ chamada e somem quando ela acaba:
 {{fluxograma}}
 
 > [!NOTE]
-> Isso vale para todo bloco entre `{ }`, como o de um `if` ou de um `for`. Cada
-> um tem o seu escopo para `let` e `const`. Foi por isso que o `i` do `for` não
-> existia depois do laço, na [0022](#0022--laço-for).
+> Isso vale para todo bloco entre `{ }`, como o de um `if` ou de um `for`. A
+> variável criada lá dentro, com `let` ou `const`, só existe lá dentro.
 
 > [!NOTE]
 > **Pergunta para a turma:** o que acontece se você tirar o `//` da última

@@ -185,24 +185,25 @@ questões que valem pontos ficam em
 | Pasta | Assunto |
 | --- | --- |
 | `0035-typescript` | Como o TypeScript funciona (e por que ele) |
-| `0036-tipagem-estrutural` | Como o TypeScript pensa: tipos estruturais |
-| `0037-tipos-basicos` | Tipos primitivos, any, unknown e never |
-| `0038-truthy-falsy` | Truthy, falsy, `??` e `?.` |
-| `0039-inferencia` | Inferência x anotação: quando escrever o tipo |
-| `0040-tipo-de-funcao` | Tipo de função e tipagem contextual |
+| `0036-tipos-basicos` | Tipos primitivos, any, unknown e never |
+| `0037-truthy-falsy` | Truthy, falsy, ?? e ?. |
+| `0038-inferencia` | Inferência x anotação: quando escrever o tipo |
+| `0039-tipo-de-funcao` | Tipo de função e tipagem contextual |
+| `0040-objetos` | Objetos |
 | `0041-tipos-de-objeto` | Tipos de objeto e type |
-| `0042-interface` | interface (e type x interface) |
-| `0043-opcional-readonly` | Propriedade opcional e readonly |
-| `0044-uniao-literais` | União (|) e tipos literais |
-| `0045-narrowing` | Narrowing: estreitando o tipo |
-| `0046-uniao-discriminada` | União discriminada |
-| `0047-intersecao` | Interseção (&) |
-| `0048-tuplas-enum-as-const` | Tuplas, enum e as const |
-| `0049-generics` | Generics (<T>) |
-| `0050-tipos-utilitarios` | Tipos utilitários: Partial, Pick, Omit, Record, Readonly |
-| `0051-type-guards-satisfies` | Type guards (x is T) e satisfies |
-| `0052-tsconfig` | tsconfig: strict e as regras do projeto |
-| `0053-juntando-tudo` | Juntando tudo: cadastro de alunos tipado |
+| `0042-tipagem-estrutural` | Como o TypeScript pensa: tipos estruturais |
+| `0043-interface` | interface (e type x interface) |
+| `0044-opcional-readonly` | Propriedade opcional e readonly |
+| `0045-uniao-literais` | União (|) e tipos literais |
+| `0046-narrowing` | Narrowing: estreitando o tipo |
+| `0047-uniao-discriminada` | União discriminada |
+| `0048-intersecao` | Interseção (&) |
+| `0049-tuplas-enum-as-const` | Tuplas, enum e as const |
+| `0050-generics` | Generics (<T>) |
+| `0051-tipos-utilitarios` | Tipos utilitários: Partial, Pick, Omit, Record, Readonly |
+| `0052-type-guards-satisfies` | Type guards (x is T) e satisfies |
+| `0053-tsconfig` | tsconfig: strict e as regras do projeto |
+| `0054-juntando-tudo` | Juntando tudo: cadastro de alunos tipado |
 
 ## Cronograma
 

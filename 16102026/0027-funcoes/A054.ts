@@ -1,4 +1,4 @@
-// A054 · Função com dois parâmetros
+// A054 · A área da sala
 
 function areaRetangulo(largura: number, altura: number): number {
   return largura * altura

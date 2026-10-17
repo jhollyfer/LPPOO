@@ -1,6 +1,6 @@
 // Aula 03 · Questão 21 · União discriminada
 // Vale ponto. Exemplo resolvido parecido: exemplo-21.ts
-// Para revisar: 0046 no README da aula 03 (19102026/README.md)
+// Para revisar: 0047 no README da aula 03 (19102026/README.md)
 //
 // Entregas: crie type Entrega = { tipo: 'retirada' } | { tipo: 'moto'; bairro:
 // string; taxa: number } | { tipo: 'correio'; cep: string; dias: number }.

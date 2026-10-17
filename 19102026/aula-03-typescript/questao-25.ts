@@ -1,6 +1,6 @@
 // Aula 03 · Questão 25 · Type guards e satisfies
 // Vale ponto. Exemplo resolvido parecido: exemplo-25.ts
-// Para revisar: 0051 e 0052 no README da aula 03 (19102026/README.md)
+// Para revisar: 0052 e 0053 no README da aula 03 (19102026/README.md)
 //
 // Formulário: o usuário digita idade e email. Escreva ehIdadeValida(x:
 // unknown): x is number (número inteiro de 0 a 120) e use no lugar do if

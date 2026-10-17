@@ -1,6 +1,6 @@
 // Aula 02 · Questão 17 · Arrow functions, callbacks e tipo de função
 // Vale ponto. Exemplo resolvido parecido: exemplo-17.ts
-// Para revisar: 0030 e 0040 no README da aula 02 (16102026/README.md)
+// Para revisar: 0030 e 0039 no README da aula 02 (16102026/README.md)
 //
 // Crie type Filtro = (n: number) => boolean e três filtros com arrow function:
 // par, positivo e maiorQueDez. Escreva aplicarFiltro(numeros: number[], filtro: Filtro): number[]

@@ -2,7 +2,7 @@
 // Exercício E054
 //
 // Escreva a função `maiorNota(notas: number[]): number`, que devolve a maior nota
-// do array. Não vale usar `sort`.
+// do array.
 //
 // Dicas:
 // 1. Comece com `let maior = 0`.

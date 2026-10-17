@@ -1,22 +1,15 @@
 export const ideia = {
   caixas: [
-    { id: 'p', forma: 'pessoa', x: 110, y: 120, nome: 'você' },
+    { id: 'p', forma: 'pessoa', x: 110, y: 120, nome: 'professor' },
     { id: 'b', forma: 'balao', x: 190, y: 0, texto: '8, 5, 9 e n', cor: 'azul' },
     { id: 'a', forma: 'array', x: 480, y: 120, nome: 'notas', itens: [8, 5, 9], celula: 100 },
     {
       id: 't',
       forma: 'terminal',
-      x: 1060,
-      y: 40,
-      w: 440,
-      texto: [
-        'Média: 7.33',
-        'Notas de 6 para cima: 8, 9',
-        'Dobradas: 16, 10, 18',
-        'Nota 1: 8',
-        'Nota 2: 5',
-        'Nota 3: 9',
-      ],
+      x: 1000,
+      y: 90,
+      w: 500,
+      texto: ['Média: 7.33', 'Notas de 6 para cima: 8, 9'],
     },
   ],
   setas: [
@@ -32,8 +25,8 @@ export const fluxograma = {
     ['C', 'proc', 'notas.push(nota)'],
     ['D', 'io', 'Ler resposta (s/n)'],
     ['E', 'dec', "resposta === 's'?"],
-    ['F', 'proc', 'média, aprovadas e dobradas'],
-    ['G', 'io', 'Mostrar o relatório'],
+    ['F', 'proc', 'calcularMedia e filter'],
+    ['G', 'io', 'Mostrar média e aprovadas'],
     ['H', 'inicio', 'Fim'],
   ],
   setas: [
@@ -46,4 +39,6 @@ export const fluxograma = {
     ['F', 'G'],
     ['G', 'H'],
   ],
+  // 8, 5 e 9: três voltas, depois o relatório
+  caminho: ['A', 'B', 'C', 'D', 'E', 'B', 'C', 'D', 'E', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
 }

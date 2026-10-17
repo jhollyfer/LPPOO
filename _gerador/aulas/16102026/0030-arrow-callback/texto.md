@@ -1,47 +1,60 @@
 ## 0030 · Arrow functions e callbacks
 
 Até agora, toda função começou com a palavra `function`. Tem um jeito mais
-curto de escrever: a **arrow function** (função seta).
+curto de escrever: a **arrow function** (função seta), por causa da `=>`.
 
-Olha só. As duas abaixo são funções, cada uma escrita de um jeito:
+Esta você já sabe escrever:
 
 ```ts
 function dobrar(n: number): number {
   return n * 2
 }
-const triplicar = (n: number): number => n * 3 // arrow function
 ```
 
-Quando a arrow tem uma linha só, o que vem depois da `=>` já é o `return`.
+Esta é a mesma função, escrita como arrow:
 
-Agora outra novidade: dá para **passar uma função para outra função**.
+```ts
+const dobrar = (n: number): number => n * 2
+```
 
-A função que você passa se chama **callback**. A outra função vai chamar a sua
-depois, na hora certa.
+Os parâmetros continuam entre `( )`, com os tipos. Depois vem a `=>`, e o que
+vem depois dela já é o `return`. A função fica guardada numa `const`, e você
+chama do mesmo jeito: `dobrar(10)` dá `20`.
 
-Pensa assim: você entrega a receita e outra pessoa cozinha. No `map`, ele é o
-cozinheiro e a sua função é a receita. O mesmo vale para o `filter` e o `find`:
-você entrega a regra e o método chama a regra para cada item:
+Agora a novidade grande: uma função pode **receber outra função** como
+parâmetro. A função que você entrega se chama **callback**.
+
+Pensa na receita de bolo. Você entrega a receita, e outra pessoa cozinha na
+hora certa. Aqui, a `aplicar` é quem cozinha e a `dobrar` é a receita. Você
+entrega o `10` e a `dobrar`, e volta o `20`:
 
 {{ideia}}
 
 ```ts
-const notas: number[] = [4, 5]
+const dobrar = (n: number): number => n * 2
 
-console.log(notas.map(dobrar)) // [ 8, 10 ]
-console.log(notas.map(triplicar)) // [ 12, 15 ]
-console.log(notas.map((n) => n + 1)) // [ 5, 6 ]: arrow escrita ali mesmo
+function aplicar(valor: number, regra: (n: number) => number): number {
+  return regra(valor) // aqui dentro, a aplicar chama a sua função
+}
+
+console.log(aplicar(10, dobrar)) // 20
 ```
 
-Repara: é `notas.map(dobrar)`, sem parênteses depois de `dobrar`. Você está
-entregando a função, e não chamando.
+O tipo do parâmetro `regra` é `(n: number) => number`. Quer dizer: "uma função
+que recebe um número e devolve um número".
 
-Quem chama é o `map`, uma vez para cada nota:
+Repara: é `aplicar(10, dobrar)`, sem parênteses depois de `dobrar`. Você está
+**entregando** a função, e não chamando. Quem chama é a `aplicar`, lá dentro:
 
 {{fluxograma}}
 
+Guarda isso: nos próximos assuntos, os métodos de array (`find`, `map`,
+`filter`...) funcionam exatamente assim. Você entrega uma função, e o método
+chama ela para cada item do array.
+
 > [!NOTE]
-> **Pergunta para a turma:** quantas vezes o `map` chama a `dobrar` neste
-> exemplo? Coloque um `console.log(n)` dentro da `dobrar` e rode para conferir.
+> **Pergunta para a turma:** dá para escrever a arrow direto na chamada, sem
+> dar nome. O que aparece com `aplicar(10, (n: number): number => n + 1)`?
+> Acrescente a linha e rode.
 
 {{pratique}}

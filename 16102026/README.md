@@ -39,7 +39,7 @@ de gavetas com o índice embaixo de cada uma, começando do 0.
 > No nosso projeto, `notas[i]` pode ser `undefined`, porque a posição `i` pode
 > não existir. Por isso o editor reclama quando você faz conta direto com um
 > item do array. Para percorrer arrays, prefira o `for...of` (assunto 0025). O
-> porquê está no assunto 0052 da [aula 03](../19102026/README.md).
+> porquê está no assunto 0053 da [aula 03](../19102026/README.md).
 
 ## Os assuntos
 
@@ -967,7 +967,7 @@ console.log(`Ida e volta: R$ ${precoCorrida(3) * 2}`) // Ida e volta: R$ 22
 tsx ~/LPPOO/16102026/0027-funcoes/A053.ts
 ```
 
-**Exemplo A054 · Função com dois parâmetros**
+**Exemplo A054 · A área da sala**
 
 ```ts
 function areaRetangulo(largura: number, altura: number): number {
@@ -1037,20 +1037,28 @@ ficou vazio:
 <p align="center"><img src="0028-parametros/ideia.svg" alt="Diagrama da ideia: Parâmetro opcional, valor padrão e void" width="969"></p>
 
 ```ts
-function pedirPastel(sabor: string, tamanho: string = 'médio', suco?: string): void {
+function pedirPastel(
+  sabor: string,
+  tamanho: string = 'médio',
+  suco?: string,
+): void {
   const extra = suco === undefined ? 'sem suco' : `com suco de ${suco}`
   console.log(`Pastel de ${sabor}, ${tamanho}, ${extra}`)
 }
 
 pedirPastel('carne') // Pastel de carne, médio, sem suco
-pedirPastel('queijo', 'grande', 'cupuaçu') // Pastel de queijo, grande, com suco de cupuaçu
+pedirPastel('queijo', 'grande', 'cupuaçu')
+// Pastel de queijo, grande, com suco de cupuaçu
 ```
+
+Os parâmetros ficaram um por linha só para caber na tela. Continua sendo uma
+função normal.
 
 Como o `suco` pode não ter vindo, a função confere com `suco === undefined`
 antes de usar. É o ternário que você já conhece.
 
-E repara no fim da primeira linha: o tipo do retorno é **`void`** (vazio). Essa
-função não tem `return`. Ela não devolve nada, só mostra na tela.
+E repara no `: void` depois dos parênteses. O tipo do retorno é **`void`**
+(vazio): essa função não tem `return`, não devolve nada. Ela só mostra na tela.
 
 No fluxograma, siga o pedido da Ana. As duas perguntas são o que a função
 decide sozinha:
@@ -1070,32 +1078,32 @@ decide sozinha:
 
 Os arquivos ficam em [`0028-parametros/`](0028-parametros/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A055 · O pedido de açaí**
+**Exemplo A055 · A conta do restaurante (valor padrão)**
 
 ```ts
-function pedirAcai(ml: number, copo: string = 'copo comum', cobertura?: string): void {
-  const extra = cobertura === undefined ? 'sem cobertura' : `com ${cobertura}` // não veio? sem cobertura
-  console.log(`Açaí de ${ml} ml, ${extra}, no ${copo}`)
+function calcularConta(valor: number, gorjeta: number = 10): number {
+  return valor + (valor * gorjeta) / 100 // gorjeta em porcentagem
 }
 
-pedirAcai(300) // Açaí de 300 ml, sem cobertura, no copo comum
-pedirAcai(500, 'pote') // Açaí de 500 ml, sem cobertura, no pote
-pedirAcai(500, 'pote', 'granola') // Açaí de 500 ml, com granola, no pote
+console.log(calcularConta(50)) // 55 (não mandou gorjeta: vale 10)
+console.log(calcularConta(50, 20)) // 60
+console.log(calcularConta(50, 0)) // 50
 ```
 
 ```bash
 tsx ~/LPPOO/16102026/0028-parametros/A055.ts
 ```
 
-**Exemplo A056 · Saudação com valor padrão**
+**Exemplo A056 · O crachá do evento (opcional e void)**
 
 ```ts
-function saudar(nome: string, saudacao: string = 'Olá'): string {
-  return `${saudacao}, ${nome}!`
+function imprimirCracha(nome: string, apelido?: string): void {
+  const chamada = apelido === undefined ? nome : apelido // não veio? usa o nome
+  console.log(`Olá, meu nome é ${chamada}`)
 }
 
-console.log(saudar('Ana')) // Olá, Ana!
-console.log(saudar('Bia', 'Bom dia')) // Bom dia, Bia!
+imprimirCracha('Ana Beatriz') // Olá, meu nome é Ana Beatriz
+imprimirCracha('Francisco', 'Chico') // Olá, meu nome é Chico
 ```
 
 ```bash
@@ -1110,7 +1118,8 @@ R$ 2 por kg; se for expresso, soma mais R$ 10. Teste com e sem o expresso.
 <details><summary>Dicas</summary>
 
 1. Dentro da função, `expresso` pode ser `undefined`.
-2. `if (expresso)` já trata o `undefined` como falso.
+2. Use `if (expresso === true)`: se não veio, ele vale `undefined` e o
+   `if` não entra.
 
 </details>
 
@@ -1176,9 +1185,8 @@ chamada e somem quando ela acaba:
 <p align="center"><img src="0029-escopo/fluxograma.svg" alt="Fluxograma: Escopo de variáveis" width="1537"></p>
 
 > [!NOTE]
-> Isso vale para todo bloco entre `{ }`, como o de um `if` ou de um `for`. Cada
-> um tem o seu escopo para `let` e `const`. Foi por isso que o `i` do `for` não
-> existia depois do laço, na [0022](#0022--laço-for).
+> Isso vale para todo bloco entre `{ }`, como o de um `if` ou de um `for`. A
+> variável criada lá dentro, com `let` ou `const`, só existe lá dentro.
 
 > [!NOTE]
 > **Pergunta para a turma:** o que acontece se você tirar o `//` da última
@@ -1268,81 +1276,95 @@ tsx ~/LPPOO/16102026/0029-escopo/E058.ts
 ## 0030 · Arrow functions e callbacks
 
 Até agora, toda função começou com a palavra `function`. Tem um jeito mais
-curto de escrever: a **arrow function** (função seta).
+curto de escrever: a **arrow function** (função seta), por causa da `=>`.
 
-Olha só. As duas abaixo são funções, cada uma escrita de um jeito:
+Esta você já sabe escrever:
 
 ```ts
 function dobrar(n: number): number {
   return n * 2
 }
-const triplicar = (n: number): number => n * 3 // arrow function
 ```
 
-Quando a arrow tem uma linha só, o que vem depois da `=>` já é o `return`.
+Esta é a mesma função, escrita como arrow:
 
-Agora outra novidade: dá para **passar uma função para outra função**.
+```ts
+const dobrar = (n: number): number => n * 2
+```
 
-A função que você passa se chama **callback**. A outra função vai chamar a sua
-depois, na hora certa.
+Os parâmetros continuam entre `( )`, com os tipos. Depois vem a `=>`, e o que
+vem depois dela já é o `return`. A função fica guardada numa `const`, e você
+chama do mesmo jeito: `dobrar(10)` dá `20`.
 
-Pensa assim: você entrega a receita e outra pessoa cozinha. No `map`, ele é o
-cozinheiro e a sua função é a receita. O mesmo vale para o `filter` e o `find`:
-você entrega a regra e o método chama a regra para cada item:
+Agora a novidade grande: uma função pode **receber outra função** como
+parâmetro. A função que você entrega se chama **callback**.
+
+Pensa na receita de bolo. Você entrega a receita, e outra pessoa cozinha na
+hora certa. Aqui, a `aplicar` é quem cozinha e a `dobrar` é a receita. Você
+entrega o `10` e a `dobrar`, e volta o `20`:
 
 <p align="center"><img src="0030-arrow-callback/ideia.svg" alt="Diagrama da ideia: Arrow functions e callbacks" width="858"></p>
 
 ```ts
-const notas: number[] = [4, 5]
+const dobrar = (n: number): number => n * 2
 
-console.log(notas.map(dobrar)) // [ 8, 10 ]
-console.log(notas.map(triplicar)) // [ 12, 15 ]
-console.log(notas.map((n) => n + 1)) // [ 5, 6 ]: arrow escrita ali mesmo
+function aplicar(valor: number, regra: (n: number) => number): number {
+  return regra(valor) // aqui dentro, a aplicar chama a sua função
+}
+
+console.log(aplicar(10, dobrar)) // 20
 ```
 
-Repara: é `notas.map(dobrar)`, sem parênteses depois de `dobrar`. Você está
-entregando a função, e não chamando.
+O tipo do parâmetro `regra` é `(n: number) => number`. Quer dizer: "uma função
+que recebe um número e devolve um número".
 
-Quem chama é o `map`, uma vez para cada nota:
+Repara: é `aplicar(10, dobrar)`, sem parênteses depois de `dobrar`. Você está
+**entregando** a função, e não chamando. Quem chama é a `aplicar`, lá dentro:
 
-<p align="center"><img src="0030-arrow-callback/fluxograma.svg" alt="Fluxograma: Arrow functions e callbacks" width="557"></p>
+<p align="center"><img src="0030-arrow-callback/fluxograma.svg" alt="Fluxograma: Arrow functions e callbacks" width="1628"></p>
+
+Guarda isso: nos próximos assuntos, os métodos de array (`find`, `map`,
+`filter`...) funcionam exatamente assim. Você entrega uma função, e o método
+chama ela para cada item do array.
 
 > [!NOTE]
-> **Pergunta para a turma:** quantas vezes o `map` chama a `dobrar` neste
-> exemplo? Coloque um `console.log(n)` dentro da `dobrar` e rode para conferir.
+> **Pergunta para a turma:** dá para escrever a arrow direto na chamada, sem
+> dar nome. O que aparece com `aplicar(10, (n: number): number => n + 1)`?
+> Acrescente a linha e rode.
 
 ### Hora de praticar
 
 Os arquivos ficam em [`0030-arrow-callback/`](0030-arrow-callback/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A059 · Regras para os preços da cantina**
+**Exemplo A059 · Arrow functions da cantina**
 
 ```ts
-function ehCaro(preco: number): boolean {
-  return preco > 10
-}
 const comDesconto = (preco: number): number => preco - 2
+const ehCaro = (preco: number): boolean => preco > 10
+const placa = (nome: string, preco: number): string => `${nome}: R$ ${preco}`
 
-const precos: number[] = [8, 15, 12]
-
-console.log(precos.filter(ehCaro)) // [ 15, 12 ]
-console.log(precos.map(comDesconto)) // [ 6, 13, 10 ]
-console.log(precos.find((p) => p < 10)) // 8
+console.log(comDesconto(8)) // 6
+console.log(ehCaro(15)) // true
+console.log(placa('Pastel', 7)) // Pastel: R$ 7
 ```
 
 ```bash
 tsx ~/LPPOO/16102026/0030-arrow-callback/A059.ts
 ```
 
-**Exemplo A060 · Uma função sua que recebe callback**
+**Exemplo A060 · Uma função sua que chama o callback para cada nota**
 
 ```ts
-function aplicar(valor: number, operacao: (x: number) => number): number {
-  return operacao(valor)
+function paraCadaNota(notas: number[], acao: (nota: number) => void): void {
+  for (const nota of notas) {
+    acao(nota) // chama a função que você entregou
+  }
 }
 
-console.log(aplicar(10, (x) => x * x)) // 100
-console.log(aplicar(10, (x) => x / 2)) // 5
+const mostrar = (nota: number): void => console.log(`Nota: ${nota}`)
+
+paraCadaNota([7, 9], mostrar) // Nota: 7 / Nota: 9
+paraCadaNota([7, 9], (nota: number): void => console.log(nota * 10)) // 70 / 90
 ```
 
 ```bash
@@ -1351,13 +1373,14 @@ tsx ~/LPPOO/16102026/0030-arrow-callback/A060.ts
 
 **Exercício E059**
 
-Escreva a arrow function `ehAprovado = (nota: number): boolean => ...` e use
-com `filter` para pegar as notas aprovadas de um array.
+Escreva a arrow function `ehAprovado = (nota: number): boolean => ...`.
+Teste com as notas 4, 6 e 9. Depois, percorra o array `[4, 7, 9, 5]` com
+`for...of` e mostre só as notas aprovadas.
 
 <details><summary>Dicas</summary>
 
 1. Aprovado é nota maior ou igual a 6.
-2. Passe só o nome: `notas.filter(ehAprovado)`.
+2. Dentro do laço, use `if (ehAprovado(nota))`.
 
 </details>
 
@@ -1565,11 +1588,11 @@ Os arquivos ficam em [`0032-transformar/`](0032-transformar/). Os comandos funci
 ```ts
 const pontos: number[] = [30, 15, 40, 10] // uma equipe em cada posição
 
-const comBonus = pontos.map((p) => p + 5)
+const naFinal = pontos.map((p) => p * 2) // na final, cada ponto vale dois
 const passaram = pontos.filter((p) => p >= 20)
 const total = pontos.reduce((acc, p) => acc + p, 0)
 
-console.log(comBonus) // [ 35, 20, 45, 15 ]
+console.log(naFinal) // [ 60, 30, 80, 20 ]
 console.log(passaram) // [ 30, 40 ]
 console.log(total) // 95
 passaram.forEach((p) => console.log(`Equipe com ${p} pontos vai para a final`))
@@ -1632,52 +1655,54 @@ tsx ~/LPPOO/16102026/0032-transformar/E064.ts
 
 ## 0033 · Organizar: sort, reverse, slice, join, concat
 
-Agora a gente vai arrumar e recortar arrays. São estes métodos:
+No diário do professor, as notas estão na ordem da chamada: 8, 10, 6 e 9. Você
+quer ver as notas da menor para a maior, mas sem bagunçar o diário.
 
-- `sort(regra)`: **ordena**.
-- `reverse()`: **inverte** a ordem.
-- `slice(início, fim)`: **copia** um pedaço (ou tudo, sem argumentos).
-- `join(separador)`: **junta** tudo num texto só.
-- `concat(outro)`: **emenda** dois arrays num novo.
-
-Repara numa diferença aqui. Alguns métodos **mudam o array original**. Outros
-**devolvem um novo** e deixam o original do jeito que estava.
-
-Pensa na fila do recreio. O `sort` arruma a própria fila. O `slice` tira uma
-foto da fila, e quem você arruma é a foto:
+O jeito é tirar uma **foto** do diário e arrumar a foto. Quem tira a foto é o
+`slice`. Quem arruma é o `sort`. E o `join` junta tudo num texto só, para
+mostrar:
 
 <p align="center"><img src="0033-organizar/ideia.svg" alt="Diagrama da ideia: Organizar: sort, reverse, slice, join, concat" width="858"></p>
 
 ```ts
-const notas: number[] = [8, 10, 6, 9]
+const notas: number[] = [8, 10, 6, 9] // o diário
 
-const copia = notas.slice() // cópia: um array novo
-copia.sort((a, b) => a - b) // [6, 8, 9, 10]: o sort muda a cópia
-copia.reverse() // [10, 9, 8, 6]
+const copia = notas.slice() // tira a foto: um array novo
+copia.sort((a, b) => a - b) // arruma a foto: [6, 8, 9, 10]
 
-console.log(copia.join(' | ')) // 10 | 9 | 8 | 6
-console.log(notas.concat([7])) // [ 8, 10, 6, 9, 7 ]: array novo
-console.log(notas) // [ 8, 10, 6, 9 ]: o original não mudou
+console.log(copia.join(' | ')) // 6 | 8 | 9 | 10
+console.log(notas) // [ 8, 10, 6, 9 ]: o diário não mudou
 ```
+
+A regra do `sort` é uma arrow com dois números, `a` e `b`. Lembra da
+[0030](#0030--arrow-functions-e-callbacks)? O `a - b` deixa do menor para o
+maior. O `b - a` deixa do maior para o menor.
+
+Tem mais dois da mesma família:
+
+- `reverse()`: **inverte** a ordem. `copia.reverse()` deixa `[10, 9, 8, 6]`.
+- `concat(outro)`: **emenda** dois arrays num novo. `notas.concat([7])` dá
+  `[8, 10, 6, 9, 7]`.
 
 Guarda essa tabela. Ela separa quem mexe no original de quem devolve um novo:
 
-| Mudam o original                                  | Devolvem um novo                     |
-| ------------------------------------------------- | ------------------------------------ |
-| `push`, `pop`, `shift`, `unshift`, `splice`, `sort`, `reverse` | `map`, `filter`, `slice`, `concat`, `join` |
+| Mudam o original                         | Devolvem um novo                  |
+| ---------------------------------------- | --------------------------------- |
+| `push`, `pop`, `shift`, `unshift`, `splice`, `sort`, `reverse` | `map`, `filter`, `slice`, `concat` |
 
-<p align="center"><img src="0033-organizar/fluxograma.svg" alt="Fluxograma: Organizar: sort, reverse, slice, join, concat" width="1245"></p>
+No fluxograma, repara que o `sort` mexe só na `copia`:
+
+<p align="center"><img src="0033-organizar/fluxograma.svg" alt="Fluxograma: Organizar: sort, reverse, slice, join, concat" width="1220"></p>
 
 > [!WARNING]
 > Cuidado: o `sort` sem regra compara tudo **como texto**. Aí
 > `[8, 10, 6, 9].sort()` dá `[10, 6, 8, 9]`, porque o texto `'10'` vem antes de
-> `'6'`. Para números, passe sempre a regra `(a, b) => a - b` (do menor para o
-> maior) ou `(a, b) => b - a` (do maior para o menor).
+> `'6'`. Para números, passe sempre a regra.
 
 > [!NOTE]
-> **Pergunta para a turma:** se você trocar `notas.slice()` por só `notas` na
-> linha da `copia`, o que aparece no último `console.log`? Troque e rode.
-> (Dica: sem o `slice`, não tem foto.)
+> **Pergunta para a turma:** troque `notas.slice()` por só `notas` na linha da
+> `copia`. O que aparece no último `console.log`? Troque e rode. (Dica: sem o
+> `slice`, não tem foto.)
 
 ### Hora de praticar
 
@@ -1752,9 +1777,8 @@ tsx ~/LPPOO/16102026/0033-organizar/E066.ts
 
 Hora de juntar tudo num programa só. Esse é o fechamento da aula.
 
-O programa pede notas até você responder `n` e guarda tudo num array. Depois
-ele mostra a média, as notas de 6 para cima, as notas dobradas e a lista
-numerada.
+O professor digita as notas da turma, uma por uma, até responder `n`. No fim,
+o programa mostra a média e as notas de 6 para cima.
 
 Cada parte usa uma seção desta aula. Olha só:
 
@@ -1762,41 +1786,34 @@ Cada parte usa uma seção desta aula. Olha só:
 | ------------------------------------ | -------------------------------------- |
 | `do...while` pedindo as notas        | [0021](#0021--laço-dowhile)            |
 | `notas: number[]` e `push`           | [0024](#0024--arrays-vetores) e [0026](#0026--inserir-e-remover-push-pop-unshift-shift-splice) |
-| `calcularMedia` com `reduce`         | [0027](#0027--funções) e [0032](#0032--transformar-map-filter-reduce-foreach) |
-| `filter`, `map` e `join`             | [0032](#0032--transformar-map-filter-reduce-foreach) e [0033](#0033--organizar-sort-reverse-slice-join-concat) |
-| `for` com índice                     | [0022](#0022--laço-for)                |
+| a função `calcularMedia`             | [0027](#0027--funções)                 |
+| as regras `(acc, v) => acc + v` e `(n) => n >= 6` | [0030](#0030--arrow-functions-e-callbacks) |
+| `reduce` e `filter`                  | [0032](#0032--transformar-map-filter-reduce-foreach) |
+| `join`                               | [0033](#0033--organizar-sort-reverse-slice-join-concat) |
 
-Vamos ver na prática. Você digita 8, 5 e 9, e depois `n`:
+Vamos ver na prática. O professor digita 8, 5 e 9, e depois `n`:
 
 <p align="center"><img src="0034-juntando-tudo/ideia.svg" alt="Diagrama da ideia: Juntando tudo: as notas da turma" width="870"></p>
 
 ```ts
 import { input } from '#core/input.ts'
 
-const notas: number[] = []
-let resposta: string
-
-do {
-  const nota = Number(input('Digite uma nota: '))
-  notas.push(nota)
-  resposta = input('Outra nota? (s/n) ')
-} while (resposta === 's')
-
 function calcularMedia(valores: number[]): number {
   const soma = valores.reduce((acc, v) => acc + v, 0)
   return soma / valores.length
 }
 
+const notas: number[] = []
+let resposta // a caixa nasce vazia: o do pergunta antes de conferir
+
+do {
+  notas.push(Number(input('Digite uma nota: '))) // 8, depois 5, depois 9
+  resposta = input('Outra nota? (s/n) ') // s, s, n
+} while (resposta === 's')
+
 const aprovadas = notas.filter((n) => n >= 6)
-const dobradas = notas.map((n) => n * 2)
-
-console.log(`Média: ${calcularMedia(notas).toFixed(2)}`)
-console.log(`Notas de 6 para cima: ${aprovadas.join(', ')}`)
-console.log(`Dobradas: ${dobradas.join(', ')}`)
-
-for (let i = 0; i < notas.length; i++) {
-  console.log(`Nota ${i + 1}: ${notas[i]}`)
-}
+console.log(`Média: ${calcularMedia(notas).toFixed(2)}`) // Média: 7.33
+console.log(`Notas de 6 para cima: ${aprovadas.join(', ')}`) // 8, 9
 ```
 
 No fluxograma, repara nas três voltas do `do...while`. Depois delas vem o
@@ -1805,9 +1822,9 @@ relatório:
 <p align="center"><img src="0034-juntando-tudo/fluxograma.svg" alt="Fluxograma: Juntando tudo: as notas da turma" width="378"></p>
 
 > [!NOTE]
-> **Pergunta para a turma:** se você digitar só uma nota, `4`, e responder `n`,
-> o que aparece na linha "Notas de 6 para cima"? Rode e confira. (Dica: o
-> `filter` pode devolver um array vazio.)
+> **Pergunta para a turma:** se o professor digitar só uma nota, `4`, e
+> responder `n`, o que aparece na linha "Notas de 6 para cima"? Rode e confira.
+> (Dica: o `filter` pode devolver um array vazio.)
 
 ### Hora de praticar
 
@@ -1818,6 +1835,10 @@ Os arquivos ficam em [`0034-juntando-tudo/`](0034-juntando-tudo/). Os comandos f
 ```ts
 import { input } from '#core/input.ts'
 
+function somar(valores: number[]): number {
+  return valores.reduce((acc, v) => acc + v, 0)
+}
+
 const notas: number[] = []
 let resposta // a caixa nasce vazia: o do pergunta antes de conferir
 
@@ -1826,43 +1847,37 @@ do {
   resposta = input('Mais um jurado? (s/n) ') // digite: s, s, n
 } while (resposta === 's')
 
-function somar(valores: number[]): number {
-  return valores.reduce((acc, v) => acc + v, 0)
-}
-
 const notasDez = notas.filter((n) => n === 10)
-const comUmaCasa = notas.map((n) => n.toFixed(1))
 
 console.log(`Total do boi: ${somar(notas)}`) // Total do boi: 28.5
-console.log(`Média: ${(somar(notas) / notas.length).toFixed(2)}`) // Média: 9.50
 console.log(`Quantas notas 10: ${notasDez.length}`) // Quantas notas 10: 1
-console.log(`Notas: ${comUmaCasa.join(' | ')}`) // Notas: 9.5 | 10.0 | 9.0
-
-for (let i = 0; i < notas.length; i++) {
-  console.log(`Jurado ${i + 1}: ${notas[i]}`)
-}
+console.log(`Notas: ${notas.join(' | ')}`) // Notas: 9.5 | 10 | 9
 ```
 
 ```bash
 tsx ~/LPPOO/16102026/0034-juntando-tudo/A067.ts
 ```
 
-**Exemplo A068 · O mesmo relatório numa função void, com for...of**
+**Exemplo A068 · Os gastos da semana, numa função void com for...of**
 
 ```ts
-function mostrarRelatorio(notas: number[]): void {
-  const media = notas.reduce((acc, n) => acc + n, 0) / notas.length
-  console.log(`Média: ${media.toFixed(2)}`)
-
-  let posicao = 1
-  for (const nota of notas) {
-    const situacao = nota >= 6 ? 'ok' : 'atenção'
-    console.log(`Nota ${posicao}: ${nota} (${situacao})`)
-    posicao++
+function mostrarGastos(gastos: number[]): void {
+  let dia = 1
+  for (const gasto of gastos) {
+    const aviso = gasto > 20 ? 'passou do limite' : 'ok'
+    console.log(`Dia ${dia}: R$ ${gasto.toFixed(2)} (${aviso})`)
+    dia++
   }
+
+  const total = gastos.reduce((acc, g) => acc + g, 0)
+  console.log(`Total: R$ ${total.toFixed(2)}`)
 }
 
-mostrarRelatorio([8, 5, 9])
+mostrarGastos([12, 25, 8.5])
+// Dia 1: R$ 12.00 (ok)
+// Dia 2: R$ 25.00 (passou do limite)
+// Dia 3: R$ 8.50 (ok)
+// Total: R$ 45.50
 ```
 
 ```bash

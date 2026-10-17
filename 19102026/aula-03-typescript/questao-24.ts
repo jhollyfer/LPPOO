@@ -1,6 +1,6 @@
 // Aula 03 · Questão 24 · Tipos utilitários
 // Vale ponto. Exemplo resolvido parecido: exemplo-24.ts
-// Para revisar: 0050 no README da aula 03 (19102026/README.md)
+// Para revisar: 0051 no README da aula 03 (19102026/README.md)
 //
 // Estoque: crie type Produto = { codigo: number; nome: string; preco: number;
 // quantidade: number }. Use Omit para o cadastro (sem código), Partial para

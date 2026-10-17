@@ -1,6 +1,6 @@
 // Aula 03 · Questão 22 · Interseção, tuplas e as const
 // Vale ponto. Exemplo resolvido parecido: exemplo-22.ts
-// Para revisar: 0047 e 0048 no README da aula 03 (19102026/README.md)
+// Para revisar: 0048 e 0049 no README da aula 03 (19102026/README.md)
 //
 // Placar: crie const TIMES = ['azul', 'verde', 'amarelo'] as const e o type
 // Time tirado dele. Crie type Jogo = { times: [Time, Time]; gols: [number,

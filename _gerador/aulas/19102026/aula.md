@@ -11,7 +11,7 @@ avisa o erro antes de o programa rodar.
 - como o TypeScript funciona e por que ele foi escolhido
 - quais valores contam como verdadeiro ou falso, e os atalhos `??` e `?.`
 - dar tipo para uma função inteira
-- descrever objetos com `type` e `interface`
+- criar objetos e descrever o formato deles com `type` e `interface`
 - dizer "isto ou aquilo" com uniões e "isto e aquilo" com interseções
 - escrever funções que servem para qualquer tipo, com generics
 - criar variações de um tipo com os tipos utilitários
@@ -44,7 +44,7 @@ como uma **ficha**, com o nome da propriedade à esquerda e o tipo à direita.
 > [!IMPORTANT]
 > O `tsx` **roda** o arquivo, mas **não confere os tipos**. Quem confere é o
 > editor (o sublinhado vermelho) e o comando `pnpm -C ~/LPPOO tsc`. Rode o
-> `tsc` sempre que terminar um exercício. O assunto 0052 explica.
+> `tsc` sempre que terminar um exercício. O assunto 0053 explica.
 
 > [!TIP]
 > Os quadros **Poder do TypeScript** mostram o erro que o TypeScript dá quando
