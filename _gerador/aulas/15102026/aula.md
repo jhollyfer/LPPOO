@@ -67,6 +67,47 @@ tsx ~/LPPOO/15102026/pratica/cantina.ts
 tsx ~/LPPOO/15102026/pratica/desafio-ingresso.ts
 ```
 
+## Exercícios que valem pontos
+
+Ficam na pasta [`aula-01-logica-1/`](aula-01-logica-1/), aqui dentro da aula.
+Cada questão tem um exemplo resolvido parecido, para consultar.
+
+| Questão          | Conceito                                                        | Exemplo resolvido |
+| ---------------- | --------------------------------------------------------------- | ----------------- |
+| `questao-01.ts`  | entrada com `input` e saída com `console.log` e template string | `exemplo-01.ts`   |
+| `questao-02.ts`  | variáveis (`let`) e constantes (`const`)                        | `exemplo-02.ts`   |
+| `questao-03.ts`  | texto: `length`, `trim`, `toUpperCase` e `includes`             | `exemplo-03.ts`   |
+| `questao-04.ts`  | número, booleano, `typeof`, `Number` e `toFixed`                | `exemplo-04.ts`   |
+| `questao-05.ts`  | operadores de atribuição e aritméticos, com `%`                 | `exemplo-05.ts`   |
+| `questao-06.ts`  | objeto `Math`: `ceil`, `floor` e `random`                       | `exemplo-06.ts`   |
+| `questao-07.ts`  | comparação, `===` e operadores lógicos `&&` e `\|\|`            | `exemplo-07.ts`   |
+| `questao-08.ts`  | condicionais `if`, `else` e `else if`                           | `exemplo-08.ts`   |
+| `questao-09.ts`  | operador ternário e `switch`                                    | `exemplo-09.ts`   |
+
+```bash
+# exemplos resolvidos
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-01.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-02.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-03.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-04.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-05.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-06.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-07.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-08.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/exemplo-09.ts
+
+# questões: a resposta vai dentro do próprio arquivo
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-01.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-02.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-03.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-04.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-05.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-06.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-07.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-08.ts
+tsx ~/LPPOO/15102026/aula-01-logica-1/questao-09.ts
+```
+
 ---
 
 ## Para ler mais

@@ -1,12 +1,12 @@
-// A055 · map, filter, reduce e forEach
+// A055 · Os pontos da gincana
 
-const notas: number[] = [8, 4, 9, 5]
+const pontos: number[] = [30, 15, 40, 10] // uma equipe em cada posição
 
-const dobradas = notas.map((n) => n * 2)
-const aprovadas = notas.filter((n) => n >= 6)
-const soma = notas.reduce((acc, n) => acc + n, 0)
+const comBonus = pontos.map((p) => p + 5)
+const passaram = pontos.filter((p) => p >= 20)
+const total = pontos.reduce((acc, p) => acc + p, 0)
 
-console.log(dobradas) // [ 16, 8, 18, 10 ]
-console.log(aprovadas) // [ 8, 9 ]
-console.log(soma) // 26
-notas.forEach((n) => console.log(`Nota: ${n}`))
+console.log(comBonus) // [ 35, 20, 45, 15 ]
+console.log(passaram) // [ 30, 40 ]
+console.log(total) // 95
+passaram.forEach((p) => console.log(`Equipe com ${p} pontos vai para a final`))

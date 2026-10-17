@@ -1,11 +1,11 @@
-// A033 · Aprovado, recuperação ou reprovado
+// A033 · Bateria do celular
 
-const media = 5
+const bateria = 15
 
-if (media >= 6) {
-  console.log('Aprovado')
-} else if (media >= 4) {
-  console.log('Recuperação')
+if (bateria >= 50) {
+  console.log('Tranquilo, dá para o dia todo')
+} else if (bateria >= 20) {
+  console.log('Bom carregar no intervalo')
 } else {
-  console.log('Reprovado')
+  console.log('Bateria fraca! Procure uma tomada') // 15 cai aqui
 }

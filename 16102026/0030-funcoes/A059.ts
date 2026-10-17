@@ -1,9 +1,9 @@
-// A059 · Média de um array
+// A059 · Quanto custa o mototáxi
 
-function calcularMedia(valores: number[]): number {
-  const soma = valores.reduce((acc, v) => acc + v, 0)
-  return soma / valores.length
+function precoCorrida(km: number): number {
+  return 5 + km * 2 // R$ 5 para sair + R$ 2 por km
 }
 
-console.log(calcularMedia([8, 6, 10])) // 8
-console.log(calcularMedia([5, 7])) // 6
+console.log(precoCorrida(3)) // 11
+console.log(precoCorrida(10)) // 25
+console.log(`Ida e volta: R$ ${precoCorrida(3) * 2}`) // Ida e volta: R$ 22

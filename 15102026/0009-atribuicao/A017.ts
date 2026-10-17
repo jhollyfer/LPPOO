@@ -1,8 +1,9 @@
-// A017 · Atribuição simples e composta
+// A017 · A conta do açaí
 
-let saldo = 100
+let conta = 12 // açaí de 500 ml
 
-saldo += 50 // 150
-saldo -= 30 // 120
+conta += 3 // granola: 15
+conta *= 2 // pediu outro igual para a irmã: 30
+conta -= 5 // cupom de desconto: 25
 
-console.log(saldo) // 120
+console.log(`Total: R$ ${conta}`) // Total: R$ 25

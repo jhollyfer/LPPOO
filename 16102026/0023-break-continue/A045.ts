@@ -1,7 +1,10 @@
-// A045 · Pula os pares, para depois do 7
+// A045 · O ônibus até a escola
 
-for (let i = 1; i <= 10; i++) {
-  if (i % 2 === 0) continue
-  if (i > 7) break
-  console.log(i)
+for (let parada = 1; parada <= 10; parada++) {
+  if (parada === 3) continue // parada em obra: o ônibus passa direto
+  console.log(`Parada ${parada}`) // 1, 2, 4, 5, 6
+  if (parada === 6) {
+    console.log('Desci na escola!')
+    break // não precisa ir até a 10
+  }
 }

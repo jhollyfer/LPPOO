@@ -1,11 +1,11 @@
-// A039 · Quantas passagens cabem no cartão
+// A039 · A notícia que se espalha no grupo
 
-let saldo = 20
-let viagens = 0
+let pessoas = 1 // só quem postou sabe
+let horas = 0
 
-while (saldo >= 4.5) {
-  saldo -= 4.5
-  viagens++
+while (pessoas < 500) {
+  pessoas *= 2 // a cada hora, quem sabe conta para mais um
+  horas++
 }
 
-console.log(`Deu para ${viagens} viagens. Sobrou R$ ${saldo.toFixed(2)}`)
+console.log(`Em ${horas} horas, ${pessoas} pessoas já sabiam`) // Em 9 horas, 512 pessoas já sabiam

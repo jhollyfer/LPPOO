@@ -1,11 +1,14 @@
-// A041 · Nota entre 0 e 10
+// A041 · Adivinhe o número
 
 import { input } from '#core/input.ts'
 
-let nota // a caixa nasce vazia: o do pede a nota antes de conferir
+const segredo = 7
+let chute // a caixa nasce vazia: o do pede o chute antes de conferir
+let tentativas = 0
 
 do {
-  nota = Number(input('Nota (0 a 10): '))
-} while (nota < 0 || nota > 10)
+  chute = Number(input('Chute de 1 a 10: ')) // digite: 3, depois 7
+  tentativas++
+} while (chute !== segredo)
 
-console.log(`Nota registrada: ${nota}`)
+console.log(`Acertou em ${tentativas} tentativas!`) // Acertou em 2 tentativas!

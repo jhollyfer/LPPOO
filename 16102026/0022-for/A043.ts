@@ -1,7 +1,10 @@
-// A043 · Tabuada do 7
+// A043 · Voltas na quadra
 
-const numero = 7
+let distancia = 0
 
-for (let i = 1; i <= 10; i++) {
-  console.log(`${numero} x ${i} = ${numero * i}`)
+for (let volta = 1; volta <= 4; volta++) {
+  distancia += 400
+  console.log(`Volta ${volta}: ${distancia} m`) // Volta 1: 400 m ... Volta 4: 1600 m
 }
+
+console.log('Treino completo!')

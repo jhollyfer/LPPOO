@@ -1,15 +1,10 @@
-// A061 · Desconto com valor padrão e moeda opcional
+// A061 · O pedido de açaí
 
-function totalComDesconto(precos: number[], desconto: number = 0): number {
-  const total = precos.reduce((acc, p) => acc + p, 0)
-  return total - total * desconto
+function pedirAcai(ml: number, copo: string = 'copo comum', cobertura?: string): void {
+  const extra = cobertura === undefined ? 'sem cobertura' : `com ${cobertura}` // não veio? sem cobertura
+  console.log(`Açaí de ${ml} ml, ${extra}, no ${copo}`)
 }
 
-function mostrarTotal(total: number, moeda?: string): void {
-  const simbolo = moeda === undefined ? 'R$' : moeda // não veio? usa R$
-  console.log(`${simbolo} ${total.toFixed(2)}`)
-}
-
-mostrarTotal(totalComDesconto([10, 20])) // R$ 30.00
-mostrarTotal(totalComDesconto([10, 20], 0.1)) // R$ 27.00
-mostrarTotal(5, 'US$') // US$ 5.00
+pedirAcai(300) // Açaí de 300 ml, sem cobertura, no copo comum
+pedirAcai(500, 'pote') // Açaí de 500 ml, sem cobertura, no pote
+pedirAcai(500, 'pote', 'granola') // Açaí de 500 ml, com granola, no pote

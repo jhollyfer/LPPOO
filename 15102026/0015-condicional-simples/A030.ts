@@ -1,10 +1,11 @@
-// A030 · Aviso de chuva
+// A030 · Dá para o lanche?
 
 import { input } from '#core/input.ts'
 
-const resposta = input('Está chovendo? (sim/nao) ')
+const dinheiro = Number(input('Quantos reais você tem? ')) // digite: 10
 
-if (resposta === 'sim') {
-  console.log('Leve o guarda-chuva!')
+if (dinheiro >= 8) {
+  console.log('Dá para o salgado com suco!') // só roda se tiver 8 ou mais
 }
-console.log('Bom dia!')
+
+console.log('Bom intervalo!') // roda sempre

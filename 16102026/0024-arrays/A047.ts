@@ -1,9 +1,9 @@
-// A047 · Ler e trocar posições
+// A047 · O cardápio da cantina
 
-const notas: number[] = [8, 6, 9]
-const nomes: Array<string> = ['Ana', 'Bia', 'Caio']
+const lanches: string[] = ['tapioca', 'pão com ovo', 'bolo de macaxeira']
+const precos: number[] = [5, 4, 3]
 
-console.log(nomes[0]) // Ana
-console.log(notas.length) // 3
-notas[1] = 7
-console.log(notas) // [ 8, 7, 9 ]
+console.log(lanches[2]) // bolo de macaxeira
+console.log(`Hoje tem ${lanches.length} lanches`) // Hoje tem 3 lanches
+precos[2] = 3.5 // o bolo ficou mais caro
+console.log(precos) // [ 5, 4, 3.5 ]

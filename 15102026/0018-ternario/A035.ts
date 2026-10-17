@@ -1,6 +1,6 @@
-// A035 · Aprovado ou reprovado
+// A035 · Singular ou plural na fila
 
-const media = 8
-const situacao = media >= 6 ? 'Aprovado' : 'Reprovado'
+const pessoas = 1
+const palavra = pessoas === 1 ? 'pessoa' : 'pessoas'
 
-console.log(situacao) // Aprovado
+console.log(`Tem ${pessoas} ${palavra} na fila da cantina`) // Tem 1 pessoa na fila da cantina

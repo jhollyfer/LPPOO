@@ -1,12 +1,12 @@
-// A065 · function, arrow function e callback
+// A065 · Regras para os preços da cantina
 
-function dobrar(n: number): number {
-  return n * 2
+function ehCaro(preco: number): boolean {
+  return preco > 10
 }
-const triplicar = (n: number): number => n * 3
+const comDesconto = (preco: number): number => preco - 2
 
-const notas: number[] = [4, 5]
+const precos: number[] = [8, 15, 12]
 
-console.log(notas.map(dobrar)) // [ 8, 10 ]
-console.log(notas.map(triplicar)) // [ 12, 15 ]
-console.log(notas.map((n) => n + 1)) // [ 5, 6 ]
+console.log(precos.filter(ehCaro)) // [ 15, 12 ]
+console.log(precos.map(comDesconto)) // [ 6, 13, 10 ]
+console.log(precos.find((p) => p < 10)) // 8

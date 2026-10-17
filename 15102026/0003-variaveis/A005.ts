@@ -1,10 +1,10 @@
-// A005 · let pode mudar de valor
+// A005 · O nível do rio subindo
 
-let gols = 0
-console.log(gols) // 0
+let nivelRio = 26 // metros, em março
+console.log(nivelRio) // 26
 
-gols = 1
-console.log(gols) // 1
+nivelRio = 28 // abril: o rio encheu
+console.log(nivelRio) // 28
 
-gols = 2
-console.log(gols) // 2
+nivelRio = 29 // maio: cheia!
+console.log(`Nível do rio em maio: ${nivelRio} m`) // Nível do rio em maio: 29 m

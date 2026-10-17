@@ -1,11 +1,12 @@
-// A057 · Ordenar uma cópia
+// A057 · A chamada em ordem alfabética
 
-const notas: number[] = [8, 10, 6, 9]
+const alunos: string[] = ['Davi', 'Ana', 'Gabi', 'Caio']
 
-const copia = notas.slice()
-copia.sort((a, b) => a - b)
-copia.reverse()
+const ordem = alunos.slice() // foto da lista
+ordem.sort() // com texto, o sort sem regra funciona
+console.log(ordem.join(', ')) // Ana, Caio, Davi, Gabi
+console.log(ordem.reverse().join(', ')) // Gabi, Davi, Caio, Ana
 
-console.log(copia.join(' | ')) // 10 | 9 | 8 | 6
-console.log(notas.concat([7])) // [ 8, 10, 6, 9, 7 ]
-console.log(notas) // [ 8, 10, 6, 9 ]
+const turmaNova = alunos.concat(['Bia', 'Enzo'])
+console.log(turmaNova.length) // 6
+console.log(alunos) // [ 'Davi', 'Ana', 'Gabi', 'Caio' ]: o original não mudou

@@ -123,7 +123,10 @@ const nome = input('Seu nome: ') // sempre devolve texto (string)
 
 ## Aula 01 · 15/10 · Revisão de lógica I
 
-A explicação completa está em [`15102026/README.md`](15102026/README.md).
+A explicação completa está em [`15102026/README.md`](15102026/README.md). As
+questões que valem pontos ficam em
+[`15102026/aula-01-logica-1/`](15102026/aula-01-logica-1/), e a prática em sala em
+[`15102026/pratica/`](15102026/pratica/).
 
 | Pasta                       | Assunto                                   |
 | --------------------------- | ----------------------------------------- |

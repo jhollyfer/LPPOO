@@ -1,13 +1,13 @@
-// A067 · type Operacao
+// A067 · type Pontuacao para os modos do jogo
 
-type Operacao = (a: number, b: number) => number
+type Pontuacao = (acertos: number) => number
 
-const somar: Operacao = (a, b) => a + b
-const multiplicar: Operacao = (a, b) => a * b
+const modoFacil: Pontuacao = (acertos) => acertos * 10
+const modoDificil: Pontuacao = (acertos) => acertos * 25
 
-function calcular(a: number, b: number, op: Operacao): number {
-  return op(a, b)
+function mostrarPontos(acertos: number, modo: Pontuacao): void {
+  console.log(`${acertos} acertos: ${modo(acertos)} pontos`)
 }
 
-console.log(calcular(6, 7, somar)) // 13
-console.log(calcular(6, 7, multiplicar)) // 42
+mostrarPontos(4, modoFacil) // 4 acertos: 40 pontos
+mostrarPontos(4, modoDificil) // 4 acertos: 100 pontos
