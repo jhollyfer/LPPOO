@@ -1,0 +1,15 @@
+// A061 · Desconto com valor padrão e moeda opcional
+
+function totalComDesconto(precos: number[], desconto: number = 0): number {
+  const total = precos.reduce((acc, p) => acc + p, 0)
+  return total - total * desconto
+}
+
+function mostrarTotal(total: number, moeda?: string): void {
+  const simbolo = moeda === undefined ? 'R$' : moeda // não veio? usa R$
+  console.log(`${simbolo} ${total.toFixed(2)}`)
+}
+
+mostrarTotal(totalComDesconto([10, 20])) // R$ 30.00
+mostrarTotal(totalComDesconto([10, 20], 0.1)) // R$ 27.00
+mostrarTotal(5, 'US$') // US$ 5.00

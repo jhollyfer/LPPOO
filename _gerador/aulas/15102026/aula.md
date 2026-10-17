@@ -40,7 +40,7 @@ caminho do exemplo fica colorido e o resto fica apagado.
 
 ## Os assuntos
 
-São 20 assuntos curtos, e cada um usa o anterior. Leia na ordem.
+São 19 assuntos curtos, e cada um usa o anterior. Leia na ordem.
 
 {{indice}}
 
@@ -98,8 +98,6 @@ tsx ~/LPPOO/15102026/pratica/desafio-ingresso.ts
 - CROCKFORD, D. *JavaScript: the good parts*. Sebastopol: O'Reilly, 2008.
 - MDN WEB DOCS. *Comparações de igualdade e uniformidade*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Equality_comparisons_and_sameness>.
 - MDN WEB DOCS. *Operador AND lógico (&&)*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Logical_AND>.
-- MDN WEB DOCS. *Falsy*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Glossary/Falsy>.
-- MDN WEB DOCS. *Operador de coalescência nula (??)*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing>.
 - MICROSOFT. *TypeScript Handbook*: Narrowing. Disponível em: <https://www.typescriptlang.org/docs/handbook/2/narrowing.html>.
 - BÖHM, C.; JACOPINI, G. Flow diagrams, Turing machines and languages with only two formation rules. *Communications of the ACM*, v. 9, n. 5, p. 366-371, 1966.
 - DIJKSTRA, E. W. Go to statement considered harmful. *Communications of the ACM*, v. 11, n. 3, p. 147-148, 1968.

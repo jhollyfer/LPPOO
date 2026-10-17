@@ -2,14 +2,14 @@
 // aulas/<data>/:
 //
 //   aulas/15102026/aula.md                   começo e fim do README da aula
-//   aulas/15102026/0016-.../texto.md         o texto do assunto
-//   aulas/15102026/0016-.../desenhos.mjs     o diagrama da ideia e o fluxograma
+//   aulas/15102026/0015-.../texto.md         o texto do assunto
+//   aulas/15102026/0015-.../desenhos.mjs     o diagrama da ideia e o fluxograma
 //
 // Saída: 15102026/README.md, 15102026/legenda.svg e, em cada pasta,
 // ideia.svg e fluxograma.svg.
 //
 //   npm run gerar          tudo
-//   npm run gerar -- 0017  só os desenhos das pastas com "0017" (o README sai inteiro)
+//   npm run gerar -- 0016  só os desenhos das pastas com "0016" (o README sai inteiro)
 //
 // No texto.md, {{ideia}}, {{fluxograma}} e {{pratique}} viram a imagem ou o
 // rodapé do assunto. No aula.md, {{indice}} e {{assuntos}} viram a lista e os

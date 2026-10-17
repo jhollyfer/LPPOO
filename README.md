@@ -6,7 +6,7 @@ Professor: Marcos Jhollyfer Felix Rodrigues · 80h, de 15/10 a 12/11/2026
 > Por que TypeScript? Porque a próxima disciplina é Web/Frontend. Você aprende
 > orientação a objetos agora e chega lá já falando a língua do Vite, do React e
 > do Node. A explicação completa, com o caminho do `.ts` até o Node, está no
-> [assunto 0037 da aula 03](19102026/README.md#0037--como-o-typescript-funciona-e-por-que-ele).
+> [assunto 0036 da aula 03](19102026/README.md#0036--como-o-typescript-funciona-e-por-que-ele).
 
 ## Como instalar (e atualizar)
 
@@ -141,12 +141,11 @@ A explicação completa está em [`15102026/README.md`](15102026/README.md).
 | `0012-relacional`           | `> < >= <=`                               |
 | `0013-comparacao`           | `===` e `!==`                             |
 | `0014-logico`               | `&&`, `\|\|`, `!`                         |
-| `0015-truthy-falsy`         | truthy, falsy, `??` e `?.`                |
-| `0016-condicional-simples`  | `if`                                      |
-| `0017-condicional-composta` | `if / else`                               |
-| `0018-condicional-aninhada` | `else if` e `if` dentro de `if`           |
-| `0019-ternario`             | `condição ? a : b`                        |
-| `0020-escolha`              | `switch`                                  |
+| `0015-condicional-simples`  | `if`                                      |
+| `0016-condicional-composta` | `if / else`                               |
+| `0017-condicional-aninhada` | `else if` e `if` dentro de `if`           |
+| `0018-ternario`             | `condição ? a : b`                        |
+| `0019-escolha`              | `switch`                                  |
 
 ## Aula 02 · 16/10 · Revisão de lógica II
 
@@ -157,22 +156,22 @@ questões que valem pontos ficam em
 
 | Pasta                    | Assunto                                                |
 | ------------------------ | ------------------------------------------------------ |
-| `0021-while`             | laço `while`                                           |
-| `0022-do-while`          | laço `do...while`                                      |
-| `0023-for`               | laço `for` com contador                                |
-| `0024-break-continue`    | `break` e `continue`                                   |
-| `0025-arrays`            | arrays tipados, índice, `length`, matriz (noção)       |
-| `0026-for-of`            | laço `for...of`                                        |
-| `0027-inserir-remover`   | `push`, `pop`, `unshift`, `shift`, `splice`            |
-| `0028-consultar`         | `indexOf`, `includes`, `find`, `findIndex`, `some`, `every` |
-| `0029-transformar`       | `map`, `filter`, `reduce`, `forEach`                   |
-| `0030-organizar`         | `sort`, `reverse`, `slice`, `join`, `concat`           |
-| `0031-funcoes`           | funções, parâmetros tipados e tipo de retorno          |
-| `0032-parametros`        | parâmetro opcional, valor padrão e `void`              |
-| `0033-escopo`            | escopo de variáveis                                    |
-| `0034-arrow-callback`    | arrow functions e callbacks                            |
-| `0035-tipo-de-funcao`    | tipo de função e tipagem contextual                    |
-| `0036-juntando-tudo`     | o programa da aula: as notas da turma                  |
+| `0020-while`             | laço `while`                                           |
+| `0021-do-while`          | laço `do...while`                                      |
+| `0022-for`               | laço `for` com contador                                |
+| `0023-break-continue`    | `break` e `continue`                                   |
+| `0024-arrays`            | arrays tipados, índice, `length`, matriz (noção)       |
+| `0025-for-of`            | laço `for...of`                                        |
+| `0026-inserir-remover`   | `push`, `pop`, `unshift`, `shift`, `splice`            |
+| `0027-consultar`         | `indexOf`, `includes`, `find`, `findIndex`, `some`, `every` |
+| `0028-transformar`       | `map`, `filter`, `reduce`, `forEach`                   |
+| `0029-organizar`         | `sort`, `reverse`, `slice`, `join`, `concat`           |
+| `0030-funcoes`           | funções, parâmetros tipados e tipo de retorno          |
+| `0031-parametros`        | parâmetro opcional, valor padrão e `void`              |
+| `0032-escopo`            | escopo de variáveis                                    |
+| `0033-arrow-callback`    | arrow functions e callbacks                            |
+| `0034-tipo-de-funcao`    | tipo de função e tipagem contextual                    |
+| `0035-juntando-tudo`     | o programa da aula: as notas da turma                  |
 
 ## Aula 03 · 19/10 · TypeScript
 
@@ -183,10 +182,11 @@ questões que valem pontos ficam em
 
 | Pasta | Assunto |
 | --- | --- |
-| `0037-typescript` | Como o TypeScript funciona (e por que ele) |
-| `0038-paradigmas` | Paradigmas de programação |
-| `0039-tipagem-estrutural` | Como o TypeScript pensa: tipos estruturais |
-| `0040-tipos-basicos` | Tipos primitivos, any, unknown e never |
+| `0036-typescript` | Como o TypeScript funciona (e por que ele) |
+| `0037-paradigmas` | Paradigmas de programação |
+| `0038-tipagem-estrutural` | Como o TypeScript pensa: tipos estruturais |
+| `0039-tipos-basicos` | Tipos primitivos, any, unknown e never |
+| `0040-truthy-falsy` | Truthy, falsy, `??` e `?.` |
 | `0041-inferencia` | Inferência x anotação: quando escrever o tipo |
 | `0042-tipos-de-objeto` | Tipos de objeto e type |
 | `0043-interface` | interface (e type x interface) |

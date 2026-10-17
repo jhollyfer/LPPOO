@@ -1,5 +1,5 @@
 // Prática em sala · Boletim
-// Para revisar: 0008, 0010 e 0018 no README da aula 01 (15102026/README.md)
+// Para revisar: 0008, 0010 e 0017 no README da aula 01 (15102026/README.md)
 //
 // Pergunte duas notas e mostre a média com uma casa decimal. Depois mostre a
 // situação: Aprovado (6 ou mais), Recuperação (de 4 até antes de 6) ou

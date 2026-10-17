@@ -1,6 +1,6 @@
 // Aula 02 · Questão 12 · Laço for
 // Vale ponto. Exemplo resolvido parecido: exemplo-12.ts
-// Para revisar: 0023 e 0024 no README da aula 02 (16102026/README.md)
+// Para revisar: 0022 e 0023 no README da aula 02 (16102026/README.md)
 //
 // Peça um número N. Com um for, mostre cada número de 1 até N dizendo se é par
 // ou ímpar. No fim, mostre a soma só dos números pares.

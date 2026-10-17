@@ -6,7 +6,7 @@ Excalidraw (traço à mão com rough.js e a fonte Excalifont).
 ```bash
 npm install
 npm run gerar          # tudo
-npm run gerar -- 0017  # redesenha só a 0017 (o README sai inteiro)
+npm run gerar -- 0016  # redesenha só a 0016 (o README sai inteiro)
 ```
 
 ## Onde fica cada coisa
@@ -14,7 +14,7 @@ npm run gerar -- 0017  # redesenha só a 0017 (o README sai inteiro)
 ```
 aulas/15102026/
 ├── aula.md                  começo e fim do README da aula ({{indice}}, {{assuntos}})
-└── 0016-condicional-simples/
+└── 0015-condicional-simples/
     ├── texto.md             o texto do assunto ({{ideia}}, {{fluxograma}}, {{pratique}})
     └── desenhos.mjs         export const ideia e fluxograma
 ```

@@ -1,6 +1,6 @@
 // Aula 02 · Questão 14 · Métodos para inserir, remover e buscar
 // Vale ponto. Exemplo resolvido parecido: exemplo-14.ts
-// Para revisar: 0027 e 0028 no README da aula 02 (16102026/README.md)
+// Para revisar: 0026 e 0027 no README da aula 02 (16102026/README.md)
 //
 // Lista de compras com menu, repetindo até a pessoa escolher 0:
 // 1 adicionar item, 2 remover item pelo nome, 3 buscar item (diz se está na lista

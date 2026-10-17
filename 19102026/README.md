@@ -11,6 +11,7 @@ avisa o erro antes de o programa rodar.
 ## O que você vai aprender
 
 - como o TypeScript funciona e por que ele foi escolhido
+- quais valores contam como verdadeiro ou falso, e os atalhos `??` e `?.`
 - descrever objetos com `type` e `interface`
 - dizer "isto ou aquilo" com uniões e "isto e aquilo" com interseções
 - escrever funções que servem para qualquer tipo, com generics
@@ -59,10 +60,11 @@ Leia na ordem: cada um usa o anterior.
 
 | # | Assunto | Pasta |
 | --- | --- | --- |
-| [0037](#0037--como-o-typescript-funciona-e-por-que-ele) | Como o TypeScript funciona (e por que ele) | [`0037-typescript/`](0037-typescript/) |
-| [0038](#0038--paradigmas-de-programação) | Paradigmas de programação | [`0038-paradigmas/`](0038-paradigmas/) |
-| [0039](#0039--como-o-typescript-pensa-tipos-estruturais) | Como o TypeScript pensa: tipos estruturais | [`0039-tipagem-estrutural/`](0039-tipagem-estrutural/) |
-| [0040](#0040--tipos-primitivos-any-unknown-e-never) | Tipos primitivos, any, unknown e never | [`0040-tipos-basicos/`](0040-tipos-basicos/) |
+| [0036](#0036--como-o-typescript-funciona-e-por-que-ele) | Como o TypeScript funciona (e por que ele) | [`0036-typescript/`](0036-typescript/) |
+| [0037](#0037--paradigmas-de-programação) | Paradigmas de programação | [`0037-paradigmas/`](0037-paradigmas/) |
+| [0038](#0038--como-o-typescript-pensa-tipos-estruturais) | Como o TypeScript pensa: tipos estruturais | [`0038-tipagem-estrutural/`](0038-tipagem-estrutural/) |
+| [0039](#0039--tipos-primitivos-any-unknown-e-never) | Tipos primitivos, any, unknown e never | [`0039-tipos-basicos/`](0039-tipos-basicos/) |
+| [0040](#0040--truthy-falsy--e-) | Truthy, falsy, ?? e ?. | [`0040-truthy-falsy/`](0040-truthy-falsy/) |
 | [0041](#0041--inferência-x-anotação-quando-escrever-o-tipo) | Inferência x anotação: quando escrever o tipo | [`0041-inferencia/`](0041-inferencia/) |
 | [0042](#0042--tipos-de-objeto-e-type) | Tipos de objeto e type | [`0042-tipos-de-objeto/`](0042-tipos-de-objeto/) |
 | [0043](#0043--interface-e-type-x-interface) | interface (e type x interface) | [`0043-interface/`](0043-interface/) |
@@ -80,7 +82,7 @@ Leia na ordem: cada um usa o anterior.
 
 ---
 
-## 0037 · Como o TypeScript funciona (e por que ele)
+## 0036 · Como o TypeScript funciona (e por que ele)
 
 O JavaScript deixa você errar à vontade. Ele só reclama com o programa rodando,
 às vezes já na mão de quem está usando. O TypeScript reclama antes.
@@ -96,7 +98,7 @@ Então todo arquivo `.ts` passa por duas etapas antes de rodar. Primeiro, o
 TypeScript confere se os tipos batem. Depois, ele apaga os tipos e entrega
 JavaScript puro para o Node.
 
-<p align="center"><img src="0037-typescript/ideia.svg" alt="Diagrama da ideia: Como o TypeScript funciona (e por que ele)" width="864"></p>
+<p align="center"><img src="0036-typescript/ideia.svg" alt="Diagrama da ideia: Como o TypeScript funciona (e por que ele)" width="864"></p>
 
 ```ts
 const preco: number = 12.5
@@ -109,7 +111,7 @@ console.log(preco.toFixed(2)) // 12.50
 E quando os tipos não batem? O caminho volta para você. O editor sublinha em
 vermelho, você corrige e tenta de novo. Só código conferido segue para o Node.
 
-<p align="center"><img src="0037-typescript/fluxograma.svg" alt="Fluxograma: Como o TypeScript funciona (e por que ele)" width="485"></p>
+<p align="center"><img src="0036-typescript/fluxograma.svg" alt="Fluxograma: Como o TypeScript funciona (e por que ele)" width="485"></p>
 
 Na hora de rodar, os tipos já sumiram. O Node recebe `const preco = 12.5` e
 mais nada. Toda a proteção do TypeScript acontece antes, enquanto você escreve.
@@ -146,9 +148,9 @@ E por que o TypeScript? São quatro motivos:
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0037-typescript/`](0037-typescript/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0036-typescript/`](0036-typescript/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A073 · O TypeScript avisa antes de rodar**
+**Exemplo A071 · O TypeScript avisa antes de rodar**
 
 ```ts
 const preco: number = 12.5
@@ -160,10 +162,10 @@ console.log(preco.toFixed(2)) // 12.50
 ```
 
 ```bash
-tsx ~/LPPOO/19102026/0037-typescript/A073.ts
+tsx ~/LPPOO/19102026/0036-typescript/A071.ts
 ```
 
-**Exemplo A074 · Os tipos somem na hora de rodar**
+**Exemplo A072 · Os tipos somem na hora de rodar**
 
 ```ts
 const nome: string = 'Ana'
@@ -180,10 +182,10 @@ console.log(typeof nome, typeof idade) // string number
 ```
 
 ```bash
-tsx ~/LPPOO/19102026/0037-typescript/A074.ts
+tsx ~/LPPOO/19102026/0036-typescript/A072.ts
 ```
 
-**Exercício E073**
+**Exercício E071**
 
 Crie três constantes com o tipo escrito na frente: `nome` (string), `idade`
 (number) e `matriculado` (boolean). Mostre as três com `console.log`.
@@ -200,16 +202,16 @@ número, leia o erro que o editor mostra e deixe essa linha comentada com //.
 </details>
 
 ```bash
-tsx ~/LPPOO/19102026/0037-typescript/E073.ts
+tsx ~/LPPOO/19102026/0036-typescript/E071.ts
 ```
 
-**Exercício E074**
+**Exercício E072**
 
 A linha comentada abaixo tem um erro de tipo. Tire o // e faça o teste:
 
 
 ```ts
-tsx ~/LPPOO/19102026/0037-typescript/E074.ts   (roda?)
+tsx ~/LPPOO/19102026/0036-typescript/E072.ts   (roda?)
 pnpm -C ~/LPPOO tsc                            (reclama?)
 ```
 
@@ -226,12 +228,12 @@ const total: number = '10' + 5
 </details>
 
 ```bash
-tsx ~/LPPOO/19102026/0037-typescript/E074.ts
+tsx ~/LPPOO/19102026/0036-typescript/E072.ts
 ```
 
 ---
 
-## 0038 · Paradigmas de programação
+## 0037 · Paradigmas de programação
 
 Imagina ensinar o caminho até a escola. Dá para falar de três jeitos: "vira à
 direita, anda duas quadras", "pega a rua da praça" ou "segue a van da escola".
@@ -254,7 +256,7 @@ Os três que mais aparecem:
 
 Vamos ver na prática. A média da turma, nos três estilos, dá o mesmo 8:
 
-<p align="center"><img src="0038-paradigmas/ideia.svg" alt="Diagrama da ideia: Paradigmas de programação" width="858"></p>
+<p align="center"><img src="0037-paradigmas/ideia.svg" alt="Diagrama da ideia: Paradigmas de programação" width="858"></p>
 
 ```ts
 const notas: number[] = [8, 7, 9]
@@ -286,7 +288,7 @@ O TypeScript aceita os três. E programas de verdade misturam: repara que a
 
 O fluxograma ajuda a escolher o estilo que combina com cada pedaço:
 
-<p align="center"><img src="0038-paradigmas/fluxograma.svg" alt="Fluxograma: Paradigmas de programação" width="713"></p>
+<p align="center"><img src="0037-paradigmas/fluxograma.svg" alt="Fluxograma: Paradigmas de programação" width="713"></p>
 
 > [!NOTE]
 > Não se preocupe ainda com `class`, `constructor` e `this`: você aprende cada um na
@@ -309,9 +311,9 @@ O fluxograma ajuda a escolher o estilo que combina com cada pedaço:
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0038-paradigmas/`](0038-paradigmas/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0037-paradigmas/`](0037-paradigmas/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A075 · A média nos três estilos**
+**Exemplo A073 · A média nos três estilos**
 
 ```ts
 const notas: number[] = [8, 7, 9]
@@ -336,10 +338,10 @@ console.log(`Objetos: ${new Turma(notas).media()}`)
 ```
 
 ```bash
-tsx ~/LPPOO/19102026/0038-paradigmas/A075.ts
+tsx ~/LPPOO/19102026/0037-paradigmas/A073.ts
 ```
 
-**Exemplo A076 · Função que muda o mundo lá fora x função que só devolve**
+**Exemplo A074 · Função que muda o mundo lá fora x função que só devolve**
 
 ```ts
 let total = 0
@@ -361,10 +363,10 @@ console.log(somar(10, 5)) // 15, e nada lá fora mudou
 ```
 
 ```bash
-tsx ~/LPPOO/19102026/0038-paradigmas/A076.ts
+tsx ~/LPPOO/19102026/0037-paradigmas/A074.ts
 ```
 
-**Exercício E075**
+**Exercício E073**
 
 Calcule a soma dos números pares de [3, 8, 5, 10, 2] de dois jeitos: no estilo
 imperativo (for e if) e no estilo funcional (filter e reduce). Os dois têm que
@@ -378,10 +380,10 @@ dar 20.
 </details>
 
 ```bash
-tsx ~/LPPOO/19102026/0038-paradigmas/E075.ts
+tsx ~/LPPOO/19102026/0037-paradigmas/E073.ts
 ```
 
-**Exercício E076**
+**Exercício E074**
 
 Escreva, num comentário, qual paradigma cada trecho usa e por quê:
 
@@ -400,12 +402,12 @@ Escreva, num comentário, qual paradigma cada trecho usa e por quê:
 </details>
 
 ```bash
-tsx ~/LPPOO/19102026/0038-paradigmas/E076.ts
+tsx ~/LPPOO/19102026/0037-paradigmas/E074.ts
 ```
 
 ---
 
-## 0039 · Como o TypeScript pensa: tipos estruturais
+## 0038 · Como o TypeScript pensa: tipos estruturais
 
 Pensa no porteiro do show. Ele não pergunta seu nome. Ele olha se você tem
 pulseira e se ela é da cor certa.
@@ -425,7 +427,7 @@ A `ana` tem esse formato. O `visitante` também tem, e ainda sobra uma
 `cidade`: serve mesmo assim. Já um objeto sem `idade` não tem o formato e é
 barrado:
 
-<p align="center"><img src="0039-tipagem-estrutural/ideia.svg" alt="Diagrama da ideia: Como o TypeScript pensa: tipos estruturais" width="858"></p>
+<p align="center"><img src="0038-tipagem-estrutural/ideia.svg" alt="Diagrama da ideia: Como o TypeScript pensa: tipos estruturais" width="858"></p>
 
 ```ts
 type Aluno = { nome: string; idade: number }
@@ -444,7 +446,7 @@ console.log(apresentar(visitante)) // Zé, 40 anos: tem o formato, então serve
 Repara: nem a `ana` nem o `visitante` foram declarados como `Aluno`. O
 TypeScript compara o formato na hora da chamada, assim:
 
-<p align="center"><img src="0039-tipagem-estrutural/fluxograma.svg" alt="Fluxograma: Como o TypeScript pensa: tipos estruturais" width="720"></p>
+<p align="center"><img src="0038-tipagem-estrutural/fluxograma.svg" alt="Fluxograma: Como o TypeScript pensa: tipos estruturais" width="720"></p>
 
 > [!TIP]
 > **Poder do TypeScript:** sobrar propriedade numa variável tudo bem. Mas num
@@ -464,9 +466,9 @@ TypeScript compara o formato na hora da chamada, assim:
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0039-tipagem-estrutural/`](0039-tipagem-estrutural/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0038-tipagem-estrutural/`](0038-tipagem-estrutural/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A077 · Quem tem o formato, serve**
+**Exemplo A075 · Quem tem o formato, serve**
 
 ```ts
 type Aluno = { nome: string; idade: number }
@@ -483,10 +485,10 @@ console.log(apresentar(visitante))
 ```
 
 ```bash
-tsx ~/LPPOO/19102026/0039-tipagem-estrutural/A077.ts
+tsx ~/LPPOO/19102026/0038-tipagem-estrutural/A075.ts
 ```
 
-**Exemplo A078 · Dois tipos com nomes diferentes e o mesmo formato**
+**Exemplo A076 · Dois tipos com nomes diferentes e o mesmo formato**
 
 ```ts
 type Ponto = { x: number; y: number }
@@ -501,10 +503,10 @@ console.log(distanciaDaOrigem(escola)) // 5: Coordenada serve onde pede Ponto
 ```
 
 ```bash
-tsx ~/LPPOO/19102026/0039-tipagem-estrutural/A078.ts
+tsx ~/LPPOO/19102026/0038-tipagem-estrutural/A076.ts
 ```
 
-**Exercício E077**
+**Exercício E075**
 
 Crie type Produto = { nome: string; preco: number } e a função
 etiqueta(p: Produto): string, que devolve "açaí: R$ 15.00". Teste com um objeto
@@ -518,10 +520,10 @@ guardado numa variável que tenha também a propriedade estoque.
 </details>
 
 ```bash
-tsx ~/LPPOO/19102026/0039-tipagem-estrutural/E077.ts
+tsx ~/LPPOO/19102026/0038-tipagem-estrutural/E075.ts
 ```
 
-**Exercício E078**
+**Exercício E076**
 
 Chame a mesma etiqueta passando o objeto escrito ali mesmo, com estoque
 dentro. Leia o erro, deixe a linha comentada e explique num comentário por que
@@ -535,12 +537,12 @@ com a variável deu certo e direto não.
 </details>
 
 ```bash
-tsx ~/LPPOO/19102026/0039-tipagem-estrutural/E078.ts
+tsx ~/LPPOO/19102026/0038-tipagem-estrutural/E076.ts
 ```
 
 ---
 
-## 0040 · Tipos primitivos, any, unknown e never
+## 0039 · Tipos primitivos, any, unknown e never
 
 Pensa numa mudança. Toda caixa tem etiqueta: "pratos", "livros". Uma caixa sem
 etiqueta pode ter qualquer coisa, e você só descobre quando abre.
@@ -558,7 +560,7 @@ Além deles, o TypeScript tem três tipos especiais:
 - **`never`:** "isso nunca acontece". É o tipo de uma função que nunca termina
   normalmente, como uma que sempre lança erro.
 
-<p align="center"><img src="0040-tipos-basicos/ideia.svg" alt="Diagrama da ideia: Tipos primitivos, any, unknown e never" width="858"></p>
+<p align="center"><img src="0039-tipos-basicos/ideia.svg" alt="Diagrama da ideia: Tipos primitivos, any, unknown e never" width="858"></p>
 
 ```ts
 const nome: string = 'Ana'
@@ -584,7 +586,7 @@ console.log(tamanho(2026)) // 4
 Repara no `unknown`. Antes de usar o valor, ele obriga você a fazer as
 perguntas que o fluxograma mostra:
 
-<p align="center"><img src="0040-tipos-basicos/fluxograma.svg" alt="Fluxograma: Tipos primitivos, any, unknown e never" width="641"></p>
+<p align="center"><img src="0039-tipos-basicos/fluxograma.svg" alt="Fluxograma: Tipos primitivos, any, unknown e never" width="641"></p>
 
 > [!WARNING]
 > Fuja do `any`. Com ele, o TypeScript deixa passar qualquer coisa, e o erro só
@@ -608,9 +610,9 @@ perguntas que o fluxograma mostra:
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0040-tipos-basicos/`](0040-tipos-basicos/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0039-tipos-basicos/`](0039-tipos-basicos/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A079 · Primitivos, unknown e never**
+**Exemplo A077 · Primitivos, unknown e never**
 
 ```ts
 const nome: string = 'Ana'
@@ -634,10 +636,10 @@ console.log(tamanho(2026)) // 4
 ```
 
 ```bash
-tsx ~/LPPOO/19102026/0040-tipos-basicos/A079.ts
+tsx ~/LPPOO/19102026/0039-tipos-basicos/A077.ts
 ```
 
-**Exemplo A080 · O perigo do any**
+**Exemplo A078 · O perigo do any**
 
 ```ts
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- só para mostrar o perigo
@@ -652,10 +654,10 @@ try {
 ```
 
 ```bash
-tsx ~/LPPOO/19102026/0040-tipos-basicos/A080.ts
+tsx ~/LPPOO/19102026/0039-tipos-basicos/A078.ts
 ```
 
-**Exercício E079**
+**Exercício E077**
 
 Escreva descrever(valor: unknown): string, que devolve "texto com N letras",
 "número N" ou "outra coisa", conforme o tipo. Teste com 'Ana', 42 e true.
@@ -668,10 +670,10 @@ Escreva descrever(valor: unknown): string, que devolve "texto com N letras",
 </details>
 
 ```bash
-tsx ~/LPPOO/19102026/0040-tipos-basicos/E079.ts
+tsx ~/LPPOO/19102026/0039-tipos-basicos/E077.ts
 ```
 
-**Exercício E080**
+**Exercício E078**
 
 Escreva primeiraLetra(valor: unknown): string, que devolve a primeira letra
 em maiúscula se o valor for texto, e '?' se não for. Repare que sem o if o
@@ -685,7 +687,117 @@ TypeScript não deixa usar valor[0].
 </details>
 
 ```bash
-tsx ~/LPPOO/19102026/0040-tipos-basicos/E080.ts
+tsx ~/LPPOO/19102026/0039-tipos-basicos/E078.ts
+```
+
+---
+
+## 0040 · Truthy, falsy, ?? e ?.
+
+O aluno apertou Enter sem digitar o apelido. E agora, o programa chama ele de
+quê?
+
+Num `if`, o esperado é `true` ou `false`. Mas o JavaScript (e o TypeScript, que
+herda dele) deixa você colocar qualquer valor ali, e decide se aquilo conta
+como verdadeiro ou falso.
+
+Pensa no fiscal do porto olhando a mochila. Vazia, ele nem abre. Com alguma
+coisa dentro, ele confere.
+
+Os que contam como falso são só seis, e dá para decorar: `false`, `0`, `''`
+(texto vazio), `null`, `undefined` e `NaN`. Esses são os **falsy**.
+
+Todo o resto é **truthy**.
+
+Olha só o exemplo. O aluno apertou Enter direto, então `apelido` é `''`, um
+texto vazio. Ou seja, falsy. O `||` percebe isso e usa o valor padrão:
+
+<p align="center"><img src="0040-truthy-falsy/ideia.svg" alt="Diagrama da ideia: Truthy, falsy, ?? e ?." width="864"></p>
+
+```ts
+import { input } from '#core/input.ts'
+
+const apelido = input('Seu apelido: ') // o aluno só aperta Enter: ''
+const chamar = apelido || 'sem apelido' // '' é falsy, então usa o padrão
+console.log(`Oi, ${chamar}!`) // Oi, sem apelido!
+```
+
+No fluxograma, o losango amarelo é a pergunta "tem texto?":
+
+<p align="center"><img src="0040-truthy-falsy/fluxograma.svg" alt="Fluxograma: Truthy, falsy, ?? e ?." width="502"></p>
+
+> [!IMPORTANT]
+> O `??` é parecido, mas só troca quando o valor é `null` ou `undefined`. Com
+> texto vazio ele não faz nada: `'' ?? 'sem apelido'` continua `''`.
+
+> [!NOTE]
+> **Pergunta para a turma:** troque o `||` por `??` e aperte Enter sem digitar
+> nada. O que aparece na tela? Rode e confira.
+
+### Hora de praticar
+
+Os arquivos ficam em [`0040-truthy-falsy/`](0040-truthy-falsy/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A079 · Convertendo para boolean**
+
+```ts
+console.log(Boolean('')) // false
+console.log(Boolean('Ana')) // true
+console.log(Boolean(0)) // false
+console.log(Boolean(10)) // true
+```
+
+```bash
+tsx ~/LPPOO/19102026/0040-truthy-falsy/A079.ts
+```
+
+**Exemplo A080 · Valor padrão com ??**
+
+```ts
+let apelido = undefined // ainda sem apelido
+
+console.log(apelido ?? 'sem apelido') // sem apelido
+
+apelido = 'Juju'
+console.log(apelido ?? 'sem apelido') // Juju
+```
+
+```bash
+tsx ~/LPPOO/19102026/0040-truthy-falsy/A080.ts
+```
+
+**Exercício E079**
+
+Use `Boolean()` para descobrir quem é truthy e quem é falsy: `'0'`, `0`,
+`' '`, `''` e `null`. Antes de rodar, chute a resposta em um comentário.
+
+<details><summary>Dicas</summary>
+
+1. Cuidado com `'0'` e `' '`: são textos, e texto só é falsy quando está
+   totalmente vazio.
+2. Um `console.log(Boolean(...))` para cada valor deixa a comparação fácil.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0040-truthy-falsy/E079.ts
+```
+
+**Exercício E080**
+
+Crie `let cidade = undefined` e mostre `cidade ?? 'Não informada'`. Depois
+coloque `'Tabatinga'` e mostre de novo.
+
+<details><summary>Dicas</summary>
+
+1. `undefined` quer dizer "ainda sem valor".
+2. O `??` só usa o padrão quando o valor é `null` ou `undefined`.
+3. Para dar valor depois, escreva só `cidade = 'Tabatinga'`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0040-truthy-falsy/E080.ts
 ```
 
 ---
@@ -1442,7 +1554,7 @@ function formatarMatricula(m: number | string): string {
   return m.toUpperCase() // aqui só sobrou string
 }
 
-console.log(formatarMatricula(27)) // M-0027
+console.log(formatarMatricula(27)) // M-0026
 console.log(formatarMatricula('a27')) // A27
 ```
 
@@ -2820,6 +2932,8 @@ pnpm -C ~/LPPOO tsc
 
 - MICROSOFT. *TypeScript Handbook*. Disponível em: <https://www.typescriptlang.org/docs/handbook/intro.html>.
 - MICROSOFT. *TypeScript Handbook*: Everyday Types. Disponível em: <https://www.typescriptlang.org/docs/handbook/2/everyday-types.html>.
+- MDN WEB DOCS. *Falsy*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Glossary/Falsy>.
+- MDN WEB DOCS. *Operador de coalescência nula (??)*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing>.
 - MICROSOFT. *TypeScript Handbook*: Narrowing. Disponível em: <https://www.typescriptlang.org/docs/handbook/2/narrowing.html>.
 - MICROSOFT. *TypeScript Handbook*: Object Types. Disponível em: <https://www.typescriptlang.org/docs/handbook/2/objects.html>.
 - MICROSOFT. *TypeScript Handbook*: Generics. Disponível em: <https://www.typescriptlang.org/docs/handbook/2/generics.html>.

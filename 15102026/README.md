@@ -42,7 +42,7 @@ caminho do exemplo fica colorido e o resto fica apagado.
 
 ## Os assuntos
 
-São 20 assuntos curtos, e cada um usa o anterior. Leia na ordem.
+São 19 assuntos curtos, e cada um usa o anterior. Leia na ordem.
 
 | # | Assunto | Pasta |
 | --- | --- | --- |
@@ -60,12 +60,11 @@ São 20 assuntos curtos, e cada um usa o anterior. Leia na ordem.
 | [0012](#0012--operadores-relacionais) | Operadores relacionais | [`0012-relacional/`](0012-relacional/) |
 | [0013](#0013--comparação-de-igualdade) | Comparação de igualdade | [`0013-comparacao/`](0013-comparacao/) |
 | [0014](#0014--operadores-lógicos) | Operadores lógicos | [`0014-logico/`](0014-logico/) |
-| [0015](#0015--truthy-falsy--e-) | Truthy, falsy, ?? e ?. | [`0015-truthy-falsy/`](0015-truthy-falsy/) |
-| [0016](#0016--condicional-simples-if) | Condicional simples (if) | [`0016-condicional-simples/`](0016-condicional-simples/) |
-| [0017](#0017--condicional-composta-if--else) | Condicional composta (if / else) | [`0017-condicional-composta/`](0017-condicional-composta/) |
-| [0018](#0018--condicional-aninhada-else-if-e-if-dentro-de-if) | Condicional aninhada (else if e if dentro de if) | [`0018-condicional-aninhada/`](0018-condicional-aninhada/) |
-| [0019](#0019--operador-ternário) | Operador ternário | [`0019-ternario/`](0019-ternario/) |
-| [0020](#0020--estrutura-de-escolha-switch) | Estrutura de escolha (switch) | [`0020-escolha/`](0020-escolha/) |
+| [0015](#0015--condicional-simples-if) | Condicional simples (if) | [`0015-condicional-simples/`](0015-condicional-simples/) |
+| [0016](#0016--condicional-composta-if--else) | Condicional composta (if / else) | [`0016-condicional-composta/`](0016-condicional-composta/) |
+| [0017](#0017--condicional-aninhada-else-if-e-if-dentro-de-if) | Condicional aninhada (else if e if dentro de if) | [`0017-condicional-aninhada/`](0017-condicional-aninhada/) |
+| [0018](#0018--operador-ternário) | Operador ternário | [`0018-ternario/`](0018-ternario/) |
+| [0019](#0019--estrutura-de-escolha-switch) | Estrutura de escolha (switch) | [`0019-escolha/`](0019-escolha/) |
 
 ---
 
@@ -743,7 +742,7 @@ Repara que ainda não tem losango no fluxograma. A comparação só gera o `true
 ou o `false` e guarda.
 
 Escolher um caminho com ele é trabalho do `if`, lá na
-[0016](#0016--condicional-simples-if).
+[0015](#0015--condicional-simples-if).
 
 <p align="center"><img src="0007-booleano/fluxograma.svg" alt="Fluxograma: Booleano (boolean), typeof, null e undefined" width="1056"></p>
 
@@ -1626,117 +1625,7 @@ tsx ~/LPPOO/15102026/0014-logico/E028.ts
 
 ---
 
-## 0015 · Truthy, falsy, ?? e ?.
-
-O aluno apertou Enter sem digitar o apelido. E agora, o programa chama ele de
-quê?
-
-Num `if`, o TypeScript espera `true` ou `false`. Mas você pode colocar qualquer
-valor ali, e ele decide se aquilo conta como verdadeiro ou falso.
-
-Pensa no fiscal do porto olhando a mochila. Vazia, ele nem abre. Com alguma
-coisa dentro, ele confere.
-
-Os que contam como falso são só seis, e dá para decorar: `false`, `0`, `''`
-(texto vazio), `null`, `undefined` e `NaN`. Esses são os **falsy**.
-
-Todo o resto é **truthy**.
-
-Olha só o exemplo. O aluno apertou Enter direto, então `apelido` é `''`, um
-texto vazio. Ou seja, falsy. O `||` percebe isso e usa o valor padrão:
-
-<p align="center"><img src="0015-truthy-falsy/ideia.svg" alt="Diagrama da ideia: Truthy, falsy, ?? e ?." width="864"></p>
-
-```ts
-import { input } from '#core/input.ts'
-
-const apelido = input('Seu apelido: ') // o aluno só aperta Enter: ''
-const chamar = apelido || 'sem apelido' // '' é falsy, então usa o padrão
-console.log(`Oi, ${chamar}!`) // Oi, sem apelido!
-```
-
-Repara: aqui aparece o primeiro losango amarelo da aula. É a primeira pergunta
-de sim ou não:
-
-<p align="center"><img src="0015-truthy-falsy/fluxograma.svg" alt="Fluxograma: Truthy, falsy, ?? e ?." width="502"></p>
-
-> [!IMPORTANT]
-> O `??` é parecido, mas só troca quando o valor é `null` ou `undefined`. Com
-> texto vazio ele não faz nada: `'' ?? 'sem apelido'` continua `''`.
-
-> [!NOTE]
-> **Pergunta para a turma:** troque o `||` por `??` e aperte Enter sem digitar
-> nada. O que aparece na tela? Rode e confira.
-
-### Hora de praticar
-
-Os arquivos ficam em [`0015-truthy-falsy/`](0015-truthy-falsy/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
-
-**Exemplo A029 · Convertendo para boolean**
-
-```ts
-console.log(Boolean('')) // false
-console.log(Boolean('Ana')) // true
-console.log(Boolean(0)) // false
-console.log(Boolean(10)) // true
-```
-
-```bash
-tsx ~/LPPOO/15102026/0015-truthy-falsy/A029.ts
-```
-
-**Exemplo A030 · Valor padrão com ??**
-
-```ts
-let apelido = undefined // ainda sem apelido
-
-console.log(apelido ?? 'sem apelido') // sem apelido
-
-apelido = 'Juju'
-console.log(apelido ?? 'sem apelido') // Juju
-```
-
-```bash
-tsx ~/LPPOO/15102026/0015-truthy-falsy/A030.ts
-```
-
-**Exercício E029**
-
-Use `Boolean()` para descobrir quem é truthy e quem é falsy: `'0'`, `0`,
-`' '`, `''` e `null`. Antes de rodar, chute a resposta em um comentário.
-
-<details><summary>Dicas</summary>
-
-1. Cuidado com `'0'` e `' '`: são textos, e texto só é falsy quando está
-   totalmente vazio.
-2. Um `console.log(Boolean(...))` para cada valor deixa a comparação fácil.
-
-</details>
-
-```bash
-tsx ~/LPPOO/15102026/0015-truthy-falsy/E029.ts
-```
-
-**Exercício E030**
-
-Crie `let cidade = undefined` e mostre `cidade ?? 'Não informada'`. Depois
-coloque `'Tabatinga'` e mostre de novo.
-
-<details><summary>Dicas</summary>
-
-1. `undefined` quer dizer "ainda sem valor".
-2. O `??` só usa o padrão quando o valor é `null` ou `undefined`.
-3. Para dar valor depois, escreva só `cidade = 'Tabatinga'`.
-
-</details>
-
-```bash
-tsx ~/LPPOO/15102026/0015-truthy-falsy/E030.ts
-```
-
----
-
-## 0016 · Condicional simples (if)
+## 0015 · Condicional simples (if)
 
 Até agora, nossos programas rodaram de cima para baixo, linha por linha, sem
 pular nada. Hoje isso muda: o programa vai **decidir**.
@@ -1749,7 +1638,7 @@ Vamos ver na prática. O programa pergunta "Vai chover?". Você responde `sim`,
 a condição dá `true`, e aparece o aviso do guarda-chuva. Depois, chovendo ou
 não, ele dá bom dia:
 
-<p align="center"><img src="0016-condicional-simples/ideia.svg" alt="Diagrama da ideia: Condicional simples (if)" width="864"></p>
+<p align="center"><img src="0015-condicional-simples/ideia.svg" alt="Diagrama da ideia: Condicional simples (if)" width="864"></p>
 
 ```ts
 import { input } from '#core/input.ts'
@@ -1766,7 +1655,7 @@ console.log('Bom dia!') // roda sempre
 No fluxograma, o `if` vira o losango. Olha só: o caminho do Sim tem uma tarefa
 a mais, e o Não vai direto para o "Bom dia!".
 
-<p align="center"><img src="0016-condicional-simples/fluxograma.svg" alt="Fluxograma: Condicional simples (if)" width="380"></p>
+<p align="center"><img src="0015-condicional-simples/fluxograma.svg" alt="Fluxograma: Condicional simples (if)" width="380"></p>
 
 > [!NOTE]
 > **Pergunta para a turma:** e se você digitar `Sim`, com S maiúsculo? Aparece
@@ -1774,9 +1663,9 @@ a mais, e o Não vai direto para o "Bom dia!".
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0016-condicional-simples/`](0016-condicional-simples/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0015-condicional-simples/`](0015-condicional-simples/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A031 · Aprovado**
+**Exemplo A029 · Aprovado**
 
 ```ts
 const media = 7
@@ -1787,10 +1676,10 @@ if (media >= 6) {
 ```
 
 ```bash
-tsx ~/LPPOO/15102026/0016-condicional-simples/A031.ts
+tsx ~/LPPOO/15102026/0015-condicional-simples/A029.ts
 ```
 
-**Exemplo A032 · Aviso de chuva**
+**Exemplo A030 · Aviso de chuva**
 
 ```ts
 import { input } from '#core/input.ts'
@@ -1804,10 +1693,10 @@ console.log('Bom dia!')
 ```
 
 ```bash
-tsx ~/LPPOO/15102026/0016-condicional-simples/A032.ts
+tsx ~/LPPOO/15102026/0015-condicional-simples/A030.ts
 ```
 
-**Exercício E031**
+**Exercício E029**
 
 Peça a idade e, se for 18 ou mais, mostre `Pode entrar na festa de
 formatura sem autorização dos pais`.
@@ -1821,10 +1710,10 @@ formatura sem autorização dos pais`.
 </details>
 
 ```bash
-tsx ~/LPPOO/15102026/0016-condicional-simples/E031.ts
+tsx ~/LPPOO/15102026/0015-condicional-simples/E029.ts
 ```
 
-**Exercício E032**
+**Exercício E030**
 
 Peça a senha do Wi-Fi da escola e, se for igual a `cetam`, mostre
 `Conectado!`.
@@ -1838,12 +1727,12 @@ Peça a senha do Wi-Fi da escola e, se for igual a `cetam`, mostre
 </details>
 
 ```bash
-tsx ~/LPPOO/15102026/0016-condicional-simples/E032.ts
+tsx ~/LPPOO/15102026/0015-condicional-simples/E030.ts
 ```
 
 ---
 
-## 0017 · Condicional composta (if / else)
+## 0016 · Condicional composta (if / else)
 
 Na aula passada, o `if` sozinho só fazia uma coisa a mais. Hoje ele ganha um
 plano B: o `else` (em português, "senão").
@@ -1856,7 +1745,7 @@ Guarda isso: um dos dois sempre roda. E só um.
 Vamos ver na prática. O recreio para Tabatinga sai do porto às 6h. Você chegou
 às 5h. `5 <= 6` dá `true`, então o caminho é o do `if`: embarcou!
 
-<p align="center"><img src="0017-condicional-composta/ideia.svg" alt="Diagrama da ideia: Condicional composta (if / else)" width="898"></p>
+<p align="center"><img src="0016-condicional-composta/ideia.svg" alt="Diagrama da ideia: Condicional composta (if / else)" width="898"></p>
 
 ```ts
 import { input } from '#core/input.ts'
@@ -1873,7 +1762,7 @@ if (hora <= 6) {
 Repara no fluxograma: os dois caminhos saem do mesmo losango e se encontram de
 novo no fim. O programa passa por um deles, nunca pelos dois:
 
-<p align="center"><img src="0017-condicional-composta/fluxograma.svg" alt="Fluxograma: Condicional composta (if / else)" width="524"></p>
+<p align="center"><img src="0016-condicional-composta/fluxograma.svg" alt="Fluxograma: Condicional composta (if / else)" width="524"></p>
 
 > [!NOTE]
 > **Pergunta para a turma:** e se você chegar às 6h em ponto? Embarca ou perde
@@ -1881,9 +1770,9 @@ novo no fim. O programa passa por um deles, nunca pelos dois:
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0017-condicional-composta/`](0017-condicional-composta/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0016-condicional-composta/`](0016-condicional-composta/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A033 · Aprovado ou reprovado**
+**Exemplo A031 · Aprovado ou reprovado**
 
 ```ts
 const media = 5
@@ -1896,10 +1785,10 @@ if (media >= 6) {
 ```
 
 ```bash
-tsx ~/LPPOO/15102026/0017-condicional-composta/A033.ts
+tsx ~/LPPOO/15102026/0016-condicional-composta/A031.ts
 ```
 
-**Exemplo A034 · Par ou ímpar**
+**Exemplo A032 · Par ou ímpar**
 
 ```ts
 import { input } from '#core/input.ts'
@@ -1914,10 +1803,10 @@ if (numero % 2 === 0) {
 ```
 
 ```bash
-tsx ~/LPPOO/15102026/0017-condicional-composta/A034.ts
+tsx ~/LPPOO/15102026/0016-condicional-composta/A032.ts
 ```
 
-**Exercício E033**
+**Exercício E031**
 
 Peça a idade e mostre `Maior de idade` ou `Menor de idade`.
 
@@ -1930,10 +1819,10 @@ Peça a idade e mostre `Maior de idade` ou `Menor de idade`.
 </details>
 
 ```bash
-tsx ~/LPPOO/15102026/0017-condicional-composta/E033.ts
+tsx ~/LPPOO/15102026/0016-condicional-composta/E031.ts
 ```
 
-**Exercício E034**
+**Exercício E032**
 
 Peça a senha do celular e mostre `Desbloqueado` ou `Senha incorreta`.
 Invente a senha certa e guarde numa constante.
@@ -1947,12 +1836,12 @@ Invente a senha certa e guarde numa constante.
 </details>
 
 ```bash
-tsx ~/LPPOO/15102026/0017-condicional-composta/E034.ts
+tsx ~/LPPOO/15102026/0016-condicional-composta/E032.ts
 ```
 
 ---
 
-## 0018 · Condicional aninhada (else if e if dentro de if)
+## 0017 · Condicional aninhada (else if e if dentro de if)
 
 Até agora, a gente tinha só dois caminhos: o do `if` e o do `else`. Mas no
 boletim não existe só "passou" ou "não passou". Tem a recuperação no meio.
@@ -1965,7 +1854,7 @@ verdadeira. O `else` do final pega quem sobrou.
 Olha só a média da Bia, que é 5. Primeira pergunta: `5 >= 6`? Não. Segunda:
 `5 >= 4`? Sim: recuperação. A terceira opção nem chega a ser olhada:
 
-<p align="center"><img src="0018-condicional-aninhada/ideia.svg" alt="Diagrama da ideia: Condicional aninhada (else if e if dentro de if)" width="864"></p>
+<p align="center"><img src="0017-condicional-aninhada/ideia.svg" alt="Diagrama da ideia: Condicional aninhada (else if e if dentro de if)" width="864"></p>
 
 ```ts
 const media = 5
@@ -1981,7 +1870,7 @@ if (media >= 6) {
 
 No fluxograma, cada `else if` é mais um losango, pendurado no Não do anterior:
 
-<p align="center"><img src="0018-condicional-aninhada/fluxograma.svg" alt="Fluxograma: Condicional aninhada (else if e if dentro de if)" width="838"></p>
+<p align="center"><img src="0017-condicional-aninhada/fluxograma.svg" alt="Fluxograma: Condicional aninhada (else if e if dentro de if)" width="838"></p>
 
 > [!TIP]
 > Também dá para colocar um `if` dentro de outro. Você usa isso quando uma
@@ -1994,9 +1883,9 @@ No fluxograma, cada `else if` é mais um losango, pendurado no Não do anterior:
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0018-condicional-aninhada/`](0018-condicional-aninhada/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0017-condicional-aninhada/`](0017-condicional-aninhada/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A035 · Aprovado, recuperação ou reprovado**
+**Exemplo A033 · Aprovado, recuperação ou reprovado**
 
 ```ts
 const media = 5
@@ -2011,10 +1900,10 @@ if (media >= 6) {
 ```
 
 ```bash
-tsx ~/LPPOO/15102026/0018-condicional-aninhada/A035.ts
+tsx ~/LPPOO/15102026/0017-condicional-aninhada/A033.ts
 ```
 
-**Exemplo A036 · Positivo, negativo ou zero**
+**Exemplo A034 · Positivo, negativo ou zero**
 
 ```ts
 import { input } from '#core/input.ts'
@@ -2031,10 +1920,10 @@ if (n > 0) {
 ```
 
 ```bash
-tsx ~/LPPOO/15102026/0018-condicional-aninhada/A036.ts
+tsx ~/LPPOO/15102026/0017-condicional-aninhada/A034.ts
 ```
 
-**Exercício E035**
+**Exercício E033**
 
 Peça a altura de dois jogadores do time de vôlei e mostre quem é o mais alto,
 ou `Mesma altura`.
@@ -2048,10 +1937,10 @@ ou `Mesma altura`.
 </details>
 
 ```bash
-tsx ~/LPPOO/15102026/0018-condicional-aninhada/E035.ts
+tsx ~/LPPOO/15102026/0017-condicional-aninhada/E033.ts
 ```
 
-**Exercício E036**
+**Exercício E034**
 
 Peça a idade e mostre `Criança` (até 11), `Adolescente` (12 a 17) ou
 `Adulto` (18 ou mais).
@@ -2066,12 +1955,12 @@ Peça a idade e mostre `Criança` (até 11), `Adolescente` (12 a 17) ou
 </details>
 
 ```bash
-tsx ~/LPPOO/15102026/0018-condicional-aninhada/E036.ts
+tsx ~/LPPOO/15102026/0017-condicional-aninhada/E034.ts
 ```
 
 ---
 
-## 0019 · Operador ternário
+## 0018 · Operador ternário
 
 Dá para escrever um if/else inteiro numa linha só? Dá. É o ternário.
 
@@ -2087,7 +1976,7 @@ Lê assim: "a condição é verdadeira? Então isso. Senão, aquilo."
 Vamos ver na prática. A média do Lucas é 8. `media >= 6` dá `true`, então o
 ternário devolve `'Aprovado'`:
 
-<p align="center"><img src="0019-ternario/ideia.svg" alt="Diagrama da ideia: Operador ternário" width="864"></p>
+<p align="center"><img src="0018-ternario/ideia.svg" alt="Diagrama da ideia: Operador ternário" width="864"></p>
 
 ```ts
 const media = 8
@@ -2096,12 +1985,12 @@ console.log(situacao) // Aprovado
 ```
 
 O fluxograma é o mesmo desenho do if/else da
-[0017](#0017--condicional-composta-if--else).
+[0016](#0016--condicional-composta-if--else).
 
 Repara na diferença: os dois caminhos não mostram nada. Eles só guardam um
 valor em `situacao`. Quem mostra é o fim do programa:
 
-<p align="center"><img src="0019-ternario/fluxograma.svg" alt="Fluxograma: Operador ternário" width="547"></p>
+<p align="center"><img src="0018-ternario/fluxograma.svg" alt="Fluxograma: Operador ternário" width="547"></p>
 
 > [!TIP]
 > Use o ternário para escolhas pequenas: singular ou plural, par ou ímpar,
@@ -2113,9 +2002,9 @@ valor em `situacao`. Quem mostra é o fim do programa:
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0019-ternario/`](0019-ternario/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0018-ternario/`](0018-ternario/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A037 · Aprovado ou reprovado**
+**Exemplo A035 · Aprovado ou reprovado**
 
 ```ts
 const media = 8
@@ -2125,10 +2014,10 @@ console.log(situacao) // Aprovado
 ```
 
 ```bash
-tsx ~/LPPOO/15102026/0019-ternario/A037.ts
+tsx ~/LPPOO/15102026/0018-ternario/A035.ts
 ```
 
-**Exemplo A038 · Par ou ímpar**
+**Exemplo A036 · Par ou ímpar**
 
 ```ts
 import { input } from '#core/input.ts'
@@ -2139,10 +2028,10 @@ console.log(n % 2 === 0 ? 'Par' : 'Ímpar')
 ```
 
 ```bash
-tsx ~/LPPOO/15102026/0019-ternario/A038.ts
+tsx ~/LPPOO/15102026/0018-ternario/A036.ts
 ```
 
-**Exercício E037**
+**Exercício E035**
 
 Peça a idade e use ternário para mostrar `Maior de idade` ou `Menor de
 idade`.
@@ -2157,10 +2046,10 @@ idade`.
 </details>
 
 ```bash
-tsx ~/LPPOO/15102026/0019-ternario/E037.ts
+tsx ~/LPPOO/15102026/0018-ternario/E035.ts
 ```
 
-**Exercício E038**
+**Exercício E036**
 
 Peça o preço do açaí em duas barracas da feira e use ternário para guardar o
 menor preço numa constante. Mostre `Compre o de R$ X`.
@@ -2175,12 +2064,12 @@ menor preço numa constante. Mostre `Compre o de R$ X`.
 </details>
 
 ```bash
-tsx ~/LPPOO/15102026/0019-ternario/E038.ts
+tsx ~/LPPOO/15102026/0018-ternario/E036.ts
 ```
 
 ---
 
-## 0020 · Estrutura de escolha (switch)
+## 0019 · Estrutura de escolha (switch)
 
 Pensa no caixa eletrônico: "digite 1 para saldo, 2 para depósito, 3 para
 sair". Cada número leva para um caminho diferente.
@@ -2201,7 +2090,7 @@ Três palavras para guardar:
 Vamos ver na prática. Você digitou `2`. O `switch` compara com cada `case` e
 para no `case 2`:
 
-<p align="center"><img src="0020-escolha/ideia.svg" alt="Diagrama da ideia: Estrutura de escolha (switch)" width="858"></p>
+<p align="center"><img src="0019-escolha/ideia.svg" alt="Diagrama da ideia: Estrutura de escolha (switch)" width="858"></p>
 
 ```ts
 import { input } from '#core/input.ts'
@@ -2226,7 +2115,7 @@ switch (opcao) {
 No fluxograma, o `switch` vira um losango com uma saída para cada `case`, mais
 uma para o `default`:
 
-<p align="center"><img src="0020-escolha/fluxograma.svg" alt="Fluxograma: Estrutura de escolha (switch)" width="1070"></p>
+<p align="center"><img src="0019-escolha/fluxograma.svg" alt="Fluxograma: Estrutura de escolha (switch)" width="1070"></p>
 
 > [!TIP]
 > Use o `switch` quando a pergunta é "qual destes valores?". Para faixas (maior
@@ -2238,9 +2127,9 @@ uma para o `default`:
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0020-escolha/`](0020-escolha/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0019-escolha/`](0019-escolha/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A039 · Dia da semana**
+**Exemplo A037 · Dia da semana**
 
 ```ts
 import { input } from '#core/input.ts'
@@ -2260,10 +2149,10 @@ switch (dia) {
 ```
 
 ```bash
-tsx ~/LPPOO/15102026/0020-escolha/A039.ts
+tsx ~/LPPOO/15102026/0019-escolha/A037.ts
 ```
 
-**Exemplo A040 · Menu de opções**
+**Exemplo A038 · Menu de opções**
 
 ```ts
 import { input } from '#core/input.ts'
@@ -2289,10 +2178,10 @@ switch (opcao) {
 ```
 
 ```bash
-tsx ~/LPPOO/15102026/0020-escolha/A040.ts
+tsx ~/LPPOO/15102026/0019-escolha/A038.ts
 ```
 
-**Exercício E039**
+**Exercício E037**
 
 Peça a posição de chegada na corrida dos jogos escolares (1 a 3) e mostre
 `Ouro`, `Prata` ou `Bronze`. Para qualquer outro número mostre `Sem medalha,
@@ -2307,10 +2196,10 @@ mas valeu a participação`.
 </details>
 
 ```bash
-tsx ~/LPPOO/15102026/0020-escolha/E039.ts
+tsx ~/LPPOO/15102026/0019-escolha/E037.ts
 ```
 
-**Exercício E040**
+**Exercício E038**
 
 Faça uma calculadora com menu de 4 operações (+, -, *, /). Peça a operação e
 dois números e mostre o resultado.
@@ -2325,7 +2214,7 @@ dois números e mostre o resultado.
 </details>
 
 ```bash
-tsx ~/LPPOO/15102026/0020-escolha/E040.ts
+tsx ~/LPPOO/15102026/0019-escolha/E038.ts
 ```
 
 ## Prática em sala
@@ -2378,8 +2267,6 @@ tsx ~/LPPOO/15102026/pratica/desafio-ingresso.ts
 - CROCKFORD, D. *JavaScript: the good parts*. Sebastopol: O'Reilly, 2008.
 - MDN WEB DOCS. *Comparações de igualdade e uniformidade*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Equality_comparisons_and_sameness>.
 - MDN WEB DOCS. *Operador AND lógico (&&)*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Logical_AND>.
-- MDN WEB DOCS. *Falsy*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Glossary/Falsy>.
-- MDN WEB DOCS. *Operador de coalescência nula (??)*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing>.
 - MICROSOFT. *TypeScript Handbook*: Narrowing. Disponível em: <https://www.typescriptlang.org/docs/handbook/2/narrowing.html>.
 - BÖHM, C.; JACOPINI, G. Flow diagrams, Turing machines and languages with only two formation rules. *Communications of the ACM*, v. 9, n. 5, p. 366-371, 1966.
 - DIJKSTRA, E. W. Go to statement considered harmful. *Communications of the ACM*, v. 11, n. 3, p. 147-148, 1968.

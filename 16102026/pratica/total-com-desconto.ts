@@ -6,6 +6,6 @@
 //
 // Dicas:
 // 1. Some com reduce.
-// 2. Sem desconto, desconto é undefined: use desconto ?? 0.
+// 2. Sem desconto, desconto é undefined: confira com um if ou um ternário.
 //
 // Escreva sua resposta abaixo:

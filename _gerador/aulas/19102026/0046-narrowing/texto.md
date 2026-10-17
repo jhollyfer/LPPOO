@@ -24,7 +24,7 @@ function formatarMatricula(m: number | string): string {
   return m.toUpperCase() // aqui só sobrou string
 }
 
-console.log(formatarMatricula(27)) // M-0027
+console.log(formatarMatricula(27)) // M-0026
 console.log(formatarMatricula('a27')) // A27
 ```
 

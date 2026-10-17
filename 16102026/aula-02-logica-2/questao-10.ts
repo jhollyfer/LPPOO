@@ -1,6 +1,6 @@
 // Aula 02 · Questão 10 · Laço while
 // Vale ponto. Exemplo resolvido parecido: exemplo-10.ts
-// Para revisar: 0021 no README da aula 02 (16102026/README.md)
+// Para revisar: 0020 no README da aula 02 (16102026/README.md)
 //
 // Poupança: peça quanto a pessoa quer juntar e quanto ela guarda por mês. Com
 // um laço while, mostre o saldo mês a mês até chegar (ou passar) do objetivo.

@@ -1,5 +1,5 @@
 // Prática em sala · Cantina
-// Para revisar: 0006, 0010 e 0020 no README da aula 01 (15102026/README.md)
+// Para revisar: 0006, 0010 e 0019 no README da aula 01 (15102026/README.md)
 //
 // Mostre o cardápio: 1 açaí (R$ 15), 2 tapioca (R$ 8), 3 suco (R$ 6). Pergunte
 // a opção e a quantidade. Use switch para descobrir o preço e mostre o total com

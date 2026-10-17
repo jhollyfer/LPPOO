@@ -11,7 +11,7 @@ export const fluxograma = {
   nos: [
     ['A', 'inicio', "formatarMatricula('a27')"],
     ['B', 'dec', "typeof m === 'number'?"],
-    ['C', 'io', 'devolve M-0027'],
+    ['C', 'io', 'devolve M-0026'],
     ['D', 'io', 'devolve A27'],
   ],
   setas: [

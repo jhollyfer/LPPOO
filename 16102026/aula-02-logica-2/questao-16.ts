@@ -1,6 +1,6 @@
 // Aula 02 · Questão 16 · Funções tipadas, parâmetro opcional, valor padrão e void
 // Vale ponto. Exemplo resolvido parecido: exemplo-16.ts
-// Para revisar: 0031, 0032 e 0033 no README da aula 02 (16102026/README.md)
+// Para revisar: 0030, 0031 e 0032 no README da aula 02 (16102026/README.md)
 //
 // Escreva três funções:
 // - calcularImc(peso: number, altura: number): number  (peso / (altura * altura))

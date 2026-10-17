@@ -1,6 +1,6 @@
 // Aula 02 · Questão 13 · Arrays tipados e for...of
 // Vale ponto. Exemplo resolvido parecido: exemplo-13.ts
-// Para revisar: 0025 e 0026 no README da aula 02 (16102026/README.md)
+// Para revisar: 0024 e 0025 no README da aula 02 (16102026/README.md)
 //
 // Crie um Array<string> com 5 nomes de alunos e um number[] com as 5 notas,
 // na mesma ordem. Com for...of, calcule a média da turma. Depois mostre quantas

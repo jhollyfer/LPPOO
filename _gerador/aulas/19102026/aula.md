@@ -9,6 +9,7 @@ avisa o erro antes de o programa rodar.
 ## O que você vai aprender
 
 - como o TypeScript funciona e por que ele foi escolhido
+- quais valores contam como verdadeiro ou falso, e os atalhos `??` e `?.`
 - descrever objetos com `type` e `interface`
 - dizer "isto ou aquilo" com uniões e "isto e aquilo" com interseções
 - escrever funções que servem para qualquer tipo, com generics
@@ -127,6 +128,8 @@ pnpm -C ~/LPPOO tsc
 
 - MICROSOFT. *TypeScript Handbook*. Disponível em: <https://www.typescriptlang.org/docs/handbook/intro.html>.
 - MICROSOFT. *TypeScript Handbook*: Everyday Types. Disponível em: <https://www.typescriptlang.org/docs/handbook/2/everyday-types.html>.
+- MDN WEB DOCS. *Falsy*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Glossary/Falsy>.
+- MDN WEB DOCS. *Operador de coalescência nula (??)*. Disponível em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing>.
 - MICROSOFT. *TypeScript Handbook*: Narrowing. Disponível em: <https://www.typescriptlang.org/docs/handbook/2/narrowing.html>.
 - MICROSOFT. *TypeScript Handbook*: Object Types. Disponível em: <https://www.typescriptlang.org/docs/handbook/2/objects.html>.
 - MICROSOFT. *TypeScript Handbook*: Generics. Disponível em: <https://www.typescriptlang.org/docs/handbook/2/generics.html>.

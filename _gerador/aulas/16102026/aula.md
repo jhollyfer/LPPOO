@@ -36,7 +36,7 @@ de gavetas com o índice embaixo de cada uma, começando do 0.
 > [!IMPORTANT]
 > No nosso projeto, `notas[i]` pode ser `undefined`, porque a posição `i` pode
 > não existir. Por isso o editor reclama quando você faz conta direto com um
-> item do array. Para percorrer arrays, prefira o `for...of` (assunto 0026). O
+> item do array. Para percorrer arrays, prefira o `for...of` (assunto 0025). O
 > porquê está no assunto 0053 da [aula 03](../19102026/README.md).
 
 ## Os assuntos

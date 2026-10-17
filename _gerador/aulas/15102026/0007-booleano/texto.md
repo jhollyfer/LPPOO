@@ -25,7 +25,7 @@ Repara que ainda não tem losango no fluxograma. A comparação só gera o `true
 ou o `false` e guarda.
 
 Escolher um caminho com ele é trabalho do `if`, lá na
-[0016](#0016--condicional-simples-if).
+[0015](#0015--condicional-simples-if).
 
 {{fluxograma}}
 
