@@ -21,10 +21,10 @@ export const ideia = {
 
 export const fluxograma = {
   nos: [
-    ['A', 'inicio', 'entrada(p)'],
+    ['A', 'inicio', "entrada({ nome: 'Bia', ... })"],
     ['B', 'dec', 'ehAluno(p)'],
-    ['C', 'io', 'nome e matrícula'],
-    ['D', 'io', 'nome e motivo'],
+    ['C', 'io', 'Bia, matrícula A27'],
+    ['D', 'io', 'nome e motivo do visitante'],
   ],
   setas: [
     ['A', 'B'],

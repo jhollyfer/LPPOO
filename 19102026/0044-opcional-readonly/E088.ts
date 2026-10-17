@@ -1,11 +1,10 @@
 // 0044 · Propriedade opcional e readonly
 // Exercício E088
 //
-// Tente trocar o codigo de um produto. Leia o erro, deixe a linha comentada e
-// explique num comentário por que um código de produto deveria ser readonly.
+// Crie um produto com `readonly codigo` e tente trocar o código. Leia o erro e
+// deixe a linha comentada.
 //
 // Dicas:
 // 1. A mensagem fala em read-only property.
-// 2. Pense: o que acontece com o estoque se o código mudar?
 //
 // Escreva sua resposta abaixo:

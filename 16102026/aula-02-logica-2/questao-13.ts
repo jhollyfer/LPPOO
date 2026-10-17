@@ -2,14 +2,11 @@
 // Vale ponto. Exemplo resolvido parecido: exemplo-13.ts
 // Para revisar: 0024 e 0025 no README da aula 02 (16102026/README.md)
 //
-// Crie um string[] com 5 nomes de alunos e um number[] com as 5 notas,
-// na mesma ordem. Com for...of, calcule a média da turma. Depois mostre quantas
-// notas ficaram acima da média.
+// Crie um number[] com 5 notas. Com for...of, calcule e mostre a média da turma.
 //
 // O que precisa ter:
-// - os dois arrays com tipo escrito (string[] e number[])
-// - um for...of para somar as notas
+// - o array com o tipo escrito (number[])
+// - um for...of somando as notas
 // - a média calculada com a soma e o length
-// - um segundo laço contando as notas acima da média
 //
 // Escreva sua resposta abaixo:

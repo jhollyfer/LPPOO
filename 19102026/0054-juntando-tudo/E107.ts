@@ -1,14 +1,12 @@
 // 0054 · Juntando tudo: cadastro de alunos tipado
 // Exercício E107
 //
-// Modele uma biblioteca: interface Livro { readonly codigo: number; titulo:
-// string; situacao: Situacao }, em que Situacao é uma união discriminada:
-// { tipo: 'disponivel' } ou { tipo: 'emprestado'; aluno: string; devolucao:
-// string }. Escreva descrever(l: Livro): string e mostre uma lista de três
-// livros.
+// Crie type Situacao = { tipo: 'preparando' } | { tipo: 'pronto'; balcao: number }
+// e interface Pedido { readonly numero: number; situacao: Situacao }. Escreva
+// avisar(p: Pedido): string e teste com um pedido de cada tipo.
 //
 // Dicas:
-// 1. O switch vai em l.situacao.tipo.
-// 2. Só no case 'emprestado' existem aluno e devolucao.
+// 1. Pergunte se p.situacao.tipo === 'pronto'.
+// 2. Só dentro desse if existe p.situacao.balcao.
 //
 // Escreva sua resposta abaixo:

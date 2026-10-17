@@ -1,13 +1,9 @@
-// A104 · Type guard no filter
+// A104 · satisfies: confere o valor e lembra das chaves
 
-function ehNumero(x: unknown): x is number {
-  return typeof x === 'number' && !Number.isNaN(x)
-}
+const precos = { suco: 5, pastel: 7 } satisfies Record<string, number>
+console.log(precos.suco + precos.pastel) // 12
 
-const misturado: unknown[] = [8, 'dez', 6, null, 9]
-
-// sem o "x is number", o resultado seria unknown[]
-const notas: number[] = misturado.filter(ehNumero)
-const soma = notas.reduce((total, n) => total + n, 0)
-
-console.log(notas, soma) // [ 8, 6, 9 ] 23
+// Com a anotação no lugar do satisfies, as chaves são esquecidas:
+// const precos2: Record<string, number> = { suco: 5, pastel: 7 }
+// console.log(precos2.suco + precos2.pastel)
+// erro: 'precos2.suco' is possibly 'undefined'.

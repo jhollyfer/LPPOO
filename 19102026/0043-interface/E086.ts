@@ -1,13 +1,10 @@
 // 0043 · interface (e type x interface)
 // Exercício E086
 //
-// Reescreva como interface:
-//   type Endereco = { cidade: string; bairro: string }
-//   type Escola = { nome: string; endereco: Endereco }
+// Reescreva como interface: `type Escola = { nome: string; cidade: string }`.
 // Monte uma escola e mostre a cidade dela.
 //
 // Dicas:
-// 1. interface Endereco { ... } sem o sinal de igual.
-// 2. Dentro de Escola, endereco: Endereco.
+// 1. `interface Escola { ... }`, sem o sinal de igual.
 //
 // Escreva sua resposta abaixo:

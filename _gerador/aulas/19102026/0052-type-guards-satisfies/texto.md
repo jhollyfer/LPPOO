@@ -29,8 +29,12 @@ function entrada(p: Aluno | Visitante): string {
 }
 
 console.log(entrada({ nome: 'Bia', matricula: 'A27' })) // Bia, matrícula A27
-console.log(entrada({ nome: 'Seu João', motivo: 'reunião' })) // Seu João, visitante: reunião
 ```
+
+O `'matricula' in p` pergunta se o objeto tem a propriedade `matricula`. Só o
+aluno tem.
+
+No fluxograma, a Bia passa na conferência e segue pelo Sim:
 
 {{fluxograma}}
 

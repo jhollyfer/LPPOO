@@ -1,22 +1,14 @@
-// A038 · Menu de opções
+// A038 · Tamanho do açaí
 
 import { input } from '#core/input.ts'
 
-console.log('1 - Ver saldo')
-console.log('2 - Depositar')
-console.log('3 - Sair')
-const opcao = input('Escolha: ')
+const tamanho = input('Tamanho (P ou G): ').toUpperCase() // digite: g
 
-switch (opcao) {
-  case '1':
-    console.log('Seu saldo é R$ 100,00')
+switch (tamanho) {
+  case 'P':
+    console.log('Açaí pequeno: R$ 10')
     break
-  case '2':
-    console.log('Depósito realizado')
+  case 'G':
+    console.log('Açaí grande: R$ 18') // o g virou G e caiu aqui
     break
-  case '3':
-    console.log('Até logo!')
-    break
-  default:
-    console.log('Opção inválida')
 }

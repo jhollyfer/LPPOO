@@ -1,11 +1,10 @@
 // 0041 · Tipos de objeto e type
 // Exercício E082
 //
-// Crie type Endereco e type Pessoa (com nome e endereco). Monte uma pessoa e
-// mostre "Ana mora no bairro X, em Y".
+// Crie `type Endereco = { cidade: string }` e `type Pessoa = { nome: string;
+// endereco: Endereco }`. Monte uma pessoa e mostre a cidade dela.
 //
 // Dicas:
-// 1. O endereco é um objeto dentro do objeto.
-// 2. Acesse com pessoa.endereco.bairro.
+// 1. Acesse com `pessoa.endereco.cidade`.
 //
 // Escreva sua resposta abaixo:

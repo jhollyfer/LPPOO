@@ -1,13 +1,11 @@
 // 0029 · Escopo de variáveis
 // Exercício E057
 //
-// Escreva `calcularDesconto(preco: number): void` com uma `const desconto`
-// dentro. Tente mostrar o `desconto` fora da função e leia o erro. Depois conserte:
-// troque o `void` por `number`, devolva o desconto com `return` e mostre o
-// resultado fora.
+// Escreva `calcularDesconto(preco: number): void` com `const desconto = preco * 0.1`
+// dentro. Fora da função, tente mostrar o `desconto` e leia o erro.
 //
 // Dicas:
-// 1. Deixe a linha com erro comentada com `//` no final.
-// 2. Para usar fora, guarde o retorno numa `const`.
+// 1. Depois de ler o erro, deixe a linha comentada com `//` na frente.
+// 2. Para usar o desconto fora, a função teria que devolver com `return`.
 //
 // Escreva sua resposta abaixo:

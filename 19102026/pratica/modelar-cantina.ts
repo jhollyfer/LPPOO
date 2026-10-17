@@ -1,9 +1,8 @@
 // Prática em sala · Modelar a cantina com types
 //
-// Modele a cantina da escola só com tipos: type Categoria (união de literais:
-// 'lanche', 'bebida', 'doce'), interface Produto (codigo readonly, nome, preco,
-// categoria, descricao opcional) e type Pedido = { itens: Produto[]; cliente:
-// string }. Monte um pedido com três produtos e mostre o total.
+// Crie type Categoria = 'lanche' | 'bebida' | 'doce' e interface Produto com
+// codigo (readonly), nome, preco, categoria e descricao (opcional). Monte uma
+// lista com três produtos e mostre o total dos preços.
 //
 // Dicas:
 // 1. Comece pelos tipos, antes de qualquer valor.

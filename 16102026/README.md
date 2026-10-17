@@ -882,15 +882,12 @@ tsx ~/LPPOO/16102026/0026-inserir-remover/E051.ts
 **Exercício E052**
 
 Comece com a lista `['arroz', 'feijão', 'café']`. Peça o nome de um item com
-`input` e remova esse item da lista, se ele existir. Se não existir, mostre
-"Esse item não está na lista". No fim, mostre a lista.
+`input`, remova esse item com `splice` e mostre a lista.
 
 <details><summary>Dicas</summary>
 
 1. Percorra com `for (let i = 0; i < lista.length; i++)`.
-2. Quando `lista[i] === item`, remova com `lista.splice(i, 1)`.
-3. Use um `let achou = false` e troque para `true` quando remover.
-4. Achou? Pode parar o laço com `break`.
+2. Quando `lista[i] === item`, remova com `lista.splice(i, 1)` e pare com `break`.
 
 </details>
 
@@ -1237,15 +1234,13 @@ tsx ~/LPPOO/16102026/0029-escopo/A058.ts
 
 **Exercício E057**
 
-Escreva `calcularDesconto(preco: number): void` com uma `const desconto`
-dentro. Tente mostrar o `desconto` fora da função e leia o erro. Depois conserte:
-troque o `void` por `number`, devolva o desconto com `return` e mostre o
-resultado fora.
+Escreva `calcularDesconto(preco: number): void` com `const desconto = preco * 0.1`
+dentro. Fora da função, tente mostrar o `desconto` e leia o erro.
 
 <details><summary>Dicas</summary>
 
-1. Deixe a linha com erro comentada com `//` no final.
-2. Para usar fora, guarde o retorno numa `const`.
+1. Depois de ler o erro, deixe a linha comentada com `//` na frente.
+2. Para usar o desconto fora, a função teria que devolver com `return`.
 
 </details>
 
@@ -1880,13 +1875,13 @@ tsx ~/LPPOO/16102026/0034-juntando-tudo/A068.ts
 
 **Exercício E067**
 
-Copie o programa das notas da turma, o do texto deste assunto, e acrescente
-no relatório a maior e a menor nota digitada.
+Escreva `resumo(notas: number[]): void`, que mostra a menor e a maior nota sem
+mudar o array. Teste com `[7, 4, 9, 6]`: Menor: 4, Maior: 9.
 
 <details><summary>Dicas</summary>
 
-1. Faça uma cópia ordenada com `slice().sort((a, b) => a - b)`.
-2. A menor fica na posição 0 e a maior na última.
+1. Faça uma cópia ordenada com `notas.slice().sort((a, b) => a - b)`.
+2. A menor fica na posição 0 e a maior na posição `length - 1`.
 
 </details>
 

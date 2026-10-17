@@ -25,20 +25,19 @@ Vamos ver na prática:
 type Turno = 'manhã' | 'tarde' | 'noite'
 type Aluno = { matricula: string; nome: string; idade: number }
 
-type AlunoNovo = Omit<Aluno, 'matricula'> // a escola é que gera a matrícula
-type Ficha = Pick<Aluno, 'nome'> // só o nome
-type Mudanca = Partial<Aluno> // pode mudar qualquer coisa, ou nada
-
-const novo: AlunoNovo = { nome: 'Bia', idade: 16 }
-const mudanca: Mudanca = { idade: 17 }
+const novo: Omit<Aluno, 'matricula'> = { nome: 'Bia', idade: 16 } // a escola gera a matrícula
+const mudanca: Partial<Aluno> = { idade: 17 } // pode mudar qualquer coisa, ou nada
 const bia: Aluno = { matricula: 'A27', ...novo, ...mudanca }
-const ficha: Ficha = { nome: bia.nome }
-
+const ficha: Pick<Aluno, 'nome'> = { nome: bia.nome } // só o nome
 const vagas: Record<Turno, number> = { manhã: 30, tarde: 25, noite: 40 }
 
 console.log(bia) // { matricula: 'A27', nome: 'Bia', idade: 17 }
 console.log(ficha.nome, vagas.noite) // Bia 40
 ```
+
+Repara nos três pontinhos: `...novo` copia as propriedades do `novo` para
+dentro do objeto da Bia. Se a mesma propriedade aparece duas vezes, vale a
+última. Por isso a idade ficou 17, a da `mudanca`.
 
 Para escolher o utilitário, pergunte: o que eu quero guardar do tipo
 original?

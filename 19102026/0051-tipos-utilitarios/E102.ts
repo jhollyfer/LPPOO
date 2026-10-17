@@ -1,15 +1,11 @@
 // 0051 · Tipos utilitários: Partial, Pick, Omit, Record, Readonly
 // Exercício E102
 //
-// Crie type Dia = 'seg' | 'ter' | 'qua' | 'qui' | 'sex' e um
-// Record<Dia, string> com o lanche de cada dia da semana. Peça um dia ao usuário
-// e mostre o lanche.
+// Crie type Dia = 'seg' | 'ter' | 'qua' e um Record<Dia, string> com o lanche
+// de cada dia. Mostre o lanche de terça.
 //
 // Dicas:
-// 1. Antes de usar o texto digitado como Dia, confira se ele é um dos cinco.
-// 2. Depois de conferir, use: cardapio[dia as Dia].
-//
-// Para ler dados do teclado use:
-// import { input } from '#core/input.ts'
+// 1. O Record exige uma chave para cada dia.
+// 2. Para ler: cardapio.ter.
 //
 // Escreva sua resposta abaixo:

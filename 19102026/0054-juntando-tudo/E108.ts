@@ -1,13 +1,13 @@
 // 0054 · Juntando tudo: cadastro de alunos tipado
 // Exercício E108
 //
-// Peça três produtos ao usuário (nome, preço e categoria: 'lanche', 'bebida'
-// ou 'doce'). Guarde num Produto[] e, no fim, mostre o total gasto em cada
-// categoria usando um Record<Categoria, number>.
+// Crie type Categoria = 'lanche' | 'bebida' | 'doce' e o type guard
+// ehCategoria(texto: string): texto is Categoria. Peça uma categoria ao usuário
+// e diga se a cantina tem essa categoria.
 //
 // Dicas:
-// 1. Valide a categoria com um type guard, como o ehTurno do segundo exemplo.
-// 2. Comece o Record com tudo zerado: { lanche: 0, bebida: 0, doce: 0 }.
+// 1. Copie a ideia do ehTurno do segundo exemplo (A108).
+// 2. Guarde as categorias numa lista com as const e use .some().
 //
 // Para ler dados do teclado use:
 // import { input } from '#core/input.ts'

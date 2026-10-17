@@ -7,6 +7,6 @@
 //
 // Dicas:
 // 1. Índice sorteado: Math.floor(Math.random() * lista.length).
-// 2. lista[i] já é T | undefined por causa do noUncheckedIndexedAccess.
+// 2. lista[i] já é T | undefined: a lista pode estar vazia.
 //
 // Escreva sua resposta abaixo:

@@ -1,12 +1,10 @@
 // 0038 · Inferência x anotação: quando escrever o tipo
 // Exercício E076
 //
-// Escreva media(notas: number[]) sem anotar o retorno. Passe o mouse em cima
-// do nome da função e escreva num comentário qual tipo de retorno o TypeScript
-// descobriu.
+// Escreva `dobro(n: number)` sem anotar o retorno. Pare o mouse no nome da
+// função e anote num comentário o tipo de retorno que o TypeScript descobriu.
 //
 // Dicas:
-// 1. Use reduce para somar.
-// 2. O tipo aparece no editor quando você para o mouse em cima.
+// 1. O tipo aparece no editor quando você para o mouse em cima.
 //
 // Escreva sua resposta abaixo:

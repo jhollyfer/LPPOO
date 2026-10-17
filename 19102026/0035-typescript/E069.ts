@@ -1,15 +1,11 @@
 // 0035 · Como o TypeScript funciona
 // Exercício E069
 //
-// Crie três constantes com o tipo escrito na frente: `nome` (string), `idade`
-// (number) e `matriculado` (boolean). Mostre as três com `console.log`.
-//
-// Depois escreva uma linha tentando guardar um texto numa constante de
-// número, leia o erro que o editor mostra e deixe essa linha comentada com //.
+// Crie `const idade: number = 17` e mostre com `console.log`. Depois troque o
+// 17 por '17', com aspas, leia o erro do editor e desfaça a troca.
 //
 // Dicas:
-// 1. O tipo vem depois do nome, com dois pontos: `const idade: number = 17`.
-// 2. boolean só aceita `true` ou `false`, sem aspas.
-// 3. Passe o mouse em cima do sublinhado vermelho para ler a mensagem inteira.
+// 1. O tipo vem depois do nome, com dois pontos.
+// 2. Passe o mouse em cima do sublinhado vermelho para ler a mensagem.
 //
 // Escreva sua resposta abaixo:

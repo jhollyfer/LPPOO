@@ -1660,7 +1660,7 @@ tsx ~/LPPOO/15102026/0014-logico/E028.ts
 ## 0015 · Condicional simples (if)
 
 Até agora, nossos programas rodaram de cima para baixo, linha por linha, sem
-pular nada. Hoje isso muda: o programa vai **decidir**.
+pular nada. Agora isso muda: o programa vai **decidir**.
 
 Quem decide é o `if` (em português, "se"). Funciona assim: **se** a condição
 for verdadeira, o bloco entre `{ }` roda. Se for falsa, o programa pula o
@@ -1767,8 +1767,8 @@ tsx ~/LPPOO/15102026/0015-condicional-simples/E030.ts
 
 ## 0016 · Condicional composta (if / else)
 
-Na aula passada, o `if` sozinho só fazia uma coisa a mais. Hoje ele ganha um
-plano B: o `else` (em português, "senão").
+No assunto anterior, o `if` sozinho só fazia uma coisa a mais. Agora ele ganha
+um plano B: o `else` (em português, "senão").
 
 Funciona assim: **se** a condição for verdadeira, roda o bloco do `if`.
 **Senão**, roda o bloco do `else`.
@@ -1936,19 +1936,21 @@ if (bateria >= 50) {
 tsx ~/LPPOO/15102026/0017-condicional-aninhada/A033.ts
 ```
 
-**Exemplo A034 · Positivo, negativo ou zero**
+**Exemplo A034 · Um if dentro de outro**
 
 ```ts
 import { input } from '#core/input.ts'
 
-const n = Number(input('Número: '))
+const idade = Number(input('Sua idade: ')) // digite: 20
 
-if (n > 0) {
-  console.log('Positivo')
-} else if (n < 0) {
-  console.log('Negativo')
+if (idade >= 18) {
+  // essa pergunta só faz sentido para quem tem 18 ou mais
+  const resposta = input('Tem habilitação? (sim/nao) ') // digite: sim
+  if (resposta === 'sim') {
+    console.log('Pode dirigir!')
+  }
 } else {
-  console.log('Zero')
+  console.log('Ainda não tem idade para dirigir.')
 }
 ```
 
@@ -2104,8 +2106,8 @@ tsx ~/LPPOO/15102026/0018-ternario/E036.ts
 
 ## 0019 · Estrutura de escolha (switch)
 
-Pensa no caixa eletrônico: "digite 1 para saldo, 2 para depósito, 3 para
-sair". Cada número leva para um caminho diferente.
+Pensa no caixa eletrônico: "digite 1 para saldo, 2 para depósito". Cada número
+leva para um caminho diferente.
 
 Quem faz isso no programa é o `switch`. Ele pega um valor e procura a opção
 igual numa lista. Achou (com `===`), roda o que está ali.
@@ -2118,9 +2120,10 @@ Três palavras para guardar:
 - `case`: uma opção da lista.
 - `break`: "pronto, terminei". Sem ele, o programa continua descendo e roda os
   próximos `case` também.
-- `default`: quando nenhuma opção bateu. Faz o papel do `else`.
+- `default`: quando nenhuma opção bateu. Faz o papel do `else`. Ele aparece
+  nos exemplos lá embaixo.
 
-Vamos ver na prática. Você digitou `2`. O `switch` compara com cada `case` e
+Vamos ver na prática. Você digita `2`. O `switch` compara com cada `case` e
 para no `case 2`:
 
 <p align="center"><img src="0019-escolha/ideia.svg" alt="Diagrama da ideia: Estrutura de escolha (switch)" width="858"></p>
@@ -2128,7 +2131,7 @@ para no `case 2`:
 ```ts
 import { input } from '#core/input.ts'
 
-const opcao = Number(input('1 saldo, 2 depósito, 3 sair: ')) // você digita: 2
+const opcao = Number(input('1 saldo, 2 depósito: ')) // você digita: 2
 
 switch (opcao) {
   case 1:
@@ -2137,26 +2140,20 @@ switch (opcao) {
   case 2:
     console.log('Depósito realizado') // você cai aqui
     break
-  case 3:
-    console.log('Até logo!')
-    break
-  default:
-    console.log('Opção inválida')
 }
 ```
 
-No fluxograma, o `switch` vira um losango com uma saída para cada `case`, mais
-uma para o `default`:
+No fluxograma, o `switch` vira um losango com uma saída para cada `case`:
 
-<p align="center"><img src="0019-escolha/fluxograma.svg" alt="Fluxograma: Estrutura de escolha (switch)" width="1070"></p>
+<p align="center"><img src="0019-escolha/fluxograma.svg" alt="Fluxograma: Estrutura de escolha (switch)" width="506"></p>
 
 > [!TIP]
 > Use o `switch` quando a pergunta é "qual destes valores?". Para faixas (maior
 > que, menor que), o certo continua sendo o `if` / `else if`.
 
 > [!NOTE]
-> **Pergunta para a turma:** apague o `break` do `case 2` e digite `2` de novo.
-> O que aparece agora? (Dica: sem o `break`, o programa continua descendo.)
+> **Pergunta para a turma:** apague o `break` do `case 1` e digite `1`. O que
+> aparece agora? (Dica: sem o `break`, o programa continua descendo.)
 
 ### Hora de praticar
 

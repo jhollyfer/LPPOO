@@ -1,14 +1,10 @@
 // Prática em sala · Lista de compras
 //
-// Monte uma lista de compras: adicione itens (push), remova pelo nome
-// (indexOf + splice), busque (includes) e liste tudo (join). Depois deixe tudo
-// num menu que repete até a pessoa escolher sair.
+// Comece com uma lista vazia. Adicione 3 itens (push), remova um pelo nome
+// (indexOf + splice), diga se tem 'café' (includes) e mostre tudo (join).
 //
 // Dicas:
-// 1. Comece sem menu: teste cada operação solta.
-// 2. Depois embrulhe tudo num do...while.
-//
-// Para ler dados do teclado use:
-// import { input } from '#core/input.ts'
+// 1. Lista vazia tipada: `const compras: string[] = []`.
+// 2. `indexOf` devolve `-1` quando não acha o item.
 //
 // Escreva sua resposta abaixo:

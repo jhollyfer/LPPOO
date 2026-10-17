@@ -1,12 +1,10 @@
 // 0039 · Tipo de função e tipagem contextual
 // Exercício E078
 //
-// Crie `type Mensagem = (nome: string) => string` com duas versões, uma formal
-// e uma informal. Escreva `saudarTodos(nomes: string[], mensagem: Mensagem): void`,
-// que mostra a mensagem para cada nome.
+// Crie `type Mensagem = (nome: string) => string` e uma `const saudar: Mensagem`
+// que devolve "Oi, Ana!". Use com `map` em `['Ana', 'Caio']` e mostre.
 //
 // Dicas:
-// 1. Formal: `(nome) => `Prezada(o) ${nome}``.
-// 2. Em `saudarTodos`, use `for...of` e chame `mensagem(nome)`.
+// 1. `['Ana', 'Caio'].map(saudar)`.
 //
 // Escreva sua resposta abaixo:

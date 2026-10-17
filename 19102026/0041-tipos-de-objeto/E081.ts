@@ -1,11 +1,10 @@
 // 0041 · Tipos de objeto e type
 // Exercício E081
 //
-// Crie type Produto = { nome: string; preco: number; emEstoque: boolean }, um
-// array com 3 produtos da cantina e mostre só o nome dos que estão em estoque.
+// Crie `type Produto = { nome: string; preco: number }` e um produto da cantina
+// com esse tipo. Mostre "açaí: R$ 15.00".
 //
 // Dicas:
-// 1. O array é Produto[].
-// 2. Use for...of com um if, ou filter e map.
+// 1. `const acai: Produto = { ... }` e `preco.toFixed(2)`.
 //
 // Escreva sua resposta abaixo:

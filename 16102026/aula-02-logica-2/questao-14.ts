@@ -1,19 +1,13 @@
 // Aula 02 · Questão 14 · Métodos para inserir, remover e buscar
 // Vale ponto. Exemplo resolvido parecido: exemplo-14.ts
-// Para revisar: 0021, 0026, 0031 e 0033 no README da aula 02 (16102026/README.md)
+// Para revisar: 0026, 0031 e 0033 no README da aula 02 (16102026/README.md)
 //
-// Lista de compras com menu, repetindo até a pessoa escolher 0:
-// 1 adicionar item, 2 remover item pelo nome, 3 buscar item (diz se está na lista
-// e em que posição), 4 listar tudo, 0 sair.
+// Fila do posto: comece com 3 nomes. Coloque um no fim, atenda o primeiro e
+// diga se a Ana ainda está na fila. Mostre a fila no fim com join.
 //
 // O que precisa ter:
-// - um string[] começando vazio
-// - do...while para o menu
-// - push para adicionar; indexOf e splice para remover
-// - includes ou indexOf para buscar; join para listar
-// - mensagem quando o item não existe
-//
-// Para ler dados do teclado use:
-// import { input } from '#core/input.ts'
+// - um string[] com push e shift
+// - includes para saber se a Ana está na fila
+// - join para mostrar a fila
 //
 // Escreva sua resposta abaixo:

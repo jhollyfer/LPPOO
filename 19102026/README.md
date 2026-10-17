@@ -163,11 +163,8 @@ const linha: string = 'Centro'
 console.log(linha.toUpperCase()) // CENTRO
 
 // Tire o // de uma das linhas abaixo e veja o editor sublinhar em vermelho.
-// Guardar texto onde se prometeu número:
 // const lotacao: number = 'cheio'
 // erro: Type 'string' is not assignable to type 'number'.
-
-// Usar método de número num texto:
 // console.log(linha.toFixed(2))
 // erro: Property 'toFixed' does not exist on type 'string'. Did you mean 'fixed'?
 ```
@@ -198,17 +195,13 @@ tsx ~/LPPOO/19102026/0035-typescript/A070.ts
 
 **Exercício E069**
 
-Crie três constantes com o tipo escrito na frente: `nome` (string), `idade`
-(number) e `matriculado` (boolean). Mostre as três com `console.log`.
-
-Depois escreva uma linha tentando guardar um texto numa constante de
-número, leia o erro que o editor mostra e deixe essa linha comentada com //.
+Crie `const idade: number = 17` e mostre com `console.log`. Depois troque o
+17 por '17', com aspas, leia o erro do editor e desfaça a troca.
 
 <details><summary>Dicas</summary>
 
-1. O tipo vem depois do nome, com dois pontos: `const idade: number = 17`.
-2. boolean só aceita `true` ou `false`, sem aspas.
-3. Passe o mouse em cima do sublinhado vermelho para ler a mensagem inteira.
+1. O tipo vem depois do nome, com dois pontos.
+2. Passe o mouse em cima do sublinhado vermelho para ler a mensagem.
 
 </details>
 
@@ -218,23 +211,16 @@ tsx ~/LPPOO/19102026/0035-typescript/E069.ts
 
 **Exercício E070**
 
-A linha comentada abaixo tem um erro de tipo. Tire o // e faça o teste:
-
+Tire o // da linha do fim, rode com `tsx` e depois com `pnpm -C ~/LPPOO tsc`.
+Escreva num comentário qual dos dois reclamou:
 
 ```ts
-tsx ~/LPPOO/19102026/0035-typescript/E070.ts   (roda?)
-pnpm -C ~/LPPOO tsc                            (reclama?)
+const total: number = '10' + 5
 ```
-
-
-Escreva, num comentário, por que um dos comandos rodou e o outro reclamou.
-No fim, coloque o // de volta na linha com erro.
 
 <details><summary>Dicas</summary>
 
-1. O `tsx` apaga os tipos e roda. Ele não confere nada.
-2. Quem confere os tipos é o `tsc` (e o editor, enquanto você digita).
-const total: number = '10' + 5
+1. O `tsx` apaga os tipos e roda. Quem confere é o `tsc`.
 
 </details>
 
@@ -265,13 +251,10 @@ Além deles, o TypeScript tem três tipos especiais:
 <p align="center"><img src="0036-tipos-basicos/ideia.svg" alt="Diagrama da ideia: Tipos primitivos, any, unknown e never" width="858"></p>
 
 ```ts
-const nome: string = 'Ana'
 const idade: number = 17
-const matriculado: boolean = true
 
 function tamanho(valor: unknown): number {
   if (typeof valor === 'string') return valor.length // aqui ele é string
-  if (typeof valor === 'number') return valor.toString().length // aqui, number
   return 0
 }
 
@@ -279,10 +262,8 @@ function falhar(mensagem: string): never {
   throw new Error(mensagem) // para o programa: nunca devolve nada
 }
 
-if (idade < 0) falhar('Idade inválida')
-console.log(nome, idade, matriculado) // Ana 17 true
+if (idade < 0) falhar('Idade inválida') // 17 não é menor que 0: segue
 console.log(tamanho('Benjamin')) // 8
-console.log(tamanho(2026)) // 4
 ```
 
 O `throw new Error(mensagem)` é novo: ele para o programa e mostra a mensagem
@@ -291,7 +272,7 @@ de erro. Por isso a `falhar` nunca devolve nada, e o tipo dela é `never`.
 Agora repara no `unknown`. Antes de usar o valor, ele obriga você a fazer as
 perguntas que o fluxograma mostra. Com `'Benjamin'`, a primeira já dá Sim:
 
-<p align="center"><img src="0036-tipos-basicos/fluxograma.svg" alt="Fluxograma: Tipos primitivos, any, unknown e never" width="668"></p>
+<p align="center"><img src="0036-tipos-basicos/fluxograma.svg" alt="Fluxograma: Tipos primitivos, any, unknown e never" width="506"></p>
 
 > [!WARNING]
 > Fuja do `any`. Com ele, o TypeScript deixa passar qualquer coisa, e o erro só
@@ -310,33 +291,23 @@ perguntas que o fluxograma mostra. Com `'Benjamin'`, a primeira já dá Sim:
 > ```
 
 > [!NOTE]
-> **Pergunta para a turma:** quanto dá `tamanho(true)`? Acrescente a linha e
-> rode. (Dica: `true` não é texto nem número.)
+> **Pergunta para a turma:** quanto dá `tamanho(2026)`? Acrescente a linha e
+> rode. (Dica: o `if` só pergunta por texto.)
 
 ### Hora de praticar
 
 Os arquivos ficam em [`0036-tipos-basicos/`](0036-tipos-basicos/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A071 · O empréstimo na biblioteca**
+**Exemplo A071 · O código do livro na biblioteca**
 
 ```ts
-const livro: string = 'A Moreninha'
-const diasComAluno: number = 9
-const devolvido: boolean = false
-
-// o código do livro pode chegar como texto ou como número
+// o código pode chegar como texto ou como número
 function lerCodigo(codigo: unknown): string {
   if (typeof codigo === 'string') return `código ${codigo.toUpperCase()}` // aqui é string
   if (typeof codigo === 'number') return `código ${codigo + 1000}` // aqui é number
   return 'código inválido'
 }
 
-function bloquear(motivo: string): never {
-  throw new Error(motivo) // para o programa: nunca devolve nada
-}
-
-if (diasComAluno > 60) bloquear('Livro dado como perdido')
-console.log(livro, diasComAluno, devolvido) // A Moreninha 9 false
 console.log(lerCodigo('lit-12')) // código LIT-12
 console.log(lerCodigo(42)) // código 1042
 console.log(lerCodigo(true)) // código inválido
@@ -368,13 +339,12 @@ tsx ~/LPPOO/19102026/0036-tipos-basicos/A072.ts
 
 **Exercício E071**
 
-Escreva descrever(valor: unknown): string, que devolve "texto com N letras",
-"número N" ou "outra coisa", conforme o tipo. Teste com 'Ana', 42 e true.
+Escreva `ehTexto(valor: unknown): string`, que devolve 'texto' se o valor for
+string e 'outra coisa' se não for. Teste com 'Ana' e 42.
 
 <details><summary>Dicas</summary>
 
-1. Use typeof valor === 'string' e typeof valor === 'number'.
-2. Depois do if, o TypeScript já sabe o tipo lá dentro.
+1. Use `typeof valor === 'string'`.
 
 </details>
 
@@ -384,14 +354,12 @@ tsx ~/LPPOO/19102026/0036-tipos-basicos/E071.ts
 
 **Exercício E072**
 
-Escreva gritar(valor: unknown): string, que devolve o texto em maiúsculas
-com um ! no fim se o valor for texto, e '?' se não for. Teste com 'oi' e 7.
-Repare que, sem o if, o TypeScript não deixa usar valor.toUpperCase().
+Escreva `gritar(valor: unknown): string`, que devolve o texto em maiúsculas se
+o valor for string, e '?' se não for. Teste com 'oi' e 7.
 
 <details><summary>Dicas</summary>
 
-1. Primeiro confira com typeof valor === 'string'.
-2. Dentro do if, valor já é string: `${valor.toUpperCase()}!`.
+1. Confira com typeof antes de usar `valor.toUpperCase()`.
 
 </details>
 
@@ -499,14 +467,12 @@ tsx ~/LPPOO/19102026/0037-truthy-falsy/A074.ts
 
 **Exercício E073**
 
-Use `Boolean()` para descobrir quem é truthy e quem é falsy: `'0'`, `0`,
-`' '`, `''` e `null`. Antes de rodar, chute a resposta em um comentário.
+Chute num comentário se `'0'`, `0` e `''` são truthy ou falsy. Depois confira
+com `console.log(Boolean(...))`.
 
 <details><summary>Dicas</summary>
 
-1. Cuidado com `'0'` e `' '`: são textos, e texto só é falsy quando está
-   totalmente vazio.
-2. Um `console.log(Boolean(...))` para cada valor deixa a comparação fácil.
+1. `'0'` é texto, e texto só é falsy quando está vazio.
 
 </details>
 
@@ -517,13 +483,11 @@ tsx ~/LPPOO/19102026/0037-truthy-falsy/E073.ts
 **Exercício E074**
 
 Crie `let cidade = undefined` e mostre `cidade ?? 'Não informada'`. Depois
-coloque `'Tabatinga'` e mostre de novo.
+coloque `cidade = 'Tabatinga'` e mostre de novo.
 
 <details><summary>Dicas</summary>
 
-1. `undefined` quer dizer "ainda sem valor".
-2. O `??` só usa o padrão quando o valor é `null` ou `undefined`.
-3. Para dar valor depois, escreva só `cidade = 'Tabatinga'`.
+1. O `??` só usa o padrão quando o valor é `null` ou `undefined`.
 
 </details>
 
@@ -546,17 +510,15 @@ Escrever o tipo na mão é a **anotação**.
 E quando escrever? Guarda essa regra prática:
 
 - **Deixe o TypeScript descobrir** quando a variável já começa com um valor:
-  `let idade = 17` já é `number`.
+  `const notas = [8, 6, 9]` já é `number[]`.
 - **Escreva o tipo** quando ele não tem como adivinhar: nos **parâmetros** de
   função, em **array vazio** e em variável que nasce **sem valor**.
 
 <p align="center"><img src="0038-inferencia/ideia.svg" alt="Diagrama da ideia: Inferência x anotação: quando escrever o tipo" width="858"></p>
 
 ```ts
-let idade = 17 // infere: number
 const turno = 'noite' // infere: 'noite'
 const notas = [8, 6, 9] // infere: number[]
-
 const nomes: string[] = [] // array vazio: escreva o tipo
 let apelido: string // sem valor ainda: escreva o tipo
 
@@ -565,11 +527,8 @@ function dobrar(n: number) {
   return n * 2
 }
 
-idade++
-nomes.push('Ana')
 apelido = 'Zé'
-console.log(idade, turno, notas, nomes, apelido, dobrar(4))
-// 18 noite [ 8, 6, 9 ] [ 'Ana' ] Zé 8
+console.log(turno, notas, nomes, apelido, dobrar(4)) // noite [ 8, 6, 9 ] [] Zé 8
 ```
 
 Repara no `turno`. Com `const`, o tipo é exatamente `'noite'`, e não `string`.
@@ -607,24 +566,17 @@ Os arquivos ficam em [`0038-inferencia/`](0038-inferencia/). Os comandos funcion
 
 ```ts
 const time = 'Onças' // infere o tipo literal 'Onças'
-const golsPorTempo = [2, 1] // infere: number[]
-let total = 0 // infere: number
-for (const gols of golsPorTempo) total += gols
-
+const gols = [2, 1] // infere: number[]
 const artilheiros: string[] = [] // array vazio: escreva o tipo
 artilheiros.push('Caio', 'Lia')
 
-// o parâmetro precisa de tipo; o retorno (string) ele descobre sozinho
-function placar(nosso: number, deles: number) {
-  return `${nosso} x ${deles}`
+// o parâmetro precisa de tipo; o retorno (number) ele descobre sozinho
+function somar(lista: number[]) {
+  return lista.reduce((a, b) => a + b, 0)
 }
 
-let resultado: string // ainda sem valor: escreva o tipo
-if (total > 2) resultado = 'vitória'
-else resultado = 'empate ou derrota'
-
-console.log(`${time} ${placar(total, 2)}: ${resultado}`) // Onças 3 x 2: vitória
-console.log(artilheiros) // [ 'Caio', 'Lia' ]
+console.log(`${time}: ${somar(gols)} gols de ${artilheiros.join(' e ')}`)
+// Onças: 3 gols de Caio e Lia
 ```
 
 ```bash
@@ -649,21 +601,12 @@ tsx ~/LPPOO/19102026/0038-inferencia/A076.ts
 
 **Exercício E075**
 
-O código abaixo tem anotações demais. Copie para baixo deixando só as
-necessárias (as que o TypeScript não consegue adivinhar):
-
-```ts
-const cidade: string = 'Tabatinga'
-let pontos: number = 0
-const lista: string[] = []
-function somar(a: number, b: number): number { return a + b }
-```
+Copie as linhas abaixo deixando o tipo só onde o TypeScript não adivinha:
+`const cidade: string = 'Tabatinga'` e `const lista: string[] = []`.
 
 <details><summary>Dicas</summary>
 
-1. Variável que começa com valor não precisa de tipo.
-2. Array vazio e parâmetros precisam.
-3. O retorno de somar pode ficar ou sair: é opcional.
+1. Variável que começa com valor não precisa de tipo. Array vazio precisa.
 
 </details>
 
@@ -673,14 +616,12 @@ tsx ~/LPPOO/19102026/0038-inferencia/E075.ts
 
 **Exercício E076**
 
-Escreva media(notas: number[]) sem anotar o retorno. Passe o mouse em cima
-do nome da função e escreva num comentário qual tipo de retorno o TypeScript
-descobriu.
+Escreva `dobro(n: number)` sem anotar o retorno. Pare o mouse no nome da
+função e anote num comentário o tipo de retorno que o TypeScript descobriu.
 
 <details><summary>Dicas</summary>
 
-1. Use reduce para somar.
-2. O tipo aparece no editor quando você para o mouse em cima.
+1. O tipo aparece no editor quando você para o mouse em cima.
 
 </details>
 
@@ -784,14 +725,12 @@ tsx ~/LPPOO/19102026/0039-tipo-de-funcao/A078.ts
 
 **Exercício E077**
 
-Crie `type Conversor = (valor: number) => number` e duas funções desse tipo:
-`paraDolar` (divide por 5.4) e `paraEuro` (divide por 6). Escreva
-`converter(valor: number, conversor: Conversor): number` e teste com R$ 100.
+Crie `type Conversor = (valor: number) => number` e
+`const paraDolar: Conversor`, que divide por 5.4. Mostre `paraDolar(100)`.
 
 <details><summary>Dicas</summary>
 
-1. As duas funções podem ser arrows: `const paraDolar: Conversor = (v) => v / 5.4`.
-2. Dentro de `converter`, é só `return conversor(valor)`.
+1. É uma arrow: `(v) => v / 5.4`. O `v` já é number pelo contexto.
 
 </details>
 
@@ -801,14 +740,12 @@ tsx ~/LPPOO/19102026/0039-tipo-de-funcao/E077.ts
 
 **Exercício E078**
 
-Crie `type Mensagem = (nome: string) => string` com duas versões, uma formal
-e uma informal. Escreva `saudarTodos(nomes: string[], mensagem: Mensagem): void`,
-que mostra a mensagem para cada nome.
+Crie `type Mensagem = (nome: string) => string` e uma `const saudar: Mensagem`
+que devolve "Oi, Ana!". Use com `map` em `['Ana', 'Caio']` e mostre.
 
 <details><summary>Dicas</summary>
 
-1. Formal: `(nome) => `Prezada(o) ${nome}``.
-2. Em `saudarTodos`, use `for...of` e chame `mensagem(nome)`.
+1. `['Ana', 'Caio'].map(saudar)`.
 
 </details>
 
@@ -912,13 +849,12 @@ tsx ~/LPPOO/19102026/0040-objetos/A080.ts
 
 **Exercício E079**
 
-Crie um objeto celular com marca, modelo e bateria (número). Mostre uma frase
-com as três informações. Depois a bateria cai 15 e você mostra de novo.
+Crie o objeto `celular` com `marca` e `bateria` (número). A bateria cai 15:
+diminua e mostre a bateria nova.
 
 <details><summary>Dicas</summary>
 
-1. Para ler, use o ponto: celular.bateria.
-2. Para diminuir, vale o -= da aula 01.
+1. Para ler e trocar, use o ponto: `celular.bateria -= 15`.
 
 </details>
 
@@ -928,13 +864,12 @@ tsx ~/LPPOO/19102026/0040-objetos/E079.ts
 
 **Exercício E080**
 
-Crie uma lista com 3 objetos { nome, nota }. Com for...of e if, mostre só
-quem tirou 6 ou mais.
+Crie uma lista com 3 objetos `{ nome, nota }`. Com `for...of` e `if`, mostre
+só o nome de quem tirou 6 ou mais.
 
 <details><summary>Dicas</summary>
 
-1. Dentro do laço, cada item é um objeto: aluno.nota.
-2. A lista é igual ao cardápio do exemplo 1.
+1. Dentro do laço, cada item é um objeto: `aluno.nota`.
 
 </details>
 
@@ -966,21 +901,16 @@ Em código, cada campo vai numa linha, com o nome e o tipo:
 ```ts
 type Aluno = {
   nome: string
-  idade: number
   notas: number[]
 }
 
-const ana: Aluno = { nome: 'Ana', idade: 17, notas: [8, 7, 9] }
-const turma: Aluno[] = [ana, { nome: 'Bia', idade: 16, notas: [6, 9] }]
-
-console.log(ana.nome) // Ana
+const ana: Aluno = { nome: 'Ana', notas: [8, 7, 9] }
+const turma: Aluno[] = [ana, { nome: 'Bia', notas: [6, 9] }]
 
 for (const aluno of turma) {
   const media = aluno.notas.reduce((a, b) => a + b, 0) / aluno.notas.length
-  console.log(`${aluno.nome}: ${media.toFixed(1)}`)
+  console.log(`${aluno.nome}: ${media.toFixed(1)}`) // Ana: 8.0, depois Bia: 7.5
 }
-// Ana: 8.0
-// Bia: 7.5
 ```
 
 Repara no `turma`. Ele é `Aluno[]`, uma lista de fichas.
@@ -1016,28 +946,14 @@ Os arquivos ficam em [`0041-tipos-de-objeto/`](0041-tipos-de-objeto/). Os comand
 **Exemplo A081 · O cardápio da cantina**
 
 ```ts
-type Lanche = {
-  nome: string
-  preco: number
-  ingredientes: string[]
-}
+type Lanche = { nome: string; preco: number }
 
-const caboquinho: Lanche = {
-  nome: 'X-Caboquinho',
-  preco: 12,
-  ingredientes: ['tucumã', 'queijo coalho', 'pão'],
-}
-const cardapio: Lanche[] = [caboquinho, { nome: 'Tapioca', preco: 8, ingredientes: ['goma', 'manteiga'] }]
+const caboquinho: Lanche = { nome: 'X-Caboquinho', preco: 12 }
+const cardapio: Lanche[] = [caboquinho, { nome: 'Tapioca', preco: 8 }]
 
 let total = 0
-for (const lanche of cardapio) {
-  console.log(`${lanche.nome}: R$ ${lanche.preco.toFixed(2)} (${lanche.ingredientes.length} ingredientes)`)
-  total += lanche.preco
-}
-console.log(`Um de cada: R$ ${total.toFixed(2)}`)
-// X-Caboquinho: R$ 12.00 (3 ingredientes)
-// Tapioca: R$ 8.00 (2 ingredientes)
-// Um de cada: R$ 20.00
+for (const lanche of cardapio) total += lanche.preco
+console.log(`Um de cada: R$ ${total.toFixed(2)}`) // Um de cada: R$ 20.00
 
 // console.log(caboquinho.prco)
 // erro: Property 'prco' does not exist on type 'Lanche'. Did you mean 'preco'?
@@ -1067,13 +983,12 @@ tsx ~/LPPOO/19102026/0041-tipos-de-objeto/A082.ts
 
 **Exercício E081**
 
-Crie type Produto = { nome: string; preco: number; emEstoque: boolean }, um
-array com 3 produtos da cantina e mostre só o nome dos que estão em estoque.
+Crie `type Produto = { nome: string; preco: number }` e um produto da cantina
+com esse tipo. Mostre "açaí: R$ 15.00".
 
 <details><summary>Dicas</summary>
 
-1. O array é Produto[].
-2. Use for...of com um if, ou filter e map.
+1. `const acai: Produto = { ... }` e `preco.toFixed(2)`.
 
 </details>
 
@@ -1083,13 +998,12 @@ tsx ~/LPPOO/19102026/0041-tipos-de-objeto/E081.ts
 
 **Exercício E082**
 
-Crie type Endereco e type Pessoa (com nome e endereco). Monte uma pessoa e
-mostre "Ana mora no bairro X, em Y".
+Crie `type Endereco = { cidade: string }` e `type Pessoa = { nome: string;
+endereco: Endereco }`. Monte uma pessoa e mostre a cidade dela.
 
 <details><summary>Dicas</summary>
 
-1. O endereco é um objeto dentro do objeto.
-2. Acesse com pessoa.endereco.bairro.
+1. Acesse com `pessoa.endereco.cidade`.
 
 </details>
 
@@ -1167,16 +1081,12 @@ function passar(c: Cartao): string {
 }
 
 const estudante = { saldo: 10, nome: 'Caio', escola: 'CETAM' }
-const visitante = { saldo: 2, nome: 'Pedro', cidade: 'Tabatinga' }
-
 console.log(passar(estudante)) // Catraca liberada: tem saldo, o resto não importa
-console.log(passar(visitante)) // Saldo insuficiente
 
-// Quem não tem saldo não tem o formato de Cartao:
+// Sem saldo, não tem o formato de Cartao. Tire o // e veja:
 // const turista = { nome: 'Lia' }
 // passar(turista)
-// erro: Argument of type '{ nome: string; }' is not assignable to parameter of type 'Cartao'.
-//       Property 'saldo' is missing in type '{ nome: string; }'
+// erro: Property 'saldo' is missing in type '{ nome: string; }'
 //       but required in type 'Cartao'.
 ```
 
@@ -1204,14 +1114,12 @@ tsx ~/LPPOO/19102026/0042-tipagem-estrutural/A084.ts
 
 **Exercício E083**
 
-Crie type Produto = { nome: string; preco: number } e a função
-etiqueta(p: Produto): string, que devolve "açaí: R$ 15.00". Teste com um objeto
-guardado numa variável que tenha também a propriedade estoque.
+Crie `type Produto = { nome: string }` e `etiqueta(p: Produto): string`.
+Chame com uma variável que tem `nome` e também `estoque`. Funciona?
 
 <details><summary>Dicas</summary>
 
 1. Crie o objeto numa const antes de chamar.
-2. Use p.preco.toFixed(2).
 
 </details>
 
@@ -1221,14 +1129,12 @@ tsx ~/LPPOO/19102026/0042-tipagem-estrutural/E083.ts
 
 **Exercício E084**
 
-Chame a mesma etiqueta passando o objeto escrito ali mesmo, com estoque
-dentro. Leia o erro, deixe a linha comentada e explique num comentário por que
-com a variável deu certo e direto não.
+Agora chame a `etiqueta` do E083 com o objeto escrito ali mesmo, com `estoque`
+dentro. Leia o erro e deixe a linha comentada.
 
 <details><summary>Dicas</summary>
 
-1. É a checagem de propriedade sobrando em objeto literal.
-2. O TypeScript desconfia de erro de digitação quando o objeto é escrito na hora.
+1. Objeto escrito na chamada não pode ter propriedade sobrando.
 
 </details>
 
@@ -1266,10 +1172,7 @@ interface Aluno extends Pessoa {
 }
 
 const bia: Aluno = { nome: 'Bia', matricula: 'A27' }
-
-function apresentar(p: Pessoa): string {
-  return `Olá, ${p.nome}!`
-}
+const apresentar = (p: Pessoa): string => `Olá, ${p.nome}!`
 
 console.log(apresentar(bia)) // Olá, Bia! (todo Aluno também é Pessoa)
 console.log(bia.matricula) // A27
@@ -1309,25 +1212,15 @@ Os arquivos ficam em [`0043-interface/`](0043-interface/). Os comandos funcionam
 **Exemplo A085 · Todo ônibus é um veículo**
 
 ```ts
-interface Veiculo {
-  placa: string
-}
+interface Veiculo { placa: string }
+interface Onibus extends Veiculo { linha: string }
 
-interface Onibus extends Veiculo {
-  linha: string
-  lugares: number
-}
-
-const circular: Onibus = { placa: 'PHX-2B19', linha: 'Centro-Colônia', lugares: 40 }
+const circular: Onibus = { placa: 'PHX-2B19', linha: 'Centro-Colônia' }
 const moto: Veiculo = { placa: 'QZA-7C21' }
+const vistoria = (v: Veiculo): string => `Placa ${v.placa} conferida`
 
-function vistoria(v: Veiculo): string {
-  return `Placa ${v.placa} conferida`
-}
-
-console.log(vistoria(circular)) // Placa PHX-2B19 conferida (todo Onibus também é Veiculo)
+console.log(vistoria(circular)) // Placa PHX-2B19 conferida (todo Onibus é Veiculo)
 console.log(vistoria(moto)) // Placa QZA-7C21 conferida
-console.log(`${circular.linha}: ${circular.lugares} lugares`) // Centro-Colônia: 40 lugares
 
 // O contrário não vale: nem todo Veiculo tem linha.
 // console.log(moto.linha)
@@ -1361,14 +1254,12 @@ tsx ~/LPPOO/19102026/0043-interface/A086.ts
 
 **Exercício E085**
 
-Crie interface Produto (nome, preco) e interface ProdutoComDesconto, que
-estende Produto e acrescenta desconto (número). Escreva precoFinal(p:
-ProdutoComDesconto): number e teste.
+Crie `interface Produto { nome: string }` e `interface Bebida extends Produto`,
+com `ml: number`. Monte uma bebida e mostre o nome e os ml.
 
 <details><summary>Dicas</summary>
 
-1. Use extends Produto.
-2. precoFinal = preco - preco * desconto.
+1. A Bebida precisa ter as duas propriedades.
 
 </details>
 
@@ -1378,19 +1269,12 @@ tsx ~/LPPOO/19102026/0043-interface/E085.ts
 
 **Exercício E086**
 
-Reescreva como interface:
-
-```ts
-type Endereco = { cidade: string; bairro: string }
-type Escola = { nome: string; endereco: Endereco }
-```
-
+Reescreva como interface: `type Escola = { nome: string; cidade: string }`.
 Monte uma escola e mostre a cidade dela.
 
 <details><summary>Dicas</summary>
 
-1. interface Endereco { ... } sem o sinal de igual.
-2. Dentro de Escola, endereco: Endereco.
+1. `interface Escola { ... }`, sem o sinal de igual.
 
 </details>
 
@@ -1425,15 +1309,10 @@ type Aluno = {
 
 const ana: Aluno = { matricula: 'A01', nome: 'Ana' } // sem apelido: tudo bem
 const ze: Aluno = { matricula: 'A02', nome: 'José', apelido: 'Zé' }
-
-function chamar(a: Aluno): string {
-  return a.apelido ?? a.nome // não tem apelido? usa o nome
-}
+const chamar = (a: Aluno): string => a.apelido ?? a.nome // sem apelido? usa o nome
 
 console.log(chamar(ana)) // Ana
 console.log(chamar(ze)) // Zé
-ana.nome = 'Ana Clara' // pode: nome não é readonly
-console.log(ana.nome) // Ana Clara
 ```
 
 Repara na função `chamar`. Como o apelido pode faltar, ela precisa decidir o
@@ -1468,26 +1347,17 @@ Os arquivos ficam em [`0044-opcional-readonly/`](0044-opcional-readonly/). Os co
 **Exemplo A087 · O pedido de açaí**
 
 ```ts
-type Pedido = {
-  readonly numero: number
-  tamanho: string
-  cobertura?: string
-}
+type Pedido = { readonly numero: number; tamanho: string; cobertura?: string }
 
-const pedido1: Pedido = { numero: 101, tamanho: '500 ml' } // sem cobertura: tudo bem
-const pedido2: Pedido = { numero: 102, tamanho: '300 ml', cobertura: 'granola' }
+const pedido: Pedido = { numero: 101, tamanho: '500 ml' } // sem cobertura: tudo bem
+const etiqueta = (p: Pedido): string => `#${p.numero} ${p.tamanho}, ${p.cobertura ?? 'puro'}`
 
-function etiqueta(p: Pedido): string {
-  return `#${p.numero} ${p.tamanho}, ${p.cobertura ?? 'puro'}` // sem cobertura? escreve puro
-}
+console.log(etiqueta(pedido)) // #101 500 ml, puro
+pedido.tamanho = '700 ml' // pode: o cliente mudou de ideia
+pedido.cobertura = 'granola' // pode: o opcional pode chegar depois
+console.log(etiqueta(pedido)) // #101 700 ml, granola
 
-console.log(etiqueta(pedido1)) // #101 500 ml, puro
-console.log(etiqueta(pedido2)) // #102 300 ml, granola
-pedido1.tamanho = '700 ml' // pode: o cliente mudou de ideia
-console.log(etiqueta(pedido1)) // #101 700 ml, puro
-
-// O número do pedido não muda depois de criado:
-// pedido1.numero = 999
+// pedido.numero = 999
 // erro: Cannot assign to 'numero' because it is a read-only property.
 ```
 
@@ -1514,14 +1384,12 @@ tsx ~/LPPOO/19102026/0044-opcional-readonly/A088.ts
 
 **Exercício E087**
 
-Crie type Produto com readonly codigo, nome e descricao opcional. Escreva
-etiqueta(p: Produto): string que mostra a descrição, ou "sem descrição" quando
-não tiver.
+Crie `type Produto = { nome: string; descricao?: string }` e um produto sem
+descrição. Mostre a descrição dele, com 'sem descrição' no lugar.
 
 <details><summary>Dicas</summary>
 
-1. descricao?: string.
-2. Use p.descricao ?? 'sem descrição'.
+1. Use `p.descricao ?? 'sem descrição'`.
 
 </details>
 
@@ -1531,13 +1399,12 @@ tsx ~/LPPOO/19102026/0044-opcional-readonly/E087.ts
 
 **Exercício E088**
 
-Tente trocar o codigo de um produto. Leia o erro, deixe a linha comentada e
-explique num comentário por que um código de produto deveria ser readonly.
+Crie um produto com `readonly codigo` e tente trocar o código. Leia o erro e
+deixe a linha comentada.
 
 <details><summary>Dicas</summary>
 
 1. A mensagem fala em read-only property.
-2. Pense: o que acontece com o estoque se o código mudar?
 
 </details>
 
@@ -1576,11 +1443,8 @@ function horario(turno: Turno): string {
   return '19h às 22h'
 }
 
-const meuTurno: Turno = 'noite'
 const matricula: Matricula = 'A27' // ou 27: as duas servem
-
-console.log(horario(meuTurno)) // 19h às 22h
-console.log(matricula) // A27
+console.log(horario('noite'), matricula) // 19h às 22h A27
 ```
 
 Bônus: escreva `horario('` no editor e ele sugere as três opções. A lista
@@ -1610,7 +1474,6 @@ Os arquivos ficam em [`0045-uniao-literais/`](0045-uniao-literais/). Os comandos
 
 ```ts
 type Dificuldade = 'fácil' | 'médio' | 'difícil'
-type Jogador = string | number // o apelido ou o número da camisa
 
 function vidas(nivel: Dificuldade): number {
   if (nivel === 'fácil') return 5
@@ -1618,16 +1481,10 @@ function vidas(nivel: Dificuldade): number {
   return 1
 }
 
-const escolhida: Dificuldade = 'médio'
-const jogador1: Jogador = 'Boto'
-const jogador2: Jogador = 10
-
-console.log(`${jogador1} começa com ${vidas(escolhida)} vidas`) // Boto começa com 3 vidas
-console.log(`Jogador ${jogador2} começa com ${vidas('difícil')} vida`) // Jogador 10 começa com 1 vida
+console.log(`No médio, você começa com ${vidas('médio')} vidas`) // No médio, você começa com 3 vidas
 
 // vidas('impossível')
-// erro: Argument of type '"impossível"' is not assignable
-//       to parameter of type 'Dificuldade'.
+// erro: Argument of type '"impossível"' is not assignable to parameter of type 'Dificuldade'.
 ```
 
 ```bash
@@ -1753,20 +1610,14 @@ Os arquivos ficam em [`0046-narrowing/`](0046-narrowing/). Os comandos funcionam
 
 ```ts
 function paraReais(preco: number | string): string {
-  if (typeof preco === 'string') {
-    // aqui preco é string: veio digitado, às vezes com espaço, como ' 3.50 '
-    return `R$ ${Number(preco.trim()).toFixed(2)}`
-  }
+  if (typeof preco === 'string') return `R$ ${Number(preco.trim()).toFixed(2)}` // aqui é string
   return `R$ ${preco.toFixed(2)}` // aqui só sobrou number
 }
 
-const etiquetasDaFeira: (number | string)[] = [5, ' 3.50 ', 12]
-for (const preco of etiquetasDaFeira) console.log(paraReais(preco))
-// R$ 5.00
-// R$ 3.50
-// R$ 12.00
+console.log(paraReais(5)) // R$ 5.00
+console.log(paraReais(' 3.50 ')) // R$ 3.50
 
-// Antes do typeof, não dá para usar trim: número não tem trim.
+// Antes do typeof, não dá: número não tem trim.
 // preco.trim()
 // erro: Property 'trim' does not exist on type 'string | number'.
 ```
@@ -1779,9 +1630,7 @@ tsx ~/LPPOO/19102026/0046-narrowing/A091.ts
 
 ```ts
 function chamar(nome: string, apelido?: string): string {
-  if (apelido) {
-    return apelido // aqui apelido é string (o undefined e o '' ficaram de fora)
-  }
+  if (apelido) return apelido // aqui apelido é string: o undefined ficou de fora
   return nome
 }
 
@@ -1791,8 +1640,7 @@ function temIntervalo(turno: Turno): boolean {
   return true // aqui sobrou 'manhã' | 'tarde'
 }
 
-console.log(chamar('José', 'Zé'), chamar('Ana')) // Zé Ana
-console.log(temIntervalo('noite'), temIntervalo('tarde')) // false true
+console.log(chamar('José', 'Zé'), chamar('Ana'), temIntervalo('noite')) // Zé Ana false
 ```
 
 ```bash
@@ -2033,20 +1881,14 @@ Os arquivos ficam em [`0048-intersecao/`](0048-intersecao/). Os comandos funcion
 type Livro = { titulo: string; autor: string }
 type Emprestimo = { aluno: string; dias: number }
 
-type LivroEmprestado = Livro & Emprestimo // tem tudo dos dois
+const guarani: Livro & Emprestimo = { titulo: 'O Guarani', autor: 'José de Alencar', aluno: 'Caio', dias: 7 }
 
-const guarani: LivroEmprestado = { titulo: 'O Guarani', autor: 'José de Alencar', aluno: 'Caio', dias: 7 }
-
-function aviso(l: LivroEmprestado): string {
-  return `${l.aluno} devolve "${l.titulo}", de ${l.autor}, em ${l.dias} dias`
-}
-
-console.log(aviso(guarani)) // Caio devolve "O Guarani", de José de Alencar, em 7 dias
+console.log(`${guarani.aluno} devolve "${guarani.titulo}" em ${guarani.dias} dias`)
+// Caio devolve "O Guarani" em 7 dias
 
 // Faltou a parte do Emprestimo:
-// const semDono: LivroEmprestado = { titulo: 'Iracema', autor: 'José de Alencar' }
-// erro: Type '{ titulo: string; autor: string; }' is not assignable to type 'LivroEmprestado'.
-//       ... is missing the following properties from type 'Emprestimo': aluno, dias
+// const semDono: Livro & Emprestimo = { titulo: 'Iracema', autor: 'José de Alencar' }
+// erro: ... is missing the following properties from type 'Emprestimo': aluno, dias
 ```
 
 ```bash
@@ -2131,18 +1973,12 @@ const nota: [string, number] = ['Ana', 8]
 const [nome, valor] = nota // tira cada posição para uma variável
 console.log(`${nome} tirou ${valor}`) // Ana tirou 8
 
-enum Turno {
-  Manha = 'manhã',
-  Tarde = 'tarde',
-  Noite = 'noite',
-}
-const meuTurno: Turno = Turno.Noite
-console.log(meuTurno) // noite
+enum Turno { Manha = 'manhã', Tarde = 'tarde', Noite = 'noite' }
+console.log(Turno.Noite) // noite
 
 const DIAS = ['seg', 'ter', 'qua'] as const
 type Dia = (typeof DIAS)[number] // 'seg' | 'ter' | 'qua'
 const hoje: Dia = 'ter'
-console.log(hoje, DIAS.length) // ter 3
 ```
 
 A linha `const [nome, valor] = nota` se chama **desestruturação**. Ela abre a
@@ -2182,20 +2018,14 @@ Os arquivos ficam em [`0049-tuplas-enum-as-const/`](0049-tuplas-enum-as-const/).
 **Exemplo A097 · Uma lista de tuplas: o ranking da turma**
 
 ```ts
-const ranking: [string, number][] = [
-  ['Bia', 10],
-  ['Caio', 9],
-  ['Ana', 8],
-]
+const ranking: [string, number][] = [['Bia', 10], ['Caio', 9], ['Ana', 8]]
 
-let lugar = 1
 for (const [aluno, nota] of ranking) {
-  console.log(`${lugar}º ${aluno}: ${nota}`)
-  lugar++
+  console.log(`${aluno}: ${nota}`)
 }
-// 1º Bia: 10
-// 2º Caio: 9
-// 3º Ana: 8
+// Bia: 10
+// Caio: 9
+// Ana: 8
 ```
 
 ```bash
@@ -2207,24 +2037,14 @@ tsx ~/LPPOO/19102026/0049-tuplas-enum-as-const/A097.ts
 ```ts
 enum Nivel {
   Basico = 'básico',
-  Intermediario = 'intermediário',
   Avancado = 'avançado',
 }
 
 function aulasPorSemana(n: Nivel): number {
-  switch (n) {
-    case Nivel.Basico:
-      return 3
-    case Nivel.Intermediario:
-      return 2
-    case Nivel.Avancado:
-      return 1
-  }
+  return n === Nivel.Basico ? 3 : 1
 }
 
-const nivelDaBia: Nivel = Nivel.Intermediario
-console.log(`Nível ${nivelDaBia}: ${aulasPorSemana(nivelDaBia)} aulas por semana`)
-// Nível intermediário: 2 aulas por semana
+console.log(`Nível ${Nivel.Avancado}: ${aulasPorSemana(Nivel.Avancado)} aula por semana`) // Nível avançado: 1 aula por semana
 ```
 
 ```bash
@@ -2277,8 +2097,8 @@ número, de texto, de aluno...
 Escrever uma função para cada tipo? Repetição. Usar `any`? Aí você joga o
 TypeScript fora.
 
-A saída é o **generic**. Ele é um **tipo de mentira**, o `T`, que vira o tipo
-de verdade na hora do uso.
+A saída é o **generic**. Ele é um **tipo coringa**, o `T`, que vira o tipo de
+verdade na hora do uso.
 
 Pensa na caixa da mudança. A caixa é a mesma para livros, pratos ou roupas. O
 que muda é a etiqueta. O `T` é essa etiqueta.
@@ -2298,10 +2118,14 @@ const nome = primeiro(['Ana', 'Bia']) // aqui T = string
 console.log(nota, nome) // 8 Ana
 ```
 
-O `T` também serve em tipos: `type Caixa<T> = { etiqueta: string; conteudo: T }`.
+Por que `T | undefined`? Porque a lista pode estar vazia, e aí não existe
+primeiro item.
 
-E olha só: você já usou generics sem saber. `Array<string>` (aula 02) é um
-tipo genérico.
+O `T` também serve em tipos: `type Caixa<T> = { etiqueta: string; conteudo: T }`.
+E olha só: `string[]` também se escreve `Array<string>`. É um tipo genérico que
+já vem pronto.
+
+O fluxograma mostra o que o TypeScript faz na chamada com números:
 
 <p align="center"><img src="0050-generics/fluxograma.svg" alt="Fluxograma: Generics (<T>)" width="1086"></p>
 
@@ -2330,17 +2154,11 @@ function ultimo<T>(fila: T[]): T | undefined {
   return fila[fila.length - 1]
 }
 
-const filaDaCantina = ['Ana', 'Caio', 'Lia']
-const senhas = [41, 42, 43, 44]
+const nome = ultimo(['Ana', 'Caio', 'Lia']) // aqui T = string
+const senha = ultimo([41, 42, 43]) // aqui T = number
+console.log(nome, senha) // Lia 43
 
-const nome = ultimo(filaDaCantina) // aqui T = string
-const senha = ultimo(senhas) // aqui T = number
-
-console.log(nome, senha) // Lia 44
-console.log(`Próxima senha: ${(senha ?? 0) + 1}`) // Próxima senha: 45
-console.log(ultimo<string>([])) // undefined: fila vazia
-
-// const errado: string | undefined = ultimo(senhas)
+// const errado: string | undefined = ultimo([41, 42, 43])
 // erro: Type 'number | undefined' is not assignable to type 'string | undefined'.
 ```
 
@@ -2377,7 +2195,7 @@ passe o mouse em cima dos resultados para ver o tipo.
 <details><summary>Dicas</summary>
 
 1. Índice sorteado: Math.floor(Math.random() * lista.length).
-2. lista[i] já é T | undefined por causa do noUncheckedIndexedAccess.
+2. lista[i] já é T | undefined: a lista pode estar vazia.
 
 </details>
 
@@ -2431,20 +2249,19 @@ Vamos ver na prática:
 type Turno = 'manhã' | 'tarde' | 'noite'
 type Aluno = { matricula: string; nome: string; idade: number }
 
-type AlunoNovo = Omit<Aluno, 'matricula'> // a escola é que gera a matrícula
-type Ficha = Pick<Aluno, 'nome'> // só o nome
-type Mudanca = Partial<Aluno> // pode mudar qualquer coisa, ou nada
-
-const novo: AlunoNovo = { nome: 'Bia', idade: 16 }
-const mudanca: Mudanca = { idade: 17 }
+const novo: Omit<Aluno, 'matricula'> = { nome: 'Bia', idade: 16 } // a escola gera a matrícula
+const mudanca: Partial<Aluno> = { idade: 17 } // pode mudar qualquer coisa, ou nada
 const bia: Aluno = { matricula: 'A27', ...novo, ...mudanca }
-const ficha: Ficha = { nome: bia.nome }
-
+const ficha: Pick<Aluno, 'nome'> = { nome: bia.nome } // só o nome
 const vagas: Record<Turno, number> = { manhã: 30, tarde: 25, noite: 40 }
 
 console.log(bia) // { matricula: 'A27', nome: 'Bia', idade: 17 }
 console.log(ficha.nome, vagas.noite) // Bia 40
 ```
+
+Repara nos três pontinhos: `...novo` copia as propriedades do `novo` para
+dentro do objeto da Bia. Se a mesma propriedade aparece duas vezes, vale a
+última. Por isso a idade ficou 17, a da `mudanca`.
 
 Para escolher o utilitário, pergunte: o que eu quero guardar do tipo
 original?
@@ -2473,45 +2290,38 @@ Os arquivos ficam em [`0051-tipos-utilitarios/`](0051-tipos-utilitarios/). Os co
 **Exemplo A101 · Os produtos da banca na feira**
 
 ```ts
-type Produto = { codigo: number; nome: string; preco: number; estoque: number }
+type Produto = { codigo: number; nome: string; preco: number }
 
-// a etiqueta só precisa de nome e preço
 function etiqueta(p: Pick<Produto, 'nome' | 'preco'>): string {
   return `${p.nome}: R$ ${p.preco.toFixed(2)}`
 }
 
-// a mudança pode trazer qualquer campo, ou nenhum
-function atualizar(p: Produto, mudanca: Partial<Produto>): Produto {
-  return { ...p, ...mudanca }
-}
-
-const novo: Omit<Produto, 'codigo'> = { nome: 'cupuaçu', preco: 6, estoque: 20 } // o código vem depois
-const cupuacu: Produto = { codigo: 1, ...novo }
-const depois = atualizar(cupuacu, { preco: 5 })
+const cupuacu: Produto = { codigo: 1, nome: 'cupuaçu', preco: 6 }
+const mudanca: Partial<Produto> = { preco: 5 }
 
 console.log(etiqueta(cupuacu)) // cupuaçu: R$ 6.00
-console.log(etiqueta(depois)) // cupuaçu: R$ 5.00
+console.log(etiqueta({ ...cupuacu, ...mudanca })) // cupuaçu: R$ 5.00
 console.log(etiqueta({ nome: 'tucumã', preco: 3 })) // tucumã: R$ 3.00: o Pick só pede nome e preço
-console.log(depois) // { codigo: 1, nome: 'cupuaçu', preco: 5, estoque: 20 }
 ```
 
 ```bash
 tsx ~/LPPOO/19102026/0051-tipos-utilitarios/A101.ts
 ```
 
-**Exemplo A102 · Record: uma chave para cada turno**
+**Exemplo A102 · Record: uma nota para cada matéria**
 
 ```ts
-type Turno = 'manhã' | 'tarde' | 'noite'
+type Materia = 'português' | 'matemática' | 'história'
 
-const vagas: Record<Turno, number> = { manhã: 30, tarde: 25, noite: 40 }
-const inscritos: Record<Turno, number> = { manhã: 28, tarde: 25, noite: 12 }
+const notas: Record<Materia, number> = { português: 8, matemática: 6, história: 10 }
+const materias: Materia[] = ['português', 'matemática', 'história']
 
-const turnos: Turno[] = ['manhã', 'tarde', 'noite']
-for (const t of turnos) {
-  const sobra = vagas[t] - inscritos[t]
-  console.log(`${t.padEnd(6)} sobram ${sobra} vagas`)
+for (const m of materias) {
+  console.log(`${m}: ${notas[m]}`)
 }
+// português: 8
+// matemática: 6
+// história: 10
 ```
 
 ```bash
@@ -2537,14 +2347,13 @@ tsx ~/LPPOO/19102026/0051-tipos-utilitarios/E101.ts
 
 **Exercício E102**
 
-Crie type Dia = 'seg' | 'ter' | 'qua' | 'qui' | 'sex' e um
-Record<Dia, string> com o lanche de cada dia da semana. Peça um dia ao usuário
-e mostre o lanche.
+Crie type Dia = 'seg' | 'ter' | 'qua' e um Record<Dia, string> com o lanche
+de cada dia. Mostre o lanche de terça.
 
 <details><summary>Dicas</summary>
 
-1. Antes de usar o texto digitado como Dia, confira se ele é um dos cinco.
-2. Depois de conferir, use: cardapio[dia as Dia].
+1. O Record exige uma chave para cada dia.
+2. Para ler: cardapio.ter.
 
 </details>
 
@@ -2695,14 +2504,13 @@ tsx ~/LPPOO/19102026/0052-type-guards-satisfies/E103.ts
 
 **Exercício E104**
 
-Crie const horarios = { manha: '07:00', tarde: '13:00', noite: '19:00' }
-satisfies Record<string, string> e mostre horarios.noite. Depois troque o
-satisfies por uma anotação (: Record<string, string>) e escreva num
-comentário o que mudou no tipo de horarios.noite.
+Crie const horarios = { manha: '07:00', noite: '19:00' } satisfies
+Record<string, string>. Passe o mouse em horarios.noite. Depois troque o
+satisfies por uma anotação (: Record<string, string>) e compare o tipo.
 
 <details><summary>Dicas</summary>
 
-1. Passe o mouse em cima de horarios.noite nos dois casos.
+1. Com o satisfies, o tipo é string.
 2. Com a anotação, aparece o | undefined.
 
 </details>
@@ -2832,15 +2640,13 @@ tsx ~/LPPOO/19102026/0053-tsconfig/A106.ts
 
 **Exercício E105**
 
-Escreva neste arquivo três erros de propósito: uma variável que nunca é
-usada, uma função com retorno string que esquece o return em um caminho e
-um lista[5].toFixed() sem conferir. Rode pnpm tsc, copie as três mensagens
-para um comentário e depois corrija cada uma.
+Crie de propósito uma variável que nunca é usada e rode pnpm -C ~/LPPOO tsc.
+Copie a mensagem do erro para um comentário e depois corrija o código.
 
 <details><summary>Dicas</summary>
 
-1. Rode o tsc de dentro de ~/LPPOO: cd ~/LPPOO && pnpm tsc.
-2. Cada mensagem começa com o arquivo e a linha: procure o E deste exercício.
+1. A mensagem começa com o arquivo e a linha: procure E105.
+2. Para corrigir, use a variável num console.log ou apague a linha.
 
 </details>
 
@@ -2850,14 +2656,12 @@ tsx ~/LPPOO/19102026/0053-tsconfig/E105.ts
 
 **Exercício E106**
 
-Abra o tsconfig.json e escolha duas opções da tabela do assunto 0053.
-Para cada uma, escreva aqui um pequeno código que ela barraria e, embaixo, o
-mesmo código do jeito certo (deixe o errado comentado para o tsc não
-reclamar).
+Escolha uma opção da tabela do assunto 0053. Escreva, comentado, um código
+que ela barra e, embaixo, o mesmo código do jeito certo.
 
 <details><summary>Dicas</summary>
 
-1. Exemplos de opção: noUnusedParameters, noFallthroughCasesInSwitch.
+1. Uma boa escolha: noUnusedParameters (função com parâmetro que não é usado).
 2. Comente o código errado com // na frente de cada linha.
 
 </details>
@@ -3016,16 +2820,14 @@ tsx ~/LPPOO/19102026/0054-juntando-tudo/A108.ts
 
 **Exercício E107**
 
-Modele uma biblioteca: interface Livro { readonly codigo: number; titulo:
-string; situacao: Situacao }, em que Situacao é uma união discriminada:
-{ tipo: 'disponivel' } ou { tipo: 'emprestado'; aluno: string; devolucao:
-string }. Escreva descrever(l: Livro): string e mostre uma lista de três
-livros.
+Crie type Situacao = { tipo: 'preparando' } | { tipo: 'pronto'; balcao: number }
+e interface Pedido { readonly numero: number; situacao: Situacao }. Escreva
+avisar(p: Pedido): string e teste com um pedido de cada tipo.
 
 <details><summary>Dicas</summary>
 
-1. O switch vai em l.situacao.tipo.
-2. Só no case 'emprestado' existem aluno e devolucao.
+1. Pergunte se p.situacao.tipo === 'pronto'.
+2. Só dentro desse if existe p.situacao.balcao.
 
 </details>
 
@@ -3035,14 +2837,14 @@ tsx ~/LPPOO/19102026/0054-juntando-tudo/E107.ts
 
 **Exercício E108**
 
-Peça três produtos ao usuário (nome, preço e categoria: 'lanche', 'bebida'
-ou 'doce'). Guarde num Produto[] e, no fim, mostre o total gasto em cada
-categoria usando um Record<Categoria, number>.
+Crie type Categoria = 'lanche' | 'bebida' | 'doce' e o type guard
+ehCategoria(texto: string): texto is Categoria. Peça uma categoria ao usuário
+e diga se a cantina tem essa categoria.
 
 <details><summary>Dicas</summary>
 
-1. Valide a categoria com um type guard, como o ehTurno do segundo exemplo.
-2. Comece o Record com tudo zerado: { lanche: 0, bebida: 0, doce: 0 }.
+1. Copie a ideia do ehTurno do segundo exemplo (A108).
+2. Guarde as categorias numa lista com as const e use .some().
 
 </details>
 

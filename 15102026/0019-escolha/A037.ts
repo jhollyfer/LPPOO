@@ -1,16 +1,13 @@
-// A037 · Dia da semana
+// A037 · O default pega o resto
 
 import { input } from '#core/input.ts'
 
-const dia = Number(input('Dia (1 a 7): '))
+const cor = input('Cor do semáforo: ') // digite: amarelo
 
-switch (dia) {
-  case 1:
-    console.log('Domingo')
-    break
-  case 7:
-    console.log('Sábado')
+switch (cor) {
+  case 'verde':
+    console.log('Pode seguir')
     break
   default:
-    console.log('Dia útil')
+    console.log('Atenção: pare o carro') // amarelo, vermelho ou outra cor
 }

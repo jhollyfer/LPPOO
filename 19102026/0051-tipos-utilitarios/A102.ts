@@ -1,12 +1,13 @@
-// A102 · Record: uma chave para cada turno
+// A102 · Record: uma nota para cada matéria
 
-type Turno = 'manhã' | 'tarde' | 'noite'
+type Materia = 'português' | 'matemática' | 'história'
 
-const vagas: Record<Turno, number> = { manhã: 30, tarde: 25, noite: 40 }
-const inscritos: Record<Turno, number> = { manhã: 28, tarde: 25, noite: 12 }
+const notas: Record<Materia, number> = { português: 8, matemática: 6, história: 10 }
+const materias: Materia[] = ['português', 'matemática', 'história']
 
-const turnos: Turno[] = ['manhã', 'tarde', 'noite']
-for (const t of turnos) {
-  const sobra = vagas[t] - inscritos[t]
-  console.log(`${t.padEnd(6)} sobram ${sobra} vagas`)
+for (const m of materias) {
+  console.log(`${m}: ${notas[m]}`)
 }
+// português: 8
+// matemática: 6
+// história: 10

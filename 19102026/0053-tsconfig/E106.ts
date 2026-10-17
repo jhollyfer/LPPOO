@@ -1,13 +1,11 @@
 // 0053 · tsconfig: strict e as regras do projeto
 // Exercício E106
 //
-// Abra o tsconfig.json e escolha duas opções da tabela do assunto 0053.
-// Para cada uma, escreva aqui um pequeno código que ela barraria e, embaixo, o
-// mesmo código do jeito certo (deixe o errado comentado para o tsc não
-// reclamar).
+// Escolha uma opção da tabela do assunto 0053. Escreva, comentado, um código
+// que ela barra e, embaixo, o mesmo código do jeito certo.
 //
 // Dicas:
-// 1. Exemplos de opção: noUnusedParameters, noFallthroughCasesInSwitch.
+// 1. Uma boa escolha: noUnusedParameters (função com parâmetro que não é usado).
 // 2. Comente o código errado com // na frente de cada linha.
 //
 // Escreva sua resposta abaixo:

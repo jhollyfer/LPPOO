@@ -1,12 +1,11 @@
 // Prática em sala · Pagamento com união discriminada
 //
-// Crie type Pagamento com três formatos: pix (chave), cartao (parcelas) e
-// dinheiro (recebido). Escreva cobrar(total: number, p: Pagamento): string, que
-// mostra a chave do Pix, o valor de cada parcela ou o troco. Use switch e o
-// default com never.
+// Crie type Pagamento com dois formatos: pix (chave) e dinheiro (recebido).
+// Escreva cobrar(total: number, p: Pagamento): string, que mostra a chave do
+// Pix ou o troco. Use switch e o default com never.
 //
 // Dicas:
-// 1. No case do cartão: (total / p.parcelas).toFixed(2).
-// 2. No dinheiro, confira se o recebido dá para pagar.
+// 1. O troco é p.recebido - total.
+// 2. Copie o default com never do quadro Poder do TypeScript do assunto 0047.
 //
 // Escreva sua resposta abaixo:

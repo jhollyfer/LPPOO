@@ -8,8 +8,8 @@ número, de texto, de aluno...
 Escrever uma função para cada tipo? Repetição. Usar `any`? Aí você joga o
 TypeScript fora.
 
-A saída é o **generic**. Ele é um **tipo de mentira**, o `T`, que vira o tipo
-de verdade na hora do uso.
+A saída é o **generic**. Ele é um **tipo coringa**, o `T`, que vira o tipo de
+verdade na hora do uso.
 
 Pensa na caixa da mudança. A caixa é a mesma para livros, pratos ou roupas. O
 que muda é a etiqueta. O `T` é essa etiqueta.
@@ -29,10 +29,14 @@ const nome = primeiro(['Ana', 'Bia']) // aqui T = string
 console.log(nota, nome) // 8 Ana
 ```
 
-O `T` também serve em tipos: `type Caixa<T> = { etiqueta: string; conteudo: T }`.
+Por que `T | undefined`? Porque a lista pode estar vazia, e aí não existe
+primeiro item.
 
-E olha só: você já usou generics sem saber. `Array<string>` (aula 02) é um
-tipo genérico.
+O `T` também serve em tipos: `type Caixa<T> = { etiqueta: string; conteudo: T }`.
+E olha só: `string[]` também se escreve `Array<string>`. É um tipo genérico que
+já vem pronto.
+
+O fluxograma mostra o que o TypeScript faz na chamada com números:
 
 {{fluxograma}}
 
