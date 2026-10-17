@@ -327,12 +327,12 @@ console.log(gols) // 2
 tsx ~/LPPOO/15102026/0003-variaveis/A005.ts
 ```
 
-**Exemplo A006 · Anotação de tipo**
+**Exemplo A006 · Várias variáveis mudando de valor**
 
 ```ts
-let nome: string = 'Ana'
-let idade: number = 17
-let matriculado: boolean = false
+let nome = 'Ana'
+let idade = 17
+let matriculado = false
 
 console.log(nome, idade, matriculado)
 
@@ -366,14 +366,14 @@ tsx ~/LPPOO/15102026/0003-variaveis/E005.ts
 
 **Exercício E006**
 
-Monte sua ficha com anotação de tipo: seu nome (`string`), sua idade
-(`number`) e se você gosta de programar (`boolean`, seja sincero). Mostre
-tudo.
+Monte sua ficha com `let`: seu nome, sua idade e se você gosta de programar
+(`true` ou `false`, seja sincero). Mostre tudo. Depois mude a idade para a
+que você vai ter no ano que vem e mostre de novo.
 
 <details><summary>Dicas</summary>
 
-1. A anotação vem depois do nome, com dois-pontos: `let nome: string = ...`.
-2. Texto vai entre aspas, número e boolean vão sem aspas.
+1. Texto vai entre aspas. Número, `true` e `false` vão sem aspas.
+2. Para mudar o valor, escreva só `idade = ...`, sem o `let`.
 3. Um `console.log` aceita vários valores separados por vírgula.
 
 </details>
@@ -656,8 +656,8 @@ Os arquivos ficam em [`0006-numero/`](0006-numero/). Os comandos funcionam de qu
 **Exemplo A011 · Inteiros e decimais**
 
 ```ts
-const idade: number = 17
-const altura: number = 1.68
+const idade = 17
+const altura = 1.68
 
 console.log(idade, altura)
 console.log(typeof altura) // number
@@ -768,8 +768,8 @@ Os arquivos ficam em [`0007-booleano/`](0007-booleano/). Os comandos funcionam d
 **Exemplo A013 · Valores booleanos**
 
 ```ts
-const estaChovendo: boolean = true
-const temAula: boolean = false
+const estaChovendo = true
+const temAula = false
 
 console.log(estaChovendo, temAula)
 ```
@@ -1461,7 +1461,9 @@ tsx ~/LPPOO/15102026/0013-comparacao/A025.ts
 **Exemplo A026 · Comparando texto**
 
 ```ts
-const cidade: string = 'Tabatinga'
+import { input } from '#core/input.ts'
+
+const cidade = input('Sua cidade: ') // digite: Tabatinga
 
 console.log(cidade === 'Tabatinga') // true
 console.log(cidade === 'tabatinga') // false (maiúscula importa)
@@ -1473,13 +1475,13 @@ tsx ~/LPPOO/15102026/0013-comparacao/A026.ts
 
 **Exercício E025**
 
-Crie `const resposta: number = 10` e `const time: string = 'Flamengo'`.
-Mostre se `resposta` é igual a 10, se é diferente de 5 e se `time` é igual a
-`flamengo`, tudo minúsculo.
+Peça um número e o nome de um time. Mostre se o número é igual a 10, se é
+diferente de 5 e se o time é igual a `flamengo`, tudo minúsculo. Teste
+digitando 10 e Flamengo.
 
 <details><summary>Dicas</summary>
 
-1. Igual é `===` e diferente é `!==`.
+1. Converta o número com `Number`. Igual é `===` e diferente é `!==`.
 2. Maiúscula e minúscula contam: `F` e `f` são letras diferentes.
 3. Antes de rodar, escreva em comentário o que você acha que vai sair.
 
@@ -1686,7 +1688,7 @@ tsx ~/LPPOO/15102026/0015-truthy-falsy/A029.ts
 **Exemplo A030 · Valor padrão com ??**
 
 ```ts
-let apelido: string | undefined = undefined
+let apelido = undefined // ainda sem apelido
 
 console.log(apelido ?? 'sem apelido') // sem apelido
 
@@ -1717,12 +1719,12 @@ tsx ~/LPPOO/15102026/0015-truthy-falsy/E029.ts
 
 **Exercício E030**
 
-Crie `let cidade: string | undefined` sem valor e mostre `cidade ?? 'Não
-informada'`. Depois coloque `'Tabatinga'` e mostre de novo.
+Crie `let cidade = undefined` e mostre `cidade ?? 'Não informada'`. Depois
+coloque `'Tabatinga'` e mostre de novo.
 
 <details><summary>Dicas</summary>
 
-1. Sem valor, a variável começa como `undefined`.
+1. `undefined` quer dizer "ainda sem valor".
 2. O `??` só usa o padrão quando o valor é `null` ou `undefined`.
 3. Para dar valor depois, escreva só `cidade = 'Tabatinga'`.
 

@@ -2,8 +2,7 @@
 //
 // Os produtos têm nome e preço:
 //
-//   type Produto = { nome: string; preco: number }
-//   const produtos: Produto[] = [
+//   const produtos = [
 //     { nome: 'açaí', preco: 15 },
 //     { nome: 'tapioca', preco: 8 },
 //     { nome: 'suco', preco: 6 },

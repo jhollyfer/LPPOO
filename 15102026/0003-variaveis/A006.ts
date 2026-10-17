@@ -1,8 +1,8 @@
-// A006 · Anotação de tipo
+// A006 · Várias variáveis mudando de valor
 
-let nome: string = 'Ana'
-let idade: number = 17
-let matriculado: boolean = false
+let nome = 'Ana'
+let idade = 17
+let matriculado = false
 
 console.log(nome, idade, matriculado)
 

@@ -1,6 +1,8 @@
 // A026 · Comparando texto
 
-const cidade: string = 'Tabatinga'
+import { input } from '#core/input.ts'
+
+const cidade = input('Sua cidade: ') // digite: Tabatinga
 
 console.log(cidade === 'Tabatinga') // true
 console.log(cidade === 'tabatinga') // false (maiúscula importa)

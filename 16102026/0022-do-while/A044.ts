@@ -2,7 +2,7 @@
 
 import { input } from '#core/input.ts'
 
-let senha: string
+let senha // a caixa nasce vazia: o do pede a senha antes de conferir
 
 do {
   senha = input('Senha do Wi-Fi: ')

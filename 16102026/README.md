@@ -208,7 +208,7 @@ e a nota fica guardada:
 ```ts
 import { input } from '#core/input.ts'
 
-let nota: number
+let nota // a caixa nasce vazia: o do pede a nota antes de conferir
 
 do {
   nota = Number(input('Nota (0 a 10): ')) // você digita 15, depois 8
@@ -236,7 +236,7 @@ Os arquivos ficam em [`0022-do-while/`](0022-do-while/). Os comandos funcionam d
 ```ts
 import { input } from '#core/input.ts'
 
-let nota: number
+let nota // a caixa nasce vazia: o do pede a nota antes de conferir
 
 do {
   nota = Number(input('Nota (0 a 10): '))
@@ -254,7 +254,7 @@ tsx ~/LPPOO/16102026/0022-do-while/A043.ts
 ```ts
 import { input } from '#core/input.ts'
 
-let senha: string
+let senha // a caixa nasce vazia: o do pede a senha antes de conferir
 
 do {
   senha = input('Senha do Wi-Fi: ')
@@ -274,7 +274,7 @@ Quando a idade for válida, mostre "Idade registrada: X".
 
 <details><summary>Dicas</summary>
 
-1. Crie `let idade: number` antes do `do`.
+1. Crie `let idade` (sem valor) antes do `do`.
 2. A pergunta do `while` é a idade inválida: menor que 0 OU maior que 120.
 3. Teste digitando 200 primeiro: o programa tem que pedir de novo.
 

@@ -18,7 +18,7 @@ e a nota fica guardada:
 ```ts
 import { input } from '#core/input.ts'
 
-let nota: number
+let nota // a caixa nasce vazia: o do pede a nota antes de conferir
 
 do {
   nota = Number(input('Nota (0 a 10): ')) // você digita 15, depois 8

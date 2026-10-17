@@ -1,6 +1,6 @@
 // A030 · Valor padrão com ??
 
-let apelido: string | undefined = undefined
+let apelido = undefined // ainda sem apelido
 
 console.log(apelido ?? 'sem apelido') // sem apelido
 

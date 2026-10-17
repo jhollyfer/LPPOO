@@ -5,7 +5,7 @@
 // Quando a idade for válida, mostre "Idade registrada: X".
 //
 // Dicas:
-// 1. Crie `let idade: number` antes do `do`.
+// 1. Crie `let idade` (sem valor) antes do `do`.
 // 2. A pergunta do `while` é a idade inválida: menor que 0 OU maior que 120.
 // 3. Teste digitando 200 primeiro: o programa tem que pedir de novo.
 //

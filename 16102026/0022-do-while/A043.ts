@@ -2,7 +2,7 @@
 
 import { input } from '#core/input.ts'
 
-let nota: number
+let nota // a caixa nasce vazia: o do pede a nota antes de conferir
 
 do {
   nota = Number(input('Nota (0 a 10): '))
