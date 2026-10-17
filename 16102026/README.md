@@ -39,7 +39,7 @@ de gavetas com o índice embaixo de cada uma, começando do 0.
 > No nosso projeto, `notas[i]` pode ser `undefined`, porque a posição `i` pode
 > não existir. Por isso o editor reclama quando você faz conta direto com um
 > item do array. Para percorrer arrays, prefira o `for...of` (assunto 0025). O
-> porquê está no assunto 0053 da [aula 03](../19102026/README.md).
+> porquê está no assunto 0052 da [aula 03](../19102026/README.md).
 
 ## Os assuntos
 
@@ -940,7 +940,7 @@ Guarda isso: escrever a função não roda nada. Ela só trabalha quando alguém
 No fluxograma, a chamada entra, a função faz a conta e o `return` devolve o
 `7`, que vai para a caixinha `media`:
 
-<p align="center"><img src="0027-funcoes/fluxograma.svg" alt="Fluxograma: Funções" width="1385"></p>
+<p align="center"><img src="0027-funcoes/fluxograma.svg" alt="Fluxograma: Funções" width="1356"></p>
 
 > [!NOTE]
 > **Pergunta para a turma:** acrescente `console.log(calcularMedia(10, 5))` no
@@ -1017,55 +1017,54 @@ tsx ~/LPPOO/16102026/0027-funcoes/E054.ts
 
 ## 0028 · Parâmetro opcional, valor padrão e void
 
-Até agora, toda função recebia tudo em toda chamada. Hoje isso muda: tem
+Até agora, toda chamada mandava todos os valores. Hoje isso muda: tem
 parâmetro que pode ficar de fora.
 
-Pensa no pedido de açaí. O tamanho você tem que dizer. A granola é opcional. E
-o copo, se você não falar nada, vem o de sempre.
+Pensa no pedido de pastel na cantina. O sabor você tem que dizer. Se não falar
+o tamanho, vem o médio. E o suco é opcional: pede quem quer.
 
 Com parâmetro é igual:
 
-- **Obrigatório**: `precos: number[]`. Sem ele, a função não tem com o que
-  trabalhar.
-- **Com valor padrão**: `desconto: number = 0`. Se a chamada não mandar, vale
-  `0`.
-- **Opcional**: `moeda?: string`. Pode ficar de fora, e aí dentro da função ele
-  vale `undefined`.
+- **Obrigatório**: `sabor: string`. Sem ele, não tem pedido.
+- **Com valor padrão**: `tamanho: string = 'médio'`. Se a chamada não mandar,
+  vale `'médio'`.
+- **Opcional**: `suco?: string`. O `?` diz que pode ficar de fora. Aí, dentro
+  da função, ele vale `undefined`, a caixa vazia.
 
-E tem função que não devolve nada. Ela só faz alguma coisa, como mostrar na
-tela. O tipo do retorno dela é **`void`** (vazio).
+Olha o pedido da Ana. Ela só disse `'carne'`. O tamanho veio do padrão e o suco
+ficou vazio:
 
-<p align="center"><img src="0028-parametros/ideia.svg" alt="Diagrama da ideia: Parâmetro opcional, valor padrão e void" width="858"></p>
+<p align="center"><img src="0028-parametros/ideia.svg" alt="Diagrama da ideia: Parâmetro opcional, valor padrão e void" width="969"></p>
 
 ```ts
-function totalComDesconto(precos: number[], desconto: number = 0): number {
-  const total = precos.reduce((acc, p) => acc + p, 0)
-  return total - total * desconto
+function pedirPastel(sabor: string, tamanho: string = 'médio', suco?: string): void {
+  const extra = suco === undefined ? 'sem suco' : `com suco de ${suco}`
+  console.log(`Pastel de ${sabor}, ${tamanho}, ${extra}`)
 }
 
-function mostrarTotal(total: number, moeda?: string): void {
-  const simbolo = moeda === undefined ? 'R$' : moeda // não veio? usa R$
-  console.log(`${simbolo} ${total.toFixed(2)}`)
-}
-
-mostrarTotal(totalComDesconto([10, 20])) // R$ 30.00
-mostrarTotal(totalComDesconto([10, 20], 0.1)) // R$ 27.00
-mostrarTotal(5, 'US$') // US$ 5.00
+pedirPastel('carne') // Pastel de carne, médio, sem suco
+pedirPastel('queijo', 'grande', 'cupuaçu') // Pastel de queijo, grande, com suco de cupuaçu
 ```
 
-Repara no fluxograma o que o `totalComDesconto` decide sozinho. Na primeira
-chamada não veio desconto, então vale o padrão:
+Como o `suco` pode não ter vindo, a função confere com `suco === undefined`
+antes de usar. É o ternário que você já conhece.
 
-<p align="center"><img src="0028-parametros/fluxograma.svg" alt="Fluxograma: Parâmetro opcional, valor padrão e void" width="475"></p>
+E repara no fim da primeira linha: o tipo do retorno é **`void`** (vazio). Essa
+função não tem `return`. Ela não devolve nada, só mostra na tela.
+
+No fluxograma, siga o pedido da Ana. As duas perguntas são o que a função
+decide sozinha:
+
+<p align="center"><img src="0028-parametros/fluxograma.svg" alt="Fluxograma: Parâmetro opcional, valor padrão e void" width="511"></p>
 
 > [!NOTE]
-> Guarda isso: parâmetros opcionais e com valor padrão vêm **depois** dos
+> Guarda isso: os parâmetros com valor padrão e os opcionais vêm **depois** dos
 > obrigatórios.
 
 > [!NOTE]
-> **Pergunta para a turma:** o que aparece com
-> `mostrarTotal(totalComDesconto([10, 20], 0.5))`? Acrescente a linha e rode.
-> (Dica: `0.5` é metade.)
+> **Pergunta para a turma:** o que aparece com `pedirPastel('frango',
+> 'cupuaçu')`? Acrescente a linha e rode. (Dica: os valores entram na ordem dos
+> parâmetros.)
 
 ### Hora de praticar
 
@@ -1387,47 +1386,46 @@ tsx ~/LPPOO/16102026/0030-arrow-callback/E060.ts
 
 ## 0031 · Consultar: indexOf, includes, find, findIndex, some, every
 
-Tem açaí na lista? Em que posição? Algum produto passa de R$ 20? Todos custam
-mais de R$ 5?
+Você chega na cantina e olha a lista de preços do dia: R$ 6, R$ 25 e R$ 9. Na
+cabeça, você faz perguntas. Tem lanche de R$ 9? Em que lugar da lista ele está?
+Qual é o primeiro que passa de R$ 20?
 
 Até agora, a gente mexia no array: colocava e tirava itens. Hoje a gente só
-**pergunta**. Estes métodos fazem perguntas para o array e não mudam nada nele:
-
-- `includes(x)`: tem o `x`? Responde `true` ou `false`.
-- `indexOf(x)`: em que posição está o `x`? Responde o índice, ou `-1` se não tem.
-- `find(regra)`: devolve o **primeiro item** que passa na regra.
-- `findIndex(regra)`: devolve a **posição** desse primeiro item.
-- `some(regra)`: **algum** item passa? `true` ou `false`.
-- `every(regra)`: **todos** passam? `true` ou `false`.
-
-Os quatro últimos recebem uma **regra** escrita assim: `(p) => p > 20`.
-
-Por enquanto, leia como "para cada preço `p`, pergunte: `p > 20`?". Na
-[0030](#0030--arrow-functions-e-callbacks) você aprende o que é essa setinha.
+**pergunta**. Estes métodos olham o array e respondem, sem mudar nada nele:
 
 <p align="center"><img src="0031-consultar/ideia.svg" alt="Diagrama da ideia: Consultar: indexOf, includes, find, findIndex, some, every" width="858"></p>
 
 ```ts
 const precos: number[] = [6, 25, 9]
 
-console.log(precos.includes(25)) // true
-console.log(precos.indexOf(9)) // 2
-console.log(precos.indexOf(100)) // -1: não tem
-console.log(precos.find((p) => p > 20)) // 25
-console.log(precos.findIndex((p) => p > 20)) // 1
-console.log(precos.some((p) => p > 20)) // true
-console.log(precos.every((p) => p > 5)) // true
+console.log(precos.includes(9)) // true: tem lanche de R$ 9
+console.log(precos.indexOf(9)) // 2: ele está na posição 2
+console.log(precos.find((p) => p > 20)) // 25: o primeiro acima de R$ 20
+console.log(precos.some((p) => p > 20)) // true: algum passa de R$ 20
 ```
 
-Repara no fluxograma. Ele mostra o que o `find` faz por dentro: olha item por
-item e para no primeiro que passa na regra. O 6 não passa, o 25 passa, e o 9
-nem é olhado:
+O `includes` e o `indexOf` procuram um valor exato. Se o valor não está na
+lista, o `indexOf` responde `-1`.
+
+O `find` e o `some` recebem uma **regra**: `(p) => p > 20`. Lembra da arrow da
+[0030](#0030--arrow-functions-e-callbacks)? É ela, passada como callback. O
+método chama a regra para cada preço e vê se dá `true`.
+
+Tem mais dois da mesma família:
+
+- `findIndex(regra)`: igual ao `find`, mas devolve a **posição**.
+  `precos.findIndex((p) => p > 20)` dá `1`.
+- `every(regra)`: **todos** passam? `precos.every((p) => p > 5)` dá `true`.
+
+No fluxograma, olha o `find` por dentro. Ele olha preço por preço e para no
+primeiro que passa na regra. O 6 não passa, o 25 passa, e o 9 nem é olhado:
 
 <p align="center"><img src="0031-consultar/fluxograma.svg" alt="Fluxograma: Consultar: indexOf, includes, find, findIndex, some, every" width="800"></p>
 
 > [!NOTE]
-> **Pergunta para a turma:** o que o `find` devolve quando nenhum item passa na
-> regra? Troque o `p > 20` por `p > 100` e rode. (E o `findIndex`?)
+> **Pergunta para a turma:** o que o `find` devolve quando nenhum preço passa
+> na regra? Troque o `p > 20` por `p > 100` e rode. (Dica: é a caixa vazia da
+> 0007.)
 
 ### Hora de praticar
 
@@ -1507,49 +1505,52 @@ tsx ~/LPPOO/16102026/0031-consultar/E062.ts
 
 ## 0032 · Transformar: map, filter, reduce, forEach
 
-Pensa numa esteira de fábrica: entra fruta, sai suco. Esses quatro métodos são
-esteiras para arrays.
+As notas da turma saíram: 8, 4, 9 e 5. O professor quer três coisas. Dar 1
+ponto de bônus para todo mundo, ver quem passou com 6 ou mais e somar tudo.
 
-Eles passam por **todos os itens** do array, um por um, e aplicam uma regra em
-cada:
+Para isso tem os métodos que passam por **todos os itens**, um por um, e
+aplicam uma regra em cada:
 
 - `map(regra)`: **transforma** cada item e devolve um array novo do mesmo
   tamanho.
-- `filter(regra)`: **filtra**, devolvendo um array novo só com os itens que
-  passam na regra.
-- `reduce(regra, inicio)`: **junta** todos os itens num valor só, como uma soma.
-- `forEach(regra)`: só **faz algo** com cada item (mostrar, por exemplo). Não
-  devolve nada.
+- `filter(regra)`: **filtra** e devolve um array novo só com quem passa na
+  regra.
+- `reduce(regra, inicio)`: **junta** todos os itens num valor só, como uma
+  soma.
 
-Vamos ver na prática. As notas da turma são `[8, 4, 9, 5]`. O `map` dobra cada
-uma, o `filter` deixa só as de 6 para cima e o `reduce` soma tudo:
+Repara no desenho: o array `notas` entra nos três, e cada um entrega uma coisa
+diferente:
 
 <p align="center"><img src="0032-transformar/ideia.svg" alt="Diagrama da ideia: Transformar: map, filter, reduce, forEach" width="858"></p>
 
 ```ts
 const notas: number[] = [8, 4, 9, 5]
 
-const dobradas = notas.map((n) => n * 2) // [16, 8, 18, 10]
+const comBonus = notas.map((n) => n + 1) // [9, 5, 10, 6]
 const aprovadas = notas.filter((n) => n >= 6) // [8, 9]
 const soma = notas.reduce((acc, n) => acc + n, 0) // 26
-
-notas.forEach((n) => console.log(`Nota: ${n}`))
 ```
 
-O `reduce` assusta no começo. Calma.
+A regra de cada um é uma arrow, igual à da
+[0030](#0030--arrow-functions-e-callbacks). O `map` chama a regra para cada
+nota e guarda o que ela devolve.
 
-O `acc` (de acumulador) começa com o `0` do fim. A cada item, ele vira
-`acc + n`: 0 + 8 = 8, 8 + 4 = 12, 12 + 9 = 21, 21 + 5 = 26.
+O `reduce` assusta no começo. Calma. O `acc` (de acumulador) começa com o `0`
+do fim. A cada nota, ele vira `acc + n`: 0 + 8 = 8, 8 + 4 = 12, 12 + 9 = 21,
+21 + 5 = 26.
 
-Agora olha o `map` por dentro, no fluxograma. Ele monta um array novo, item por
-item, e não mexe no original:
+E tem o `forEach(regra)`: ele só **faz algo** com cada item e não devolve
+nada. `notas.forEach((n) => console.log(n))` mostra uma nota por linha.
+
+Agora olha o `map` por dentro, no fluxograma. Ele monta um array novo, nota por
+nota, e não mexe no original:
 
 <p align="center"><img src="0032-transformar/fluxograma.svg" alt="Fluxograma: Transformar: map, filter, reduce, forEach" width="469"></p>
 
 > [!NOTE]
 > Dá para **encadear**: o resultado de um vira a entrada do próximo.
-> `notas.filter((n) => n >= 6).map((n) => n * 2)` filtra e depois dobra:
-> `[16, 18]`.
+> `notas.filter((n) => n >= 6).map((n) => n + 1)` filtra e depois dá o bônus:
+> `[9, 10]`.
 
 > [!NOTE]
 > **Pergunta para a turma:** se você trocar o `0` do `reduce` por `10`, quanto

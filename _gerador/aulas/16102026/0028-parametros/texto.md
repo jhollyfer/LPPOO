@@ -1,53 +1,52 @@
 ## 0028 · Parâmetro opcional, valor padrão e void
 
-Até agora, toda função recebia tudo em toda chamada. Hoje isso muda: tem
+Até agora, toda chamada mandava todos os valores. Hoje isso muda: tem
 parâmetro que pode ficar de fora.
 
-Pensa no pedido de açaí. O tamanho você tem que dizer. A granola é opcional. E
-o copo, se você não falar nada, vem o de sempre.
+Pensa no pedido de pastel na cantina. O sabor você tem que dizer. Se não falar
+o tamanho, vem o médio. E o suco é opcional: pede quem quer.
 
 Com parâmetro é igual:
 
-- **Obrigatório**: `precos: number[]`. Sem ele, a função não tem com o que
-  trabalhar.
-- **Com valor padrão**: `desconto: number = 0`. Se a chamada não mandar, vale
-  `0`.
-- **Opcional**: `moeda?: string`. Pode ficar de fora, e aí dentro da função ele
-  vale `undefined`.
+- **Obrigatório**: `sabor: string`. Sem ele, não tem pedido.
+- **Com valor padrão**: `tamanho: string = 'médio'`. Se a chamada não mandar,
+  vale `'médio'`.
+- **Opcional**: `suco?: string`. O `?` diz que pode ficar de fora. Aí, dentro
+  da função, ele vale `undefined`, a caixa vazia.
 
-E tem função que não devolve nada. Ela só faz alguma coisa, como mostrar na
-tela. O tipo do retorno dela é **`void`** (vazio).
+Olha o pedido da Ana. Ela só disse `'carne'`. O tamanho veio do padrão e o suco
+ficou vazio:
 
 {{ideia}}
 
 ```ts
-function totalComDesconto(precos: number[], desconto: number = 0): number {
-  const total = precos.reduce((acc, p) => acc + p, 0)
-  return total - total * desconto
+function pedirPastel(sabor: string, tamanho: string = 'médio', suco?: string): void {
+  const extra = suco === undefined ? 'sem suco' : `com suco de ${suco}`
+  console.log(`Pastel de ${sabor}, ${tamanho}, ${extra}`)
 }
 
-function mostrarTotal(total: number, moeda?: string): void {
-  const simbolo = moeda === undefined ? 'R$' : moeda // não veio? usa R$
-  console.log(`${simbolo} ${total.toFixed(2)}`)
-}
-
-mostrarTotal(totalComDesconto([10, 20])) // R$ 30.00
-mostrarTotal(totalComDesconto([10, 20], 0.1)) // R$ 27.00
-mostrarTotal(5, 'US$') // US$ 5.00
+pedirPastel('carne') // Pastel de carne, médio, sem suco
+pedirPastel('queijo', 'grande', 'cupuaçu') // Pastel de queijo, grande, com suco de cupuaçu
 ```
 
-Repara no fluxograma o que o `totalComDesconto` decide sozinho. Na primeira
-chamada não veio desconto, então vale o padrão:
+Como o `suco` pode não ter vindo, a função confere com `suco === undefined`
+antes de usar. É o ternário que você já conhece.
+
+E repara no fim da primeira linha: o tipo do retorno é **`void`** (vazio). Essa
+função não tem `return`. Ela não devolve nada, só mostra na tela.
+
+No fluxograma, siga o pedido da Ana. As duas perguntas são o que a função
+decide sozinha:
 
 {{fluxograma}}
 
 > [!NOTE]
-> Guarda isso: parâmetros opcionais e com valor padrão vêm **depois** dos
+> Guarda isso: os parâmetros com valor padrão e os opcionais vêm **depois** dos
 > obrigatórios.
 
 > [!NOTE]
-> **Pergunta para a turma:** o que aparece com
-> `mostrarTotal(totalComDesconto([10, 20], 0.5))`? Acrescente a linha e rode.
-> (Dica: `0.5` é metade.)
+> **Pergunta para a turma:** o que aparece com `pedirPastel('frango',
+> 'cupuaçu')`? Acrescente a linha e rode. (Dica: os valores entram na ordem dos
+> parâmetros.)
 
 {{pratique}}
