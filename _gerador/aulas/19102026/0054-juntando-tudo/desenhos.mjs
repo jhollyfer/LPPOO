@@ -4,7 +4,7 @@ const f = fileira(
   0,
   [
     { rotulo: 'AlunoNovo (entrada)', texto: ["nome: 'Ana'", 'nota: 8', "turno: 'manhã'"] },
-    { rotulo: 'cadastrar()', texto: ['gera a', 'matrícula A01'] },
+    { rotulo: 'cadastrar()', texto: ['gera a', 'matrícula A1'] },
     { rotulo: 'Situacao (saída)', texto: ["status: 'aprovado'", 'media: 8'] },
   ],
   ['entra', 'situacao()'],

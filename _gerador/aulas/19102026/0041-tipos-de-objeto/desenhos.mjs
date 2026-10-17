@@ -26,7 +26,7 @@ export const ideia = {
     },
   ],
   setas: [{ de: 't', para: 'a', rotulo: 'preenche' }],
-  notas: [{ x: 900, y: 340, texto: 'ana.nome é Ana. ana.notas é [8, 7, 9].', cor: 'roxo' }],
+  notas: [{ x: 900, y: 290, texto: 'ana.nome é Ana. ana.notas é [8, 7, 9].', cor: 'roxo' }],
 }
 
 export const fluxograma = {

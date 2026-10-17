@@ -15,7 +15,7 @@ export const ideia = {
       x: 1080,
       y: 20,
       w: 420,
-      texto: ['A015.ts:3', "'x' is declared", 'but never read'],
+      texto: ['E105.ts:3', "'x' is declared but its", 'value is never read.'],
     },
     { id: 'x', x: 680, y: 330, w: 280, cor: 'cinza', rotulo: 'só roda', texto: 'tsx' },
   ],

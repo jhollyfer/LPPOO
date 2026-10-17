@@ -1,11 +1,10 @@
-// A105 · noUncheckedIndexedAccess: o item pode não existir
+// A105 · noUncheckedIndexedAccess: a posição pode estar vazia
 
-const notas = [8, 10, 6]
+const fila = ['Ana', 'Bia', 'Caio']
 
-const primeira = notas[0] // number | undefined
-if (primeira !== undefined) {
-  console.log(primeira.toFixed(1))
-}
+console.log(fila[2]?.toUpperCase() ?? 'ninguém') // CAIO
+console.log(fila[4]?.toUpperCase() ?? 'ninguém') // ninguém
 
-const decima = notas[9] // não existe: undefined
-console.log(decima ?? 'sem nota na posição 9')
+// Sem o ?., o tsc reclama, porque fila[2] é string | undefined:
+// fila[2].toUpperCase()
+// erro: Object is possibly 'undefined'.

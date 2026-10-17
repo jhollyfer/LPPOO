@@ -11,7 +11,7 @@ O nosso liga as regras mais rígidas:
 | Opção                         | O que ela cobra                                         |
 | ----------------------------- | ------------------------------------------------------- |
 | `strict`                      | o pacote principal: `null`/`undefined` tratados, nada de `any` escondido |
-| `noUncheckedIndexedAccess`    | `lista[i]` pode ser `undefined` (aula 02)               |
+| `noUncheckedIndexedAccess`    | `lista[i]` pode ser `undefined`: a posição pode não existir |
 | `noUnusedLocals`              | variável criada e nunca usada                           |
 | `noUnusedParameters`          | parâmetro que a função não usa                          |
 | `noImplicitReturns`           | função que esquece o `return` em algum caminho          |
@@ -28,14 +28,14 @@ linha:
 ```ts
 const notas = [8, 10, 6]
 
-const primeira = notas[0] // number | undefined, por causa do noUncheckedIndexedAccess
+const primeira = notas[0] // number | undefined: a posição pode não existir
 if (primeira !== undefined) {
   console.log(primeira.toFixed(1)) // 8.0
 }
 
 function situacao(nota: number): string {
   if (nota >= 7) return 'aprovado'
-  return 'recuperação' // sem esta linha: erro do noImplicitReturns
+  return 'recuperação' // sem esta linha, o tsc reclama: falta um return
 }
 
 console.log(situacao(6)) // recuperação
@@ -51,7 +51,7 @@ O ciclo do dia a dia é este:
 > cada erro.
 
 > [!TIP]
-> **Poder do TypeScript:** esqueceu uma variável sem usar? Vira aviso, e o
+> **Poder do TypeScript:** esqueceu uma variável sem usar? Vira erro, e o
 > código fica limpo:
 >
 > ```ts

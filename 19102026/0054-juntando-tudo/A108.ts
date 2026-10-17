@@ -1,4 +1,4 @@
-// A108 · Cadastro pelo teclado, com type guard no turno
+// A108 · Turno pelo teclado, com type guard
 
 import { input } from '#core/input.ts'
 
@@ -6,18 +6,9 @@ const TURNOS = ['manhã', 'tarde', 'noite'] as const
 type Turno = (typeof TURNOS)[number]
 
 function ehTurno(texto: string): texto is Turno {
-  return (TURNOS as readonly string[]).includes(texto)
+  return TURNOS.some((t) => t === texto)
 }
 
-const nome = input('Nome: ')
-const nota = Number(input('Nota: '))
-const turnoDigitado = input('Turno (manhã, tarde ou noite): ')
-
-if (!ehTurno(turnoDigitado)) {
-  console.log(`Turno "${turnoDigitado}" não existe.`)
-} else if (Number.isNaN(nota)) {
-  console.log('A nota precisa ser um número.')
-} else {
-  const situacao = nota >= 7 ? 'aprovado' : 'recuperação'
-  console.log(`${nome}, turno da ${turnoDigitado}: ${situacao}`)
-}
+const turno = input('Turno (manhã, tarde ou noite): ')
+if (ehTurno(turno)) console.log(`Matrícula feita no turno da ${turno}`) // aqui turno é Turno
+else console.log(`Turno "${turno}" não existe.`)

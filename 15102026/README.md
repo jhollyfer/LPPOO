@@ -2145,7 +2145,7 @@ switch (opcao) {
 
 No fluxograma, o `switch` vira um losango com uma saída para cada `case`:
 
-<p align="center"><img src="0019-escolha/fluxograma.svg" alt="Fluxograma: Estrutura de escolha (switch)" width="506"></p>
+<p align="center"><img src="0019-escolha/fluxograma.svg" alt="Fluxograma: Estrutura de escolha (switch)" width="579"></p>
 
 > [!TIP]
 > Use o `switch` quando a pergunta é "qual destes valores?". Para faixas (maior
@@ -2159,22 +2159,19 @@ No fluxograma, o `switch` vira um losango com uma saída para cada `case`:
 
 Os arquivos ficam em [`0019-escolha/`](0019-escolha/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A037 · Dia da semana**
+**Exemplo A037 · O default pega o resto**
 
 ```ts
 import { input } from '#core/input.ts'
 
-const dia = Number(input('Dia (1 a 7): '))
+const cor = input('Cor do semáforo: ') // digite: amarelo
 
-switch (dia) {
-  case 1:
-    console.log('Domingo')
-    break
-  case 7:
-    console.log('Sábado')
+switch (cor) {
+  case 'verde':
+    console.log('Pode seguir')
     break
   default:
-    console.log('Dia útil')
+    console.log('Atenção: pare o carro') // amarelo, vermelho ou outra cor
 }
 ```
 
@@ -2182,28 +2179,20 @@ switch (dia) {
 tsx ~/LPPOO/15102026/0019-escolha/A037.ts
 ```
 
-**Exemplo A038 · Menu de opções**
+**Exemplo A038 · Tamanho do açaí**
 
 ```ts
 import { input } from '#core/input.ts'
 
-console.log('1 - Ver saldo')
-console.log('2 - Depositar')
-console.log('3 - Sair')
-const opcao = input('Escolha: ')
+const tamanho = input('Tamanho (P ou G): ').toUpperCase() // digite: g
 
-switch (opcao) {
-  case '1':
-    console.log('Seu saldo é R$ 100,00')
+switch (tamanho) {
+  case 'P':
+    console.log('Açaí pequeno: R$ 10')
     break
-  case '2':
-    console.log('Depósito realizado')
+  case 'G':
+    console.log('Açaí grande: R$ 18') // o g virou G e caiu aqui
     break
-  case '3':
-    console.log('Até logo!')
-    break
-  default:
-    console.log('Opção inválida')
 }
 ```
 

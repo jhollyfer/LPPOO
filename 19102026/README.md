@@ -2394,10 +2394,14 @@ function entrada(p: Aluno | Visitante): string {
 }
 
 console.log(entrada({ nome: 'Bia', matricula: 'A27' })) // Bia, matrícula A27
-console.log(entrada({ nome: 'Seu João', motivo: 'reunião' })) // Seu João, visitante: reunião
 ```
 
-<p align="center"><img src="0052-type-guards-satisfies/fluxograma.svg" alt="Fluxograma: Type guards (x is T) e satisfies" width="480"></p>
+O `'matricula' in p` pergunta se o objeto tem a propriedade `matricula`. Só o
+aluno tem.
+
+No fluxograma, a Bia passa na conferência e segue pelo Sim:
+
+<p align="center"><img src="0052-type-guards-satisfies/fluxograma.svg" alt="Fluxograma: Type guards (x is T) e satisfies" width="498"></p>
 
 Agora o **`satisfies`**. Ele também é uma conferência, mas de valor.
 
@@ -2434,51 +2438,33 @@ precos2.acai // number: conferiu e lembrou das chaves
 
 Os arquivos ficam em [`0052-type-guards-satisfies/`](0052-type-guards-satisfies/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A103 · Lanche ou bebida?**
+**Exemplo A103 · Type guard no filter**
 
 ```ts
-type Lanche = { nome: string; recheio: string }
-type Bebida = { nome: string; ml: number }
-
-function ehBebida(item: Lanche | Bebida): item is Bebida {
-  return 'ml' in item
+function ehNumero(x: unknown): x is number {
+  return typeof x === 'number'
 }
 
-function descrever(item: Lanche | Bebida): string {
-  if (ehBebida(item)) return `${item.nome} de ${item.ml} ml` // aqui item é Bebida
-  return `${item.nome} de ${item.recheio}` // aqui item é Lanche
-}
+const misturado: unknown[] = [8, 'dez', 6, null, 9]
+const notas: number[] = misturado.filter(ehNumero) // sem o "x is number", seria unknown[]
 
-console.log(descrever({ nome: 'Suco de taperebá', ml: 300 })) // Suco de taperebá de 300 ml
-console.log(descrever({ nome: 'Pastel', recheio: 'queijo' })) // Pastel de queijo
-
-const precos = { suco: 5, pastel: 7 } satisfies Record<string, number>
-console.log(precos.suco + precos.pastel) // 12: o satisfies conferiu e lembrou das chaves
-
-// Com a anotação no lugar do satisfies, as chaves são esquecidas:
-// const precos2: Record<string, number> = { suco: 5, pastel: 7 }
-// console.log(precos2.suco + precos2.pastel)
-// erro: 'precos2.suco' is possibly 'undefined'.
+console.log(notas) // [ 8, 6, 9 ]
 ```
 
 ```bash
 tsx ~/LPPOO/19102026/0052-type-guards-satisfies/A103.ts
 ```
 
-**Exemplo A104 · Type guard no filter**
+**Exemplo A104 · satisfies: confere o valor e lembra das chaves**
 
 ```ts
-function ehNumero(x: unknown): x is number {
-  return typeof x === 'number' && !Number.isNaN(x)
-}
+const precos = { suco: 5, pastel: 7 } satisfies Record<string, number>
+console.log(precos.suco + precos.pastel) // 12
 
-const misturado: unknown[] = [8, 'dez', 6, null, 9]
-
-// sem o "x is number", o resultado seria unknown[]
-const notas: number[] = misturado.filter(ehNumero)
-const soma = notas.reduce((total, n) => total + n, 0)
-
-console.log(notas, soma) // [ 8, 6, 9 ] 23
+// Com a anotação no lugar do satisfies, as chaves são esquecidas:
+// const precos2: Record<string, number> = { suco: 5, pastel: 7 }
+// console.log(precos2.suco + precos2.pastel)
+// erro: 'precos2.suco' is possibly 'undefined'.
 ```
 
 ```bash
@@ -2534,7 +2520,7 @@ O nosso liga as regras mais rígidas:
 | Opção                         | O que ela cobra                                         |
 | ----------------------------- | ------------------------------------------------------- |
 | `strict`                      | o pacote principal: `null`/`undefined` tratados, nada de `any` escondido |
-| `noUncheckedIndexedAccess`    | `lista[i]` pode ser `undefined` (aula 02)               |
+| `noUncheckedIndexedAccess`    | `lista[i]` pode ser `undefined`: a posição pode não existir |
 | `noUnusedLocals`              | variável criada e nunca usada                           |
 | `noUnusedParameters`          | parâmetro que a função não usa                          |
 | `noImplicitReturns`           | função que esquece o `return` em algum caminho          |
@@ -2551,14 +2537,14 @@ linha:
 ```ts
 const notas = [8, 10, 6]
 
-const primeira = notas[0] // number | undefined, por causa do noUncheckedIndexedAccess
+const primeira = notas[0] // number | undefined: a posição pode não existir
 if (primeira !== undefined) {
   console.log(primeira.toFixed(1)) // 8.0
 }
 
 function situacao(nota: number): string {
   if (nota >= 7) return 'aprovado'
-  return 'recuperação' // sem esta linha: erro do noImplicitReturns
+  return 'recuperação' // sem esta linha, o tsc reclama: falta um return
 }
 
 console.log(situacao(6)) // recuperação
@@ -2574,7 +2560,7 @@ O ciclo do dia a dia é este:
 > cada erro.
 
 > [!TIP]
-> **Poder do TypeScript:** esqueceu uma variável sem usar? Vira aviso, e o
+> **Poder do TypeScript:** esqueceu uma variável sem usar? Vira erro, e o
 > código fica limpo:
 >
 > ```ts
@@ -2591,47 +2577,37 @@ O ciclo do dia a dia é este:
 
 Os arquivos ficam em [`0053-tsconfig/`](0053-tsconfig/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A105 · noUncheckedIndexedAccess: o item pode não existir**
+**Exemplo A105 · noUncheckedIndexedAccess: a posição pode estar vazia**
 
 ```ts
-const notas = [8, 10, 6]
+const fila = ['Ana', 'Bia', 'Caio']
 
-const primeira = notas[0] // number | undefined
-if (primeira !== undefined) {
-  console.log(primeira.toFixed(1))
-}
+console.log(fila[2]?.toUpperCase() ?? 'ninguém') // CAIO
+console.log(fila[4]?.toUpperCase() ?? 'ninguém') // ninguém
 
-const decima = notas[9] // não existe: undefined
-console.log(decima ?? 'sem nota na posição 9')
+// Sem o ?., o tsc reclama, porque fila[2] é string | undefined:
+// fila[2].toUpperCase()
+// erro: Object is possibly 'undefined'.
 ```
 
 ```bash
 tsx ~/LPPOO/19102026/0053-tsconfig/A105.ts
 ```
 
-**Exemplo A106 · noImplicitReturns e noFallthroughCasesInSwitch**
+**Exemplo A106 · noFallthroughCasesInSwitch: o break esquecido**
 
 ```ts
-function situacao(nota: number): string {
-  if (nota >= 7) return 'aprovado'
-  if (nota >= 5) return 'recuperação'
-  return 'reprovado' // apague esta linha e rode pnpm tsc para ver o erro
-}
-
-function turno(codigo: number): string {
+function avisar(codigo: number): void {
   switch (codigo) {
     case 1:
-      return 'manhã'
+      console.log('Turno da manhã')
+      break // apague este break e rode pnpm tsc: Fallthrough case in switch.
     case 2:
-      return 'tarde' // sem o return, o case 2 cairia no 3: o tsc reclama
-    case 3:
-      return 'noite'
-    default:
-      return 'desconhecido'
+      console.log('Turno da tarde')
   }
 }
 
-console.log(situacao(6), turno(2))
+avisar(1) // Turno da manhã
 ```
 
 ```bash
