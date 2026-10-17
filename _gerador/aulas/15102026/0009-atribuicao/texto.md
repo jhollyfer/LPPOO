@@ -27,15 +27,12 @@ No fluxograma, cada atribuição é um retângulo roxo:
 {{fluxograma}}
 
 <details>
-<summary>Todos os atalhos</summary>
+<summary>Os atalhos</summary>
 
 | Escrito  | É o mesmo que |
 | -------- | ------------- |
 | `x += 5` | `x = x + 5`   |
 | `x -= 5` | `x = x - 5`   |
-| `x *= 2` | `x = x * 2`   |
-| `x /= 2` | `x = x / 2`   |
-| `x %= 3` | `x = x % 3`   |
 | `x++`    | `x = x + 1`   |
 | `x--`    | `x = x - 1`   |
 

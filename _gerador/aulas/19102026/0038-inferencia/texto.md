@@ -11,17 +11,15 @@ Escrever o tipo na mão é a **anotação**.
 E quando escrever? Guarda essa regra prática:
 
 - **Deixe o TypeScript descobrir** quando a variável já começa com um valor:
-  `let idade = 17` já é `number`.
+  `const notas = [8, 6, 9]` já é `number[]`.
 - **Escreva o tipo** quando ele não tem como adivinhar: nos **parâmetros** de
   função, em **array vazio** e em variável que nasce **sem valor**.
 
 {{ideia}}
 
 ```ts
-let idade = 17 // infere: number
 const turno = 'noite' // infere: 'noite'
 const notas = [8, 6, 9] // infere: number[]
-
 const nomes: string[] = [] // array vazio: escreva o tipo
 let apelido: string // sem valor ainda: escreva o tipo
 
@@ -30,11 +28,8 @@ function dobrar(n: number) {
   return n * 2
 }
 
-idade++
-nomes.push('Ana')
 apelido = 'Zé'
-console.log(idade, turno, notas, nomes, apelido, dobrar(4))
-// 18 noite [ 8, 6, 9 ] [ 'Ana' ] Zé 8
+console.log(turno, notas, nomes, apelido, dobrar(4)) // noite [ 8, 6, 9 ] [] Zé 8
 ```
 
 Repara no `turno`. Com `const`, o tipo é exatamente `'noite'`, e não `string`.

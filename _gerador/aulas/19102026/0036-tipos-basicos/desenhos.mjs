@@ -51,16 +51,12 @@ export const fluxograma = {
     ['A', 'inicio', "tamanho('Benjamin')"],
     ['B', 'dec', "typeof valor === 'string'?"],
     ['C', 'io', 'devolve valor.length: 8'],
-    ['D', 'dec', "typeof valor === 'number'?"],
-    ['E', 'io', 'devolve quantos dígitos'],
-    ['F', 'io', 'devolve 0'],
+    ['D', 'io', 'devolve 0'],
   ],
   setas: [
     ['A', 'B'],
     ['B', 'C', 'Sim'],
     ['B', 'D', 'Não'],
-    ['D', 'E', 'Sim'],
-    ['D', 'F', 'Não'],
   ],
   caminho: ['A', 'B', 'C'],
 }

@@ -1,22 +1,14 @@
 // Aula 02 · Exemplo 14 · Inserir, remover e buscar
 // Fila de atendimento da secretaria.
 
-const fila: string[] = []
-
-fila.push('Ana')
-fila.push('Bia')
-fila.push('Caio')
+const fila: string[] = ['Ana', 'Bia']
+fila.push('Caio') // entra no fim
 fila.unshift('Davi') // prioridade: entra na frente
+console.log(`Fila: ${fila.join(', ')}`) // Fila: Davi, Ana, Bia, Caio
+console.log(`Tem Zé na fila? ${fila.includes('Zé')}`) // Tem Zé na fila? false
 
-console.log(`Fila: ${fila.join(', ')}`) // Davi, Ana, Bia, Caio
-console.log(`Bia está na posição ${fila.indexOf('Bia')}`) // 2
-console.log(`Tem Zé na fila? ${fila.includes('Zé')}`) // false
+console.log(`Atendido: ${fila.shift()}`) // Atendido: Davi
 
-const atendido = fila.shift()
-console.log(`Atendido: ${atendido}`) // Davi
-
-const desistiu = fila.indexOf('Bia')
+const desistiu = fila.indexOf('Bia') // 1
 if (desistiu !== -1) fila.splice(desistiu, 1)
-
-console.log(`Fila agora: ${fila.join(', ')}`) // Ana, Caio
-console.log(`Alguém com nome de 3 letras? ${fila.some((n) => n.length === 3)}`) // true
+console.log(`Fila agora: ${fila.join(', ')}`) // Fila agora: Ana, Caio

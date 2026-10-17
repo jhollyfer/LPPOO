@@ -22,7 +22,7 @@ export const ideia = {
 
 export const fluxograma = {
   nos: [
-    ['A', 'inicio', "const meuTurno: Turno = 'noite'"],
+    ['A', 'inicio', "horario('noite')"],
     ['B', 'dec', 'o valor é um dos da lista?'],
     ['C', 'proc', 'aceita'],
     ['D', 'io', 'erro antes de rodar'],

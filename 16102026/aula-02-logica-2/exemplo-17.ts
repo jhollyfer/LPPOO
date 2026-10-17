@@ -12,6 +12,3 @@ promocao.forEach(mostrar)
 // Leva por R$ 10
 // Leva por R$ 2
 // Leva por R$ 6
-
-const caros = precos.filter((p) => p > 10) // arrow escrita ali mesmo
-console.log(`Ainda caros: ${caros.join(', ')}`) // 12, 20

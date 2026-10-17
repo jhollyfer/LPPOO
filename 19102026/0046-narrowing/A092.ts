@@ -1,9 +1,7 @@
 // A092 · Igualdade e verdadeiro/falso também estreitam
 
 function chamar(nome: string, apelido?: string): string {
-  if (apelido) {
-    return apelido // aqui apelido é string (o undefined e o '' ficaram de fora)
-  }
+  if (apelido) return apelido // aqui apelido é string: o undefined ficou de fora
   return nome
 }
 
@@ -13,5 +11,4 @@ function temIntervalo(turno: Turno): boolean {
   return true // aqui sobrou 'manhã' | 'tarde'
 }
 
-console.log(chamar('José', 'Zé'), chamar('Ana')) // Zé Ana
-console.log(temIntervalo('noite'), temIntervalo('tarde')) // false true
+console.log(chamar('José', 'Zé'), chamar('Ana'), temIntervalo('noite')) // Zé Ana false

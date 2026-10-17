@@ -20,21 +20,16 @@ Em código, cada campo vai numa linha, com o nome e o tipo:
 ```ts
 type Aluno = {
   nome: string
-  idade: number
   notas: number[]
 }
 
-const ana: Aluno = { nome: 'Ana', idade: 17, notas: [8, 7, 9] }
-const turma: Aluno[] = [ana, { nome: 'Bia', idade: 16, notas: [6, 9] }]
-
-console.log(ana.nome) // Ana
+const ana: Aluno = { nome: 'Ana', notas: [8, 7, 9] }
+const turma: Aluno[] = [ana, { nome: 'Bia', notas: [6, 9] }]
 
 for (const aluno of turma) {
   const media = aluno.notas.reduce((a, b) => a + b, 0) / aluno.notas.length
-  console.log(`${aluno.nome}: ${media.toFixed(1)}`)
+  console.log(`${aluno.nome}: ${media.toFixed(1)}`) // Ana: 8.0, depois Bia: 7.5
 }
-// Ana: 8.0
-// Bia: 7.5
 ```
 
 Repara no `turma`. Ele é `Aluno[]`, uma lista de fichas.

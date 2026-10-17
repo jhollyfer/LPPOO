@@ -9,7 +9,6 @@ export const ideia = {
       titulo: 'type Aluno (a ficha)',
       itens: [
         ['nome', 'string'],
-        ['idade', 'number'],
         ['notas', 'number[]'],
       ],
     },
@@ -22,7 +21,6 @@ export const ideia = {
       titulo: 'ana (preenchida)',
       itens: [
         ['nome', "'Ana'"],
-        ['idade', '17'],
         ['notas', '[8, 7, 9]'],
       ],
     },

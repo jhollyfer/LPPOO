@@ -26,10 +26,7 @@ interface Aluno extends Pessoa {
 }
 
 const bia: Aluno = { nome: 'Bia', matricula: 'A27' }
-
-function apresentar(p: Pessoa): string {
-  return `Olá, ${p.nome}!`
-}
+const apresentar = (p: Pessoa): string => `Olá, ${p.nome}!`
 
 console.log(apresentar(bia)) // Olá, Bia! (todo Aluno também é Pessoa)
 console.log(bia.matricula) // A27

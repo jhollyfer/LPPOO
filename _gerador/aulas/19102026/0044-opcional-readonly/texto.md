@@ -23,15 +23,10 @@ type Aluno = {
 
 const ana: Aluno = { matricula: 'A01', nome: 'Ana' } // sem apelido: tudo bem
 const ze: Aluno = { matricula: 'A02', nome: 'José', apelido: 'Zé' }
-
-function chamar(a: Aluno): string {
-  return a.apelido ?? a.nome // não tem apelido? usa o nome
-}
+const chamar = (a: Aluno): string => a.apelido ?? a.nome // sem apelido? usa o nome
 
 console.log(chamar(ana)) // Ana
 console.log(chamar(ze)) // Zé
-ana.nome = 'Ana Clara' // pode: nome não é readonly
-console.log(ana.nome) // Ana Clara
 ```
 
 Repara na função `chamar`. Como o apelido pode faltar, ela precisa decidir o

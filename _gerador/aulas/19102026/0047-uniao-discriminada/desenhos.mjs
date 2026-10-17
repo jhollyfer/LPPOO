@@ -5,12 +5,11 @@ export const ideia = {
       forma: 'cardapio',
       x: 110,
       y: 0,
-      w: 760,
+      w: 640,
       titulo: 'switch (p.tipo)',
       itens: [
         ["'pix'", 'tem chave'],
         ["'cartao'", 'tem parcelas'],
-        ["'dinheiro'", 'tem recebido e total'],
       ],
       destaque: 0,
     },
@@ -20,7 +19,7 @@ export const ideia = {
   notas: [
     {
       x: 110,
-      y: 330,
+      y: 260,
       texto: 'O tipo decide o formato: no case pix, o TypeScript já sabe que existe p.chave.',
       cor: 'roxo',
     },
@@ -32,14 +31,12 @@ export const fluxograma = {
     ['A', 'inicio', "descrever({ tipo: 'pix', ... })"],
     ['B', 'dec', 'p.tipo'],
     ['C', 'io', 'Pix para cantina@cetam'],
-    ['D', 'io', 'Cartão em 3x'],
-    ['E', 'io', 'Troco: R$ 5.00'],
+    ['D', 'io', 'Cartão em Nx'],
   ],
   setas: [
     ['A', 'B'],
     ['B', 'C', 'pix'],
     ['B', 'D', 'cartao'],
-    ['B', 'E', 'dinheiro'],
   ],
   caminho: ['A', 'B', 'C'],
 }

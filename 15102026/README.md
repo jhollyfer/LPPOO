@@ -909,14 +909,14 @@ número, e aí sim faz a conta.
 
 Os arquivos ficam em [`0008-conversao/`](0008-conversao/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A015 · Number**
+**Exemplo A015 · Contar a família**
 
 ```ts
 import { input } from '#core/input.ts'
 
-const idade = Number(input('Sua idade: '))
+const irmaos = Number(input('Quantos irmãos você tem? ')) // digite: 2
 
-console.log(idade + 1) // soma de verdade
+console.log(`Com você, são ${irmaos + 1} filhos`) // Com você, são 3 filhos
 ```
 
 ```bash
@@ -1000,15 +1000,12 @@ No fluxograma, cada atribuição é um retângulo roxo:
 <p align="center"><img src="0009-atribuicao/fluxograma.svg" alt="Fluxograma: Operadores de atribuição" width="1021"></p>
 
 <details>
-<summary>Todos os atalhos</summary>
+<summary>Os atalhos</summary>
 
 | Escrito  | É o mesmo que |
 | -------- | ------------- |
 | `x += 5` | `x = x + 5`   |
 | `x -= 5` | `x = x - 5`   |
-| `x *= 2` | `x = x * 2`   |
-| `x /= 2` | `x = x / 2`   |
-| `x %= 3` | `x = x % 3`   |
 | `x++`    | `x = x + 1`   |
 | `x--`    | `x = x - 1`   |
 
@@ -1032,10 +1029,10 @@ Os arquivos ficam em [`0009-atribuicao/`](0009-atribuicao/). Os comandos funcion
 let conta = 12 // açaí de 500 ml
 
 conta += 3 // granola: 15
-conta *= 2 // pediu outro igual para a irmã: 30
-conta -= 5 // cupom de desconto: 25
+conta += 2 // leite em pó: 17
+conta -= 4 // cupom de desconto: 13
 
-console.log(`Total: R$ ${conta}`) // Total: R$ 25
+console.log(`Total: R$ ${conta}`) // Total: R$ 13
 ```
 
 ```bash
@@ -1079,14 +1076,15 @@ tsx ~/LPPOO/15102026/0009-atribuicao/E017.ts
 
 **Exercício E018**
 
-Crie `let valor = 8`. Use `*=` para dobrar e depois `/=` para dividir por 4.
-Mostre o valor depois de cada passo.
+Fila da cantina: crie `let fila = 5`. Chegaram 3 pessoas de uma vez, depois
+uma foi atendida e depois chegou mais uma. Mostre a fila depois de cada passo.
 
 <details><summary>Dicas</summary>
 
-1. Dobrar é multiplicar por 2: `valor *= 2`.
-2. Dividir por 4 é `valor /= 4`.
-3. Ponha um `console.log(valor)` logo depois de cada linha que muda o valor.
+1. Chegar 3 de uma vez é `fila += 3`.
+2. Uma pessoa a menos é `fila--`. Uma a mais é `fila++`.
+3. Ponha um `console.log(fila)` logo depois de cada linha que muda o valor.
+4. Confira: tem que aparecer 8, 7 e 8.
 
 </details>
 
@@ -1135,6 +1133,9 @@ console.log(media) // 7
 | `**`     | potência      | `7 ** 2` | `49`      |
 
 </details>
+
+Os atalhos da [0009](#0009--operadores-de-atribuição) também valem aqui:
+`x *= 2` é o mesmo que `x = x * 2`, e `x /= 2` é o mesmo que `x = x / 2`.
 
 > [!TIP]
 > O `%` não tem nada a ver com porcentagem. Ele dá o resto da divisão: 7

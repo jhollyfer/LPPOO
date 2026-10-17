@@ -33,12 +33,13 @@ function pedirPastel(
 }
 
 pedirPastel('carne') // Pastel de carne, médio, sem suco
-pedirPastel('queijo', 'grande', 'cupuaçu')
-// Pastel de queijo, grande, com suco de cupuaçu
 ```
 
 Os parâmetros ficaram um por linha só para caber na tela. Continua sendo uma
 função normal.
+
+Quem manda tudo escolhe tudo: `pedirPastel('queijo', 'grande', 'cupuaçu')`
+mostra `Pastel de queijo, grande, com suco de cupuaçu`.
 
 Como o `suco` pode não ter vindo, a função confere com `suco === undefined`
 antes de usar. É o ternário que você já conhece.

@@ -38,6 +38,9 @@ console.log(media) // 7
 
 </details>
 
+Os atalhos da [0009](#0009--operadores-de-atribuição) também valem aqui:
+`x *= 2` é o mesmo que `x = x * 2`, e `x /= 2` é o mesmo que `x = x / 2`.
+
 > [!TIP]
 > O `%` não tem nada a ver com porcentagem. Ele dá o resto da divisão: 7
 > alunos em duplas formam 3 duplas e sobra 1. Então `7 % 2` é `1`.

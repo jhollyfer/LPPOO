@@ -8,7 +8,6 @@ export const ideia = {
       w: 640,
       titulo: 'deixe o TypeScript descobrir',
       itens: [
-        ['let idade = 17', 'number'],
         ["const turno = 'noite'", "'noite'"],
         ['const notas = [8, 6, 9]', 'number[]'],
         ['return n * 2', 'number'],

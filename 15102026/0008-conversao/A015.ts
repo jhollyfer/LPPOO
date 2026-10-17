@@ -1,7 +1,7 @@
-// A015 · Number
+// A015 · Contar a família
 
 import { input } from '#core/input.ts'
 
-const idade = Number(input('Sua idade: '))
+const irmaos = Number(input('Quantos irmãos você tem? ')) // digite: 2
 
-console.log(idade + 1) // soma de verdade
+console.log(`Com você, são ${irmaos + 1} filhos`) // Com você, são 3 filhos

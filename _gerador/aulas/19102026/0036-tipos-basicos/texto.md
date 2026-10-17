@@ -19,13 +19,10 @@ Além deles, o TypeScript tem três tipos especiais:
 {{ideia}}
 
 ```ts
-const nome: string = 'Ana'
 const idade: number = 17
-const matriculado: boolean = true
 
 function tamanho(valor: unknown): number {
   if (typeof valor === 'string') return valor.length // aqui ele é string
-  if (typeof valor === 'number') return valor.toString().length // aqui, number
   return 0
 }
 
@@ -33,10 +30,8 @@ function falhar(mensagem: string): never {
   throw new Error(mensagem) // para o programa: nunca devolve nada
 }
 
-if (idade < 0) falhar('Idade inválida')
-console.log(nome, idade, matriculado) // Ana 17 true
+if (idade < 0) falhar('Idade inválida') // 17 não é menor que 0: segue
 console.log(tamanho('Benjamin')) // 8
-console.log(tamanho(2026)) // 4
 ```
 
 O `throw new Error(mensagem)` é novo: ele para o programa e mostra a mensagem
@@ -64,7 +59,7 @@ perguntas que o fluxograma mostra. Com `'Benjamin'`, a primeira já dá Sim:
 > ```
 
 > [!NOTE]
-> **Pergunta para a turma:** quanto dá `tamanho(true)`? Acrescente a linha e
-> rode. (Dica: `true` não é texto nem número.)
+> **Pergunta para a turma:** quanto dá `tamanho(2026)`? Acrescente a linha e
+> rode. (Dica: o `if` só pergunta por texto.)
 
 {{pratique}}

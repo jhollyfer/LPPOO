@@ -1051,12 +1051,13 @@ function pedirPastel(
 }
 
 pedirPastel('carne') // Pastel de carne, médio, sem suco
-pedirPastel('queijo', 'grande', 'cupuaçu')
-// Pastel de queijo, grande, com suco de cupuaçu
 ```
 
 Os parâmetros ficaram um por linha só para caber na tela. Continua sendo uma
 função normal.
+
+Quem manda tudo escolhe tudo: `pedirPastel('queijo', 'grande', 'cupuaçu')`
+mostra `Pastel de queijo, grande, com suco de cupuaçu`.
 
 Como o `suco` pode não ter vindo, a função confere com `suco === undefined`
 antes de usar. É o ternário que você já conhece.
@@ -1198,20 +1199,18 @@ Os arquivos ficam em [`0029-escopo/`](0029-escopo/). Os comandos funcionam de qu
 **Exemplo A057 · Mesmo nome, caixas diferentes**
 
 ```ts
-const campeonato = 'Interclasse' // global: as duas funções enxergam
-
 function placarDoPrimeiroA(): void {
   const gols = 3 // esta caixa só existe aqui dentro
-  console.log(`${campeonato}: 1º A fez ${gols} gols`)
+  console.log(`1º A fez ${gols} gols`)
 }
 
 function placarDoPrimeiroB(): void {
   const gols = 1 // outra caixa, com o mesmo nome
-  console.log(`${campeonato}: 1º B fez ${gols} gol`)
+  console.log(`1º B fez ${gols} gol`)
 }
 
-placarDoPrimeiroA() // Interclasse: 1º A fez 3 gols
-placarDoPrimeiroB() // Interclasse: 1º B fez 1 gol
+placarDoPrimeiroA() // 1º A fez 3 gols
+placarDoPrimeiroB() // 1º B fez 1 gol
 // console.log(gols) // tire o // e veja o erro: aqui fora não tem gols
 ```
 
@@ -1841,10 +1840,6 @@ Os arquivos ficam em [`0034-juntando-tudo/`](0034-juntando-tudo/). Os comandos f
 ```ts
 import { input } from '#core/input.ts'
 
-function somar(valores: number[]): number {
-  return valores.reduce((acc, v) => acc + v, 0)
-}
-
 const notas: number[] = []
 let resposta // a caixa nasce vazia: o do pergunta antes de conferir
 
@@ -1853,10 +1848,9 @@ do {
   resposta = input('Mais um jurado? (s/n) ') // digite: s, s, n
 } while (resposta === 's')
 
-const notasDez = notas.filter((n) => n === 10)
-
-console.log(`Total do boi: ${somar(notas)}`) // Total do boi: 28.5
-console.log(`Quantas notas 10: ${notasDez.length}`) // Quantas notas 10: 1
+const total = notas.reduce((acc, v) => acc + v, 0)
+console.log(`Total do boi: ${total}`) // Total do boi: 28.5
+console.log(`Notas 10: ${notas.filter((n) => n === 10).length}`) // Notas 10: 1
 console.log(`Notas: ${notas.join(' | ')}`) // Notas: 9.5 | 10 | 9
 ```
 
@@ -1868,22 +1862,16 @@ tsx ~/LPPOO/16102026/0034-juntando-tudo/A067.ts
 
 ```ts
 function mostrarGastos(gastos: number[]): void {
-  let dia = 1
   for (const gasto of gastos) {
     const aviso = gasto > 20 ? 'passou do limite' : 'ok'
-    console.log(`Dia ${dia}: R$ ${gasto.toFixed(2)} (${aviso})`)
-    dia++
+    console.log(`R$ ${gasto.toFixed(2)} (${aviso})`)
   }
-
   const total = gastos.reduce((acc, g) => acc + g, 0)
   console.log(`Total: R$ ${total.toFixed(2)}`)
 }
 
 mostrarGastos([12, 25, 8.5])
-// Dia 1: R$ 12.00 (ok)
-// Dia 2: R$ 25.00 (passou do limite)
-// Dia 3: R$ 8.50 (ok)
-// Total: R$ 45.50
+// R$ 12.00 (ok) / R$ 25.00 (passou do limite) / R$ 8.50 (ok) / Total: R$ 45.50
 ```
 
 ```bash

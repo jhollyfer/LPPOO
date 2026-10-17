@@ -296,7 +296,7 @@ perguntas que o fluxograma mostra. Com `'Benjamin'`, a primeira já dá Sim:
 > [!WARNING]
 > Fuja do `any`. Com ele, o TypeScript deixa passar qualquer coisa, e o erro só
 > aparece com o programa rodando. Neste projeto, o lint barra o `any` escrito na
-> mão: `Unexpected any. Specify a different type.`
+> mão: `Unexpected any. Specify a different type`.
 
 > [!TIP]
 > **Poder do TypeScript:** com `unknown`, ele não deixa você usar o valor sem
@@ -1835,9 +1835,8 @@ tsx ~/LPPOO/19102026/0046-narrowing/E092.ts
 
 ## 0047 · União discriminada
 
-Pensa na cantina. O pagamento pode ser no Pix, no cartão ou em dinheiro. E
-cada um pede uma informação diferente: o Pix tem chave, o cartão tem parcelas,
-o dinheiro tem troco.
+Pensa na cantina. O pagamento pode ser no Pix ou no cartão. E cada um pede
+uma informação diferente: o Pix tem chave, o cartão tem parcelas.
 
 Quando cada opção da união tem um formato diferente, faz assim: coloca em
 todas uma propriedade com o **mesmo nome** e um **valor literal diferente**.
@@ -1855,10 +1854,7 @@ propriedades certas:
 <p align="center"><img src="0047-uniao-discriminada/ideia.svg" alt="Diagrama da ideia: União discriminada" width="858"></p>
 
 ```ts
-type Pagamento =
-  | { tipo: 'pix'; chave: string }
-  | { tipo: 'cartao'; parcelas: number }
-  | { tipo: 'dinheiro'; recebido: number; total: number }
+type Pagamento = { tipo: 'pix'; chave: string } | { tipo: 'cartao'; parcelas: number }
 
 function descrever(p: Pagamento): string {
   switch (p.tipo) {
@@ -1866,20 +1862,16 @@ function descrever(p: Pagamento): string {
       return `Pix para ${p.chave}` // aqui p tem chave
     case 'cartao':
       return `Cartão em ${p.parcelas}x` // aqui p tem parcelas
-    case 'dinheiro':
-      return `Troco: R$ ${(p.recebido - p.total).toFixed(2)}`
   }
 }
 
 console.log(descrever({ tipo: 'pix', chave: 'cantina@cetam' })) // Pix para cantina@cetam
-console.log(descrever({ tipo: 'cartao', parcelas: 3 })) // Cartão em 3x
-console.log(descrever({ tipo: 'dinheiro', recebido: 20, total: 15 })) // Troco: R$ 5.00
 ```
 
 No fluxograma, o `switch` abre um caminho para cada tipo. O exemplo do Pix
 segue o caminho marcado:
 
-<p align="center"><img src="0047-uniao-discriminada/fluxograma.svg" alt="Fluxograma: União discriminada" width="748"></p>
+<p align="center"><img src="0047-uniao-discriminada/fluxograma.svg" alt="Fluxograma: União discriminada" width="524"></p>
 
 > [!TIP]
 > **Poder do TypeScript:** coloque um `default` que guarda o valor num
@@ -1895,9 +1887,8 @@ segue o caminho marcado:
 > ```
 
 > [!NOTE]
-> **Pergunta para a turma:** e se o cliente der `recebido: 15` para um
-> `total: 20`? O que aparece? Rode e veja. (Dica: o TypeScript confere o
-> tipo, não a conta.)
+> **Pergunta para a turma:** no `case 'pix'`, troque `p.chave` por
+> `p.parcelas`. O editor deixa? Leia a mensagem. (Dica: Pix não tem parcelas.)
 
 ### Hora de praticar
 
@@ -1906,10 +1897,7 @@ Os arquivos ficam em [`0047-uniao-discriminada/`](0047-uniao-discriminada/). Os 
 **Exemplo A093 · Como cada aluno chega à escola**
 
 ```ts
-type Trajeto =
-  | { meio: 'ônibus'; linha: string }
-  | { meio: 'barco'; horas: number }
-  | { meio: 'a pé'; minutos: number }
+type Trajeto = { meio: 'ônibus'; linha: string } | { meio: 'barco'; horas: number }
 
 function contar(t: Trajeto): string {
   switch (t.meio) {
@@ -1917,46 +1905,30 @@ function contar(t: Trajeto): string {
       return `Pega o ônibus ${t.linha}` // aqui t tem linha
     case 'barco':
       return `Vem de barco: ${t.horas}h de rio` // aqui t tem horas
-    case 'a pé':
-      return `Caminha ${t.minutos} min` // aqui t tem minutos
   }
 }
 
-const turma: Trajeto[] = [
-  { meio: 'ônibus', linha: '021' },
-  { meio: 'barco', horas: 2 },
-  { meio: 'a pé', minutos: 15 },
-]
-for (const t of turma) console.log(contar(t))
-// Pega o ônibus 021
-// Vem de barco: 2h de rio
-// Caminha 15 min
+console.log(contar({ meio: 'barco', horas: 2 })) // Vem de barco: 2h de rio
 ```
 
 ```bash
 tsx ~/LPPOO/19102026/0047-uniao-discriminada/A093.ts
 ```
 
-**Exemplo A094 · O default com never vigia os casos esquecidos**
+**Exemplo A094 · O never vigia os casos esquecidos**
 
 ```ts
 type Forma = { tipo: 'quadrado'; lado: number } | { tipo: 'circulo'; raio: number }
 
 function area(f: Forma): number {
-  switch (f.tipo) {
-    case 'quadrado':
-      return f.lado ** 2
-    case 'circulo':
-      return Math.PI * f.raio ** 2
-    default: {
-      const esquecido: never = f // se surgir um tipo novo, o erro aparece aqui
-      return esquecido
-    }
-  }
+  if (f.tipo === 'quadrado') return f.lado ** 2
+  if (f.tipo === 'circulo') return 3.14 * f.raio ** 2
+  const esquecido: never = f // se surgir um tipo novo, o erro aparece aqui
+  return esquecido
 }
 
 console.log(area({ tipo: 'quadrado', lado: 3 })) // 9
-console.log(area({ tipo: 'circulo', raio: 1 }).toFixed(2)) // 3.14
+console.log(area({ tipo: 'circulo', raio: 1 })) // 3.14
 ```
 
 ```bash
@@ -2207,51 +2179,52 @@ E qual dos três usar? Depende do que é fixo:
 
 Os arquivos ficam em [`0049-tuplas-enum-as-const/`](0049-tuplas-enum-as-const/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A097 · Tuplas: nome e nota**
+**Exemplo A097 · Uma lista de tuplas: o ranking da turma**
 
 ```ts
-const nota: [string, number] = ['Ana', 8]
-const [nome, valor] = nota
-console.log(`${nome} tirou ${valor}`)
-
-// uma lista de tuplas: o ranking da turma
 const ranking: [string, number][] = [
   ['Bia', 10],
   ['Caio', 9],
   ['Ana', 8],
 ]
 
-for (const [aluno, n] of ranking) {
-  console.log(`${aluno.padEnd(6)} ${n}`)
+let lugar = 1
+for (const [aluno, nota] of ranking) {
+  console.log(`${lugar}º ${aluno}: ${nota}`)
+  lugar++
 }
+// 1º Bia: 10
+// 2º Caio: 9
+// 3º Ana: 8
 ```
 
 ```bash
 tsx ~/LPPOO/19102026/0049-tuplas-enum-as-const/A097.ts
 ```
 
-**Exemplo A098 · enum Turno**
+**Exemplo A098 · enum Nivel: o nível do curso de inglês**
 
 ```ts
-enum Turno {
-  Manha = 'manhã',
-  Tarde = 'tarde',
-  Noite = 'noite',
+enum Nivel {
+  Basico = 'básico',
+  Intermediario = 'intermediário',
+  Avancado = 'avançado',
 }
 
-function horario(t: Turno): string {
-  switch (t) {
-    case Turno.Manha:
-      return '07:00'
-    case Turno.Tarde:
-      return '13:00'
-    case Turno.Noite:
-      return '19:00'
+function aulasPorSemana(n: Nivel): number {
+  switch (n) {
+    case Nivel.Basico:
+      return 3
+    case Nivel.Intermediario:
+      return 2
+    case Nivel.Avancado:
+      return 1
   }
 }
 
-const meuTurno: Turno = Turno.Noite
-console.log(`Turno da ${meuTurno} começa às ${horario(meuTurno)}`)
+const nivelDaBia: Nivel = Nivel.Intermediario
+console.log(`Nível ${nivelDaBia}: ${aulasPorSemana(nivelDaBia)} aulas por semana`)
+// Nível intermediário: 2 aulas por semana
 ```
 
 ```bash
@@ -2267,7 +2240,7 @@ pontos, e teste com [0, 0] e [3, 4] (resposta: 5).
 <details><summary>Dicas</summary>
 
 1. Desestruture: const [x1, y1] = a.
-2. Distância: Math.hypot(x2 - x1, y2 - y1).
+2. Distância: Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2). O sqrt é a raiz quadrada.
 
 </details>
 
@@ -2284,7 +2257,7 @@ ou não.
 <details><summary>Dicas</summary>
 
 1. type Forma = (typeof FORMAS)[number].
-2. Para comparar um texto qualquer: (FORMAS as readonly string[]).includes(resposta).
+2. Para saber se a resposta está na lista: FORMAS.some((f) => f === resposta).
 
 </details>
 

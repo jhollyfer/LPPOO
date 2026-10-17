@@ -27,11 +27,8 @@ function horario(turno: Turno): string {
   return '19h às 22h'
 }
 
-const meuTurno: Turno = 'noite'
 const matricula: Matricula = 'A27' // ou 27: as duas servem
-
-console.log(horario(meuTurno)) // 19h às 22h
-console.log(matricula) // A27
+console.log(horario('noite'), matricula) // 19h às 22h A27
 ```
 
 Bônus: escreva `horario('` no editor e ele sugere as três opções. A lista

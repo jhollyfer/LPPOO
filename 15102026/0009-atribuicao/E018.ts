@@ -1,13 +1,14 @@
 // 0009 · Operadores de atribuição
 // Exercício E018
 //
-// Crie `let valor = 8`. Use `*=` para dobrar e depois `/=` para dividir por 4.
-// Mostre o valor depois de cada passo.
+// Fila da cantina: crie `let fila = 5`. Chegaram 3 pessoas de uma vez, depois
+// uma foi atendida e depois chegou mais uma. Mostre a fila depois de cada passo.
 //
 // Dicas:
-// 1. Dobrar é multiplicar por 2: `valor *= 2`.
-// 2. Dividir por 4 é `valor /= 4`.
-// 3. Ponha um `console.log(valor)` logo depois de cada linha que muda o valor.
+// 1. Chegar 3 de uma vez é `fila += 3`.
+// 2. Uma pessoa a menos é `fila--`. Uma a mais é `fila++`.
+// 3. Ponha um `console.log(fila)` logo depois de cada linha que muda o valor.
+// 4. Confira: tem que aparecer 8, 7 e 8.
 //
 // Escreva sua resposta abaixo:
 
