@@ -1,17 +1,27 @@
-// A083 · A ficha do aluno
+// A083 · O cardápio da cantina
 
-type Aluno = {
+type Lanche = {
   nome: string
-  idade: number
-  notas: number[]
+  preco: number
+  ingredientes: string[]
 }
 
-const ana: Aluno = { nome: 'Ana', idade: 17, notas: [8, 7, 9] }
-const turma: Aluno[] = [ana, { nome: 'Bia', idade: 16, notas: [6, 9] }]
-
-console.log(ana.nome)
-
-for (const aluno of turma) {
-  const media = aluno.notas.reduce((a, b) => a + b, 0) / aluno.notas.length
-  console.log(`${aluno.nome}: ${media.toFixed(1)}`)
+const caboquinho: Lanche = {
+  nome: 'X-Caboquinho',
+  preco: 12,
+  ingredientes: ['tucumã', 'queijo coalho', 'pão'],
 }
+const cardapio: Lanche[] = [caboquinho, { nome: 'Tapioca', preco: 8, ingredientes: ['goma', 'manteiga'] }]
+
+let total = 0
+for (const lanche of cardapio) {
+  console.log(`${lanche.nome}: R$ ${lanche.preco.toFixed(2)} (${lanche.ingredientes.length} ingredientes)`)
+  total += lanche.preco
+}
+console.log(`Um de cada: R$ ${total.toFixed(2)}`)
+// X-Caboquinho: R$ 12.00 (3 ingredientes)
+// Tapioca: R$ 8.00 (2 ingredientes)
+// Um de cada: R$ 20.00
+
+// console.log(caboquinho.prco)
+// erro: Property 'prco' does not exist on type 'Lanche'. Did you mean 'preco'?

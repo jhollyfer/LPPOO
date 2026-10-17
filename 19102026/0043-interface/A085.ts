@@ -1,18 +1,25 @@
-// A085 · Aluno estende Pessoa
+// A085 · Todo ônibus é um veículo
 
-interface Pessoa {
-  nome: string
+interface Veiculo {
+  placa: string
 }
 
-interface Aluno extends Pessoa {
-  matricula: string
+interface Onibus extends Veiculo {
+  linha: string
+  lugares: number
 }
 
-const bia: Aluno = { nome: 'Bia', matricula: 'A27' }
+const circular: Onibus = { placa: 'PHX-2B19', linha: 'Centro-Colônia', lugares: 40 }
+const moto: Veiculo = { placa: 'QZA-7C21' }
 
-function apresentar(p: Pessoa): string {
-  return `Olá, ${p.nome}!`
+function vistoria(v: Veiculo): string {
+  return `Placa ${v.placa} conferida`
 }
 
-console.log(apresentar(bia))
-console.log(bia.matricula)
+console.log(vistoria(circular)) // Placa PHX-2B19 conferida: todo Onibus também é Veiculo
+console.log(vistoria(moto)) // Placa QZA-7C21 conferida
+console.log(`${circular.linha}: ${circular.lugares} lugares`) // Centro-Colônia: 40 lugares
+
+// O contrário não vale: nem todo Veiculo tem linha.
+// console.log(moto.linha)
+// erro: Property 'linha' does not exist on type 'Veiculo'.

@@ -1,21 +1,27 @@
-// A093 · Pagamento da cantina
+// A093 · Como cada aluno chega à escola
 
-type Pagamento =
-  | { tipo: 'pix'; chave: string }
-  | { tipo: 'cartao'; parcelas: number }
-  | { tipo: 'dinheiro'; recebido: number; total: number }
+type Trajeto =
+  | { meio: 'ônibus'; linha: string }
+  | { meio: 'barco'; horas: number }
+  | { meio: 'a pé'; minutos: number }
 
-function descrever(p: Pagamento): string {
-  switch (p.tipo) {
-    case 'pix':
-      return `Pix para ${p.chave}`
-    case 'cartao':
-      return `Cartão em ${p.parcelas}x`
-    case 'dinheiro':
-      return `Troco: R$ ${(p.recebido - p.total).toFixed(2)}`
+function contar(t: Trajeto): string {
+  switch (t.meio) {
+    case 'ônibus':
+      return `Pega o ônibus ${t.linha}` // aqui t tem linha
+    case 'barco':
+      return `Vem de barco: ${t.horas}h de rio` // aqui t tem horas
+    case 'a pé':
+      return `Caminha ${t.minutos} min` // aqui t tem minutos
   }
 }
 
-console.log(descrever({ tipo: 'pix', chave: 'cantina@cetam' }))
-console.log(descrever({ tipo: 'cartao', parcelas: 3 }))
-console.log(descrever({ tipo: 'dinheiro', recebido: 20, total: 15 }))
+const turma: Trajeto[] = [
+  { meio: 'ônibus', linha: '021' },
+  { meio: 'barco', horas: 2 },
+  { meio: 'a pé', minutos: 15 },
+]
+for (const t of turma) console.log(contar(t))
+// Pega o ônibus 021
+// Vem de barco: 2h de rio
+// Caminha 15 min

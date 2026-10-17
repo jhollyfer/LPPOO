@@ -1,20 +1,22 @@
-// A077 · Primitivos, unknown e never
+// A077 · O empréstimo na biblioteca
 
-const nome: string = 'Ana'
-const idade: number = 17
-const matriculado: boolean = true
+const livro: string = 'A Moreninha'
+const diasComAluno: number = 9
+const devolvido: boolean = false
 
-function tamanho(valor: unknown): number {
-  if (typeof valor === 'string') return valor.length
-  if (typeof valor === 'number') return valor.toString().length
-  return 0
+// o código do livro pode chegar como texto ou como número
+function lerCodigo(codigo: unknown): string {
+  if (typeof codigo === 'string') return `código ${codigo.toUpperCase()}` // aqui é string
+  if (typeof codigo === 'number') return `código ${codigo + 1000}` // aqui é number
+  return 'código inválido'
 }
 
-function falhar(mensagem: string): never {
-  throw new Error(mensagem)
+function bloquear(motivo: string): never {
+  throw new Error(motivo) // para o programa: nunca devolve nada
 }
 
-if (idade < 0) falhar('Idade inválida')
-console.log(nome, idade, matriculado)
-console.log(tamanho('Benjamin')) // 8
-console.log(tamanho(2026)) // 4
+if (diasComAluno > 60) bloquear('Livro dado como perdido')
+console.log(livro, diasComAluno, devolvido) // A Moreninha 9 false
+console.log(lerCodigo('lit-12')) // código LIT-12
+console.log(lerCodigo(42)) // código 1042
+console.log(lerCodigo(true)) // código inválido

@@ -1,13 +1,20 @@
-// A075 · Quem tem o formato, serve
+// A075 · A catraca só olha o saldo
 
-type Aluno = { nome: string; idade: number }
+type Cartao = { saldo: number }
 
-function apresentar(a: Aluno): string {
-  return `${a.nome}, ${a.idade} anos`
+function passar(c: Cartao): string {
+  return c.saldo >= 4.5 ? 'Catraca liberada' : 'Saldo insuficiente'
 }
 
-const ana = { nome: 'Ana', idade: 17 }
-const visitante = { nome: 'Zé', idade: 40, cidade: 'Benjamin Constant' }
+const estudante = { saldo: 10, nome: 'Caio', escola: 'CETAM' }
+const visitante = { saldo: 2, nome: 'Pedro', cidade: 'Tabatinga' }
 
-console.log(apresentar(ana))
-console.log(apresentar(visitante))
+console.log(passar(estudante)) // Catraca liberada: tem saldo, o resto não importa
+console.log(passar(visitante)) // Saldo insuficiente
+
+// Quem não tem saldo não tem o formato de Cartao:
+// const turista = { nome: 'Lia' }
+// passar(turista)
+// erro: Argument of type '{ nome: string; }' is not assignable to parameter of type 'Cartao'.
+//       Property 'saldo' is missing in type '{ nome: string; }'
+//       but required in type 'Cartao'.

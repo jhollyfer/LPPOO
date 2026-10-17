@@ -1,21 +1,26 @@
-// A073 · A média nos três estilos
+// A073 · O total da feira nos três estilos
 
-const notas: number[] = [8, 7, 9]
+const compras: number[] = [6, 12.5, 3.5] // farinha, peixe, cheiro-verde
 
-let soma = 0
-for (const nota of notas) soma += nota
-console.log(`Imperativo: ${soma / notas.length}`)
+// imperativo: um passo de cada vez, mudando a variável total
+let total = 0
+for (const preco of compras) total += preco
+console.log(total) // 22
 
-const media = (valores: number[]): number => valores.reduce((a, b) => a + b, 0) / valores.length
-console.log(`Funcional: ${media(notas)}`)
+// funcional: a função recebe a lista e devolve a soma, sem mexer em nada fora
+const somar = (precos: number[]): number => precos.reduce((a, b) => a + b, 0)
+console.log(somar(compras)) // 22
 
-class Turma {
-  private notas: number[]
-  constructor(notas: number[]) {
-    this.notas = notas
+// orientado a objetos: a sacola guarda os preços e sabe somar o que tem dentro
+class Sacola {
+  private precos: number[] = []
+  colocar(preco: number): void {
+    this.precos.push(preco)
   }
-  media(): number {
-    return this.notas.reduce((a, b) => a + b, 0) / this.notas.length
+  total(): number {
+    return this.precos.reduce((a, b) => a + b, 0)
   }
 }
-console.log(`Objetos: ${new Turma(notas).media()}`)
+const sacola = new Sacola()
+for (const preco of compras) sacola.colocar(preco)
+console.log(sacola.total()) // 22

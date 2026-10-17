@@ -1,16 +1,24 @@
-// A103 · O porteiro: ehAluno
+// A103 · Lanche ou bebida?
 
-type Aluno = { nome: string; matricula: string }
-type Visitante = { nome: string; motivo: string }
+type Lanche = { nome: string; recheio: string }
+type Bebida = { nome: string; ml: number }
 
-function ehAluno(p: Aluno | Visitante): p is Aluno {
-  return 'matricula' in p
+function ehBebida(item: Lanche | Bebida): item is Bebida {
+  return 'ml' in item
 }
 
-function entrada(p: Aluno | Visitante): string {
-  if (ehAluno(p)) return `${p.nome}, matrícula ${p.matricula}`
-  return `${p.nome}, visitante: ${p.motivo}`
+function descrever(item: Lanche | Bebida): string {
+  if (ehBebida(item)) return `${item.nome} de ${item.ml} ml` // aqui item é Bebida
+  return `${item.nome} de ${item.recheio}` // aqui item é Lanche
 }
 
-console.log(entrada({ nome: 'Bia', matricula: 'A27' }))
-console.log(entrada({ nome: 'Seu João', motivo: 'reunião' }))
+console.log(descrever({ nome: 'Suco de taperebá', ml: 300 })) // Suco de taperebá de 300 ml
+console.log(descrever({ nome: 'Pastel', recheio: 'queijo' })) // Pastel de queijo
+
+const precos = { suco: 5, pastel: 7 } satisfies Record<string, number>
+console.log(precos.suco + precos.pastel) // 12: o satisfies conferiu e lembrou das chaves
+
+// Com a anotação no lugar do satisfies, as chaves são esquecidas:
+// const precos2: Record<string, number> = { suco: 5, pastel: 7 }
+// console.log(precos2.suco + precos2.pastel)
+// erro: 'precos2.suco' is possibly 'undefined'.
