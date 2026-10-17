@@ -171,12 +171,10 @@ tsx ~/LPPOO/19102026/0035-typescript/A070.ts
 Crie `const idade: number = 17` e mostre com `console.log`. Depois troque o
 17 por '17', com aspas, leia o erro do editor e desfaça a troca.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O tipo vem depois do nome, com dois pontos.
 2. Passe o mouse em cima do sublinhado vermelho para ler a mensagem.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0035-typescript/E069.ts
@@ -191,11 +189,9 @@ Escreva num comentário qual dos dois reclamou:
 const total: number = '10' + 5
 ```
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O `tsx` apaga os tipos e roda. Quem confere é o `tsc`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0035-typescript/E070.ts
@@ -315,11 +311,9 @@ tsx ~/LPPOO/19102026/0036-tipos-basicos/A072.ts
 Escreva `ehTexto(valor: unknown): string`, que devolve 'texto' se o valor for
 string e 'outra coisa' se não for. Teste com 'Ana' e 42.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Use `typeof valor === 'string'`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0036-tipos-basicos/E071.ts
@@ -330,11 +324,9 @@ tsx ~/LPPOO/19102026/0036-tipos-basicos/E071.ts
 Escreva `gritar(valor: unknown): string`, que devolve o texto em maiúsculas se
 o valor for string, e '?' se não for. Teste com 'oi' e 7.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Confira com typeof antes de usar `valor.toUpperCase()`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0036-tipos-basicos/E072.ts
@@ -443,11 +435,9 @@ tsx ~/LPPOO/19102026/0037-truthy-falsy/A074.ts
 Chute num comentário se `'0'`, `0` e `''` são truthy ou falsy. Depois confira
 com `console.log(Boolean(...))`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. `'0'` é texto, e texto só é falsy quando está vazio.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0037-truthy-falsy/E073.ts
@@ -458,11 +448,9 @@ tsx ~/LPPOO/19102026/0037-truthy-falsy/E073.ts
 Crie `let cidade = undefined` e mostre `cidade ?? 'Não informada'`. Depois
 coloque `cidade = 'Tabatinga'` e mostre de novo.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O `??` só usa o padrão quando o valor é `null` ou `undefined`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0037-truthy-falsy/E074.ts
@@ -577,11 +565,9 @@ tsx ~/LPPOO/19102026/0038-inferencia/A076.ts
 Copie as linhas abaixo deixando o tipo só onde o TypeScript não adivinha:
 `const cidade: string = 'Tabatinga'` e `const lista: string[] = []`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Variável que começa com valor não precisa de tipo. Array vazio precisa.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0038-inferencia/E075.ts
@@ -592,11 +578,9 @@ tsx ~/LPPOO/19102026/0038-inferencia/E075.ts
 Escreva `dobro(n: number)` sem anotar o retorno. Pare o mouse no nome da
 função e anote num comentário o tipo de retorno que o TypeScript descobriu.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O tipo aparece no editor quando você para o mouse em cima.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0038-inferencia/E076.ts
@@ -701,11 +685,9 @@ tsx ~/LPPOO/19102026/0039-tipo-de-funcao/A078.ts
 Crie `type Conversor = (valor: number) => number` e
 `const paraDolar: Conversor`, que divide por 5.4. Mostre `paraDolar(100)`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. É uma arrow: `(v) => v / 5.4`. O `v` já é number pelo contexto.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0039-tipo-de-funcao/E077.ts
@@ -716,11 +698,9 @@ tsx ~/LPPOO/19102026/0039-tipo-de-funcao/E077.ts
 Crie `type Mensagem = (nome: string) => string` e uma `const saudar: Mensagem`
 que devolve "Oi, Ana!". Use com `map` em `['Ana', 'Caio']` e mostre.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. `['Ana', 'Caio'].map(saudar)`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0039-tipo-de-funcao/E078.ts
@@ -825,11 +805,9 @@ tsx ~/LPPOO/19102026/0040-objetos/A080.ts
 Crie o objeto `celular` com `marca` e `bateria` (número). A bateria cai 15:
 diminua e mostre a bateria nova.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Para ler e trocar, use o ponto: `celular.bateria -= 15`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0040-objetos/E079.ts
@@ -840,11 +818,9 @@ tsx ~/LPPOO/19102026/0040-objetos/E079.ts
 Crie uma lista com 3 objetos `{ nome, nota }`. Com `for...of` e `if`, mostre
 só o nome de quem tirou 6 ou mais.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Dentro do laço, cada item é um objeto: `aluno.nota`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0040-objetos/E080.ts
@@ -959,11 +935,9 @@ tsx ~/LPPOO/19102026/0041-tipos-de-objeto/A082.ts
 Crie `type Produto = { nome: string; preco: number }` e um produto da cantina
 com esse tipo. Mostre "açaí: R$ 15.00".
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. `const acai: Produto = { ... }` e `preco.toFixed(2)`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0041-tipos-de-objeto/E081.ts
@@ -974,11 +948,9 @@ tsx ~/LPPOO/19102026/0041-tipos-de-objeto/E081.ts
 Crie `type Endereco = { cidade: string }` e `type Pessoa = { nome: string;
 endereco: Endereco }`. Monte uma pessoa e mostre a cidade dela.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Acesse com `pessoa.endereco.cidade`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0041-tipos-de-objeto/E082.ts
@@ -1090,11 +1062,9 @@ tsx ~/LPPOO/19102026/0042-tipagem-estrutural/A084.ts
 Crie `type Produto = { nome: string }` e `etiqueta(p: Produto): string`.
 Chame com uma variável que tem `nome` e também `estoque`. Funciona?
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Crie o objeto numa const antes de chamar.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0042-tipagem-estrutural/E083.ts
@@ -1105,11 +1075,9 @@ tsx ~/LPPOO/19102026/0042-tipagem-estrutural/E083.ts
 Agora chame a `etiqueta` do E083 com o objeto escrito ali mesmo, com `estoque`
 dentro. Leia o erro e deixe a linha comentada.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Objeto escrito na chamada não pode ter propriedade sobrando.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0042-tipagem-estrutural/E084.ts
@@ -1230,11 +1198,9 @@ tsx ~/LPPOO/19102026/0043-interface/A086.ts
 Crie `interface Produto { nome: string }` e `interface Bebida extends Produto`,
 com `ml: number`. Monte uma bebida e mostre o nome e os ml.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. A Bebida precisa ter as duas propriedades.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0043-interface/E085.ts
@@ -1245,11 +1211,9 @@ tsx ~/LPPOO/19102026/0043-interface/E085.ts
 Reescreva como interface: `type Escola = { nome: string; cidade: string }`.
 Monte uma escola e mostre a cidade dela.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. `interface Escola { ... }`, sem o sinal de igual.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0043-interface/E086.ts
@@ -1360,11 +1324,9 @@ tsx ~/LPPOO/19102026/0044-opcional-readonly/A088.ts
 Crie `type Produto = { nome: string; descricao?: string }` e um produto sem
 descrição. Mostre a descrição dele, com 'sem descrição' no lugar.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Use `p.descricao ?? 'sem descrição'`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0044-opcional-readonly/E087.ts
@@ -1375,11 +1337,9 @@ tsx ~/LPPOO/19102026/0044-opcional-readonly/E087.ts
 Crie um produto com `readonly codigo` e tente trocar o código. Leia o erro e
 deixe a linha comentada.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. A mensagem fala em read-only property.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0044-opcional-readonly/E088.ts
@@ -1484,12 +1444,10 @@ tsx ~/LPPOO/19102026/0045-uniao-literais/A090.ts
 Crie type Tamanho = 'P' | 'M' | 'G' e a função precoDoAcai(t: Tamanho):
 number, que devolve 10, 15 ou 20. Teste os três tamanhos.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Um if por tamanho, ou um switch.
 2. Tente chamar com 'GG' e leia o erro (depois comente a linha).
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0045-uniao-literais/E089.ts
@@ -1500,12 +1458,10 @@ tsx ~/LPPOO/19102026/0045-uniao-literais/E089.ts
 Crie type Resposta = 'sim' | 'nao' e a função traduzir(r: Resposta): boolean,
 que transforma a resposta em true ou false.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. return r === 'sim' já resolve.
 2. Repare no autocompletar quando você escreve traduzir('.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0045-uniao-literais/E090.ts
@@ -1625,12 +1581,10 @@ tsx ~/LPPOO/19102026/0046-narrowing/A092.ts
 Escreva dobrarOuRepetir(v: number | string), que dobra se for número (4 vira
 8) e repete se for texto ('oi' vira 'oioi').
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Use typeof v === 'number'.
 2. Para repetir: v.repeat(2).
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0046-narrowing/E091.ts
@@ -1641,12 +1595,10 @@ tsx ~/LPPOO/19102026/0046-narrowing/E091.ts
 Escreva contar(v: string | string[]): number, que devolve quantas letras tem
 o texto, ou quantos itens tem a lista.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Array.isArray(v) separa os dois casos.
 2. Nos dois casos dá para usar .length, mas faça o narrowing mesmo assim, para treinar.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0046-narrowing/E092.ts
@@ -1762,12 +1714,10 @@ Crie type Forma = { tipo: 'retangulo'; largura: number; altura: number } |
 { tipo: 'triangulo'; base: number; altura: number }. Escreva area(f: Forma):
 number com switch e teste as duas.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Retângulo: largura * altura.
 2. Triângulo: base * altura / 2.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0047-uniao-discriminada/E093.ts
@@ -1779,12 +1729,10 @@ Copie o Pagamento e a função descrever do texto do assunto. Acrescente
 { tipo: 'boleto'; vencimento: string } e coloque o default com never. Veja o
 erro aparecer e depois trate o boleto no switch para ele sumir.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O erro aparece no default, não em quem chama.
 2. Depois de criar o case 'boleto', o never volta a ficar feliz.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0047-uniao-discriminada/E094.ts
@@ -1893,12 +1841,10 @@ Crie type Endereco = { cidade: string; bairro: string } e type Contato =
 { telefone: string }. Monte type Pessoa = { nome: string } & Endereco & Contato,
 crie uma pessoa e mostre uma frase com tudo.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Dá para juntar mais de dois tipos: A & B & C.
 2. Se faltar uma propriedade, o erro aparece na hora.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0048-intersecao/E095.ts
@@ -1910,12 +1856,10 @@ Crie type Aluno = { nome: string } e type Avaliado = { nota: number }.
 Escreva aprovado(a: Aluno & Avaliado): string que devolve "Ana: aprovada" ou
 "Ana: recuperação" (nota mínima 7). Teste com dois alunos.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O parâmetro já é a interseção: a.nome e a.nota existem.
 2. Use if ou o ternário.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0048-intersecao/E096.ts
@@ -2030,12 +1974,10 @@ Crie type Coordenada = [number, number] (x e y). Escreva distancia(a:
 Coordenada, b: Coordenada): number, que devolve a distância entre os dois
 pontos, e teste com [0, 0] e [3, 4] (resposta: 5).
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Desestruture: const [x1, y1] = a.
 2. Distância: Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2). O sqrt é a raiz quadrada.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0049-tuplas-enum-as-const/E097.ts
@@ -2047,12 +1989,10 @@ Crie const FORMAS = ['pix', 'cartao', 'dinheiro'] as const e o type Forma
 tirado dele. Peça ao usuário a forma de pagamento e diga se a cantina aceita
 ou não.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. type Forma = (typeof FORMAS)[number].
 2. Para saber se a resposta está na lista: FORMAS.some((f) => f === resposta).
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0049-tuplas-enum-as-const/E098.ts
@@ -2165,12 +2105,10 @@ Escreva sortear<T>(lista: T[]): T | undefined, que devolve um item
 qualquer da lista. Teste com uma lista de nomes e com uma lista de números e
 passe o mouse em cima dos resultados para ver o tipo.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Índice sorteado: Math.floor(Math.random() * lista.length).
 2. lista[i] já é T | undefined: a lista pode estar vazia.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0050-generics/E099.ts
@@ -2182,12 +2120,10 @@ Crie type Par<A, B> = { primeiro: A; segundo: B } e a função
 trocar<A, B>(p: Par<A, B>): Par<B, A>, que inverte as posições. Teste com
 { primeiro: 'Ana', segundo: 8 }.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Um generic pode ter mais de uma letra: <A, B>.
 2. Devolva { primeiro: p.segundo, segundo: p.primeiro }.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0050-generics/E100.ts
@@ -2307,12 +2243,10 @@ Crie type Produto = { codigo: number; nome: string; preco: number;
 estoque: number }. Use Pick para criar ItemDoCardapio (só nome e preço),
 monte uma lista de ItemDoCardapio e mostre cada um.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Pick aceita várias chaves: Pick<Produto, 'nome' | 'preco'>.
 2. Um for...of resolve a listagem.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0051-tipos-utilitarios/E101.ts
@@ -2323,12 +2257,10 @@ tsx ~/LPPOO/19102026/0051-tipos-utilitarios/E101.ts
 Crie type Dia = 'seg' | 'ter' | 'qua' e um Record<Dia, string> com o lanche
 de cada dia. Mostre o lanche de terça.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O Record exige uma chave para cada dia.
 2. Para ler: cardapio.ter.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0051-tipos-utilitarios/E102.ts
@@ -2450,12 +2382,10 @@ Crie type Cachorro = { nome: string; latir(): string } e type Gato =
 { nome: string; miar(): string }. Escreva o type guard ehCachorro e a função
 falar(bicho: Cachorro | Gato), que chama latir ou miar.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O guard pode usar 'latir' in bicho.
 2. O retorno do guard é bicho is Cachorro.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0052-type-guards-satisfies/E103.ts
@@ -2467,12 +2397,10 @@ Crie const horarios = { manha: '07:00', noite: '19:00' } satisfies
 Record<string, string>. Passe o mouse em horarios.noite. Depois troque o
 satisfies por uma anotação (: Record<string, string>) e compare o tipo.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Com o satisfies, o tipo é string.
 2. Com a anotação, aparece o | undefined.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0052-type-guards-satisfies/E104.ts
@@ -2592,12 +2520,10 @@ tsx ~/LPPOO/19102026/0053-tsconfig/A106.ts
 Crie de propósito uma variável que nunca é usada e rode pnpm -C ~/LPPOO tsc.
 Copie a mensagem do erro para um comentário e depois corrija o código.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. A mensagem começa com o arquivo e a linha: procure E105.
 2. Para corrigir, use a variável num console.log ou apague a linha.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0053-tsconfig/E105.ts
@@ -2608,12 +2534,10 @@ tsx ~/LPPOO/19102026/0053-tsconfig/E105.ts
 Escolha uma opção da tabela do assunto 0053. Escreva, comentado, um código
 que ela barra e, embaixo, o mesmo código do jeito certo.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Uma boa escolha: noUnusedParameters (função com parâmetro que não é usado).
 2. Comente o código errado com // na frente de cada linha.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0053-tsconfig/E106.ts
@@ -2725,12 +2649,10 @@ Crie type Situacao = { tipo: 'preparando' } | { tipo: 'pronto'; balcao: number }
 e interface Pedido { readonly numero: number; situacao: Situacao }. Escreva
 avisar(p: Pedido): string e teste com um pedido de cada tipo.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Pergunte se p.situacao.tipo === 'pronto'.
 2. Só dentro desse if existe p.situacao.balcao.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0054-juntando-tudo/E107.ts
@@ -2742,12 +2664,10 @@ Crie type Categoria = 'lanche' | 'bebida' | 'doce' e o type guard
 ehCategoria(texto: string): texto is Categoria. Peça uma categoria ao usuário
 e diga se a cantina tem essa categoria.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Copie a ideia do ehTurno do segundo exemplo (A108).
 2. Guarde as categorias numa lista com as const e use .some().
-
-</details>
 
 ```bash
 tsx ~/LPPOO/19102026/0054-juntando-tudo/E108.ts

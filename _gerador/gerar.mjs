@@ -82,7 +82,7 @@ const exercicio = (caminho, nome) => {
     ...corpo.join('\n').trim().split('\n'),
     '',
     ...(listaDicas.length
-      ? ['<details><summary>Dicas</summary>', '', ...listaDicas, '', '</details>', '']
+      ? ['**Dicas:**', '', ...listaDicas, '']
       : []),
     ...comando(caminho),
   ]

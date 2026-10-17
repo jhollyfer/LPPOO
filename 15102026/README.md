@@ -120,13 +120,11 @@ tsx ~/LPPOO/15102026/0001-input/A002.ts
 
 Pergunte o nome da sua escola e mostre a resposta na tela.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Primeiro pergunte, depois mostre: duas linhas de código bastam.
 2. Guarde a resposta numa `const` antes de mostrar.
 3. Não esqueça o espaço no fim da pergunta, depois do `?`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0001-input/E001.ts
@@ -137,13 +135,11 @@ tsx ~/LPPOO/15102026/0001-input/E001.ts
 Pergunte o nome de um colega e a comida preferida dele (vale tambaqui, vale
 açaí, vale miojo). Mostre as duas respostas, uma em cada linha.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. São duas perguntas, então dois `input` e duas variáveis.
 2. Dê nomes que digam o que guardam, tipo `colega` e `comida`.
 3. Um `console.log` para cada resposta deixa uma em cada linha.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0001-input/E002.ts
@@ -217,13 +213,11 @@ tsx ~/LPPOO/15102026/0002-output/A004.ts
 Faça o programa se apresentar por você: mostre três linhas com seu nome, sua
 idade e sua cidade.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Aqui não precisa de `input`: os valores podem ir direto no código.
 2. Três linhas na tela pedem três `console.log`.
 3. Texto vai entre aspas; número pode ir sem.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0002-output/E003.ts
@@ -233,13 +227,11 @@ tsx ~/LPPOO/15102026/0002-output/E003.ts
 
 Pergunte o nome da pessoa e dê as boas-vindas: `Seja bem-vindo(a), NOME!`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Pergunte o nome e guarde numa variável.
 2. A frase usa crases, não aspas: `` `Seja bem-vindo(a), ${...}!` ``.
 3. Confira se a exclamação ficou dentro da template string.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0002-output/E004.ts
@@ -328,13 +320,11 @@ tsx ~/LPPOO/15102026/0003-variaveis/A006.ts
 Placar ao vivo: crie a variável `golsBrasil` começando em 0. Mostre o placar,
 simule dois gols trocando o valor e mostre de novo.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O valor vai mudar, então a palavra é `let`.
 2. Para trocar o valor, escreva só `golsBrasil = 1`, sem `let` de novo.
 3. Use um `console.log` antes dos gols e outro depois.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0003-variaveis/E005.ts
@@ -346,13 +336,11 @@ Monte sua ficha com `let`: seu nome, sua idade e sua comida preferida. Mostre
 tudo. Depois mude a idade para a que você vai ter no ano que vem e mostre de
 novo.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Texto vai entre aspas. Número vai sem aspas.
 2. Para mudar o valor, escreva só `idade = ...`, sem o `let`.
 3. Um `console.log` aceita vários valores separados por vírgula.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0003-variaveis/E006.ts
@@ -441,13 +429,11 @@ tsx ~/LPPOO/15102026/0004-constantes/A008.ts
 Endereço fixo: crie uma constante com o nome da sua cidade e mostre
 `Eu moro em CIDADE`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Valor fixo do programa: `const` e nome em maiúsculas, tipo `CIDADE`.
 2. Texto vai entre aspas: `'Benjamin Constant'`.
 3. Template string junta texto e valor: `Eu moro em ${CIDADE}`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0004-constantes/E007.ts
@@ -459,13 +445,11 @@ Crie a constante `NOME_CURSO` e, na linha de baixo, tente trocar o valor dela.
 Copie a mensagem de erro para um comentário e explique com suas palavras por
 que o TypeScript não deixou.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Passe o mouse em cima do sublinhado vermelho para ler o erro inteiro.
 2. Procure a palavra "constant" na mensagem.
 3. Depois de copiar o erro, comente a linha que tenta trocar o valor.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0004-constantes/E008.ts
@@ -563,13 +547,11 @@ tsx ~/LPPOO/15102026/0005-texto/A010.ts
 Pergunte o nome do usuário e mostre quantas letras ele tem. Quem tem o maior
 nome da turma?
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Guarde o nome que a pessoa digitou.
 2. Toda string tem a propriedade `length`, sem parênteses.
 3. Teste com e sem sobrenome: o espaço também conta.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0005-texto/E009.ts
@@ -580,13 +562,11 @@ tsx ~/LPPOO/15102026/0005-texto/E009.ts
 Pergunte uma palavra e mostre ela GRITANDO (maiúsculas) e depois sussurrando
 (minúsculas).
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Um `input` só, e a mesma palavra é usada duas vezes.
 2. Os métodos são `toUpperCase()` e `toLowerCase()`, com parênteses.
 3. O método não muda a variável: ele devolve uma string nova.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0005-texto/E010.ts
@@ -664,13 +644,11 @@ Crie uma variável com a quantidade de alunos da sua turma e outra com a
 temperatura de hoje (com ponto, tipo 31.5). Mostre as duas numa frase:
 `Somos 25 alunos e está fazendo 31.5 graus`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Número vai sem aspas.
 2. O separador decimal é o ponto: `31.5`, não `31,5`.
 3. A frase é uma template string, com crases e `${ }`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0006-numero/E011.ts
@@ -681,13 +659,11 @@ tsx ~/LPPOO/15102026/0006-numero/E011.ts
 Crie uma variável com o valor `3.14159` (o famoso pi). Mostre ele com 2 casas
 decimais e depois com 3.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O método que controla as casas decimais é o `toFixed`.
 2. O número de casas vai entre os parênteses.
 3. Com 3 casas, confira: deu `3.141` (cortou) ou `3.142` (arredondou)?
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0006-numero/E012.ts
@@ -798,14 +774,12 @@ tsx ~/LPPOO/15102026/0007-booleano/A014.ts
 
 Crie duas variáveis booleanas: `gostaDeCafe` e `temCelular`. Mostre as duas.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Boolean só tem dois valores: `true` e `false`.
 2. Sem aspas: `'true'` com aspas é texto.
 3. Mostre cada uma num `console.log` ou as duas no mesmo, separadas por
    vírgula.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0007-booleano/E013.ts
@@ -816,13 +790,11 @@ tsx ~/LPPOO/15102026/0007-booleano/E013.ts
 Mostre o `typeof` de quatro valores diferentes: um texto, um número, um
 booleano e `undefined`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Escolha um valor de cada tipo e coloque direto no `typeof`.
 2. Quatro valores, quatro `console.log`.
 3. Antes de rodar, escreva num comentário o que você acha que vai sair.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0007-booleano/E014.ts
@@ -915,13 +887,11 @@ tsx ~/LPPOO/15102026/0008-conversao/A016.ts
 Pergunte dois números com `input`, converta com `Number` e mostre a soma de
 verdade.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Converta logo na hora de guardar: `Number(input(...))`.
 2. Depois some as duas variáveis numa terceira.
 3. Teste com `2` e `3`: se aparecer `23`, faltou converter algum.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0008-conversao/E015.ts
@@ -932,13 +902,11 @@ tsx ~/LPPOO/15102026/0008-conversao/E015.ts
 Mostre o resultado de `parseInt('15.7')` e `parseFloat('15.7')`. Num
 comentário, explique a diferença.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Mostre cada resultado num `console.log`.
 2. Um dos dois ignora tudo depois do ponto.
 3. Pense em qual nome tem `Int` (inteiro) e qual tem `Float` (decimal).
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0008-conversao/E016.ts
@@ -1036,14 +1004,12 @@ Placar do Free Fire: comece com `let pontos = 0`. Você ganhou 10 pontos,
 depois mais 5, e perdeu 3 por cair do mapa. Use `+=` e `-=` e mostre o
 placar final.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Comece com `let`, porque `pontos` vai mudar várias vezes.
 2. `pontos += 10` é o mesmo que `pontos = pontos + 10`.
 3. Perder pontos é com `-=`.
 4. Faça a conta de cabeça antes e confira: deve dar 12.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0009-atribuicao/E017.ts
@@ -1054,14 +1020,12 @@ tsx ~/LPPOO/15102026/0009-atribuicao/E017.ts
 Fila da cantina: crie `let fila = 5`. Chegaram 3 pessoas de uma vez, depois
 uma foi atendida e depois chegou mais uma. Mostre a fila depois de cada passo.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Chegar 3 de uma vez é `fila += 3`.
 2. Uma pessoa a menos é `fila--`. Uma a mais é `fila++`.
 3. Ponha um `console.log(fila)` logo depois de cada linha que muda o valor.
 4. Confira: tem que aparecer 8, 7 e 8.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0009-atribuicao/E018.ts
@@ -1156,14 +1120,12 @@ tsx ~/LPPOO/15102026/0010-aritmetica/A020.ts
 Calculadora de bolso: peça dois números e mostre a soma, a subtração, a
 multiplicação e a divisão, uma por linha.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O `input` devolve texto: converta cada número com `Number(...)`.
 2. Guarde os dois números em constantes antes de fazer as contas.
 3. Os operadores são `+`, `-`, `*` e `/`.
 4. Teste com 10 e 4: a divisão tem que dar 2.5.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0010-aritmetica/E019.ts
@@ -1174,13 +1136,11 @@ tsx ~/LPPOO/15102026/0010-aritmetica/E019.ts
 Peça um número e mostre o resto da divisão dele por 2. Rode com um número
 par e com um ímpar e veja a diferença.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O resto da divisão é o operador `%`.
 2. Lembre de converter o que foi digitado com `Number`.
 3. Número par sempre deixa resto 0 na divisão por 2.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0010-aritmetica/E020.ts
@@ -1270,14 +1230,12 @@ tsx ~/LPPOO/15102026/0011-math/A022.ts
 Peça um número decimal (com ponto, tipo 7.6) e mostre ele arredondado com
 `round`, `floor` e `ceil`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Converta o que foi digitado com `Number`.
 2. `Math.round` vai para o mais próximo, `Math.floor` para baixo e
    `Math.ceil` para cima.
 3. Teste com 7.6 e depois com 7.2 e compare os resultados.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0011-math/E021.ts
@@ -1287,13 +1245,11 @@ tsx ~/LPPOO/15102026/0011-math/E021.ts
 
 Peça a pontuação de três jogadores e mostre a maior e a menor.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Converta as três pontuações com `Number`.
 2. `Math.max` e `Math.min` aceitam vários números separados por vírgula.
 3. Teste com valores repetidos para ver o que acontece.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0011-math/E022.ts
@@ -1377,12 +1333,10 @@ Antes de rodar, escreva num comentário o que você acha que sai em
 `15 > 20`, `15 < 20`, `15 >= 15` e `15 <= 14`. Depois mostre com
 `console.log` e confira quantas você acertou.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Cada comparação responde só `true` ou `false`.
 2. `>=` dá `true` também quando os dois lados são iguais.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0012-relacional/E023.ts
@@ -1393,13 +1347,11 @@ tsx ~/LPPOO/15102026/0012-relacional/E023.ts
 Peça a nota da prova e mostre `true` ou `false` dizendo se ela é maior ou
 igual a 6.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Converta a nota com `Number`, senão você compara texto com número.
 2. O operador de "maior ou igual" é `>=`.
 3. Teste com 6 exatamente: tem que dar `true`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0012-relacional/E024.ts
@@ -1485,13 +1437,11 @@ Peça um número e o nome de um time. Mostre se o número é igual a 10, se é
 diferente de 5 e se o time é igual a `flamengo`, tudo minúsculo. Teste
 digitando 10 e Flamengo.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Converta o número com `Number`. Igual é `===` e diferente é `!==`.
 2. Maiúscula e minúscula contam: `F` e `f` são letras diferentes.
 3. Antes de rodar, escreva em comentário o que você acha que vai sair.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0013-comparacao/E025.ts
@@ -1502,13 +1452,11 @@ tsx ~/LPPOO/15102026/0013-comparacao/E025.ts
 Adivinhação: peça um número e mostre se ele é igual a 7, o número da sorte
 do professor.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O `input` devolve texto. Converta com `Number` antes de comparar com 7.
 2. Se não converter, o TypeScript reclama da comparação. Leia o erro.
 3. Teste com 7 e com outro número.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0013-comparacao/E026.ts
@@ -1599,15 +1547,13 @@ tsx ~/LPPOO/15102026/0014-logico/A028.ts
 Monte a tabela verdade do `&&` e do `||` no código: mostre com `console.log`
 as quatro combinações de `true` e `false` para cada operador.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. São 4 combinações: `true` e `true`, `true` e `false`, `false` e `true`,
    `false` e `false`.
 2. Faça um `console.log` para cada combinação, primeiro com `&&`, depois com
    `||`.
 3. Confira com a tabela verdade do README.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0014-logico/E027.ts
@@ -1618,13 +1564,11 @@ tsx ~/LPPOO/15102026/0014-logico/E027.ts
 Autoescola: peça a idade e se a pessoa tem habilitação (`sim`/`nao`). Mostre
 se ela pode dirigir, ou seja, 18 anos ou mais e habilitação.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Converta a idade com `Number`.
 2. Transforme a resposta em boolean comparando: `resposta === 'sim'`.
 3. As duas coisas precisam ser verdade ao mesmo tempo: `&&`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0014-logico/E028.ts
@@ -1709,13 +1653,11 @@ tsx ~/LPPOO/15102026/0015-condicional-simples/A030.ts
 Peça a idade e, se for 18 ou mais, mostre `Pode entrar na festa de
 formatura sem autorização dos pais`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O `input` devolve texto. Converta com `Number` antes de comparar.
 2. "18 ou mais" se escreve com `>=`.
 3. Teste com 17, 18 e 19 para ver a divisa.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0015-condicional-simples/E029.ts
@@ -1726,13 +1668,11 @@ tsx ~/LPPOO/15102026/0015-condicional-simples/E029.ts
 Peça a senha do Wi-Fi da escola e, se for igual a `cetam`, mostre
 `Conectado!`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Comparar texto com texto é com `===`.
 2. Guarde a senha certa numa constante.
 3. Teste digitando `CETAM` em maiúsculo. O que acontece?
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0015-condicional-simples/E030.ts
@@ -1818,13 +1758,11 @@ tsx ~/LPPOO/15102026/0016-condicional-composta/A032.ts
 
 Peça a idade e mostre `Maior de idade` ou `Menor de idade`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Converta a idade com `Number`.
 2. Um teste só resolve: se for 18 ou mais, maior; senão, menor.
 3. Teste com 17 e com 18.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0016-condicional-composta/E031.ts
@@ -1835,13 +1773,11 @@ tsx ~/LPPOO/15102026/0016-condicional-composta/E031.ts
 Peça a senha do celular e mostre `Desbloqueado` ou `Senha incorreta`.
 Invente a senha certa e guarde numa constante.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Crie a constante com a senha antes do `input`.
 2. Compare a senha digitada com a constante usando `===`.
 3. O `else` cuida de todo o resto, não precisa de outra condição.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0016-condicional-composta/E032.ts
@@ -1938,13 +1874,11 @@ tsx ~/LPPOO/15102026/0017-condicional-aninhada/A034.ts
 Peça a altura de dois jogadores do time de vôlei e mostre quem é o mais alto,
 ou `Mesma altura`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. São três resultados possíveis: o primeiro mais alto, o segundo ou empate.
 2. Teste um caso com `>`, outro com `<` e deixe o empate para o `else`.
 3. Altura tem ponto: `1.85`. Converta com `Number`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0017-condicional-aninhada/E033.ts
@@ -1955,14 +1889,12 @@ tsx ~/LPPOO/15102026/0017-condicional-aninhada/E033.ts
 Peça a idade e mostre `Criança` (até 11), `Adolescente` (12 a 17) ou
 `Adulto` (18 ou mais).
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Comece testando a menor faixa: até 11.
 2. Se não caiu na primeira, o `else if` só precisa testar até 17.
 3. O que sobrar é adulto, então fica no `else`.
 4. Teste os valores da divisa: 11, 12, 17 e 18.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0017-condicional-aninhada/E034.ts
@@ -2046,14 +1978,12 @@ tsx ~/LPPOO/15102026/0018-ternario/A036.ts
 Peça a idade e use ternário para mostrar `Maior de idade` ou `Menor de
 idade`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Converta a idade com `Number`.
 2. O formato é `condição ? valorSeSim : valorSeNao`.
 3. Dá para guardar o resultado numa constante ou mostrar direto no
    `console.log`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0018-ternario/E035.ts
@@ -2064,14 +1994,12 @@ tsx ~/LPPOO/15102026/0018-ternario/E035.ts
 Peça o preço do açaí em duas barracas da feira e use ternário para guardar o
 menor preço numa constante. Mostre `Compre o de R$ X`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Converta os dois preços com `Number`.
 2. A condição é qual preço é menor: `preco1 < preco2`.
 3. O ternário devolve o próprio preço, não um texto.
 4. Use `toFixed(2)` para mostrar os centavos.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0018-ternario/E036.ts
@@ -2181,13 +2109,11 @@ Peça a posição de chegada na corrida dos jogos escolares (1 a 3) e mostre
 `Ouro`, `Prata` ou `Bronze`. Para qualquer outro número mostre `Sem medalha,
 mas valeu a participação`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Converta a posição com `Number`, porque o `case 1` compara com número.
 2. Cada `case` termina com `break`.
 3. A mensagem de quem não ganhou medalha vai no `default`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0019-escolha/E037.ts
@@ -2198,14 +2124,12 @@ tsx ~/LPPOO/15102026/0019-escolha/E037.ts
 Faça uma calculadora com menu de 4 operações (+, -, *, /). Peça a operação e
 dois números e mostre o resultado.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. O `switch` é sobre a operação digitada, que é texto: `case '+'`.
 2. Converta os dois números com `Number` antes das contas.
 3. Coloque um `default` para operação inválida.
 4. Teste a divisão por zero e veja o que aparece.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/15102026/0019-escolha/E038.ts

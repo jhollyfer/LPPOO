@@ -133,14 +133,12 @@ O cofrinho começa vazio e você guarda R$ 7 por semana. Use um `while` para
 descobrir em quantas semanas o cofrinho passa de R$ 100. Mostre as semanas e o
 valor final.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Comece com `let cofrinho = 0` e `let semanas = 0`.
 2. A pergunta do `while` é: o cofrinho ainda não passou de 100?
 3. Dentro do laço, some 7 no cofrinho e 1 nas semanas.
 4. Resposta esperada: 15 semanas, R$ 105.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0020-while/E039.ts
@@ -151,13 +149,11 @@ tsx ~/LPPOO/16102026/0020-while/E039.ts
 Peça a senha do Wi-Fi com `input` e continue pedindo enquanto a pessoa
 errar. A senha certa é `cetam2026`. Quando acertar, mostre "Conectado!".
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Leia a senha uma vez antes do laço.
 2. A pergunta do `while` é: a senha está diferente de `'cetam2026'`?
 3. Dentro do laço, peça a senha de novo.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0020-while/E040.ts
@@ -252,13 +248,11 @@ tsx ~/LPPOO/16102026/0021-do-while/A042.ts
 Peça a idade da pessoa com `do...while` e só aceite valores de 0 a 120.
 Quando a idade for válida, mostre "Idade registrada: X".
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Crie `let idade` (sem valor) antes do `do`.
 2. A pergunta do `while` é a idade inválida: menor que 0 OU maior que 120.
 3. Teste digitando 200 primeiro: o programa tem que pedir de novo.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0021-do-while/E041.ts
@@ -269,13 +263,11 @@ tsx ~/LPPOO/16102026/0021-do-while/E041.ts
 Pergunte "Quer mais um açaí? (s/n)" até a pessoa responder `n`. Conte
 quantas vezes ela respondeu `s` e mostre o total no final.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Comece um contador em 0 antes do laço.
 2. Dentro do `do`, leia a resposta e some 1 no contador se for `'s'`.
 3. O laço continua enquanto a resposta for diferente de `'n'`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0021-do-while/E042.ts
@@ -366,13 +358,11 @@ tsx ~/LPPOO/16102026/0022-for/A044.ts
 
 Peça um número com `input` e mostre a tabuada dele, de 1 a 10, usando `for`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Converta o que foi digitado com `Number`.
 2. O `for` vai de `i = 1` até `i <= 10`.
 3. Monte a linha com template string: `${numero} x ${i} = ${numero * i}`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0022-for/E043.ts
@@ -383,13 +373,11 @@ tsx ~/LPPOO/16102026/0022-for/E043.ts
 Mostre todos os números pares de 0 a 20 usando um `for` que anda de dois em
 dois.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Comece em `let i = 0`.
 2. Troque o `i++` por `i += 2`.
 3. A condição é `i <= 20`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0022-for/E044.ts
@@ -478,12 +466,10 @@ tsx ~/LPPOO/16102026/0023-break-continue/A046.ts
 
 Mostre os números de 1 a 30, pulando os múltiplos de 3. Use `continue`.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Um número é múltiplo de 3 quando `i % 3 === 0`.
 2. O `continue` vem antes do `console.log`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0023-break-continue/E045.ts
@@ -494,13 +480,11 @@ tsx ~/LPPOO/16102026/0023-break-continue/E045.ts
 Peça nomes com `input` dentro de um `while (true)`. Quando a pessoa digitar
 `fim`, pare o laço com `break`. No final, mostre quantos nomes foram digitados.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Leia o nome dentro do laço.
 2. Confira o `'fim'` antes de contar o nome.
 3. O contador fica fora do laço, para sobreviver depois dele.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0023-break-continue/E046.ts
@@ -607,13 +591,11 @@ Crie um array `number[]` com as temperaturas de 5 dias da semana. Mostre a
 primeira, a última e quantos dias foram medidos. Depois troque a temperatura do
 terceiro dia e mostre o array de novo.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. A última posição é `temperaturas.length - 1`.
 2. O terceiro dia está na posição 2.
 3. Mostre o array inteiro com `console.log(temperaturas)`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0024-arrays/E047.ts
@@ -624,12 +606,10 @@ tsx ~/LPPOO/16102026/0024-arrays/E047.ts
 Crie um `string[]` com 3 nomes da sua família. Mostre cada nome usando o
 índice, numa frase: "Familiar 1: ...".
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Use `nomes[0]`, `nomes[1]` e `nomes[2]`.
 2. Na frase, o número mostrado é o índice + 1.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0024-arrays/E048.ts
@@ -724,13 +704,11 @@ tsx ~/LPPOO/16102026/0025-for-of/A050.ts
 Crie um array com os preços de 5 produtos da cantina. Use `for...of` para
 somar tudo e mostre o total com duas casas decimais.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Comece `let total = 0` antes do laço.
 2. Dentro do laço, some cada preço no total.
 3. Use `total.toFixed(2)` para mostrar.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0025-for-of/E049.ts
@@ -740,13 +718,11 @@ tsx ~/LPPOO/16102026/0025-for-of/E049.ts
 
 Crie um array com 5 nomes e mostre só os que têm mais de 4 letras.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Use `for (const nome of nomes)`.
 2. `nome.length` diz quantas letras o nome tem.
 3. Dentro do laço, use um `if` para decidir se mostra.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0025-for-of/E050.ts
@@ -846,12 +822,10 @@ Comece uma lista de compras vazia. Adicione 3 itens com `push`, coloque um
 item urgente no começo com `unshift` e depois remova o último com `pop`. Mostre a
 lista depois de cada passo.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Lista vazia tipada: `const compras: string[] = []`.
 2. Mostre com `console.log(compras)` depois de cada linha.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0026-inserir-remover/E051.ts
@@ -862,12 +836,10 @@ tsx ~/LPPOO/16102026/0026-inserir-remover/E051.ts
 Comece com a lista `['arroz', 'feijão', 'café']`. Peça o nome de um item com
 `input`, remova esse item com `splice` e mostre a lista.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Percorra com `for (let i = 0; i < lista.length; i++)`.
 2. Quando `lista[i] === item`, remova com `lista.splice(i, 1)` e pare com `break`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0026-inserir-remover/E052.ts
@@ -962,12 +934,10 @@ tsx ~/LPPOO/16102026/0027-funcoes/A054.ts
 Escreva a função `celsiusParaFahrenheit(c: number): number`, que converte
 graus Celsius para Fahrenheit. Mostre a conversão de 0, 25 e 100 graus.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. A fórmula é `c * 1.8 + 32`.
 2. Teste: 100 °C tem que dar 212 °F.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0027-funcoes/E053.ts
@@ -978,12 +948,10 @@ tsx ~/LPPOO/16102026/0027-funcoes/E053.ts
 Escreva a função `maiorNota(notas: number[]): number`, que devolve a maior nota
 do array.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Comece com `let maior = 0`.
 2. Percorra com `for...of` e troque `maior` quando achar uma nota maior.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0027-funcoes/E054.ts
@@ -1091,13 +1059,11 @@ tsx ~/LPPOO/16102026/0028-parametros/A056.ts
 Escreva `calcularFrete(peso: number, expresso?: boolean): number`. O frete é
 R$ 2 por kg; se for expresso, soma mais R$ 10. Teste com e sem o expresso.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Dentro da função, `expresso` pode ser `undefined`.
 2. Use `if (expresso === true)`: se não veio, ele vale `undefined` e o
    `if` não entra.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0028-parametros/E055.ts
@@ -1108,12 +1074,10 @@ tsx ~/LPPOO/16102026/0028-parametros/E055.ts
 Escreva `mostrarAluno(nome: string, turma: string = 'DS 2026'): void`, que
 mostra "Ana - turma DS 2026". Chame uma vez sem a turma e outra com.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Funções `void` não têm `return` com valor.
 2. Use template string para montar a frase.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0028-parametros/E056.ts
@@ -1215,12 +1179,10 @@ tsx ~/LPPOO/16102026/0029-escopo/A058.ts
 Escreva `calcularDesconto(preco: number): void` com `const desconto = preco * 0.1`
 dentro. Fora da função, tente mostrar o `desconto` e leia o erro.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Depois de ler o erro, deixe a linha comentada com `//` na frente.
 2. Para usar o desconto fora, a função teria que devolver com `return`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0029-escopo/E057.ts
@@ -1231,12 +1193,10 @@ tsx ~/LPPOO/16102026/0029-escopo/E057.ts
 Crie um `let visitas = 0` global e uma função `registrarVisita(): void` que
 soma 1 nele. Chame a função 3 vezes e mostre o total de visitas.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. A função enxerga e muda a variável global.
 2. O resultado esperado é 3.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0029-escopo/E058.ts
@@ -1348,12 +1308,10 @@ Escreva a arrow function `ehAprovado = (nota: number): boolean => ...`.
 Teste com as notas 4, 6 e 9. Depois, percorra o array `[4, 7, 9, 5]` com
 `for...of` e mostre só as notas aprovadas.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Aprovado é nota maior ou igual a 6.
 2. Dentro do laço, use `if (ehAprovado(nota))`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0030-arrow-callback/E059.ts
@@ -1364,13 +1322,11 @@ tsx ~/LPPOO/16102026/0030-arrow-callback/E059.ts
 Escreva `repetir(vezes: number, acao: () => void): void`, que chama a `acao`
 o número de vezes pedido. Teste com uma arrow que mostra "Olá!".
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Dentro de `repetir`, use um `for`.
 2. Para chamar o callback, use `acao()`.
 3. Teste: `repetir(3, () => console.log('Olá!'))`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0030-arrow-callback/E060.ts
@@ -1470,13 +1426,11 @@ tsx ~/LPPOO/16102026/0031-consultar/A062.ts
 Crie um array com as idades da turma. Use `some` para dizer se tem alguém
 menor de 18 e `every` para dizer se todos têm mais de 15.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. `idades.some((idade) => idade < 18)`.
 2. `idades.every((idade) => idade > 15)`.
 3. Mostre as respostas numa frase.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0031-consultar/E061.ts
@@ -1487,12 +1441,10 @@ tsx ~/LPPOO/16102026/0031-consultar/E061.ts
 Crie um array de preços e use `find` para achar o primeiro produto acima de
 R$ 10. Se não tiver nenhum, mostre "Tudo barato!".
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. `find` devolve `undefined` quando ninguém passa.
 2. Guarde o resultado e pergunte com um `if`: `if (achado === undefined)`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0031-consultar/E062.ts
@@ -1599,12 +1551,10 @@ tsx ~/LPPOO/16102026/0032-transformar/A064.ts
 Crie um array de preços e use `map` para criar um array novo com 10% de
 aumento em cada preço. Mostre os dois arrays.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Aumento de 10% é multiplicar por 1.1.
 2. O `map` devolve um array novo: guarde numa `const`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0032-transformar/E063.ts
@@ -1615,12 +1565,10 @@ tsx ~/LPPOO/16102026/0032-transformar/E063.ts
 Crie um array de notas. Use `filter` para pegar as reprovadas (abaixo de 6) e
 `reduce` para calcular a média de todas as notas.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Média é a soma (`reduce`) dividida por `notas.length`.
 2. No `reduce`, não esqueça o valor inicial `0`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0032-transformar/E064.ts
@@ -1723,12 +1671,10 @@ tsx ~/LPPOO/16102026/0033-organizar/A066.ts
 Crie um array de preços e mostre os preços do menor para o maior, sem mudar
 o array original. Mostre os dois arrays no final para provar.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Primeiro faça uma cópia com `slice()`.
 2. Ordene a cópia com `sort((a, b) => a - b)`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0033-organizar/E065.ts
@@ -1738,12 +1684,10 @@ tsx ~/LPPOO/16102026/0033-organizar/E065.ts
 
 Crie um array com 6 notas e mostre as 3 maiores separadas por " - ".
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Cópia, `sort((a, b) => b - a)` e `slice(0, 3)`.
 2. Termine com `join(' - ')`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0033-organizar/E066.ts
@@ -1856,12 +1800,10 @@ tsx ~/LPPOO/16102026/0034-juntando-tudo/A068.ts
 Escreva `resumo(notas: number[]): void`, que mostra a menor e a maior nota sem
 mudar o array. Teste com `[7, 4, 9, 6]`: Menor: 4, Maior: 9.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Faça uma cópia ordenada com `notas.slice().sort((a, b) => a - b)`.
 2. A menor fica na posição 0 e a maior na posição `length - 1`.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0034-juntando-tudo/E067.ts
@@ -1872,13 +1814,11 @@ tsx ~/LPPOO/16102026/0034-juntando-tudo/E067.ts
 Peça nomes até a pessoa digitar `fim` e guarde num array. No final, mostre os
 nomes em ordem alfabética, separados por vírgula, e quantos foram digitados.
 
-<details><summary>Dicas</summary>
+**Dicas:**
 
 1. Use `do...while` ou `while (true)` com `break`.
 2. Não guarde o `'fim'` no array.
 3. Para texto, o `sort()` sem regra já ordena em ordem alfabética.
-
-</details>
 
 ```bash
 tsx ~/LPPOO/16102026/0034-juntando-tudo/E068.ts
