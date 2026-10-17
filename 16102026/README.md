@@ -111,19 +111,80 @@ dá quatro voltas antes de sair pelo Não:
 > **Pergunta para a turma:** se a passagem subir para R$ 5, quantas viagens dá
 > e quanto sobra? Troque o `4.5` por `5` nas duas linhas e rode.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0021-while/`](0021-while/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0021-while/A061.ts
-> tsx ~/LPPOO/16102026/0021-while/A062.ts
-> tsx ~/LPPOO/16102026/0021-while/A063.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0021-while/E041.ts
-> tsx ~/LPPOO/16102026/0021-while/E042.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0021-while/`](0021-while/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A041 · Quantas passagens cabem no cartão**
+
+```ts
+let saldo = 20
+let viagens = 0
+
+while (saldo >= 4.5) {
+  saldo -= 4.5
+  viagens++
+}
+
+console.log(`Deu para ${viagens} viagens. Sobrou R$ ${saldo.toFixed(2)}`)
+```
+
+```bash
+tsx ~/LPPOO/16102026/0021-while/A041.ts
+```
+
+**Exemplo A042 · Contagem regressiva**
+
+```ts
+let segundos = 5
+
+while (segundos > 0) {
+  console.log(segundos)
+  segundos--
+}
+
+console.log('Já!')
+```
+
+```bash
+tsx ~/LPPOO/16102026/0021-while/A042.ts
+```
+
+**Exercício E041**
+
+O cofrinho começa vazio e você guarda R$ 7 por semana. Use um `while` para
+descobrir em quantas semanas o cofrinho passa de R$ 100. Mostre as semanas e o
+valor final.
+
+<details><summary>Dicas</summary>
+
+1. Comece com `let cofrinho = 0` e `let semanas = 0`.
+2. A pergunta do `while` é: o cofrinho ainda não passou de 100?
+3. Dentro do laço, some 7 no cofrinho e 1 nas semanas.
+4. Resposta esperada: 15 semanas, R$ 105.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0021-while/E041.ts
+```
+
+**Exercício E042**
+
+Peça a senha do Wi-Fi com `input` e continue pedindo enquanto a pessoa
+errar. A senha certa é `cetam2026`. Quando acertar, mostre "Conectado!".
+
+<details><summary>Dicas</summary>
+
+1. Leia a senha uma vez antes do laço.
+2. A pergunta do `while` é: a senha está diferente de `'cetam2026'`?
+3. Dentro do laço, peça a senha de novo.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0021-while/E042.ts
+```
 
 ---
 
@@ -166,19 +227,79 @@ pergunta vinha antes:
 > aceita ou pede de novo? Rode e confira. (Dica: leia a condição com calma,
 > `nota > 10`.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0022-do-while/`](0022-do-while/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0022-do-while/A064.ts
-> tsx ~/LPPOO/16102026/0022-do-while/A065.ts
-> tsx ~/LPPOO/16102026/0022-do-while/A066.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0022-do-while/E043.ts
-> tsx ~/LPPOO/16102026/0022-do-while/E044.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0022-do-while/`](0022-do-while/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A043 · Nota entre 0 e 10**
+
+```ts
+import { input } from '#core/input.ts'
+
+let nota: number
+
+do {
+  nota = Number(input('Nota (0 a 10): '))
+} while (nota < 0 || nota > 10)
+
+console.log(`Nota registrada: ${nota}`)
+```
+
+```bash
+tsx ~/LPPOO/16102026/0022-do-while/A043.ts
+```
+
+**Exemplo A044 · Senha com do...while**
+
+```ts
+import { input } from '#core/input.ts'
+
+let senha: string
+
+do {
+  senha = input('Senha do Wi-Fi: ')
+} while (senha !== 'cetam2026')
+
+console.log('Conectado!')
+```
+
+```bash
+tsx ~/LPPOO/16102026/0022-do-while/A044.ts
+```
+
+**Exercício E043**
+
+Peça a idade da pessoa com `do...while` e só aceite valores de 0 a 120.
+Quando a idade for válida, mostre "Idade registrada: X".
+
+<details><summary>Dicas</summary>
+
+1. Crie `let idade: number` antes do `do`.
+2. A pergunta do `while` é a idade inválida: menor que 0 OU maior que 120.
+3. Teste digitando 200 primeiro: o programa tem que pedir de novo.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0022-do-while/E043.ts
+```
+
+**Exercício E044**
+
+Pergunte "Quer mais um açaí? (s/n)" até a pessoa responder `n`. Conte
+quantas vezes ela respondeu `s` e mostre o total no final.
+
+<details><summary>Dicas</summary>
+
+1. Comece um contador em 0 antes do laço.
+2. Dentro do `do`, leia a resposta e some 1 no contador se for `'s'`.
+3. O laço continua enquanto a resposta for diferente de `'n'`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0022-do-while/E044.ts
+```
 
 ---
 
@@ -227,19 +348,70 @@ juntas, num lugar que dá para ler de uma vez:
 > **Pergunta para a turma:** troque o `i++` por `i += 2`. Quais linhas da
 > tabuada aparecem agora? Rode e confira.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0023-for/`](0023-for/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0023-for/A067.ts
-> tsx ~/LPPOO/16102026/0023-for/A068.ts
-> tsx ~/LPPOO/16102026/0023-for/A069.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0023-for/E045.ts
-> tsx ~/LPPOO/16102026/0023-for/E046.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0023-for/`](0023-for/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A045 · Tabuada do 7**
+
+```ts
+const numero = 7
+
+for (let i = 1; i <= 10; i++) {
+  console.log(`${numero} x ${i} = ${numero * i}`)
+}
+```
+
+```bash
+tsx ~/LPPOO/16102026/0023-for/A045.ts
+```
+
+**Exemplo A046 · Contando para trás**
+
+```ts
+for (let i = 10; i >= 0; i--) {
+  console.log(i)
+}
+
+console.log('Feliz ano novo!')
+```
+
+```bash
+tsx ~/LPPOO/16102026/0023-for/A046.ts
+```
+
+**Exercício E045**
+
+Peça um número com `input` e mostre a tabuada dele, de 1 a 10, usando `for`.
+
+<details><summary>Dicas</summary>
+
+1. Converta o que foi digitado com `Number`.
+2. O `for` vai de `i = 1` até `i <= 10`.
+3. Monte a linha com template string: `${numero} x ${i} = ${numero * i}`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0023-for/E045.ts
+```
+
+**Exercício E046**
+
+Mostre todos os números pares de 0 a 20 usando um `for` que anda de dois em
+dois.
+
+<details><summary>Dicas</summary>
+
+1. Comece em `let i = 0`.
+2. Troque o `i++` por `i += 2`.
+3. A condição é `i <= 20`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0023-for/E046.ts
+```
 
 ---
 
@@ -282,19 +454,70 @@ Repara no fluxograma: o `continue` é um atalho de volta para o `i++`. O `break`
 > **Pergunta para a turma:** troque o `i > 7` por `i > 4`. Quais números
 > aparecem agora? Rode e confira.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0024-break-continue/`](0024-break-continue/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0024-break-continue/A070.ts
-> tsx ~/LPPOO/16102026/0024-break-continue/A071.ts
-> tsx ~/LPPOO/16102026/0024-break-continue/A072.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0024-break-continue/E047.ts
-> tsx ~/LPPOO/16102026/0024-break-continue/E048.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0024-break-continue/`](0024-break-continue/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A047 · Pula os pares, para depois do 7**
+
+```ts
+for (let i = 1; i <= 10; i++) {
+  if (i % 2 === 0) continue
+  if (i > 7) break
+  console.log(i)
+}
+```
+
+```bash
+tsx ~/LPPOO/16102026/0024-break-continue/A047.ts
+```
+
+**Exemplo A048 · O primeiro múltiplo de 7 depois de 50**
+
+```ts
+for (let i = 51; i <= 100; i++) {
+  if (i % 7 === 0) {
+    console.log(`Achei: ${i}`) // 56
+    break
+  }
+}
+```
+
+```bash
+tsx ~/LPPOO/16102026/0024-break-continue/A048.ts
+```
+
+**Exercício E047**
+
+Mostre os números de 1 a 30, pulando os múltiplos de 3. Use `continue`.
+
+<details><summary>Dicas</summary>
+
+1. Um número é múltiplo de 3 quando `i % 3 === 0`.
+2. O `continue` vem antes do `console.log`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0024-break-continue/E047.ts
+```
+
+**Exercício E048**
+
+Peça nomes com `input` dentro de um `while (true)`. Quando a pessoa digitar
+`fim`, pare o laço com `break`. No final, mostre quantos nomes foram digitados.
+
+<details><summary>Dicas</summary>
+
+1. Leia o nome dentro do laço.
+2. Confira o `'fim'` antes de contar o nome.
+3. O contador fica fora do laço, para sobreviver depois dele.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0024-break-continue/E048.ts
+```
 
 ---
 
@@ -356,19 +579,73 @@ a **etiqueta**, não o que tem dentro das gavetas.
 > posição 2. Numa turma de 30 alunos, qual é a posição do último? (Dica: a
 > contagem começa em 0.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0025-arrays/`](0025-arrays/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0025-arrays/A073.ts
-> tsx ~/LPPOO/16102026/0025-arrays/A074.ts
-> tsx ~/LPPOO/16102026/0025-arrays/A075.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0025-arrays/E049.ts
-> tsx ~/LPPOO/16102026/0025-arrays/E050.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0025-arrays/`](0025-arrays/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A049 · Ler e trocar posições**
+
+```ts
+const notas: number[] = [8, 6, 9]
+const nomes: Array<string> = ['Ana', 'Bia', 'Caio']
+
+console.log(nomes[0]) // Ana
+console.log(notas.length) // 3
+notas[1] = 7
+console.log(notas) // [ 8, 7, 9 ]
+```
+
+```bash
+tsx ~/LPPOO/16102026/0025-arrays/A049.ts
+```
+
+**Exemplo A050 · A primeira e a última posição**
+
+```ts
+const cidades: Array<string> = ['Benjamin Constant', 'Tabatinga', 'Atalaia do Norte']
+
+console.log(`Primeira: ${cidades[0]}`)
+console.log(`Última: ${cidades[cidades.length - 1]}`)
+console.log(`Posição que não existe: ${cidades[10]}`) // undefined
+```
+
+```bash
+tsx ~/LPPOO/16102026/0025-arrays/A050.ts
+```
+
+**Exercício E049**
+
+Crie um array `number[]` com as temperaturas de 5 dias da semana. Mostre a
+primeira, a última e quantos dias foram medidos. Depois troque a temperatura do
+terceiro dia e mostre o array de novo.
+
+<details><summary>Dicas</summary>
+
+1. A última posição é `temperaturas.length - 1`.
+2. O terceiro dia está na posição 2.
+3. Mostre o array inteiro com `console.log(temperaturas)`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0025-arrays/E049.ts
+```
+
+**Exercício E050**
+
+Crie um `Array<string>` com 3 nomes da sua família. Mostre cada nome usando o
+índice, numa frase: "Familiar 1: ...".
+
+<details><summary>Dicas</summary>
+
+1. Use `nomes[0]`, `nomes[1]` e `nomes[2]`.
+2. Na frase, o número mostrado é o índice + 1.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0025-arrays/E050.ts
+```
 
 ---
 
@@ -411,19 +688,73 @@ mais difícil de errar.
 > **Pergunta para a turma:** coloque `'Davi'` no fim da lista e rode de novo.
 > Precisou mexer no laço? O que aparece?
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0026-for-of/`](0026-for-of/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0026-for-of/A076.ts
-> tsx ~/LPPOO/16102026/0026-for-of/A077.ts
-> tsx ~/LPPOO/16102026/0026-for-of/A078.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0026-for-of/E051.ts
-> tsx ~/LPPOO/16102026/0026-for-of/E052.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0026-for-of/`](0026-for-of/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A051 · A chamada**
+
+```ts
+const nomes: string[] = ['Ana', 'Bia', 'Caio']
+
+for (const nome of nomes) {
+  console.log(`Presente, ${nome}!`)
+}
+```
+
+```bash
+tsx ~/LPPOO/16102026/0026-for-of/A051.ts
+```
+
+**Exemplo A052 · Somar as notas**
+
+```ts
+const notas: number[] = [8, 6, 9]
+let soma = 0
+
+for (const nota of notas) {
+  soma += nota
+}
+
+console.log(`Soma: ${soma}`) // 23
+console.log(`Média: ${(soma / notas.length).toFixed(1)}`) // 7.7
+```
+
+```bash
+tsx ~/LPPOO/16102026/0026-for-of/A052.ts
+```
+
+**Exercício E051**
+
+Crie um array com os preços de 5 produtos da cantina. Use `for...of` para
+somar tudo e mostre o total com duas casas decimais.
+
+<details><summary>Dicas</summary>
+
+1. Comece `let total = 0` antes do laço.
+2. Dentro do laço, some cada preço no total.
+3. Use `total.toFixed(2)` para mostrar.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0026-for-of/E051.ts
+```
+
+**Exercício E052**
+
+Crie um array de nomes e mostre só os que começam com a letra A.
+
+<details><summary>Dicas</summary>
+
+1. Use `for (const nome of nomes)`.
+2. `nome.startsWith('A')` responde `true` ou `false`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0026-for-of/E052.ts
+```
 
 ---
 
@@ -473,19 +804,79 @@ a cada linha, sem precisar de `=`:
 > **Pergunta para a turma:** apague a linha do `splice` e rode de novo. Como
 > fica a lista no final?
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0027-inserir-remover/`](0027-inserir-remover/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0027-inserir-remover/A079.ts
-> tsx ~/LPPOO/16102026/0027-inserir-remover/A080.ts
-> tsx ~/LPPOO/16102026/0027-inserir-remover/A081.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0027-inserir-remover/E053.ts
-> tsx ~/LPPOO/16102026/0027-inserir-remover/E054.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0027-inserir-remover/`](0027-inserir-remover/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A053 · Os cinco métodos**
+
+```ts
+const compras: string[] = ['arroz', 'feijão']
+
+compras.push('farinha')
+compras.unshift('café')
+compras.pop()
+compras.shift()
+compras.splice(1, 1, 'açaí')
+
+console.log(compras) // [ 'arroz', 'açaí' ]
+```
+
+```bash
+tsx ~/LPPOO/16102026/0027-inserir-remover/A053.ts
+```
+
+**Exemplo A054 · Fila da cantina: entra no fim, sai do começo**
+
+```ts
+const fila: string[] = []
+
+fila.push('Ana')
+fila.push('Bia')
+fila.push('Caio')
+
+const atendido = fila.shift()
+console.log(`Atendido: ${atendido}`) // Ana
+console.log(`Ainda na fila: ${fila.join(', ')}`) // Bia, Caio
+```
+
+```bash
+tsx ~/LPPOO/16102026/0027-inserir-remover/A054.ts
+```
+
+**Exercício E053**
+
+Comece uma lista de compras vazia. Adicione 3 itens com `push`, coloque um
+item urgente no começo com `unshift` e depois remova o último com `pop`. Mostre a
+lista depois de cada passo.
+
+<details><summary>Dicas</summary>
+
+1. Lista vazia tipada: `const compras: string[] = []`.
+2. Mostre com `console.log(compras)` depois de cada linha.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0027-inserir-remover/E053.ts
+```
+
+**Exercício E054**
+
+Peça o nome de um item com `input` e remova esse item da lista, se ele
+existir. Se não existir, mostre "Esse item não está na lista".
+
+<details><summary>Dicas</summary>
+
+1. Descubra a posição com `indexOf`.
+2. `indexOf` devolve `-1` quando não acha.
+3. Remova com `splice(posicao, 1)`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0027-inserir-remover/E054.ts
+```
 
 ---
 
@@ -533,19 +924,79 @@ nem é olhado:
 > **Pergunta para a turma:** o que o `find` devolve quando nenhum item passa na
 > regra? Troque o `p > 20` por `p > 100` e rode. (E o `findIndex`?)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0028-consultar/`](0028-consultar/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0028-consultar/A082.ts
-> tsx ~/LPPOO/16102026/0028-consultar/A083.ts
-> tsx ~/LPPOO/16102026/0028-consultar/A084.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0028-consultar/E055.ts
-> tsx ~/LPPOO/16102026/0028-consultar/E056.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0028-consultar/`](0028-consultar/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A055 · Perguntas para o array**
+
+```ts
+const precos: number[] = [6, 25, 9]
+
+console.log(precos.includes(25)) // true
+console.log(precos.indexOf(9)) // 2
+console.log(precos.indexOf(100)) // -1
+console.log(precos.find((p) => p > 20)) // 25
+console.log(precos.findIndex((p) => p > 20)) // 1
+console.log(precos.some((p) => p > 20)) // true
+console.log(precos.every((p) => p > 5)) // true
+```
+
+```bash
+tsx ~/LPPOO/16102026/0028-consultar/A055.ts
+```
+
+**Exemplo A056 · Está na lista?**
+
+```ts
+import { input } from '#core/input.ts'
+
+const turma: string[] = ['Ana', 'Bia', 'Caio']
+const nome = input('Nome: ')
+
+if (turma.includes(nome)) {
+  console.log(`${nome} está na posição ${turma.indexOf(nome)}`)
+} else {
+  console.log(`${nome} não está na turma`)
+}
+```
+
+```bash
+tsx ~/LPPOO/16102026/0028-consultar/A056.ts
+```
+
+**Exercício E055**
+
+Crie um array com as idades da turma. Use `some` para dizer se tem alguém
+menor de 18 e `every` para dizer se todos têm mais de 15.
+
+<details><summary>Dicas</summary>
+
+1. `idades.some((i) => i < 18)`.
+2. `idades.every((i) => i > 15)`.
+3. Mostre as respostas numa frase.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0028-consultar/E055.ts
+```
+
+**Exercício E056**
+
+Crie um array de preços e use `find` para achar o primeiro produto acima de
+R$ 10. Se não tiver nenhum, mostre "Tudo barato!".
+
+<details><summary>Dicas</summary>
+
+1. `find` devolve `undefined` quando ninguém passa.
+2. Use `??` para trocar o `undefined` por uma mensagem, ou um `if`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0028-consultar/E056.ts
+```
 
 ---
 
@@ -599,19 +1050,77 @@ item, e não mexe no original:
 > **Pergunta para a turma:** se você trocar o `0` do `reduce` por `10`, quanto
 > dá a `soma`? Mude e rode. (Dica: o `acc` começa com esse valor.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0029-transformar/`](0029-transformar/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0029-transformar/A085.ts
-> tsx ~/LPPOO/16102026/0029-transformar/A086.ts
-> tsx ~/LPPOO/16102026/0029-transformar/A087.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0029-transformar/E057.ts
-> tsx ~/LPPOO/16102026/0029-transformar/E058.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0029-transformar/`](0029-transformar/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A057 · map, filter, reduce e forEach**
+
+```ts
+const notas: number[] = [8, 4, 9, 5]
+
+const dobradas = notas.map((n) => n * 2)
+const aprovadas = notas.filter((n) => n >= 6)
+const soma = notas.reduce((acc, n) => acc + n, 0)
+
+console.log(dobradas) // [ 16, 8, 18, 10 ]
+console.log(aprovadas) // [ 8, 9 ]
+console.log(soma) // 26
+notas.forEach((n) => console.log(`Nota: ${n}`))
+```
+
+```bash
+tsx ~/LPPOO/16102026/0029-transformar/A057.ts
+```
+
+**Exemplo A058 · Encadeando: só os caros, com 10% de desconto, somados**
+
+```ts
+const precos: number[] = [12, 5, 30]
+
+const total = precos
+  .filter((p) => p > 10) // [12, 30]
+  .map((p) => p * 0.9) // [10.8, 27]
+  .reduce((acc, p) => acc + p, 0) // 37.8
+
+console.log(`Total: R$ ${total.toFixed(2)}`)
+```
+
+```bash
+tsx ~/LPPOO/16102026/0029-transformar/A058.ts
+```
+
+**Exercício E057**
+
+Crie um array de preços e use `map` para criar um array novo com 10% de
+aumento em cada preço. Mostre os dois arrays.
+
+<details><summary>Dicas</summary>
+
+1. Aumento de 10% é multiplicar por 1.1.
+2. O `map` devolve um array novo: guarde numa `const`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0029-transformar/E057.ts
+```
+
+**Exercício E058**
+
+Crie um array de notas. Use `filter` para pegar as reprovadas (abaixo de 6) e
+`reduce` para calcular a média de todas as notas.
+
+<details><summary>Dicas</summary>
+
+1. Média é a soma (`reduce`) dividida por `notas.length`.
+2. No `reduce`, não esqueça o valor inicial `0`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0029-transformar/E058.ts
+```
 
 ---
 
@@ -664,19 +1173,71 @@ Guarda essa tabela. Ela separa quem mexe no original de quem devolve um novo:
 > linha da `copia`, o que aparece no último `console.log`? Troque e rode.
 > (Dica: sem o `slice`, não tem foto.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0030-organizar/`](0030-organizar/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0030-organizar/A088.ts
-> tsx ~/LPPOO/16102026/0030-organizar/A089.ts
-> tsx ~/LPPOO/16102026/0030-organizar/A090.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0030-organizar/E059.ts
-> tsx ~/LPPOO/16102026/0030-organizar/E060.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0030-organizar/`](0030-organizar/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A059 · Ordenar uma cópia**
+
+```ts
+const notas: number[] = [8, 10, 6, 9]
+
+const copia = notas.slice()
+copia.sort((a, b) => a - b)
+copia.reverse()
+
+console.log(copia.join(' | ')) // 10 | 9 | 8 | 6
+console.log(notas.concat([7])) // [ 8, 10, 6, 9, 7 ]
+console.log(notas) // [ 8, 10, 6, 9 ]
+```
+
+```bash
+tsx ~/LPPOO/16102026/0030-organizar/A059.ts
+```
+
+**Exemplo A060 · O perigo do sort sem regra**
+
+```ts
+const numeros: number[] = [8, 10, 6, 9]
+
+console.log(numeros.slice().sort()) // [ 10, 6, 8, 9 ]: comparou como texto
+console.log(numeros.slice().sort((a, b) => a - b)) // [ 6, 8, 9, 10 ]
+```
+
+```bash
+tsx ~/LPPOO/16102026/0030-organizar/A060.ts
+```
+
+**Exercício E059**
+
+Crie um array de preços e mostre os preços do menor para o maior, sem mudar
+o array original. Mostre os dois arrays no final para provar.
+
+<details><summary>Dicas</summary>
+
+1. Primeiro faça uma cópia com `slice()`.
+2. Ordene a cópia com `sort((a, b) => a - b)`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0030-organizar/E059.ts
+```
+
+**Exercício E060**
+
+Crie um array com 6 notas e mostre as 3 maiores separadas por " - ".
+
+<details><summary>Dicas</summary>
+
+1. Cópia, `sort((a, b) => b - a)` e `slice(0, 3)`.
+2. Termine com `join(' - ')`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0030-organizar/E060.ts
+```
 
 ---
 
@@ -726,19 +1287,71 @@ as contas e devolve o `8`:
 > **Pergunta para a turma:** o que aparece se você chamar `calcularMedia([])`,
 > com o array vazio? Rode e confira. (Dica: quanto dá 0 dividido por 0?)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0031-funcoes/`](0031-funcoes/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0031-funcoes/A091.ts
-> tsx ~/LPPOO/16102026/0031-funcoes/A092.ts
-> tsx ~/LPPOO/16102026/0031-funcoes/A093.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0031-funcoes/E061.ts
-> tsx ~/LPPOO/16102026/0031-funcoes/E062.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0031-funcoes/`](0031-funcoes/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A061 · Média de um array**
+
+```ts
+function calcularMedia(valores: number[]): number {
+  const soma = valores.reduce((acc, v) => acc + v, 0)
+  return soma / valores.length
+}
+
+console.log(calcularMedia([8, 6, 10])) // 8
+console.log(calcularMedia([5, 7])) // 6
+```
+
+```bash
+tsx ~/LPPOO/16102026/0031-funcoes/A061.ts
+```
+
+**Exemplo A062 · Função com dois parâmetros**
+
+```ts
+function areaRetangulo(largura: number, altura: number): number {
+  return largura * altura
+}
+
+console.log(`Área da sala: ${areaRetangulo(8, 6)} m²`) // 48 m²
+```
+
+```bash
+tsx ~/LPPOO/16102026/0031-funcoes/A062.ts
+```
+
+**Exercício E061**
+
+Escreva a função `celsiusParaFahrenheit(c: number): number`, que converte
+graus Celsius para Fahrenheit. Mostre a conversão de 0, 25 e 100 graus.
+
+<details><summary>Dicas</summary>
+
+1. A fórmula é `c * 1.8 + 32`.
+2. Teste: 100 °C tem que dar 212 °F.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0031-funcoes/E061.ts
+```
+
+**Exercício E062**
+
+Escreva a função `maiorNota(notas: number[]): number`, que devolve a maior nota
+do array. Não vale usar `sort`.
+
+<details><summary>Dicas</summary>
+
+1. Comece com `let maior = 0`.
+2. Percorra com `for...of` e troque `maior` quando achar uma nota maior.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0031-funcoes/E062.ts
+```
 
 ---
 
@@ -933,19 +1546,77 @@ chamada não veio desconto, então vale o padrão:
 > `mostrarTotal(totalComDesconto([10, 20], 0.5))`? Acrescente a linha e rode.
 > (Dica: `0.5` é metade.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0032-parametros/`](0032-parametros/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0032-parametros/A094.ts
-> tsx ~/LPPOO/16102026/0032-parametros/A095.ts
-> tsx ~/LPPOO/16102026/0032-parametros/A096.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0032-parametros/E063.ts
-> tsx ~/LPPOO/16102026/0032-parametros/E064.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0032-parametros/`](0032-parametros/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A063 · Desconto com valor padrão e moeda opcional**
+
+```ts
+function totalComDesconto(precos: number[], desconto: number = 0): number {
+  const total = precos.reduce((acc, p) => acc + p, 0)
+  return total - total * desconto
+}
+
+function mostrarTotal(total: number, moeda?: string): void {
+  console.log(`${moeda ?? 'R} ${total.toFixed(2)}`)
+}
+
+mostrarTotal(totalComDesconto([10, 20])) // R$ 30.00
+mostrarTotal(totalComDesconto([10, 20], 0.1)) // R$ 27.00
+mostrarTotal(5, 'US) // US$ 5.00
+```
+
+```bash
+tsx ~/LPPOO/16102026/0032-parametros/A063.ts
+```
+
+**Exemplo A064 · Saudação com valor padrão**
+
+```ts
+function saudar(nome: string, saudacao: string = 'Olá'): string {
+  return `${saudacao}, ${nome}!`
+}
+
+console.log(saudar('Ana')) // Olá, Ana!
+console.log(saudar('Bia', 'Bom dia')) // Bom dia, Bia!
+```
+
+```bash
+tsx ~/LPPOO/16102026/0032-parametros/A064.ts
+```
+
+**Exercício E063**
+
+Escreva `calcularFrete(peso: number, expresso?: boolean): number`. O frete é
+R$ 2 por kg; se for expresso, soma mais R$ 10. Teste com e sem o expresso.
+
+<details><summary>Dicas</summary>
+
+1. Dentro da função, `expresso` pode ser `undefined`.
+2. `if (expresso)` já trata o `undefined` como falso.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0032-parametros/E063.ts
+```
+
+**Exercício E064**
+
+Escreva `mostrarAluno(nome: string, turma: string = 'DS 2026'): void`, que
+mostra "Ana - turma DS 2026". Chame uma vez sem a turma e outra com.
+
+<details><summary>Dicas</summary>
+
+1. Funções `void` não têm `return` com valor.
+2. Use template string para montar a frase.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0032-parametros/E064.ts
+```
 
 ---
 
@@ -997,19 +1668,78 @@ chamada e somem quando ela acaba:
 > **Pergunta para a turma:** o que acontece se você tirar o `//` da última
 > linha e rodar? Teste. (Dica: leia a mensagem de erro com calma.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0033-escopo/`](0033-escopo/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0033-escopo/A097.ts
-> tsx ~/LPPOO/16102026/0033-escopo/A098.ts
-> tsx ~/LPPOO/16102026/0033-escopo/A099.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0033-escopo/E065.ts
-> tsx ~/LPPOO/16102026/0033-escopo/E066.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0033-escopo/`](0033-escopo/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A065 · Global e local**
+
+```ts
+const escola = 'CETAM'
+
+function saudar(nome: string): void {
+  const mensagem = `Oi, ${nome}! Bem-vinda ao ${escola}.`
+  console.log(mensagem)
+}
+
+saudar('Ana')
+// console.log(mensagem) // tire o // e veja o erro
+```
+
+```bash
+tsx ~/LPPOO/16102026/0033-escopo/A065.ts
+```
+
+**Exemplo A066 · O bloco do if também tem escopo**
+
+```ts
+const nota = 8
+
+if (nota >= 6) {
+  const recado = 'Parabéns!'
+  console.log(recado)
+}
+
+// console.log(recado) // erro: Cannot find name 'recado'.
+```
+
+```bash
+tsx ~/LPPOO/16102026/0033-escopo/A066.ts
+```
+
+**Exercício E065**
+
+Escreva `calcularDesconto(preco: number): void` com uma `const desconto`
+dentro. Tente mostrar o `desconto` fora da função e leia o erro. Depois conserte:
+troque o `void` por `number`, devolva o desconto com `return` e mostre o
+resultado fora.
+
+<details><summary>Dicas</summary>
+
+1. Deixe a linha com erro comentada com `//` no final.
+2. Para usar fora, guarde o retorno numa `const`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0033-escopo/E065.ts
+```
+
+**Exercício E066**
+
+Crie um `let visitas = 0` global e uma função `registrarVisita(): void` que
+soma 1 nele. Chame a função 3 vezes e mostre o total de visitas.
+
+<details><summary>Dicas</summary>
+
+1. A função enxerga e muda a variável global.
+2. O resultado esperado é 3.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0033-escopo/E066.ts
+```
 
 ---
 
@@ -1059,19 +1789,76 @@ Quem chama é o `map`, uma vez para cada nota:
 > **Pergunta para a turma:** quantas vezes o `map` chama a `dobrar` neste
 > exemplo? Coloque um `console.log(n)` dentro da `dobrar` e rode para conferir.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0034-arrow-callback/`](0034-arrow-callback/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0034-arrow-callback/A100.ts
-> tsx ~/LPPOO/16102026/0034-arrow-callback/A101.ts
-> tsx ~/LPPOO/16102026/0034-arrow-callback/A102.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0034-arrow-callback/E067.ts
-> tsx ~/LPPOO/16102026/0034-arrow-callback/E068.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0034-arrow-callback/`](0034-arrow-callback/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A067 · function, arrow function e callback**
+
+```ts
+function dobrar(n: number): number {
+  return n * 2
+}
+const triplicar = (n: number): number => n * 3
+
+const notas: number[] = [4, 5]
+
+console.log(notas.map(dobrar)) // [ 8, 10 ]
+console.log(notas.map(triplicar)) // [ 12, 15 ]
+console.log(notas.map((n) => n + 1)) // [ 5, 6 ]
+```
+
+```bash
+tsx ~/LPPOO/16102026/0034-arrow-callback/A067.ts
+```
+
+**Exemplo A068 · Uma função sua que recebe callback**
+
+```ts
+function aplicar(valor: number, operacao: (x: number) => number): number {
+  return operacao(valor)
+}
+
+console.log(aplicar(10, (x) => x * x)) // 100
+console.log(aplicar(10, (x) => x / 2)) // 5
+```
+
+```bash
+tsx ~/LPPOO/16102026/0034-arrow-callback/A068.ts
+```
+
+**Exercício E067**
+
+Escreva a arrow function `ehAprovado = (nota: number): boolean => ...` e use
+com `filter` para pegar as notas aprovadas de um array.
+
+<details><summary>Dicas</summary>
+
+1. Aprovado é nota maior ou igual a 6.
+2. Passe só o nome: `notas.filter(ehAprovado)`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0034-arrow-callback/E067.ts
+```
+
+**Exercício E068**
+
+Escreva `repetir(vezes: number, acao: () => void): void`, que chama a `acao`
+o número de vezes pedido. Teste com uma arrow que mostra "Olá!".
+
+<details><summary>Dicas</summary>
+
+1. Dentro de `repetir`, use um `for`.
+2. Para chamar o callback, use `acao()`.
+3. Teste: `repetir(3, () => console.log('Olá!'))`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0034-arrow-callback/E068.ts
+```
 
 ---
 
@@ -1124,19 +1911,80 @@ a mesma coisa que faz o `n` do `map` ser `number` sozinho.
 > Quanto dá `calcular(6, 7, subtrair)`? Rode e confira. (Dica: pode dar número
 > negativo.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0035-tipo-de-funcao/`](0035-tipo-de-funcao/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A103.ts
-> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A104.ts
-> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A105.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/E069.ts
-> tsx ~/LPPOO/16102026/0035-tipo-de-funcao/E070.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0035-tipo-de-funcao/`](0035-tipo-de-funcao/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A069 · type Operacao**
+
+```ts
+type Operacao = (a: number, b: number) => number
+
+const somar: Operacao = (a, b) => a + b
+const multiplicar: Operacao = (a, b) => a * b
+
+function calcular(a: number, b: number, op: Operacao): number {
+  return op(a, b)
+}
+
+console.log(calcular(6, 7, somar)) // 13
+console.log(calcular(6, 7, multiplicar)) // 42
+```
+
+```bash
+tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A069.ts
+```
+
+**Exemplo A070 · Um tipo para regras de filtro**
+
+```ts
+type Regra = (n: number) => boolean
+
+const aprovado: Regra = (n) => n >= 6
+const par: Regra = (n) => n % 2 === 0
+
+const notas: number[] = [8, 5, 6, 3]
+console.log(notas.filter(aprovado)) // [ 8, 6 ]
+console.log(notas.filter(par)) // [ 8, 6 ]
+```
+
+```bash
+tsx ~/LPPOO/16102026/0035-tipo-de-funcao/A070.ts
+```
+
+**Exercício E069**
+
+Crie `type Conversor = (valor: number) => number` e duas funções desse tipo:
+`paraDolar` (divide por 5.4) e `paraEuro` (divide por 6). Escreva
+`converter(valor: number, conversor: Conversor): number` e teste com R$ 100.
+
+<details><summary>Dicas</summary>
+
+1. As duas funções podem ser arrows: `const paraDolar: Conversor = (v) => v / 5.4`.
+2. Dentro de `converter`, é só `return conversor(valor)`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0035-tipo-de-funcao/E069.ts
+```
+
+**Exercício E070**
+
+Crie `type Mensagem = (nome: string) => string` com duas versões, uma formal
+e uma informal. Escreva `saudarTodos(nomes: string[], mensagem: Mensagem): void`,
+que mostra a mensagem para cada nome.
+
+<details><summary>Dicas</summary>
+
+1. Formal: `(nome) => `Prezada(o) ${nome}``.
+2. Em `saudarTodos`, use `for...of` e chame `mensagem(nome)`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0035-tipo-de-funcao/E070.ts
+```
 
 ---
 
@@ -1201,19 +2049,99 @@ relatório:
 > o que aparece na linha "Notas de 6 para cima"? Rode e confira. (Dica: o
 > `filter` pode devolver um array vazio.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0036-juntando-tudo/`](0036-juntando-tudo/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/16102026/0036-juntando-tudo/A106.ts
-> tsx ~/LPPOO/16102026/0036-juntando-tudo/A107.ts
-> tsx ~/LPPOO/16102026/0036-juntando-tudo/A108.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/16102026/0036-juntando-tudo/E071.ts
-> tsx ~/LPPOO/16102026/0036-juntando-tudo/E072.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0036-juntando-tudo/`](0036-juntando-tudo/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A071 · O programa completo da aula**
+
+```ts
+import { input } from '#core/input.ts'
+
+const notas: number[] = []
+let resposta: string
+
+do {
+  const nota = Number(input('Digite uma nota: '))
+  notas.push(nota)
+  resposta = input('Outra nota? (s/n) ')
+} while (resposta === 's')
+
+function calcularMedia(valores: number[]): number {
+  const soma = valores.reduce((acc, v) => acc + v, 0)
+  return soma / valores.length
+}
+
+const aprovadas = notas.filter((n) => n >= 6)
+const dobradas = notas.map((n) => n * 2)
+
+console.log(`Média: ${calcularMedia(notas).toFixed(2)}`)
+console.log(`Notas de 6 para cima: ${aprovadas.join(', ')}`)
+console.log(`Dobradas: ${dobradas.join(', ')}`)
+
+for (let i = 0; i < notas.length; i++) {
+  console.log(`Nota ${i + 1}: ${notas[i]}`)
+}
+```
+
+```bash
+tsx ~/LPPOO/16102026/0036-juntando-tudo/A071.ts
+```
+
+**Exemplo A072 · O mesmo relatório numa função void, com for...of**
+
+```ts
+function mostrarRelatorio(notas: number[]): void {
+  const media = notas.reduce((acc, n) => acc + n, 0) / notas.length
+  console.log(`Média: ${media.toFixed(2)}`)
+
+  let posicao = 1
+  for (const nota of notas) {
+    const situacao = nota >= 6 ? 'ok' : 'atenção'
+    console.log(`Nota ${posicao}: ${nota} (${situacao})`)
+    posicao++
+  }
+}
+
+mostrarRelatorio([8, 5, 9])
+```
+
+```bash
+tsx ~/LPPOO/16102026/0036-juntando-tudo/A072.ts
+```
+
+**Exercício E071**
+
+Copie o programa do exemplo 1 e acrescente no relatório a maior e a menor
+nota digitada.
+
+<details><summary>Dicas</summary>
+
+1. Faça uma cópia ordenada com `slice().sort((a, b) => a - b)`.
+2. A menor fica na posição 0 e a maior na última.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0036-juntando-tudo/E071.ts
+```
+
+**Exercício E072**
+
+Peça nomes até a pessoa digitar `fim` e guarde num array. No final, mostre os
+nomes em ordem alfabética, separados por vírgula, e quantos foram digitados.
+
+<details><summary>Dicas</summary>
+
+1. Use `do...while` ou `while (true)` com `break`.
+2. Não guarde o `'fim'` no array.
+3. Para texto, o `sort()` sem regra já ordena em ordem alfabética.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0036-juntando-tudo/E072.ts
+```
 
 ---
 

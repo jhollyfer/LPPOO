@@ -39,24 +39,68 @@ const imagem = (src, alt, svg) => {
   return `<p align="center"><img src="${src}" alt="${alt}" width="${Math.round(largura * ESCALA)}"></p>`
 }
 
-// o quadro "Hora de praticar": o comando de cada exemplo (A) e exercício (E)
-const comando = (caminho) => `tsx ~/LPPOO/${caminho}`
+// "Hora de praticar": cada exemplo (A) com enunciado, código e comando; cada
+// exercício (E) com enunciado, dicas e comando
+const comando = (caminho) => ['```bash', `tsx ~/LPPOO/${caminho}`, '```']
+
+// exemplo: a 1ª linha "// A001 · título" é o enunciado, o resto é o código
+const exemplo = (caminho, nome) => {
+  const [cabeca, ...resto] = readFileSync(join(RAIZ, caminho), 'utf8').trimEnd().split('\n')
+  while (resto[0]?.trim() === '') resto.shift()
+  const titulo = cabeca.replace(/^\/\/\s*/, '').replace(/^A\d{3}\s*·\s*/, '')
+  return [`**Exemplo ${nome.slice(0, 4)} · ${titulo}**`, '', '```ts', ...resto, '```', '', ...comando(caminho)]
+}
+
+// exercício: o comentário do arquivo traz o enunciado e as dicas
+const exercicio = (caminho, nome) => {
+  const linhas = readFileSync(join(RAIZ, caminho), 'utf8')
+    .split('\n')
+    .filter((l) => l.startsWith('//'))
+    .map((l) => l.replace(/^\/\/ ?/, ''))
+  const fim = (rotulo) => {
+    const i = linhas.findIndex((l) => l.startsWith(rotulo))
+    return i < 0 ? linhas.length : i
+  }
+  const inicio = linhas.findIndex((l) => /^Exercício E\d{3}/.test(l)) + 1
+  const fimEnunciado = Math.min(fim('Dicas:'), fim('Para ler dados'), fim('Escreva sua resposta'))
+  const enunciado = linhas.slice(inicio, fimEnunciado)
+  const dicas = linhas.slice(fim('Dicas:') + 1, Math.min(fim('Para ler dados'), fim('Escreva sua resposta')))
+  // linhas com recuo no enunciado são código: viram um bloco ts
+  const corpo = []
+  for (const l of enunciado) {
+    const codigo = l.startsWith('  ')
+    if (codigo && corpo.at(-1) !== 'CODIGO') corpo.push('', '```ts', 'CODIGO')
+    if (!codigo && corpo.at(-1) === 'CODIGO') corpo.splice(-1, 1, '```', '')
+    if (codigo) corpo.splice(-1, 0, l.slice(2))
+    else corpo.push(l)
+  }
+  if (corpo.at(-1) === 'CODIGO') corpo.splice(-1, 1, '```')
+  const listaDicas = dicas.filter((l) => l.trim())
+  return [
+    `**Exercício ${nome.slice(0, 4)}**`,
+    '',
+    ...corpo.join('\n').trim().split('\n'),
+    '',
+    ...(listaDicas.length
+      ? ['<details><summary>Dicas</summary>', '', ...listaDicas, '', '</details>', '']
+      : []),
+    ...comando(caminho),
+  ]
+}
+
 const pratique = (data, pasta) => {
   const arquivos = readdirSync(join(RAIZ, data, pasta)).sort()
-  const exemplos = arquivos.filter((a) => /^A\d{3}\.ts$/.test(a))
-  const exercicios = arquivos.filter((a) => /^E\d{3}\.ts$/.test(a))
-  const linhas = [
-    `**Hora de praticar:** os arquivos deste assunto ficam em [\`${pasta}/\`](${pasta}/). Os comandos funcionam de qualquer pasta do terminal.`,
-    '',
-    '```bash',
-    '# exemplos resolvidos: rode, mude, quebre, rode de novo',
-    ...exemplos.map((a) => comando(`${data}/${pasta}/${a}`)),
-    '',
-    '# exercícios: a resposta vai dentro do próprio arquivo',
-    ...exercicios.map((a) => comando(`${data}/${pasta}/${a}`)),
-    '```',
+  const blocos = [
+    ...arquivos.filter((a) => /^A\d{3}\.ts$/.test(a)).map((a) => exemplo(`${data}/${pasta}/${a}`, a)),
+    ...arquivos.filter((a) => /^E\d{3}\.ts$/.test(a)).map((a) => exercicio(`${data}/${pasta}/${a}`, a)),
   ]
-  return linhas.map((l) => `> ${l}`.trimEnd()).join('\n').replace(/^> \*\*/, '> [!NOTE]\n> **')
+  return [
+    '### Hora de praticar',
+    '',
+    `Os arquivos ficam em [\`${pasta}/\`](${pasta}/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.`,
+    '',
+    blocos.map((b) => b.join('\n')).join('\n\n'),
+  ].join('\n')
 }
 
 for (const data of readdirSync(join(AQUI, 'aulas'))) {

@@ -144,19 +144,90 @@ E por que o TypeScript? São quatro motivos:
 > `tsx`. Aparece erro? E com o `pnpm -C ~/LPPOO tsc`? (Dica: releia o quadro
 > sobre o `tsx`.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0037-typescript/`](0037-typescript/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0037-typescript/A109.ts
-> tsx ~/LPPOO/19102026/0037-typescript/A110.ts
-> tsx ~/LPPOO/19102026/0037-typescript/A111.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0037-typescript/E073.ts
-> tsx ~/LPPOO/19102026/0037-typescript/E074.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0037-typescript/`](0037-typescript/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A073 · O TypeScript avisa antes de rodar**
+
+```ts
+const preco: number = 12.5
+console.log(preco.toFixed(2)) // 12.50
+
+// Tire o // da linha abaixo e veja o editor sublinhar em vermelho:
+// const troco: number = 'dez reais'
+// erro: Type 'string' is not assignable to type 'number'.
+```
+
+```bash
+tsx ~/LPPOO/19102026/0037-typescript/A073.ts
+```
+
+**Exemplo A074 · Os tipos somem na hora de rodar**
+
+```ts
+const nome: string = 'Ana'
+const idade: number = 17
+
+console.log(nome, idade) // Ana 17
+console.log(typeof nome, typeof idade) // string number
+
+// O Node não entende ": string" nem ": number". Antes de rodar, o TypeScript
+// apaga os tipos, e o que o Node recebe é isto:
+//
+// const nome = 'Ana'
+// const idade = 17
+```
+
+```bash
+tsx ~/LPPOO/19102026/0037-typescript/A074.ts
+```
+
+**Exercício E073**
+
+Crie três constantes com o tipo escrito na frente: `nome` (string), `idade`
+(number) e `matriculado` (boolean). Mostre as três com `console.log`.
+
+Depois escreva uma linha tentando guardar um texto numa constante de
+número, leia o erro que o editor mostra e deixe essa linha comentada com //.
+
+<details><summary>Dicas</summary>
+
+1. O tipo vem depois do nome, com dois pontos: `const idade: number = 17`.
+2. boolean só aceita `true` ou `false`, sem aspas.
+3. Passe o mouse em cima do sublinhado vermelho para ler a mensagem inteira.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0037-typescript/E073.ts
+```
+
+**Exercício E074**
+
+A linha comentada abaixo tem um erro de tipo. Tire o // e faça o teste:
+
+
+```ts
+tsx ~/LPPOO/19102026/0037-typescript/E074.ts   (roda?)
+pnpm -C ~/LPPOO tsc                            (reclama?)
+```
+
+
+Escreva, num comentário, por que um dos comandos rodou e o outro reclamou.
+No fim, coloque o // de volta na linha com erro.
+
+<details><summary>Dicas</summary>
+
+1. O `tsx` apaga os tipos e roda. Ele não confere nada.
+2. Quem confere os tipos é o `tsc` (e o editor, enquanto você digita).
+const total: number = '10' + 5
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0037-typescript/E074.ts
+```
 
 ---
 
@@ -236,19 +307,101 @@ O fluxograma ajuda a escolher o estilo que combina com cada pedaço:
 > **Pergunta para a turma:** troque as notas para `[10, 6]` e rode. Os três
 > estilos continuam dando o mesmo resultado? Quanto dá?
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0038-paradigmas/`](0038-paradigmas/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0038-paradigmas/A112.ts
-> tsx ~/LPPOO/19102026/0038-paradigmas/A113.ts
-> tsx ~/LPPOO/19102026/0038-paradigmas/A114.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0038-paradigmas/E075.ts
-> tsx ~/LPPOO/19102026/0038-paradigmas/E076.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0038-paradigmas/`](0038-paradigmas/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A075 · A média nos três estilos**
+
+```ts
+const notas: number[] = [8, 7, 9]
+
+let soma = 0
+for (const nota of notas) soma += nota
+console.log(`Imperativo: ${soma / notas.length}`)
+
+const media = (valores: number[]): number => valores.reduce((a, b) => a + b, 0) / valores.length
+console.log(`Funcional: ${media(notas)}`)
+
+class Turma {
+  private notas: number[]
+  constructor(notas: number[]) {
+    this.notas = notas
+  }
+  media(): number {
+    return this.notas.reduce((a, b) => a + b, 0) / this.notas.length
+  }
+}
+console.log(`Objetos: ${new Turma(notas).media()}`)
+```
+
+```bash
+tsx ~/LPPOO/19102026/0038-paradigmas/A075.ts
+```
+
+**Exemplo A076 · Função que muda o mundo lá fora x função que só devolve**
+
+```ts
+let total = 0
+
+// imperativa: muda a variável total, que está fora dela
+function somarNoTotal(valor: number): void {
+  total += valor
+}
+
+// funcional: não mexe em nada fora; recebe e devolve
+function somar(a: number, b: number): number {
+  return a + b
+}
+
+somarNoTotal(10)
+somarNoTotal(5)
+console.log(total) // 15
+console.log(somar(10, 5)) // 15, e nada lá fora mudou
+```
+
+```bash
+tsx ~/LPPOO/19102026/0038-paradigmas/A076.ts
+```
+
+**Exercício E075**
+
+Calcule a soma dos números pares de [3, 8, 5, 10, 2] de dois jeitos: no estilo
+imperativo (for e if) e no estilo funcional (filter e reduce). Os dois têm que
+dar 20.
+
+<details><summary>Dicas</summary>
+
+1. Imperativo: let soma = 0, for...of e um if com % 2.
+2. Funcional: numeros.filter((n) => n % 2 === 0).reduce((a, b) => a + b, 0).
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0038-paradigmas/E075.ts
+```
+
+**Exercício E076**
+
+Escreva, num comentário, qual paradigma cada trecho usa e por quê:
+
+```ts
+(a) let i = 0; while (i < 3) { i++ }
+(b) const maiusculas = nomes.map((n) => n.toUpperCase())
+(c) class Lampada { ligada = false; ligar(): void { this.ligada = true } }
+```
+
+<details><summary>Dicas</summary>
+
+1. Imperativo muda variáveis passo a passo.
+2. Funcional devolve valores novos.
+3. Objetos juntam dados e ações.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0038-paradigmas/E076.ts
+```
 
 ---
 
@@ -309,19 +462,81 @@ TypeScript compara o formato na hora da chamada, assim:
 > Ele ainda passa pelo porteiro? Mude e veja o que o editor diz. (Dica: o
 > formato inclui o tipo de cada propriedade.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0039-tipagem-estrutural/`](0039-tipagem-estrutural/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0039-tipagem-estrutural/A115.ts
-> tsx ~/LPPOO/19102026/0039-tipagem-estrutural/A116.ts
-> tsx ~/LPPOO/19102026/0039-tipagem-estrutural/A117.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0039-tipagem-estrutural/E077.ts
-> tsx ~/LPPOO/19102026/0039-tipagem-estrutural/E078.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0039-tipagem-estrutural/`](0039-tipagem-estrutural/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A077 · Quem tem o formato, serve**
+
+```ts
+type Aluno = { nome: string; idade: number }
+
+function apresentar(a: Aluno): string {
+  return `${a.nome}, ${a.idade} anos`
+}
+
+const ana = { nome: 'Ana', idade: 17 }
+const visitante = { nome: 'Zé', idade: 40, cidade: 'Benjamin Constant' }
+
+console.log(apresentar(ana))
+console.log(apresentar(visitante))
+```
+
+```bash
+tsx ~/LPPOO/19102026/0039-tipagem-estrutural/A077.ts
+```
+
+**Exemplo A078 · Dois tipos com nomes diferentes e o mesmo formato**
+
+```ts
+type Ponto = { x: number; y: number }
+type Coordenada = { x: number; y: number }
+
+function distanciaDaOrigem(p: Ponto): number {
+  return Math.sqrt(p.x ** 2 + p.y ** 2)
+}
+
+const escola: Coordenada = { x: 3, y: 4 }
+console.log(distanciaDaOrigem(escola)) // 5: Coordenada serve onde pede Ponto
+```
+
+```bash
+tsx ~/LPPOO/19102026/0039-tipagem-estrutural/A078.ts
+```
+
+**Exercício E077**
+
+Crie type Produto = { nome: string; preco: number } e a função
+etiqueta(p: Produto): string, que devolve "açaí: R$ 15.00". Teste com um objeto
+guardado numa variável que tenha também a propriedade estoque.
+
+<details><summary>Dicas</summary>
+
+1. Crie o objeto numa const antes de chamar.
+2. Use p.preco.toFixed(2).
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0039-tipagem-estrutural/E077.ts
+```
+
+**Exercício E078**
+
+Chame a mesma etiqueta passando o objeto escrito ali mesmo, com estoque
+dentro. Leia o erro, deixe a linha comentada e explique num comentário por que
+com a variável deu certo e direto não.
+
+<details><summary>Dicas</summary>
+
+1. É a checagem de propriedade sobrando em objeto literal.
+2. O TypeScript desconfia de erro de digitação quando o objeto é escrito na hora.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0039-tipagem-estrutural/E078.ts
+```
 
 ---
 
@@ -391,19 +606,87 @@ perguntas que o fluxograma mostra:
 > **Pergunta para a turma:** quanto dá `tamanho(true)`? Acrescente a linha e
 > rode. (Dica: `true` não é texto nem número.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0040-tipos-basicos/`](0040-tipos-basicos/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0040-tipos-basicos/A118.ts
-> tsx ~/LPPOO/19102026/0040-tipos-basicos/A119.ts
-> tsx ~/LPPOO/19102026/0040-tipos-basicos/A120.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0040-tipos-basicos/E079.ts
-> tsx ~/LPPOO/19102026/0040-tipos-basicos/E080.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0040-tipos-basicos/`](0040-tipos-basicos/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A079 · Primitivos, unknown e never**
+
+```ts
+const nome: string = 'Ana'
+const idade: number = 17
+const matriculado: boolean = true
+
+function tamanho(valor: unknown): number {
+  if (typeof valor === 'string') return valor.length
+  if (typeof valor === 'number') return valor.toString().length
+  return 0
+}
+
+function falhar(mensagem: string): never {
+  throw new Error(mensagem)
+}
+
+if (idade < 0) falhar('Idade inválida')
+console.log(nome, idade, matriculado)
+console.log(tamanho('Benjamin')) // 8
+console.log(tamanho(2026)) // 4
+```
+
+```bash
+tsx ~/LPPOO/19102026/0040-tipos-basicos/A079.ts
+```
+
+**Exemplo A080 · O perigo do any**
+
+```ts
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- só para mostrar o perigo
+const qualquer: any = 'um texto'
+
+try {
+  console.log(qualquer.toFixed(2)) // o TypeScript deixou passar...
+} catch (erro) {
+  // ...e quebrou com o programa rodando
+  console.log(`Quebrou: ${erro instanceof Error ? erro.message : erro}`)
+}
+```
+
+```bash
+tsx ~/LPPOO/19102026/0040-tipos-basicos/A080.ts
+```
+
+**Exercício E079**
+
+Escreva descrever(valor: unknown): string, que devolve "texto com N letras",
+"número N" ou "outra coisa", conforme o tipo. Teste com 'Ana', 42 e true.
+
+<details><summary>Dicas</summary>
+
+1. Use typeof valor === 'string' e typeof valor === 'number'.
+2. Depois do if, o TypeScript já sabe o tipo lá dentro.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0040-tipos-basicos/E079.ts
+```
+
+**Exercício E080**
+
+Escreva primeiraLetra(valor: unknown): string, que devolve a primeira letra
+em maiúscula se o valor for texto, e '?' se não for. Repare que sem o if o
+TypeScript não deixa usar valor[0].
+
+<details><summary>Dicas</summary>
+
+1. Primeiro confira com typeof.
+2. valor[0] pode ser undefined: use ?? '?'.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0040-tipos-basicos/E080.ts
+```
 
 ---
 
@@ -474,19 +757,91 @@ O fluxograma é a regra prática em forma de perguntas:
 > **Pergunta para a turma:** no editor, pare o mouse em cima do `turno`. Que
 > tipo aparece? E se você trocar o `const` por `let`? Teste os dois.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0041-inferencia/`](0041-inferencia/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0041-inferencia/A121.ts
-> tsx ~/LPPOO/19102026/0041-inferencia/A122.ts
-> tsx ~/LPPOO/19102026/0041-inferencia/A123.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0041-inferencia/E081.ts
-> tsx ~/LPPOO/19102026/0041-inferencia/E082.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0041-inferencia/`](0041-inferencia/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A081 · Inferir ou escrever**
+
+```ts
+let idade = 17
+const turno = 'noite'
+const notas = [8, 6, 9]
+
+const nomes: string[] = []
+let apelido: string
+if (idade >= 18) apelido = 'Sr. Zé'
+else apelido = 'Zé'
+
+function dobrar(n: number) {
+  return n * 2
+}
+
+idade++
+nomes.push('Ana')
+console.log(idade, turno, notas, nomes, apelido, dobrar(4))
+```
+
+```bash
+tsx ~/LPPOO/19102026/0041-inferencia/A081.ts
+```
+
+**Exemplo A082 · const e let inferem coisas diferentes**
+
+```ts
+const turnoFixo = 'noite' // tipo: 'noite'
+let turnoQueMuda = 'noite' // tipo: string
+
+console.log(turnoFixo, turnoQueMuda)
+turnoQueMuda = 'manhã' // pode: é string
+console.log(turnoQueMuda)
+// Passe o mouse em cima das duas variáveis no editor e compare os tipos.
+```
+
+```bash
+tsx ~/LPPOO/19102026/0041-inferencia/A082.ts
+```
+
+**Exercício E081**
+
+O código abaixo tem anotações demais. Copie para baixo deixando só as
+necessárias (as que o TypeScript não consegue adivinhar):
+
+```ts
+const cidade: string = 'Tabatinga'
+let pontos: number = 0
+const lista: string[] = []
+function somar(a: number, b: number): number { return a + b }
+```
+
+<details><summary>Dicas</summary>
+
+1. Variável que começa com valor não precisa de tipo.
+2. Array vazio e parâmetros precisam.
+3. O retorno de somar pode ficar ou sair: é opcional.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0041-inferencia/E081.ts
+```
+
+**Exercício E082**
+
+Escreva media(notas: number[]) sem anotar o retorno. Passe o mouse em cima
+do nome da função e escreva num comentário qual tipo de retorno o TypeScript
+descobriu.
+
+<details><summary>Dicas</summary>
+
+1. Use reduce para somar.
+2. O tipo aparece no editor quando você para o mouse em cima.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0041-inferencia/E082.ts
+```
 
 ---
 
@@ -552,19 +907,83 @@ O fluxograma passa pela turma, ficha por ficha, e calcula a média de cada um:
 > **Pergunta para a turma:** se a Bia tirar mais um 10 (`notas: [6, 9, 10]`),
 > qual vai ser a média dela? Mude o exemplo e rode.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0042-tipos-de-objeto/`](0042-tipos-de-objeto/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0042-tipos-de-objeto/A124.ts
-> tsx ~/LPPOO/19102026/0042-tipos-de-objeto/A125.ts
-> tsx ~/LPPOO/19102026/0042-tipos-de-objeto/A126.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0042-tipos-de-objeto/E083.ts
-> tsx ~/LPPOO/19102026/0042-tipos-de-objeto/E084.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0042-tipos-de-objeto/`](0042-tipos-de-objeto/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A083 · A ficha do aluno**
+
+```ts
+type Aluno = {
+  nome: string
+  idade: number
+  notas: number[]
+}
+
+const ana: Aluno = { nome: 'Ana', idade: 17, notas: [8, 7, 9] }
+const turma: Aluno[] = [ana, { nome: 'Bia', idade: 16, notas: [6, 9] }]
+
+console.log(ana.nome)
+
+for (const aluno of turma) {
+  const media = aluno.notas.reduce((a, b) => a + b, 0) / aluno.notas.length
+  console.log(`${aluno.nome}: ${media.toFixed(1)}`)
+}
+```
+
+```bash
+tsx ~/LPPOO/19102026/0042-tipos-de-objeto/A083.ts
+```
+
+**Exemplo A084 · Objeto dentro de objeto**
+
+```ts
+type Endereco = { cidade: string; bairro: string }
+type Escola = { nome: string; endereco: Endereco }
+
+const cetam: Escola = {
+  nome: 'CETAM',
+  endereco: { cidade: 'Benjamin Constant', bairro: 'Centro' },
+}
+
+console.log(`${cetam.nome} fica em ${cetam.endereco.cidade}`)
+```
+
+```bash
+tsx ~/LPPOO/19102026/0042-tipos-de-objeto/A084.ts
+```
+
+**Exercício E083**
+
+Crie type Produto = { nome: string; preco: number; emEstoque: boolean }, um
+array com 3 produtos da cantina e mostre só o nome dos que estão em estoque.
+
+<details><summary>Dicas</summary>
+
+1. O array é Produto[].
+2. Use for...of com um if, ou filter e map.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0042-tipos-de-objeto/E083.ts
+```
+
+**Exercício E084**
+
+Crie type Endereco e type Pessoa (com nome e endereco). Monte uma pessoa e
+mostre "Ana mora no bairro X, em Y".
+
+<details><summary>Dicas</summary>
+
+1. O endereco é um objeto dentro do objeto.
+2. Acesse com pessoa.endereco.bairro.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0042-tipos-de-objeto/E084.ts
+```
 
 ---
 
@@ -634,19 +1053,96 @@ E aí, quando usar `type` e quando usar `interface`? O fluxograma resume:
 > com o nome e sem matrícula? Rode e veja. (Dica: o que a função pede é uma
 > `Pessoa`.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0043-interface/`](0043-interface/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0043-interface/A127.ts
-> tsx ~/LPPOO/19102026/0043-interface/A128.ts
-> tsx ~/LPPOO/19102026/0043-interface/A129.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0043-interface/E085.ts
-> tsx ~/LPPOO/19102026/0043-interface/E086.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0043-interface/`](0043-interface/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A085 · Aluno estende Pessoa**
+
+```ts
+interface Pessoa {
+  nome: string
+}
+
+interface Aluno extends Pessoa {
+  matricula: string
+}
+
+const bia: Aluno = { nome: 'Bia', matricula: 'A27' }
+
+function apresentar(p: Pessoa): string {
+  return `Olá, ${p.nome}!`
+}
+
+console.log(apresentar(bia))
+console.log(bia.matricula)
+```
+
+```bash
+tsx ~/LPPOO/19102026/0043-interface/A085.ts
+```
+
+**Exemplo A086 · Interface com método**
+
+```ts
+interface Lampada {
+  ligada: boolean
+  alternar(): void
+}
+
+const lampadaDaSala: Lampada = {
+  ligada: false,
+  alternar() {
+    this.ligada = !this.ligada
+  },
+}
+
+lampadaDaSala.alternar()
+console.log(lampadaDaSala.ligada) // true
+```
+
+```bash
+tsx ~/LPPOO/19102026/0043-interface/A086.ts
+```
+
+**Exercício E085**
+
+Crie interface Produto (nome, preco) e interface ProdutoComDesconto, que
+estende Produto e acrescenta desconto (número). Escreva precoFinal(p:
+ProdutoComDesconto): number e teste.
+
+<details><summary>Dicas</summary>
+
+1. Use extends Produto.
+2. precoFinal = preco - preco * desconto.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0043-interface/E085.ts
+```
+
+**Exercício E086**
+
+Reescreva como interface:
+
+```ts
+type Endereco = { cidade: string; bairro: string }
+type Escola = { nome: string; endereco: Endereco }
+```
+
+Monte uma escola e mostre a cidade dela.
+
+<details><summary>Dicas</summary>
+
+1. interface Endereco { ... } sem o sinal de igual.
+2. Dentro de Escola, endereco: Endereco.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0043-interface/E086.ts
+```
 
 ---
 
@@ -709,19 +1205,82 @@ que fazer quando ele não vem.
 > `chamar(ana)` mostra? Rode e confira. (Dica: o `??` só troca `undefined` e
 > `null`.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0044-opcional-readonly/`](0044-opcional-readonly/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0044-opcional-readonly/A130.ts
-> tsx ~/LPPOO/19102026/0044-opcional-readonly/A131.ts
-> tsx ~/LPPOO/19102026/0044-opcional-readonly/A132.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0044-opcional-readonly/E087.ts
-> tsx ~/LPPOO/19102026/0044-opcional-readonly/E088.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0044-opcional-readonly/`](0044-opcional-readonly/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A087 · Matrícula trancada, apelido opcional**
+
+```ts
+type Aluno = {
+  readonly matricula: string
+  nome: string
+  apelido?: string
+}
+
+const ana: Aluno = { matricula: 'A01', nome: 'Ana' }
+const ze: Aluno = { matricula: 'A02', nome: 'José', apelido: 'Zé' }
+
+function chamar(a: Aluno): string {
+  return a.apelido ?? a.nome
+}
+
+console.log(chamar(ana))
+console.log(chamar(ze))
+ana.nome = 'Ana Clara'
+console.log(ana.nome)
+```
+
+```bash
+tsx ~/LPPOO/19102026/0044-opcional-readonly/A087.ts
+```
+
+**Exemplo A088 · Array que não pode ser mexido**
+
+```ts
+const TURNOS: readonly string[] = ['manhã', 'tarde', 'noite']
+
+console.log(TURNOS.join(', ')) // ler pode
+console.log(TURNOS.includes('noite')) // true
+// TURNOS.push('madrugada') // erro: push não existe em readonly string[]
+```
+
+```bash
+tsx ~/LPPOO/19102026/0044-opcional-readonly/A088.ts
+```
+
+**Exercício E087**
+
+Crie type Produto com readonly codigo, nome e descricao opcional. Escreva
+etiqueta(p: Produto): string que mostra a descrição, ou "sem descrição" quando
+não tiver.
+
+<details><summary>Dicas</summary>
+
+1. descricao?: string.
+2. Use p.descricao ?? 'sem descrição'.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0044-opcional-readonly/E087.ts
+```
+
+**Exercício E088**
+
+Tente trocar o codigo de um produto. Leia o erro, deixe a linha comentada e
+explique num comentário por que um código de produto deveria ser readonly.
+
+<details><summary>Dicas</summary>
+
+1. A mensagem fala em read-only property.
+2. Pense: o que acontece com o estoque se o código mudar?
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0044-opcional-readonly/E088.ts
+```
 
 ---
 
@@ -781,19 +1340,79 @@ O fluxograma mostra a conferência que o TypeScript faz antes de rodar:
 > **Pergunta para a turma:** a `matricula` aceita `27`, sem aspas? E `true`?
 > Troque o valor e veja o que o editor diz.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0045-uniao-literais/`](0045-uniao-literais/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0045-uniao-literais/A133.ts
-> tsx ~/LPPOO/19102026/0045-uniao-literais/A134.ts
-> tsx ~/LPPOO/19102026/0045-uniao-literais/A135.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0045-uniao-literais/E089.ts
-> tsx ~/LPPOO/19102026/0045-uniao-literais/E090.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0045-uniao-literais/`](0045-uniao-literais/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A089 · A lista de turnos**
+
+```ts
+type Turno = 'manhã' | 'tarde' | 'noite'
+type Matricula = number | string
+
+function horario(turno: Turno): string {
+  if (turno === 'manhã') return '7h às 11h'
+  if (turno === 'tarde') return '13h às 17h'
+  return '19h às 22h'
+}
+
+const meuTurno: Turno = 'noite'
+const matricula: Matricula = 'A27'
+
+console.log(horario(meuTurno))
+console.log(matricula)
+```
+
+```bash
+tsx ~/LPPOO/19102026/0045-uniao-literais/A089.ts
+```
+
+**Exemplo A090 · Número ou texto**
+
+```ts
+function mostrarNota(nota: number | string): string {
+  return `Nota: ${nota}`
+}
+
+console.log(mostrarNota(8)) // Nota: 8
+console.log(mostrarNota('A')) // Nota: A
+```
+
+```bash
+tsx ~/LPPOO/19102026/0045-uniao-literais/A090.ts
+```
+
+**Exercício E089**
+
+Crie type Tamanho = 'P' | 'M' | 'G' e a função precoDoAcai(t: Tamanho):
+number, que devolve 10, 15 ou 20. Teste os três tamanhos.
+
+<details><summary>Dicas</summary>
+
+1. Um if por tamanho, ou um switch.
+2. Tente chamar com 'GG' e leia o erro (depois comente a linha).
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0045-uniao-literais/E089.ts
+```
+
+**Exercício E090**
+
+Crie type Resposta = 'sim' | 'nao' e a função traduzir(r: Resposta): boolean,
+que transforma a resposta em true ou false.
+
+<details><summary>Dicas</summary>
+
+1. return r === 'sim' já resolve.
+2. Repare no autocompletar quando você escreve traduzir('.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0045-uniao-literais/E090.ts
+```
 
 ---
 
@@ -859,19 +1478,83 @@ Essas são as perguntas que estreitam o tipo:
 > **Pergunta para a turma:** o que aparece com `formatarMatricula(12345)`? O
 > número é cortado para caber em 4 dígitos? Rode e descubra.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0046-narrowing/`](0046-narrowing/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0046-narrowing/A136.ts
-> tsx ~/LPPOO/19102026/0046-narrowing/A137.ts
-> tsx ~/LPPOO/19102026/0046-narrowing/A138.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0046-narrowing/E091.ts
-> tsx ~/LPPOO/19102026/0046-narrowing/E092.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0046-narrowing/`](0046-narrowing/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A091 · typeof separa os caminhos**
+
+```ts
+function formatarMatricula(m: number | string): string {
+  if (typeof m === 'number') {
+    return `M-${m.toString().padStart(4, '0')}`
+  }
+  return m.toUpperCase()
+}
+
+console.log(formatarMatricula(27))
+console.log(formatarMatricula('a27'))
+```
+
+```bash
+tsx ~/LPPOO/19102026/0046-narrowing/A091.ts
+```
+
+**Exemplo A092 · Igualdade e verdadeiro/falso também estreitam**
+
+```ts
+function chamar(nome: string, apelido?: string): string {
+  if (apelido) {
+    return apelido // aqui apelido é string (o undefined e o '' ficaram de fora)
+  }
+  return nome
+}
+
+type Turno = 'manhã' | 'tarde' | 'noite'
+function temIntervaloNoLanche(turno: Turno): boolean {
+  if (turno === 'noite') return false // aqui turno é 'noite'
+  return true // aqui sobrou 'manhã' | 'tarde'
+}
+
+console.log(chamar('José', 'Zé'), chamar('Ana'))
+console.log(temIntervaloNoLanche('noite'))
+```
+
+```bash
+tsx ~/LPPOO/19102026/0046-narrowing/A092.ts
+```
+
+**Exercício E091**
+
+Escreva dobrarOuRepetir(v: number | string), que dobra se for número (4 vira
+8) e repete se for texto ('oi' vira 'oioi').
+
+<details><summary>Dicas</summary>
+
+1. Use typeof v === 'number'.
+2. Para repetir: v.repeat(2).
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0046-narrowing/E091.ts
+```
+
+**Exercício E092**
+
+Escreva contar(v: string | string[]): number, que devolve quantas letras tem
+o texto, ou quantos itens tem a lista.
+
+<details><summary>Dicas</summary>
+
+1. Array.isArray(v) separa os dois casos.
+2. Nos dois casos dá para usar .length, mas faça o narrowing mesmo assim, para treinar.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0046-narrowing/E092.ts
+```
 
 ---
 
@@ -937,19 +1620,97 @@ console.log(descrever({ tipo: 'dinheiro', recebido: 20, total: 15 })) // Troco: 
 > `total: 20`? O que aparece? Rode e veja. (Dica: o TypeScript confere o
 > tipo, não a conta.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0047-uniao-discriminada/`](0047-uniao-discriminada/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0047-uniao-discriminada/A139.ts
-> tsx ~/LPPOO/19102026/0047-uniao-discriminada/A140.ts
-> tsx ~/LPPOO/19102026/0047-uniao-discriminada/A141.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0047-uniao-discriminada/E093.ts
-> tsx ~/LPPOO/19102026/0047-uniao-discriminada/E094.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0047-uniao-discriminada/`](0047-uniao-discriminada/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A093 · Pagamento da cantina**
+
+```ts
+type Pagamento =
+  | { tipo: 'pix'; chave: string }
+  | { tipo: 'cartao'; parcelas: number }
+  | { tipo: 'dinheiro'; recebido: number; total: number }
+
+function descrever(p: Pagamento): string {
+  switch (p.tipo) {
+    case 'pix':
+      return `Pix para ${p.chave}`
+    case 'cartao':
+      return `Cartão em ${p.parcelas}x`
+    case 'dinheiro':
+      return `Troco: R$ ${(p.recebido - p.total).toFixed(2)}`
+  }
+}
+
+console.log(descrever({ tipo: 'pix', chave: 'cantina@cetam' }))
+console.log(descrever({ tipo: 'cartao', parcelas: 3 }))
+console.log(descrever({ tipo: 'dinheiro', recebido: 20, total: 15 }))
+```
+
+```bash
+tsx ~/LPPOO/19102026/0047-uniao-discriminada/A093.ts
+```
+
+**Exemplo A094 · O default com never vigia os casos esquecidos**
+
+```ts
+type Forma = { tipo: 'quadrado'; lado: number } | { tipo: 'circulo'; raio: number }
+
+function area(f: Forma): number {
+  switch (f.tipo) {
+    case 'quadrado':
+      return f.lado ** 2
+    case 'circulo':
+      return Math.PI * f.raio ** 2
+    default: {
+      const esquecido: never = f // se surgir um tipo novo, o erro aparece aqui
+      return esquecido
+    }
+  }
+}
+
+console.log(area({ tipo: 'quadrado', lado: 3 })) // 9
+console.log(area({ tipo: 'circulo', raio: 1 }).toFixed(2)) // 3.14
+```
+
+```bash
+tsx ~/LPPOO/19102026/0047-uniao-discriminada/A094.ts
+```
+
+**Exercício E093**
+
+Crie type Forma = { tipo: 'retangulo'; largura: number; altura: number } |
+{ tipo: 'triangulo'; base: number; altura: number }. Escreva area(f: Forma):
+number com switch e teste as duas.
+
+<details><summary>Dicas</summary>
+
+1. Retângulo: largura * altura.
+2. Triângulo: base * altura / 2.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0047-uniao-discriminada/E093.ts
+```
+
+**Exercício E094**
+
+Copie o Pagamento do exemplo 1, acrescente { tipo: 'boleto'; vencimento:
+string } e coloque o default com never. Veja o erro aparecer e depois trate o
+boleto no switch para ele sumir.
+
+<details><summary>Dicas</summary>
+
+1. O erro aparece no default, não em quem chama.
+2. Depois de criar o case 'boleto', o never volta a ficar feliz.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0047-uniao-discriminada/E094.ts
+```
 
 ---
 
@@ -1003,19 +1764,79 @@ qualquer pedaço, não passa:
 > **Pergunta para a turma:** e se você escrever `id: '1'`, com aspas? O
 > TypeScript aceita? Troque no exemplo e leia o erro.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0048-intersecao/`](0048-intersecao/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0048-intersecao/A142.ts
-> tsx ~/LPPOO/19102026/0048-intersecao/A143.ts
-> tsx ~/LPPOO/19102026/0048-intersecao/A144.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0048-intersecao/E095.ts
-> tsx ~/LPPOO/19102026/0048-intersecao/E096.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0048-intersecao/`](0048-intersecao/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A095 · Aluno com id**
+
+```ts
+type Aluno = { nome: string; idade: number }
+type ComId = { id: number }
+
+type AlunoComId = Aluno & ComId
+
+const bia: AlunoComId = { id: 1, nome: 'Bia', idade: 16 }
+
+console.log(`#${bia.id} ${bia.nome}, ${bia.idade} anos`)
+```
+
+```bash
+tsx ~/LPPOO/19102026/0048-intersecao/A095.ts
+```
+
+**Exemplo A096 · Produto em promoção**
+
+```ts
+type Produto = { nome: string; preco: number }
+type EmPromocao = { desconto: number } // 0.1 = 10%
+
+function precoFinal(p: Produto & EmPromocao): number {
+  return p.preco - p.preco * p.desconto
+}
+
+const acai = { nome: 'açaí', preco: 15, desconto: 0.2 }
+
+console.log(`${acai.nome}: R$ ${precoFinal(acai).toFixed(2)}`) // açaí: R$ 12.00
+```
+
+```bash
+tsx ~/LPPOO/19102026/0048-intersecao/A096.ts
+```
+
+**Exercício E095**
+
+Crie type Endereco = { cidade: string; bairro: string } e type Contato =
+{ telefone: string }. Monte type Pessoa = { nome: string } & Endereco & Contato,
+crie uma pessoa e mostre uma frase com tudo.
+
+<details><summary>Dicas</summary>
+
+1. Dá para juntar mais de dois tipos: A & B & C.
+2. Se faltar uma propriedade, o erro aparece na hora.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0048-intersecao/E095.ts
+```
+
+**Exercício E096**
+
+Crie type Aluno = { nome: string } e type Avaliado = { nota: number }.
+Escreva aprovado(a: Aluno & Avaliado): string que devolve "Ana: aprovada" ou
+"Ana: recuperação" (nota mínima 7). Teste com dois alunos.
+
+<details><summary>Dicas</summary>
+
+1. O parâmetro já é a interseção: a.nome e a.nota existem.
+2. Use if ou o ternário.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0048-intersecao/E096.ts
+```
 
 ---
 
@@ -1079,19 +1900,94 @@ E qual dos três usar? Depende do que é fixo:
 > **Pergunta para a turma:** dá para fazer `DIAS.push('qui')`? Escreva a linha
 > e veja o que o editor diz. (Dica: o `as const` congelou a lista.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0049-tuplas-enum-as-const/`](0049-tuplas-enum-as-const/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0049-tuplas-enum-as-const/A145.ts
-> tsx ~/LPPOO/19102026/0049-tuplas-enum-as-const/A146.ts
-> tsx ~/LPPOO/19102026/0049-tuplas-enum-as-const/A147.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0049-tuplas-enum-as-const/E097.ts
-> tsx ~/LPPOO/19102026/0049-tuplas-enum-as-const/E098.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0049-tuplas-enum-as-const/`](0049-tuplas-enum-as-const/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A097 · Tuplas: nome e nota**
+
+```ts
+const nota: [string, number] = ['Ana', 8]
+const [nome, valor] = nota
+console.log(`${nome} tirou ${valor}`)
+
+// uma lista de tuplas: o ranking da turma
+const ranking: [string, number][] = [
+  ['Bia', 10],
+  ['Caio', 9],
+  ['Ana', 8],
+]
+
+for (const [aluno, n] of ranking) {
+  console.log(`${aluno.padEnd(6)} ${n}`)
+}
+```
+
+```bash
+tsx ~/LPPOO/19102026/0049-tuplas-enum-as-const/A097.ts
+```
+
+**Exemplo A098 · enum Turno**
+
+```ts
+enum Turno {
+  Manha = 'manhã',
+  Tarde = 'tarde',
+  Noite = 'noite',
+}
+
+function horario(t: Turno): string {
+  switch (t) {
+    case Turno.Manha:
+      return '07:00'
+    case Turno.Tarde:
+      return '13:00'
+    case Turno.Noite:
+      return '19:00'
+  }
+}
+
+const meuTurno: Turno = Turno.Noite
+console.log(`Turno da ${meuTurno} começa às ${horario(meuTurno)}`)
+```
+
+```bash
+tsx ~/LPPOO/19102026/0049-tuplas-enum-as-const/A098.ts
+```
+
+**Exercício E097**
+
+Crie type Coordenada = [number, number] (x e y). Escreva distancia(a:
+Coordenada, b: Coordenada): number, que devolve a distância entre os dois
+pontos, e teste com [0, 0] e [3, 4] (resposta: 5).
+
+<details><summary>Dicas</summary>
+
+1. Desestruture: const [x1, y1] = a.
+2. Distância: Math.hypot(x2 - x1, y2 - y1).
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0049-tuplas-enum-as-const/E097.ts
+```
+
+**Exercício E098**
+
+Crie const FORMAS = ['pix', 'cartao', 'dinheiro'] as const e o type Forma
+tirado dele. Peça ao usuário a forma de pagamento e diga se a cantina aceita
+ou não.
+
+<details><summary>Dicas</summary>
+
+1. type Forma = (typeof FORMAS)[number].
+2. Para comparar um texto qualquer: (FORMAS as readonly string[]).includes(resposta).
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0049-tuplas-enum-as-const/E098.ts
+```
 
 ---
 
@@ -1147,19 +2043,81 @@ tipo genérico.
 > **Pergunta para a turma:** o que `primeiro([])` devolve, com a lista vazia?
 > Rode e confira. (Dica: olhe o tipo de retorno da função.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0050-generics/`](0050-generics/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0050-generics/A148.ts
-> tsx ~/LPPOO/19102026/0050-generics/A149.ts
-> tsx ~/LPPOO/19102026/0050-generics/A150.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0050-generics/E099.ts
-> tsx ~/LPPOO/19102026/0050-generics/E100.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0050-generics/`](0050-generics/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A099 · primeiro<T>**
+
+```ts
+function primeiro<T>(lista: T[]): T | undefined {
+  return lista[0]
+}
+
+const nota = primeiro([8, 10, 6]) // T = number
+const nome = primeiro(['Ana', 'Bia']) // T = string
+const vazio = primeiro<number>([]) // dá para dizer o T na mão
+
+console.log(nota, nome, vazio) // 8 Ana undefined
+```
+
+```bash
+tsx ~/LPPOO/19102026/0050-generics/A099.ts
+```
+
+**Exemplo A100 · Um tipo genérico: Caixa<T>**
+
+```ts
+type Caixa<T> = { etiqueta: string; conteudo: T[] }
+
+const livros: Caixa<string> = { etiqueta: 'livros', conteudo: ['Dom Casmurro', 'Iracema'] }
+const pesos: Caixa<number> = { etiqueta: 'pesos (kg)', conteudo: [2, 5, 3] }
+
+function descrever<T>(c: Caixa<T>): string {
+  return `Caixa de ${c.etiqueta} com ${c.conteudo.length} itens`
+}
+
+console.log(descrever(livros))
+console.log(descrever(pesos))
+```
+
+```bash
+tsx ~/LPPOO/19102026/0050-generics/A100.ts
+```
+
+**Exercício E099**
+
+Escreva sortear<T>(lista: T[]): T | undefined, que devolve um item
+qualquer da lista. Teste com uma lista de nomes e com uma lista de números e
+passe o mouse em cima dos resultados para ver o tipo.
+
+<details><summary>Dicas</summary>
+
+1. Índice sorteado: Math.floor(Math.random() * lista.length).
+2. lista[i] já é T | undefined por causa do noUncheckedIndexedAccess.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0050-generics/E099.ts
+```
+
+**Exercício E100**
+
+Crie type Par<A, B> = { primeiro: A; segundo: B } e a função
+trocar<A, B>(p: Par<A, B>): Par<B, A>, que inverte as posições. Teste com
+{ primeiro: 'Ana', segundo: 8 }.
+
+<details><summary>Dicas</summary>
+
+1. Um generic pode ter mais de uma letra: <A, B>.
+2. Devolva { primeiro: p.segundo, segundo: p.primeiro }.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0050-generics/E100.ts
+```
 
 ---
 
@@ -1225,19 +2183,84 @@ original?
 > aceita? E qual idade a Bia fica? Mude e rode. (Dica: no `Partial`, tudo é
 > opcional.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0051-tipos-utilitarios/`](0051-tipos-utilitarios/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0051-tipos-utilitarios/A151.ts
-> tsx ~/LPPOO/19102026/0051-tipos-utilitarios/A152.ts
-> tsx ~/LPPOO/19102026/0051-tipos-utilitarios/A153.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0051-tipos-utilitarios/E101.ts
-> tsx ~/LPPOO/19102026/0051-tipos-utilitarios/E102.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0051-tipos-utilitarios/`](0051-tipos-utilitarios/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A101 · Omit, Pick e Partial a partir de Aluno**
+
+```ts
+type Aluno = { matricula: string; nome: string; idade: number }
+
+type AlunoNovo = Omit<Aluno, 'matricula'>
+type Ficha = Pick<Aluno, 'nome'>
+type Mudanca = Partial<Aluno>
+
+const novo: AlunoNovo = { nome: 'Bia', idade: 16 }
+const mudanca: Mudanca = { idade: 17 }
+const bia: Aluno = { matricula: 'A27', ...novo, ...mudanca }
+const ficha: Ficha = { nome: bia.nome }
+
+console.log(bia)
+console.log(ficha)
+```
+
+```bash
+tsx ~/LPPOO/19102026/0051-tipos-utilitarios/A101.ts
+```
+
+**Exemplo A102 · Record: uma chave para cada turno**
+
+```ts
+type Turno = 'manhã' | 'tarde' | 'noite'
+
+const vagas: Record<Turno, number> = { manhã: 30, tarde: 25, noite: 40 }
+const inscritos: Record<Turno, number> = { manhã: 28, tarde: 25, noite: 12 }
+
+const turnos: Turno[] = ['manhã', 'tarde', 'noite']
+for (const t of turnos) {
+  const sobra = vagas[t] - inscritos[t]
+  console.log(`${t.padEnd(6)} sobram ${sobra} vagas`)
+}
+```
+
+```bash
+tsx ~/LPPOO/19102026/0051-tipos-utilitarios/A102.ts
+```
+
+**Exercício E101**
+
+Crie type Produto = { codigo: number; nome: string; preco: number;
+estoque: number }. Use Pick para criar ItemDoCardapio (só nome e preço),
+monte uma lista de ItemDoCardapio e mostre cada um.
+
+<details><summary>Dicas</summary>
+
+1. Pick aceita várias chaves: Pick<Produto, 'nome' | 'preco'>.
+2. Um for...of resolve a listagem.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0051-tipos-utilitarios/E101.ts
+```
+
+**Exercício E102**
+
+Crie type Dia = 'seg' | 'ter' | 'qua' | 'qui' | 'sex' e um
+Record<Dia, string> com o lanche de cada dia da semana. Peça um dia ao usuário
+e mostre o lanche.
+
+<details><summary>Dicas</summary>
+
+1. Antes de usar o texto digitado como Dia, confira se ele é um dos cinco.
+2. Depois de conferir, use: cardapio[dia as Dia].
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0051-tipos-utilitarios/E102.ts
+```
 
 ---
 
@@ -1308,19 +2331,87 @@ precos2.acai // number: conferiu e lembrou das chaves
 > `p.matricula` dentro do `if` continua funcionando? Faça a troca e veja o que
 > o editor diz.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0052-type-guards-satisfies/`](0052-type-guards-satisfies/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0052-type-guards-satisfies/A154.ts
-> tsx ~/LPPOO/19102026/0052-type-guards-satisfies/A155.ts
-> tsx ~/LPPOO/19102026/0052-type-guards-satisfies/A156.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0052-type-guards-satisfies/E103.ts
-> tsx ~/LPPOO/19102026/0052-type-guards-satisfies/E104.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0052-type-guards-satisfies/`](0052-type-guards-satisfies/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A103 · O porteiro: ehAluno**
+
+```ts
+type Aluno = { nome: string; matricula: string }
+type Visitante = { nome: string; motivo: string }
+
+function ehAluno(p: Aluno | Visitante): p is Aluno {
+  return 'matricula' in p
+}
+
+function entrada(p: Aluno | Visitante): string {
+  if (ehAluno(p)) return `${p.nome}, matrícula ${p.matricula}`
+  return `${p.nome}, visitante: ${p.motivo}`
+}
+
+console.log(entrada({ nome: 'Bia', matricula: 'A27' }))
+console.log(entrada({ nome: 'Seu João', motivo: 'reunião' }))
+```
+
+```bash
+tsx ~/LPPOO/19102026/0052-type-guards-satisfies/A103.ts
+```
+
+**Exemplo A104 · Type guard no filter**
+
+```ts
+function ehNumero(x: unknown): x is number {
+  return typeof x === 'number' && !Number.isNaN(x)
+}
+
+const misturado: unknown[] = [8, 'dez', 6, null, 9]
+
+// sem o "x is number", o resultado seria unknown[]
+const notas: number[] = misturado.filter(ehNumero)
+const soma = notas.reduce((total, n) => total + n, 0)
+
+console.log(notas, soma) // [ 8, 6, 9 ] 23
+```
+
+```bash
+tsx ~/LPPOO/19102026/0052-type-guards-satisfies/A104.ts
+```
+
+**Exercício E103**
+
+Crie type Cachorro = { nome: string; latir(): string } e type Gato =
+{ nome: string; miar(): string }. Escreva o type guard ehCachorro e a função
+falar(bicho: Cachorro | Gato), que chama latir ou miar.
+
+<details><summary>Dicas</summary>
+
+1. O guard pode usar 'latir' in bicho.
+2. O retorno do guard é bicho is Cachorro.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0052-type-guards-satisfies/E103.ts
+```
+
+**Exercício E104**
+
+Crie const horarios = { manha: '07:00', tarde: '13:00', noite: '19:00' }
+satisfies Record<string, string> e mostre horarios.noite. Depois troque o
+satisfies por uma anotação (: Record<string, string>) e escreva num
+comentário o que mudou no tipo de horarios.noite.
+
+<details><summary>Dicas</summary>
+
+1. Passe o mouse em cima de horarios.noite nos dois casos.
+2. Com a anotação, aparece o | undefined.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0052-type-guards-satisfies/E104.ts
+```
 
 ---
 
@@ -1390,19 +2481,92 @@ O ciclo do dia a dia é este:
 > o `tsx`. O que aparece? E o `tsc`, o que ele diz? (Dica: só um dos dois
 > confere tipos.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0053-tsconfig/`](0053-tsconfig/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0053-tsconfig/A157.ts
-> tsx ~/LPPOO/19102026/0053-tsconfig/A158.ts
-> tsx ~/LPPOO/19102026/0053-tsconfig/A159.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0053-tsconfig/E105.ts
-> tsx ~/LPPOO/19102026/0053-tsconfig/E106.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0053-tsconfig/`](0053-tsconfig/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A105 · noUncheckedIndexedAccess: o item pode não existir**
+
+```ts
+const notas = [8, 10, 6]
+
+const primeira = notas[0] // number | undefined
+if (primeira !== undefined) {
+  console.log(primeira.toFixed(1))
+}
+
+const decima = notas[9] // não existe: undefined
+console.log(decima ?? 'sem nota na posição 9')
+```
+
+```bash
+tsx ~/LPPOO/19102026/0053-tsconfig/A105.ts
+```
+
+**Exemplo A106 · noImplicitReturns e noFallthroughCasesInSwitch**
+
+```ts
+function situacao(nota: number): string {
+  if (nota >= 7) return 'aprovado'
+  if (nota >= 5) return 'recuperação'
+  return 'reprovado' // apague esta linha e rode pnpm tsc para ver o erro
+}
+
+function turno(codigo: number): string {
+  switch (codigo) {
+    case 1:
+      return 'manhã'
+    case 2:
+      return 'tarde' // sem o return, o case 2 cairia no 3: o tsc reclama
+    case 3:
+      return 'noite'
+    default:
+      return 'desconhecido'
+  }
+}
+
+console.log(situacao(6), turno(2))
+```
+
+```bash
+tsx ~/LPPOO/19102026/0053-tsconfig/A106.ts
+```
+
+**Exercício E105**
+
+Escreva neste arquivo três erros de propósito: uma variável que nunca é
+usada, uma função com retorno string que esquece o return em um caminho e
+um lista[5].toFixed() sem conferir. Rode pnpm tsc, copie as três mensagens
+para um comentário e depois corrija cada uma.
+
+<details><summary>Dicas</summary>
+
+1. Rode o tsc de dentro de ~/LPPOO: cd ~/LPPOO && pnpm tsc.
+2. Cada mensagem começa com o arquivo e a linha: procure o E deste exercício.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0053-tsconfig/E105.ts
+```
+
+**Exercício E106**
+
+Abra o tsconfig.json e escolha duas opções da tabela do assunto 0053.
+Para cada uma, escreva aqui um pequeno código que ela barraria e, embaixo, o
+mesmo código do jeito certo (deixe o errado comentado para o tsc não
+reclamar).
+
+<details><summary>Dicas</summary>
+
+1. Exemplos de opção: noUnusedParameters, noFallthroughCasesInSwitch.
+2. Comente o código errado com // na frente de cada linha.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0053-tsconfig/E106.ts
+```
 
 ---
 
@@ -1477,19 +2641,118 @@ Olha o caminho de um aluno pelo cadastro:
 > segunda linha? Mude a nota e rode. (Dica: olhe o `>=` da função
 > `situacao`.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0054-juntando-tudo/`](0054-juntando-tudo/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/19102026/0054-juntando-tudo/A160.ts
-> tsx ~/LPPOO/19102026/0054-juntando-tudo/A161.ts
-> tsx ~/LPPOO/19102026/0054-juntando-tudo/A162.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/19102026/0054-juntando-tudo/E107.ts
-> tsx ~/LPPOO/19102026/0054-juntando-tudo/E108.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0054-juntando-tudo/`](0054-juntando-tudo/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A107 · O cadastro completo**
+
+```ts
+type Turno = 'manhã' | 'tarde' | 'noite'
+
+interface Aluno {
+  readonly matricula: string
+  nome: string
+  nota: number
+  turno: Turno
+  apelido?: string
+}
+
+type AlunoNovo = Omit<Aluno, 'matricula'>
+type Situacao = { status: 'aprovado'; media: number } | { status: 'recuperação'; falta: number }
+
+let contador = 0
+function cadastrar(dados: AlunoNovo): Aluno {
+  contador++
+  return { matricula: `A${String(contador).padStart(2, '0')}`, ...dados }
+}
+
+function situacao(a: Aluno): Situacao {
+  if (a.nota >= 7) return { status: 'aprovado', media: a.nota }
+  return { status: 'recuperação', falta: 7 - a.nota }
+}
+
+const turma = [
+  cadastrar({ nome: 'Ana', nota: 8, turno: 'manhã' }),
+  cadastrar({ nome: 'José', nota: 5, turno: 'noite', apelido: 'Zé' }),
+]
+
+for (const a of turma) {
+  const s = situacao(a)
+  const detalhe = s.status === 'aprovado' ? `média ${s.media}` : `faltam ${s.falta}`
+  console.log(`${a.matricula} ${a.apelido ?? a.nome}: ${s.status} (${detalhe})`)
+}
+```
+
+```bash
+tsx ~/LPPOO/19102026/0054-juntando-tudo/A107.ts
+```
+
+**Exemplo A108 · Cadastro pelo teclado, com type guard no turno**
+
+```ts
+import { input } from '#core/input.ts'
+
+const TURNOS = ['manhã', 'tarde', 'noite'] as const
+type Turno = (typeof TURNOS)[number]
+
+function ehTurno(texto: string): texto is Turno {
+  return (TURNOS as readonly string[]).includes(texto)
+}
+
+const nome = input('Nome: ')
+const nota = Number(input('Nota: '))
+const turnoDigitado = input('Turno (manhã, tarde ou noite): ')
+
+if (!ehTurno(turnoDigitado)) {
+  console.log(`Turno "${turnoDigitado}" não existe.`)
+} else if (Number.isNaN(nota)) {
+  console.log('A nota precisa ser um número.')
+} else {
+  const situacao = nota >= 7 ? 'aprovado' : 'recuperação'
+  console.log(`${nome}, turno da ${turnoDigitado}: ${situacao}`)
+}
+```
+
+```bash
+tsx ~/LPPOO/19102026/0054-juntando-tudo/A108.ts
+```
+
+**Exercício E107**
+
+Modele uma biblioteca: interface Livro { readonly codigo: number; titulo:
+string; situacao: Situacao }, em que Situacao é uma união discriminada:
+{ tipo: 'disponivel' } ou { tipo: 'emprestado'; aluno: string; devolucao:
+string }. Escreva descrever(l: Livro): string e mostre uma lista de três
+livros.
+
+<details><summary>Dicas</summary>
+
+1. O switch vai em l.situacao.tipo.
+2. Só no case 'emprestado' existem aluno e devolucao.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0054-juntando-tudo/E107.ts
+```
+
+**Exercício E108**
+
+Peça três produtos ao usuário (nome, preço e categoria: 'lanche', 'bebida'
+ou 'doce'). Guarde num Produto[] e, no fim, mostre o total gasto em cada
+categoria usando um Record<Categoria, number>.
+
+<details><summary>Dicas</summary>
+
+1. Valide a categoria com um type guard, como o ehTurno do segundo exemplo.
+2. Comece o Record com tudo zerado: { lanche: 0, bebida: 0, doce: 0 }.
+
+</details>
+
+```bash
+tsx ~/LPPOO/19102026/0054-juntando-tudo/E108.ts
+```
 
 ---
 

@@ -1,3 +1,6 @@
-// A004 · Mostrar uma mensagem
+// A004 · Mostrar um valor dentro do texto
 
-console.log('Bem-vindo à aula de TypeScript!')
+const cidade = 'Benjamin Constant'
+
+console.log(`Eu moro em ${cidade}`)
+// Eu moro em Benjamin Constant

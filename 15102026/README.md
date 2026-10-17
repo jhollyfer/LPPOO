@@ -107,19 +107,71 @@ dado entrando ou saindo.
 > **Pergunta para a turma:** se a Ana apertar Enter sem digitar nada, o que
 > fica guardado em `nome`? Rode o exemplo e confira.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0001-input/`](0001-input/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0001-input/A001.ts
-> tsx ~/LPPOO/15102026/0001-input/A002.ts
-> tsx ~/LPPOO/15102026/0001-input/A003.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0001-input/E001.ts
-> tsx ~/LPPOO/15102026/0001-input/E002.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0001-input/`](0001-input/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A001 · Perguntar o nome**
+
+```ts
+import { input } from '#core/input.ts'
+
+const nome = input('Qual é o seu nome? ')
+console.log(nome)
+```
+
+```bash
+tsx ~/LPPOO/15102026/0001-input/A001.ts
+```
+
+**Exemplo A002 · Perguntar duas coisas**
+
+```ts
+import { input } from '#core/input.ts'
+
+const cidade = input('Em qual cidade você mora? ')
+const bairro = input('E o bairro? ')
+
+console.log(cidade)
+console.log(bairro)
+```
+
+```bash
+tsx ~/LPPOO/15102026/0001-input/A002.ts
+```
+
+**Exercício E001**
+
+Pergunte o nome da sua escola e mostre a resposta na tela.
+
+<details><summary>Dicas</summary>
+
+1. Primeiro pergunte, depois mostre: duas linhas de código bastam.
+2. Guarde a resposta numa `const` antes de mostrar.
+3. Não esqueça o espaço no fim da pergunta, depois do `?`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0001-input/E001.ts
+```
+
+**Exercício E002**
+
+Pergunte o nome de um colega e a comida preferida dele (vale tambaqui, vale
+açaí, vale miojo). Mostre as duas respostas, uma em cada linha.
+
+<details><summary>Dicas</summary>
+
+1. São duas perguntas, então dois `input` e duas variáveis.
+2. Dê nomes que digam o que guardam, tipo `colega` e `comida`.
+3. Um `console.log` para cada resposta deixa uma em cada linha.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0001-input/E002.ts
+```
 
 ---
 
@@ -157,19 +209,65 @@ retângulo roxo. Mostrar a frase é saída: paralelogramo azul.
 > (`'`)? O que aparece na tela? Rode e confira. (Dica: o `${media}` só
 > funciona entre crases.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0002-output/`](0002-output/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0002-output/A004.ts
-> tsx ~/LPPOO/15102026/0002-output/A005.ts
-> tsx ~/LPPOO/15102026/0002-output/A006.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0002-output/E003.ts
-> tsx ~/LPPOO/15102026/0002-output/E004.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0002-output/`](0002-output/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A003 · Mostrar uma mensagem**
+
+```ts
+console.log('Bem-vindo à aula de TypeScript!')
+```
+
+```bash
+tsx ~/LPPOO/15102026/0002-output/A003.ts
+```
+
+**Exemplo A004 · Mostrar um valor dentro do texto**
+
+```ts
+const cidade = 'Benjamin Constant'
+
+console.log(`Eu moro em ${cidade}`)
+// Eu moro em Benjamin Constant
+```
+
+```bash
+tsx ~/LPPOO/15102026/0002-output/A004.ts
+```
+
+**Exercício E003**
+
+Faça o programa se apresentar por você: mostre três linhas com seu nome, sua
+idade e sua cidade.
+
+<details><summary>Dicas</summary>
+
+1. Aqui não precisa de `input`: os valores podem ir direto no código.
+2. Três linhas na tela pedem três `console.log`.
+3. Texto vai entre aspas; número pode ir sem.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0002-output/E003.ts
+```
+
+**Exercício E004**
+
+Pergunte o nome da pessoa e dê as boas-vindas: `Seja bem-vindo(a), NOME!`.
+
+<details><summary>Dicas</summary>
+
+1. Pergunte o nome e guarde numa variável.
+2. A frase usa crases, não aspas: `` `Seja bem-vindo(a), ${...}!` ``.
+3. Confira se a exclamação ficou dentro da template string.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0002-output/E004.ts
+```
 
 ---
 
@@ -208,19 +306,81 @@ E o `var`? É o jeito antigo, e causa bug difícil de achar. Aqui a gente não u
 > **Pergunta para a turma:** se você apagar a linha `gols = 2`, o que aparece
 > na tela? Rode e confira.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0003-variaveis/`](0003-variaveis/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0003-variaveis/A007.ts
-> tsx ~/LPPOO/15102026/0003-variaveis/A008.ts
-> tsx ~/LPPOO/15102026/0003-variaveis/A009.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0003-variaveis/E005.ts
-> tsx ~/LPPOO/15102026/0003-variaveis/E006.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0003-variaveis/`](0003-variaveis/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A005 · let pode mudar de valor**
+
+```ts
+let gols = 0
+console.log(gols) // 0
+
+gols = 1
+console.log(gols) // 1
+
+gols = 2
+console.log(gols) // 2
+```
+
+```bash
+tsx ~/LPPOO/15102026/0003-variaveis/A005.ts
+```
+
+**Exemplo A006 · Anotação de tipo**
+
+```ts
+let nome: string = 'Ana'
+let idade: number = 17
+let matriculado: boolean = false
+
+console.log(nome, idade, matriculado)
+
+nome = 'Ana Clara' // corrigiu o nome no cadastro
+idade = 18 // fez aniversário
+matriculado = true // fez a matrícula
+
+console.log(nome, idade, matriculado)
+```
+
+```bash
+tsx ~/LPPOO/15102026/0003-variaveis/A006.ts
+```
+
+**Exercício E005**
+
+Placar ao vivo: crie a variável `golsBrasil` começando em 0. Mostre o placar,
+simule dois gols trocando o valor e mostre de novo.
+
+<details><summary>Dicas</summary>
+
+1. O valor vai mudar, então a palavra é `let`.
+2. Para trocar o valor, escreva só `golsBrasil = 1`, sem `let` de novo.
+3. Use um `console.log` antes dos gols e outro depois.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0003-variaveis/E005.ts
+```
+
+**Exercício E006**
+
+Monte sua ficha com anotação de tipo: seu nome (`string`), sua idade
+(`number`) e se você gosta de programar (`boolean`, seja sincero). Mostre
+tudo.
+
+<details><summary>Dicas</summary>
+
+1. A anotação vem depois do nome, com dois-pontos: `let nome: string = ...`.
+2. Texto vai entre aspas, número e boolean vão sem aspas.
+3. Um `console.log` aceita vários valores separados por vírgula.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0003-variaveis/E006.ts
+```
 
 ---
 
@@ -264,19 +424,72 @@ E repara no fluxograma: a constante é guardada antes da pergunta.
 > O editor reclama? E o programa, chega a mostrar a frase da Ana? Rode e
 > descubra.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0004-constantes/`](0004-constantes/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0004-constantes/A010.ts
-> tsx ~/LPPOO/15102026/0004-constantes/A011.ts
-> tsx ~/LPPOO/15102026/0004-constantes/A012.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0004-constantes/E007.ts
-> tsx ~/LPPOO/15102026/0004-constantes/E008.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0004-constantes/`](0004-constantes/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A007 · const não muda**
+
+```ts
+const NOME_ESCOLA = 'CETAM'
+console.log(NOME_ESCOLA)
+
+// NOME_ESCOLA = 'Outra escola'
+// erro: Cannot assign to 'NOME_ESCOLA' because it is a constant.
+```
+
+```bash
+tsx ~/LPPOO/15102026/0004-constantes/A007.ts
+```
+
+**Exemplo A008 · Constante com valor fixo do programa**
+
+```ts
+const MEDIA_APROVACAO = 6
+const nota = 7.5
+
+console.log(`Média para passar: ${MEDIA_APROVACAO}`)
+console.log(`Sua nota: ${nota}`)
+```
+
+```bash
+tsx ~/LPPOO/15102026/0004-constantes/A008.ts
+```
+
+**Exercício E007**
+
+Endereço fixo: crie uma constante com o nome da sua cidade e mostre
+`Eu moro em CIDADE`.
+
+<details><summary>Dicas</summary>
+
+1. Valor fixo do programa: `const` e nome em maiúsculas, tipo `CIDADE`.
+2. Texto vai entre aspas: `'Benjamin Constant'`.
+3. Template string junta texto e valor: `Eu moro em ${CIDADE}`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0004-constantes/E007.ts
+```
+
+**Exercício E008**
+
+Crie a constante `NOME_CURSO` e, na linha de baixo, tente trocar o valor dela.
+Copie a mensagem de erro para um comentário e explique com suas palavras por
+que o TypeScript não deixou.
+
+<details><summary>Dicas</summary>
+
+1. Passe o mouse em cima do sublinhado vermelho para ler o erro inteiro.
+2. Procure a palavra "constant" na mensagem.
+3. Depois de copiar o erro, comente a linha que tenta trocar o valor.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0004-constantes/E008.ts
+```
 
 ---
 
@@ -334,19 +547,69 @@ roxo:
 > **Pergunta para a turma:** quanto dá `nome.length`? E `limpo.length`?
 > Mostre os dois com `console.log` e compare. (Dica: espaço também conta.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0005-texto/`](0005-texto/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0005-texto/A013.ts
-> tsx ~/LPPOO/15102026/0005-texto/A014.ts
-> tsx ~/LPPOO/15102026/0005-texto/A015.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0005-texto/E009.ts
-> tsx ~/LPPOO/15102026/0005-texto/E010.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0005-texto/`](0005-texto/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A009 · Tamanho e maiúsculas**
+
+```ts
+const nome = 'Maria'
+
+console.log(nome.length) // 5
+console.log(nome.toUpperCase()) // MARIA
+```
+
+```bash
+tsx ~/LPPOO/15102026/0005-texto/A009.ts
+```
+
+**Exemplo A010 · Limpar espaços e procurar**
+
+```ts
+const frase = '   Eu gosto de TypeScript   '
+
+console.log(frase.trim()) // 'Eu gosto de TypeScript'
+console.log(frase.includes('TypeScript')) // true
+```
+
+```bash
+tsx ~/LPPOO/15102026/0005-texto/A010.ts
+```
+
+**Exercício E009**
+
+Pergunte o nome do usuário e mostre quantas letras ele tem. Quem tem o maior
+nome da turma?
+
+<details><summary>Dicas</summary>
+
+1. Guarde o nome que a pessoa digitou.
+2. Toda string tem a propriedade `length`, sem parênteses.
+3. Teste com e sem sobrenome: o espaço também conta.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0005-texto/E009.ts
+```
+
+**Exercício E010**
+
+Pergunte uma palavra e mostre ela GRITANDO (maiúsculas) e depois sussurrando
+(minúsculas).
+
+<details><summary>Dicas</summary>
+
+1. Um `input` só, e a mesma palavra é usada duas vezes.
+2. Os métodos são `toUpperCase()` e `toLowerCase()`, com parênteses.
+3. O método não muda a variável: ele devolve uma string nova.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0005-texto/E010.ts
+```
 
 ---
 
@@ -386,19 +649,70 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 > **Pergunta para a turma:** troque o `toFixed(2)` por `toFixed(0)`. Qual preço
 > aparece agora? Rode e confira. (Dica: ele arredonda.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0006-numero/`](0006-numero/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0006-numero/A016.ts
-> tsx ~/LPPOO/15102026/0006-numero/A017.ts
-> tsx ~/LPPOO/15102026/0006-numero/A018.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0006-numero/E011.ts
-> tsx ~/LPPOO/15102026/0006-numero/E012.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0006-numero/`](0006-numero/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A011 · Inteiros e decimais**
+
+```ts
+const idade: number = 17
+const altura: number = 1.68
+
+console.log(idade, altura)
+console.log(typeof altura) // number
+```
+
+```bash
+tsx ~/LPPOO/15102026/0006-numero/A011.ts
+```
+
+**Exemplo A012 · Casas decimais com toFixed**
+
+```ts
+const preco = 12.5
+
+console.log(preco.toFixed(2)) // 12.50
+console.log(`Total: R$ ${preco.toFixed(2)}`)
+```
+
+```bash
+tsx ~/LPPOO/15102026/0006-numero/A012.ts
+```
+
+**Exercício E011**
+
+Crie variáveis para sua idade e sua altura (em metros, com ponto) e mostre as
+duas.
+
+<details><summary>Dicas</summary>
+
+1. Número vai sem aspas.
+2. O separador decimal é o ponto: `1.68`, não `1,68`.
+3. Use `typeof` se quiser confirmar que são mesmo `number`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0006-numero/E011.ts
+```
+
+**Exercício E012**
+
+Crie uma variável com o valor `3.14159` (o famoso pi) e mostre com só 2 casas
+decimais.
+
+<details><summary>Dicas</summary>
+
+1. O método que controla as casas decimais é o `toFixed`.
+2. O número de casas vai entre os parênteses.
+3. Confira se o resultado arredondou ou só cortou.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0006-numero/E012.ts
+```
 
 ---
 
@@ -447,19 +761,68 @@ E tem dois valores especiais que querem dizer "nada":
 > **Pergunta para a turma:** coloque um `console.log(temAula)` no fim e rode
 > digitando `nao`. O que aparece? E se digitar `SIM`, tudo maiúsculo?
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0007-booleano/`](0007-booleano/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0007-booleano/A019.ts
-> tsx ~/LPPOO/15102026/0007-booleano/A020.ts
-> tsx ~/LPPOO/15102026/0007-booleano/A021.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0007-booleano/E013.ts
-> tsx ~/LPPOO/15102026/0007-booleano/E014.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0007-booleano/`](0007-booleano/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A013 · Valores booleanos**
+
+```ts
+const estaChovendo: boolean = true
+const temAula: boolean = false
+
+console.log(estaChovendo, temAula)
+```
+
+```bash
+tsx ~/LPPOO/15102026/0007-booleano/A013.ts
+```
+
+**Exemplo A014 · Descobrindo o tipo com typeof**
+
+```ts
+console.log(typeof 'oi') // string
+console.log(typeof 42) // number
+console.log(typeof true) // boolean
+```
+
+```bash
+tsx ~/LPPOO/15102026/0007-booleano/A014.ts
+```
+
+**Exercício E013**
+
+Crie duas variáveis booleanas: `gostaDeCafe` e `temCelular`. Mostre as duas.
+
+<details><summary>Dicas</summary>
+
+1. Boolean só tem dois valores: `true` e `false`.
+2. Sem aspas: `'true'` com aspas é texto.
+3. Mostre cada uma num `console.log` ou as duas no mesmo, separadas por
+   vírgula.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0007-booleano/E013.ts
+```
+
+**Exercício E014**
+
+Mostre o `typeof` de quatro valores diferentes: um texto, um número, um
+booleano e `undefined`.
+
+<details><summary>Dicas</summary>
+
+1. Escolha um valor de cada tipo e coloque direto no `typeof`.
+2. Quatro valores, quatro `console.log`.
+3. Antes de rodar, escreva num comentário o que você acha que vai sair.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0007-booleano/E014.ts
+```
 
 ---
 
@@ -513,19 +876,69 @@ número, e aí sim faz a conta.
 > **Pergunta para a turma:** troque `idade + 1` por `texto + 1` e digite `17`.
 > O que aparece na tela? Rode e confira.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0008-conversao/`](0008-conversao/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0008-conversao/A022.ts
-> tsx ~/LPPOO/15102026/0008-conversao/A023.ts
-> tsx ~/LPPOO/15102026/0008-conversao/A024.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0008-conversao/E015.ts
-> tsx ~/LPPOO/15102026/0008-conversao/E016.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0008-conversao/`](0008-conversao/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A015 · Number**
+
+```ts
+import { input } from '#core/input.ts'
+
+const idade = Number(input('Sua idade: '))
+
+console.log(idade + 1) // soma de verdade
+```
+
+```bash
+tsx ~/LPPOO/15102026/0008-conversao/A015.ts
+```
+
+**Exemplo A016 · parseInt e parseFloat**
+
+```ts
+console.log(parseInt('8.9')) // 8
+console.log(parseFloat('8.9')) // 8.9
+console.log(Number('8.9')) // 8.9
+```
+
+```bash
+tsx ~/LPPOO/15102026/0008-conversao/A016.ts
+```
+
+**Exercício E015**
+
+Pergunte dois números com `input`, converta com `Number` e mostre a soma de
+verdade.
+
+<details><summary>Dicas</summary>
+
+1. Converta logo na hora de guardar: `Number(input(...))`.
+2. Depois some as duas variáveis numa terceira.
+3. Teste com `2` e `3`: se aparecer `23`, faltou converter algum.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0008-conversao/E015.ts
+```
+
+**Exercício E016**
+
+Mostre o resultado de `parseInt('15.7')` e `parseFloat('15.7')`. Num
+comentário, explique a diferença.
+
+<details><summary>Dicas</summary>
+
+1. Mostre cada resultado num `console.log`.
+2. Um dos dois ignora tudo depois do ponto.
+3. Pense em qual nome tem `Int` (inteiro) e qual tem `Float` (decimal).
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0008-conversao/E016.ts
+```
 
 ---
 
@@ -580,19 +993,76 @@ No fluxograma, cada atribuição é um retângulo roxo:
 > **Pergunta para a turma:** troque `saldo -= 30` por `saldo = 30`, sem o
 > sinal de menos. Quanto aparece no fim? Rode e descubra.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0009-atribuicao/`](0009-atribuicao/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0009-atribuicao/A025.ts
-> tsx ~/LPPOO/15102026/0009-atribuicao/A026.ts
-> tsx ~/LPPOO/15102026/0009-atribuicao/A027.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0009-atribuicao/E017.ts
-> tsx ~/LPPOO/15102026/0009-atribuicao/E018.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0009-atribuicao/`](0009-atribuicao/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A017 · Atribuição simples e composta**
+
+```ts
+let saldo = 100
+
+saldo += 50 // 150
+saldo -= 30 // 120
+
+console.log(saldo) // 120
+```
+
+```bash
+tsx ~/LPPOO/15102026/0009-atribuicao/A017.ts
+```
+
+**Exemplo A018 · Incremento e decremento**
+
+```ts
+let alunos = 20
+
+alunos++ // chegou um aluno
+alunos-- // saiu um aluno
+alunos++ // chegou outro
+
+console.log(alunos) // 21
+```
+
+```bash
+tsx ~/LPPOO/15102026/0009-atribuicao/A018.ts
+```
+
+**Exercício E017**
+
+Placar do Free Fire: comece com `let pontos = 0`. Você ganhou 10 pontos,
+depois mais 5, e perdeu 3 por cair do mapa. Use `+=` e `-=` e mostre o
+placar final.
+
+<details><summary>Dicas</summary>
+
+1. Comece com `let`, porque `pontos` vai mudar várias vezes.
+2. `pontos += 10` é o mesmo que `pontos = pontos + 10`.
+3. Perder pontos é com `-=`.
+4. Faça a conta de cabeça antes e confira: deve dar 12.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0009-atribuicao/E017.ts
+```
+
+**Exercício E018**
+
+Crie `let valor = 8`. Use `*=` para dobrar e depois `/=` para dividir por 4.
+Mostre o valor depois de cada passo.
+
+<details><summary>Dicas</summary>
+
+1. Dobrar é multiplicar por 2: `valor *= 2`.
+2. Dividir por 4 é `valor /= 4`.
+3. Ponha um `console.log(valor)` logo depois de cada linha que muda o valor.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0009-atribuicao/E018.ts
+```
 
 ---
 
@@ -644,19 +1114,71 @@ console.log(media) // 7
 > **Pergunta para a turma:** mude a `nota2` para `7`. Quanto dá a média? E se
 > você tirar os parênteses? Rode as duas versões e compare.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0010-aritmetica/`](0010-aritmetica/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0010-aritmetica/A028.ts
-> tsx ~/LPPOO/15102026/0010-aritmetica/A029.ts
-> tsx ~/LPPOO/15102026/0010-aritmetica/A030.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0010-aritmetica/E019.ts
-> tsx ~/LPPOO/15102026/0010-aritmetica/E020.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0010-aritmetica/`](0010-aritmetica/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A019 · As quatro operações**
+
+```ts
+const a = 10
+const b = 4
+
+console.log(a + b) // 14
+console.log(a - b) // 6
+console.log(a * b) // 40
+console.log(a / b) // 2.5
+```
+
+```bash
+tsx ~/LPPOO/15102026/0010-aritmetica/A019.ts
+```
+
+**Exemplo A020 · Resto e potência**
+
+```ts
+console.log(10 % 3) // 1 (10 dividido por 3 sobra 1)
+console.log(2 ** 3) // 8 (2 x 2 x 2)
+```
+
+```bash
+tsx ~/LPPOO/15102026/0010-aritmetica/A020.ts
+```
+
+**Exercício E019**
+
+Calculadora de bolso: peça dois números e mostre a soma, a subtração, a
+multiplicação e a divisão, uma por linha.
+
+<details><summary>Dicas</summary>
+
+1. O `input` devolve texto: converta cada número com `Number(...)`.
+2. Guarde os dois números em constantes antes de fazer as contas.
+3. Os operadores são `+`, `-`, `*` e `/`.
+4. Teste com 10 e 4: a divisão tem que dar 2.5.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0010-aritmetica/E019.ts
+```
+
+**Exercício E020**
+
+Peça um número e mostre o resto da divisão dele por 2. Rode com um número
+par e com um ímpar e veja a diferença.
+
+<details><summary>Dicas</summary>
+
+1. O resto da divisão é o operador `%`.
+2. Lembre de converter o que foi digitado com `Number`.
+3. Número par sempre deixa resto 0 na divisão por 2.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0010-aritmetica/E020.ts
+```
 
 ---
 
@@ -708,19 +1230,68 @@ console.log(vans) // 3
 > **Pergunta para a turma:** e se a turma tiver 30 alunos? Quantas vans o
 > programa pede? Mude o `alunos` e rode. (Dica: quanto dá `30 / 15`?)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0011-math/`](0011-math/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0011-math/A031.ts
-> tsx ~/LPPOO/15102026/0011-math/A032.ts
-> tsx ~/LPPOO/15102026/0011-math/A033.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0011-math/E021.ts
-> tsx ~/LPPOO/15102026/0011-math/E022.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0011-math/`](0011-math/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A021 · Arredondamentos**
+
+```ts
+const nota = 6.5
+
+console.log(Math.round(nota)) // 7
+console.log(Math.floor(nota)) // 6
+console.log(Math.ceil(nota)) // 7
+```
+
+```bash
+tsx ~/LPPOO/15102026/0011-math/A021.ts
+```
+
+**Exemplo A022 · Maior e menor**
+
+```ts
+console.log(Math.max(8, 3, 10)) // 10
+console.log(Math.min(8, 3, 10)) // 3
+```
+
+```bash
+tsx ~/LPPOO/15102026/0011-math/A022.ts
+```
+
+**Exercício E021**
+
+Peça um número decimal (com ponto, tipo 7.6) e mostre ele arredondado com
+`round`, `floor` e `ceil`.
+
+<details><summary>Dicas</summary>
+
+1. Converta o que foi digitado com `Number`.
+2. `Math.round` vai para o mais próximo, `Math.floor` para baixo e
+   `Math.ceil` para cima.
+3. Teste com 7.6 e depois com 7.2 e compare os resultados.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0011-math/E021.ts
+```
+
+**Exercício E022**
+
+Peça a pontuação de três jogadores e mostre a maior e a menor.
+
+<details><summary>Dicas</summary>
+
+1. Converta as três pontuações com `Number`.
+2. `Math.max` e `Math.min` aceitam vários números separados por vírgula.
+3. Teste com valores repetidos para ver o que acontece.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0011-math/E022.ts
+```
 
 ---
 
@@ -766,19 +1337,67 @@ ainda não tem losango. A comparação só gera o `true` ou `false` e guarda.
 > **Pergunta para a turma:** qual é a menor idade que o João precisa digitar
 > para aparecer `true`? Teste e confira.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0012-relacional/`](0012-relacional/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0012-relacional/A034.ts
-> tsx ~/LPPOO/15102026/0012-relacional/A035.ts
-> tsx ~/LPPOO/15102026/0012-relacional/A036.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0012-relacional/E023.ts
-> tsx ~/LPPOO/15102026/0012-relacional/E024.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0012-relacional/`](0012-relacional/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A023 · Comparando números**
+
+```ts
+console.log(10 > 3) // true
+console.log(10 < 3) // false
+```
+
+```bash
+tsx ~/LPPOO/15102026/0012-relacional/A023.ts
+```
+
+**Exemplo A024 · Maior ou igual**
+
+```ts
+const media = 6
+
+console.log(media >= 6) // true (passou)
+console.log(media > 6) // false
+```
+
+```bash
+tsx ~/LPPOO/15102026/0012-relacional/A024.ts
+```
+
+**Exercício E023**
+
+Antes de rodar, escreva num comentário o que você acha que sai em
+`15 > 20`, `15 < 20`, `15 >= 15` e `15 <= 14`. Depois mostre com
+`console.log` e confira quantas você acertou.
+
+<details><summary>Dicas</summary>
+
+1. Cada comparação responde só `true` ou `false`.
+2. `>=` dá `true` também quando os dois lados são iguais.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0012-relacional/E023.ts
+```
+
+**Exercício E024**
+
+Peça a nota da prova e mostre `true` ou `false` dizendo se ela é maior ou
+igual a 6.
+
+<details><summary>Dicas</summary>
+
+1. Converta a nota com `Number`, senão você compara texto com número.
+2. O operador de "maior ou igual" é `>=`.
+3. Teste com 6 exatamente: tem que dar `true`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0012-relacional/E024.ts
+```
 
 ---
 
@@ -822,19 +1441,70 @@ console.log(acertou) // true
 > **Pergunta para a turma:** digite a senha certinha, mas com um espaço no fim.
 > O que aparece? Rode e descubra. (Dica: espaço também é letra para o `===`.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0013-comparacao/`](0013-comparacao/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0013-comparacao/A037.ts
-> tsx ~/LPPOO/15102026/0013-comparacao/A038.ts
-> tsx ~/LPPOO/15102026/0013-comparacao/A039.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0013-comparacao/E025.ts
-> tsx ~/LPPOO/15102026/0013-comparacao/E026.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0013-comparacao/`](0013-comparacao/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A025 · Igual e diferente**
+
+```ts
+const resposta = 42
+
+console.log(resposta === 42) // true
+console.log(resposta !== 42) // false
+```
+
+```bash
+tsx ~/LPPOO/15102026/0013-comparacao/A025.ts
+```
+
+**Exemplo A026 · Comparando texto**
+
+```ts
+const cidade: string = 'Tabatinga'
+
+console.log(cidade === 'Tabatinga') // true
+console.log(cidade === 'tabatinga') // false (maiúscula importa)
+```
+
+```bash
+tsx ~/LPPOO/15102026/0013-comparacao/A026.ts
+```
+
+**Exercício E025**
+
+Crie `const resposta: number = 10` e `const time: string = 'Flamengo'`.
+Mostre se `resposta` é igual a 10, se é diferente de 5 e se `time` é igual a
+`flamengo`, tudo minúsculo.
+
+<details><summary>Dicas</summary>
+
+1. Igual é `===` e diferente é `!==`.
+2. Maiúscula e minúscula contam: `F` e `f` são letras diferentes.
+3. Antes de rodar, escreva em comentário o que você acha que vai sair.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0013-comparacao/E025.ts
+```
+
+**Exercício E026**
+
+Adivinhação: peça um número e mostre se ele é igual a 7, o número da sorte
+do professor.
+
+<details><summary>Dicas</summary>
+
+1. O `input` devolve texto. Converta com `Number` antes de comparar com 7.
+2. Se não converter, o TypeScript reclama da comparação. Leia o erro.
+3. Teste com 7 e com outro número.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0013-comparacao/E026.ts
+```
 
 ---
 
@@ -887,19 +1557,70 @@ console.log(media >= 6 || frequencia >= 75) // true || false → true
 > **Pergunta para a turma:** qual é a menor frequência que o Pedro precisa ter
 > para `aprovado` dar `true`? Mude o valor e rode.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0014-logico/`](0014-logico/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0014-logico/A040.ts
-> tsx ~/LPPOO/15102026/0014-logico/A041.ts
-> tsx ~/LPPOO/15102026/0014-logico/A042.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0014-logico/E027.ts
-> tsx ~/LPPOO/15102026/0014-logico/E028.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0014-logico/`](0014-logico/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A027 · E (&&)**
+
+```ts
+const media = 7
+const frequencia = 80
+
+console.log(media >= 6 && frequencia >= 75) // true
+```
+
+```bash
+tsx ~/LPPOO/15102026/0014-logico/A027.ts
+```
+
+**Exemplo A028 · OU (||)**
+
+```ts
+const dia = 'sábado'
+
+console.log(dia === 'sábado' || dia === 'domingo') // true (fim de semana)
+```
+
+```bash
+tsx ~/LPPOO/15102026/0014-logico/A028.ts
+```
+
+**Exercício E027**
+
+Monte a tabela verdade do `&&` e do `||` no código: mostre com `console.log`
+as quatro combinações de `true` e `false` para cada operador.
+
+<details><summary>Dicas</summary>
+
+1. São 4 combinações: `true` e `true`, `true` e `false`, `false` e `true`,
+   `false` e `false`.
+2. Faça um `console.log` para cada combinação, primeiro com `&&`, depois com
+   `||`.
+3. Confira com a tabela verdade do README.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0014-logico/E027.ts
+```
+
+**Exercício E028**
+
+Autoescola: peça a idade e se a pessoa tem habilitação (`sim`/`nao`). Mostre
+se ela pode dirigir, ou seja, 18 anos ou mais e habilitação.
+
+<details><summary>Dicas</summary>
+
+1. Converta a idade com `Number`.
+2. Transforme a resposta em boolean comparando: `resposta === 'sim'`.
+3. As duas coisas precisam ser verdade ao mesmo tempo: `&&`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0014-logico/E028.ts
+```
 
 ---
 
@@ -945,19 +1666,71 @@ de sim ou não:
 > **Pergunta para a turma:** troque o `||` por `??` e aperte Enter sem digitar
 > nada. O que aparece na tela? Rode e confira.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0015-truthy-falsy/`](0015-truthy-falsy/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0015-truthy-falsy/A043.ts
-> tsx ~/LPPOO/15102026/0015-truthy-falsy/A044.ts
-> tsx ~/LPPOO/15102026/0015-truthy-falsy/A045.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0015-truthy-falsy/E029.ts
-> tsx ~/LPPOO/15102026/0015-truthy-falsy/E030.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0015-truthy-falsy/`](0015-truthy-falsy/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A029 · Convertendo para boolean**
+
+```ts
+console.log(Boolean('')) // false
+console.log(Boolean('Ana')) // true
+console.log(Boolean(0)) // false
+console.log(Boolean(10)) // true
+```
+
+```bash
+tsx ~/LPPOO/15102026/0015-truthy-falsy/A029.ts
+```
+
+**Exemplo A030 · Valor padrão com ??**
+
+```ts
+let apelido: string | undefined = undefined
+
+console.log(apelido ?? 'sem apelido') // sem apelido
+
+apelido = 'Juju'
+console.log(apelido ?? 'sem apelido') // Juju
+```
+
+```bash
+tsx ~/LPPOO/15102026/0015-truthy-falsy/A030.ts
+```
+
+**Exercício E029**
+
+Use `Boolean()` para descobrir quem é truthy e quem é falsy: `'0'`, `0`,
+`' '`, `''` e `null`. Antes de rodar, chute a resposta em um comentário.
+
+<details><summary>Dicas</summary>
+
+1. Cuidado com `'0'` e `' '`: são textos, e texto só é falsy quando está
+   totalmente vazio.
+2. Um `console.log(Boolean(...))` para cada valor deixa a comparação fácil.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0015-truthy-falsy/E029.ts
+```
+
+**Exercício E030**
+
+Crie `let cidade: string | undefined` sem valor e mostre `cidade ?? 'Não
+informada'`. Depois coloque `'Tabatinga'` e mostre de novo.
+
+<details><summary>Dicas</summary>
+
+1. Sem valor, a variável começa como `undefined`.
+2. O `??` só usa o padrão quando o valor é `null` ou `undefined`.
+3. Para dar valor depois, escreva só `cidade = 'Tabatinga'`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0015-truthy-falsy/E030.ts
+```
 
 ---
 
@@ -997,19 +1770,74 @@ a mais, e o Não vai direto para o "Bom dia!".
 > **Pergunta para a turma:** e se você digitar `Sim`, com S maiúsculo? Aparece
 > o aviso? Rode e descubra. (Dica: o `===` compara letra por letra.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0016-condicional-simples/`](0016-condicional-simples/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0016-condicional-simples/A046.ts
-> tsx ~/LPPOO/15102026/0016-condicional-simples/A047.ts
-> tsx ~/LPPOO/15102026/0016-condicional-simples/A048.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0016-condicional-simples/E031.ts
-> tsx ~/LPPOO/15102026/0016-condicional-simples/E032.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0016-condicional-simples/`](0016-condicional-simples/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A031 · Aprovado**
+
+```ts
+const media = 7
+
+if (media >= 6) {
+  console.log('Aprovado!')
+}
+```
+
+```bash
+tsx ~/LPPOO/15102026/0016-condicional-simples/A031.ts
+```
+
+**Exemplo A032 · Aviso de chuva**
+
+```ts
+import { input } from '#core/input.ts'
+
+const resposta = input('Está chovendo? (sim/nao) ')
+
+if (resposta === 'sim') {
+  console.log('Leve o guarda-chuva!')
+}
+console.log('Bom dia!')
+```
+
+```bash
+tsx ~/LPPOO/15102026/0016-condicional-simples/A032.ts
+```
+
+**Exercício E031**
+
+Peça a idade e, se for 18 ou mais, mostre `Pode entrar na festa de
+formatura sem autorização dos pais`.
+
+<details><summary>Dicas</summary>
+
+1. O `input` devolve texto. Converta com `Number` antes de comparar.
+2. "18 ou mais" se escreve com `>=`.
+3. Teste com 17, 18 e 19 para ver a divisa.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0016-condicional-simples/E031.ts
+```
+
+**Exercício E032**
+
+Peça a senha do Wi-Fi da escola e, se for igual a `cetam`, mostre
+`Conectado!`.
+
+<details><summary>Dicas</summary>
+
+1. Comparar texto com texto é com `===`.
+2. Guarde a senha certa numa constante.
+3. Teste digitando `CETAM` em maiúsculo. O que acontece?
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0016-condicional-simples/E032.ts
+```
 
 ---
 
@@ -1049,19 +1877,76 @@ novo no fim. O programa passa por um deles, nunca pelos dois:
 > **Pergunta para a turma:** e se você chegar às 6h em ponto? Embarca ou perde
 > o barco? E às 7h? Rode e confira. (Dica: olhe o sinal `<=`.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0017-condicional-composta/`](0017-condicional-composta/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0017-condicional-composta/A049.ts
-> tsx ~/LPPOO/15102026/0017-condicional-composta/A050.ts
-> tsx ~/LPPOO/15102026/0017-condicional-composta/A051.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0017-condicional-composta/E033.ts
-> tsx ~/LPPOO/15102026/0017-condicional-composta/E034.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0017-condicional-composta/`](0017-condicional-composta/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A033 · Aprovado ou reprovado**
+
+```ts
+const media = 5
+
+if (media >= 6) {
+  console.log('Aprovado')
+} else {
+  console.log('Reprovado')
+}
+```
+
+```bash
+tsx ~/LPPOO/15102026/0017-condicional-composta/A033.ts
+```
+
+**Exemplo A034 · Par ou ímpar**
+
+```ts
+import { input } from '#core/input.ts'
+
+const numero = Number(input('Número: '))
+
+if (numero % 2 === 0) {
+  console.log('Par')
+} else {
+  console.log('Ímpar')
+}
+```
+
+```bash
+tsx ~/LPPOO/15102026/0017-condicional-composta/A034.ts
+```
+
+**Exercício E033**
+
+Peça a idade e mostre `Maior de idade` ou `Menor de idade`.
+
+<details><summary>Dicas</summary>
+
+1. Converta a idade com `Number`.
+2. Um teste só resolve: se for 18 ou mais, maior; senão, menor.
+3. Teste com 17 e com 18.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0017-condicional-composta/E033.ts
+```
+
+**Exercício E034**
+
+Peça a senha do celular e mostre `Desbloqueado` ou `Senha incorreta`.
+Invente a senha certa e guarde numa constante.
+
+<details><summary>Dicas</summary>
+
+1. Crie a constante com a senha antes do `input`.
+2. Compare a senha digitada com a constante usando `===`.
+3. O `else` cuida de todo o resto, não precisa de outra condição.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0017-condicional-composta/E034.ts
+```
 
 ---
 
@@ -1105,19 +1990,82 @@ No fluxograma, cada `else if` é mais um losango, pendurado no Não do anterior:
 > **Pergunta para a turma:** se a média da Bia for exatamente 4, o que aparece?
 > Troque o 5 por 4 e rode. (Dica: o `>=` também aceita o igual.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0018-condicional-aninhada/`](0018-condicional-aninhada/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0018-condicional-aninhada/A052.ts
-> tsx ~/LPPOO/15102026/0018-condicional-aninhada/A053.ts
-> tsx ~/LPPOO/15102026/0018-condicional-aninhada/A054.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0018-condicional-aninhada/E035.ts
-> tsx ~/LPPOO/15102026/0018-condicional-aninhada/E036.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0018-condicional-aninhada/`](0018-condicional-aninhada/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A035 · Aprovado, recuperação ou reprovado**
+
+```ts
+const media = 5
+
+if (media >= 6) {
+  console.log('Aprovado')
+} else if (media >= 4) {
+  console.log('Recuperação')
+} else {
+  console.log('Reprovado')
+}
+```
+
+```bash
+tsx ~/LPPOO/15102026/0018-condicional-aninhada/A035.ts
+```
+
+**Exemplo A036 · Positivo, negativo ou zero**
+
+```ts
+import { input } from '#core/input.ts'
+
+const n = Number(input('Número: '))
+
+if (n > 0) {
+  console.log('Positivo')
+} else if (n < 0) {
+  console.log('Negativo')
+} else {
+  console.log('Zero')
+}
+```
+
+```bash
+tsx ~/LPPOO/15102026/0018-condicional-aninhada/A036.ts
+```
+
+**Exercício E035**
+
+Peça a altura de dois jogadores do time de vôlei e mostre quem é o mais alto,
+ou `Mesma altura`.
+
+<details><summary>Dicas</summary>
+
+1. São três resultados possíveis: o primeiro mais alto, o segundo ou empate.
+2. Teste um caso com `>`, outro com `<` e deixe o empate para o `else`.
+3. Altura tem ponto: `1.85`. Converta com `Number`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0018-condicional-aninhada/E035.ts
+```
+
+**Exercício E036**
+
+Peça a idade e mostre `Criança` (até 11), `Adolescente` (12 a 17) ou
+`Adulto` (18 ou mais).
+
+<details><summary>Dicas</summary>
+
+1. Comece testando a menor faixa: até 11.
+2. Se não caiu na primeira, o `else if` só precisa testar até 17.
+3. O que sobrar é adulto, então fica no `else`.
+4. Teste os valores da divisa: 11, 12, 17 e 18.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0018-condicional-aninhada/E036.ts
+```
 
 ---
 
@@ -1161,19 +2109,72 @@ valor em `situacao`. Quem mostra é o fim do programa:
 > **Pergunta para a turma:** troque a média do Lucas para 6. Aparece
 > `Aprovado` ou `Reprovado`? E com 5,9 (no código, `5.9`)? Rode e confira.
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0019-ternario/`](0019-ternario/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0019-ternario/A055.ts
-> tsx ~/LPPOO/15102026/0019-ternario/A056.ts
-> tsx ~/LPPOO/15102026/0019-ternario/A057.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0019-ternario/E037.ts
-> tsx ~/LPPOO/15102026/0019-ternario/E038.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0019-ternario/`](0019-ternario/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A037 · Aprovado ou reprovado**
+
+```ts
+const media = 8
+const situacao = media >= 6 ? 'Aprovado' : 'Reprovado'
+
+console.log(situacao) // Aprovado
+```
+
+```bash
+tsx ~/LPPOO/15102026/0019-ternario/A037.ts
+```
+
+**Exemplo A038 · Par ou ímpar**
+
+```ts
+import { input } from '#core/input.ts'
+
+const n = Number(input('Número: '))
+
+console.log(n % 2 === 0 ? 'Par' : 'Ímpar')
+```
+
+```bash
+tsx ~/LPPOO/15102026/0019-ternario/A038.ts
+```
+
+**Exercício E037**
+
+Peça a idade e use ternário para mostrar `Maior de idade` ou `Menor de
+idade`.
+
+<details><summary>Dicas</summary>
+
+1. Converta a idade com `Number`.
+2. O formato é `condição ? valorSeSim : valorSeNao`.
+3. Dá para guardar o resultado numa constante ou mostrar direto no
+   `console.log`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0019-ternario/E037.ts
+```
+
+**Exercício E038**
+
+Peça o preço do açaí em duas barracas da feira e use ternário para guardar o
+menor preço numa constante. Mostre `Compre o de R$ X`.
+
+<details><summary>Dicas</summary>
+
+1. Converta os dois preços com `Number`.
+2. A condição é qual preço é menor: `preco1 < preco2`.
+3. O ternário devolve o próprio preço, não um texto.
+4. Use `toFixed(2)` para mostrar os centavos.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0019-ternario/E038.ts
+```
 
 ---
 
@@ -1233,19 +2234,97 @@ uma para o `default`:
 > **Pergunta para a turma:** apague o `break` do `case 2` e digite `2` de novo.
 > O que aparece agora? (Dica: sem o `break`, o programa continua descendo.)
 
-> [!NOTE]
-> **Hora de praticar:** os arquivos deste assunto ficam em [`0020-escolha/`](0020-escolha/). Os comandos funcionam de qualquer pasta do terminal.
->
-> ```bash
-> # exemplos resolvidos: rode, mude, quebre, rode de novo
-> tsx ~/LPPOO/15102026/0020-escolha/A058.ts
-> tsx ~/LPPOO/15102026/0020-escolha/A059.ts
-> tsx ~/LPPOO/15102026/0020-escolha/A060.ts
->
-> # exercícios: a resposta vai dentro do próprio arquivo
-> tsx ~/LPPOO/15102026/0020-escolha/E039.ts
-> tsx ~/LPPOO/15102026/0020-escolha/E040.ts
-> ```
+### Hora de praticar
+
+Os arquivos ficam em [`0020-escolha/`](0020-escolha/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A039 · Dia da semana**
+
+```ts
+import { input } from '#core/input.ts'
+
+const dia = Number(input('Dia (1 a 7): '))
+
+switch (dia) {
+  case 1:
+    console.log('Domingo')
+    break
+  case 7:
+    console.log('Sábado')
+    break
+  default:
+    console.log('Dia útil')
+}
+```
+
+```bash
+tsx ~/LPPOO/15102026/0020-escolha/A039.ts
+```
+
+**Exemplo A040 · Menu de opções**
+
+```ts
+import { input } from '#core/input.ts'
+
+console.log('1 - Ver saldo')
+console.log('2 - Depositar')
+console.log('3 - Sair')
+const opcao = input('Escolha: ')
+
+switch (opcao) {
+  case '1':
+    console.log('Seu saldo é R$ 100,00')
+    break
+  case '2':
+    console.log('Depósito realizado')
+    break
+  case '3':
+    console.log('Até logo!')
+    break
+  default:
+    console.log('Opção inválida')
+}
+```
+
+```bash
+tsx ~/LPPOO/15102026/0020-escolha/A040.ts
+```
+
+**Exercício E039**
+
+Peça a posição de chegada na corrida dos jogos escolares (1 a 3) e mostre
+`Ouro`, `Prata` ou `Bronze`. Para qualquer outro número mostre `Sem medalha,
+mas valeu a participação`.
+
+<details><summary>Dicas</summary>
+
+1. Converta a posição com `Number`, porque o `case 1` compara com número.
+2. Cada `case` termina com `break`.
+3. A mensagem de quem não ganhou medalha vai no `default`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0020-escolha/E039.ts
+```
+
+**Exercício E040**
+
+Faça uma calculadora com menu de 4 operações (+, -, *, /). Peça a operação e
+dois números e mostre o resultado.
+
+<details><summary>Dicas</summary>
+
+1. O `switch` é sobre a operação digitada, que é texto: `case '+'`.
+2. Converta os dois números com `Number` antes das contas.
+3. Coloque um `default` para operação inválida.
+4. Teste a divisão por zero e veja o que aparece.
+
+</details>
+
+```bash
+tsx ~/LPPOO/15102026/0020-escolha/E040.ts
+```
 
 ## Prática em sala
 

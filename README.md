@@ -85,7 +85,8 @@ inteiro, use `pnpm -C ~/LPPOO tsc`.
 ## Como cada aula funciona
 
 Cada aula é uma pasta com a data (`15102026` é 15/10/2026). O `README.md` da
-aula tem a explicação de todos os assuntos. Em cada um, o texto, o **diagrama da
+aula tem a explicação de todos os assuntos, com o código de cada exemplo e o
+comando para rodar. Em cada um, o texto, o **diagrama da
 ideia**, o código e o **fluxograma** contam o mesmo exemplo. As pastas numeradas
 guardam a parte prática:
 
@@ -96,9 +97,8 @@ guardam a parte prática:
 └── 0014-logico/
     ├── ideia.svg       o diagrama da ideia
     ├── fluxograma.svg  o caminho que o programa faz
-    ├── A040.ts         exemplos resolvidos: rode, mude, quebre, rode de novo
-    ├── A041.ts
-    ├── A042.ts
+    ├── A027.ts         exemplos resolvidos: rode, mude, quebre, rode de novo
+    ├── A028.ts
     ├── E027.ts         exercícios: enunciado e dicas no comentário,
     └── E028.ts         resposta DENTRO do próprio arquivo
 ```

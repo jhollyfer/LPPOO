@@ -6,7 +6,7 @@
 // categoria usando um Record<Categoria, number>.
 //
 // Dicas:
-// 1. Valide a categoria com um type guard, como o ehTurno do exemplo 3.
+// 1. Valide a categoria com um type guard, como o ehTurno do segundo exemplo.
 // 2. Comece o Record com tudo zerado: { lanche: 0, bebida: 0, doce: 0 }.
 //
 // Para ler dados do teclado use:
