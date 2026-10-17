@@ -137,9 +137,9 @@ questões que valem pontos ficam em
 | `0003-variaveis`            | `let`: a caixinha que muda de valor       |
 | `0004-constantes`           | `const` e `UPPER_CASE`                    |
 | `0005-texto`                | `string` e seus métodos                   |
-| `0006-numero`               | `number`, `toFixed`, `NaN`                |
+| `0006-numero`               | `number` e `toFixed`                      |
 | `0007-booleano`             | `boolean`, `typeof`, `null`, `undefined`  |
-| `0008-conversao`            | `Number`, `parseInt`, `parseFloat`        |
+| `0008-conversao`            | `Number`, `parseInt`, `parseFloat`, `NaN` |
 | `0009-atribuicao`           | `+=`, `-=`, `++`, `--`                    |
 | `0010-aritmetica`           | `+ - * / % **` e precedência              |
 | `0011-math`                 | `Math.round`, `floor`, `ceil`, `random`   |

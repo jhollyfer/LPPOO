@@ -2,8 +2,9 @@
 
 const ANO_FORMATURA = 2027
 let turma = 'Turma A'
+console.log(`A ${turma} se forma em ${ANO_FORMATURA}`) // A Turma A se forma em 2027
 
-turma = 'Turma B' // trocou de turma: com let, pode
+turma = 'Turma B' // com let, pode trocar
 console.log(`A ${turma} se forma em ${ANO_FORMATURA}`) // A Turma B se forma em 2027
 
 // ANO_FORMATURA = 2028

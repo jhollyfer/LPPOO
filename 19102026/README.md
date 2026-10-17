@@ -2656,11 +2656,10 @@ a ficha da secretaria.
 Repara que cada parte usa um assunto da aula:
 
 - `Turno`: **união de literais** (0045);
-- `Aluno`: **interface** com **readonly** e **opcional** (0043, 0044);
+- `Aluno`: **interface** com **readonly** (0043, 0044);
 - `AlunoNovo`: **Omit** (0051), porque a matrícula quem gera é o cadastro;
-- `Situacao`: **união discriminada** (0047), aprovado tem média, recuperação
-  tem quanto falta;
-- `vagas`: **Record** (0051), uma chave por turno.
+- `Situacao`: **união discriminada** (0047). Aprovado tem média, recuperação
+  tem quanto falta.
 
 <p align="center"><img src="0054-juntando-tudo/ideia.svg" alt="Diagrama da ideia: Juntando tudo: cadastro de alunos tipado" width="864"></p>
 
@@ -2668,22 +2667,14 @@ Vamos ver tudo junto:
 
 ```ts
 type Turno = 'manhã' | 'tarde' | 'noite'
-
-interface Aluno {
-  readonly matricula: string
-  nome: string
-  nota: number
-  turno: Turno
-  apelido?: string
-}
-
+interface Aluno { readonly matricula: string; nome: string; nota: number; turno: Turno }
 type AlunoNovo = Omit<Aluno, 'matricula'>
 type Situacao = { status: 'aprovado'; media: number } | { status: 'recuperação'; falta: number }
 
 let contador = 0
 function cadastrar(dados: AlunoNovo): Aluno {
   contador++
-  return { matricula: `A${String(contador).padStart(2, '0')}`, ...dados }
+  return { matricula: `A${contador}`, ...dados }
 }
 
 function situacao(a: Aluno): Situacao {
@@ -2691,18 +2682,8 @@ function situacao(a: Aluno): Situacao {
   return { status: 'recuperação', falta: 7 - a.nota }
 }
 
-const turma = [
-  cadastrar({ nome: 'Ana', nota: 8, turno: 'manhã' }),
-  cadastrar({ nome: 'José', nota: 5, turno: 'noite', apelido: 'Zé' }),
-]
-
-for (const a of turma) {
-  const s = situacao(a)
-  const detalhe = s.status === 'aprovado' ? `média ${s.media}` : `faltam ${s.falta}`
-  console.log(`${a.matricula} ${a.apelido ?? a.nome}: ${s.status} (${detalhe})`)
-}
-// A01 Ana: aprovado (média 8)
-// A02 Zé: recuperação (faltam 2)
+const ana = cadastrar({ nome: 'Ana', nota: 8, turno: 'manhã' })
+console.log(ana.matricula, situacao(ana)) // A1 { status: 'aprovado', media: 8 }
 ```
 
 Olha o caminho de um aluno pelo cadastro:
@@ -2710,14 +2691,14 @@ Olha o caminho de um aluno pelo cadastro:
 <p align="center"><img src="0054-juntando-tudo/fluxograma.svg" alt="Fluxograma: Juntando tudo: cadastro de alunos tipado" width="551"></p>
 
 > [!TIP]
-> Faça o teste: tente `turma[0].matricula = 'X'`, `turno: 'madrugada'` ou
-> `s.media` fora do `if`. Cada peça barra um erro diferente. Foi para isso que
-> você aprendeu cada uma.
+> Faça o teste: tente `ana.matricula = 'X'`, `turno: 'madrugada'` ou
+> `situacao(ana).media` sem conferir o `status`. Cada peça barra um erro
+> diferente. Foi para isso que você aprendeu cada uma.
 
 > [!NOTE]
-> **Pergunta para a turma:** se o José tirar 7 em vez de 5, o que aparece na
-> segunda linha? Mude a nota e rode. (Dica: olhe o `>=` da função
-> `situacao`.)
+> **Pergunta para a turma:** cadastre o José com nota 5 e mostre a situação
+> dele. Qual matrícula ele recebe? E o que aparece? Rode e confira. (Dica: o
+> `contador` não volta a zero.)
 
 ### Hora de praticar
 
@@ -2726,45 +2707,25 @@ Os arquivos ficam em [`0054-juntando-tudo/`](0054-juntando-tudo/). Os comandos f
 **Exemplo A107 · A biblioteca da escola**
 
 ```ts
-type Genero = 'romance' | 'poesia' | 'quadrinhos'
-
-interface Livro {
-  readonly codigo: string
-  titulo: string
-  genero: Genero
-  dias?: number // só existe se o livro estiver com um aluno
-}
-
-type Situacao = { tipo: 'na estante' } | { tipo: 'emprestado'; dias: number } | { tipo: 'atrasado'; multa: number }
+interface Livro { readonly codigo: string; titulo: string; diasComAluno?: number }
+type Situacao = { tipo: 'disponível' } | { tipo: 'emprestado'; dias: number }
 
 function situacao(l: Livro): Situacao {
-  if (l.dias === undefined) return { tipo: 'na estante' }
-  if (l.dias <= 7) return { tipo: 'emprestado', dias: l.dias }
-  return { tipo: 'atrasado', multa: (l.dias - 7) * 0.5 }
+  if (l.diasComAluno === undefined) return { tipo: 'disponível' }
+  return { tipo: 'emprestado', dias: l.diasComAluno }
 }
 
-const acervo: Livro[] = [
-  { codigo: 'L01', titulo: 'O Guarani', genero: 'romance' },
-  { codigo: 'L02', titulo: 'Turma da Mônica', genero: 'quadrinhos', dias: 3 },
-  { codigo: 'L03', titulo: 'Poemas do Rio', genero: 'poesia', dias: 11 },
-]
-
-for (const l of acervo) {
-  const s = situacao(l)
-  if (s.tipo === 'atrasado') console.log(`${l.codigo} ${l.titulo}: multa de R$ ${s.multa.toFixed(2)}`)
-  else if (s.tipo === 'emprestado') console.log(`${l.codigo} ${l.titulo}: volta em ${7 - s.dias} dias`)
-  else console.log(`${l.codigo} ${l.titulo}: disponível na estante de ${l.genero}`)
-}
-// L01 O Guarani: disponível na estante de romance
-// L02 Turma da Mônica: volta em 4 dias
-// L03 Poemas do Rio: multa de R$ 2.00
+const livro: Livro = { codigo: 'L02', titulo: 'Iracema', diasComAluno: 3 }
+const s = situacao(livro)
+if (s.tipo === 'emprestado') console.log(`${livro.titulo}: com um aluno há ${s.dias} dias`)
+// Iracema: com um aluno há 3 dias
 ```
 
 ```bash
 tsx ~/LPPOO/19102026/0054-juntando-tudo/A107.ts
 ```
 
-**Exemplo A108 · Cadastro pelo teclado, com type guard no turno**
+**Exemplo A108 · Turno pelo teclado, com type guard**
 
 ```ts
 import { input } from '#core/input.ts'
@@ -2773,21 +2734,12 @@ const TURNOS = ['manhã', 'tarde', 'noite'] as const
 type Turno = (typeof TURNOS)[number]
 
 function ehTurno(texto: string): texto is Turno {
-  return (TURNOS as readonly string[]).includes(texto)
+  return TURNOS.some((t) => t === texto)
 }
 
-const nome = input('Nome: ')
-const nota = Number(input('Nota: '))
-const turnoDigitado = input('Turno (manhã, tarde ou noite): ')
-
-if (!ehTurno(turnoDigitado)) {
-  console.log(`Turno "${turnoDigitado}" não existe.`)
-} else if (Number.isNaN(nota)) {
-  console.log('A nota precisa ser um número.')
-} else {
-  const situacao = nota >= 7 ? 'aprovado' : 'recuperação'
-  console.log(`${nome}, turno da ${turnoDigitado}: ${situacao}`)
-}
+const turno = input('Turno (manhã, tarde ou noite): ')
+if (ehTurno(turno)) console.log(`Matrícula feita no turno da ${turno}`) // aqui turno é Turno
+else console.log(`Turno "${turno}" não existe.`)
 ```
 
 ```bash

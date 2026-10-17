@@ -8,9 +8,5 @@ if (temperatura < 25) {
 } else if (temperatura <= 32) {
   console.log('Dia quente')
 } else {
-  console.log('Calor de Manaus!')
-}
-
-if (temperatura > 35) {
-  console.log('Beba bastante água.')
+  console.log('Calor de Manaus!') // 36 cai aqui
 }
