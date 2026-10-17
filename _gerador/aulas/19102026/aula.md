@@ -18,8 +18,7 @@ avisa o erro antes de o programa rodar.
 - ler as regras do `tsconfig.json` e conferir o projeto com o `tsc`
 
 Quem entende os tipos lê o erro do editor e já sabe o que corrigir. E vai
-precisar disso: em POO as classes seguem interfaces, e no frontend os
-componentes recebem dados tipados.
+precisar disso no frontend, onde os componentes recebem dados tipados.
 
 ## Como a gente vai estudar cada assunto
 
@@ -45,7 +44,7 @@ como uma **ficha**, com o nome da propriedade à esquerda e o tipo à direita.
 > [!IMPORTANT]
 > O `tsx` **roda** o arquivo, mas **não confere os tipos**. Quem confere é o
 > editor (o sublinhado vermelho) e o comando `pnpm -C ~/LPPOO tsc`. Rode o
-> `tsc` sempre que terminar um exercício. O assunto 0053 explica.
+> `tsc` sempre que terminar um exercício. O assunto 0052 explica.
 
 > [!TIP]
 > Os quadros **Poder do TypeScript** mostram o erro que o TypeScript dá quando

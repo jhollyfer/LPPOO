@@ -1,6 +1,6 @@
 // Aula 03 · Questão 20 · União, literais e narrowing
 // Vale ponto. Exemplo resolvido parecido: exemplo-20.ts
-// Para revisar: 0045 e 0046 no README da aula 03 (19102026/README.md)
+// Para revisar: 0044 e 0045 no README da aula 03 (19102026/README.md)
 //
 // Semáforo: crie type Cor = 'verde' | 'amarelo' | 'vermelho'. Peça uma cor ao
 // usuário, confira se ela é uma Cor válida e mostre o que o motorista deve

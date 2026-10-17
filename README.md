@@ -185,25 +185,24 @@ questões que valem pontos ficam em
 | Pasta | Assunto |
 | --- | --- |
 | `0035-typescript` | Como o TypeScript funciona (e por que ele) |
-| `0036-paradigmas` | Paradigmas de programação |
-| `0037-tipagem-estrutural` | Como o TypeScript pensa: tipos estruturais |
-| `0038-tipos-basicos` | Tipos primitivos, any, unknown e never |
-| `0039-truthy-falsy` | Truthy, falsy, `??` e `?.` |
-| `0040-inferencia` | Inferência x anotação: quando escrever o tipo |
-| `0041-tipo-de-funcao` | Tipo de função e tipagem contextual |
-| `0042-tipos-de-objeto` | Tipos de objeto e type |
-| `0043-interface` | interface (e type x interface) |
-| `0044-opcional-readonly` | Propriedade opcional e readonly |
-| `0045-uniao-literais` | União (|) e tipos literais |
-| `0046-narrowing` | Narrowing: estreitando o tipo |
-| `0047-uniao-discriminada` | União discriminada |
-| `0048-intersecao` | Interseção (&) |
-| `0049-tuplas-enum-as-const` | Tuplas, enum e as const |
-| `0050-generics` | Generics (<T>) |
-| `0051-tipos-utilitarios` | Tipos utilitários: Partial, Pick, Omit, Record, Readonly |
-| `0052-type-guards-satisfies` | Type guards (x is T) e satisfies |
-| `0053-tsconfig` | tsconfig: strict e as regras do projeto |
-| `0054-juntando-tudo` | Juntando tudo: cadastro de alunos tipado |
+| `0036-tipagem-estrutural` | Como o TypeScript pensa: tipos estruturais |
+| `0037-tipos-basicos` | Tipos primitivos, any, unknown e never |
+| `0038-truthy-falsy` | Truthy, falsy, `??` e `?.` |
+| `0039-inferencia` | Inferência x anotação: quando escrever o tipo |
+| `0040-tipo-de-funcao` | Tipo de função e tipagem contextual |
+| `0041-tipos-de-objeto` | Tipos de objeto e type |
+| `0042-interface` | interface (e type x interface) |
+| `0043-opcional-readonly` | Propriedade opcional e readonly |
+| `0044-uniao-literais` | União (|) e tipos literais |
+| `0045-narrowing` | Narrowing: estreitando o tipo |
+| `0046-uniao-discriminada` | União discriminada |
+| `0047-intersecao` | Interseção (&) |
+| `0048-tuplas-enum-as-const` | Tuplas, enum e as const |
+| `0049-generics` | Generics (<T>) |
+| `0050-tipos-utilitarios` | Tipos utilitários: Partial, Pick, Omit, Record, Readonly |
+| `0051-type-guards-satisfies` | Type guards (x is T) e satisfies |
+| `0052-tsconfig` | tsconfig: strict e as regras do projeto |
+| `0053-juntando-tudo` | Juntando tudo: cadastro de alunos tipado |
 
 ## Cronograma
 
@@ -211,7 +210,7 @@ questões que valem pontos ficam em
 | ---- | ----- | ------------------------------------------------------------ |
 | 01   | 15/10 | Revisão de lógica I: tipos, entrada, saída, condicionais     |
 | 02   | 16/10 | Revisão de lógica II: laços, arrays, funções                 |
-| 03   | 19/10 | TypeScript: paradigmas, sistema de tipos e tsconfig          |
+| 03   | 19/10 | TypeScript: tipagem estática, sistema de tipos e tsconfig    |
 | 04   | 20/10 | Abstração, classes e objetos                                 |
 | 05   | 21/10 | Métodos, construtores, membros estáticos e módulos           |
 | 06   | 22/10 | Encapsulamento e modificadores de acesso                     |

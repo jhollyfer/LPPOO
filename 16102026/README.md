@@ -54,15 +54,14 @@ Leia na ordem: cada assunto usa o anterior.
 | [0024](#0024--arrays-vetores) | Arrays (vetores) | [`0024-arrays/`](0024-arrays/) |
 | [0025](#0025--laço-forof) | Laço for...of | [`0025-for-of/`](0025-for-of/) |
 | [0026](#0026--inserir-e-remover-push-pop-unshift-shift-splice) | Inserir e remover: push, pop, unshift, shift, splice | [`0026-inserir-remover/`](0026-inserir-remover/) |
-| [0027](#0027--consultar-indexof-includes-find-findindex-some-every) | Consultar: indexOf, includes, find, findIndex, some, every | [`0027-consultar/`](0027-consultar/) |
-| [0028](#0028--transformar-map-filter-reduce-foreach) | Transformar: map, filter, reduce, forEach | [`0028-transformar/`](0028-transformar/) |
-| [0029](#0029--organizar-sort-reverse-slice-join-concat) | Organizar: sort, reverse, slice, join, concat | [`0029-organizar/`](0029-organizar/) |
-| [0030](#0030--funções) | Funções | [`0030-funcoes/`](0030-funcoes/) |
-| [0031](#0031--parâmetro-opcional-valor-padrão-e-void) | Parâmetro opcional, valor padrão e void | [`0031-parametros/`](0031-parametros/) |
-| [0032](#0032--escopo-de-variáveis) | Escopo de variáveis | [`0032-escopo/`](0032-escopo/) |
-| [0033](#0033--arrow-functions-e-callbacks) | Arrow functions e callbacks | [`0033-arrow-callback/`](0033-arrow-callback/) |
-| [0034](#0034--tipo-de-função-e-tipagem-contextual) | Tipo de função e tipagem contextual | [`0034-tipo-de-funcao/`](0034-tipo-de-funcao/) |
-| [0035](#0035--juntando-tudo-as-notas-da-turma) | Juntando tudo: as notas da turma | [`0035-juntando-tudo/`](0035-juntando-tudo/) |
+| [0027](#0027--funções) | Funções | [`0027-funcoes/`](0027-funcoes/) |
+| [0028](#0028--parâmetro-opcional-valor-padrão-e-void) | Parâmetro opcional, valor padrão e void | [`0028-parametros/`](0028-parametros/) |
+| [0029](#0029--escopo-de-variáveis) | Escopo de variáveis | [`0029-escopo/`](0029-escopo/) |
+| [0030](#0030--arrow-functions-e-callbacks) | Arrow functions e callbacks | [`0030-arrow-callback/`](0030-arrow-callback/) |
+| [0031](#0031--consultar-indexof-includes-find-findindex-some-every) | Consultar: indexOf, includes, find, findIndex, some, every | [`0031-consultar/`](0031-consultar/) |
+| [0032](#0032--transformar-map-filter-reduce-foreach) | Transformar: map, filter, reduce, forEach | [`0032-transformar/`](0032-transformar/) |
+| [0033](#0033--organizar-sort-reverse-slice-join-concat) | Organizar: sort, reverse, slice, join, concat | [`0033-organizar/`](0033-organizar/) |
+| [0034](#0034--juntando-tudo-as-notas-da-turma) | Juntando tudo: as notas da turma | [`0034-juntando-tudo/`](0034-juntando-tudo/) |
 
 ---
 
@@ -900,419 +899,59 @@ tsx ~/LPPOO/16102026/0026-inserir-remover/E052.ts
 
 ---
 
-## 0027 · Consultar: indexOf, includes, find, findIndex, some, every
+## 0027 · Funções
 
-Tem açaí na lista? Em que posição? Algum produto passa de R$ 20? Todos custam
-mais de R$ 5?
+Pensa na calculadora do celular. Você não precisa saber o que acontece lá
+dentro. Digita os números, aperta o botão e recebe a resposta.
 
-Até agora, a gente mexia no array: colocava e tirava itens. Hoje a gente só
-**pergunta**. Estes métodos fazem perguntas para o array e não mudam nada nele:
+Função é isso: um pedaço de código com **nome**, que recebe valores, faz o
+trabalho e devolve uma resposta. Você escreve uma vez e **chama** quantas vezes
+quiser.
 
-- `includes(x)`: tem o `x`? Responde `true` ou `false`.
-- `indexOf(x)`: em que posição está o `x`? Responde o índice, ou `-1` se não tem.
-- `find(regra)`: devolve o **primeiro item** que passa na regra.
-- `findIndex(regra)`: devolve a **posição** desse primeiro item.
-- `some(regra)`: **algum** item passa? `true` ou `false`.
-- `every(regra)`: **todos** passam? `true` ou `false`.
+Vamos ver na prática. A função `calcularMedia` recebe duas notas, `8` e `6`.
+Ela soma, divide por 2 e devolve `7`:
 
-Os quatro últimos recebem uma **regra** escrita assim: `(p) => p > 20`.
-
-Por enquanto, leia como "para cada preço `p`, pergunte: `p > 20`?". Na
-[0033](#0033--arrow-functions-e-callbacks) você aprende o que é essa setinha.
-
-<p align="center"><img src="0027-consultar/ideia.svg" alt="Diagrama da ideia: Consultar: indexOf, includes, find, findIndex, some, every" width="858"></p>
+<p align="center"><img src="0027-funcoes/ideia.svg" alt="Diagrama da ideia: Funções" width="858"></p>
 
 ```ts
-const precos: number[] = [6, 25, 9]
-
-console.log(precos.includes(25)) // true
-console.log(precos.indexOf(9)) // 2
-console.log(precos.indexOf(100)) // -1: não tem
-console.log(precos.find((p) => p > 20)) // 25
-console.log(precos.findIndex((p) => p > 20)) // 1
-console.log(precos.some((p) => p > 20)) // true
-console.log(precos.every((p) => p > 5)) // true
-```
-
-Repara no fluxograma. Ele mostra o que o `find` faz por dentro: olha item por
-item e para no primeiro que passa na regra. O 6 não passa, o 25 passa, e o 9
-nem é olhado:
-
-<p align="center"><img src="0027-consultar/fluxograma.svg" alt="Fluxograma: Consultar: indexOf, includes, find, findIndex, some, every" width="800"></p>
-
-> [!NOTE]
-> **Pergunta para a turma:** o que o `find` devolve quando nenhum item passa na
-> regra? Troque o `p > 20` por `p > 100` e rode. (E o `findIndex`?)
-
-### Hora de praticar
-
-Os arquivos ficam em [`0027-consultar/`](0027-consultar/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
-
-**Exemplo A053 · Os gols do time no interclasse**
-
-```ts
-const gols: number[] = [2, 0, 3, 1] // um número por jogo
-
-console.log(gols.includes(0)) // true: teve jogo sem gol
-console.log(gols.indexOf(3)) // 2
-console.log(gols.indexOf(5)) // -1
-console.log(gols.find((g) => g >= 3)) // 3
-console.log(gols.findIndex((g) => g >= 3)) // 2
-console.log(gols.some((g) => g > 4)) // false
-console.log(gols.every((g) => g < 4)) // true
-```
-
-```bash
-tsx ~/LPPOO/16102026/0027-consultar/A053.ts
-```
-
-**Exemplo A054 · Está na lista?**
-
-```ts
-import { input } from '#core/input.ts'
-
-const turma: string[] = ['Ana', 'Bia', 'Caio']
-const nome = input('Nome: ')
-
-if (turma.includes(nome)) {
-  console.log(`${nome} está na posição ${turma.indexOf(nome)}`)
-} else {
-  console.log(`${nome} não está na turma`)
-}
-```
-
-```bash
-tsx ~/LPPOO/16102026/0027-consultar/A054.ts
-```
-
-**Exercício E053**
-
-Crie um array com as idades da turma. Use `some` para dizer se tem alguém
-menor de 18 e `every` para dizer se todos têm mais de 15.
-
-<details><summary>Dicas</summary>
-
-1. `idades.some((i) => i < 18)`.
-2. `idades.every((i) => i > 15)`.
-3. Mostre as respostas numa frase.
-
-</details>
-
-```bash
-tsx ~/LPPOO/16102026/0027-consultar/E053.ts
-```
-
-**Exercício E054**
-
-Crie um array de preços e use `find` para achar o primeiro produto acima de
-R$ 10. Se não tiver nenhum, mostre "Tudo barato!".
-
-<details><summary>Dicas</summary>
-
-1. `find` devolve `undefined` quando ninguém passa.
-2. Guarde o resultado e pergunte com um `if`: `if (achado === undefined)`.
-
-</details>
-
-```bash
-tsx ~/LPPOO/16102026/0027-consultar/E054.ts
-```
-
----
-
-## 0028 · Transformar: map, filter, reduce, forEach
-
-Pensa numa esteira de fábrica: entra fruta, sai suco. Esses quatro métodos são
-esteiras para arrays.
-
-Eles passam por **todos os itens** do array, um por um, e aplicam uma regra em
-cada:
-
-- `map(regra)`: **transforma** cada item e devolve um array novo do mesmo
-  tamanho.
-- `filter(regra)`: **filtra**, devolvendo um array novo só com os itens que
-  passam na regra.
-- `reduce(regra, inicio)`: **junta** todos os itens num valor só, como uma soma.
-- `forEach(regra)`: só **faz algo** com cada item (mostrar, por exemplo). Não
-  devolve nada.
-
-Vamos ver na prática. As notas da turma são `[8, 4, 9, 5]`. O `map` dobra cada
-uma, o `filter` deixa só as de 6 para cima e o `reduce` soma tudo:
-
-<p align="center"><img src="0028-transformar/ideia.svg" alt="Diagrama da ideia: Transformar: map, filter, reduce, forEach" width="858"></p>
-
-```ts
-const notas: number[] = [8, 4, 9, 5]
-
-const dobradas = notas.map((n) => n * 2) // [16, 8, 18, 10]
-const aprovadas = notas.filter((n) => n >= 6) // [8, 9]
-const soma = notas.reduce((acc, n) => acc + n, 0) // 26
-
-notas.forEach((n) => console.log(`Nota: ${n}`))
-```
-
-O `reduce` assusta no começo. Calma.
-
-O `acc` (de acumulador) começa com o `0` do fim. A cada item, ele vira
-`acc + n`: 0 + 8 = 8, 8 + 4 = 12, 12 + 9 = 21, 21 + 5 = 26.
-
-Agora olha o `map` por dentro, no fluxograma. Ele monta um array novo, item por
-item, e não mexe no original:
-
-<p align="center"><img src="0028-transformar/fluxograma.svg" alt="Fluxograma: Transformar: map, filter, reduce, forEach" width="469"></p>
-
-> [!NOTE]
-> Dá para **encadear**: o resultado de um vira a entrada do próximo.
-> `notas.filter((n) => n >= 6).map((n) => n * 2)` filtra e depois dobra:
-> `[16, 18]`.
-
-> [!NOTE]
-> **Pergunta para a turma:** se você trocar o `0` do `reduce` por `10`, quanto
-> dá a `soma`? Mude e rode. (Dica: o `acc` começa com esse valor.)
-
-### Hora de praticar
-
-Os arquivos ficam em [`0028-transformar/`](0028-transformar/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
-
-**Exemplo A055 · Os pontos da gincana**
-
-```ts
-const pontos: number[] = [30, 15, 40, 10] // uma equipe em cada posição
-
-const comBonus = pontos.map((p) => p + 5)
-const passaram = pontos.filter((p) => p >= 20)
-const total = pontos.reduce((acc, p) => acc + p, 0)
-
-console.log(comBonus) // [ 35, 20, 45, 15 ]
-console.log(passaram) // [ 30, 40 ]
-console.log(total) // 95
-passaram.forEach((p) => console.log(`Equipe com ${p} pontos vai para a final`))
-```
-
-```bash
-tsx ~/LPPOO/16102026/0028-transformar/A055.ts
-```
-
-**Exemplo A056 · Encadeando: só os caros, com 10% de desconto, somados**
-
-```ts
-const precos: number[] = [12, 5, 30]
-
-const total = precos
-  .filter((p) => p > 10) // [12, 30]
-  .map((p) => p * 0.9) // [10.8, 27]
-  .reduce((acc, p) => acc + p, 0) // 37.8
-
-console.log(`Total: R$ ${total.toFixed(2)}`)
-```
-
-```bash
-tsx ~/LPPOO/16102026/0028-transformar/A056.ts
-```
-
-**Exercício E055**
-
-Crie um array de preços e use `map` para criar um array novo com 10% de
-aumento em cada preço. Mostre os dois arrays.
-
-<details><summary>Dicas</summary>
-
-1. Aumento de 10% é multiplicar por 1.1.
-2. O `map` devolve um array novo: guarde numa `const`.
-
-</details>
-
-```bash
-tsx ~/LPPOO/16102026/0028-transformar/E055.ts
-```
-
-**Exercício E056**
-
-Crie um array de notas. Use `filter` para pegar as reprovadas (abaixo de 6) e
-`reduce` para calcular a média de todas as notas.
-
-<details><summary>Dicas</summary>
-
-1. Média é a soma (`reduce`) dividida por `notas.length`.
-2. No `reduce`, não esqueça o valor inicial `0`.
-
-</details>
-
-```bash
-tsx ~/LPPOO/16102026/0028-transformar/E056.ts
-```
-
----
-
-## 0029 · Organizar: sort, reverse, slice, join, concat
-
-Agora a gente vai arrumar e recortar arrays. São estes métodos:
-
-- `sort(regra)`: **ordena**.
-- `reverse()`: **inverte** a ordem.
-- `slice(início, fim)`: **copia** um pedaço (ou tudo, sem argumentos).
-- `join(separador)`: **junta** tudo num texto só.
-- `concat(outro)`: **emenda** dois arrays num novo.
-
-Repara numa diferença aqui. Alguns métodos **mudam o array original**. Outros
-**devolvem um novo** e deixam o original do jeito que estava.
-
-Pensa na fila do recreio. O `sort` arruma a própria fila. O `slice` tira uma
-foto da fila, e quem você arruma é a foto:
-
-<p align="center"><img src="0029-organizar/ideia.svg" alt="Diagrama da ideia: Organizar: sort, reverse, slice, join, concat" width="858"></p>
-
-```ts
-const notas: number[] = [8, 10, 6, 9]
-
-const copia = notas.slice() // cópia: um array novo
-copia.sort((a, b) => a - b) // [6, 8, 9, 10]: o sort muda a cópia
-copia.reverse() // [10, 9, 8, 6]
-
-console.log(copia.join(' | ')) // 10 | 9 | 8 | 6
-console.log(notas.concat([7])) // [ 8, 10, 6, 9, 7 ]: array novo
-console.log(notas) // [ 8, 10, 6, 9 ]: o original não mudou
-```
-
-Guarda essa tabela. Ela separa quem mexe no original de quem devolve um novo:
-
-| Mudam o original                                  | Devolvem um novo                     |
-| ------------------------------------------------- | ------------------------------------ |
-| `push`, `pop`, `shift`, `unshift`, `splice`, `sort`, `reverse` | `map`, `filter`, `slice`, `concat`, `join` |
-
-<p align="center"><img src="0029-organizar/fluxograma.svg" alt="Fluxograma: Organizar: sort, reverse, slice, join, concat" width="1245"></p>
-
-> [!WARNING]
-> Cuidado: o `sort` sem regra compara tudo **como texto**. Aí
-> `[8, 10, 6, 9].sort()` dá `[10, 6, 8, 9]`, porque o texto `'10'` vem antes de
-> `'6'`. Para números, passe sempre a regra `(a, b) => a - b` (do menor para o
-> maior) ou `(a, b) => b - a` (do maior para o menor).
-
-> [!NOTE]
-> **Pergunta para a turma:** se você trocar `notas.slice()` por só `notas` na
-> linha da `copia`, o que aparece no último `console.log`? Troque e rode.
-> (Dica: sem o `slice`, não tem foto.)
-
-### Hora de praticar
-
-Os arquivos ficam em [`0029-organizar/`](0029-organizar/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
-
-**Exemplo A057 · A chamada em ordem alfabética**
-
-```ts
-const alunos: string[] = ['Davi', 'Ana', 'Gabi', 'Caio']
-
-const ordem = alunos.slice() // foto da lista
-ordem.sort() // com texto, o sort sem regra funciona
-console.log(ordem.join(', ')) // Ana, Caio, Davi, Gabi
-console.log(ordem.reverse().join(', ')) // Gabi, Davi, Caio, Ana
-
-const turmaNova = alunos.concat(['Bia', 'Enzo'])
-console.log(turmaNova.length) // 6
-console.log(alunos) // [ 'Davi', 'Ana', 'Gabi', 'Caio' ]: o original não mudou
-```
-
-```bash
-tsx ~/LPPOO/16102026/0029-organizar/A057.ts
-```
-
-**Exemplo A058 · O perigo do sort sem regra**
-
-```ts
-const numeros: number[] = [8, 10, 6, 9]
-
-console.log(numeros.slice().sort()) // [ 10, 6, 8, 9 ]: comparou como texto
-console.log(numeros.slice().sort((a, b) => a - b)) // [ 6, 8, 9, 10 ]
-```
-
-```bash
-tsx ~/LPPOO/16102026/0029-organizar/A058.ts
-```
-
-**Exercício E057**
-
-Crie um array de preços e mostre os preços do menor para o maior, sem mudar
-o array original. Mostre os dois arrays no final para provar.
-
-<details><summary>Dicas</summary>
-
-1. Primeiro faça uma cópia com `slice()`.
-2. Ordene a cópia com `sort((a, b) => a - b)`.
-
-</details>
-
-```bash
-tsx ~/LPPOO/16102026/0029-organizar/E057.ts
-```
-
-**Exercício E058**
-
-Crie um array com 6 notas e mostre as 3 maiores separadas por " - ".
-
-<details><summary>Dicas</summary>
-
-1. Cópia, `sort((a, b) => b - a)` e `slice(0, 3)`.
-2. Termine com `join(' - ')`.
-
-</details>
-
-```bash
-tsx ~/LPPOO/16102026/0029-organizar/E058.ts
-```
-
----
-
-## 0030 · Funções
-
-Pensa numa receita de bolo. Você escreve uma vez e usa sempre que quiser, com
-os ingredientes que tiver na hora.
-
-Função é isso. Um pedaço de código com nome, que você escreve uma vez e
-**chama** quantas vezes quiser.
-
-Ela recebe valores (os **parâmetros**), faz o trabalho e devolve um resultado
-com `return`.
-
-Vamos ver na prática. A `calcularMedia` recebe um array de notas, soma tudo e
-divide pela quantidade. Chamada com `[8, 6, 10]`, ela devolve `8`:
-
-<p align="center"><img src="0030-funcoes/ideia.svg" alt="Diagrama da ideia: Funções" width="858"></p>
-
-```ts
-function calcularMedia(valores: number[]): number {
-  const soma = valores.reduce((acc, v) => acc + v, 0)
-  return soma / valores.length
+function calcularMedia(nota1: number, nota2: number): number {
+  return (nota1 + nota2) / 2
 }
 
-console.log(calcularMedia([8, 6, 10])) // 8
-console.log(calcularMedia([5, 7])) // 6
+const media = calcularMedia(8, 6) // nota1 recebe 8, nota2 recebe 6
+console.log(media) // 7
 ```
 
 Vamos ler a primeira linha juntos:
 
-- `function` cria a função.
-- `calcularMedia` é o nome.
-- `valores: number[]` é o parâmetro, com o tipo.
-- o `: number` depois dos parênteses é o **tipo do retorno**, o que ela devolve.
+- `function` avisa que ali começa uma função.
+- `calcularMedia` é o nome dela.
+- `nota1` e `nota2` são os **parâmetros**: caixinhas que recebem os valores da
+  chamada. O `: number` de cada um diz que só entra número.
+- o `: number` depois dos parênteses é o **tipo do retorno**: ela devolve um
+  número.
 
-Olha só o fluxograma: a chamada `calcularMedia([8, 6, 10])` entra, a função faz
-as contas e devolve o `8`:
+Dentro das `{ }`, o `return` é a resposta. Ele devolve o valor para quem chamou
+e encerra a função na hora.
 
-<p align="center"><img src="0030-funcoes/fluxograma.svg" alt="Fluxograma: Funções" width="1075"></p>
+Guarda isso: escrever a função não roda nada. Ela só trabalha quando alguém
+**chama**, com `calcularMedia(8, 6)`.
+
+No fluxograma, a chamada entra, a função faz a conta e o `return` devolve o
+`7`, que vai para a caixinha `media`:
+
+<p align="center"><img src="0027-funcoes/fluxograma.svg" alt="Fluxograma: Funções" width="1385"></p>
 
 > [!NOTE]
-> Guarda isso: o `return` encerra a função na hora. O que vier depois dele,
-> dentro da função, não roda.
-
-> [!NOTE]
-> **Pergunta para a turma:** o que aparece se você chamar `calcularMedia([])`,
-> com o array vazio? Rode e confira. (Dica: quanto dá 0 dividido por 0?)
+> **Pergunta para a turma:** acrescente `console.log(calcularMedia(10, 5))` no
+> final. O que aparece? Rode e confira. (Dica: a média nem sempre dá um número
+> inteiro.)
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0030-funcoes/`](0030-funcoes/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0027-funcoes/`](0027-funcoes/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A059 · Quanto custa o mototáxi**
+**Exemplo A053 · Quanto custa o mototáxi**
 
 ```ts
 function precoCorrida(km: number): number {
@@ -1325,10 +964,10 @@ console.log(`Ida e volta: R$ ${precoCorrida(3) * 2}`) // Ida e volta: R$ 22
 ```
 
 ```bash
-tsx ~/LPPOO/16102026/0030-funcoes/A059.ts
+tsx ~/LPPOO/16102026/0027-funcoes/A053.ts
 ```
 
-**Exemplo A060 · Função com dois parâmetros**
+**Exemplo A054 · Função com dois parâmetros**
 
 ```ts
 function areaRetangulo(largura: number, altura: number): number {
@@ -1339,10 +978,10 @@ console.log(`Área da sala: ${areaRetangulo(8, 6)} m²`) // 48 m²
 ```
 
 ```bash
-tsx ~/LPPOO/16102026/0030-funcoes/A060.ts
+tsx ~/LPPOO/16102026/0027-funcoes/A054.ts
 ```
 
-**Exercício E059**
+**Exercício E053**
 
 Escreva a função `celsiusParaFahrenheit(c: number): number`, que converte
 graus Celsius para Fahrenheit. Mostre a conversão de 0, 25 e 100 graus.
@@ -1355,10 +994,10 @@ graus Celsius para Fahrenheit. Mostre a conversão de 0, 25 e 100 graus.
 </details>
 
 ```bash
-tsx ~/LPPOO/16102026/0030-funcoes/E059.ts
+tsx ~/LPPOO/16102026/0027-funcoes/E053.ts
 ```
 
-**Exercício E060**
+**Exercício E054**
 
 Escreva a função `maiorNota(notas: number[]): number`, que devolve a maior nota
 do array. Não vale usar `sort`.
@@ -1371,12 +1010,12 @@ do array. Não vale usar `sort`.
 </details>
 
 ```bash
-tsx ~/LPPOO/16102026/0030-funcoes/E060.ts
+tsx ~/LPPOO/16102026/0027-funcoes/E054.ts
 ```
 
 ---
 
-## 0031 · Parâmetro opcional, valor padrão e void
+## 0028 · Parâmetro opcional, valor padrão e void
 
 Até agora, toda função recebia tudo em toda chamada. Hoje isso muda: tem
 parâmetro que pode ficar de fora.
@@ -1396,7 +1035,7 @@ Com parâmetro é igual:
 E tem função que não devolve nada. Ela só faz alguma coisa, como mostrar na
 tela. O tipo do retorno dela é **`void`** (vazio).
 
-<p align="center"><img src="0031-parametros/ideia.svg" alt="Diagrama da ideia: Parâmetro opcional, valor padrão e void" width="858"></p>
+<p align="center"><img src="0028-parametros/ideia.svg" alt="Diagrama da ideia: Parâmetro opcional, valor padrão e void" width="858"></p>
 
 ```ts
 function totalComDesconto(precos: number[], desconto: number = 0): number {
@@ -1417,7 +1056,7 @@ mostrarTotal(5, 'US$') // US$ 5.00
 Repara no fluxograma o que o `totalComDesconto` decide sozinho. Na primeira
 chamada não veio desconto, então vale o padrão:
 
-<p align="center"><img src="0031-parametros/fluxograma.svg" alt="Fluxograma: Parâmetro opcional, valor padrão e void" width="475"></p>
+<p align="center"><img src="0028-parametros/fluxograma.svg" alt="Fluxograma: Parâmetro opcional, valor padrão e void" width="475"></p>
 
 > [!NOTE]
 > Guarda isso: parâmetros opcionais e com valor padrão vêm **depois** dos
@@ -1430,9 +1069,9 @@ chamada não veio desconto, então vale o padrão:
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0031-parametros/`](0031-parametros/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0028-parametros/`](0028-parametros/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A061 · O pedido de açaí**
+**Exemplo A055 · O pedido de açaí**
 
 ```ts
 function pedirAcai(ml: number, copo: string = 'copo comum', cobertura?: string): void {
@@ -1446,10 +1085,10 @@ pedirAcai(500, 'pote', 'granola') // Açaí de 500 ml, com granola, no pote
 ```
 
 ```bash
-tsx ~/LPPOO/16102026/0031-parametros/A061.ts
+tsx ~/LPPOO/16102026/0028-parametros/A055.ts
 ```
 
-**Exemplo A062 · Saudação com valor padrão**
+**Exemplo A056 · Saudação com valor padrão**
 
 ```ts
 function saudar(nome: string, saudacao: string = 'Olá'): string {
@@ -1461,10 +1100,10 @@ console.log(saudar('Bia', 'Bom dia')) // Bom dia, Bia!
 ```
 
 ```bash
-tsx ~/LPPOO/16102026/0031-parametros/A062.ts
+tsx ~/LPPOO/16102026/0028-parametros/A056.ts
 ```
 
-**Exercício E061**
+**Exercício E055**
 
 Escreva `calcularFrete(peso: number, expresso?: boolean): number`. O frete é
 R$ 2 por kg; se for expresso, soma mais R$ 10. Teste com e sem o expresso.
@@ -1477,10 +1116,10 @@ R$ 2 por kg; se for expresso, soma mais R$ 10. Teste com e sem o expresso.
 </details>
 
 ```bash
-tsx ~/LPPOO/16102026/0031-parametros/E061.ts
+tsx ~/LPPOO/16102026/0028-parametros/E055.ts
 ```
 
-**Exercício E062**
+**Exercício E056**
 
 Escreva `mostrarAluno(nome: string, turma: string = 'DS 2026'): void`, que
 mostra "Ana - turma DS 2026". Chame uma vez sem a turma e outra com.
@@ -1493,12 +1132,12 @@ mostra "Ana - turma DS 2026". Chame uma vez sem a turma e outra com.
 </details>
 
 ```bash
-tsx ~/LPPOO/16102026/0031-parametros/E062.ts
+tsx ~/LPPOO/16102026/0028-parametros/E056.ts
 ```
 
 ---
 
-## 0032 · Escopo de variáveis
+## 0029 · Escopo de variáveis
 
 Pensa no grupo da sala no celular. O que se fala lá fica lá. Quem está fora não
 fica sabendo.
@@ -1518,7 +1157,7 @@ fora não enxerga o que está dentro.
 Olha só. A função `saudar` usa a `escola`, que é global. Já a `mensagem` nasce
 e morre dentro da função:
 
-<p align="center"><img src="0032-escopo/ideia.svg" alt="Diagrama da ideia: Escopo de variáveis" width="858"></p>
+<p align="center"><img src="0029-escopo/ideia.svg" alt="Diagrama da ideia: Escopo de variáveis" width="858"></p>
 
 ```ts
 const escola = 'CETAM' // global: o arquivo inteiro enxerga
@@ -1535,7 +1174,7 @@ saudar('Ana') // Oi, Ana! Bem-vinda ao CETAM.
 No fluxograma, repara que `nome` e `mensagem` aparecem quando a função é
 chamada e somem quando ela acaba:
 
-<p align="center"><img src="0032-escopo/fluxograma.svg" alt="Fluxograma: Escopo de variáveis" width="1537"></p>
+<p align="center"><img src="0029-escopo/fluxograma.svg" alt="Fluxograma: Escopo de variáveis" width="1537"></p>
 
 > [!NOTE]
 > Isso vale para todo bloco entre `{ }`, como o de um `if` ou de um `for`. Cada
@@ -1548,9 +1187,9 @@ chamada e somem quando ela acaba:
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0032-escopo/`](0032-escopo/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0029-escopo/`](0029-escopo/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A063 · Mesmo nome, caixas diferentes**
+**Exemplo A057 · Mesmo nome, caixas diferentes**
 
 ```ts
 const campeonato = 'Interclasse' // global: as duas funções enxergam
@@ -1571,10 +1210,10 @@ placarDoPrimeiroB() // Interclasse: 1º B fez 1 gol
 ```
 
 ```bash
-tsx ~/LPPOO/16102026/0032-escopo/A063.ts
+tsx ~/LPPOO/16102026/0029-escopo/A057.ts
 ```
 
-**Exemplo A064 · O bloco do if também tem escopo**
+**Exemplo A058 · O bloco do if também tem escopo**
 
 ```ts
 const nota = 8
@@ -1588,10 +1227,10 @@ if (nota >= 6) {
 ```
 
 ```bash
-tsx ~/LPPOO/16102026/0032-escopo/A064.ts
+tsx ~/LPPOO/16102026/0029-escopo/A058.ts
 ```
 
-**Exercício E063**
+**Exercício E057**
 
 Escreva `calcularDesconto(preco: number): void` com uma `const desconto`
 dentro. Tente mostrar o `desconto` fora da função e leia o erro. Depois conserte:
@@ -1606,10 +1245,10 @@ resultado fora.
 </details>
 
 ```bash
-tsx ~/LPPOO/16102026/0032-escopo/E063.ts
+tsx ~/LPPOO/16102026/0029-escopo/E057.ts
 ```
 
-**Exercício E064**
+**Exercício E058**
 
 Crie um `let visitas = 0` global e uma função `registrarVisita(): void` que
 soma 1 nele. Chame a função 3 vezes e mostre o total de visitas.
@@ -1622,12 +1261,12 @@ soma 1 nele. Chame a função 3 vezes e mostre o total de visitas.
 </details>
 
 ```bash
-tsx ~/LPPOO/16102026/0032-escopo/E064.ts
+tsx ~/LPPOO/16102026/0029-escopo/E058.ts
 ```
 
 ---
 
-## 0033 · Arrow functions e callbacks
+## 0030 · Arrow functions e callbacks
 
 Até agora, toda função começou com a palavra `function`. Tem um jeito mais
 curto de escrever: a **arrow function** (função seta).
@@ -1652,7 +1291,7 @@ Pensa assim: você entrega a receita e outra pessoa cozinha. No `map`, ele é o
 cozinheiro e a sua função é a receita. O mesmo vale para o `filter` e o `find`:
 você entrega a regra e o método chama a regra para cada item:
 
-<p align="center"><img src="0033-arrow-callback/ideia.svg" alt="Diagrama da ideia: Arrow functions e callbacks" width="858"></p>
+<p align="center"><img src="0030-arrow-callback/ideia.svg" alt="Diagrama da ideia: Arrow functions e callbacks" width="858"></p>
 
 ```ts
 const notas: number[] = [4, 5]
@@ -1667,7 +1306,7 @@ entregando a função, e não chamando.
 
 Quem chama é o `map`, uma vez para cada nota:
 
-<p align="center"><img src="0033-arrow-callback/fluxograma.svg" alt="Fluxograma: Arrow functions e callbacks" width="557"></p>
+<p align="center"><img src="0030-arrow-callback/fluxograma.svg" alt="Fluxograma: Arrow functions e callbacks" width="557"></p>
 
 > [!NOTE]
 > **Pergunta para a turma:** quantas vezes o `map` chama a `dobrar` neste
@@ -1675,9 +1314,9 @@ Quem chama é o `map`, uma vez para cada nota:
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0033-arrow-callback/`](0033-arrow-callback/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0030-arrow-callback/`](0030-arrow-callback/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A065 · Regras para os preços da cantina**
+**Exemplo A059 · Regras para os preços da cantina**
 
 ```ts
 function ehCaro(preco: number): boolean {
@@ -1693,10 +1332,10 @@ console.log(precos.find((p) => p < 10)) // 8
 ```
 
 ```bash
-tsx ~/LPPOO/16102026/0033-arrow-callback/A065.ts
+tsx ~/LPPOO/16102026/0030-arrow-callback/A059.ts
 ```
 
-**Exemplo A066 · Uma função sua que recebe callback**
+**Exemplo A060 · Uma função sua que recebe callback**
 
 ```ts
 function aplicar(valor: number, operacao: (x: number) => number): number {
@@ -1708,10 +1347,10 @@ console.log(aplicar(10, (x) => x / 2)) // 5
 ```
 
 ```bash
-tsx ~/LPPOO/16102026/0033-arrow-callback/A066.ts
+tsx ~/LPPOO/16102026/0030-arrow-callback/A060.ts
 ```
 
-**Exercício E065**
+**Exercício E059**
 
 Escreva a arrow function `ehAprovado = (nota: number): boolean => ...` e use
 com `filter` para pegar as notas aprovadas de um array.
@@ -1724,10 +1363,10 @@ com `filter` para pegar as notas aprovadas de um array.
 </details>
 
 ```bash
-tsx ~/LPPOO/16102026/0033-arrow-callback/E065.ts
+tsx ~/LPPOO/16102026/0030-arrow-callback/E059.ts
 ```
 
-**Exercício E066**
+**Exercício E060**
 
 Escreva `repetir(vezes: number, acao: () => void): void`, que chama a `acao`
 o número de vezes pedido. Teste com uma arrow que mostra "Olá!".
@@ -1741,138 +1380,374 @@ o número de vezes pedido. Teste com uma arrow que mostra "Olá!".
 </details>
 
 ```bash
-tsx ~/LPPOO/16102026/0033-arrow-callback/E066.ts
+tsx ~/LPPOO/16102026/0030-arrow-callback/E060.ts
 ```
 
 ---
 
-## 0034 · Tipo de função e tipagem contextual
+## 0031 · Consultar: indexOf, includes, find, findIndex, some, every
 
-Variável tem tipo. E função? Também tem.
+Tem açaí na lista? Em que posição? Algum produto passa de R$ 20? Todos custam
+mais de R$ 5?
 
-O tipo de uma função diz **o que ela recebe e o que ela devolve**. E dá para
-dar um nome para ele com `type`:
+Até agora, a gente mexia no array: colocava e tirava itens. Hoje a gente só
+**pergunta**. Estes métodos fazem perguntas para o array e não mudam nada nele:
+
+- `includes(x)`: tem o `x`? Responde `true` ou `false`.
+- `indexOf(x)`: em que posição está o `x`? Responde o índice, ou `-1` se não tem.
+- `find(regra)`: devolve o **primeiro item** que passa na regra.
+- `findIndex(regra)`: devolve a **posição** desse primeiro item.
+- `some(regra)`: **algum** item passa? `true` ou `false`.
+- `every(regra)`: **todos** passam? `true` ou `false`.
+
+Os quatro últimos recebem uma **regra** escrita assim: `(p) => p > 20`.
+
+Por enquanto, leia como "para cada preço `p`, pergunte: `p > 20`?". Na
+[0030](#0030--arrow-functions-e-callbacks) você aprende o que é essa setinha.
+
+<p align="center"><img src="0031-consultar/ideia.svg" alt="Diagrama da ideia: Consultar: indexOf, includes, find, findIndex, some, every" width="858"></p>
 
 ```ts
-type Operacao = (a: number, b: number) => number
+const precos: number[] = [6, 25, 9]
+
+console.log(precos.includes(25)) // true
+console.log(precos.indexOf(9)) // 2
+console.log(precos.indexOf(100)) // -1: não tem
+console.log(precos.find((p) => p > 20)) // 25
+console.log(precos.findIndex((p) => p > 20)) // 1
+console.log(precos.some((p) => p > 20)) // true
+console.log(precos.every((p) => p > 5)) // true
 ```
 
-Lê assim: "uma `Operacao` é qualquer função que recebe dois números e devolve
-um número".
+Repara no fluxograma. Ele mostra o que o `find` faz por dentro: olha item por
+item e para no primeiro que passa na regra. O 6 não passa, o 25 passa, e o 9
+nem é olhado:
 
-Pensa numa tomada de três pinos. Ela aceita qualquer aparelho, desde que o
-plugue seja do formato certo.
-
-O `Operacao` é a tomada. `somar` e `multiplicar` têm o plugue certo e encaixam.
-Uma função que junta textos não encaixa:
-
-<p align="center"><img src="0034-tipo-de-funcao/ideia.svg" alt="Diagrama da ideia: Tipo de função e tipagem contextual" width="858"></p>
-
-```ts
-type Operacao = (a: number, b: number) => number
-
-const somar: Operacao = (a, b) => a + b
-const multiplicar: Operacao = (a, b) => a * b
-
-function calcular(a: number, b: number, op: Operacao): number {
-  return op(a, b)
-}
-
-console.log(calcular(6, 7, somar)) // 13
-console.log(calcular(6, 7, multiplicar)) // 42
-```
-
-Repara em `(a, b) => a + b`. Não tem tipo nenhum escrito no `a` nem no `b`. E
-mesmo assim o TypeScript sabe que são números.
-
-Ele tira essa informação do `Operacao`. Isso se chama **tipagem contextual**. É
-a mesma coisa que faz o `n` do `map` ser `number` sozinho.
-
-<p align="center"><img src="0034-tipo-de-funcao/fluxograma.svg" alt="Fluxograma: Tipo de função e tipagem contextual" width="1113"></p>
+<p align="center"><img src="0031-consultar/fluxograma.svg" alt="Fluxograma: Consultar: indexOf, includes, find, findIndex, some, every" width="800"></p>
 
 > [!NOTE]
-> **Pergunta para a turma:** crie `const subtrair: Operacao = (a, b) => a - b`.
-> Quanto dá `calcular(6, 7, subtrair)`? Rode e confira. (Dica: pode dar número
-> negativo.)
+> **Pergunta para a turma:** o que o `find` devolve quando nenhum item passa na
+> regra? Troque o `p > 20` por `p > 100` e rode. (E o `findIndex`?)
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0034-tipo-de-funcao/`](0034-tipo-de-funcao/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0031-consultar/`](0031-consultar/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A067 · type Pontuacao para os modos do jogo**
+**Exemplo A061 · Os gols do time no interclasse**
 
 ```ts
-type Pontuacao = (acertos: number) => number
+const gols: number[] = [2, 0, 3, 1] // um número por jogo
 
-const modoFacil: Pontuacao = (acertos) => acertos * 10
-const modoDificil: Pontuacao = (acertos) => acertos * 25
+console.log(gols.includes(0)) // true: teve jogo sem gol
+console.log(gols.indexOf(3)) // 2
+console.log(gols.indexOf(5)) // -1
+console.log(gols.find((g) => g >= 3)) // 3
+console.log(gols.findIndex((g) => g >= 3)) // 2
+console.log(gols.some((g) => g > 4)) // false
+console.log(gols.every((g) => g < 4)) // true
+```
 
-function mostrarPontos(acertos: number, modo: Pontuacao): void {
-  console.log(`${acertos} acertos: ${modo(acertos)} pontos`)
+```bash
+tsx ~/LPPOO/16102026/0031-consultar/A061.ts
+```
+
+**Exemplo A062 · Está na lista?**
+
+```ts
+import { input } from '#core/input.ts'
+
+const turma: string[] = ['Ana', 'Bia', 'Caio']
+const nome = input('Nome: ')
+
+if (turma.includes(nome)) {
+  console.log(`${nome} está na posição ${turma.indexOf(nome)}`)
+} else {
+  console.log(`${nome} não está na turma`)
 }
-
-mostrarPontos(4, modoFacil) // 4 acertos: 40 pontos
-mostrarPontos(4, modoDificil) // 4 acertos: 100 pontos
 ```
 
 ```bash
-tsx ~/LPPOO/16102026/0034-tipo-de-funcao/A067.ts
+tsx ~/LPPOO/16102026/0031-consultar/A062.ts
 ```
 
-**Exemplo A068 · Um tipo para regras de filtro**
+**Exercício E061**
 
-```ts
-type Regra = (n: number) => boolean
-
-const aprovado: Regra = (n) => n >= 6
-const par: Regra = (n) => n % 2 === 0
-
-const notas: number[] = [8, 5, 6, 3]
-console.log(notas.filter(aprovado)) // [ 8, 6 ]
-console.log(notas.filter(par)) // [ 8, 6 ]
-```
-
-```bash
-tsx ~/LPPOO/16102026/0034-tipo-de-funcao/A068.ts
-```
-
-**Exercício E067**
-
-Crie `type Conversor = (valor: number) => number` e duas funções desse tipo:
-`paraDolar` (divide por 5.4) e `paraEuro` (divide por 6). Escreva
-`converter(valor: number, conversor: Conversor): number` e teste com R$ 100.
+Crie um array com as idades da turma. Use `some` para dizer se tem alguém
+menor de 18 e `every` para dizer se todos têm mais de 15.
 
 <details><summary>Dicas</summary>
 
-1. As duas funções podem ser arrows: `const paraDolar: Conversor = (v) => v / 5.4`.
-2. Dentro de `converter`, é só `return conversor(valor)`.
+1. `idades.some((i) => i < 18)`.
+2. `idades.every((i) => i > 15)`.
+3. Mostre as respostas numa frase.
 
 </details>
 
 ```bash
-tsx ~/LPPOO/16102026/0034-tipo-de-funcao/E067.ts
+tsx ~/LPPOO/16102026/0031-consultar/E061.ts
 ```
 
-**Exercício E068**
+**Exercício E062**
 
-Crie `type Mensagem = (nome: string) => string` com duas versões, uma formal
-e uma informal. Escreva `saudarTodos(nomes: string[], mensagem: Mensagem): void`,
-que mostra a mensagem para cada nome.
+Crie um array de preços e use `find` para achar o primeiro produto acima de
+R$ 10. Se não tiver nenhum, mostre "Tudo barato!".
 
 <details><summary>Dicas</summary>
 
-1. Formal: `(nome) => `Prezada(o) ${nome}``.
-2. Em `saudarTodos`, use `for...of` e chame `mensagem(nome)`.
+1. `find` devolve `undefined` quando ninguém passa.
+2. Guarde o resultado e pergunte com um `if`: `if (achado === undefined)`.
 
 </details>
 
 ```bash
-tsx ~/LPPOO/16102026/0034-tipo-de-funcao/E068.ts
+tsx ~/LPPOO/16102026/0031-consultar/E062.ts
 ```
 
 ---
 
-## 0035 · Juntando tudo: as notas da turma
+## 0032 · Transformar: map, filter, reduce, forEach
+
+Pensa numa esteira de fábrica: entra fruta, sai suco. Esses quatro métodos são
+esteiras para arrays.
+
+Eles passam por **todos os itens** do array, um por um, e aplicam uma regra em
+cada:
+
+- `map(regra)`: **transforma** cada item e devolve um array novo do mesmo
+  tamanho.
+- `filter(regra)`: **filtra**, devolvendo um array novo só com os itens que
+  passam na regra.
+- `reduce(regra, inicio)`: **junta** todos os itens num valor só, como uma soma.
+- `forEach(regra)`: só **faz algo** com cada item (mostrar, por exemplo). Não
+  devolve nada.
+
+Vamos ver na prática. As notas da turma são `[8, 4, 9, 5]`. O `map` dobra cada
+uma, o `filter` deixa só as de 6 para cima e o `reduce` soma tudo:
+
+<p align="center"><img src="0032-transformar/ideia.svg" alt="Diagrama da ideia: Transformar: map, filter, reduce, forEach" width="858"></p>
+
+```ts
+const notas: number[] = [8, 4, 9, 5]
+
+const dobradas = notas.map((n) => n * 2) // [16, 8, 18, 10]
+const aprovadas = notas.filter((n) => n >= 6) // [8, 9]
+const soma = notas.reduce((acc, n) => acc + n, 0) // 26
+
+notas.forEach((n) => console.log(`Nota: ${n}`))
+```
+
+O `reduce` assusta no começo. Calma.
+
+O `acc` (de acumulador) começa com o `0` do fim. A cada item, ele vira
+`acc + n`: 0 + 8 = 8, 8 + 4 = 12, 12 + 9 = 21, 21 + 5 = 26.
+
+Agora olha o `map` por dentro, no fluxograma. Ele monta um array novo, item por
+item, e não mexe no original:
+
+<p align="center"><img src="0032-transformar/fluxograma.svg" alt="Fluxograma: Transformar: map, filter, reduce, forEach" width="469"></p>
+
+> [!NOTE]
+> Dá para **encadear**: o resultado de um vira a entrada do próximo.
+> `notas.filter((n) => n >= 6).map((n) => n * 2)` filtra e depois dobra:
+> `[16, 18]`.
+
+> [!NOTE]
+> **Pergunta para a turma:** se você trocar o `0` do `reduce` por `10`, quanto
+> dá a `soma`? Mude e rode. (Dica: o `acc` começa com esse valor.)
+
+### Hora de praticar
+
+Os arquivos ficam em [`0032-transformar/`](0032-transformar/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A063 · Os pontos da gincana**
+
+```ts
+const pontos: number[] = [30, 15, 40, 10] // uma equipe em cada posição
+
+const comBonus = pontos.map((p) => p + 5)
+const passaram = pontos.filter((p) => p >= 20)
+const total = pontos.reduce((acc, p) => acc + p, 0)
+
+console.log(comBonus) // [ 35, 20, 45, 15 ]
+console.log(passaram) // [ 30, 40 ]
+console.log(total) // 95
+passaram.forEach((p) => console.log(`Equipe com ${p} pontos vai para a final`))
+```
+
+```bash
+tsx ~/LPPOO/16102026/0032-transformar/A063.ts
+```
+
+**Exemplo A064 · Encadeando: só os caros, com 10% de desconto, somados**
+
+```ts
+const precos: number[] = [12, 5, 30]
+
+const total = precos
+  .filter((p) => p > 10) // [12, 30]
+  .map((p) => p * 0.9) // [10.8, 27]
+  .reduce((acc, p) => acc + p, 0) // 37.8
+
+console.log(`Total: R$ ${total.toFixed(2)}`)
+```
+
+```bash
+tsx ~/LPPOO/16102026/0032-transformar/A064.ts
+```
+
+**Exercício E063**
+
+Crie um array de preços e use `map` para criar um array novo com 10% de
+aumento em cada preço. Mostre os dois arrays.
+
+<details><summary>Dicas</summary>
+
+1. Aumento de 10% é multiplicar por 1.1.
+2. O `map` devolve um array novo: guarde numa `const`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0032-transformar/E063.ts
+```
+
+**Exercício E064**
+
+Crie um array de notas. Use `filter` para pegar as reprovadas (abaixo de 6) e
+`reduce` para calcular a média de todas as notas.
+
+<details><summary>Dicas</summary>
+
+1. Média é a soma (`reduce`) dividida por `notas.length`.
+2. No `reduce`, não esqueça o valor inicial `0`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0032-transformar/E064.ts
+```
+
+---
+
+## 0033 · Organizar: sort, reverse, slice, join, concat
+
+Agora a gente vai arrumar e recortar arrays. São estes métodos:
+
+- `sort(regra)`: **ordena**.
+- `reverse()`: **inverte** a ordem.
+- `slice(início, fim)`: **copia** um pedaço (ou tudo, sem argumentos).
+- `join(separador)`: **junta** tudo num texto só.
+- `concat(outro)`: **emenda** dois arrays num novo.
+
+Repara numa diferença aqui. Alguns métodos **mudam o array original**. Outros
+**devolvem um novo** e deixam o original do jeito que estava.
+
+Pensa na fila do recreio. O `sort` arruma a própria fila. O `slice` tira uma
+foto da fila, e quem você arruma é a foto:
+
+<p align="center"><img src="0033-organizar/ideia.svg" alt="Diagrama da ideia: Organizar: sort, reverse, slice, join, concat" width="858"></p>
+
+```ts
+const notas: number[] = [8, 10, 6, 9]
+
+const copia = notas.slice() // cópia: um array novo
+copia.sort((a, b) => a - b) // [6, 8, 9, 10]: o sort muda a cópia
+copia.reverse() // [10, 9, 8, 6]
+
+console.log(copia.join(' | ')) // 10 | 9 | 8 | 6
+console.log(notas.concat([7])) // [ 8, 10, 6, 9, 7 ]: array novo
+console.log(notas) // [ 8, 10, 6, 9 ]: o original não mudou
+```
+
+Guarda essa tabela. Ela separa quem mexe no original de quem devolve um novo:
+
+| Mudam o original                                  | Devolvem um novo                     |
+| ------------------------------------------------- | ------------------------------------ |
+| `push`, `pop`, `shift`, `unshift`, `splice`, `sort`, `reverse` | `map`, `filter`, `slice`, `concat`, `join` |
+
+<p align="center"><img src="0033-organizar/fluxograma.svg" alt="Fluxograma: Organizar: sort, reverse, slice, join, concat" width="1245"></p>
+
+> [!WARNING]
+> Cuidado: o `sort` sem regra compara tudo **como texto**. Aí
+> `[8, 10, 6, 9].sort()` dá `[10, 6, 8, 9]`, porque o texto `'10'` vem antes de
+> `'6'`. Para números, passe sempre a regra `(a, b) => a - b` (do menor para o
+> maior) ou `(a, b) => b - a` (do maior para o menor).
+
+> [!NOTE]
+> **Pergunta para a turma:** se você trocar `notas.slice()` por só `notas` na
+> linha da `copia`, o que aparece no último `console.log`? Troque e rode.
+> (Dica: sem o `slice`, não tem foto.)
+
+### Hora de praticar
+
+Os arquivos ficam em [`0033-organizar/`](0033-organizar/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+
+**Exemplo A065 · A chamada em ordem alfabética**
+
+```ts
+const alunos: string[] = ['Davi', 'Ana', 'Gabi', 'Caio']
+
+const ordem = alunos.slice() // foto da lista
+ordem.sort() // com texto, o sort sem regra funciona
+console.log(ordem.join(', ')) // Ana, Caio, Davi, Gabi
+console.log(ordem.reverse().join(', ')) // Gabi, Davi, Caio, Ana
+
+const turmaNova = alunos.concat(['Bia', 'Enzo'])
+console.log(turmaNova.length) // 6
+console.log(alunos) // [ 'Davi', 'Ana', 'Gabi', 'Caio' ]: o original não mudou
+```
+
+```bash
+tsx ~/LPPOO/16102026/0033-organizar/A065.ts
+```
+
+**Exemplo A066 · O perigo do sort sem regra**
+
+```ts
+const numeros: number[] = [8, 10, 6, 9]
+
+console.log(numeros.slice().sort()) // [ 10, 6, 8, 9 ]: comparou como texto
+console.log(numeros.slice().sort((a, b) => a - b)) // [ 6, 8, 9, 10 ]
+```
+
+```bash
+tsx ~/LPPOO/16102026/0033-organizar/A066.ts
+```
+
+**Exercício E065**
+
+Crie um array de preços e mostre os preços do menor para o maior, sem mudar
+o array original. Mostre os dois arrays no final para provar.
+
+<details><summary>Dicas</summary>
+
+1. Primeiro faça uma cópia com `slice()`.
+2. Ordene a cópia com `sort((a, b) => a - b)`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0033-organizar/E065.ts
+```
+
+**Exercício E066**
+
+Crie um array com 6 notas e mostre as 3 maiores separadas por " - ".
+
+<details><summary>Dicas</summary>
+
+1. Cópia, `sort((a, b) => b - a)` e `slice(0, 3)`.
+2. Termine com `join(' - ')`.
+
+</details>
+
+```bash
+tsx ~/LPPOO/16102026/0033-organizar/E066.ts
+```
+
+---
+
+## 0034 · Juntando tudo: as notas da turma
 
 Hora de juntar tudo num programa só. Esse é o fechamento da aula.
 
@@ -1886,13 +1761,13 @@ Cada parte usa uma seção desta aula. Olha só:
 | ------------------------------------ | -------------------------------------- |
 | `do...while` pedindo as notas        | [0021](#0021--laço-dowhile)            |
 | `notas: number[]` e `push`           | [0024](#0024--arrays-vetores) e [0026](#0026--inserir-e-remover-push-pop-unshift-shift-splice) |
-| `calcularMedia` com `reduce`         | [0030](#0030--funções) e [0028](#0028--transformar-map-filter-reduce-foreach) |
-| `filter`, `map` e `join`             | [0028](#0028--transformar-map-filter-reduce-foreach) e [0029](#0029--organizar-sort-reverse-slice-join-concat) |
+| `calcularMedia` com `reduce`         | [0027](#0027--funções) e [0032](#0032--transformar-map-filter-reduce-foreach) |
+| `filter`, `map` e `join`             | [0032](#0032--transformar-map-filter-reduce-foreach) e [0033](#0033--organizar-sort-reverse-slice-join-concat) |
 | `for` com índice                     | [0022](#0022--laço-for)                |
 
 Vamos ver na prática. Você digita 8, 5 e 9, e depois `n`:
 
-<p align="center"><img src="0035-juntando-tudo/ideia.svg" alt="Diagrama da ideia: Juntando tudo: as notas da turma" width="870"></p>
+<p align="center"><img src="0034-juntando-tudo/ideia.svg" alt="Diagrama da ideia: Juntando tudo: as notas da turma" width="870"></p>
 
 ```ts
 import { input } from '#core/input.ts'
@@ -1926,7 +1801,7 @@ for (let i = 0; i < notas.length; i++) {
 No fluxograma, repara nas três voltas do `do...while`. Depois delas vem o
 relatório:
 
-<p align="center"><img src="0035-juntando-tudo/fluxograma.svg" alt="Fluxograma: Juntando tudo: as notas da turma" width="378"></p>
+<p align="center"><img src="0034-juntando-tudo/fluxograma.svg" alt="Fluxograma: Juntando tudo: as notas da turma" width="378"></p>
 
 > [!NOTE]
 > **Pergunta para a turma:** se você digitar só uma nota, `4`, e responder `n`,
@@ -1935,9 +1810,9 @@ relatório:
 
 ### Hora de praticar
 
-Os arquivos ficam em [`0035-juntando-tudo/`](0035-juntando-tudo/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
+Os arquivos ficam em [`0034-juntando-tudo/`](0034-juntando-tudo/). Os comandos funcionam de qualquer pasta do terminal. Nos exemplos, rode, mude, quebre e rode de novo. Nos exercícios, a resposta vai dentro do próprio arquivo.
 
-**Exemplo A069 · As notas dos jurados do boi**
+**Exemplo A067 · As notas dos jurados do boi**
 
 ```ts
 import { input } from '#core/input.ts'
@@ -1968,10 +1843,10 @@ for (let i = 0; i < notas.length; i++) {
 ```
 
 ```bash
-tsx ~/LPPOO/16102026/0035-juntando-tudo/A069.ts
+tsx ~/LPPOO/16102026/0034-juntando-tudo/A067.ts
 ```
 
-**Exemplo A070 · O mesmo relatório numa função void, com for...of**
+**Exemplo A068 · O mesmo relatório numa função void, com for...of**
 
 ```ts
 function mostrarRelatorio(notas: number[]): void {
@@ -1990,10 +1865,10 @@ mostrarRelatorio([8, 5, 9])
 ```
 
 ```bash
-tsx ~/LPPOO/16102026/0035-juntando-tudo/A070.ts
+tsx ~/LPPOO/16102026/0034-juntando-tudo/A068.ts
 ```
 
-**Exercício E069**
+**Exercício E067**
 
 Copie o programa do exemplo 1 e acrescente no relatório a maior e a menor
 nota digitada.
@@ -2006,10 +1881,10 @@ nota digitada.
 </details>
 
 ```bash
-tsx ~/LPPOO/16102026/0035-juntando-tudo/E069.ts
+tsx ~/LPPOO/16102026/0034-juntando-tudo/E067.ts
 ```
 
-**Exercício E070**
+**Exercício E068**
 
 Peça nomes até a pessoa digitar `fim` e guarde num array. No final, mostre os
 nomes em ordem alfabética, separados por vírgula, e quantos foram digitados.
@@ -2023,7 +1898,7 @@ nomes em ordem alfabética, separados por vírgula, e quantos foram digitados.
 </details>
 
 ```bash
-tsx ~/LPPOO/16102026/0035-juntando-tudo/E070.ts
+tsx ~/LPPOO/16102026/0034-juntando-tudo/E068.ts
 ```
 
 ---
@@ -2044,44 +1919,6 @@ tsx ~/LPPOO/16102026/pratica/tabuada.ts
 tsx ~/LPPOO/16102026/pratica/lista-de-compras.ts
 tsx ~/LPPOO/16102026/pratica/total-com-desconto.ts
 tsx ~/LPPOO/16102026/pratica/desafio-produtos.ts
-```
-
-## Exercícios que valem pontos
-
-Ficam na pasta [`aula-02-logica-2/`](aula-02-logica-2/), aqui dentro da aula.
-Cada questão tem um exemplo resolvido parecido, para consultar.
-
-| Questão          | Conceito                                                  | Exemplo resolvido |
-| ---------------- | --------------------------------------------------------- | ----------------- |
-| `questao-10.ts`  | laço `while`                                              | `exemplo-10.ts`   |
-| `questao-11.ts`  | laço `do...while`                                         | `exemplo-11.ts`   |
-| `questao-12.ts`  | laço `for`                                                | `exemplo-12.ts`   |
-| `questao-13.ts`  | arrays tipados e `for...of`                               | `exemplo-13.ts`   |
-| `questao-14.ts`  | métodos de array para inserir, remover e buscar           | `exemplo-14.ts`   |
-| `questao-15.ts`  | `map`, `filter`, `reduce`, `sort` e encadeamento          | `exemplo-15.ts`   |
-| `questao-16.ts`  | funções tipadas, parâmetro opcional, valor padrão e `void`| `exemplo-16.ts`   |
-| `questao-17.ts`  | arrow functions, callbacks e tipo de função               | `exemplo-17.ts`   |
-
-```bash
-# exemplos resolvidos
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-10.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-11.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-12.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-13.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-14.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-15.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-16.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/exemplo-17.ts
-
-# questões: a resposta vai dentro do próprio arquivo
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-10.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-11.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-12.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-13.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-14.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-15.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-16.ts
-tsx ~/LPPOO/16102026/aula-02-logica-2/questao-17.ts
 ```
 
 ## Para ler mais

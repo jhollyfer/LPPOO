@@ -41,18 +41,15 @@ mais nada. Toda a proteção do TypeScript acontece antes, enquanto você escrev
 
 ### Por que TypeScript nesta disciplina?
 
-A orientação a objetos é a mesma em Java, C# ou TypeScript: classe, objeto,
-herança, interface. O que muda é a escrita.
+São três motivos:
 
-E por que o TypeScript? São quatro motivos:
-
-- **É a língua do próximo semestre.** A disciplina seguinte é Web/Frontend, com
-  React e Vite, e o back-end com Node também é JavaScript. Você aprende POO
-  agora e chega lá falando a mesma língua.
-- **Avisa o erro antes de rodar.** Errou o nome de um método ou colocou texto
-  onde era número? O editor mostra na hora, sem precisar rodar o programa.
-- **Tem tudo que a POO precisa.** Classes, `interface`, `private`, `abstract`
-  e *generics* existem no TypeScript, e você vai usar todos eles.
+- **É a língua da web.** A disciplina seguinte é Web/Frontend, com React e
+  Vite, e o back-end com Node também é JavaScript. Você chega lá falando a
+  mesma língua.
+- **Avisa o erro antes de rodar.** Errou o nome de uma variável ou colocou
+  texto onde era número? O editor mostra na hora, sem precisar rodar o
+  programa. Isso é a **tipagem estática**: o tipo é conferido enquanto você
+  escreve, e não com o programa rodando.
 - **O editor vira um ajudante.** Como ele sabe o tipo de cada coisa, o Zed
   sugere os métodos certos: escreva `preco.` e ele mostra o que um número sabe
   fazer.

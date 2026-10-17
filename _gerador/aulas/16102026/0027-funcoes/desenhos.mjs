@@ -1,31 +1,34 @@
 export const ideia = {
   caixas: [
-    { id: 'v', forma: 'array', x: 110, y: 20, nome: 'valores', itens: [8, 6, 10], celula: 100 },
+    { id: 'n1', forma: 'caixinha', x: 110, y: 0, nome: 'nota1', valor: '8', tipo: 'number' },
+    { id: 'n2', forma: 'caixinha', x: 110, y: 230, nome: 'nota2', valor: '6', tipo: 'number' },
     {
       id: 'f',
-      x: 600,
-      y: 54,
-      w: 440,
+      x: 520,
+      y: 145,
+      w: 400,
       cor: 'roxo',
       rotulo: 'calcularMedia()',
-      texto: ['soma: 24', 'divide por 3'],
+      texto: ['soma: 8 + 6 = 14', 'divide por 2'],
     },
-    { id: 'r', forma: 'caixinha', x: 1200, y: 20, nome: 'retorno', valor: '8', tipo: 'number', cor: 'verde' },
+    { id: 'r', forma: 'caixinha', x: 1100, y: 116, nome: 'media', valor: '7', tipo: 'number', cor: 'verde' },
   ],
   setas: [
-    { de: 'v', para: 'f', rotulo: 'parâmetro' },
+    { de: 'n1', para: 'f', rotulo: 'parâmetro' },
+    { de: 'n2', para: 'f', rotulo: 'parâmetro' },
     { de: 'f', para: 'r', rotulo: 'return' },
   ],
 }
 
 export const fluxograma = {
   nos: [
-    ['A', 'inicio', 'Chamada'],
-    ['B', 'proc', 'valores = [8, 6, 10]'],
-    ['C', 'proc', 'soma = 24'],
-    ['D', 'proc', 'return 24 / 3'],
-    ['E', 'io', 'Mostrar 8'],
-    ['F', 'inicio', 'Fim'],
+    ['A', 'inicio', 'Início'],
+    ['B', 'proc', 'Chamar calcularMedia(8, 6)'],
+    ['C', 'proc', 'nota1 = 8, nota2 = 6'],
+    ['D', 'proc', 'return (8 + 6) / 2'],
+    ['E', 'proc', 'media = 7'],
+    ['F', 'io', 'Mostrar 7'],
+    ['G', 'inicio', 'Fim'],
   ],
   setas: [
     ['A', 'B'],
@@ -33,5 +36,7 @@ export const fluxograma = {
     ['C', 'D'],
     ['D', 'E'],
     ['E', 'F'],
+    ['F', 'G'],
   ],
+  caminho: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 }

@@ -1,47 +1,49 @@
 ## 0027 · Funções
 
-Pensa numa receita de bolo. Você escreve uma vez e usa sempre que quiser, com
-os ingredientes que tiver na hora.
+Pensa na calculadora do celular. Você não precisa saber o que acontece lá
+dentro. Digita os números, aperta o botão e recebe a resposta.
 
-Função é isso. Um pedaço de código com nome, que você escreve uma vez e
-**chama** quantas vezes quiser.
+Função é isso: um pedaço de código com **nome**, que recebe valores, faz o
+trabalho e devolve uma resposta. Você escreve uma vez e **chama** quantas vezes
+quiser.
 
-Ela recebe valores (os **parâmetros**), faz o trabalho e devolve um resultado
-com `return`.
-
-Vamos ver na prática. A `calcularMedia` recebe um array de notas, soma tudo e
-divide pela quantidade. Chamada com `[8, 6, 10]`, ela devolve `8`:
+Vamos ver na prática. A função `calcularMedia` recebe duas notas, `8` e `6`.
+Ela soma, divide por 2 e devolve `7`:
 
 {{ideia}}
 
 ```ts
-function calcularMedia(valores: number[]): number {
-  const soma = valores.reduce((acc, v) => acc + v, 0)
-  return soma / valores.length
+function calcularMedia(nota1: number, nota2: number): number {
+  return (nota1 + nota2) / 2
 }
 
-console.log(calcularMedia([8, 6, 10])) // 8
-console.log(calcularMedia([5, 7])) // 6
+const media = calcularMedia(8, 6) // nota1 recebe 8, nota2 recebe 6
+console.log(media) // 7
 ```
 
 Vamos ler a primeira linha juntos:
 
-- `function` cria a função.
-- `calcularMedia` é o nome.
-- `valores: number[]` é o parâmetro, com o tipo.
-- o `: number` depois dos parênteses é o **tipo do retorno**, o que ela devolve.
+- `function` avisa que ali começa uma função.
+- `calcularMedia` é o nome dela.
+- `nota1` e `nota2` são os **parâmetros**: caixinhas que recebem os valores da
+  chamada. O `: number` de cada um diz que só entra número.
+- o `: number` depois dos parênteses é o **tipo do retorno**: ela devolve um
+  número.
 
-Olha só o fluxograma: a chamada `calcularMedia([8, 6, 10])` entra, a função faz
-as contas e devolve o `8`:
+Dentro das `{ }`, o `return` é a resposta. Ele devolve o valor para quem chamou
+e encerra a função na hora.
+
+Guarda isso: escrever a função não roda nada. Ela só trabalha quando alguém
+**chama**, com `calcularMedia(8, 6)`.
+
+No fluxograma, a chamada entra, a função faz a conta e o `return` devolve o
+`7`, que vai para a caixinha `media`:
 
 {{fluxograma}}
 
 > [!NOTE]
-> Guarda isso: o `return` encerra a função na hora. O que vier depois dele,
-> dentro da função, não roda.
-
-> [!NOTE]
-> **Pergunta para a turma:** o que aparece se você chamar `calcularMedia([])`,
-> com o array vazio? Rode e confira. (Dica: quanto dá 0 dividido por 0?)
+> **Pergunta para a turma:** acrescente `console.log(calcularMedia(10, 5))` no
+> final. O que aparece? Rode e confira. (Dica: a média nem sempre dá um número
+> inteiro.)
 
 {{pratique}}

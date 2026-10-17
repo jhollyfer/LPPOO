@@ -18,12 +18,10 @@ export const ideia = {
       w: 720,
       titulo: 'perguntas para o array',
       itens: [
-        ['includes(25)', 'true'],
+        ['includes(9)', 'true'],
         ['indexOf(9)', '2'],
         ['find(p > 20)', '25'],
-        ['findIndex(p > 20)', '1'],
         ['some(p > 20)', 'true'],
-        ['every(p > 5)', 'true'],
       ],
       destaque: 2,
     },
