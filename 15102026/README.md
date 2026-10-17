@@ -2,9 +2,10 @@
 
 # Aula 01 · 15/10 · Revisão de lógica I
 
-Quase todo programa faz as mesmas cinco coisas: lê o que a pessoa digita,
-guarda, faz conta, compara e decide. Hoje você pratica cada uma delas,
-escrevendo em TypeScript.
+Olha só: quase todo programa faz as mesmas cinco coisas. Lê o que a pessoa
+digita, guarda, faz conta, compara e decide.
+
+Hoje você vai praticar cada uma delas, escrevendo em TypeScript.
 
 ## O que você vai aprender
 
@@ -14,16 +15,19 @@ escrevendo em TypeScript.
 - fazer contas e comparar valores
 - escolher o caminho do programa com `if`, ternário e `switch`
 
-## Como estudar cada assunto
+## Como a gente vai estudar cada assunto
 
-1. Leia o texto e olhe o **diagrama da ideia**: é o exemplo desenhado.
-2. Leia o código. É o mesmo exemplo, com os mesmos valores.
-3. Siga o **fluxograma** com o dedo: é o caminho que o programa faz.
-4. Rode os exemplos da pasta. Mude alguma coisa e rode de novo.
-5. Faça os exercícios. Travou? As dicas estão no próprio arquivo.
+1. Primeiro, o texto e o **diagrama da ideia**: é o exemplo desenhado.
+2. Depois, o código. Repara que é o mesmo exemplo, com os mesmos valores.
+3. Aí você segue o **fluxograma** com o dedo: é o caminho que o programa faz.
+4. Hora de rodar os exemplos da pasta. Mude alguma coisa e rode de novo.
+5. Por fim, os exercícios. Travou? As dicas estão no próprio arquivo.
 
-Cada assunto conta **um exemplo só**. Se a Bia tem média 5 no texto, ela tem
-média 5 no desenho, no código e no fluxograma.
+No meio de cada assunto tem uma **Pergunta para a turma**. Tente responder
+antes de rodar o código.
+
+Guarda isso: cada assunto conta **um exemplo só**. Se a Bia tem média 5 no
+texto, ela tem média 5 no desenho, no código e no fluxograma.
 
 ## As cores e as formas
 
@@ -67,10 +71,7 @@ São 20 assuntos curtos, e cada um usa o anterior. Leia na ordem.
 
 ## 0001 · Entrada de dados (input)
 
-> Sabe aquele colega que manda áudio de 5 minutos e nunca lê a resposta? Um
-> programa que só fala é igualzinho. Hoje ele aprende a ouvir.
-
-Pessoal, pensa na cantina. O caixa olha pra você e pergunta: "vai querer o
+Pensa na cantina. O caixa olha pra você e pergunta: "vai querer o
 quê?". E aí ele **para**. Fica esperando. Só segue depois que você responde.
 
 Entrada de dados é exatamente isso: o programa faz uma pergunta, para e espera
@@ -124,14 +125,16 @@ dado entrando ou saindo.
 
 ## 0002 · Saída de dados (output)
 
-> Se o programa calcula a média e não mostra, calculou para quem?
+Na aula passada, o programa perguntou e esperou. Agora é a vez dele responder.
 
 Saída é o programa mostrando alguma coisa para você. No terminal, quem faz isso
-é o `console.log`: o que estiver entre os parênteses aparece na tela.
+é o `console.log`. O que estiver entre os parênteses aparece na tela.
 
-A média já está guardada: `media` vale `7.5`. Agora a gente quer mostrar uma
-frase inteira, com o número encaixado no meio. Para isso existe a **template
-string**: um texto entre crases com um espaço `${ }` onde o valor entra.
+Olha só o exemplo. A média já está guardada: `media` vale `7.5`. A gente quer
+mostrar uma frase inteira, com o número encaixado no meio.
+
+Para isso existe a **template string**. É um texto entre crases, com um espaço
+`${ }` onde o valor entra:
 
 <p align="center"><img src="0002-output/ideia.svg" alt="Diagrama da ideia: Saída de dados (output)" width="858"></p>
 
@@ -140,14 +143,19 @@ const media = 7.5
 console.log(`Sua média é ${media}`) // Sua média é 7.5
 ```
 
-Guardar a média é o programa fazendo algo, então vira retângulo roxo. Mostrar a
-frase é saída: paralelogramo azul.
+Repara no fluxograma. Guardar a média é o programa fazendo algo, então vira
+retângulo roxo. Mostrar a frase é saída: paralelogramo azul.
 
 <p align="center"><img src="0002-output/fluxograma.svg" alt="Fluxograma: Saída de dados (output)" width="665"></p>
 
 > [!TIP]
 > A crase (`` ` ``) fica perto do Enter na maioria dos teclados, às vezes junto
-> com o til. Ache ela agora: você vai usar muito.
+> com o til. Procura ela agora no seu teclado, porque você vai usar muito.
+
+> [!NOTE]
+> **Pergunta para a turma:** e se você trocar as crases por aspas simples
+> (`'`)? O que aparece na tela? Rode e confira. (Dica: o `${media}` só
+> funciona entre crases.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0002-output/`](0002-output/). Os comandos funcionam de qualquer pasta do terminal.
@@ -167,14 +175,16 @@ frase é saída: paralelogramo azul.
 
 ## 0003 · Variáveis
 
-> O placar do jogo muda a cada gol. Onde o programa guarda esse número enquanto
-> o jogo rola?
+Pensa no placar do jogo. Ele muda a cada gol. O programa precisa guardar esse
+número em algum lugar enquanto o jogo rola.
 
-Numa **variável**: uma caixinha com nome. O nome fica na etiqueta e o valor fica
-dentro. Com `let`, dá para tirar o valor e colocar outro quantas vezes precisar.
+Esse lugar é a **variável**. Pensa numa caixinha com nome: o nome fica na
+etiqueta e o valor fica dentro.
 
-O jogo começa 0 a 0. Saiu gol: a caixa `gols` passa a guardar 1. Outro gol: 2.
-A caixa é sempre a mesma, só o que tem dentro muda:
+Com `let`, você pode tirar o valor e colocar outro quantas vezes precisar.
+
+Vamos ver na prática. O jogo começa 0 a 0. Saiu gol: a caixa `gols` passa a
+guardar 1. Outro gol: 2. A caixa é sempre a mesma, só o que tem dentro muda:
 
 <p align="center"><img src="0003-variaveis/ideia.svg" alt="Diagrama da ideia: Variáveis" width="858"></p>
 
@@ -185,12 +195,18 @@ gols = 2 // outro gol!
 console.log(gols) // 2
 ```
 
-Cada troca de valor vira um retângulo roxo, um embaixo do outro:
+No fluxograma, cada troca de valor vira um retângulo roxo, um embaixo do outro:
 
 <p align="center"><img src="0003-variaveis/fluxograma.svg" alt="Fluxograma: Variáveis" width="944"></p>
 
-Nome de variável vai em `camelCase`: `nomeCompleto`, `notaFinal`, `golsBrasil`.
-E o `var`? É o jeito antigo, e causa bug difícil de achar. A gente não usa.
+Guarda isso: nome de variável vai em `camelCase`. Por exemplo: `nomeCompleto`,
+`notaFinal`, `golsBrasil`.
+
+E o `var`? É o jeito antigo, e causa bug difícil de achar. Aqui a gente não usa.
+
+> [!NOTE]
+> **Pergunta para a turma:** se você apagar a linha `gols = 2`, o que aparece
+> na tela? Rode e confira.
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0003-variaveis/`](0003-variaveis/). Os comandos funcionam de qualquer pasta do terminal.
@@ -210,13 +226,13 @@ E o `var`? É o jeito antigo, e causa bug difícil de achar. A gente não usa.
 
 ## 0004 · Constantes
 
-> O nome da escola não muda no meio da aula. A média para passar também não.
+Tem coisa que não muda no meio do programa. O nome da escola é uma delas.
 
 Se a variável é uma caixa que troca de conteúdo, a **constante** é uma caixa
 lacrada. Colocou o valor, acabou. Ela nasce com `const`.
 
-O nome da escola é `'CETAM'`. Se alguém tentar trocar, o TypeScript reclama
-na hora, antes mesmo de o programa rodar:
+Olha só. O nome da escola é `'CETAM'`. Se alguém tentar trocar, o TypeScript
+reclama na hora, antes mesmo de o programa rodar:
 
 <p align="center"><img src="0004-constantes/ideia.svg" alt="Diagrama da ideia: Constantes" width="858"></p>
 
@@ -231,15 +247,22 @@ console.log(`${nome} estuda no ${NOME_ESCOLA}`) // Ana estuda no CETAM
 // erro: Cannot assign to 'NOME_ESCOLA' because it is a constant.
 ```
 
-Repare que `nome` também é `const`: a resposta do `input` chega uma vez e não
-muda mais. Repare também que a constante é guardada antes da pergunta:
+Repara que `nome` também é `const`. A resposta do `input` chega uma vez e não
+muda mais.
+
+E repara no fluxograma: a constante é guardada antes da pergunta.
 
 <p align="center"><img src="0004-constantes/fluxograma.svg" alt="Fluxograma: Constantes" width="966"></p>
 
 > [!NOTE]
 > Na dúvida, comece com `const`. Precisou mudar depois? Troque para `let`.
-> Valor fixo do programa vai em `UPPER_CASE` (`NOME_ESCOLA`, `MEDIA_APROVACAO`);
-> o resto continua em `camelCase` (`nome`).
+> Valor fixo do programa vai em `UPPER_CASE` (`NOME_ESCOLA`, `MEDIA_APROVACAO`).
+> O resto continua em `camelCase` (`nome`).
+
+> [!NOTE]
+> **Pergunta para a turma:** tire as `//` da linha `NOME_ESCOLA = 'Outra escola'`.
+> O editor reclama? E o programa, chega a mostrar a frase da Ana? Rode e
+> descubra.
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0004-constantes/`](0004-constantes/). Os comandos funcionam de qualquer pasta do terminal.
@@ -259,14 +282,18 @@ muda mais. Repare também que a constante é guardada antes da pergunta:
 
 ## 0005 · Texto (string)
 
-> Seu nome, sua senha do Wi-Fi, a legenda daquela foto no rio. Para o computador
-> tudo isso é a mesma coisa: texto.
+Seu nome, a senha do Wi-Fi, a legenda daquela foto. Para o computador, tudo
+isso é a mesma coisa: texto.
 
-Texto, no TypeScript, se chama **string**: uma sequência de letras entre aspas.
-E toda string já vem com ferramentas prontas, como um canivete: é só puxar.
+No TypeScript, texto se chama **string**. É uma sequência de letras entre
+aspas.
 
-A Maria digitou o nome com uns espaços sobrando: `'  maria  '`. O `.trim()` tira
-os espaços das pontas e o `.toUpperCase()` deixa tudo em maiúsculas:
+E toda string já vem com ferramentas prontas, como um canivete. É só puxar a
+que você precisa.
+
+Vamos ver na prática. A Maria digitou o nome com uns espaços sobrando:
+`'  maria  '`. O `.trim()` tira os espaços das pontas. O `.toUpperCase()` deixa
+tudo em maiúsculas:
 
 <p align="center"><img src="0005-texto/ideia.svg" alt="Diagrama da ideia: Texto (string)" width="858"></p>
 
@@ -278,14 +305,16 @@ const limpo = nome.trim() // 'maria'
 console.log(limpo.toUpperCase()) // MARIA
 ```
 
-Cada ferramenta devolve um texto novo. A variável `nome` continua com os
-espaços; quem está limpo é o `limpo`. Usar uma ferramenta é o programa fazendo
-algo, então vira passo roxo:
+Repara: cada ferramenta devolve um texto novo. A variável `nome` continua com
+os espaços. Quem está limpo é o `limpo`.
+
+No fluxograma, usar uma ferramenta é o programa fazendo algo. Então vira passo
+roxo:
 
 <p align="center"><img src="0005-texto/fluxograma.svg" alt="Fluxograma: Texto (string)" width="975"></p>
 
 > [!WARNING]
-> Com texto, o `+` cola em vez de somar: `'5' + 3` vira `'53'`.
+> Cuidado: com texto, o `+` cola em vez de somar. `'5' + 3` vira `'53'`.
 
 <details>
 <summary>As ferramentas que mais aparecem</summary>
@@ -300,6 +329,10 @@ algo, então vira passo roxo:
 | `texto.split('')`     | quebra o texto em pedaços          | `['m','a','r','i','a']` |
 
 </details>
+
+> [!NOTE]
+> **Pergunta para a turma:** quanto dá `nome.length`? E `limpo.length`?
+> Mostre os dois com `console.log` e compare. (Dica: espaço também conta.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0005-texto/`](0005-texto/). Os comandos funcionam de qualquer pasta do terminal.
@@ -319,15 +352,17 @@ algo, então vira passo roxo:
 
 ## 0006 · Número (number)
 
-> Quanto custa o açaí? Quantos km até Tabatinga? Qual sua nota? Tudo isso é
-> número, e o programa precisa saber fazer conta com eles.
+Quanto custa o açaí? Qual a sua nota? Tudo isso é número. E o programa precisa
+saber fazer conta com eles.
 
-Número, no TypeScript, se chama **number**. Não tem um tipo para inteiro e outro
-para decimal: `17`, `-3` e `12.5` são todos `number`. E o decimal usa ponto,
-igual à calculadora do celular: `12.5`, não `12,5`.
+No TypeScript, número se chama **number**. Não tem um tipo para inteiro e outro
+para decimal: `17`, `-3` e `12.5` são todos `number`.
 
-O açaí custa `12.5`. Para mostrar como dinheiro, com dois números depois do
-ponto, o `.toFixed(2)` transforma `12.5` em `'12.50'`:
+Guarda isso: o decimal usa ponto, igual à calculadora do celular. É `12.5`, e
+não `12,5`.
+
+Olha só o exemplo. O açaí custa `12.5`. Para mostrar como dinheiro, com dois
+números depois do ponto, o `.toFixed(2)` transforma `12.5` em `'12.50'`:
 
 <p align="center"><img src="0006-numero/ideia.svg" alt="Diagrama da ideia: Número (number)" width="858"></p>
 
@@ -340,12 +375,16 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 <p align="center"><img src="0006-numero/fluxograma.svg" alt="Fluxograma: Número (number)" width="1071"></p>
 
 > [!NOTE]
-> O `.toFixed` devolve texto, pronto para mostrar. Para fazer mais contas,
-> continue usando o `preco`.
+> Repara: o `.toFixed` devolve texto, pronto para mostrar. Para fazer mais
+> contas, continue usando o `preco`.
 
 > [!WARNING]
 > Conta que não faz sentido vira `NaN` ("Not a Number"). Por exemplo,
 > `Number('abc')` dá `NaN`.
+
+> [!NOTE]
+> **Pergunta para a turma:** troque o `toFixed(2)` por `toFixed(0)`. Qual preço
+> aparece agora? Rode e confira. (Dica: ele arredonda.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0006-numero/`](0006-numero/). Os comandos funcionam de qualquer pasta do terminal.
@@ -365,14 +404,14 @@ console.log(`Açaí: R$ ${texto}`) // Açaí: R$ 12.50
 
 ## 0007 · Booleano (boolean), typeof, null e undefined
 
-> Está chovendo? Tem aula hoje? O recreio já saiu? Pergunta de sim ou não tem um
-> tipo só para ela.
+Está chovendo? Tem aula hoje? Pergunta de sim ou não tem um tipo só para ela.
 
-O **boolean** tem só dois valores: `true` (verdadeiro) e `false` (falso). É um
-interruptor de luz: ou está ligado, ou está desligado.
+O **boolean** tem só dois valores: `true` (verdadeiro) e `false` (falso).
+Pensa num interruptor de luz: ou está ligado, ou está desligado.
 
-O programa pergunta "Tem aula hoje?". Você digita `sim`. A comparação
-`resposta === 'sim'` vira `true`, e é esse `true` que fica guardado em `temAula`:
+Vamos ver na prática. O programa pergunta "Tem aula hoje?". Você digita `sim`.
+A comparação `resposta === 'sim'` vira `true`. E é esse `true` que fica
+guardado em `temAula`:
 
 <p align="center"><img src="0007-booleano/ideia.svg" alt="Diagrama da ideia: Booleano (boolean), typeof, null e undefined" width="858"></p>
 
@@ -386,14 +425,16 @@ let recado // undefined: a gaveta existe, mas está vazia
 recado = null // null: "nada", colocado de propósito
 ```
 
-Ainda não tem losango no fluxograma. A comparação só gera o `true` ou o `false`
-e guarda. Escolher um caminho com ele é trabalho do `if`, na
+Repara que ainda não tem losango no fluxograma. A comparação só gera o `true`
+ou o `false` e guarda.
+
+Escolher um caminho com ele é trabalho do `if`, lá na
 [0016](#0016--condicional-simples-if).
 
 <p align="center"><img src="0007-booleano/fluxograma.svg" alt="Fluxograma: Booleano (boolean), typeof, null e undefined" width="1056"></p>
 
 > [!TIP]
-> O `typeof` conta o tipo de um valor: `typeof temAula` dá `'boolean'`.
+> O `typeof` diz o tipo de um valor: `typeof temAula` dá `'boolean'`.
 
 E tem dois valores especiais que querem dizer "nada":
 
@@ -401,6 +442,10 @@ E tem dois valores especiais que querem dizer "nada":
   reservada de um aluno que ainda não chegou.
 - `null`: alguém colocou "nada" de propósito. É o aluno avisando "pode marcar
   que eu não vou".
+
+> [!NOTE]
+> **Pergunta para a turma:** coloque um `console.log(temAula)` no fim e rode
+> digitando `nao`. O que aparece? E se digitar `SIM`, tudo maiúsculo?
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0007-booleano/`](0007-booleano/). Os comandos funcionam de qualquer pasta do terminal.
@@ -420,11 +465,13 @@ E tem dois valores especiais que querem dizer "nada":
 
 ## 0008 · Conversão de tipos
 
-> Você digitou 17, pediu para somar 1 e o programa respondeu 171. Hoje a gente
-> descobre por quê.
+Você digita 17, pede para somar 1, e o programa responde 171. Estranho, né?
+Vamos entender por quê.
 
 Lembra que o `input` sempre devolve texto? Você digitou `17`, mas o programa
-guardou `'17'`. E com texto o `+` cola: `'17' + 1` vira `'171'`.
+guardou `'17'`.
+
+E com texto o `+` cola. Então `'17' + 1` vira `'171'`.
 
 O jeito é converter: transformar o texto em número antes da conta. O
 `Number('17')` faz isso e devolve `17`, um número de verdade:
@@ -439,14 +486,16 @@ const idade = Number(texto) // 17
 console.log(idade + 1) // 18
 ```
 
-Na prática a gente faz tudo numa linha só: `Number(input('Sua idade: '))`. O
-fluxograma separa em passos para dar para ver: chega texto, vira número, aí sim
-faz a conta.
+No dia a dia, a gente faz tudo numa linha só: `Number(input('Sua idade: '))`.
+
+O fluxograma separa em passos para você enxergar melhor: chega texto, vira
+número, e aí sim faz a conta.
 
 <p align="center"><img src="0008-conversao/fluxograma.svg" alt="Fluxograma: Conversão de tipos" width="984"></p>
 
 > [!WARNING]
-> Não deu para converter? O resultado é `NaN`: `Number('dezessete')` dá `NaN`.
+> Não deu para converter? O resultado é `NaN`. Por exemplo,
+> `Number('dezessete')` dá `NaN`.
 
 <details>
 <summary>Outras formas de converter</summary>
@@ -459,6 +508,10 @@ faz a conta.
 | `String(10)`        | número para texto                           |
 
 </details>
+
+> [!NOTE]
+> **Pergunta para a turma:** troque `idade + 1` por `texto + 1` e digite `17`.
+> O que aparece na tela? Rode e confira.
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0008-conversao/`](0008-conversao/). Os comandos funcionam de qualquer pasta do terminal.
@@ -478,14 +531,16 @@ faz a conta.
 
 ## 0009 · Operadores de atribuição
 
-> Você tem 100 reais de crédito no celular. Gastou 30 no pacote de dados e
-> recarregou 20. Quanto sobrou?
+Você tem 100 reais de crédito no celular. Gastou 30 no pacote de dados e
+recarregou 20. Quanto sobrou?
 
 Quem guarda um valor na variável é o `=`. Ele dá uma ordem: "a partir de agora,
 `saldo` vale 100".
 
-Quando o valor novo depende do antigo, existe atalho. Gastou 30? `saldo -= 30`,
-que lê assim: "pega o que já tem e tira 30". Recarregou 20? `saldo += 20`:
+Agora repara: quando o valor novo depende do antigo, existe um atalho.
+
+Gastou 30? `saldo -= 30`. Lê assim: "pega o que já tem e tira 30".
+Recarregou 20? `saldo += 20`:
 
 <p align="center"><img src="0009-atribuicao/ideia.svg" alt="Diagrama da ideia: Operadores de atribuição" width="858"></p>
 
@@ -496,8 +551,9 @@ saldo += 20 // recarregou: 90
 console.log(saldo) // 90
 ```
 
-A variável é a mesma do começo ao fim, só o valor dentro dela muda. Cada
-atribuição é um retângulo roxo:
+A variável é a mesma do começo ao fim. Só o valor dentro dela muda.
+
+No fluxograma, cada atribuição é um retângulo roxo:
 
 <p align="center"><img src="0009-atribuicao/fluxograma.svg" alt="Fluxograma: Operadores de atribuição" width="1021"></p>
 
@@ -521,6 +577,10 @@ atribuição é um retângulo roxo:
 > gol a mais.
 
 > [!NOTE]
+> **Pergunta para a turma:** troque `saldo -= 30` por `saldo = 30`, sem o
+> sinal de menos. Quanto aparece no fim? Rode e descubra.
+
+> [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0009-atribuicao/`](0009-atribuicao/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
@@ -538,14 +598,18 @@ atribuição é um retângulo roxo:
 
 ## 0010 · Operadores aritméticos
 
-> Tirou 8 na primeira prova e 6 na segunda. A média é 7... ou 11? Depende de
-> onde você coloca os parênteses.
+Você tirou 8 na primeira prova e 6 na segunda. A média é 7... ou 11? Depende de
+onde você coloca os parênteses.
 
-São as contas da escola, com dois símbolos novos: multiplicar é `*` e dividir é
-`/`. E a ordem também é a da escola: primeiro `*` e `/`, depois `+` e `-`.
+As contas são as mesmas da escola, com dois símbolos novos: multiplicar é `*` e
+dividir é `/`.
 
-Por isso `8 + 6 / 2` dá 11: o programa divide `6 / 2` primeiro e só depois
-soma o 8. Para somar as notas antes de dividir, coloque parênteses:
+E a ordem também é a da escola: primeiro `*` e `/`, depois `+` e `-`.
+
+Olha só: por isso `8 + 6 / 2` dá 11. O programa divide `6 / 2` primeiro e só
+depois soma o 8.
+
+Para somar as notas antes de dividir, coloque parênteses:
 
 <p align="center"><img src="0010-aritmetica/ideia.svg" alt="Diagrama da ideia: Operadores aritméticos" width="864"></p>
 
@@ -573,8 +637,12 @@ console.log(media) // 7
 </details>
 
 > [!TIP]
-> O `%` não tem a ver com porcentagem. Ele dá o resto da divisão: 7
-> alunos em duplas formam 3 duplas e sobra 1, então `7 % 2` é `1`.
+> O `%` não tem nada a ver com porcentagem. Ele dá o resto da divisão: 7
+> alunos em duplas formam 3 duplas e sobra 1. Então `7 % 2` é `1`.
+
+> [!NOTE]
+> **Pergunta para a turma:** mude a `nota2` para `7`. Quanto dá a média? E se
+> você tirar os parênteses? Rode as duas versões e compare.
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0010-aritmetica/`](0010-aritmetica/). Os comandos funcionam de qualquer pasta do terminal.
@@ -594,14 +662,18 @@ console.log(media) // 7
 
 ## 0011 · Objeto Math
 
-> A van da excursão leva 15 pessoas e a turma tem 32. Quantas vans? Se você
-> respondeu 2, alguém ficou na escola.
+A van da excursão leva 15 pessoas e a turma tem 32. Quantas vans? Se você
+respondeu 2, alguém ficou na escola.
 
 O `Math` é uma caixa de ferramentas que já vem pronta no TypeScript. Não precisa
-instalar nada: escreva `Math.` no editor e ele mostra o que tem lá dentro.
+instalar nada.
 
-`32 / 15` dá `2.13`. Duas vans não bastam, porque sobram 2 alunos. A conta certa
-é arredondar para cima, e quem faz isso é o `Math.ceil`:
+Experimenta: escreva `Math.` no editor e ele mostra o que tem lá dentro.
+
+Agora a conta da excursão. `32 / 15` dá `2.13`. Duas vans não bastam, porque
+sobram 2 alunos.
+
+A conta certa é arredondar para cima. Quem faz isso é o `Math.ceil`:
 
 <p align="center"><img src="0011-math/ideia.svg" alt="Diagrama da ideia: Objeto Math" width="858"></p>
 
@@ -633,6 +705,10 @@ console.log(vans) // 3
 </details>
 
 > [!NOTE]
+> **Pergunta para a turma:** e se a turma tiver 30 alunos? Quantas vans o
+> programa pede? Mude o `alunos` e rode. (Dica: quanto dá `30 / 15`?)
+
+> [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0011-math/`](0011-math/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
@@ -650,14 +726,16 @@ console.log(vans) // 3
 
 ## 0012 · Operadores relacionais
 
-> Na entrada do show tem um segurança que faz uma pergunta só: "tem 18 anos ou
-> mais?"
+Pensa na entrada do show. Tem um segurança na porta que faz uma pergunta só:
+"tem 18 anos ou mais?"
 
-Os operadores relacionais comparam dois valores e respondem com um boolean,
-`true` ou `false`. Fazem o papel do segurança.
+Os operadores relacionais fazem o papel desse segurança. Eles comparam dois
+valores e respondem com um boolean: `true` ou `false`.
 
-O João tem 17 anos. A pergunta do segurança, em código, é `idade >= 18`. Como 17
-não é maior nem igual a 18, a resposta é `false`:
+Vamos ver na prática. O João tem 17 anos. A pergunta do segurança, em código, é
+`idade >= 18`.
+
+Como 17 não é maior nem igual a 18, a resposta é `false`:
 
 <p align="center"><img src="0012-relacional/ideia.svg" alt="Diagrama da ideia: Operadores relacionais" width="858"></p>
 
@@ -669,8 +747,8 @@ const maiorDeIdade = idade >= 18 // false
 console.log(maiorDeIdade) // false
 ```
 
-Igual ao boolean da [0007](#0007--booleano-boolean-typeof-null-e-undefined),
-ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
+Repara que, igual ao boolean da [0007](#0007--booleano-boolean-typeof-null-e-undefined),
+ainda não tem losango. A comparação só gera o `true` ou `false` e guarda.
 
 <p align="center"><img src="0012-relacional/fluxograma.svg" alt="Fluxograma: Operadores relacionais" width="940"></p>
 
@@ -683,6 +761,10 @@ ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
 
 > [!TIP]
 > A boca aberta do `>` fica virada para o maior, igual a um jacaré com fome.
+
+> [!NOTE]
+> **Pergunta para a turma:** qual é a menor idade que o João precisa digitar
+> para aparecer `true`? Teste e confira.
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0012-relacional/`](0012-relacional/). Os comandos funcionam de qualquer pasta do terminal.
@@ -702,15 +784,16 @@ ainda não tem losango: a comparação só gera o `true` ou `false` e guarda.
 
 ## 0013 · Comparação de igualdade
 
-> Você digita a senha do Wi-Fi da escola e o celular diz "senha incorreta".
-> Alguém comparou o que você digitou com a senha certa.
+Você digita a senha do Wi-Fi da escola e o celular diz "senha incorreta". Por
+trás disso, alguém comparou o que você digitou com a senha certa.
 
 Para perguntar se dois valores são iguais, o TypeScript usa `===`. Para
-perguntar se são diferentes, `!==`. A resposta, de novo, é `true` ou
-`false`.
+perguntar se são diferentes, usa `!==`.
 
-A senha do Wi-Fi é `'cetam2026'`. Você digitou certinho, então
-`digitada === SENHA` dá `true`:
+A resposta, de novo, é `true` ou `false`.
+
+Olha só o exemplo. A senha do Wi-Fi é `'cetam2026'`. Você digitou certinho,
+então `digitada === SENHA` dá `true`:
 
 <p align="center"><img src="0013-comparacao/ideia.svg" alt="Diagrama da ideia: Comparação de igualdade" width="858"></p>
 
@@ -726,13 +809,18 @@ console.log(acertou) // true
 <p align="center"><img src="0013-comparacao/fluxograma.svg" alt="Fluxograma: Comparação de igualdade" width="1211"></p>
 
 > [!IMPORTANT]
-> Por que três sinais? Existe o `==`, que converte os tipos antes de comparar:
-> `5 == '5'` dá `true` e o erro passa batido. O `===` compara o valor e o
-> tipo, então `5 === '5'` dá `false`. Aqui é sempre `===` e `!==`.
+> Por que três sinais? Existe também o `==`, que converte os tipos antes de
+> comparar. Com ele, `5 == '5'` dá `true` e o erro passa batido.
+> O `===` compara o valor e o tipo, então `5 === '5'` dá `false`.
+> Guarda isso: aqui é sempre `===` e `!==`.
 
 > [!TIP]
 > `=` guarda um valor ("a senha agora é essa"). `===` pergunta ("a senha é
 > essa?").
+
+> [!NOTE]
+> **Pergunta para a turma:** digite a senha certinha, mas com um espaço no fim.
+> O que aparece? Rode e descubra. (Dica: espaço também é letra para o `===`.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0013-comparacao/`](0013-comparacao/). Os comandos funcionam de qualquer pasta do terminal.
@@ -752,7 +840,7 @@ console.log(acertou) // true
 
 ## 0014 · Operadores lógicos
 
-> Para passar de ano não basta tirar nota boa. Também precisa ter frequência.
+Para passar de ano, nota boa sozinha não basta. Também precisa ter frequência.
 
 Os operadores lógicos juntam várias respostas `true`/`false` numa só:
 
@@ -760,8 +848,11 @@ Os operadores lógicos juntam várias respostas `true`/`false` numa só:
 - `||` (OU): dá `true` quando pelo menos um lado é `true`.
 - `!` (NÃO): inverte. `!true` é `false`.
 
-O Pedro tem média 7 (boa: `true`) mas frequência 60% (ruim: `false`). Com `&&`,
-que precisa das duas, ele não passa. Com `||`, que se contenta com uma, passaria:
+Vamos ver na prática. O Pedro tem média 7 (boa: `true`). Mas a frequência dele
+é 60% (ruim: `false`).
+
+Com `&&`, que precisa das duas, ele não passa. Com `||`, que se contenta com
+uma, ele passaria:
 
 <p align="center"><img src="0014-logico/ideia.svg" alt="Diagrama da ideia: Operadores lógicos" width="980"></p>
 
@@ -793,6 +884,10 @@ console.log(media >= 6 || frequencia >= 75) // true || false → true
 > diz "sai se arrumar o quarto **OU** lavar a louça": é o `||`.
 
 > [!NOTE]
+> **Pergunta para a turma:** qual é a menor frequência que o Pedro precisa ter
+> para `aprovado` dar `true`? Mude o valor e rode.
+
+> [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0014-logico/`](0014-logico/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
@@ -810,19 +905,22 @@ console.log(media >= 6 || frequencia >= 75) // true || false → true
 
 ## 0015 · Truthy, falsy, ?? e ?.
 
-> O aluno apertou Enter sem digitar o apelido. E agora, o programa chama ele de
-> quê?
+O aluno apertou Enter sem digitar o apelido. E agora, o programa chama ele de
+quê?
 
 Num `if`, o TypeScript espera `true` ou `false`. Mas você pode colocar qualquer
-valor ali, e ele "acha" se aquilo conta como verdadeiro ou falso. É o fiscal do
-porto olhando a mochila: vazia, ele nem abre; com alguma coisa, ele confere.
+valor ali, e ele decide se aquilo conta como verdadeiro ou falso.
+
+Pensa no fiscal do porto olhando a mochila. Vazia, ele nem abre. Com alguma
+coisa dentro, ele confere.
 
 Os que contam como falso são só seis, e dá para decorar: `false`, `0`, `''`
-(texto vazio), `null`, `undefined` e `NaN`. Esses são os **falsy**. Todo o resto
-é **truthy**.
+(texto vazio), `null`, `undefined` e `NaN`. Esses são os **falsy**.
 
-O aluno apertou Enter direto, então `apelido` é `''`, um texto vazio: falsy. O
-`||` percebe isso e usa o valor padrão:
+Todo o resto é **truthy**.
+
+Olha só o exemplo. O aluno apertou Enter direto, então `apelido` é `''`, um
+texto vazio. Ou seja, falsy. O `||` percebe isso e usa o valor padrão:
 
 <p align="center"><img src="0015-truthy-falsy/ideia.svg" alt="Diagrama da ideia: Truthy, falsy, ?? e ?." width="864"></p>
 
@@ -834,14 +932,18 @@ const chamar = apelido || 'sem apelido' // '' é falsy, então usa o padrão
 console.log(`Oi, ${chamar}!`) // Oi, sem apelido!
 ```
 
-Aqui aparece o primeiro losango amarelo da aula, a primeira pergunta de sim ou
-não:
+Repara: aqui aparece o primeiro losango amarelo da aula. É a primeira pergunta
+de sim ou não:
 
 <p align="center"><img src="0015-truthy-falsy/fluxograma.svg" alt="Fluxograma: Truthy, falsy, ?? e ?." width="502"></p>
 
 > [!IMPORTANT]
 > O `??` é parecido, mas só troca quando o valor é `null` ou `undefined`. Com
 > texto vazio ele não faz nada: `'' ?? 'sem apelido'` continua `''`.
+
+> [!NOTE]
+> **Pergunta para a turma:** troque o `||` por `??` e aperte Enter sem digitar
+> nada. O que aparece na tela? Rode e confira.
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0015-truthy-falsy/`](0015-truthy-falsy/). Os comandos funcionam de qualquer pasta do terminal.
@@ -860,8 +962,6 @@ não:
 ---
 
 ## 0016 · Condicional simples (if)
-
-> Você só leva o guarda-chuva se o céu estiver feio. Sol? Sai de mãos vazias.
 
 Até agora, nossos programas rodaram de cima para baixo, linha por linha, sem
 pular nada. Hoje isso muda: o programa vai **decidir**.
@@ -915,15 +1015,16 @@ a mais, e o Não vai direto para o "Bom dia!".
 
 ## 0017 · Condicional composta (if / else)
 
-> Ou você está no porto às 6h e embarca no recreio para Tabatinga, ou fica em
-> terra vendo o barco sair.
+Na aula passada, o `if` sozinho só fazia uma coisa a mais. Hoje ele ganha um
+plano B: o `else` (em português, "senão").
 
-O `if` sozinho só sabe fazer uma coisa a mais. Com o `else` (senão), o programa
-ganha um plano B: se a condição for verdadeira, roda o bloco do `if`; se for
-falsa, roda o bloco do `else`. Um dos dois sempre roda, e só um.
+Funciona assim: **se** a condição for verdadeira, roda o bloco do `if`.
+**Senão**, roda o bloco do `else`.
 
-Você chegou ao porto às 5h. `5 <= 6` é `true`, então o caminho é o do `if`:
-embarcou!
+Guarda isso: um dos dois sempre roda. E só um.
+
+Vamos ver na prática. O recreio para Tabatinga sai do porto às 6h. Você chegou
+às 5h. `5 <= 6` dá `true`, então o caminho é o do `if`: embarcou!
 
 <p align="center"><img src="0017-condicional-composta/ideia.svg" alt="Diagrama da ideia: Condicional composta (if / else)" width="898"></p>
 
@@ -939,10 +1040,14 @@ if (hora <= 6) {
 }
 ```
 
-Os dois caminhos saem do mesmo losango e se encontram de novo no fim. O
-programa passa por um deles:
+Repara no fluxograma: os dois caminhos saem do mesmo losango e se encontram de
+novo no fim. O programa passa por um deles, nunca pelos dois:
 
 <p align="center"><img src="0017-condicional-composta/fluxograma.svg" alt="Fluxograma: Condicional composta (if / else)" width="524"></p>
+
+> [!NOTE]
+> **Pergunta para a turma:** e se você chegar às 6h em ponto? Embarca ou perde
+> o barco? E às 7h? Rode e confira. (Dica: olhe o sinal `<=`.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0017-condicional-composta/`](0017-condicional-composta/). Os comandos funcionam de qualquer pasta do terminal.
@@ -962,15 +1067,16 @@ programa passa por um deles:
 
 ## 0018 · Condicional aninhada (else if e if dentro de if)
 
-> No boletim não existe só "passou" ou "não passou". Tem a tal da recuperação no
-> meio do caminho.
+Até agora, a gente tinha só dois caminhos: o do `if` e o do `else`. Mas no
+boletim não existe só "passou" ou "não passou". Tem a recuperação no meio.
 
-Quando tem mais de dois caminhos, entra o `else if` (senão se). O programa testa
-as condições de cima para baixo e para na primeira que for verdadeira. O
-`else` do final pega quem sobrou.
+Quando tem mais de dois caminhos, entra o `else if` (em português, "senão se").
 
-A média da Bia é 5. Primeira pergunta: `5 >= 6`? Não. Segunda: `5 >= 4`? Sim:
-recuperação. A terceira opção nem chega a ser olhada:
+O programa testa as condições de cima para baixo e para na primeira que der
+verdadeira. O `else` do final pega quem sobrou.
+
+Olha só a média da Bia, que é 5. Primeira pergunta: `5 >= 6`? Não. Segunda:
+`5 >= 4`? Sim: recuperação. A terceira opção nem chega a ser olhada:
 
 <p align="center"><img src="0018-condicional-aninhada/ideia.svg" alt="Diagrama da ideia: Condicional aninhada (else if e if dentro de if)" width="864"></p>
 
@@ -986,14 +1092,18 @@ if (media >= 6) {
 }
 ```
 
-Cada `else if` é mais um losango, pendurado no Não do anterior:
+No fluxograma, cada `else if` é mais um losango, pendurado no Não do anterior:
 
 <p align="center"><img src="0018-condicional-aninhada/fluxograma.svg" alt="Fluxograma: Condicional aninhada (else if e if dentro de if)" width="838"></p>
 
 > [!TIP]
-> Também dá para colocar um `if` dentro de outro, quando uma pergunta só faz
-> sentido depois da primeira. Não adianta perguntar se tem habilitação para
-> quem tem 12 anos.
+> Também dá para colocar um `if` dentro de outro. Você usa isso quando uma
+> pergunta só faz sentido depois da primeira. Não adianta perguntar se tem
+> habilitação para quem tem 12 anos.
+
+> [!NOTE]
+> **Pergunta para a turma:** se a média da Bia for exatamente 4, o que aparece?
+> Troque o 5 por 4 e rode. (Dica: o `>=` também aceita o igual.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0018-condicional-aninhada/`](0018-condicional-aninhada/). Os comandos funcionam de qualquer pasta do terminal.
@@ -1013,17 +1123,19 @@ Cada `else if` é mais um losango, pendurado no Não do anterior:
 
 ## 0019 · Operador ternário
 
-> Dá para escrever um if/else inteiro numa linha só? Dá.
+Dá para escrever um if/else inteiro numa linha só? Dá. É o ternário.
 
-O ternário é o if/else de bolso. Ele faz uma pergunta e devolve um de dois
+Pensa nele como o if/else de bolso. Ele faz uma pergunta e devolve um de dois
 valores:
 
 ```ts
 condição ? valorSeSim : valorSeNão
 ```
 
-Lê assim: "a condição é verdadeira? então isso, senão aquilo". A média do Lucas
-é 8, então `media >= 6` é `true` e o ternário devolve `'Aprovado'`:
+Lê assim: "a condição é verdadeira? Então isso. Senão, aquilo."
+
+Vamos ver na prática. A média do Lucas é 8. `media >= 6` dá `true`, então o
+ternário devolve `'Aprovado'`:
 
 <p align="center"><img src="0019-ternario/ideia.svg" alt="Diagrama da ideia: Operador ternário" width="864"></p>
 
@@ -1034,15 +1146,20 @@ console.log(situacao) // Aprovado
 ```
 
 O fluxograma é o mesmo desenho do if/else da
-[0017](#0017--condicional-composta-if--else). A diferença é que os dois
-caminhos não mostram nada. Eles guardam um valor em `situacao`, e só no fim
-o programa mostra:
+[0017](#0017--condicional-composta-if--else).
+
+Repara na diferença: os dois caminhos não mostram nada. Eles só guardam um
+valor em `situacao`. Quem mostra é o fim do programa:
 
 <p align="center"><img src="0019-ternario/fluxograma.svg" alt="Fluxograma: Operador ternário" width="547"></p>
 
 > [!TIP]
 > Use o ternário para escolhas pequenas: singular ou plural, par ou ímpar,
 > aprovado ou reprovado. Se a decisão tem várias etapas, volte para o `if`.
+
+> [!NOTE]
+> **Pergunta para a turma:** troque a média do Lucas para 6. Aparece
+> `Aprovado` ou `Reprovado`? E com 5,9 (no código, `5.9`)? Rode e confira.
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0019-ternario/`](0019-ternario/). Os comandos funcionam de qualquer pasta do terminal.
@@ -1062,19 +1179,24 @@ o programa mostra:
 
 ## 0020 · Estrutura de escolha (switch)
 
-> Caixa eletrônico: "digite 1 para saldo, 2 para depósito, 3 para sair". Quem
-> decide o que acontece depois de cada número?
+Pensa no caixa eletrônico: "digite 1 para saldo, 2 para depósito, 3 para
+sair". Cada número leva para um caminho diferente.
 
-O `switch` pega um valor e procura a opção igual numa lista. Achou (com
-`===`), roda o que está ali. É o cardápio da lanchonete: você fala o número do
-combo e a atendente já sabe o que montar.
+Quem faz isso no programa é o `switch`. Ele pega um valor e procura a opção
+igual numa lista. Achou (com `===`), roda o que está ali.
+
+É o cardápio da lanchonete: você fala o número do combo e a atendente já sabe
+o que montar.
+
+Três palavras para guardar:
 
 - `case`: uma opção da lista.
 - `break`: "pronto, terminei". Sem ele, o programa continua descendo e roda os
   próximos `case` também.
 - `default`: quando nenhuma opção bateu. Faz o papel do `else`.
 
-Você digitou `2`. O `switch` compara com cada `case` e para no `case 2`:
+Vamos ver na prática. Você digitou `2`. O `switch` compara com cada `case` e
+para no `case 2`:
 
 <p align="center"><img src="0020-escolha/ideia.svg" alt="Diagrama da ideia: Estrutura de escolha (switch)" width="858"></p>
 
@@ -1098,14 +1220,18 @@ switch (opcao) {
 }
 ```
 
-O `switch` vira um losango com uma saída para cada `case`, mais uma para o
-`default`:
+No fluxograma, o `switch` vira um losango com uma saída para cada `case`, mais
+uma para o `default`:
 
 <p align="center"><img src="0020-escolha/fluxograma.svg" alt="Fluxograma: Estrutura de escolha (switch)" width="1070"></p>
 
 > [!TIP]
-> Use `switch` quando a pergunta é "qual destes valores?". Para faixas (maior
-> que, menor que), o `if` / `else if` continua sendo o certo.
+> Use o `switch` quando a pergunta é "qual destes valores?". Para faixas (maior
+> que, menor que), o certo continua sendo o `if` / `else if`.
+
+> [!NOTE]
+> **Pergunta para a turma:** apague o `break` do `case 2` e digite `2` de novo.
+> O que aparece agora? (Dica: sem o `break`, o programa continua descendo.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0020-escolha/`](0020-escolha/). Os comandos funcionam de qualquer pasta do terminal.

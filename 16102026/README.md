@@ -2,7 +2,7 @@
 
 # Aula 02 · 16/10 · Revisão de lógica II
 
-Até agora, cada linha do programa rodava uma vez e cada variável guardava um
+Até agora, cada linha do programa rodou uma vez só, e cada variável guardou um
 valor só. Hoje isso muda.
 
 ## O que você vai aprender
@@ -12,13 +12,16 @@ valor só. Hoje isso muda.
 - buscar, transformar e organizar listas com os métodos de array
 - dar nome a um pedaço de código com **funções**, para usar de novo
 
-## Como estudar cada assunto
+## Como a gente vai estudar cada assunto
 
-1. Leia o texto e olhe o **diagrama da ideia**: é o exemplo desenhado.
-2. Leia o código. É o mesmo exemplo, com os mesmos valores.
-3. Siga o **fluxograma** com o dedo: é o caminho que o programa faz.
-4. Rode os exemplos da pasta. Mude alguma coisa e rode de novo.
-5. Faça os exercícios. Travou? As dicas estão no próprio arquivo.
+1. Primeiro, o texto e o **diagrama da ideia**: é o exemplo desenhado.
+2. Depois, o código. Repara que é o mesmo exemplo, com os mesmos valores.
+3. Aí você segue o **fluxograma** com o dedo: é o caminho que o programa faz.
+4. Hora de rodar os exemplos da pasta. Mude alguma coisa e rode de novo.
+5. Por fim, os exercícios. Travou? As dicas estão no próprio arquivo.
+
+No meio de cada assunto tem uma **Pergunta para a turma**. Tente responder
+antes de rodar o código.
 
 Nos laços, o fluxograma ganha uma seta que **volta**: é a repetição.
 
@@ -65,16 +68,19 @@ Leia na ordem: cada assunto usa o anterior.
 
 ## 0021 · Laço while
 
-> R$ 20 no cartão do ônibus e a passagem custa R$ 4,50. Quantas vezes dá para
-> passar na catraca?
+Até agora, cada linha do programa rodava uma vez só. Hoje isso muda: o
+programa vai **repetir**.
 
-Até agora, cada linha do programa rodava uma vez só. O `while` (enquanto) faz um
-bloco **repetir**: ele pergunta, e enquanto a resposta for `true`, roda o bloco
-e pergunta de novo. Quando a resposta vira `false`, o programa segue em frente.
+Quem repete é o `while` (em português, "enquanto"). Ele faz uma pergunta. Se a
+resposta for `true`, roda o bloco e pergunta de novo. Quando a resposta vira
+`false`, o programa segue em frente.
 
-No cartão tem R$ 20. A cada volta, o laço confere se ainda dá para pagar uma
-passagem, desconta R$ 4,50 e conta uma viagem. Na quinta pergunta sobram só
-R$ 2, a resposta é `false` e o laço acaba:
+Vamos ver na prática. Você tem R$ 20 no cartão do ônibus e a passagem custa
+R$ 4,50. Quantas vezes dá para passar na catraca?
+
+A cada volta, o laço confere se ainda dá para pagar uma passagem, desconta
+R$ 4,50 e conta uma viagem. Na quinta pergunta sobram só R$ 2. A resposta é
+`false` e o laço acaba:
 
 <p align="center"><img src="0021-while/ideia.svg" alt="Diagrama da ideia: Laço while" width="858"></p>
 
@@ -91,8 +97,8 @@ console.log(`Deu para ${viagens} viagens. Sobrou R$ ${saldo.toFixed(2)}`)
 // Deu para 4 viagens. Sobrou R$ 2.00
 ```
 
-No fluxograma, o laço é uma seta que **volta** para o losango. O caminho dá
-quatro voltas antes de sair pelo Não:
+Repara no fluxograma: o laço é uma seta que **volta** para o losango. O caminho
+dá quatro voltas antes de sair pelo Não:
 
 <p align="center"><img src="0021-while/fluxograma.svg" alt="Fluxograma: Laço while" width="603"></p>
 
@@ -100,6 +106,10 @@ quatro voltas antes de sair pelo Não:
 > Se nada dentro do bloco mudar a resposta da pergunta, o laço nunca acaba. É o
 > famoso **loop infinito**. Esqueceu o `saldo -= 4.5`? O programa fica rodando
 > para sempre. Para sair, aperte `Ctrl + C`.
+
+> [!NOTE]
+> **Pergunta para a turma:** se a passagem subir para R$ 5, quantas viagens dá
+> e quanto sobra? Troque o `4.5` por `5` nas duas linhas e rode.
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0021-while/`](0021-while/). Os comandos funcionam de qualquer pasta do terminal.
@@ -119,16 +129,18 @@ quatro voltas antes de sair pelo Não:
 
 ## 0022 · Laço do...while
 
-> O professor pede a nota, você digita 15 e ele diz: "de 0 a 10, por favor".
-> Pedir pelo menos uma vez é garantido. Repetir, só se precisar.
+O professor pede a nota, você digita 15 e ele diz: "de 0 a 10, por favor". Ele
+pede pelo menos uma vez. Pedir de novo, só se precisar.
 
 O `do...while` é o `while` de cabeça para baixo: primeiro **faz**, depois
-**pergunta**. Por isso o bloco roda pelo menos uma vez. Ele é perfeito para
-validar o que a pessoa digita: você só sabe se a resposta está certa depois de
-pedir.
+**pergunta**. Por isso o bloco roda pelo menos uma vez.
 
-Você digita 15. O programa confere: 15 está fora de 0 a 10? Sim, então pede de
-novo. Agora você digita 8. Está fora? Não. O laço acaba e a nota fica guardada:
+Ele é ótimo para conferir o que a pessoa digita. Afinal, você só sabe se a
+resposta está certa depois de pedir.
+
+Vamos ver na prática. Você digita 15. O programa confere: 15 está fora de 0 a
+10? Sim, então pede de novo. Agora você digita 8. Está fora? Não. O laço acaba
+e a nota fica guardada:
 
 <p align="center"><img src="0022-do-while/ideia.svg" alt="Diagrama da ideia: Laço do...while" width="858"></p>
 
@@ -144,10 +156,15 @@ do {
 console.log(`Nota registrada: ${nota}`) // Nota registrada: 8
 ```
 
-No fluxograma, o losango vem **depois** da leitura. Compare com o `while`, em
-que a pergunta vem antes:
+Repara no fluxograma: o losango vem **depois** da leitura. No `while`, a
+pergunta vinha antes:
 
 <p align="center"><img src="0022-do-while/fluxograma.svg" alt="Fluxograma: Laço do...while" width="405"></p>
+
+> [!NOTE]
+> **Pergunta para a turma:** e se você digitar exatamente `10`? O programa
+> aceita ou pede de novo? Rode e confira. (Dica: leia a condição com calma,
+> `nota > 10`.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0022-do-while/`](0022-do-while/). Os comandos funcionam de qualquer pasta do terminal.
@@ -167,17 +184,21 @@ que a pergunta vem antes:
 
 ## 0023 · Laço for
 
-> A tabuada do 7 tem dez linhas quase iguais. Só um número muda de uma linha
-> para a outra.
+A tabuada do 7 tem dez linhas quase iguais. Só um número muda de uma linha
+para a outra. Escrever dez `console.log` na mão? Não precisa.
 
 Quando você já sabe **quantas vezes** vai repetir, o `for` é o laço mais
-organizado. Ele junta numa linha só as três coisas que todo laço com contador
-precisa: onde o contador começa, até quando repete e quanto ele anda a cada
-volta.
+organizado.
 
-Na tabuada do 7, o contador `i` começa em 1, o laço roda enquanto `i <= 10` e,
-depois de cada linha mostrada, `i` anda mais um. Quando `i` chega a 11, a
-pergunta dá `false` e o laço acaba:
+Ele junta numa linha só as três coisas que todo laço com contador precisa:
+
+- onde o contador começa;
+- até quando repete;
+- quanto ele anda a cada volta.
+
+Vamos ver na prática. Na tabuada do 7, o contador `i` começa em 1. O laço roda
+enquanto `i <= 10`. Depois de cada linha mostrada, `i` anda mais um. Quando
+`i` chega a 11, a pergunta dá `false` e o laço acaba:
 
 <p align="center"><img src="0023-for/ideia.svg" alt="Diagrama da ideia: Laço for" width="864"></p>
 
@@ -193,14 +214,18 @@ for (let i = 1; i <= 10; i++) {
 // 7 x 10 = 70
 ```
 
-O fluxograma é o mesmo de um `while`. O `for` só deixa as três partes juntas,
-num lugar que dá para ler de uma vez:
+Olha só: o fluxograma é o mesmo de um `while`. O `for` só deixa as três partes
+juntas, num lugar que dá para ler de uma vez:
 
 <p align="center"><img src="0023-for/fluxograma.svg" alt="Fluxograma: Laço for" width="396"></p>
 
 > [!NOTE]
 > O nome `i` é tradição (vem de *índice*), mas pode ser qualquer um. E o passo
 > não precisa ser `i++`: `i += 2` anda de dois em dois, `i--` conta para trás.
+
+> [!NOTE]
+> **Pergunta para a turma:** troque o `i++` por `i += 2`. Quais linhas da
+> tabuada aparecem agora? Rode e confira.
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0023-for/`](0023-for/). Os comandos funcionam de qualquer pasta do terminal.
@@ -220,17 +245,18 @@ num lugar que dá para ler de uma vez:
 
 ## 0024 · break e continue
 
-> Procurando a chave na mochila: achou, para de procurar. Pegou um caderno?
-> Deixa de lado e olha o próximo item.
+Pensa em você procurando a chave na mochila. Achou? Para de procurar. Pegou um
+caderno? Deixa de lado e olha o próximo item.
 
-Às vezes você quer mexer no laço por dentro:
+Dentro de um laço, você também pode fazer isso:
 
 - `continue` pula **o resto desta volta** e vai direto para a próxima;
 - `break` **para o laço inteiro** na hora, mesmo que a condição ainda seja
   `true`.
 
-O laço abaixo conta de 1 a 10. Número par? `continue`: pula sem mostrar.
-Passou de 7? `break`: acabou. No fim, só aparecem 1, 3, 5 e 7:
+Vamos ver na prática. O laço abaixo conta de 1 a 10. Número par? `continue`:
+pula sem mostrar. Passou de 7? `break`: acabou. No fim, só aparecem 1, 3, 5 e
+7:
 
 <p align="center"><img src="0024-break-continue/ideia.svg" alt="Diagrama da ideia: break e continue" width="858"></p>
 
@@ -243,14 +269,18 @@ for (let i = 1; i <= 10; i++) {
 // 1, 3, 5, 7
 ```
 
-No fluxograma, o `continue` é um atalho de volta para o `i++`, e o `break` é uma
-saída direto para o fim:
+Repara no fluxograma: o `continue` é um atalho de volta para o `i++`. O `break`
+é uma saída direto para o fim:
 
 <p align="center"><img src="0024-break-continue/fluxograma.svg" alt="Fluxograma: break e continue" width="420"></p>
 
 > [!NOTE]
 > Use com moderação. Um laço cheio de `break` e `continue` fica difícil de
 > seguir. Quando der, coloque a regra na própria condição do laço.
+
+> [!NOTE]
+> **Pergunta para a turma:** troque o `i > 7` por `i > 4`. Quais números
+> aparecem agora? Rode e confira.
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0024-break-continue/`](0024-break-continue/). Os comandos funcionam de qualquer pasta do terminal.
@@ -270,16 +300,19 @@ saída direto para o fim:
 
 ## 0025 · Arrays (vetores)
 
-> A chamada da turma é uma lista: cada aluno tem um número, começando do
-> primeiro. Um array é isso.
+Até agora, cada caixinha guardava um valor só. Hoje isso muda: uma caixinha vai
+guardar uma lista inteira.
 
-Até agora, cada caixinha guardava um valor só. O **array** é uma fileira de
-gavetas com uma etiqueta só. Cada gaveta tem um número, o **índice**, e a
-contagem começa em **0**: a primeira gaveta é a 0, a segunda é a 1.
+Pensa na chamada da turma. É uma lista, e cada aluno tem um número. Um array é
+isso.
 
-As notas da turma ficam em `notas`. Para ler uma gaveta, use o índice entre
-colchetes: `notas[0]` é 8. Para trocar, atribua: `notas[1] = 7`. E
-`notas.length` diz quantas gavetas existem:
+Imagina uma fileira de gavetas com uma etiqueta só. Cada gaveta tem um número,
+o **índice**. E guarda isso: a contagem começa em **0**. A primeira gaveta é a
+0, a segunda é a 1.
+
+Vamos ver na prática. As notas da turma ficam em `notas`. Para ler uma gaveta,
+use o índice entre colchetes: `notas[0]` é 8. Para trocar, atribua:
+`notas[1] = 7`. E `notas.length` diz quantas gavetas existem:
 
 <p align="center"><img src="0025-arrays/ideia.svg" alt="Diagrama da ideia: Arrays (vetores)" width="858"></p>
 
@@ -294,9 +327,10 @@ console.log(notas) // [ 8, 7, 9 ]
 ```
 
 `number[]` e `Array<string>` são dois jeitos de escrever a mesma ideia: "array
-de números" e "array de textos". Repare que `notas` é `const` e mesmo assim deu
-para trocar a nota: o `const` trava a **etiqueta**, não o que tem dentro das
-gavetas.
+de números" e "array de textos".
+
+Repara: `notas` é `const` e mesmo assim deu para trocar a nota. O `const` trava
+a **etiqueta**, não o que tem dentro das gavetas.
 
 <p align="center"><img src="0025-arrays/fluxograma.svg" alt="Fluxograma: Arrays (vetores)" width="1158"></p>
 
@@ -318,6 +352,11 @@ gavetas.
 > ```
 
 > [!NOTE]
+> **Pergunta para a turma:** o array `notas` tem 3 gavetas e a última é a
+> posição 2. Numa turma de 30 alunos, qual é a posição do último? (Dica: a
+> contagem começa em 0.)
+
+> [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0025-arrays/`](0025-arrays/). Os comandos funcionam de qualquer pasta do terminal.
 >
 > ```bash
@@ -335,15 +374,17 @@ gavetas.
 
 ## 0026 · Laço for...of
 
-> Na chamada, o professor passa por cada nome da lista, um por um, do primeiro
-> ao último. Não precisa contar: a lista mesmo diz quando acaba.
+Na chamada, o professor passa por cada nome da lista, um por um, do primeiro
+ao último. Ele não precisa contar: a própria lista diz quando acaba.
 
 O `for...of` é o laço feito para arrays. A cada volta, ele pega o **próximo
-item** e coloca numa variável. Não tem contador, não tem `i`, não tem risco de
-passar do fim.
+item** e coloca numa variável.
 
-A lista tem três nomes. Na primeira volta, `nome` é `'Ana'`; na segunda,
-`'Bia'`; na terceira, `'Caio'`. Acabaram os nomes, acabou o laço:
+Olha só o que ele não tem: contador, `i`, risco de passar do fim. Nada disso.
+
+Vamos ver na prática. A lista tem três nomes. Na primeira volta, `nome` é
+`'Ana'`. Na segunda, `'Bia'`. Na terceira, `'Caio'`. Acabaram os nomes, acabou
+o laço:
 
 <p align="center"><img src="0026-for-of/ideia.svg" alt="Diagrama da ideia: Laço for...of" width="858"></p>
 
@@ -359,10 +400,16 @@ for (const nome of nomes) {
 ```
 
 Dá para fazer o mesmo com o `for` clássico, usando o índice:
-`for (let i = 0; i < nomes.length; i++)` e `nomes[i]` lá dentro. Quando você não
-precisa do número da posição, o `for...of` é mais curto e mais difícil de errar.
+`for (let i = 0; i < nomes.length; i++)` e `nomes[i]` lá dentro.
+
+Mas quando você não precisa do número da posição, o `for...of` é mais curto e
+mais difícil de errar.
 
 <p align="center"><img src="0026-for-of/fluxograma.svg" alt="Fluxograma: Laço for...of" width="501"></p>
+
+> [!NOTE]
+> **Pergunta para a turma:** coloque `'Davi'` no fim da lista e rode de novo.
+> Precisou mexer no laço? O que aparece?
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0026-for-of/`](0026-for-of/). Os comandos funcionam de qualquer pasta do terminal.
@@ -382,10 +429,11 @@ precisa do número da posição, o `for...of` é mais curto e mais difícil de e
 
 ## 0027 · Inserir e remover: push, pop, unshift, shift, splice
 
-> A lista de compras na porta da geladeira: alguém acrescenta no fim, alguém
-> risca o primeiro item, alguém troca um do meio.
+Pensa na lista de compras na porta da geladeira. Alguém acrescenta no fim,
+alguém risca o primeiro item, alguém troca um do meio.
 
-Um array não tem tamanho fixo. Cinco métodos colocam e tiram itens:
+Com o array é igual: ele não tem tamanho fixo. Cinco métodos colocam e tiram
+itens:
 
 | Método    | Onde mexe   | O que faz                         |
 | --------- | ----------- | --------------------------------- |
@@ -395,8 +443,8 @@ Um array não tem tamanho fixo. Cinco métodos colocam e tiram itens:
 | `shift`   | no começo   | tira o primeiro e devolve ele     |
 | `splice`  | no meio     | tira e/ou coloca a partir de uma posição |
 
-No desenho, cada ponta da lista tem uma entrada e uma saída. O `splice` é o
-único que mexe no meio:
+Repara no desenho: cada ponta da lista tem uma entrada e uma saída. O `splice`
+é o único que mexe no meio:
 
 <p align="center"><img src="0027-inserir-remover/ideia.svg" alt="Diagrama da ideia: Inserir e remover: push, pop, unshift, shift, splice" width="858"></p>
 
@@ -412,14 +460,18 @@ compras.splice(1, 1, 'açaí') // na posição 1, tira 1 e põe açaí
 console.log(compras) // [ 'arroz', 'açaí' ]
 ```
 
-Os cinco **mudam o array original**. Por isso a lista vai mudando a cada linha,
-sem precisar de `=`:
+Guarda isso: os cinco **mudam o array original**. Por isso a lista vai mudando
+a cada linha, sem precisar de `=`:
 
 <p align="center"><img src="0027-inserir-remover/fluxograma.svg" alt="Fluxograma: Inserir e remover: push, pop, unshift, shift, splice" width="1422"></p>
 
 > [!NOTE]
 > O `splice(posição, quantosTirar, ...oQueColocar)` é o canivete: `splice(1, 1)`
 > só tira, `splice(1, 0, 'pão')` só coloca, e `splice(1, 1, 'açaí')` troca.
+
+> [!NOTE]
+> **Pergunta para a turma:** apague a linha do `splice` e rode de novo. Como
+> fica a lista no final?
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0027-inserir-remover/`](0027-inserir-remover/). Os comandos funcionam de qualquer pasta do terminal.
@@ -439,10 +491,11 @@ sem precisar de `=`:
 
 ## 0028 · Consultar: indexOf, includes, find, findIndex, some, every
 
-> Tem açaí na lista? Em que posição? Algum produto passa de R$ 20? Todos
-> custam mais de R$ 5?
+Tem açaí na lista? Em que posição? Algum produto passa de R$ 20? Todos custam
+mais de R$ 5?
 
-Estes métodos **fazem perguntas** para o array e não mudam nada nele:
+Até agora, a gente mexia no array: colocava e tirava itens. Hoje a gente só
+**pergunta**. Estes métodos fazem perguntas para o array e não mudam nada nele:
 
 - `includes(x)`: tem o `x`? Responde `true` ou `false`.
 - `indexOf(x)`: em que posição está o `x`? Responde o índice, ou `-1` se não tem.
@@ -451,8 +504,9 @@ Estes métodos **fazem perguntas** para o array e não mudam nada nele:
 - `some(regra)`: **algum** item passa? `true` ou `false`.
 - `every(regra)`: **todos** passam? `true` ou `false`.
 
-Os quatro últimos recebem uma **regra** escrita assim: `(p) => p > 20`. Por
-enquanto, leia como "para cada preço `p`, pergunte: `p > 20`?". Na
+Os quatro últimos recebem uma **regra** escrita assim: `(p) => p > 20`.
+
+Por enquanto, leia como "para cada preço `p`, pergunte: `p > 20`?". Na
 [0034](#0034--arrow-functions-e-callbacks) você aprende o que é essa setinha.
 
 <p align="center"><img src="0028-consultar/ideia.svg" alt="Diagrama da ideia: Consultar: indexOf, includes, find, findIndex, some, every" width="858"></p>
@@ -469,10 +523,15 @@ console.log(precos.some((p) => p > 20)) // true
 console.log(precos.every((p) => p > 5)) // true
 ```
 
-O fluxograma mostra o que o `find` faz por dentro: olha item por item e para no
-primeiro que passa na regra. O 6 não passa, o 25 passa, e o 9 nem é olhado:
+Repara no fluxograma. Ele mostra o que o `find` faz por dentro: olha item por
+item e para no primeiro que passa na regra. O 6 não passa, o 25 passa, e o 9
+nem é olhado:
 
 <p align="center"><img src="0028-consultar/fluxograma.svg" alt="Fluxograma: Consultar: indexOf, includes, find, findIndex, some, every" width="800"></p>
+
+> [!NOTE]
+> **Pergunta para a turma:** o que o `find` devolve quando nenhum item passa na
+> regra? Troque o `p > 20` por `p > 100` e rode. (E o `findIndex`?)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0028-consultar/`](0028-consultar/). Os comandos funcionam de qualquer pasta do terminal.
@@ -492,11 +551,11 @@ primeiro que passa na regra. O 6 não passa, o 25 passa, e o 9 nem é olhado:
 
 ## 0029 · Transformar: map, filter, reduce, forEach
 
-> Uma esteira de fábrica: entra fruta, sai suco. Os métodos desta seção são
-> esteiras para arrays.
+Pensa numa esteira de fábrica: entra fruta, sai suco. Esses quatro métodos são
+esteiras para arrays.
 
-Estes quatro métodos passam por **todos os itens** do array, um por um, e
-aplicam uma regra em cada:
+Eles passam por **todos os itens** do array, um por um, e aplicam uma regra em
+cada:
 
 - `map(regra)`: **transforma** cada item e devolve um array novo do mesmo
   tamanho.
@@ -506,8 +565,8 @@ aplicam uma regra em cada:
 - `forEach(regra)`: só **faz algo** com cada item (mostrar, por exemplo). Não
   devolve nada.
 
-As notas da turma são `[8, 4, 9, 5]`. O `map` dobra cada uma, o `filter` deixa
-só as de 6 para cima e o `reduce` soma tudo:
+Vamos ver na prática. As notas da turma são `[8, 4, 9, 5]`. O `map` dobra cada
+uma, o `filter` deixa só as de 6 para cima e o `reduce` soma tudo:
 
 <p align="center"><img src="0029-transformar/ideia.svg" alt="Diagrama da ideia: Transformar: map, filter, reduce, forEach" width="858"></p>
 
@@ -521,11 +580,13 @@ const soma = notas.reduce((acc, n) => acc + n, 0) // 26
 notas.forEach((n) => console.log(`Nota: ${n}`))
 ```
 
-O `reduce` assusta no começo. O `acc` (de acumulador) começa com o `0` do fim e,
-a cada item, vira `acc + n`: 0 + 8 = 8, 8 + 4 = 12, 12 + 9 = 21, 21 + 5 = 26.
+O `reduce` assusta no começo. Calma.
 
-O fluxograma mostra o `map` por dentro. Ele monta um array novo, item por item,
-e não mexe no original:
+O `acc` (de acumulador) começa com o `0` do fim. A cada item, ele vira
+`acc + n`: 0 + 8 = 8, 8 + 4 = 12, 12 + 9 = 21, 21 + 5 = 26.
+
+Agora olha o `map` por dentro, no fluxograma. Ele monta um array novo, item por
+item, e não mexe no original:
 
 <p align="center"><img src="0029-transformar/fluxograma.svg" alt="Fluxograma: Transformar: map, filter, reduce, forEach" width="469"></p>
 
@@ -533,6 +594,10 @@ e não mexe no original:
 > Dá para **encadear**: o resultado de um vira a entrada do próximo.
 > `notas.filter((n) => n >= 6).map((n) => n * 2)` filtra e depois dobra:
 > `[16, 18]`.
+
+> [!NOTE]
+> **Pergunta para a turma:** se você trocar o `0` do `reduce` por `10`, quanto
+> dá a `soma`? Mude e rode. (Dica: o `acc` começa com esse valor.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0029-transformar/`](0029-transformar/). Os comandos funcionam de qualquer pasta do terminal.
@@ -552,10 +617,7 @@ e não mexe no original:
 
 ## 0030 · Organizar: sort, reverse, slice, join, concat
 
-> Arrumar a fila do recreio por altura muda a fila. Tirar uma foto da fila e
-> arrumar a foto deixa a fila do jeito que estava.
-
-Estes métodos organizam e recortam arrays:
+Agora a gente vai arrumar e recortar arrays. São estes métodos:
 
 - `sort(regra)`: **ordena**.
 - `reverse()`: **inverte** a ordem.
@@ -563,10 +625,11 @@ Estes métodos organizam e recortam arrays:
 - `join(separador)`: **junta** tudo num texto só.
 - `concat(outro)`: **emenda** dois arrays num novo.
 
-Preste atenção nesta diferença: alguns métodos **mudam o array
-original** e outros **devolvem um novo**, deixando o original como estava. No
-desenho, o `sort` arruma a própria fila; o `slice` tira uma foto e quem muda é a
-foto:
+Repara numa diferença aqui. Alguns métodos **mudam o array original**. Outros
+**devolvem um novo** e deixam o original do jeito que estava.
+
+Pensa na fila do recreio. O `sort` arruma a própria fila. O `slice` tira uma
+foto da fila, e quem você arruma é a foto:
 
 <p align="center"><img src="0030-organizar/ideia.svg" alt="Diagrama da ideia: Organizar: sort, reverse, slice, join, concat" width="858"></p>
 
@@ -582,6 +645,8 @@ console.log(notas.concat([7])) // [ 8, 10, 6, 9, 7 ]: array novo
 console.log(notas) // [ 8, 10, 6, 9 ]: o original não mudou
 ```
 
+Guarda essa tabela. Ela separa quem mexe no original de quem devolve um novo:
+
 | Mudam o original                                  | Devolvem um novo                     |
 | ------------------------------------------------- | ------------------------------------ |
 | `push`, `pop`, `shift`, `unshift`, `splice`, `sort`, `reverse` | `map`, `filter`, `slice`, `concat`, `join` |
@@ -589,10 +654,15 @@ console.log(notas) // [ 8, 10, 6, 9 ]: o original não mudou
 <p align="center"><img src="0030-organizar/fluxograma.svg" alt="Fluxograma: Organizar: sort, reverse, slice, join, concat" width="1245"></p>
 
 > [!WARNING]
-> O `sort` sem regra compara tudo **como texto**. Aí `[8, 10, 6, 9].sort()` dá
-> `[10, 6, 8, 9]`, porque o texto `'10'` vem antes de `'6'`. Para números, passe
-> sempre a regra `(a, b) => a - b` (do menor para o maior) ou `(a, b) => b - a`
-> (do maior para o menor).
+> Cuidado: o `sort` sem regra compara tudo **como texto**. Aí
+> `[8, 10, 6, 9].sort()` dá `[10, 6, 8, 9]`, porque o texto `'10'` vem antes de
+> `'6'`. Para números, passe sempre a regra `(a, b) => a - b` (do menor para o
+> maior) ou `(a, b) => b - a` (do maior para o menor).
+
+> [!NOTE]
+> **Pergunta para a turma:** se você trocar `notas.slice()` por só `notas` na
+> linha da `copia`, o que aparece no último `console.log`? Troque e rode.
+> (Dica: sem o `slice`, não tem foto.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0030-organizar/`](0030-organizar/). Os comandos funcionam de qualquer pasta do terminal.
@@ -612,15 +682,17 @@ console.log(notas) // [ 8, 10, 6, 9 ]: o original não mudou
 
 ## 0031 · Funções
 
-> Receita de bolo: você escreve uma vez e usa sempre que quiser, com os
-> ingredientes que tiver na hora.
+Pensa numa receita de bolo. Você escreve uma vez e usa sempre que quiser, com
+os ingredientes que tiver na hora.
 
-Uma **função** é um pedaço de código com nome, que você escreve uma vez e
-**chama** quantas vezes quiser. Ela recebe valores (os **parâmetros**), faz o
-trabalho e devolve um resultado com `return`.
+Função é isso. Um pedaço de código com nome, que você escreve uma vez e
+**chama** quantas vezes quiser.
 
-`calcularMedia` recebe um array de notas, soma tudo e divide pela quantidade.
-Chamada com `[8, 6, 10]`, ela devolve `8`:
+Ela recebe valores (os **parâmetros**), faz o trabalho e devolve um resultado
+com `return`.
+
+Vamos ver na prática. A `calcularMedia` recebe um array de notas, soma tudo e
+divide pela quantidade. Chamada com `[8, 6, 10]`, ela devolve `8`:
 
 <p align="center"><img src="0031-funcoes/ideia.svg" alt="Diagrama da ideia: Funções" width="858"></p>
 
@@ -634,18 +706,25 @@ console.log(calcularMedia([8, 6, 10])) // 8
 console.log(calcularMedia([5, 7])) // 6
 ```
 
-Lendo a primeira linha: `function` cria a função, `calcularMedia` é o nome,
-`valores: number[]` é o parâmetro com o tipo, e o `: number` depois dos
-parênteses é o **tipo do retorno**, o que ela devolve.
+Vamos ler a primeira linha juntos:
 
-No fluxograma, a chamada `calcularMedia([8, 6, 10])` entra, a função faz as
-contas e devolve o `8`:
+- `function` cria a função.
+- `calcularMedia` é o nome.
+- `valores: number[]` é o parâmetro, com o tipo.
+- o `: number` depois dos parênteses é o **tipo do retorno**, o que ela devolve.
+
+Olha só o fluxograma: a chamada `calcularMedia([8, 6, 10])` entra, a função faz
+as contas e devolve o `8`:
 
 <p align="center"><img src="0031-funcoes/fluxograma.svg" alt="Fluxograma: Funções" width="1075"></p>
 
 > [!NOTE]
-> O `return` encerra a função na hora. O que vier depois dele, dentro da
-> função, não roda.
+> Guarda isso: o `return` encerra a função na hora. O que vier depois dele,
+> dentro da função, não roda.
+
+> [!NOTE]
+> **Pergunta para a turma:** o que aparece se você chamar `calcularMedia([])`,
+> com o array vazio? Rode e confira. (Dica: quanto dá 0 dividido por 0?)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0031-funcoes/`](0031-funcoes/). Os comandos funcionam de qualquer pasta do terminal.
@@ -665,10 +744,13 @@ contas e devolve o `8`:
 
 ## 0032 · Parâmetro opcional, valor padrão e void
 
-> Pedido de açaí: o tamanho você tem que dizer. A granola é opcional. E o copo,
-> se você não falar nada, vem o de sempre.
+Até agora, toda função recebia tudo em toda chamada. Hoje isso muda: tem
+parâmetro que pode ficar de fora.
 
-Nem todo parâmetro precisa ser informado em toda chamada:
+Pensa no pedido de açaí. O tamanho você tem que dizer. A granola é opcional. E
+o copo, se você não falar nada, vem o de sempre.
+
+Com parâmetro é igual:
 
 - **Obrigatório**: `precos: number[]`. Sem ele, a função não tem com o que
   trabalhar.
@@ -677,8 +759,8 @@ Nem todo parâmetro precisa ser informado em toda chamada:
 - **Opcional**: `moeda?: string`. Pode ficar de fora, e aí dentro da função ele
   vale `undefined`.
 
-E tem função que não devolve nada, só faz alguma coisa, como mostrar na tela. O
-tipo do retorno dela é **`void`** (vazio).
+E tem função que não devolve nada. Ela só faz alguma coisa, como mostrar na
+tela. O tipo do retorno dela é **`void`** (vazio).
 
 <p align="center"><img src="0032-parametros/ideia.svg" alt="Diagrama da ideia: Parâmetro opcional, valor padrão e void" width="858"></p>
 
@@ -837,13 +919,19 @@ tsx ~/LPPOO/16102026/aula-02-logica-2/questao-17.ts
 ) // US$ 5.00
 ```
 
-O fluxograma mostra o que o `totalComDesconto` decide sozinho. Na primeira
+Repara no fluxograma o que o `totalComDesconto` decide sozinho. Na primeira
 chamada não veio desconto, então vale o padrão:
 
 <p align="center"><img src="0032-parametros/fluxograma.svg" alt="Fluxograma: Parâmetro opcional, valor padrão e void" width="475"></p>
 
 > [!NOTE]
-> Parâmetros opcionais e com valor padrão vêm **depois** dos obrigatórios.
+> Guarda isso: parâmetros opcionais e com valor padrão vêm **depois** dos
+> obrigatórios.
+
+> [!NOTE]
+> **Pergunta para a turma:** o que aparece com
+> `mostrarTotal(totalComDesconto([10, 20], 0.5))`? Acrescente a linha e rode.
+> (Dica: `0.5` é metade.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0032-parametros/`](0032-parametros/). Os comandos funcionam de qualquer pasta do terminal.
@@ -863,17 +951,23 @@ chamada não veio desconto, então vale o padrão:
 
 ## 0033 · Escopo de variáveis
 
-> O que se fala no grupo da sala fica no grupo da sala. Quem está fora não
-> fica sabendo.
+Pensa no grupo da sala no celular. O que se fala lá fica lá. Quem está fora não
+fica sabendo.
 
-**Escopo** é o pedaço do código onde uma variável existe. Uma variável criada
-fora de tudo, no arquivo, é **global**: o arquivo inteiro enxerga. Uma variável
-criada dentro de uma função só existe **lá dentro**, e some quando a função
-termina.
+Variável funciona parecido. **Escopo** é o pedaço do código onde uma variável
+existe.
+
+Uma variável criada fora de tudo, solta no arquivo, é **global**: o arquivo
+inteiro enxerga.
+
+Uma variável criada dentro de uma função só existe **lá dentro**. Quando a
+função termina, ela some.
 
 A regra é de mão única: quem está dentro enxerga o que está fora, mas quem está
-fora não enxerga o que está dentro. A função `saudar` usa a `escola`, que é
-global. Já a `mensagem` nasce e morre dentro da função:
+fora não enxerga o que está dentro.
+
+Olha só. A função `saudar` usa a `escola`, que é global. Já a `mensagem` nasce
+e morre dentro da função:
 
 <p align="center"><img src="0033-escopo/ideia.svg" alt="Diagrama da ideia: Escopo de variáveis" width="858"></p>
 
@@ -889,15 +983,19 @@ saudar('Ana') // Oi, Ana! Bem-vinda ao CETAM.
 // console.log(mensagem) // erro: a mensagem não existe aqui fora
 ```
 
-No fluxograma, `nome` e `mensagem` aparecem quando a função é chamada e somem
-quando ela acaba:
+No fluxograma, repara que `nome` e `mensagem` aparecem quando a função é
+chamada e somem quando ela acaba:
 
 <p align="center"><img src="0033-escopo/fluxograma.svg" alt="Fluxograma: Escopo de variáveis" width="1537"></p>
 
 > [!NOTE]
-> Não é só função: todo bloco entre `{ }`, como o de um `if` ou de um `for`,
-> tem o seu escopo para `let` e `const`. Foi por isso que o `i` do `for` não
+> Isso vale para todo bloco entre `{ }`, como o de um `if` ou de um `for`. Cada
+> um tem o seu escopo para `let` e `const`. Foi por isso que o `i` do `for` não
 > existia depois do laço, na [0023](#0023--laço-for).
+
+> [!NOTE]
+> **Pergunta para a turma:** o que acontece se você tirar o `//` da última
+> linha e rodar? Teste. (Dica: leia a mensagem de erro com calma.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0033-escopo/`](0033-escopo/). Os comandos funcionam de qualquer pasta do terminal.
@@ -917,11 +1015,10 @@ quando ela acaba:
 
 ## 0034 · Arrow functions e callbacks
 
-> Você entrega a receita e outra pessoa cozinha. No `map`, ele é o cozinheiro e
-> a sua função é a receita.
+Até agora, toda função começou com a palavra `function`. Tem um jeito mais
+curto de escrever: a **arrow function** (função seta).
 
-Existe um jeito mais curto de escrever função: a **arrow function** (função
-seta). Estas duas fazem a mesma coisa:
+Olha só. As duas abaixo são funções, cada uma escrita de um jeito:
 
 ```ts
 function dobrar(n: number): number {
@@ -930,12 +1027,16 @@ function dobrar(n: number): number {
 const triplicar = (n: number): number => n * 3 // arrow function
 ```
 
-Quando a arrow tem uma linha só, o resultado depois da `=>` já é o `return`.
+Quando a arrow tem uma linha só, o que vem depois da `=>` já é o `return`.
 
-E dá para **passar uma função para outra função**. A que você passa se chama
-**callback**: a outra função vai chamar a sua depois, na hora certa. É isso que
-acontece no `map`, no `filter` e no `find`: você entrega a regra e o método
-chama a regra para cada item:
+Agora outra novidade: dá para **passar uma função para outra função**.
+
+A função que você passa se chama **callback**. A outra função vai chamar a sua
+depois, na hora certa.
+
+Pensa assim: você entrega a receita e outra pessoa cozinha. No `map`, ele é o
+cozinheiro e a sua função é a receita. O mesmo vale para o `filter` e o `find`:
+você entrega a regra e o método chama a regra para cada item:
 
 <p align="center"><img src="0034-arrow-callback/ideia.svg" alt="Diagrama da ideia: Arrow functions e callbacks" width="858"></p>
 
@@ -947,10 +1048,16 @@ console.log(notas.map(triplicar)) // [ 12, 15 ]
 console.log(notas.map((n) => n + 1)) // [ 5, 6 ]: arrow escrita ali mesmo
 ```
 
-Repare que é `notas.map(dobrar)`, sem parênteses depois de `dobrar`: você está
-entregando a função, não chamando. Quem chama é o `map`, uma vez para cada nota:
+Repara: é `notas.map(dobrar)`, sem parênteses depois de `dobrar`. Você está
+entregando a função, e não chamando.
+
+Quem chama é o `map`, uma vez para cada nota:
 
 <p align="center"><img src="0034-arrow-callback/fluxograma.svg" alt="Fluxograma: Arrow functions e callbacks" width="557"></p>
+
+> [!NOTE]
+> **Pergunta para a turma:** quantas vezes o `map` chama a `dobrar` neste
+> exemplo? Coloque um `console.log(n)` dentro da `dobrar` e rode para conferir.
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0034-arrow-callback/`](0034-arrow-callback/). Os comandos funcionam de qualquer pasta do terminal.
@@ -970,18 +1077,22 @@ entregando a função, não chamando. Quem chama é o `map`, uma vez para cada n
 
 ## 0035 · Tipo de função e tipagem contextual
 
-> A tomada de três pinos aceita qualquer aparelho, desde que o plugue seja do
-> formato certo.
+Variável tem tipo. E função? Também tem.
 
-Funções também têm tipo. O tipo de uma função diz **o que ela recebe e o que
-ela devolve**, e dá para dar um nome para ele com `type`:
+O tipo de uma função diz **o que ela recebe e o que ela devolve**. E dá para
+dar um nome para ele com `type`:
 
 ```ts
 type Operacao = (a: number, b: number) => number
 ```
 
 Lê assim: "uma `Operacao` é qualquer função que recebe dois números e devolve
-um número". É a tomada. `somar` e `multiplicar` têm o plugue certo e encaixam.
+um número".
+
+Pensa numa tomada de três pinos. Ela aceita qualquer aparelho, desde que o
+plugue seja do formato certo.
+
+O `Operacao` é a tomada. `somar` e `multiplicar` têm o plugue certo e encaixam.
 Uma função que junta textos não encaixa:
 
 <p align="center"><img src="0035-tipo-de-funcao/ideia.svg" alt="Diagrama da ideia: Tipo de função e tipagem contextual" width="858"></p>
@@ -1000,11 +1111,18 @@ console.log(calcular(6, 7, somar)) // 13
 console.log(calcular(6, 7, multiplicar)) // 42
 ```
 
-Repare em `(a, b) => a + b`: não tem tipo nenhum escrito no `a` nem no `b`, e
-mesmo assim o TypeScript sabe que são números. Ele tira do `Operacao`. Isso é a
-**tipagem contextual**, a mesma que faz o `n` do `map` ser `number` sozinho.
+Repara em `(a, b) => a + b`. Não tem tipo nenhum escrito no `a` nem no `b`. E
+mesmo assim o TypeScript sabe que são números.
+
+Ele tira essa informação do `Operacao`. Isso se chama **tipagem contextual**. É
+a mesma coisa que faz o `n` do `map` ser `number` sozinho.
 
 <p align="center"><img src="0035-tipo-de-funcao/fluxograma.svg" alt="Fluxograma: Tipo de função e tipagem contextual" width="1113"></p>
+
+> [!NOTE]
+> **Pergunta para a turma:** crie `const subtrair: Operacao = (a, b) => a - b`.
+> Quanto dá `calcular(6, 7, subtrair)`? Rode e confira. (Dica: pode dar número
+> negativo.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0035-tipo-de-funcao/`](0035-tipo-de-funcao/). Os comandos funcionam de qualquer pasta do terminal.
@@ -1024,12 +1142,13 @@ mesmo assim o TypeScript sabe que são números. Ele tira do `Operacao`. Isso é
 
 ## 0036 · Juntando tudo: as notas da turma
 
-> Tudo da aula num programa só: pedir as notas, guardar num array e usar
-> funções e métodos para tirar as respostas.
+Hora de juntar tudo num programa só. Esse é o fechamento da aula.
 
-O programa abaixo é o fechamento da aula. Ele pede notas até você responder
-`n`, guarda tudo num array e depois mostra a média, as notas de 6 para cima, as
-notas dobradas e a lista numerada. Cada linha usa uma seção desta aula:
+O programa pede notas até você responder `n` e guarda tudo num array. Depois
+ele mostra a média, as notas de 6 para cima, as notas dobradas e a lista
+numerada.
+
+Cada parte usa uma seção desta aula. Olha só:
 
 | Parte do programa                    | Seção                                  |
 | ------------------------------------ | -------------------------------------- |
@@ -1039,7 +1158,7 @@ notas dobradas e a lista numerada. Cada linha usa uma seção desta aula:
 | `filter`, `map` e `join`             | [0029](#0029--transformar-map-filter-reduce-foreach) e [0030](#0030--organizar-sort-reverse-slice-join-concat) |
 | `for` com índice                     | [0023](#0023--laço-for)                |
 
-Você digita 8, 5 e 9, e depois `n`:
+Vamos ver na prática. Você digita 8, 5 e 9, e depois `n`:
 
 <p align="center"><img src="0036-juntando-tudo/ideia.svg" alt="Diagrama da ideia: Juntando tudo: as notas da turma" width="870"></p>
 
@@ -1072,9 +1191,15 @@ for (let i = 0; i < notas.length; i++) {
 }
 ```
 
-O fluxograma mostra as três voltas do `do...while` e depois o relatório:
+No fluxograma, repara nas três voltas do `do...while`. Depois delas vem o
+relatório:
 
 <p align="center"><img src="0036-juntando-tudo/fluxograma.svg" alt="Fluxograma: Juntando tudo: as notas da turma" width="378"></p>
+
+> [!NOTE]
+> **Pergunta para a turma:** se você digitar só uma nota, `4`, e responder `n`,
+> o que aparece na linha "Notas de 6 para cima"? Rode e confira. (Dica: o
+> `filter` pode devolver um array vazio.)
 
 > [!NOTE]
 > **Hora de praticar:** os arquivos deste assunto ficam em [`0036-juntando-tudo/`](0036-juntando-tudo/). Os comandos funcionam de qualquer pasta do terminal.
