@@ -3,8 +3,8 @@
 > Cada peça desta aula tem lugar na ficha da secretaria: a matrícula que não
 > muda, o turno que só tem três opções, a situação que muda de formato.
 
-Este assunto não traz nada novo. Ele junta as peças num programa só, um
-pequeno cadastro de alunos:
+Hora de juntar as peças num programa só, um pequeno cadastro de alunos. Cada
+parte usa um assunto da aula:
 
 - `Turno`: **união de literais** (0045);
 - `Aluno`: **interface** com **readonly** e **opcional** (0043, 0044);

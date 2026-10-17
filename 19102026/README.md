@@ -2,23 +2,34 @@
 
 # Aula 03 · 19/10 · TypeScript
 
-Nas aulas 01 e 02 o TypeScript estava lá, mas a gente olhou para a lógica. Hoje
-ele é o assunto. Você vai ver **como ele funciona**, **por que escolhemos ele**
-e as ferramentas que ele dá para descrever os dados: tipos de objeto,
-interfaces, uniões, generics, tipos utilitários e as regras do `tsconfig.json`.
+Até aqui você escreveu TypeScript pensando na lógica. Hoje o assunto são os
+**tipos**: o jeito de dizer ao TypeScript que formato cada dado tem, para ele
+avisar o erro antes de o programa rodar.
 
-Tudo aqui prepara as próximas aulas. Em POO, as classes seguem interfaces; no
-frontend, os componentes recebem dados com tipos. Quem entende os tipos lê o
-erro do editor e já sabe o que corrigir.
+## O que você vai aprender
 
-Mesmo formato das aulas anteriores: cada assunto gira em torno de um exemplo
-só, contado no texto, no **diagrama da ideia**, no código e no **fluxograma**.
-Nesta aula os diagramas mostram mais **formatos** (as fichas com as
-propriedades de cada tipo) e menos contas.
+- como o TypeScript funciona e por que ele foi escolhido
+- descrever objetos com `type` e `interface`
+- dizer "isto ou aquilo" com uniões e "isto e aquilo" com interseções
+- escrever funções que servem para qualquer tipo, com generics
+- criar variações de um tipo com os tipos utilitários
+- ler as regras do `tsconfig.json` e conferir o projeto com o `tsc`
+
+Quem entende os tipos lê o erro do editor e já sabe o que corrigir. E vai
+precisar disso: em POO as classes seguem interfaces, e no frontend os
+componentes recebem dados tipados.
+
+## Como estudar cada assunto
+
+1. Leia o texto e olhe o **diagrama da ideia**: é o exemplo desenhado.
+2. Leia o código. É o mesmo exemplo, com os mesmos valores.
+3. Siga o **fluxograma** com o dedo: é o caminho que o programa faz.
+4. Rode os exemplos da pasta. Mude alguma coisa e rode de novo.
+5. Faça os exercícios. Travou? As dicas estão no próprio arquivo.
 
 ## As cores e as formas
 
-As mesmas das aulas 01 e 02. Caixa azul é dado entrando ou saindo, roxa é o
+Caixa azul é dado entrando ou saindo, roxa é o
 programa fazendo alguma coisa, amarela é pergunta. Os tipos de objeto aparecem
 como uma **ficha**, com o nome da propriedade à esquerda e o tipo à direita.
 
@@ -28,8 +39,8 @@ como uma **ficha**, com o nome da propriedade à esquerda e o tipo à direita.
 
 > [!IMPORTANT]
 > O `tsx` **roda** o arquivo, mas **não confere os tipos**. Quem confere é o
-> editor (o sublinhado vermelho) e o comando `pnpm -C ~/LPPOO tsc`. Nesta aula,
-> rode o `tsc` sempre que terminar um exercício. O assunto 0053 explica.
+> editor (o sublinhado vermelho) e o comando `pnpm -C ~/LPPOO tsc`. Rode o
+> `tsc` sempre que terminar um exercício. O assunto 0053 explica.
 
 > [!TIP]
 > Os quadros **Poder do TypeScript** mostram o erro que o TypeScript dá quando
@@ -107,8 +118,8 @@ escreve.
 ### Por que TypeScript nesta disciplina?
 
 A orientação a objetos é a mesma em Java, C# ou TypeScript: classe, objeto,
-herança, interface. O que muda é a escrita. A gente escolheu TypeScript por
-quatro motivos:
+herança, interface. O que muda é a escrita. São quatro motivos para usar o
+TypeScript:
 
 - **É a língua do próximo semestre.** A disciplina seguinte é Web/Frontend, com
   React e Vite, e o back-end com Node também é JavaScript. Você aprende POO
@@ -116,7 +127,7 @@ quatro motivos:
 - **Avisa o erro antes de rodar.** Errou o nome de um método ou colocou texto
   onde era número? O editor mostra na hora, sem precisar rodar o programa.
 - **Tem tudo que a POO precisa.** Classes, `interface`, `private`, `abstract`
-  e *generics* existem no TypeScript e aparecem a partir da aula 04.
+  e *generics* existem no TypeScript, e você vai usar todos eles.
 - **O editor vira um ajudante.** Como ele sabe o tipo de cada coisa, o Zed
   sugere os métodos certos: escreva `preco.` e ele mostra o que um número sabe
   fazer.
@@ -148,12 +159,12 @@ problema é o mesmo; muda como você quebra ele em partes. Os três que mais
 aparecem:
 
 - **Imperativo:** você dá as ordens passo a passo e vai mudando variáveis.
-  Foi o que a gente mais fez na aula 01, com `let`, `if` e `for`.
+  É o que você fez nas aulas 01 e 02, com `let`, `if` e `for`.
 - **Funcional:** você monta o resultado com funções que recebem valores e
   devolvem valores novos, sem mudar nada no caminho. É o `map`, o `filter` e o
   `reduce` da aula 02.
 - **Orientado a objetos (POO):** você cria **objetos** que juntam dados e as
-  ações sobre eles. É o assunto desta disciplina, a partir da aula 04.
+  ações sobre eles. É o jeito que você vai usar daqui em diante.
 
 A média da turma, nos três estilos, dá o mesmo 8:
 
@@ -191,8 +202,8 @@ estilo que combina com cada pedaço:
 <p align="center"><img src="0038-paradigmas/fluxograma.svg" alt="Fluxograma: Paradigmas de programação" width="713"></p>
 
 > [!NOTE]
-> Não se preocupe ainda com `class`, `constructor` e `this`. Eles são o assunto
-> da aula 04. Aqui a ideia é só ver que existe esse terceiro jeito.
+> Não se preocupe ainda com `class`, `constructor` e `this`: você aprende cada
+> um com calma na aula 04. Por agora, basta saber que esse terceiro jeito existe.
 
 > [!TIP]
 > **Poder do TypeScript:** na POO, um objeto pode esconder os próprios dados. O
@@ -1248,8 +1259,8 @@ O ciclo do dia a dia é este:
 > Cada peça desta aula tem lugar na ficha da secretaria: a matrícula que não
 > muda, o turno que só tem três opções, a situação que muda de formato.
 
-Este assunto não traz nada novo. Ele junta as peças num programa só, um
-pequeno cadastro de alunos:
+Hora de juntar as peças num programa só, um pequeno cadastro de alunos. Cada
+parte usa um assunto da aula:
 
 - `Turno`: **união de literais** (0045);
 - `Aluno`: **interface** com **readonly** e **opcional** (0043, 0044);

@@ -1,17 +1,27 @@
 # Aula 01 · 15/10 · Revisão de lógica I
 
-Hoje a gente relembra o básico que quase todo programa usa: ler o que a pessoa
-digita, guardar, fazer conta, comparar e decidir. São 20 assuntos curtos, e
-cada um aproveita o anterior.
+Quase todo programa faz as mesmas cinco coisas: lê o que a pessoa digita,
+guarda, faz conta, compara e decide. Hoje você pratica cada uma delas,
+escrevendo em TypeScript.
 
-O foco aqui é **lógica de programação**. A gente escreve em TypeScript desde o
-primeiro dia, mas o que o TypeScript tem de especial fica para a
-[aula 03](../19102026/README.md).
+## O que você vai aprender
 
-Cada assunto gira em torno de um exemplo só. Primeiro vem o texto, depois um
-**diagrama da ideia** com esse exemplo em caixas, o código em TypeScript e, por
-fim, o **fluxograma** com o caminho que o código percorre. Se a Bia tem média 5
-no texto, ela tem média 5 no desenho e no código também.
+- ler dados do teclado e mostrar o resultado na tela
+- guardar valores em variáveis e constantes
+- trabalhar com texto, número e verdadeiro ou falso
+- fazer contas e comparar valores
+- escolher o caminho do programa com `if`, ternário e `switch`
+
+## Como estudar cada assunto
+
+1. Leia o texto e olhe o **diagrama da ideia**: é o exemplo desenhado.
+2. Leia o código. É o mesmo exemplo, com os mesmos valores.
+3. Siga o **fluxograma** com o dedo: é o caminho que o programa faz.
+4. Rode os exemplos da pasta. Mude alguma coisa e rode de novo.
+5. Faça os exercícios. Travou? As dicas estão no próprio arquivo.
+
+Cada assunto conta **um exemplo só**. Se a Bia tem média 5 no texto, ela tem
+média 5 no desenho, no código e no fluxograma.
 
 ## As cores e as formas
 
@@ -26,7 +36,7 @@ caminho do exemplo fica colorido e o resto fica apagado.
 
 ## Os assuntos
 
-Leia na ordem. Em cada um, depois de ler, abra a pasta e rode os exemplos.
+São 20 assuntos curtos, e cada um usa o anterior. Leia na ordem.
 
 {{indice}}
 

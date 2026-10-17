@@ -11,7 +11,7 @@ Estes métodos organizam e recortam arrays:
 - `join(separador)`: **junta** tudo num texto só.
 - `concat(outro)`: **emenda** dois arrays num novo.
 
-O mais importante desta seção é uma diferença: alguns métodos **mudam o array
+Preste atenção nesta diferença: alguns métodos **mudam o array
 original** e outros **devolvem um novo**, deixando o original como estava. No
 desenho, o `sort` arruma a própria fila; o `slice` tira uma foto e quem muda é a
 foto:

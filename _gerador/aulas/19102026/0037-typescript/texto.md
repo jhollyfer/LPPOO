@@ -41,8 +41,8 @@ escreve.
 ### Por que TypeScript nesta disciplina?
 
 A orientação a objetos é a mesma em Java, C# ou TypeScript: classe, objeto,
-herança, interface. O que muda é a escrita. A gente escolheu TypeScript por
-quatro motivos:
+herança, interface. O que muda é a escrita. São quatro motivos para usar o
+TypeScript:
 
 - **É a língua do próximo semestre.** A disciplina seguinte é Web/Frontend, com
   React e Vite, e o back-end com Node também é JavaScript. Você aprende POO
@@ -50,7 +50,7 @@ quatro motivos:
 - **Avisa o erro antes de rodar.** Errou o nome de um método ou colocou texto
   onde era número? O editor mostra na hora, sem precisar rodar o programa.
 - **Tem tudo que a POO precisa.** Classes, `interface`, `private`, `abstract`
-  e *generics* existem no TypeScript e aparecem a partir da aula 04.
+  e *generics* existem no TypeScript, e você vai usar todos eles.
 - **O editor vira um ajudante.** Como ele sabe o tipo de cada coisa, o Zed
   sugere os métodos certos: escreva `preco.` e ele mostra o que um número sabe
   fazer.

@@ -1,22 +1,33 @@
 # Aula 03 · 19/10 · TypeScript
 
-Nas aulas 01 e 02 o TypeScript estava lá, mas a gente olhou para a lógica. Hoje
-ele é o assunto. Você vai ver **como ele funciona**, **por que escolhemos ele**
-e as ferramentas que ele dá para descrever os dados: tipos de objeto,
-interfaces, uniões, generics, tipos utilitários e as regras do `tsconfig.json`.
+Até aqui você escreveu TypeScript pensando na lógica. Hoje o assunto são os
+**tipos**: o jeito de dizer ao TypeScript que formato cada dado tem, para ele
+avisar o erro antes de o programa rodar.
 
-Tudo aqui prepara as próximas aulas. Em POO, as classes seguem interfaces; no
-frontend, os componentes recebem dados com tipos. Quem entende os tipos lê o
-erro do editor e já sabe o que corrigir.
+## O que você vai aprender
 
-Mesmo formato das aulas anteriores: cada assunto gira em torno de um exemplo
-só, contado no texto, no **diagrama da ideia**, no código e no **fluxograma**.
-Nesta aula os diagramas mostram mais **formatos** (as fichas com as
-propriedades de cada tipo) e menos contas.
+- como o TypeScript funciona e por que ele foi escolhido
+- descrever objetos com `type` e `interface`
+- dizer "isto ou aquilo" com uniões e "isto e aquilo" com interseções
+- escrever funções que servem para qualquer tipo, com generics
+- criar variações de um tipo com os tipos utilitários
+- ler as regras do `tsconfig.json` e conferir o projeto com o `tsc`
+
+Quem entende os tipos lê o erro do editor e já sabe o que corrigir. E vai
+precisar disso: em POO as classes seguem interfaces, e no frontend os
+componentes recebem dados tipados.
+
+## Como estudar cada assunto
+
+1. Leia o texto e olhe o **diagrama da ideia**: é o exemplo desenhado.
+2. Leia o código. É o mesmo exemplo, com os mesmos valores.
+3. Siga o **fluxograma** com o dedo: é o caminho que o programa faz.
+4. Rode os exemplos da pasta. Mude alguma coisa e rode de novo.
+5. Faça os exercícios. Travou? As dicas estão no próprio arquivo.
 
 ## As cores e as formas
 
-As mesmas das aulas 01 e 02. Caixa azul é dado entrando ou saindo, roxa é o
+Caixa azul é dado entrando ou saindo, roxa é o
 programa fazendo alguma coisa, amarela é pergunta. Os tipos de objeto aparecem
 como uma **ficha**, com o nome da propriedade à esquerda e o tipo à direita.
 
@@ -26,8 +37,8 @@ como uma **ficha**, com o nome da propriedade à esquerda e o tipo à direita.
 
 > [!IMPORTANT]
 > O `tsx` **roda** o arquivo, mas **não confere os tipos**. Quem confere é o
-> editor (o sublinhado vermelho) e o comando `pnpm -C ~/LPPOO tsc`. Nesta aula,
-> rode o `tsc` sempre que terminar um exercício. O assunto 0053 explica.
+> editor (o sublinhado vermelho) e o comando `pnpm -C ~/LPPOO tsc`. Rode o
+> `tsc` sempre que terminar um exercício. O assunto 0053 explica.
 
 > [!TIP]
 > Os quadros **Poder do TypeScript** mostram o erro que o TypeScript dá quando

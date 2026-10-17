@@ -2,20 +2,29 @@
 
 # Aula 02 · 16/10 · Revisão de lógica II
 
-Na aula 01 cada linha rodava uma vez e cada variável guardava um valor. Hoje
-isso muda: os **laços** repetem, os **arrays** guardam vários valores numa
-etiqueta só e as **funções** dão nome a um pedaço de código para usar de novo.
-É a base de tudo que vem depois, em POO e no frontend.
+Até agora, cada linha do programa rodava uma vez e cada variável guardava um
+valor só. Hoje isso muda.
 
-O foco continua sendo **lógica de programação**, escrita em TypeScript.
+## O que você vai aprender
 
-Mesmo formato da aula 01: cada assunto gira em torno de um exemplo só, contado
-no texto, no **diagrama da ideia**, no código e no **fluxograma**. Nos laços, o
-fluxograma ganha uma seta que **volta**.
+- repetir um trecho de código com **laços** (`while`, `do...while`, `for`, `for...of`)
+- guardar vários valores numa etiqueta só com **arrays**
+- buscar, transformar e organizar listas com os métodos de array
+- dar nome a um pedaço de código com **funções**, para usar de novo
+
+## Como estudar cada assunto
+
+1. Leia o texto e olhe o **diagrama da ideia**: é o exemplo desenhado.
+2. Leia o código. É o mesmo exemplo, com os mesmos valores.
+3. Siga o **fluxograma** com o dedo: é o caminho que o programa faz.
+4. Rode os exemplos da pasta. Mude alguma coisa e rode de novo.
+5. Faça os exercícios. Travou? As dicas estão no próprio arquivo.
+
+Nos laços, o fluxograma ganha uma seta que **volta**: é a repetição.
 
 ## As cores e as formas
 
-As mesmas da aula 01. Caixa azul é dado entrando ou saindo, roxa é o programa
+Caixa azul é dado entrando ou saindo, roxa é o programa
 fazendo alguma coisa, amarela é pergunta. Os arrays aparecem como uma fileira
 de gavetas com o índice embaixo de cada uma, começando do 0.
 
@@ -24,15 +33,14 @@ de gavetas com o índice embaixo de cada uma, começando do 0.
 ## Antes de começar
 
 > [!IMPORTANT]
-> Este projeto liga uma opção do TypeScript que faz `notas[i]` poder ser
-> `undefined`, porque a posição `i` pode não existir. Na hora de fazer conta com
-> um item do array, o editor reclama. Por isso, para percorrer arrays, prefira o
-> `for...of` (seção 0026). A explicação completa fica para a
-> [aula 03](../19102026/README.md).
+> No nosso projeto, `notas[i]` pode ser `undefined`, porque a posição `i` pode
+> não existir. Por isso o editor reclama quando você faz conta direto com um
+> item do array. Para percorrer arrays, prefira o `for...of` (assunto 0026). O
+> porquê está no assunto 0053 da [aula 03](../19102026/README.md).
 
 ## Os assuntos
 
-Leia na ordem. Em cada um, depois de ler, abra a pasta e rode os exemplos.
+Leia na ordem: cada assunto usa o anterior.
 
 | # | Assunto | Pasta |
 | --- | --- | --- |
@@ -445,7 +453,7 @@ Estes métodos **fazem perguntas** para o array e não mudam nada nele:
 
 Os quatro últimos recebem uma **regra** escrita assim: `(p) => p > 20`. Por
 enquanto, leia como "para cada preço `p`, pergunte: `p > 20`?". Na
-[0034](#0034--arrow-functions-e-callbacks) a gente vê o que essa setinha é.
+[0034](#0034--arrow-functions-e-callbacks) você aprende o que é essa setinha.
 
 <p align="center"><img src="0028-consultar/ideia.svg" alt="Diagrama da ideia: Consultar: indexOf, includes, find, findIndex, some, every" width="858"></p>
 
@@ -555,7 +563,7 @@ Estes métodos organizam e recortam arrays:
 - `join(separador)`: **junta** tudo num texto só.
 - `concat(outro)`: **emenda** dois arrays num novo.
 
-O mais importante desta seção é uma diferença: alguns métodos **mudam o array
+Preste atenção nesta diferença: alguns métodos **mudam o array
 original** e outros **devolvem um novo**, deixando o original como estava. No
 desenho, o `sort` arruma a própria fila; o `slice` tira uma foto e quem muda é a
 foto:

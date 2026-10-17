@@ -9,12 +9,12 @@ problema é o mesmo; muda como você quebra ele em partes. Os três que mais
 aparecem:
 
 - **Imperativo:** você dá as ordens passo a passo e vai mudando variáveis.
-  Foi o que a gente mais fez na aula 01, com `let`, `if` e `for`.
+  É o que você fez nas aulas 01 e 02, com `let`, `if` e `for`.
 - **Funcional:** você monta o resultado com funções que recebem valores e
   devolvem valores novos, sem mudar nada no caminho. É o `map`, o `filter` e o
   `reduce` da aula 02.
 - **Orientado a objetos (POO):** você cria **objetos** que juntam dados e as
-  ações sobre eles. É o assunto desta disciplina, a partir da aula 04.
+  ações sobre eles. É o jeito que você vai usar daqui em diante.
 
 A média da turma, nos três estilos, dá o mesmo 8:
 
@@ -52,8 +52,8 @@ estilo que combina com cada pedaço:
 {{fluxograma}}
 
 > [!NOTE]
-> Não se preocupe ainda com `class`, `constructor` e `this`. Eles são o assunto
-> da aula 04. Aqui a ideia é só ver que existe esse terceiro jeito.
+> Não se preocupe ainda com `class`, `constructor` e `this`: você aprende cada
+> um com calma na aula 04. Por agora, basta saber que esse terceiro jeito existe.
 
 > [!TIP]
 > **Poder do TypeScript:** na POO, um objeto pode esconder os próprios dados. O

@@ -14,7 +14,7 @@ Estes métodos **fazem perguntas** para o array e não mudam nada nele:
 
 Os quatro últimos recebem uma **regra** escrita assim: `(p) => p > 20`. Por
 enquanto, leia como "para cada preço `p`, pergunte: `p > 20`?". Na
-[0034](#0034--arrow-functions-e-callbacks) a gente vê o que essa setinha é.
+[0034](#0034--arrow-functions-e-callbacks) você aprende o que é essa setinha.
 
 {{ideia}}
 
