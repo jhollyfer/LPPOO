@@ -56,7 +56,7 @@ O fluxograma ajuda a escolher o estilo que combina com cada pedaço:
 {{fluxograma}}
 
 > [!NOTE]
-> Calma com `class`, `constructor` e `this`: você aprende cada um com calma na
+> Não se preocupe ainda com `class`, `constructor` e `this`: você aprende cada um na
 > aula 04. Por agora, basta saber que esse terceiro jeito existe.
 
 > [!TIP]

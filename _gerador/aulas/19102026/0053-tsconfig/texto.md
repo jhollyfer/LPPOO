@@ -1,11 +1,12 @@
 ## 0053 · tsconfig: strict e as regras do projeto
 
-> O regulamento da escola diz o que pode e o que não pode. O coordenador não
-> inventa regra: ele aplica o regulamento.
+Pensa no regulamento da escola. Ele diz o que pode e o que não pode. O
+coordenador não inventa regra: ele aplica o regulamento.
 
-O arquivo **`tsconfig.json`**, na raiz do projeto, é o regulamento. Ele diz ao
-TypeScript **o quanto ele deve ser exigente**. O nosso liga as regras mais
-rígidas:
+No projeto, o regulamento é o arquivo **`tsconfig.json`**, na raiz. Ele diz
+ao TypeScript **o quanto ele deve ser exigente**.
+
+O nosso liga as regras mais rígidas:
 
 | Opção                         | O que ela cobra                                         |
 | ----------------------------- | ------------------------------------------------------- |
@@ -16,9 +17,11 @@ rígidas:
 | `noImplicitReturns`           | função que esquece o `return` em algum caminho          |
 | `noFallthroughCasesInSwitch`  | `case` sem `break` que cai no próximo                   |
 
-Uma coisa importante: o **`tsx` só roda**, ele **não confere tipos**. Quem
-confere é o **`tsc`**, o compilador. Rode `pnpm -C ~/LPPOO tsc` (de qualquer pasta) e ele
-lista os erros do projeto inteiro, com o arquivo e a linha:
+Agora guarda isso: o **`tsx` só roda**. Ele **não confere tipos**.
+
+Quem confere é o **`tsc`**, o compilador. Rode `pnpm -C ~/LPPOO tsc` (de
+qualquer pasta) e ele lista os erros do projeto inteiro, com o arquivo e a
+linha:
 
 {{ideia}}
 
@@ -43,17 +46,22 @@ O ciclo do dia a dia é este:
 {{fluxograma}}
 
 > [!IMPORTANT]
-> O `tsc` confere **todos** os arquivos. Um exercício pela metade em
-> outra pasta também aparece na lista. Leia o caminho do arquivo no começo de
+> O `tsc` confere **todos** os arquivos. Aquele exercício pela metade em outra
+> pasta também aparece na lista. Então leia o caminho do arquivo no começo de
 > cada erro.
 
 > [!TIP]
-> **Poder do TypeScript:** variável esquecida vira aviso, e o código fica
-> limpo:
+> **Poder do TypeScript:** esqueceu uma variável sem usar? Vira aviso, e o
+> código fica limpo:
 >
 > ```ts
 > const naoUsada = 1
 > // erro: 'naoUsada' is declared but its value is never read.
 > ```
+
+> [!NOTE]
+> **Pergunta para a turma:** apague a linha `return 'recuperação'` e rode com
+> o `tsx`. O que aparece? E o `tsc`, o que ele diz? (Dica: só um dos dois
+> confere tipos.)
 
 {{pratique}}

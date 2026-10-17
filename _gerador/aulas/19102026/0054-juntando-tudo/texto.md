@@ -1,10 +1,9 @@
 ## 0054 · Juntando tudo: cadastro de alunos tipado
 
-> Cada peça desta aula tem lugar na ficha da secretaria: a matrícula que não
-> muda, o turno que só tem três opções, a situação que muda de formato.
+Hora de juntar as peças num programa só: um pequeno cadastro de alunos, como
+a ficha da secretaria.
 
-Hora de juntar as peças num programa só, um pequeno cadastro de alunos. Cada
-parte usa um assunto da aula:
+Repara que cada parte usa um assunto da aula:
 
 - `Turno`: **união de literais** (0045);
 - `Aluno`: **interface** com **readonly** e **opcional** (0043, 0044);
@@ -14,6 +13,8 @@ parte usa um assunto da aula:
 - `vagas`: **Record** (0051), uma chave por turno.
 
 {{ideia}}
+
+Vamos ver tudo junto:
 
 ```ts
 type Turno = 'manhã' | 'tarde' | 'noite'
@@ -54,13 +55,18 @@ for (const a of turma) {
 // A02 Zé: recuperação (faltam 2)
 ```
 
-O caminho de um aluno pelo cadastro:
+Olha o caminho de um aluno pelo cadastro:
 
 {{fluxograma}}
 
 > [!TIP]
 > Faça o teste: tente `turma[0].matricula = 'X'`, `turno: 'madrugada'` ou
-> `s.media` fora do `if`. Cada peça barra um erro diferente, e foi para isso
-> que você aprendeu cada uma.
+> `s.media` fora do `if`. Cada peça barra um erro diferente. Foi para isso que
+> você aprendeu cada uma.
+
+> [!NOTE]
+> **Pergunta para a turma:** se o José tirar 7 em vez de 5, o que aparece na
+> segunda linha? Mude a nota e rode. (Dica: olhe o `>=` da função
+> `situacao`.)
 
 {{pratique}}
