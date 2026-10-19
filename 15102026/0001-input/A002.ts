@@ -7,3 +7,6 @@ const bairro = input('E o bairro? ')
 
 console.log(cidade)
 console.log(bairro)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0001-input/A002.ts

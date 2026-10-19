@@ -14,3 +14,10 @@
 //
 // Escreva sua resposta abaixo:
 
+const nome = input("Qual o seu nome? ")
+const comida = input("Qual a sua comida preferida? ")
+console.log(nome)
+console.log(comida)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0002-input/E001.ts

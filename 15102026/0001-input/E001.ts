@@ -13,3 +13,8 @@
 //
 // Escreva sua resposta abaixo:
 
+const escola = input("Qual o nome da sua escola? ")
+console.log(escola)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0001-input/E001.ts
