@@ -11,3 +11,13 @@
 //
 // Escreva sua resposta abaixo:
 
+let golsBrasil = 0
+console.log("Gol do Brasil!")
+golsBrasil = 1
+console.log("Outro gol do Brasil!")
+golsBrasil = 2
+console.log("Mais um gol!")
+console.log("Quantidade de gols do Brasil: ", golsBrasil)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0003-variaveis/E005.ts

@@ -11,4 +11,16 @@
 // 3. Um `console.log` aceita vários valores separados por vírgula.
 //
 // Escreva sua resposta abaixo:
+const nome = "Lucas"
+let idade = 12
+const comida = "Lasanha"
 
+console.log(nome, idade, comida)
+
+idade = idade + 1
+
+console.log(`Ano que vem você terá ${idade} anos!`)
+
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0003-variaveis/E006.ts
