@@ -11,3 +11,9 @@
 //
 // Escreva sua resposta abaixo:
 
+const pi = 3.14159
+console.log(pi.toFixed(2))
+console.log(pi.toFixed(3))
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0006-numero/E012.ts

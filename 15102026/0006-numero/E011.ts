@@ -12,3 +12,9 @@
 //
 // Escreva sua resposta abaixo:
 
+const alunos = 25
+const temperatura = 31.5
+console.log(`Somos ${alunos} alunos e está fazendo ${temperatura} graus`)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0006-numero/E011.ts
