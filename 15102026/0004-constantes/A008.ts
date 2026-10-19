@@ -5,3 +5,6 @@ const nota = 7.5
 
 console.log(`Média para passar: ${MEDIA_APROVACAO}`)
 console.log(`Sua nota: ${nota}`)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0004-constantes/A008.ts
