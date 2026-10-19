@@ -14,3 +14,11 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const palavra = await input('Digite uma palavra: ')
+console.log(palavra.toUpperCase())
+console.log(palavra.toLowerCase())
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0005-texto/E010.ts

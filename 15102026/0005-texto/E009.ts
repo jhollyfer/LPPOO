@@ -10,7 +10,12 @@
 // 3. Teste com e sem sobrenome: o espaço também conta.
 //
 // Para ler dados do teclado use:
-// import { input } from '#core/input.ts'
-//
-// Escreva sua resposta abaixo:
+import { input } from '#core/input.ts'
 
+// Escreva sua resposta abaixo:
+const nome = input("Qual o seu nome? ")
+const quantidade = nome.length
+console.log(`${nome}, seu nome possui ${quantidade} caracteres`)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0005-texto/E009.ts
