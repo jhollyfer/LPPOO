@@ -11,3 +11,13 @@
 //
 // Escreva sua resposta abaixo:
 
+const gostaDeCafe = true
+const temCelular = false
+
+console.log(gostaDeCafe)
+console.log(temCelular)
+
+console.log(gostaDeCafe, temCelular)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0007-booleano/E013.ts

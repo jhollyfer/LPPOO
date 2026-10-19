@@ -11,3 +11,10 @@
 //
 // Escreva sua resposta abaixo:
 
+console.log(typeof 'olá')
+console.log(typeof 42)
+console.log(typeof true)
+console.log(typeof undefined)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0007-booleano/E014.ts
