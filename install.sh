@@ -1,25 +1,21 @@
 #!/usr/bin/env bash
-# LPPOO — Instalador para Arch Linux
-# CETAM Benjamin Constant
+# LPPOO — Instalador do ambiente da disciplina
+# CETAM Benjamin Constant — Arch Linux, Zsh e outros shells.
 #
 # Uso:
 #   curl -fsSL https://raw.githubusercontent.com/jhollyfer/LPPOO/main/install.sh | bash
 #
-# Etapas:
-#   1. Verifica Node.js e configura npm.
-#   2. Baixa o projeto em ~/LPPOO.
-#   3. Instala pnpm e tsx em ~/.local.
-#   4. Instala as dependências.
-#   5. Abre o projeto no Zed, se disponível.
-#
-# ATENÇÃO: ~/LPPOO é removida antes do clone.
+# ATENÇÃO:
+# Este instalador remove ~/LPPOO antes de clonar novamente.
+# Faça backup dos seus arquivos pessoais antes de executar.
 
 set -Eeuo pipefail
 
 REPO="${LPPOO_REPO:-https://github.com/jhollyfer/LPPOO}"
 PASTA="$HOME/LPPOO"
 NPM_PREFIX="$HOME/.local"
-NPMRC="$HOME/.npmrc"
+PNPM_HOME="${PNPM_HOME:-$HOME/.local/share/pnpm}"
+PNPM_VERSION="12.6.0"
 
 passo() {
   printf '\n\033[1;36m==> %s\033[0m\n' "$1"
@@ -31,7 +27,7 @@ erro() {
 }
 
 # ---------------------------------------------------------------------------
-passo "1/5 Verificando Node.js e configurando npm"
+passo "1/5 Verificando Node.js e configurando o ambiente"
 
 for comando in curl git; do
   command -v "$comando" >/dev/null 2>&1 ||
@@ -39,7 +35,7 @@ for comando in curl git; do
 done
 
 command -v node >/dev/null 2>&1 ||
-  erro "Node.js não encontrado. Instale com: sudo pacman -S nodejs npm"
+  erro "Node.js não encontrado. No Arch Linux, instale com: sudo pacman -S nodejs npm"
 
 command -v npm >/dev/null 2>&1 ||
   erro "npm não encontrado. Instale com: sudo pacman -S npm"
@@ -47,37 +43,31 @@ command -v npm >/dev/null 2>&1 ||
 echo "Node: $(node -v)"
 echo "npm:  $(npm -v)"
 
-# Usa sempre o prefixo do usuário, independentemente da configuração
-# global do sistema ou do diretório de onde o script foi iniciado.
-mkdir -p "$NPM_PREFIX/bin" "$NPM_PREFIX/lib"
+mkdir -p "$NPM_PREFIX/bin" "$NPM_PREFIX/lib" "$PNPM_HOME"
 
-# Define o prefixo no arquivo do usuário.
-# Também será reforçado pela variável NPM_CONFIG_PREFIX abaixo.
-if [ -f "$NPMRC" ]; then
-  sed '/^[[:space:]]*prefix[[:space:]]*=/d' "$NPMRC" > "$NPMRC.tmp"
-  printf 'prefix=%s\n' "$NPM_PREFIX" >> "$NPMRC.tmp"
-  mv "$NPMRC.tmp" "$NPMRC"
-else
-  printf 'prefix=%s\n' "$NPM_PREFIX" > "$NPMRC"
-fi
-
+# Configura o npm para instalar pacotes globais na pasta do usuário.
 export NPM_CONFIG_PREFIX="$NPM_PREFIX"
-export PATH="$NPM_PREFIX/bin:$PATH"
+npm config set prefix "$NPM_PREFIX" --location=user
+
+# Persiste o PATH para Zsh e Bash.
+PATH_LINE='export PATH="$HOME/.local/bin:$HOME/.local/share/pnpm:$PATH"'
+
+for arquivo in "$HOME/.zshrc" "$HOME/.bashrc"; do
+  touch "$arquivo"
+  if ! grep -qxF "$PATH_LINE" "$arquivo"; then
+    printf '\n# Ferramentas da disciplina LPPOO\n%s\n' \
+      "$PATH_LINE" >> "$arquivo"
+  fi
+done
+
+export PATH="$NPM_PREFIX/bin:$PNPM_HOME:$PATH"
 hash -r
 
 PREFIX_ATIVO="$(npm config get prefix)"
+[ "$PREFIX_ATIVO" = "$NPM_PREFIX" ] ||
+  erro "Prefixo do npm incorreto: $PREFIX_ATIVO"
 
 echo "Prefixo global do npm: $PREFIX_ATIVO"
-
-# Não continua se o npm ainda apontar para /usr ou outro diretório.
-if [ "$PREFIX_ATIVO" != "$NPM_PREFIX" ]; then
-  erro "O npm continua usando '$PREFIX_ATIVO', em vez de '$NPM_PREFIX'."
-fi
-
-# Confirma que a pasta de instalação é gravável.
-if [ ! -w "$NPM_PREFIX" ] || [ ! -w "$NPM_PREFIX/bin" ]; then
-  erro "Sem permissão de escrita em $NPM_PREFIX."
-fi
 
 # ---------------------------------------------------------------------------
 passo "2/5 Baixando o projeto em $PASTA"
@@ -85,47 +75,63 @@ passo "2/5 Baixando o projeto em $PASTA"
 cd "$HOME"
 
 if [ -e "$PASTA" ] || [ -L "$PASTA" ]; then
-  echo "Apagando a versão antiga de $PASTA..."
-
+  echo "Removendo a versão anterior de $PASTA..."
   rm -rf -- "$PASTA" ||
     erro "Não foi possível remover $PASTA. Verifique as permissões."
 fi
 
 git clone --depth 1 "$REPO" "$PASTA" ||
-  erro "Não foi possível clonar o repositório."
+  erro "Falha ao clonar o repositório."
 
 cd "$PASTA"
 
 # ---------------------------------------------------------------------------
 passo "3/5 Instalando pnpm e tsx"
 
-# A variável de ambiente tem prioridade sobre a configuração do sistema.
-# A verificação impede que a instalação volte para /usr/lib/node_modules.
-export NPM_CONFIG_PREFIX="$NPM_PREFIX"
+# Instala o pnpm pelo instalador oficial, evitando npm install pnpm.
+echo "Instalando pnpm $PNPM_VERSION..."
 
-PREFIX_ATIVO="$(npm config get prefix)"
-[ "$PREFIX_ATIVO" = "$NPM_PREFIX" ] ||
-  erro "Prefixo inesperado antes da instalação: $PREFIX_ATIVO"
+curl -fsSL https://get.pnpm.io/install.sh |
+  env PNPM_VERSION="$PNPM_VERSION" SHELL="$(command -v zsh || command -v bash)" sh - ||
+  erro "Falha ao instalar pnpm."
 
-npm install --global pnpm tsx ||
-  erro "Falha ao instalar pnpm e tsx em $NPM_PREFIX."
-
+# O instalador pode atualizar arquivos de configuração do shell.
+export PNPM_HOME
+export PATH="$PNPM_HOME:$NPM_PREFIX/bin:$PATH"
 hash -r
 
-[ -x "$NPM_PREFIX/bin/pnpm" ] ||
-  erro "pnpm não foi encontrado em $NPM_PREFIX/bin."
+# Confere se o pnpm foi instalado.
+if ! command -v pnpm >/dev/null 2>&1; then
+  if [ -x "$PNPM_HOME/pnpm" ]; then
+    export PATH="$PNPM_HOME:$PATH"
+  else
+    erro "pnpm não encontrado após a instalação."
+  fi
+fi
 
-[ -x "$NPM_PREFIX/bin/tsx" ] ||
+echo "pnpm instalado: $(pnpm --version)"
+
+# Instala somente tsx via npm, com prefixo explícito do usuário.
+echo "Instalando tsx..."
+
+NPM_CONFIG_PREFIX="$NPM_PREFIX" \
+  npm install --global --prefix "$NPM_PREFIX" tsx ||
+  erro "Falha ao instalar tsx."
+
+export PATH="$NPM_PREFIX/bin:$PNPM_HOME:$PATH"
+hash -r
+
+command -v tsx >/dev/null 2>&1 ||
   erro "tsx não foi encontrado em $NPM_PREFIX/bin."
 
-echo "pnpm: $("$NPM_PREFIX/bin/pnpm" --version)"
-echo "tsx:  $("$NPM_PREFIX/bin/tsx" --version | head -n 1)"
+echo "tsx instalado: $(tsx --version | head -n 1)"
 
 # ---------------------------------------------------------------------------
 passo "4/5 Instalando as dependências do projeto"
 
-"$NPM_PREFIX/bin/pnpm" install ||
-  erro "Falha ao instalar as dependências do projeto."
+# O pnpm é o gerenciador de pacotes deste projeto.
+pnpm install ||
+  erro "Falha ao instalar as dependências com pnpm."
 
 # ---------------------------------------------------------------------------
 passo "5/5 Abrindo no editor"
@@ -143,18 +149,17 @@ if [ -n "$editor" ]; then
   echo "Abrindo $PASTA no $editor."
   nohup "$editor" "$PASTA" >/dev/null 2>&1 &
 else
-  echo "Zed não encontrado. Abra $PASTA no seu editor."
+  echo "Zed não encontrado. Abra a pasta $PASTA no seu editor."
 fi
 
 # ---------------------------------------------------------------------------
 printf '\n\033[1;32mTudo pronto!\033[0m\n'
 echo "Node: $(node -v)"
 echo "npm:  $(npm -v)"
-echo "pnpm: $("$NPM_PREFIX/bin/pnpm" --version)"
-echo "tsx:  $("$NPM_PREFIX/bin/tsx" --version | head -n 1)"
+echo "pnpm: $(pnpm --version)"
+echo "tsx:  $(tsx --version | head -n 1)"
 echo
 echo "Para testar:"
-echo "  $NPM_PREFIX/bin/tsx $PASTA/15102026/0001-input/A001.ts"
+echo "  tsx ~/LPPOO/15102026/0001-input/A001.ts"
 echo
-echo "Os executáveis globais ficam em: $NPM_PREFIX/bin"
-echo "Se necessário, adicione ~/.local/bin ao PATH do seu shell."
+echo "Abra um novo terminal para carregar o PATH atualizado."
