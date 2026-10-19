@@ -12,4 +12,8 @@
 // import { input } from '#core/input.ts'
 //
 // Escreva sua resposta abaixo:
+const nome = input("Qual o seu nome? ")
+console.log(`Seja bem-vindo(a) ${nome}`)
 
+// Execute com:
+// tsx ~/LPPOO/15102026/0002-output/E003.ts

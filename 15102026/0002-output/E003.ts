@@ -10,4 +10,13 @@
 // 3. Texto vai entre aspas; número pode ir sem.
 //
 // Escreva sua resposta abaixo:
+const nome = 'Lucas'
+const idade = 22
+const cidade = 'Benjamin Constant'
 
+console.log(nome)
+console.log(idade)
+console.log(cidade)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0002-output/E003.ts
