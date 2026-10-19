@@ -15,3 +15,20 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+// Palpites (digitando 10 e Flamengo):
+// numero === 10        -> true
+// numero !== 5         -> true
+// time === 'flamengo'  -> false
+
+const numero = Number(input('Digite um número: '))
+const time = input('Digite o nome de um time: ')
+
+console.log(numero === 10)
+console.log(numero !== 5)
+console.log(time === 'flamengo')
+
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0013-comparacao/E025.ts

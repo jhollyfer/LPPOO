@@ -13,3 +13,15 @@
 //
 // Escreva sua resposta abaixo:
 
+console.log(true && true)
+console.log(true && false)
+console.log(false && true)
+console.log(false && false)
+
+console.log(true || true)
+console.log(true || false)
+console.log(false || true)
+console.log(false || false)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0014-logico/E027.ts

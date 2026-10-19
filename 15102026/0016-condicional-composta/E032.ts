@@ -14,3 +14,14 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const senhaCerta = '1234'
+
+const senha = input('Digite a senha do celular: ')
+
+if (senha === senhaCerta) {
+  console.log('Desbloqueado')
+} else {
+  console.log('Senha incorreta')
+}

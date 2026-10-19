@@ -15,3 +15,13 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const idade = Number(input('Digite a idade: '))
+
+const situacao = idade >= 18 ? 'Maior de idade' : 'Menor de idade'
+
+console.log(situacao)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0018-ternario/E035.ts

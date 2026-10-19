@@ -11,3 +11,8 @@
 //
 // Escreva sua resposta abaixo:
 
+console.log(parseInt('15.7'))
+console.log(parseFloat('15.7'))
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0008-conversao/E016.ts

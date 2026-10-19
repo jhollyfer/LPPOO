@@ -14,3 +14,14 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const idade = Number(input('Digite a idade: '))
+const resposta = input('Tem habilitação? (sim/nao): ')
+
+const temHabilitacao = resposta === 'sim'
+
+console.log(idade >= 18 && temHabilitacao)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0014-logico/E028.ts

@@ -15,3 +15,28 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const operacao = input('Operação (+, -, *, /): ')
+const a = Number(input('Digite o primeiro número: '))
+const b = Number(input('Digite o segundo número: '))
+
+switch (operacao) {
+  case '+':
+    console.log(a + b)
+    break
+  case '-':
+    console.log(a - b)
+    break
+  case '*':
+    console.log(a * b)
+    break
+  case '/':
+    console.log(a / b)
+    break
+  default:
+    console.log('Operação inválida')
+}
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0019-escolha/E038.ts

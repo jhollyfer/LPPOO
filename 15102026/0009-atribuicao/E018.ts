@@ -12,3 +12,13 @@
 //
 // Escreva sua resposta abaixo:
 
+let fila = 5
+fila += 3
+console.log(fila)
+fila--
+console.log(fila)
+fila++
+console.log(fila)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0009-atribuicao/E018.ts

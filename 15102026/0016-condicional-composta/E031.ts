@@ -13,3 +13,18 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const idade = Number(input('Digite a idade: '))
+
+if (idade >= 18) {
+  console.log('Maior de idade')
+} else {
+  console.log('Menor de idade')
+}
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0016-condicional-composta/E031.ts
+//
+// // Execute com:
+// tsx ~/LPPOO/15102026/0016-condicional-composta/E032.ts

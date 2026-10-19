@@ -15,3 +15,14 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const preco1 = Number(input('Preço do açaí na barraca 1: '))
+const preco2 = Number(input('Preço do açaí na barraca 2: '))
+
+const menor = preco1 < preco2 ? preco1 : preco2
+
+console.log(`Compre o de R$ ${menor.toFixed(2)}`)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0018-ternario/E036.ts

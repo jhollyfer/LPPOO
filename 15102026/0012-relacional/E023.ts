@@ -11,3 +11,17 @@
 //
 // Escreva sua resposta abaixo:
 
+// Palpites:
+// 15 > 20  -> false
+// 15 < 20  -> true
+// 15 >= 15 -> true
+// 15 <= 14 -> false
+
+console.log(15 > 20)
+console.log(15 < 20)
+console.log(15 >= 15)
+console.log(15 <= 14)
+
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0012-relacional/E023.ts

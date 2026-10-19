@@ -14,3 +14,9 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+const numero = Number(input('Digite um número: '))
+console.log(numero % 2)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0010-aritmetica/E020.ts

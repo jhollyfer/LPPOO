@@ -13,3 +13,11 @@
 //
 // Escreva sua resposta abaixo:
 
+let pontos = 0
+pontos += 10
+pontos += 5
+pontos -= 3
+console.log(`Placar final: ${pontos}`)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0009-atribuicao/E017.ts

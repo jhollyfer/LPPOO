@@ -14,3 +14,15 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const senhaCerta = 'cetam'
+
+const senha = input('Digite a senha do Wi-Fi: ')
+
+if (senha === senhaCerta) {
+  console.log('Conectado!')
+}
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0015-condicional-simples/E030.ts

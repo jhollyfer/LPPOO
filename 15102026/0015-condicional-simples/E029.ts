@@ -14,3 +14,13 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const idade = Number(input('Digite a idade: '))
+
+if (idade >= 18) {
+  console.log('Pode entrar na festa de formatura sem autorização dos pais')
+}
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0015-condicional-simples/E029.ts

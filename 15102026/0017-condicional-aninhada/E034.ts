@@ -15,3 +15,17 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const idade = Number(input('Digite a idade: '))
+
+if (idade <= 11) {
+  console.log('Criança')
+} else if (idade <= 17) {
+  console.log('Adolescente')
+} else {
+  console.log('Adulto')
+}
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0017-condicional-aninhada/E034.ts

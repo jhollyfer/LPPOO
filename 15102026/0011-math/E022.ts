@@ -13,3 +13,14 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const jogador1 = Number(input('Pontuação do jogador 1: '))
+const jogador2 = Number(input('Pontuação do jogador 2: '))
+const jogador3 = Number(input('Pontuação do jogador 3: '))
+
+console.log(Math.max(jogador1, jogador2, jogador3))
+console.log(Math.min(jogador1, jogador2, jogador3))
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0010-aritmetica/E022.ts

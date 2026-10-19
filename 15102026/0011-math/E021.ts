@@ -15,3 +15,13 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const numero = Number(input('Digite um número decimal: '))
+
+console.log(Math.round(numero))
+console.log(Math.floor(numero))
+console.log(Math.ceil(numero))
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0010-aritmetica/E021.ts

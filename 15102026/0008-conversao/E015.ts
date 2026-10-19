@@ -14,3 +14,14 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const a = Number(input('Digite o primeiro número: '))
+const b = Number(input('Digite o segundo número: '))
+
+const soma = a + b
+
+console.log(soma)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0008-conversao/E015.ts

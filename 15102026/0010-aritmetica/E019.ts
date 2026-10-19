@@ -15,3 +15,15 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const a = Number(input('Digite o primeiro número: '))
+const b = Number(input('Digite o segundo número: '))
+
+console.log(a + b)
+console.log(a - b)
+console.log(a * b)
+console.log(a / b)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0010-aritmetica/E019.ts

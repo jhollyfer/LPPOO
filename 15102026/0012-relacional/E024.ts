@@ -14,3 +14,11 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const nota = Number(input('Digite a nota da prova: '))
+
+console.log(nota >= 6)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0012-relacional/E024.ts

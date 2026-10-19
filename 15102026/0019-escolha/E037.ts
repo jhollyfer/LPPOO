@@ -15,3 +15,23 @@
 //
 // Escreva sua resposta abaixo:
 
+import { input } from '#core/input.ts'
+
+const posicao = Number(input('Posição de chegada: '))
+
+switch (posicao) {
+  case 1:
+    console.log('Ouro')
+    break
+  case 2:
+    console.log('Prata')
+    break
+  case 3:
+    console.log('Bronze')
+    break
+  default:
+    console.log('Sem medalha, mas valeu a participação')
+}
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0019-escolha/E037.ts
