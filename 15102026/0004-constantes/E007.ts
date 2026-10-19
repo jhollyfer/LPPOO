@@ -10,4 +10,9 @@
 // 3. Template string junta texto e valor: `Eu moro em ${CIDADE}`.
 //
 // Escreva sua resposta abaixo:
+const CIDADE = "Benjamin Constant"
 
+console.log(`Eu moro em ${CIDADE}`)
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0004-constantes/E007.ts

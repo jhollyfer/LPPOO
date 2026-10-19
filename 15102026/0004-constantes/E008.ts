@@ -12,3 +12,10 @@
 //
 // Escreva sua resposta abaixo:
 
+const NOME_CURSO = "Técnico em Desenvolvimento de Sistemas"
+NOME_CURSO = 'Outro nome'
+
+// O Typescript recusa pois se trata de uma constante, constantes não podem ser alterados
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0004-constantes/E008.ts
