@@ -1,23 +1,25 @@
 #!/usr/bin/env bash
-# Instala ou atualiza o ambiente da disciplina LPPOO (CETAM Benjamin Constant).
+# Instala ou atualiza o ambiente da disciplina LPPOO
+# CETAM Benjamin Constant.
 #
 # Uso:
 #   curl -fsSL https://raw.githubusercontent.com/jhollyfer/LPPOO/main/install.sh | bash
 #
-# O que faz:
-#   1. Instala/carrega o nvm e garante um Node.js LTS gerenciado por ele.
-#   2. Apaga ~/LPPOO e baixa o projeto novamente.
-#   3. Instala pnpm e tsx globalmente sem sudo.
+# Etapas:
+#   1. Verifica o Node.js e prepara o npm.
+#   2. Baixa o projeto em ~/LPPOO.
+#   3. Instala pnpm e tsx globalmente, sem sudo.
 #   4. Instala as dependências do projeto.
 #   5. Abre o projeto no Zed, se estiver instalado.
 #
-# ATENÇÃO: a pasta ~/LPPOO é removida antes de baixar o projeto novamente.
+# ATENÇÃO:
+# A pasta ~/LPPOO é removida antes de baixar o projeto novamente.
 
-set -eo pipefail
+set -Eeuo pipefail
 
 REPO="${LPPOO_REPO:-https://github.com/jhollyfer/LPPOO}"
 PASTA="$HOME/LPPOO"
-NVM_VERSAO="v0.40.3"
+NPM_PREFIX="$HOME/.local"
 
 passo() {
   printf '\n\033[1;36m==> %s\033[0m\n' "$1"
@@ -28,77 +30,56 @@ erro() {
   exit 1
 }
 
+# ---------------------------------------------------------------------------
+passo "1/5 Verificando Node.js e configurando npm"
+
 command -v curl >/dev/null 2>&1 ||
-  erro "curl não encontrado. Instale com: sudo apt install curl"
+  erro "curl não encontrado. Instale com: sudo pacman -S curl"
 
 command -v git >/dev/null 2>&1 ||
-  erro "git não encontrado. Instale com: sudo apt install git"
+  erro "git não encontrado. Instale com: sudo pacman -S git"
 
-# ---------------------------------------------------------------------------
-passo "1/5 Configurando Node.js e nvm"
+command -v node >/dev/null 2>&1 ||
+  erro "Node.js não encontrado. Instale com: sudo pacman -S nodejs npm"
 
-# Define o diretório do nvm.
-if [ -z "${NVM_DIR:-}" ]; then
-  if [ -n "${XDG_CONFIG_HOME:-}" ]; then
-    NVM_DIR="$XDG_CONFIG_HOME/nvm"
-  else
-    NVM_DIR="$HOME/.nvm"
+command -v npm >/dev/null 2>&1 ||
+  erro "npm não encontrado. Instale com: sudo pacman -S npm"
+
+echo "Node $(node -v)"
+echo "npm $(npm -v)"
+
+# Usa uma pasta gravável pelo usuário para pacotes globais.
+mkdir -p "$NPM_PREFIX/bin" ||
+  erro "Não foi possível criar $NPM_PREFIX/bin"
+
+npm config set prefix "$NPM_PREFIX" ||
+  erro "Não foi possível configurar o prefix do npm."
+
+# Atualiza o PATH desta execução.
+export PATH="$NPM_PREFIX/bin:$PATH"
+hash -r
+
+# Persiste o PATH no arquivo de configuração do shell do usuário.
+# Compatível com Zsh e Bash.
+adicionar_path() {
+  local arquivo="$1"
+  local linha='export PATH="$HOME/.local/bin:$PATH"'
+
+  [ -n "$arquivo" ] || return 0
+
+  touch "$arquivo" ||
+    erro "Não foi possível atualizar $arquivo"
+
+  if ! grep -qxF "$linha" "$arquivo"; then
+    printf '\n# Ferramentas globais do npm\n%s\n' "$linha" >> "$arquivo"
   fi
-fi
-export NVM_DIR
+}
 
-# Carrega o nvm existente, se houver.
-set +u
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-  # shellcheck source=/dev/null
-  . "$NVM_DIR/nvm.sh"
-fi
+adicionar_path "$HOME/.zshrc"
+adicionar_path "$HOME/.bashrc"
+adicionar_path "$HOME/.profile"
 
-# Se o nvm não estiver instalado, instala-o.
-if ! command -v nvm >/dev/null 2>&1; then
-  echo "Instalando o nvm $NVM_VERSAO..."
-  curl -fsSL \
-    "https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VERSAO/install.sh" |
-    bash
-
-  [ -s "$NVM_DIR/nvm.sh" ] ||
-    erro "Não foi possível encontrar nvm.sh em $NVM_DIR"
-
-  # shellcheck source=/dev/null
-  . "$NVM_DIR/nvm.sh"
-fi
-
-# Garante um Node.js LTS dentro do nvm.
-if ! nvm ls --no-colors 'lts/*' 2>/dev/null | grep -q 'v[0-9]'; then
-  echo "Instalando o Node.js LTS..."
-  nvm install --lts
-fi
-
-nvm use --lts
-nvm alias default 'lts/*'
-
-# Desliga novamente o modo nounset para compatibilidade com scripts do nvm.
-set -u
-
-# Confere se o Node ativo vem do nvm.
-NODE_ATIVO="$(command -v node)"
-case "$NODE_ATIVO" in
-  "$NVM_DIR"/*)
-    echo "Node.js gerenciado pelo nvm: $(node -v)"
-    ;;
-  *)
-    erro "O Node ativo não vem do nvm: $NODE_ATIVO. Verifique a instalação."
-    ;;
-esac
-
-# Confere se npm e node pertencem à mesma instalação.
-NPM_ATIVO="$(command -v npm)"
-case "$NPM_ATIVO" in
-  "$NVM_DIR"/*) ;;
-  *)
-    erro "O npm ativo não vem do nvm: $NPM_ATIVO"
-    ;;
-esac
+echo "Prefixo global do npm: $(npm config get prefix)"
 
 # ---------------------------------------------------------------------------
 passo "2/5 Baixando o projeto em $PASTA"
@@ -106,7 +87,8 @@ passo "2/5 Baixando o projeto em $PASTA"
 cd "$HOME"
 
 if [ -e "$PASTA" ] || [ -L "$PASTA" ]; then
-  echo "Removendo a versão anterior de $PASTA..."
+  echo "Apagando a versão anterior de $PASTA..."
+
   rm -rf -- "$PASTA" ||
     erro "Não foi possível remover $PASTA. Verifique as permissões."
 fi
@@ -119,25 +101,24 @@ cd "$PASTA"
 # ---------------------------------------------------------------------------
 passo "3/5 Instalando pnpm e tsx"
 
-# Os pacotes globais serão instalados na pasta do Node gerenciado pelo nvm.
-# Não use sudo nestes comandos.
+# Não usar sudo: o prefixo do npm já aponta para ~/.local.
 npm install --global pnpm tsx ||
-  erro "Falha ao instalar pnpm e tsx. Verifique a conexão e as permissões."
+  erro "Falha ao instalar pnpm e tsx."
 
-# Confere se os comandos estão disponíveis.
 hash -r
 
-command -v pnpm >/dev/null 2>&1 ||
-  erro "pnpm não foi encontrado no PATH."
+# Verifica se os executáveis foram instalados.
+[ -x "$NPM_PREFIX/bin/pnpm" ] ||
+  erro "Executável pnpm não encontrado em $NPM_PREFIX/bin"
 
-command -v tsx >/dev/null 2>&1 ||
-  erro "tsx não foi encontrado no PATH."
+[ -x "$NPM_PREFIX/bin/tsx" ] ||
+  erro "Executável tsx não encontrado em $NPM_PREFIX/bin"
 
 # ---------------------------------------------------------------------------
 passo "4/5 Instalando as dependências do projeto"
 
-pnpm install ||
-  erro "Falha ao instalar as dependências do projeto."
+"$NPM_PREFIX/bin/pnpm" install ||
+  erro "Falha ao instalar as dependências com pnpm."
 
 # ---------------------------------------------------------------------------
 passo "5/5 Abrindo no editor"
@@ -160,7 +141,13 @@ fi
 
 # ---------------------------------------------------------------------------
 printf '\n\033[1;32mTudo pronto!\033[0m\n'
-echo "Node $(node -v) | npm $(npm -v) | pnpm $(pnpm -v) | $(tsx --version | head -n 1)"
+echo "Node: $(node -v)"
+echo "npm:  $(npm -v)"
+echo "pnpm: $("$NPM_PREFIX/bin/pnpm" --version)"
+echo "tsx:  $("$NPM_PREFIX/bin/tsx" --version | head -n 1)"
 echo
-echo "Feche e abra o terminal e depois teste:"
-echo "  tsx ~/LPPOO/15102026/0001-input/A001.ts"
+echo "Para testar:"
+echo "  $HOME/.local/bin/tsx $HOME/LPPOO/15102026/0001-input/A001.ts"
+echo
+echo "Se pnpm ou tsx não forem encontrados em um terminal novo,"
+echo "confira se ~/.local/bin está no PATH."
