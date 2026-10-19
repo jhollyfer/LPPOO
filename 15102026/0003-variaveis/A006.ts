@@ -11,3 +11,7 @@ idade = 18 // fez aniversário
 cidade = 'Benjamin Constant' // mudou de cidade
 
 console.log(nome, idade, cidade) // Ana Clara 18 Benjamin Constant
+
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0003-variaveis/A006.ts

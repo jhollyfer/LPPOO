@@ -8,3 +8,7 @@ console.log(nivelRio) // 28
 
 nivelRio = 29 // maio: cheia!
 console.log(`Nível do rio em maio: ${nivelRio} m`) // Nível do rio em maio: 29 m
+
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0003-variaveis/A005.ts
