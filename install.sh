@@ -1,19 +1,21 @@
 #!/usr/bin/env bash
-# LPPOO — Instalador do ambiente da disciplina
+# LPPOO — Instalador da disciplina
 # CETAM Benjamin Constant
 #
 # Uso:
-# curl -fsSL https://raw.githubusercontent.com/jhollyfer/LPPOO/main/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/jhollyfer/LPPOO/main/install.sh | bash
 #
-# ATENÇÃO: ~/LPPOO é removida antes de baixar o projeto novamente.
+# Requisitos: Node.js, curl e git.
+# O pnpm e o tsx são instalados sem npm install.
+#
+# ATENÇÃO: ~/LPPOO é removida antes de clonar novamente.
 
 set -Eeuo pipefail
 
 REPO="${LPPOO_REPO:-https://github.com/jhollyfer/LPPOO}"
 PASTA="$HOME/LPPOO"
-NPM_PREFIX="$HOME/.local"
-PNPM_HOME="$HOME/.local/share/pnpm"
 PNPM_VERSION="12.6.0"
+PNPM_HOME="$HOME/.local/share/pnpm"
 
 passo() {
   printf '\n\033[1;36m==> %s\033[0m\n' "$1"
@@ -25,45 +27,77 @@ erro() {
 }
 
 # ---------------------------------------------------------------------------
-passo "1/5 Verificando Node.js e configurando npm"
+passo "1/5 Verificando o ambiente"
 
-for comando in curl git; do
+for comando in curl git node; do
   command -v "$comando" >/dev/null 2>&1 ||
     erro "$comando não encontrado."
 done
 
-command -v node >/dev/null 2>&1 ||
-  erro "Node.js não encontrado. No Arch Linux: sudo pacman -S nodejs npm"
-
-command -v npm >/dev/null 2>&1 ||
-  erro "npm não encontrado. Instale com: sudo pacman -S npm"
-
+echo "Sistema: $(uname -s)"
 echo "Node: $(node -v)"
-echo "npm:  $(npm -v)"
 
-mkdir -p "$NPM_PREFIX/bin" "$NPM_PREFIX/lib" "$PNPM_HOME"
-
-# Configura os pacotes globais para a pasta do usuário.
-export NPM_CONFIG_PREFIX="$NPM_PREFIX"
-npm config set prefix "$NPM_PREFIX" --location=user
-
-export PNPM_HOME
-export PATH="$PNPM_HOME:$NPM_PREFIX/bin:$PATH"
-hash -r
-
-PREFIX_ATIVO="$(npm config get prefix)"
-[ "$PREFIX_ATIVO" = "$NPM_PREFIX" ] ||
-  erro "Prefixo inesperado do npm: $PREFIX_ATIVO"
-
-echo "Prefixo global do npm: $PREFIX_ATIVO"
+mkdir -p "$PNPM_HOME"
 
 # ---------------------------------------------------------------------------
-passo "2/5 Baixando o projeto em $PASTA"
+passo "2/5 Instalando pnpm $PNPM_VERSION"
+
+# Instalação oficial do pnpm.
+# Não usa npm install --global pnpm.
+curl -fsSL https://get.pnpm.io/install.sh |
+  env PNPM_VERSION="$PNPM_VERSION" \
+      PNPM_HOME="$PNPM_HOME" \
+      sh - ||
+  erro "Não foi possível instalar o pnpm."
+
+export PNPM_HOME
+export PATH="$PNPM_HOME:$HOME/.local/bin:$PATH"
+hash -r
+
+if [ ! -x "$PNPM_HOME/pnpm" ]; then
+  erro "pnpm não encontrado em $PNPM_HOME/pnpm."
+fi
+
+PNPM="$PNPM_HOME/pnpm"
+
+echo "pnpm instalado: $("$PNPM" --version)"
+
+# Configura o diretório de executáveis globais do pnpm.
+"$PNPM" config set global-bin-dir "$PNPM_HOME" ||
+  erro "Não foi possível configurar global-bin-dir."
+
+# ---------------------------------------------------------------------------
+passo "3/5 Instalando tsx"
+
+# O pnpm instala o tsx. O npm não é usado para instalar pacotes.
+"$PNPM" add --global tsx ||
+  erro "Não foi possível instalar tsx pelo pnpm."
+
+[ -x "$PNPM_HOME/tsx" ] ||
+  erro "tsx não encontrado em $PNPM_HOME/tsx."
+
+echo "tsx instalado: $("$PNPM_HOME/tsx" --version | head -n 1)"
+
+# Persiste o PATH para os próximos terminais Zsh e Bash.
+PATH_LINE='export PNPM_HOME="$HOME/.local/share/pnpm"; export PATH="$PNPM_HOME:$HOME/.local/bin:$PATH"'
+
+for arquivo in "$HOME/.zshrc" "$HOME/.bashrc"; do
+  touch "$arquivo"
+
+  if ! grep -qxF "$PATH_LINE" "$arquivo"; then
+    printf '\n# Ferramentas da disciplina LPPOO\n%s\n' \
+      "$PATH_LINE" >> "$arquivo"
+  fi
+done
+
+# ---------------------------------------------------------------------------
+passo "4/5 Baixando o projeto e instalando dependências"
 
 cd "$HOME"
 
 if [ -e "$PASTA" ] || [ -L "$PASTA" ]; then
   echo "Removendo a versão anterior de $PASTA..."
+
   rm -rf -- "$PASTA" ||
     erro "Não foi possível remover $PASTA."
 fi
@@ -71,59 +105,10 @@ fi
 git clone --depth 1 "$REPO" "$PASTA" ||
   erro "Falha ao clonar o repositório."
 
-# ---------------------------------------------------------------------------
-passo "3/5 Instalando pnpm e tsx"
-
-# IMPORTANTE:
-# Instala ferramentas fora da pasta do projeto.
-# Isso impede que o npm avalie o package.json do LPPOO e rejeite
-# a instalação por causa de devEngines.packageManager.
-
-cd "$HOME"
-
-echo "Instalando pnpm $PNPM_VERSION..."
-
-curl -fsSL https://get.pnpm.io/install.sh |
-  env PNPM_VERSION="$PNPM_VERSION" \
-      PNPM_HOME="$PNPM_HOME" \
-      SHELL="${SHELL:-/bin/bash}" \
-      sh - ||
-  erro "Falha ao instalar pnpm."
-
-export PATH="$PNPM_HOME:$NPM_PREFIX/bin:$PATH"
-hash -r
-
-# Confere o pnpm instalado.
-if [ ! -x "$PNPM_HOME/pnpm" ]; then
-  erro "Executável não encontrado: $PNPM_HOME/pnpm"
-fi
-
-echo "pnpm: $("$PNPM_HOME/pnpm" --version)"
-
-# O npm executa esta instalação a partir de HOME, não de ~/LPPOO.
-# O prefixo explícito evita escrever em /usr/lib/node_modules.
-echo "Instalando tsx..."
-
-(
-  cd "$HOME"
-  NPM_CONFIG_PREFIX="$NPM_PREFIX" \
-    npm install --global --prefix "$NPM_PREFIX" tsx
-) || erro "Falha ao instalar tsx."
-
-[ -x "$NPM_PREFIX/bin/tsx" ] ||
-  erro "Executável não encontrado: $NPM_PREFIX/bin/tsx"
-
-export PATH="$NPM_PREFIX/bin:$PNPM_HOME:$PATH"
-hash -r
-
-echo "tsx: $("$NPM_PREFIX/bin/tsx" --version | head -n 1)"
-
-# ---------------------------------------------------------------------------
-passo "4/5 Instalando as dependências do projeto"
-
 cd "$PASTA"
 
-"$PNPM_HOME/pnpm" install ||
+# O projeto usa pnpm, conforme a configuração de devEngines.
+"$PNPM" install ||
   erro "Falha ao instalar as dependências do projeto."
 
 # ---------------------------------------------------------------------------
@@ -148,11 +133,10 @@ fi
 # ---------------------------------------------------------------------------
 printf '\n\033[1;32mTudo pronto!\033[0m\n'
 echo "Node: $(node -v)"
-echo "npm:  $(npm -v)"
-echo "pnpm: $("$PNPM_HOME/pnpm" --version)"
-echo "tsx:  $("$NPM_PREFIX/bin/tsx" --version | head -n 1)"
+echo "pnpm: $("$PNPM" --version)"
+echo "tsx:  $("$PNPM_HOME/tsx" --version | head -n 1)"
 echo
-echo "Para testar:"
-echo "  $NPM_PREFIX/bin/tsx $PASTA/15102026/0001-input/A001.ts"
+echo "Teste:"
+echo "  $PNPM_HOME/tsx $PASTA/15102026/0001-input/A001.ts"
 echo
-echo "Abra um novo terminal para carregar as configurações do PATH."
+echo "Se necessário, abra um novo terminal para carregar o PATH."
