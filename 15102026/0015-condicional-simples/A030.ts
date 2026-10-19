@@ -9,3 +9,6 @@ if (dinheiro >= 8) {
 }
 
 console.log('Bom intervalo!') // roda sempre
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0015-condicional-simples/A030.ts

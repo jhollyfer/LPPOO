@@ -13,3 +13,6 @@ if (idade >= 18) {
 } else {
   console.log('Ainda não tem idade para dirigir.')
 }
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0017-condicional-aninhada/A034.ts

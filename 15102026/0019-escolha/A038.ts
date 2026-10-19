@@ -12,3 +12,6 @@ switch (tamanho) {
     console.log('Açaí grande: R$ 18') // o g virou G e caiu aqui
     break
 }
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0019-escolha/A038.ts

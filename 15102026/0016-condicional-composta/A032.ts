@@ -9,3 +9,6 @@ if (numero % 2 === 0) {
 } else {
   console.log('Ímpar')
 }
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0016-condicional-composta/A032.ts

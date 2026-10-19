@@ -9,3 +9,6 @@ if (bateria >= 50) {
 } else {
   console.log('Bateria fraca! Procure uma tomada') // 15 cai aqui
 }
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0017-condicional-aninhada/A033.ts

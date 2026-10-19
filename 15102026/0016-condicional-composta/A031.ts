@@ -7,3 +7,6 @@ if (media >= 6) {
 } else {
   console.log('Reprovado')
 }
+
+// Execute com:
+// tsx ~/LPPOO/15102026/0016-condicional-composta/A031.ts
